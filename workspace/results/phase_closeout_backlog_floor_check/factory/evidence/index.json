@@ -1,0 +1,32 @@
+[
+  {
+    "schema_version": "evidence_v1",
+    "run_id": "RUN-20260325081400-92pp9w",
+    "mode": "simulate",
+    "evidence_kind": "simulation",
+    "promotable": false,
+    "backlog_item_id": "IDEA-CHECK-1",
+    "experiment_id": "EXP-20260325081400-02",
+    "verdict": "inconclusive",
+    "evidence_score": 25,
+    "overall_score": 10,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": null,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": null,
+      "win_rate": null,
+      "total_trades": null,
+      "fold_variance": null,
+      "markets_tested": [],
+      "extra_metrics": {}
+    },
+    "summary_path": "workspace\\results\\phase_closeout_backlog_floor_check\\factory\\summaries\\RUN-20260325081400-92pp9w.md",
+    "recorded_at": "2026-03-25T08:14:00.920Z",
+    "legacy_scores": {
+      "objective_score": null,
+      "reproducibility_score": null
+    }
+  }
+]

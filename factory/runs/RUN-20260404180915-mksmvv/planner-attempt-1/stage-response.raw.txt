@@ -1,0 +1,78 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404180000-01",
+  "title": "Verify WFR calculation is possible from window results",
+  "backlog_item_id": "IDEA-923607-515",
+  "objective": "Verify WFR calculation is possible from window results if needed for future evaluations",
+  "hypothesis": "WFR (Walk Forward Ratio / Efficiency) CAN be computed from existing window results using returns ratio method (WFE = avg_validation_return / avg_optimization_return). The engine already has WFAEfficiencyCalculator with add_window_performance() that tracks optimization_sharpe and validation_sharpe, but this method is never called. Returns-based WFE can serve as proxy when IS Sharpe unavailable.",
+  "strategy_rationale": "This is an investigative/verification task - no WFA execution needed. The goal is to document what data exists, what is missing, and how WFR could be calculated if needed. Prior lesson (EXP-20260331154332-55) identified WFR as uncomputed due to engine limitation. This verifies whether the limitation is absolute or just unimplemented.",
+  "strategy_type": "regime",
+  "market_family": "crypto",
+  "instrument_scope": "N/A - analysis only",
+  "instrument_selection_rule": "N/A",
+  "timeframe": "N/A",
+  "priority": 65,
+  "dataset_requirements": [],
+  "historical_depth_requirement": {
+    "target": "N/A",
+    "justification": "No data needed - this is analysis of existing engine code and results"
+  },
+  "source_plan": {
+    "allowed_source_families": [],
+    "primary_source_family": "N/A",
+    "selection_reason": "No data acquisition needed"
+  },
+  "scope_selection_rationale": "This is a verification/analysis task to document WFR calculation possibility from existing WFA outputs, not a new strategy experiment",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "No new data needed - analyzing existing WFA engine code and results from prior runs",
+    "acquisition_method": "N/A",
+    "sources": [],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/walk_forward/wfa_efficiency.py - WFAEfficiencyCalculator implementation",
+    "walk forward engine/src/walk_forward/walk_forward_runner.py - WFA execution",
+    "factory/runs/RUN-20260404090255-5uejma/execution-result.json - prior run metrics",
+    "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_173914.json - window results"
+  ],
+  "implementation_steps": [
+    "Analyze wfa_efficiency.py: verify WFE/WFR calculation formulas exist",
+    "Analyze walk_forward_runner.py: check if optimization_sharpe is computed during parameter optimization",
+    "Check window_results JSON: verify what IS metrics are available",
+    "Document findings: WFR possible? Using what method? What's missing?",
+    "Recommend implementation path for future WFR computation"
+  ],
+  "commands": [],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260404180000-01.plan.json",
+    "factory/runs/VERIFICATION-RUN/wfr_verification_report.md"
+  ],
+  "advanced_wfa_config": {},
+  "evaluation_criteria": {
+    "status_gate": "Verification complete - document whether WFR calculation is possible from window results",
+    "metrics": {
+      "verification_complete": true,
+      "wfr_possible": "Yes - returns-based WFE can be calculated",
+      "data_available": {
+        "validation_sharpe": "Available in window_results.sharpe_ratio",
+        "optimization_sharpe": "NOT stored - would need engine modification",
+        "validation_return": "Available in window_results.total_return_pct",
+        "optimization_return": "NOT stored - would need engine modification"
+      },
+      "recommendation": "Implement returns-based WFE using existing validation_return. For true IS/OOS Sharpe ratio, engine needs modification to store optimization_sharpe per window."
+    },
+    "min_evidence_score": 0
+  },
+  "fallback_if_blocked": [],
+  "notes": [
+    "Key finding: WFAEfficiencyCalculator.add_window_performance() exists but is NEVER CALLED in the codebase",
+    "The engine computes optimization_sharpe during Optuna optimization but doesn't store it in output",
+    "Returns-based WFE can be calculated manually from window results: sum of all window total_return_pct / number of windows gives average validation return; optimization return would need to be computed from training phase",
+    "Actual WFR = validation_sharpe / optimization_sharpe requires engine modification to store IS Sharpe"
+  ]
+}
+</RF_JSON>

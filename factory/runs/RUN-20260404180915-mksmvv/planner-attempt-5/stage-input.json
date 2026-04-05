@@ -1,0 +1,279 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "backlogItem": {
+    "id": "IDEA-923607-515",
+    "title": "Verify WFR calculation is possible from window results if needed for future evaluations",
+    "status": "infra_blocked",
+    "priority": 65,
+    "category": "followup",
+    "objective": "Verify WFR calculation is possible from window results if needed for future evaluations",
+    "source": "RUN-20260404090255-5uejma",
+    "research_status": null,
+    "cooldown_until": null,
+    "quarantine_until": null,
+    "lease_owner": null,
+    "lease_expires_at": null,
+    "current_run_id": "RUN-20260404180915-mksmvv",
+    "last_failure_class": "orchestrator_bug",
+    "resume_from_stage": "planner",
+    "last_verdict": null,
+    "started_at": "2026-04-04T18:09:18.740Z",
+    "last_error": "Planner result evaluation criteria must include meaningful numeric metrics."
+  },
+  "retrieval": {
+    "relevant_lessons": [
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "WFR remains uncomputed due to engine limitation",
+        "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317210000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": null,
+        "lesson": "Parameter optimization continues to improve results - grid search is valuable",
+        "specific_finding": null,
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": null,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": null,
+          "win_rate": null,
+          "total_trades": null,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {}
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260317110809-ownvmf.md"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "Trade frequency maintained across assets",
+        "specific_finding": "14.88 trades/window on BTC vs 14.3 on ETH (+4%), confirming strategy generates consistent opportunities on higher-volatility assets",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260318160000-01",
+        "verdict": "inconclusive",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": null,
+        "lesson": "Strategy failed with 0% win rate on 2 trades in partial OOS window (Sharpe=-5.0).",
+        "specific_finding": null,
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": -4.997,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -1.64,
+          "win_rate": 0,
+          "total_trades": 2,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "sharpe": -4.997,
+            "return_pct": -1.2
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260318153742-zxvj84.md"
+        ]
+      }
+    ],
+    "contradiction": {
+      "positive": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "WFR remains uncomputed due to engine limitation",
+        "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      },
+      "negative": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260318160000-01",
+        "verdict": "inconclusive",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": null,
+        "lesson": "Strategy failed with 0% win rate on 2 trades in partial OOS window (Sharpe=-5.0).",
+        "specific_finding": null,
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": -4.997,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -1.64,
+          "win_rate": 0,
+          "total_trades": 2,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "sharpe": -4.997,
+            "return_pct": -1.2
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260318153742-zxvj84.md"
+        ]
+      }
+    },
+    "comparable_promoted_runs": [
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260404090255-5uejma",
+        "experiment_id": "EXP-20260404133920-01",
+        "verdict": "promising",
+        "evidence_score": 75,
+        "market_family": "crypto",
+        "asset_scope": "BNB/USDT spot",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "multi_timeframe",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 1.2751,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -8.1353,
+          "win_rate": 0.4979,
+          "total_trades": 484,
+          "fold_variance": null,
+          "markets_tested": [
+            "BNB/USDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": "factory/summaries/RUN-20260404090255-5uejma.md",
+        "evidence_kind": "research",
+        "promotable": true
+      },
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260331154310-1aowi1",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "evidence_score": 85,
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9048,
+          "win_rate": 0.4835,
+          "total_trades": 848,
+          "fold_variance": 2.96,
+          "markets_tested": [
+            "BTCUSDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "evidence_kind": "research",
+        "promotable": true
+      }
+    ]
+  },
+  "retryNote": {
+    "stage": "planner",
+    "previous_attempt": 1,
+    "failure_class": "execution_validation",
+    "last_error": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb/wfa_config_minimal.yaml"
+  }
+}

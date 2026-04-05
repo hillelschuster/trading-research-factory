@@ -1,0 +1,97 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260331154332-55",
+  "title": "EMA Trend Gate on BTC — Multi-Timeframe Regime-Filtered Pullback",
+  "backlog_item_id": "AUTO-1774971790939-dg1",
+  "objective": "Test the EMA Trend Gate strategy (4h EMA regime filter + 1h RSI pullback entries) on BTCUSDT 1h data (43,789 bars, ~5 years from 2021-03-22 to 2026-03-21). The strategy generated 0.528 OOS Sharpe on ETH with 1216 trades; hypothesis is BTC's higher volatility will generate more trade opportunities and potentially higher risk-adjusted returns. This fills the BTC gap in the EMA Trend Gate strategy family and tests cross-asset generalization.",
+  "hypothesis": "BTC's higher volatility compared to ETH will generate more RSI pullback trade opportunities (target: >14.3 trades/window) and potentially higher risk-adjusted returns (target: OOS Sharpe >= 0.528, matching or exceeding ETH baseline). The 4h EMA regime filter will provide regime context that may improve trade quality on BTC's more volatile price action.",
+  "strategy_rationale": "Using existing EMA Trend Gate strategy that already demonstrated viability on ETH (0.528 OOS Sharpe, 85 windows, 1216 trades). This run tests cross-asset generalization to BTC, the highest-liquidity crypto pair. The strategy uses 4h EMA slope as regime filter (trending vs ranging) combined with 1h RSI pullback entries - a theoretically grounded approach that filters counter-trend trades. Previous lessons show RSI thresholds stable (CV=0.10-0.14) while hold_bars unstable (CV=0.54), so parameter optimization should focus on entry thresholds.",
+  "strategy_type": "mean_reversion",
+  "market_family": "crypto",
+  "instrument_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+  "instrument_selection_rule": null,
+  "timeframe": "1h with 4h regime filter",
+  "priority": 85,
+  "dataset_requirements": [
+    "BTCUSDT 1h OHLCV data from Binance, minimum 43,000 bars covering 2021-03-22 to 2026-03-21"
+  ],
+  "historical_depth_requirement": {
+    "target": "5 years of BTCUSDT 1h data (43,789 bars)",
+    "justification": "Multi-year history required per crypto market policy. Deep BTC data already present in workspace/data/binance_btcusdt_1h_deep.csv. Data starts 2021-03-22, approximately 5 years covering bull/bear/ sideways regimes essential for robust WFA testing."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "Existing deep BTC data already fetched from Binance API and stored locally in workspace/data/binance_btcusdt_1h_deep.csv. No need to re-fetch; data is clean, paginated to full depth, and validated."
+  },
+  "scope_selection_rationale": "BTC/USDT is the highest-liquidity crypto pair, essential for testing strategy generalization beyond ETH. The strategy already demonstrated partial success on ETH (0.528 Sharpe) but with indication that the 4h regime filter may be restrictive. BTC's different volatility profile will reveal whether the strategy's regime filtering is asset-appropriate or overly restrictive.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Deep BTC data already exists in workspace/data/binance_btcusdt_1h_deep.csv with 43,789 rows spanning 2021-03-22 to 2026-03-21. Data was fetched via Binance paginated API in prior run. No additional acquisition required.",
+    "acquisition_method": "existing_fetcher",
+    "sources": [
+      "workspace/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "walk forward engine/config/strategy_ema_trend_gate.json",
+    "workspace/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "implementation_steps": [
+    "1. Verify BTC deep data file exists and validate columns (timestamp, open, high, low, close, volume)",
+    "2. Create WFA config for BTC run: walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml",
+    "3. Configure WFA with training_months=3, testing_months=1, step_months=1 for ~60+ windows",
+    "4. Run WFA using Windows venv: cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml",
+    "5. Capture WFA output artifacts and aggregate metrics"
+  ],
+  "commands": [
+    "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260331154332-55.json",
+    "factory/runs/RUN-20260331154332-55.json",
+    "factory/runs/RUN-20260331154332-55_wfa_output.json",
+    "factory/summaries/RUN-20260331154332-55.md",
+    "walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": [],
+    "stability_weight": 0.1
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA must complete and produce valid OOS metrics for at least 50 windows",
+    "metrics": {
+      "min_sharpe_oos": 0.528,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 600
+    },
+    "min_evidence_score": 70
+  },
+  "fallback_if_blocked": [
+    "If WFA engine fails on BTC data, fall back to minimal harness for quick validation of signal generation before full WFA retry",
+    "If data loading fails, verify CSV structure and re-fetch from Binance if needed"
+  ],
+  "notes": [
+    "ETH baseline achieved 0.528 OOS Sharpe with 1216 trades over 85 windows (14.3 trades/window). BTC target: match or exceed this performance.",
+    "Lesson: RSI thresholds stable (CV=0.10-0.14), hold_bars unstable (CV=0.54) - may want to fix hold_bars to median value (48) and optimize entry thresholds only",
+    "Data spans approximately 5 years (2021-03-22 to 2026-03-21) covering multiple market regimes - sufficient for robust WFA"
+  ]
+}
+</RF_JSON>

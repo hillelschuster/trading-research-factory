@@ -1,0 +1,81 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260403123500-01",
+  "verdict": "promising_with_caveats",
+  "evidence_score": 65,
+  "performance_score": 50,
+  "robustness_score": 80,
+  "novelty_score": 40,
+  "overall_score": 58,
+  "metrics": {
+    "sharpe_is": null,
+    "sharpe_oos": 0.4894,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": -14.34,
+    "win_rate": 0.4604,
+    "total_trades": 1238,
+    "fold_variance": null,
+    "markets_tested": ["ETHUSDT"]
+  },
+  "red_flags": [
+    "OOS Sharpe 0.489 below 0.8 evaluation gate",
+    "Evidence score 65 below 70 minimum threshold",
+    "Strategy underperforms on ETH vs BTC (0.489 vs 0.998)",
+    "WFR not computed - missing robustness metric"
+  ],
+  "verification": {
+    "artifacts_checked": [
+      "walk_forward_engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+      "walk_forward_engine/strategies/ema_trend_gate/results/analysis.json",
+      "factory/runs/RUN-20260403123500-01/execution-result.json",
+      "factory/runs/RUN-20260403123500-01/evaluation.json"
+    ],
+    "metrics_verified_from": [
+      "walk_forward_results_20260403_161304.json:aggregate_sharpe_ratio:0.48943563405306123",
+      "walk_forward_results_20260403_161304.json:aggregate_max_drawdown_pct:-14.335801808399337",
+      "walk_forward_results_20260403_161304.json:aggregate_total_trades:1238",
+      "walk_forward_results_20260403_161304.json:aggregate_win_rate:0.4604200323101777",
+      "analysis.json:successful_windows:85"
+    ],
+    "missing_or_unverified": [
+      "WFR (walk-forward ratio) not computed in WFA output",
+      "fold_variance not available in current WFA output"
+    ]
+  },
+  "strengths": [
+    "WFA completed 85 successful windows - robust OOS validation",
+    "1238 OOS trades - well above minimum threshold",
+    "Max drawdown improved from prior ETH run (-16.37% to -14.34%)",
+    "Cross-asset generalization partially confirmed - strategy works on ETH",
+    "Parameter stability CV 0.1008 - reasonably stable parameters",
+    "7.5 years of data tested across multiple market cycles"
+  ],
+  "weaknesses": [
+    {
+      "type": "OOS Sharpe below evaluation gate (0.489 vs 0.8)",
+      "cross_experiment_patterns": "EMA_TREND_GATE achieves 0.998 on BTC but only 0.489 on ETH - significant cross-asset generalization gap"
+    },
+    {
+      "type": "Evidence score below minimum threshold (65 vs 70)",
+      "cross_experiment_patterns": "Similar to prior ETH runs that scored below 70"
+    }
+  ],
+  "missing_evidence": [
+    "WFR metric not computed - cannot verify min_wfr:0.5 gate",
+    "fold_variance for stability assessment"
+  ],
+  "promote_to_leaderboard": false,
+  "leaderboard_tier": "experimental",
+  "next_backlog_actions": [
+    "Test on additional crypto assets (BNB, SOL) to validate cross-asset robustness",
+    "Consider asset-specific parameter tuning for ETH",
+    "Explore regime detection to handle BTC vs ETH behavioral differences",
+    "Add WFR computation to WFA output"
+  ],
+  "confidence_level": "high",
+  "confidence_rationale": "All metrics verified directly from WFA output files with exact values. Execution artifacts confirmed. Comparison to BTC baseline (0.998) and prior ETH run (0.528) provides clear context for evaluation."
+}
+</RF_JSON>

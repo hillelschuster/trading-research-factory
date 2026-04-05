@@ -1,0 +1,39 @@
+{
+  "experiment_id": "EXP-20260317190000-01",
+  "title": "RSI Momentum Strategy WFA on Crypto Assets",
+  "execution_timestamp": "2026-03-17T19:00:00Z",
+  "data": {
+    "btcusdt": {"candles": 500},
+    "ethusdt": {"candles": 500},
+    "solusdt": {"candles": 500}
+  },
+  "results": {
+    "rsi": {
+      "btcusdt": {"return": 0.0141, "sharpe": 0.790, "drawdown": -0.0103, "trades": 6},
+      "ethusdt": {"return": -0.0016, "sharpe": -0.043, "drawdown": -0.0202, "trades": 4},
+      "solusdt": {"return": 0.0001, "sharpe": 0.058, "drawdown": -0.0111, "trades": 4}
+    },
+    "sma": {
+      "btcusdt": {"return": 0.0128, "sharpe": -0.102},
+      "ethusdt": {"return": 0.0041, "sharpe": 0.185},
+      "solusdt": {"return": 0.0069, "sharpe": 0.531}
+    },
+    "bb": {
+      "btcusdt": {"return": 0.0016, "sharpe": 0.210},
+      "ethusdt": {"return": 0.0030, "sharpe": 0.389},
+      "solusdt": {"return": 0.0010, "sharpe": 0.145}
+    },
+    "spread_sol_btc": {"return": 0.0161, "sharpe": 0.571}
+  },
+  "comparison": {
+    "by_sharpe": ["RSI BTC (0.79)", "Spread SOL-BTC (0.57)", "SMA SOL (0.53)", "BB ETH (0.39)", "RSI SOL (0.06)", "RSI ETH (-0.04)"],
+    "best_overall": "RSI BTC (0.79)",
+    "conclusion": "RSI on BTC achieved best Sharpe (0.79), followed by SOL-BTC spread (0.57). RSI underperformed on ETH and SOL. This completes the three-strategy comparison (SMA, BB, RSI)."
+  },
+  "artifacts_created": [
+    "workspace/results/wfa_rsi_btcusdt.json",
+    "workspace/results/wfa_rsi_ethusdt.json",
+    "workspace/results/wfa_rsi_solusdt.json",
+    "workspace/results/rsi_strategy_comparison.json"
+  ]
+}

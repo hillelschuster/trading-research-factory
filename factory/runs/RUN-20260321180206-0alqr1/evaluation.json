@@ -1,0 +1,84 @@
+{
+  "experiment_id": "EXP-20260321183000-01",
+  "verdict": "inconclusive",
+  "evidence_score": 40,
+  "performance_score": 0,
+  "robustness_score": 0,
+  "novelty_score": 85,
+  "overall_score": 25,
+  "metrics": {
+    "sharpe_is": null,
+    "sharpe_oos": null,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "total_trades": null,
+    "fold_variance": null,
+    "markets_tested": []
+  },
+  "red_flags": [
+    "WFA never executed — zero metrics available, experiment is preparation-only",
+    "WSL environment lacks pandas/numpy — recurring infrastructure blocker (also blocked vol_profile, RSI+Polymarket, volatility_regime experiments)",
+    "Historical depth policy states multi-year BTC history required; while 43,789-bar dataset exists, no WFA was run on it"
+  ],
+  "verification": {
+    "artifacts_checked": [
+      "walk forward engine/src/strategies/macd_divergence.py",
+      "walk forward engine/config/strategy_macd_divergence.json",
+      "walk forward engine/strategies/macd_divergence/wfa_config.yaml"
+    ],
+    "metrics_verified_from": [],
+    "missing_or_unverified": [
+      "WFA output directory (strategies/macd_divergence/results/) — does not exist",
+      "All performance metrics — null, WFA not executed",
+      "WFR — null, WFA not executed",
+      "win_rate — null, WFA not executed",
+      "total_trades — null, WFA not executed",
+      "fold_variance — null, WFA not executed"
+    ]
+  },
+  "strengths": [
+    "All 3 required artifacts created, exist on disk, and are syntactically valid (py_compile exit 0, JSON parses, YAML parses)",
+    "Strategy logic is novel: hidden divergence (price swings vs MACD histogram swings) is a genuinely different signal class not tested in prior experiments",
+    "Divergence detection is theoretically grounded: compares momentum divergence between price and MACD histogram",
+    "RSI filter adds a second confirmation layer (oversold/overbought), reducing false divergence signals",
+    "5-year BTC dataset (43,789 bars) is present and sufficient for robust multi-fold WFA",
+    "Strategy uses 11 parameters covering MACD (3), divergence detection (2), RSI (3), risk management (3) — comprehensive but could be pruned",
+    "Pivot detection logic verified with pure-Python test on synthetic sine wave data",
+    "Strategy pattern follows established WFA conventions (generate_vectorized_signals, LightweightStrategy wrapper)"
+  ],
+  "weaknesses": [
+    {
+      "type": "WFA not executed — zero evidence, experiment is preparation-only",
+      "cross_experiment_patterns": "This is the 4th experiment blocked by the WSL/pandas environment gap. Volume Profile (EXP-20260318140000-01), RSI+Polymarket (EXP-20260317110000-01), and Volatility Regime (backlog) all suffered the same fate. The factory cannot produce scored evidence while this blocker persists. The agent creates valid artifacts but cannot execute the WFA engine."
+    },
+    {
+      "type": "Divergence detection may produce very few signals on 1h timeframe",
+      "cross_experiment_patterns": "Swing pivot detection with lookback 20-30 on hourly data means divergences are rare events (only after sustained moves). 43,789 bars might still yield few divergence signals, risking the same low-trade-count problem that plagued ATR Breakout (2 trades) and London Sweep (2 trades)."
+    },
+    {
+      "type": "10 parameters is high for a first test of a new strategy class",
+      "cross_experiment_patterns": "MACD (3 params) + divergence (2) + RSI (3) + risk (2) = 10 total. Prior experiments showed that fewer, well-chosen parameters outperform large grids on small datasets. Optuna's 100 trials may not adequately explore a 10-dimensional space."
+    }
+  ],
+  "missing_evidence": [
+    "WFA output directory (strategies/macd_divergence/results/) — does not exist",
+    "All performance metrics — WFA must be executed by human on Windows .venv",
+    "Sharpe OOS — blocked, requires WFA execution",
+    "WFR — blocked, requires WFA execution",
+    "Win rate — blocked, requires WFA execution",
+    "Total trades — blocked, requires WFA execution",
+    "Max drawdown — blocked, requires WFA execution"
+  ],
+  "promote_to_leaderboard": false,
+  "leaderboard_tier": "rejected",
+  "next_backlog_actions": [
+    "HUMAN ACTION REQUIRED: Run WFA locally on Windows: cd 'walk forward engine' && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/macd_divergence/wfa_config.yaml",
+    "If results show < 20 total trades across folds, reduce div_lookback from 20-30 to 10-15 to increase signal frequency",
+    "If results show < 30 trades, consider adding longer holding periods (48-72 bars) to increase position capture",
+    "If WFA consistently fails to produce trades, pivot to a different strategy class (momentum breakout, volume imbalance, funding rate arb)"
+  ],
+  "confidence_level": "low",
+  "confidence_rationale": "The executor created valid artifacts with correct syntax, but WFA never ran. No metrics exist. The experiment is preparation-only. The core risk is that divergence signals are too rare on 1h BTC — the same problem that killed London Sweep and ATR Breakout (both with 2 trades across 6 windows). Without actual WFA output, I cannot assess whether the strategy is profitable, robust, or even produces sufficient trades. The WSL/pandas environment gap continues to prevent the factory from generating scored evidence."
+}

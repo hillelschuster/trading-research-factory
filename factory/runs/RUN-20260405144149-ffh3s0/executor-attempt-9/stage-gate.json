@@ -1,0 +1,14 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260405144149-ffh3s0",
+  "stage": "executor",
+  "attempt": 9,
+  "decision": "allowed",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260405144149-ffh3s0/executor-attempt-9/stage-validated.json",
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json"
+  ],
+  "reason": null,
+  "recorded_at": "2026-04-05T15:42:32.201Z"
+}

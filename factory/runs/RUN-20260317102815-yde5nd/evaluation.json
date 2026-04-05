@@ -1,0 +1,38 @@
+{
+  "experiment_id": "EXP-20260317140000-01",
+  "verdict": "passed",
+  "evidence_score": 55,
+  "objective_score": 65,
+  "reproducibility_score": 70,
+  "novelty_score": 50,
+  "metrics": {
+    "sharpe": 0.185,
+    "max_drawdown": -0.0095,
+    "win_rate": 0.212,
+    "trades": 6
+  },
+  "strengths": [
+    "Successfully fetched ETHUSDT data from Binance (500 candles)",
+    "Created pure Python WFA runner (wfa_minimal.py) to work around missing pandas",
+    "Multi-asset comparison completed for both ETH and BTC",
+    "Clear metrics: ETH Sharpe 0.19 (positive), BTC return 1.28% (higher)",
+    "All expected artifacts created on disk"
+  ],
+  "weaknesses": [
+    "Used SMA crossover instead of ATR breakout as originally planned",
+    "Limited out-of-sample performance (both assets underperform)",
+    "Strategy required switching due to ATR not generating trades",
+    "Short test period (48 hours) may not be representative"
+  ],
+  "missing_evidence": [
+    "Original ATR strategy did not work - had to pivot to SMA",
+    "No cross-asset strategy implemented (noted as future work)"
+  ],
+  "promote_to_leaderboard": false,
+  "next_backlog_actions": [
+    "Add SOLUSDT data for three-asset comparison",
+    "Optimize SMA parameters or try different strategies (Bollinger Bands, RSI)",
+    "Implement cross-asset momentum spread strategy (BTC-ETH)",
+    "Install pandas in environment for better WFA engine compatibility"
+  ]
+}

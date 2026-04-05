@@ -1,0 +1,21 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260405154641-s5zrx7",
+  "stage": "evaluator",
+  "attempt": 1,
+  "decision": "allowed",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260405154641-s5zrx7/evaluator-attempt-1/stage-validated.json",
+    "factory/experiments/EXP-20260405200000-01.plan.json",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_190926.json",
+    "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_190926.json",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260405_190926.csv",
+    "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "factory/runs/RUN-20260405190426-98ced0/execution-result.json",
+    "factory/runs/RUN-20260405190426-98ced0/evaluation.json",
+    "factory/summaries/RUN-20260405190426-98ced0.md"
+  ],
+  "reason": null,
+  "recorded_at": "2026-04-05T16:20:58.861Z"
+}

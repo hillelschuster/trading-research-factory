@@ -1,0 +1,37 @@
+{
+  "experiment_id": "EXP-20260318060000-01",
+  "verdict": "inconclusive",
+  "evidence_score": 60,
+  "objective_score": 40,
+  "reproducibility_score": 70,
+  "novelty_score": 60,
+  "metrics": {
+    "sharpe": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "trades": null
+  },
+  "strengths": [
+    "Strategy code follows the robust WFA pattern correctly",
+    "MACD instead of RSI addresses the overfitting concern from lessons",
+    "All config files are valid JSON/YAML",
+    "Strategy includes proper look-ahead bias protection (shifts indicators)",
+    "Parameters are optimizable via WFA"
+  ],
+  "weaknesses": [
+    "WFA has NOT been executed - no performance results exist",
+    "Cannot verify strategy actually works without running WFA",
+    "Crypto data format compatibility with WFA engine unverified"
+  ],
+  "missing_evidence": [
+    "walk_forward_summary_*.csv (WFA results)",
+    "walk_forward_results_*.json (WFA results)",
+    "No performance metrics (Sharpe, drawdown, win rate, trades)"
+  ],
+  "promote_to_leaderboard": false,
+  "next_backlog_actions": [
+    "Human must run: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/crypto_day_of_week/wfa_config.yaml",
+    "After WFA runs, evaluate OOS Sharpe and consistency across windows",
+    "If WFA fails on crypto data, fallback to XAUUSD from walk forward engine/data/"
+  ]
+}

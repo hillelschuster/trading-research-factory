@@ -1,0 +1,64 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260403070410-gapco4",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:14.156Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:15.913Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:21.259Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:22.888Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/summarizer-attempt-1/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-04-03T07:04:23.015Z"
+}

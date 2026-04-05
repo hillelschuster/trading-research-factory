@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP-20260325105500-54",
+  "title": "EMA Trend Gate on SOLUSDT - Volatility Edge Validation",
+  "status": "completed",
+  "execution_timestamp": "2026-03-25T13:47:09.803736",
+  "results": {
+    "total_windows": 57,
+    "successful_windows": 57,
+    "aggregate_return_pct": 2.65,
+    "aggregate_sharpe_oos": 1.606,
+    "total_trades": 551,
+    "avg_trades_per_window": 14.1,
+    "positive_windows": 23,
+    "win_rate": 0.59,
+    "max_drawdown_pct": -8.02,
+    "execution_time_seconds": 550.35
+  },
+  "comparison_to_eth": {
+    "eth_sharpe_oos": 0.528,
+    "sol_sharpe_oos": 1.606,
+    "improvement_pct": 204,
+    "eth_avg_trades": 14.3,
+    "sol_avg_trades": 14.1,
+    "hypothesis_validated": true
+  },
+  "data": {
+    "source": "binance_solusdt_1h_deep.csv",
+    "date_range": "2021-03-26 to 2024-02-26",
+    "bars": 25000
+  }
+}

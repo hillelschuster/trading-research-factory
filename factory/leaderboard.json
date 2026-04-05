@@ -1,0 +1,220 @@
+[
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 1,
+    "run_id": "RUN-20260331154332-55",
+    "experiment_id": "EXP-20260331154332-55",
+    "backlog_item_id": "AUTO-1774971790939-dg1",
+    "mode": "live",
+    "verdict": "success",
+    "evidence_score": 85,
+    "overall_score": 85,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 0.998,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -6.9048,
+      "win_rate": 0.4835,
+      "total_trades": 848,
+      "fold_variance": 2.96,
+      "markets_tested": [
+        "BTCUSDT"
+      ],
+      "extra_metrics": {
+        "aggregate_return_pct": 0.8603,
+        "profit_factor": 1.1904,
+        "avg_trades_per_window": 14.88,
+        "total_windows": 57,
+        "successful_windows": 57,
+        "comparison_to_eth": {
+          "eth_sharpe_oos": 0.528,
+          "btc_sharpe_oos": 0.998,
+          "improvement_pct": 89,
+          "eth_max_drawdown": -16.37,
+          "btc_max_drawdown": -6.9048
+        }
+      }
+    },
+    "summary_path": "factory/summaries/RUN-20260331154332-55.md",
+    "recorded_at": "2026-04-01T06:11:41.000Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 2,
+    "run_id": "RUN-20260331154310-1aowi1",
+    "experiment_id": "EXP-20260331154332-55",
+    "backlog_item_id": "AUTO-1774971790939-dg1",
+    "mode": "live",
+    "verdict": "promising",
+    "evidence_score": 85,
+    "overall_score": 82,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 0.998,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -6.9048,
+      "win_rate": 0.4835,
+      "total_trades": 848,
+      "fold_variance": 2.96,
+      "markets_tested": [
+        "BTCUSDT"
+      ],
+      "extra_metrics": {}
+    },
+    "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+    "recorded_at": "2026-04-01T06:15:37.798Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 3,
+    "run_id": "RUN-20260405144149-ffh3s0",
+    "experiment_id": "EXP-20260405180000-01",
+    "backlog_item_id": "IDEA-923545-x3i",
+    "mode": "live",
+    "verdict": "promising",
+    "evidence_score": 85,
+    "overall_score": 78,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 1.4205,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -7.89,
+      "win_rate": 0.4944,
+      "total_trades": 443,
+      "fold_variance": null,
+      "markets_tested": [
+        "BNB/USDT"
+      ],
+      "extra_metrics": {}
+    },
+    "summary_path": "factory/summaries/RUN-20260405144149-ffh3s0.md",
+    "recorded_at": "2026-04-05T15:43:30.303Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 4,
+    "run_id": "RUN-20260404090255-5uejma",
+    "experiment_id": "EXP-20260404133920-01",
+    "backlog_item_id": "IDEA-830240-a3f",
+    "mode": "live",
+    "verdict": "promising",
+    "evidence_score": 75,
+    "overall_score": 73,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 1.2751,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -8.1353,
+      "win_rate": 0.4979,
+      "total_trades": 484,
+      "fold_variance": null,
+      "markets_tested": [
+        "BNB/USDT"
+      ],
+      "extra_metrics": {}
+    },
+    "summary_path": "factory/summaries/RUN-20260404090255-5uejma.md",
+    "recorded_at": "2026-04-04T15:02:02.981Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 5,
+    "run_id": "RUN-20260403123516-uhaq6t",
+    "experiment_id": "EXP-20260403123500-01",
+    "backlog_item_id": "AUTO-1775219382971-vlo",
+    "mode": "live",
+    "verdict": "promising_with_caveats",
+    "evidence_score": 65,
+    "overall_score": 52,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 0.4894,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -14.34,
+      "win_rate": 0.4604,
+      "total_trades": 1238,
+      "fold_variance": null,
+      "markets_tested": [
+        "ETHUSDT"
+      ],
+      "extra_metrics": {}
+    },
+    "summary_path": "factory/summaries/RUN-20260403123516-uhaq6t.md",
+    "recorded_at": "2026-04-03T14:34:01.700Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 6,
+    "run_id": "RUN-20260404080723-hm4238",
+    "experiment_id": "EXP-20260404080753-bnb",
+    "backlog_item_id": "AUTO-1775219716376-dad",
+    "mode": "live",
+    "verdict": "promising_with_caveats",
+    "evidence_score": 55,
+    "overall_score": 55,
+    "metrics": {
+      "sharpe_is": 0.807,
+      "sharpe_oos": 0.432,
+      "wfr": null,
+      "is_oos_ratio": 1.87,
+      "max_drawdown": -11.15,
+      "win_rate": 0.4965,
+      "total_trades": 837,
+      "fold_variance": null,
+      "markets_tested": [
+        "BNB/USDT"
+      ],
+      "extra_metrics": {}
+    },
+    "summary_path": "factory/summaries/RUN-20260404080723-hm4238.md",
+    "recorded_at": "2026-04-04T08:53:49.824Z",
+    "evidence_kind": "research",
+    "promotable": true
+  },
+  {
+    "schema_version": "leaderboard_v1",
+    "rank": 7,
+    "run_id": "RUN-20260404211002-hmi9jy",
+    "experiment_id": "EXP-20260405132700-01",
+    "backlog_item_id": "IDEA-923409-1zj",
+    "mode": "live",
+    "verdict": "promising_with_caveats",
+    "evidence_score": 55,
+    "overall_score": 45,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 0.6636,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -9.16,
+      "win_rate": 0.484,
+      "total_trades": 399,
+      "fold_variance": null,
+      "markets_tested": [
+        "BNB/USDT"
+      ],
+      "extra_metrics": {
+        "positive_sharpe_windows_pct": 61.1
+      }
+    },
+    "summary_path": "factory/summaries/RUN-20260404211002-hmi9jy.md",
+    "recorded_at": "2026-04-05T13:46:22.462Z",
+    "evidence_kind": "research",
+    "promotable": true
+  }
+]

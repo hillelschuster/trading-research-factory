@@ -1,0 +1,13 @@
+{
+  "agent": "planner",
+  "attempt": 2,
+  "attempts": 3,
+  "error": {
+    "name": "TypeError",
+    "message": "((intermediate value) || \"\").substring is not a function",
+    "stack": "TypeError: ((intermediate value) || \"\").substring is not a function\n    at file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/prompt-builders.mjs:147:33\n    at Array.map (<anonymous>)\n    at plannerPrompt (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/prompt-builders.mjs:142:54)\n    at file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:397:64\n    at callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:155:20)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:395:30)",
+    "cause": null
+  },
+  "message": "((intermediate value) || \"\").substring is not a function",
+  "recorded_at": "2026-03-21T19:44:54.932Z"
+}

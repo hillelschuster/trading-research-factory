@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404091704-9063ea",
+  "stage": "planner",
+  "attempt": 1,
+  "decision": "denied",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404091704-9063ea/planner-attempt-1/stage-error.json"
+  ],
+  "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+  "recorded_at": "2026-04-04T09:18:00.388Z"
+}

@@ -1,0 +1,27 @@
+{
+  "experiment_id": "EXP-20260318160000-01",
+  "title": "Execute London Sweep BTC WFA on real data",
+  "backlog_item_id": "IDEA-CRYPTO-002",
+  "objective": "Execute London Sweep strategy WFA on BTC 1h data and produce OOS metrics",
+  "hypothesis": "London Sweep fade strategy captures mean-reversion on BTC with Sharpe > 0",
+  "created_by": "planner",
+  "created_at": "2026-03-18T16:00:00Z",
+  "priority": 95,
+  "status": "in_progress",
+  "data": {
+    "source": "workspace/data/binance_btcusdt_1h_1000.csv",
+    "copied_to": "walk forward engine/data/btcusdt_1h_1000.csv",
+    "bars": 1000,
+    "asset": "BTCUSDT"
+  },
+  "strategy_changes": [
+    "Added pip_size=0.0001 param to LondonSweepParams (default forex)",
+    "Added pip_size param extraction in generate_vectorized_signals",
+    "Updated wfa_config.yaml with pip_size=1.0 and BTC-appropriate ranges (50-300 pip sweep thresholds)"
+  ],
+  "wfa_config": "walk forward engine/strategies/london_sweep_btc/wfa_config.yaml",
+  "evaluation_criteria": {
+    "status_gate": "WFA completes; >= 5 OOS trades; Sharpe >= 0",
+    "metrics": ["sharpe_oos", "win_rate", "max_drawdown", "total_trades", "calmar_ratio"]
+  }
+}

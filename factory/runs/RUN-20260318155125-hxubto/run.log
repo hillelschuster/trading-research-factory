@@ -1,0 +1,3 @@
+{"ts":"2026-03-18T15:51:25.286Z","run_id":"RUN-20260318155125-hxubto","message":"Starting run","extra":{"iteration":24,"backlog_item_id":"IDEA-CRYPTO-002","mode":"live"}}
+{"ts":"2026-03-18T15:52:51.183Z","run_id":"RUN-20260318155125-hxubto","message":"Planner completed","extra":{"experiment_id":"EXP-20260318160000-01"}}
+{"ts":"2026-03-18T15:57:28.501Z","run_id":"RUN-20260318155125-hxubto","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}

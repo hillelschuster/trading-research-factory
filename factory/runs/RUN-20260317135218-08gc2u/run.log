@@ -1,0 +1,5 @@
+{"ts":"2026-03-17T13:52:18.215Z","run_id":"RUN-20260317135218-08gc2u","message":"Starting run","extra":{"iteration":15,"backlog_item_id":"IDEA-WFA-002","mode":"live"}}
+{"ts":"2026-03-17T13:54:35.292Z","run_id":"RUN-20260317135218-08gc2u","message":"Planner completed","extra":{"experiment_id":"EXP-20260318060000-01"}}
+{"ts":"2026-03-17T13:59:36.069Z","run_id":"RUN-20260317135218-08gc2u","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}
+{"ts":"2026-03-17T14:00:46.492Z","run_id":"RUN-20260317135218-08gc2u","message":"Executor completed","extra":{"status":"executed"}}
+{"ts":"2026-03-17T14:01:42.235Z","run_id":"RUN-20260317135218-08gc2u","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":60}}

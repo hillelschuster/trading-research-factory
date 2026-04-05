@@ -1,0 +1,134 @@
+{
+  "run_id": "RUN-20260402145017-1v6ol5",
+  "backlog_item_id": "AUTO-1774014695161-jm2",
+  "owner_id": null,
+  "run_instance_id": "RUN-20260402145017-1v6ol5",
+  "resume_generation": 0,
+  "current_stage": null,
+  "current_stage_attempt": null,
+  "current_stage_session": null,
+  "last_completed_stage": "summarizer",
+  "observer_opened_at": null,
+  "poison_streak_count": 0,
+  "poison_stage": null,
+  "poison_failure_class": null,
+  "stage_status": {
+    "planner": {
+      "status": "completed",
+      "updated_at": "2026-04-02T14:50:22.585Z",
+      "attempt": 1
+    },
+    "executor": {
+      "status": "completed",
+      "updated_at": "2026-04-02T14:50:24.393Z",
+      "attempt": 1
+    },
+    "evaluator": {
+      "status": "completed",
+      "updated_at": "2026-04-02T14:50:29.116Z",
+      "attempt": 1
+    },
+    "summarizer": {
+      "status": "completed",
+      "updated_at": "2026-04-02T14:50:30.673Z",
+      "attempt": 1
+    }
+  },
+  "failure_class": "research_failure",
+  "resume_from_stage": "planner",
+  "handoff_pending": false,
+  "last_error": null,
+  "attempt_counts": {
+    "planner": 1,
+    "executor": 1,
+    "evaluator": 1,
+    "summarizer": 1
+  },
+  "artifact_paths": {
+    "run_state": "factory/runs/RUN-20260402145017-1v6ol5/run-state.json",
+    "planner_heartbeats": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-heartbeat.json"
+    ],
+    "planner_stage_inputs": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-attempt-1/stage-input.json"
+    ],
+    "planner_stage_prompts": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-attempt-1/stage-prompt.txt"
+    ],
+    "planner_sessions": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-attempt-1-session.json"
+    ],
+    "planner_stage_responses": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-attempt-1/stage-response.raw.txt"
+    ],
+    "planner_stage_validated": [
+      "factory/runs/RUN-20260402145017-1v6ol5/planner-attempt-1/stage-validated.json"
+    ],
+    "planner_response": "factory/runs/RUN-20260402145017-1v6ol5/planner-response.txt",
+    "experiment_plan": "factory/runs/RUN-20260402145017-1v6ol5/experiment-plan.json",
+    "experiment_plan_index": "factory/experiments/EXP-20260402145022-01.plan.json",
+    "executor_heartbeats": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-heartbeat.json"
+    ],
+    "executor_stage_inputs": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-attempt-1/stage-input.json"
+    ],
+    "executor_stage_prompts": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-attempt-1/stage-prompt.txt"
+    ],
+    "executor_sessions": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-attempt-1-session.json"
+    ],
+    "executor_stage_responses": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-attempt-1/stage-response.raw.txt"
+    ],
+    "executor_stage_validated": [
+      "factory/runs/RUN-20260402145017-1v6ol5/executor-attempt-1/stage-validated.json"
+    ],
+    "executor_response": "factory/runs/RUN-20260402145017-1v6ol5/executor-response.txt",
+    "execution_result": "factory/runs/RUN-20260402145017-1v6ol5/execution-result.json",
+    "changed_files": "factory/runs/RUN-20260402145017-1v6ol5/changed-files.json",
+    "evaluator_heartbeats": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-heartbeat.json"
+    ],
+    "evaluator_stage_inputs": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-attempt-1/stage-input.json"
+    ],
+    "evaluator_stage_prompts": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-attempt-1/stage-prompt.txt"
+    ],
+    "evaluator_sessions": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-attempt-1-session.json"
+    ],
+    "evaluator_stage_responses": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-attempt-1/stage-response.raw.txt"
+    ],
+    "evaluator_stage_validated": [
+      "factory/runs/RUN-20260402145017-1v6ol5/evaluator-attempt-1/stage-validated.json"
+    ],
+    "evaluator_response": "factory/runs/RUN-20260402145017-1v6ol5/evaluator-response.txt",
+    "evaluation": "factory/runs/RUN-20260402145017-1v6ol5/evaluation.json",
+    "summarizer_heartbeats": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-heartbeat.json"
+    ],
+    "summarizer_stage_inputs": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-attempt-1/stage-input.json"
+    ],
+    "summarizer_stage_prompts": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-attempt-1/stage-prompt.txt"
+    ],
+    "summarizer_sessions": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-attempt-1-session.json"
+    ],
+    "summarizer_stage_responses": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-attempt-1/stage-response.raw.txt"
+    ],
+    "summarizer_stage_validated": [
+      "factory/runs/RUN-20260402145017-1v6ol5/summarizer-attempt-1/stage-validated.json"
+    ],
+    "summarizer_response": "factory/runs/RUN-20260402145017-1v6ol5/summarizer-response.txt",
+    "summary_json": "factory/runs/RUN-20260402145017-1v6ol5/summary.json",
+    "summary_markdown": "factory/summaries/RUN-20260402145017-1v6ol5.md"
+  },
+  "updated_at": "2026-04-02T14:50:31.569Z"
+}

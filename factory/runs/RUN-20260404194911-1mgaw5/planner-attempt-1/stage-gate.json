@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404194911-1mgaw5",
+  "stage": "planner",
+  "attempt": 1,
+  "decision": "denied",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404194911-1mgaw5/planner-attempt-1/stage-error.json"
+  ],
+  "reason": "Planner result missing numeric min_evidence_score.",
+  "recorded_at": "2026-04-04T19:49:59.235Z"
+}

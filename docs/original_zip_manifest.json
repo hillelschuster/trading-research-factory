@@ -1,0 +1,407 @@
+[
+  {
+    "path": "AGENTS.md",
+    "size": 904,
+    "sha256": "05e042a127e3adaba7105d0cb3aa2cff098239a41e0314be640e86e855a1bec8"
+  },
+  {
+    "path": "journal.md",
+    "size": 18,
+    "sha256": "8214a75eb06fcdaa7102765511b05bfdf09811121d23fa08926fdf4360ebbd2c"
+  },
+  {
+    "path": "node_modules/.package-lock.json",
+    "size": 415,
+    "sha256": "0cc8675a7b763d6cb28b2b9c2c5da0f16a4262b501d13dbbcb8e3332e1e01471"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/client.d.ts",
+    "size": 317,
+    "sha256": "84edb938f2b673df750cf83e9516218404e9df7e32e66f2f063c813d7f4d0e62"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/client.js",
+    "size": 741,
+    "sha256": "5d019d63819d27ec9897d23830d3ffe62bee6ac09ead23db07025f1b59b82fa7"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.d.ts",
+    "size": 118,
+    "sha256": "358599da1d31542e1d3ebf35a4a98665395ea8eaf0063826b8838974f7e826e5"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js",
+    "size": 5674,
+    "sha256": "a4303bf5538ac7652dd7ab06f709024356a674318e452f71bf391ffe6b30a727"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/index.d.ts",
+    "size": 620,
+    "sha256": "06240cf9eca32a7ea5436ee67c8420bc1ddacfaf0d28cd17d09dd56a65c8fb9a"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/index.js",
+    "size": 346,
+    "sha256": "190026b1b139eaf999907d9be7af64a4485dcf07e15f392fbb46c391f625aa58"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/types.gen.d.ts",
+    "size": 6888,
+    "sha256": "11f6e61b31e0c89eae79ce790895bf85b918572c32c2de45998f7cbacbb3b963"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/utils.gen.d.ts",
+    "size": 2374,
+    "sha256": "77fed0312d2ec2b08afb890b7760b5f2328f6e09065ea05b5fc35d5294fbb434"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client/utils.gen.js",
+    "size": 7285,
+    "sha256": "723a458bd538ada79b036e49a2c28d29e674647b51e28b61ba3fd8074ae41d84"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client.gen.d.ts",
+    "size": 749,
+    "sha256": "30243dd321042c89cab45896e85d4d7c0fd8e0ba184e9b2163201945eaed71be"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/client.gen.js",
+    "size": 211,
+    "sha256": "aba08480d2ca9591f619b13fd0cb2bee3a4a9648004141229b7a2f67391bcde1"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/auth.gen.d.ts",
+    "size": 546,
+    "sha256": "96135fbf1dab9f857c9df88a191fdc435517f7a5b021d09cad0c290a1dcec436"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/auth.gen.js",
+    "size": 411,
+    "sha256": "5daa30e9a92a9fb4c8df37212c6bf421e6102dcb6070b32a7cdb978ecc27c230"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/bodySerializer.gen.d.ts",
+    "size": 776,
+    "sha256": "44fd7a3b2fac384971e638548c227835a2f8c3c2232edff7e0f951a0e136e562"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/bodySerializer.gen.js",
+    "size": 1824,
+    "sha256": "133af6e45e6541018e1cdff6a59d610421c97e3215ffcb1447b682a74a278d6b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/params.gen.d.ts",
+    "size": 927,
+    "sha256": "d23fac93be3afb1c83269864f13b5e5fc246b05cb21b7e019e38403e4ef1aba5"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/params.gen.js",
+    "size": 2642,
+    "sha256": "6176cffd7187e9192957bb3f5df926d84f3b952079b2c33ce00f2ee37d7b401e"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/pathSerializer.gen.d.ts",
+    "size": 1489,
+    "sha256": "c36ce4ffa39eae9d8d5f3262bbff170f55b375156bc4eeadadfeede2820aa4c2"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/pathSerializer.gen.js",
+    "size": 3507,
+    "sha256": "f92d4e9209d6d6bcfc3b8bf0152f85f9004aa9a3163d1113d132651c2c022581"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/queryKeySerializer.gen.d.ts",
+    "size": 705,
+    "sha256": "60d1baa9e7b198ea9221564bc5000c97fd9fb9a9d74974cb08f0176192612b2b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/queryKeySerializer.gen.js",
+    "size": 2699,
+    "sha256": "cc69f01bfc81230f20a2355c6785d8f83e37d79119d55d5c1f44f099ff4740ff"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/serverSentEvents.gen.d.ts",
+    "size": 2149,
+    "sha256": "c41ccf7ec4fecea9d6e5b72ae7f20c91bbe85a8a82caada5ae8a3bc5a56c8926"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/serverSentEvents.gen.js",
+    "size": 5492,
+    "sha256": "ee09b085675f234fd6c35aa125c237202a8b728f885b24ab65e7d05ffbb2dd43"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/types.gen.d.ts",
+    "size": 3274,
+    "sha256": "80498d31235c22ee711a9fb6f0ca2bcb8fbf5c9a787f3d3a76962b440df70013"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/utils.gen.d.ts",
+    "size": 540,
+    "sha256": "46f46fcafdf1b4e003679a35ee1a2d9c3a7e31b780fb437903fb1a6273483d52"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/core/utils.gen.js",
+    "size": 2444,
+    "sha256": "90a6a76e6d717839cb6fbaec696fe17a1f407ba696513366315fb30f5793b871"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/sdk.gen.d.ts",
+    "size": 26885,
+    "sha256": "5f71dae22207eb5119b2e005e046c0404a29454292e07c68668e39c9931414cd"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/sdk.gen.js",
+    "size": 21590,
+    "sha256": "2c40e32e5a6c06a4a0c02a78c010906ea2f9fefbea104abadf29e4dccc05d51f"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/types.gen.d.ts",
+    "size": 76518,
+    "sha256": "abd950a6eb114f55ae2210538340b4167a5d6e2f270864433417a9417c9c59b2"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/gen/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/index.d.ts",
+    "size": 302,
+    "sha256": "2a7a35e3f1ead49569fe0423ae65055184f9384b97999cd90bb99878f727e585"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/index.js",
+    "size": 419,
+    "sha256": "c89e7660b6c14b282f497cf590f1693a49a421bba437a2d3ef2c2f6b51326958"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/server.d.ts",
+    "size": 565,
+    "sha256": "579f61b51c0e5dc0119ab49fc536130749280c7a23e489e753fcce08c229ce2c"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/server.js",
+    "size": 2955,
+    "sha256": "79afd73e4c83f595b3ab91193cf6a9359e95506e4825b8f433d47926afdaab14"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/client.d.ts",
+    "size": 356,
+    "sha256": "19d2c965297a2f7eedec208f00b8f988e83cff5e87fd58b9b2bcba9f4e481814"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/client.js",
+    "size": 1078,
+    "sha256": "6cb11585ed2a9ac3cf4bcae6b16228f2f5707d2d752958828fe7f23a254a8e2b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/client.gen.d.ts",
+    "size": 118,
+    "sha256": "358599da1d31542e1d3ebf35a4a98665395ea8eaf0063826b8838974f7e826e5"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/client.gen.js",
+    "size": 8236,
+    "sha256": "90b45d194961c72dd2775b39af02c69fd49587a8a4f4d56d3407b12b8073447d"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/index.d.ts",
+    "size": 675,
+    "sha256": "55122db1dc0aa0340759af31319c40309930899ee2d67c82cd0d3cfc68b3c29c"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/index.js",
+    "size": 422,
+    "sha256": "cbbc149808c7dd0c00ceac3df03a948f8f701ec049a763ce14567abe306a7a54"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/types.gen.d.ts",
+    "size": 6030,
+    "sha256": "481c7349554c63b0930b792ad2f0174f7d0666b3ec11c203f72d3b5be22f1d3b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/utils.gen.d.ts",
+    "size": 2125,
+    "sha256": "53be801bc15e23f6ebb90c6675ad1803a6488f19b0b36c11f309e9899e74e75f"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client/utils.gen.js",
+    "size": 7376,
+    "sha256": "c593c1f1fe32737c849a284677d9a1e0643b125bcb5727b1afc7638d7f01eee8"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client.gen.d.ts",
+    "size": 723,
+    "sha256": "c1af887105801d15dd6eeb88cb42e680d33e4a1d7cb6372011b3224bd81d7c4d"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/client.gen.js",
+    "size": 206,
+    "sha256": "a5f22d5f97899072c3a6afe04312f0b4838a811458427627f60473c63c0ead5d"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/auth.gen.d.ts",
+    "size": 546,
+    "sha256": "96135fbf1dab9f857c9df88a191fdc435517f7a5b021d09cad0c290a1dcec436"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/auth.gen.js",
+    "size": 411,
+    "sha256": "5daa30e9a92a9fb4c8df37212c6bf421e6102dcb6070b32a7cdb978ecc27c230"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/bodySerializer.gen.d.ts",
+    "size": 1109,
+    "sha256": "010b37dfe9c2cbc48d874bcab4074917ea836e630dc577a9e2d03e97da2236e5"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/bodySerializer.gen.js",
+    "size": 1824,
+    "sha256": "133af6e45e6541018e1cdff6a59d610421c97e3215ffcb1447b682a74a278d6b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/params.gen.d.ts",
+    "size": 1211,
+    "sha256": "210945863764365e1e6b4e9c7e6fdd76e3b4aac91f38b7a5a0830ac112d57ac3"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/params.gen.js",
+    "size": 3056,
+    "sha256": "b3c95661ddaec7c7e54fb17bca6a51961ea5b383daa218fe6c862f05fcf594d2"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/pathSerializer.gen.d.ts",
+    "size": 1489,
+    "sha256": "c36ce4ffa39eae9d8d5f3262bbff170f55b375156bc4eeadadfeede2820aa4c2"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/pathSerializer.gen.js",
+    "size": 3507,
+    "sha256": "f92d4e9209d6d6bcfc3b8bf0152f85f9004aa9a3163d1113d132651c2c022581"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/queryKeySerializer.gen.d.ts",
+    "size": 705,
+    "sha256": "60d1baa9e7b198ea9221564bc5000c97fd9fb9a9d74974cb08f0176192612b2b"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/queryKeySerializer.gen.js",
+    "size": 2699,
+    "sha256": "cc69f01bfc81230f20a2355c6785d8f83e37d79119d55d5c1f44f099ff4740ff"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/serverSentEvents.gen.d.ts",
+    "size": 2546,
+    "sha256": "844af05b12599165533995c74c309effc0106729f86e8596c2c9ec4868b80d94"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/serverSentEvents.gen.js",
+    "size": 6288,
+    "sha256": "218952938cd653a781ef512a60de49e4b558e5fb25558b27d96ada68b5eda4bc"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/types.gen.d.ts",
+    "size": 3295,
+    "sha256": "997352ab110eb2f15bd22e39882b9bfcf884b84b4d57cc0d24dd9037b36681c5"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/utils.gen.d.ts",
+    "size": 718,
+    "sha256": "6be7640d8a8bcbeb9054bf83ab782d68e4cd761f3738bf776615d5ae9b729cbd"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/core/utils.gen.js",
+    "size": 3139,
+    "sha256": "110a18cdb229ab980a39aa222eca37e5a3b75773199555b7f8d2d110f588b4de"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/sdk.gen.d.ts",
+    "size": 54667,
+    "sha256": "0836fdb32a1440ccc30479cfdba3f85d05f10f6cec065fb4a7e593e5f2ac90a6"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/sdk.gen.js",
+    "size": 76725,
+    "sha256": "b2f7232af75f500007b105c9033931b683e624ae5470ef61980afbb9d74cee03"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/types.gen.d.ts",
+    "size": 100471,
+    "sha256": "b8826e4219dfeb444a56e26045ddaaecad3d86974d3eb79fe89f662cee7e6850"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/gen/types.gen.js",
+    "size": 65,
+    "sha256": "17ebe2baaa8d2f0c94afaaaae74a46e43e2b163a0f4ffd69adb39ad57c318e78"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/index.d.ts",
+    "size": 302,
+    "sha256": "2a7a35e3f1ead49569fe0423ae65055184f9384b97999cd90bb99878f727e585"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/index.js",
+    "size": 419,
+    "sha256": "c89e7660b6c14b282f497cf590f1693a49a421bba437a2d3ef2c2f6b51326958"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/server.d.ts",
+    "size": 565,
+    "sha256": "579f61b51c0e5dc0119ab49fc536130749280c7a23e489e753fcce08c229ce2c"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/dist/v2/server.js",
+    "size": 2955,
+    "sha256": "79afd73e4c83f595b3ab91193cf6a9359e95506e4825b8f433d47926afdaab14"
+  },
+  {
+    "path": "node_modules/@opencode-ai/sdk/package.json",
+    "size": 1249,
+    "sha256": "2830209202214cb152411bd5fba12f46354f7360aaa16d1d00f3cdf4783f5101"
+  },
+  {
+    "path": "opencode.json",
+    "size": 914,
+    "sha256": "aa51a117719c7c7451994a697d38f386ce37086c981e9d9c6a6d9997609b198b"
+  },
+  {
+    "path": "package-lock.json",
+    "size": 586,
+    "sha256": "3f38c4ca623954a81b2afb9e0c85d5e40f9c8e7559963dbd947e4920b571e2eb"
+  },
+  {
+    "path": "package.json",
+    "size": 311,
+    "sha256": "20b9fd6dac6ebe1ea26e59e2793939913231f786b62d8a346a5f10d5b2adb7aa"
+  },
+  {
+    "path": "run-session.sh",
+    "size": 260,
+    "sha256": "4ae5fd850eb3c3808dee153a888f4658a62fe85fcf9f4c27ece15590b77f5e5a"
+  },
+  {
+    "path": "trading-loop.mjs",
+    "size": 3284,
+    "sha256": "fa2262aff83b92232cc034f2e504eb5616a8ae4525a6de5b86189f98827b76d4"
+  }
+]

@@ -1,0 +1,5 @@
+{"ts":"2026-03-24T14:17:46.946Z","run_id":"RUN-20260324141746-gj1frw","message":"Starting run","extra":{"iteration":33,"backlog_item_id":"AUTO-1774361863882-nmb","mode":"simulate"}}
+{"ts":"2026-03-24T14:17:47.838Z","run_id":"RUN-20260324141746-gj1frw","message":"Planner completed","extra":{"experiment_id":"EXP-20260324141747-02"}}
+{"ts":"2026-03-24T14:17:48.082Z","run_id":"RUN-20260324141746-gj1frw","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-03-24T14:17:49.265Z","run_id":"RUN-20260324141746-gj1frw","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-03-24T14:17:50.036Z","run_id":"RUN-20260324141746-gj1frw","message":"Run completed","extra":{"run_id":"RUN-20260324141746-gj1frw","verdict":"inconclusive","iteration":33}}

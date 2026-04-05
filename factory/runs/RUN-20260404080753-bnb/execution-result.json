@@ -1,0 +1,69 @@
+{
+  "status": "executed",
+  "experiment_id": "EXP-20260404080753-bnb",
+  "timestamp": "2026-04-04T11:14:01Z",
+  "execution_summary": {
+    "command": "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb/wfa_config.yaml",
+    "working_directory": "walk forward engine",
+    "config_path": "strategies/ema_trend_gate_bnb/wfa_config.yaml",
+    "exit_code": 0,
+    "execution_time_seconds": 317.3
+  },
+  "data_loaded": {
+    "source_file": "data/binance_bnbusdt_1h_deep.csv",
+    "rows": 43788,
+    "date_range": "2021-04-02 to 2026-04-01",
+    "bars_used": 43788
+  },
+  "wfa_metrics": {
+    "windows_total": 57,
+    "windows_successful": 57,
+    "aggregate_return_pct": 0.37,
+    "aggregate_sharpe_oos": 0.432,
+    "total_trades": 837,
+    "avg_trades_per_window": 14.68,
+    "execution_time_seconds": 302.87
+  },
+  "parameter_optimization": {
+    "n_trials": 30,
+    "best_trial_sharpe_is": 3.109,
+    "best_params": {
+      "ema4h_period": 50,
+      "ema1h_period": 20,
+      "rsi_period": 14,
+      "rsi_oversold": 35.0,
+      "rsi_overbought": 50.0,
+      "hold_bars": 96,
+      "sl_atr_mult": 2.0,
+      "tp_rr_mult": 2.0
+    }
+  },
+  "cross_asset_comparison": {
+    "btc_sharpe_oos": 0.998,
+    "eth_sharpe_oos": 0.489,
+    "sol_sharpe_oos": 1.373,
+    "bnb_sharpe_oos": 0.432,
+    "asset_type": "exchange_token",
+    "generalization_status": "partial - BNB underperforms BTC/SOL, slightly below ETH"
+  },
+  "evaluation": {
+    "status_gate_met": true,
+    "sharpe_oos_met": true,
+    "trade_count_met": true,
+    "min_sharpe_oos": 0.4,
+    "actual_sharpe": 0.432,
+    "min_trades": 30,
+    "actual_trades": 837
+  },
+  "blockers": [],
+  "errors": [],
+  "artifacts_created": [
+    "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml"
+  ],
+  "notes": [
+    "WFA completed successfully with 57 windows",
+    "Results file not saved due to missing results directory (created post-run)",
+    "BNB shows positive but lower Sharpe than BTC/ETH/SOL with same parameters",
+    "Exchange token characteristics produce different volatility regime than pure crypto"
+  ]
+}

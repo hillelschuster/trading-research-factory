@@ -1,0 +1,22 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "iteration": 1,
+  "last_run_id": "RUN-20260325084655-294zua",
+  "active_session_id": null,
+  "active_session_url": null,
+  "last_status": "idle",
+  "last_error": null,
+  "mode_history": [
+    {
+      "ts": "2026-03-25T08:46:55.913Z",
+      "mode": "simulate"
+    }
+  ],
+  "active_agent": null,
+  "active_agent_attempt": null,
+  "active_agent_status": null,
+  "stage_started_at": null,
+  "last_agent_heartbeat_at": null,
+  "exit_reason": "cycles_exhausted",
+  "run_started_at": null
+}

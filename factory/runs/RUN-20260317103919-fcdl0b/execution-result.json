@@ -1,0 +1,40 @@
+{
+  "experiment_id": "EXP-20260317150000-01",
+  "status": "executed",
+  "commands_attempted": [
+    "python3 workspace/data/fetchers/binance_fetcher.py --symbol SOLUSDT --interval 1h --limit 500 --output workspace/data/binance_solusdt_1h_live.csv",
+    "python3 workspace/harness/wfa_minimal.py workspace/data/binance_solusdt_1h_live.csv 168 48",
+    "python3 workspace/harness/wfa_minimal.py workspace/data/binance_btcusdt_1h_live.csv 168 48",
+    "python3 workspace/harness/wfa_minimal.py workspace/data/binance_ethusdt_1h_live.csv 168 48"
+  ],
+  "artifacts_created": [
+    "workspace/data/binance_solusdt_1h_live.csv",
+    "workspace/results/wfa_sma_solusdt.json",
+    "workspace/results/wfa_sma_btcusdt_v2.json",
+    "workspace/results/wfa_sma_ethusdt_v2.json",
+    "workspace/results/three_asset_comparison.json"
+  ],
+  "artifacts_updated": [
+    "factory/experiments/EXP-20260317150000-01.plan.json",
+    "factory/backlog.json"
+  ],
+  "workspace_changes": [
+    "Added SOLUSDT 1h data (500 candles from Binance)",
+    "Three-asset comparison framework now complete (BTC, ETH, SOL)"
+  ],
+  "metrics_observed": {
+    "solusdt_sharpe": 0.531,
+    "solusdt_return": 0.00694,
+    "ethusdt_sharpe": 0.185,
+    "ethusdt_return": 0.00409,
+    "btcusdt_sharpe": -0.102,
+    "btcusdt_return": 0.01277
+  },
+  "blockers": [],
+  "notes": [
+    "Experiment already executed in previous cycle",
+    "All artifacts verified on disk",
+    "SOL achieved best risk-adjusted performance (Sharpe 0.53)",
+    "Three-asset framework established"
+  ]
+}

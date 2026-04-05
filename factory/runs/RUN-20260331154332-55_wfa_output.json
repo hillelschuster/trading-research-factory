@@ -1,0 +1,53 @@
+{
+  "execution": {
+    "duration_seconds": 1892.36,
+    "end_time": "2026-03-31T21:05:55.916235+00:00",
+    "start_time": "2026-03-31T20:34:23.556828+00:00"
+  },
+  "generated_at": "2026-04-01T00:05:56.408850",
+  "metrics": {
+    "aggregate_return_pct": 0.8603,
+    "aggregate_sharpe": 0.998,
+    "avg_losing_window_pct": -1.2436,
+    "avg_trade_loss_pct": -1.1763,
+    "avg_trade_win_pct": 1.4958,
+    "avg_trades_per_window": 14.88,
+    "avg_winning_window_pct": 2.8917,
+    "best_window_return": 12.8234,
+    "expectancy": 0.1157,
+    "failed_windows": 0,
+    "gross_loss": 257602.42,
+    "gross_profit": 306642.37,
+    "max_drawdown_pct": -6.9048,
+    "profit_factor": 1.1904,
+    "successful_windows": 57,
+    "total_losses": 438,
+    "total_trades": 848,
+    "total_windows": 57,
+    "total_wins": 410,
+    "win_rate": 0.4835,
+    "worst_window_return": -5.4985
+  },
+  "provenance": {
+    "code_version": "89601bc70621",
+    "config_fingerprint": "589ef9a77c13ce36",
+    "generator": "WalkForwardRunner"
+  },
+  "run_id": "EMA_TREND_GATE_20260401_000556",
+  "schema_version": "1.0",
+  "stability": {
+    "consistency_score": 0.2907,
+    "parameter_cv": 0.0844,
+    "return_volatility": 2.96
+  },
+  "strategy": {
+    "name": "EMA_TREND_GATE",
+    "profile_key": "EMA_TREND_GATE"
+  },
+  "wfa_config": {
+    "n_trials": 100,
+    "step_months": 1,
+    "testing_months": 1,
+    "training_months": 3
+  }
+}

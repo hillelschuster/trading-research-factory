@@ -1,0 +1,7 @@
+{"ts":"2026-03-16T11:38:55.709Z","run_id":"RUN-20260316113855-oyyt5p","message":"Cleanup completed","extra":{"kept":20}}
+{"ts":"2026-03-16T11:38:55.732Z","run_id":"RUN-20260316113855-oyyt5p","message":"Starting run","extra":{"iteration":1,"backlog_item_id":"IDEA-0001","mode":"live"}}
+{"ts":"2026-03-16T11:44:14.107Z","run_id":"RUN-20260316113855-oyyt5p","message":"Planner failed (attempt 1/3)","extra":{"error":"fetch failed"}}
+{"ts":"2026-03-16T11:46:52.037Z","run_id":"RUN-20260316113855-oyyt5p","message":"Planner completed","extra":{"experiment_id":"EXP-20260316140000-01"}}
+{"ts":"2026-03-16T11:50:54.030Z","run_id":"RUN-20260316113855-oyyt5p","message":"Executor completed","extra":{"status":"blocked"}}
+{"ts":"2026-03-16T11:51:36.514Z","run_id":"RUN-20260316113855-oyyt5p","message":"Evaluator completed","extra":{"verdict":"blocked","evidence_score":20}}
+{"ts":"2026-03-16T11:51:55.558Z","run_id":"RUN-20260316113855-oyyt5p","message":"Run completed","extra":{"run_id":"RUN-20260316113855-oyyt5p","verdict":"blocked","iteration":1}}

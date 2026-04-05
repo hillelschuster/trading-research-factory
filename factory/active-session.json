@@ -1,0 +1,10 @@
+{
+  "status": "idle",
+  "run_id": "RUN-20260404091704-9063ea",
+  "agent": "executor",
+  "attempt": 21,
+  "session_id": "ses_2a1809423ffeCdy82htwWDh345",
+  "session_url": "http://127.0.0.1:4096/global/session/ses_2a1809423ffeCdy82htwWDh345",
+  "updated_at": "2026-04-05T16:46:05.373Z",
+  "ended_at": "2026-04-05T16:46:05.043Z"
+}

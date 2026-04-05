@@ -1,0 +1,31 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260317210000-01",
+  "verdict": "passed",
+  "evidence_score": 80,
+  "objective_score": 85,
+  "reproducibility_score": 75,
+  "novelty_score": 45,
+  "metrics": {
+    "sharpe": 0.945,
+    "max_drawdown": -0.01,
+    "win_rate": 0.56,
+    "trades": 6
+  },
+  "strengths": [
+    "Extended RSI parameters improved Sharpe from 0.79 to 0.94 - new best in factory",
+    "Successfully ran WFA with larger parameter grid",
+    "All expected artifacts created on disk and verified"
+  ],
+  "weaknesses": [
+    "Short test period limits statistical significance",
+    "Only tested on one asset (BTC)"
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": true,
+  "next_backlog_actions": [
+    "Try Polymarket prediction market strategies",
+    "Test ensemble strategies"
+  ]
+}
+</RF_JSON>

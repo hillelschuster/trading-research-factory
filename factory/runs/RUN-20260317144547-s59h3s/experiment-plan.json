@@ -1,0 +1,60 @@
+{
+  "experiment_id": "EXP-20260318140000-01",
+  "title": "Volume Profile / Order Flow Strategy",
+  "backlog_item_id": "IDEA-WFA-004",
+  "objective": "Create and WFA-test a volume profile strategy based on order flow concepts: VWAP-based entries, volume spike confirmation, and cumulative volume delta direction. This is a completely different strategy class from existing RSI/momentum/volatility strategies.",
+  "hypothesis": "Using volume-weighted average price as dynamic support/resistance combined with volume spike confirmation and cumulative volume delta direction will produce positive risk-adjusted returns. Volume precedes price - high volume zones act as support/resistance.",
+  "priority": 85,
+  "dataset_requirements": [
+    "BTCUSD 1h OHLCV with volume (1000 bars minimum)",
+    "ETHUSD 1h OHLCV with volume (1000 bars minimum)",
+    "SOLUSD 1h OHLCV with volume (1000 bars minimum)"
+  ],
+  "inputs": [
+    "walk forward engine/src/strategies/volume_profile.py",
+    "walk forward engine/config/strategy_volume_profile.json",
+    "walk forward engine/strategies/volume_profile/wfa_config.yaml",
+    "workspace/data/binance_btcusdt_1h_1000.csv",
+    "workspace/data/binance_ethusdt_1h_1000.csv",
+    "workspace/data/binance_solusdt_1h_1000.csv"
+  ],
+  "implementation_steps": [
+    "1. Create volume profile strategy code at walk forward engine/src/strategies/volume_profile.py",
+    "2. Implement generate_vectorized_signals() with volume profile logic: compute VWAP, volume moving average, volume spikes, cumulative volume delta",
+    "3. Create strategy params at walk forward engine/config/strategy_volume_profile.json with parameters and optimization_ranges",
+    "4. Create WFA config at walk forward engine/strategies/volume_profile/wfa_config.yaml for BTC/ETH/SOL testing",
+    "5. Human runs WFA locally: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/volume_profile/wfa_config.yaml"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/volume_profile/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/src/strategies/volume_profile.py",
+    "walk forward engine/config/strategy_volume_profile.json",
+    "walk forward engine/strategies/volume_profile/wfa_config.yaml",
+    "walk forward engine/strategies/volume_profile/results/wfa_results.json"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "Strategy produces valid signals without errors; WFA completes at least 3 walk-forward windows",
+    "metrics": [
+      "Sharpe ratio (target > 0.3 for viability)",
+      "Win rate",
+      "Max drawdown",
+      "Average trade return",
+      "Number of trades",
+      "Consistency across assets (BTC/ETH/SOL)"
+    ],
+    "min_evidence_score": 0.3
+  },
+  "fallback_if_blocked": [
+    "If WFA engine fails due to environment issues, create pure Python backtest script in workspace/strategies/ for single-asset validation",
+    "If data lacks volume column, fallback to price-based simulation"
+  ],
+  "notes": [
+    "Strategy is DIFFERENT from existing RSI/momentum/volatility strategies - uses order flow concepts",
+    "Core logic: VWAP as dynamic S/R, volume spike confirms breakouts, cumulative delta shows order flow direction",
+    "Economic rationale: Volume is the underlying driver of price movement; high-volume zones attract price",
+    "Focus on robustness over Sharpe maximization - few parameters, generalizable logic",
+    "If Sharpe < 0 on OOS, document as failed experiment and explore other order flow variants"
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "plan": {
+    "experiment_id": "EXP-20260404160000-01",
+    "title": "EMA Trend Gate ETH-specific parameter optimization",
+    "backlog_item_id": "IDEA-718440-afg",
+    "objective": "Modify ema_trend_gate WFA config to use ETH-specific expanded parameter ranges based on BNB success pattern (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168])",
+    "hypothesis": "Expanding parameter search beyond generic defaults will improve ETHUSDT OOS Sharpe from 0.489 to >1.0, following the pattern that boosted BNB from 0.432 to 1.275",
+    "strategy_rationale": "BNB asset-specific tuning lesson shows 195% Sharpe improvement with expanded ranges. ETH baseline 0.489 is below BTC's 0.998. Apply same expanded search pattern to ETH.",
+    "strategy_type": "multi_timeframe",
+    "market_family": "crypto",
+    "instrument_scope": "ETHUSDT spot",
+    "instrument_selection_rule": null,
+    "timeframe": "1h with 4h regime filter",
+    "priority": 55,
+    "dataset_requirements": [
+      "Binance ETHUSDT 1h data with maximum available history (binance_ethusdt_1h_deep.csv has ~64k rows from ~2018)"
+    ],
+    "historical_depth_requirement": {
+      "target": "Maximum available: ~64k rows (~7.5 years)",
+      "justification": "Liquid crypto with multi-year history available; prior ETH run used deep dataset"
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "Existing binance_ethusdt_1h_deep.csv in workspace/data/; prior run used same source"
+    },
+    "scope_selection_rationale": "ETHUSDT is the natural followup to BTC baseline (0.998 Sharpe) and prior generic ETH run (0.489 Sharpe). Apply BNB-style expanded parameter tuning.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "binance_ethusdt_1h_deep.csv already exists with ~64k rows of ETHUSDT 1h data",
+      "acquisition_method": "existing_fetcher",
+      "sources": [],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml",
+      "factory/memory/lessons.jsonl (BNB lesson EXP-20260404133920-01)",
+      "factory/evidence/index.json (BTC baseline 0.998, prior ETH 0.489)"
+    ],
+    "implementation_steps": [
+      "1. Read current ema_trend_gate/wfa_config.yaml",
+      "2. Modify data.source_file to 'data/binance_ethusdt_1h_deep.csv'",
+      "3. Expand parameter_ranges: rsi_oversold [25,30,35], rsi_overbought [50,55,60,65,70], hold_bars [96,120,144,168]",
+      "4. Update walk_forward.output_directory to 'strategies/ema_trend_gate_eth/results'",
+      "5. Save modified config",
+      "6. Execute WFA via smoke_test runner"
+    ],
+    "commands": [
+      "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml (modified)",
+      "walk forward engine/strategies/ema_trend_gate/results/wfa_results.json",
+      "factory/runs/RUN-*/execution-result.json",
+      "factory/runs/RUN-*/evaluation.json",
+      "factory/runs/RUN-*/summary.json"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 100,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [
+        "stability"
+      ],
+      "stability_weight": 0.15
+    },
+    "evaluation_criteria": {
+      "status_gate": "WFA completes with valid OOS metrics",
+      "metrics": {
+        "min_sharpe_oos": 1,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 30
+      },
+      "min_evidence_score": 70
+    },
+    "fallback_if_blocked": [
+      "If WFA data path issue, use exact path: data/binance_ethusdt_1h_deep.csv relative to walk_forward_engine root"
+    ],
+    "notes": [
+      "Prior run failed by referencing non-existent ema_trend_gate_eth/wfa_config.yaml - use EXISTING ema_trend_gate/wfa_config.yaml and modify in place",
+      "BNB lesson: expanded parameter ranges (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) boosted Sharpe 195%",
+      "ETH prior: 0.489 Sharpe with generic params; target >1.0 with expanded search"
+    ]
+  },
+  "retrieval": {
+    "relevant_execution_lessons": [
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404000000-NN",
+        "verdict": "inconclusive",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": "multi_timeframe",
+        "lesson": "Planner must verify strategy directories exist before referencing them in execution commands",
+        "specific_finding": "Plan created execution command pointing to non-existent strategies/ema_trend_gate_eth/wfa_config.yaml, blocking experiment before WFA could run",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": null,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": null,
+          "win_rate": null,
+          "total_trades": 0,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 0
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260404075959-ij3gm9.md",
+          "factory/experiments/EXP-20260404000000-NN.plan.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404000000-NN",
+        "verdict": "inconclusive",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": "multi_timeframe",
+        "lesson": "Config path validation is missing from planner workflow - recurring blocker pattern",
+        "specific_finding": "Multiple prior experiments blocked due to non-existent config paths; this indicates systematic gap where planners do not verify strategy directories exist before execution",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": null,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": null,
+          "win_rate": null,
+          "total_trades": 0,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 0
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260404075959-ij3gm9.md",
+          "factory/experiments/EXP-20260404000000-NN.plan.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+          "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+        ]
+      }
+    ],
+    "known_blocker_patterns": [
+      {
+        "blocker_type": "config_contract",
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404000000-NN",
+        "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+      },
+      {
+        "blocker_type": "general_execution",
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404000000-NN",
+        "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+      }
+    ],
+    "relevant_paths": [
+      "factory/summaries/RUN-20260404075959-ij3gm9.md",
+      "factory/experiments/EXP-20260404000000-NN.plan.json",
+      "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+      "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json"
+    ]
+  },
+  "retryNote": {
+    "source": "handoff",
+    "resume_generation": 6,
+    "resume_from_stage": "executor",
+    "failure_class": "transport_failure",
+    "last_error": "executor transport request timed out waiting for response headers.",
+    "attempts_used": 3,
+    "safe_inputs": {
+      "backlog_item_id": "IDEA-718440-afg",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "resume_from_stage": "executor",
+      "experiment_id": "EXP-20260404160000-01"
+    },
+    "produced_artifacts": [
+      "factory/runs/RUN-20260404150343-tmxxkx/run-state.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-heartbeat.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/handoff.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-validated.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-response.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/experiment-plan.json",
+      "factory/experiments/EXP-20260404160000-01.plan.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-heartbeat.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    ]
+  }
+}

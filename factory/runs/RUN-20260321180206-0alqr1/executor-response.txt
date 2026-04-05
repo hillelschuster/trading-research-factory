@@ -1,0 +1,57 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260321183000-01",
+  "status": "executed",
+  "commands_attempted": [
+    "cd walk_forward_engine && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/macd_divergence/wfa_config.yaml"
+  ],
+  "commands_completed": [],
+  "artifacts_created": [
+    "walk forward engine/src/strategies/macd_divergence.py",
+    "walk forward engine/config/strategy_macd_divergence.json",
+    "walk forward engine/strategies/macd_divergence/wfa_config.yaml"
+  ],
+  "datasets_acquired": [],
+  "artifacts_updated": [],
+  "workspace_changes": [
+    "Created MACD Divergence strategy (macd_divergence.py) with hidden bullish/bearish divergence detection + RSI filter",
+    "Created parameter optimization ranges (strategy_macd_divergence.json) with 11 parameters for Optuna",
+    "Created WFA config (wfa_config.yaml) with 3mo train/1mo test/1mo step, 100 trials, targeting binance_btcusdt_1h_deep.csv (43,789 bars, 5 years)"
+  ],
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": null,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "total_trades": null,
+    "fold_variance": null
+  },
+  "variants_tested": [],
+  "blockers": [
+    "WSL environment lacks pandas/numpy — WFA engine runs on Windows .venv. Human must execute locally."
+  ],
+  "errors": [
+    {
+      "command": "import macd_divergence in WSL",
+      "message": "ModuleNotFoundError: No module named 'pandas'",
+      "suggestion": "Known infrastructure gap. Use Windows .venv for WFA execution. Strategy syntax validated via py_compile (exit 0), JSON via json.load, YAML via yaml.safe_load. Pivot detection logic verified with pure-Python test.",
+      "code_path_inspected": "walk forward engine/src/strategies/macd_divergence.py:1-450",
+      "recovery_attempts": [
+        "py_compile on strategy.py: EXIT 0 — syntax valid",
+        "json.load on strategy_macd_divergence.json: JSON OK",
+        "yaml.safe_load on wfa_config.yaml: YAML OK",
+        "Pure-python pivot detection logic verified on sine wave data — pivots correctly detected"
+      ]
+    }
+  ],
+  "notes": [
+    "WFA execution requires human to run locally on Windows: cd 'walk forward engine' && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/macd_divergence/wfa_config.yaml",
+    "Strategy uses hidden divergence (price swing vs MACD histogram swing) + RSI filter — a different signal class from all prior experiments (RSI, SMA, BB, BB Width, Volatility Regime, spreads)",
+    "5-year BTC dataset already present at binance_btcusdt_1h_deep.csv — no data download needed",
+    "10 parameters for Optuna: macd_fast/slow/signal, div_lookback/confirm_bars, rsi_period/oversold/overbought, hold_bars, sl_atr_mult, atr_period",
+    "Known infrastructure: agent writes artifacts, human runs WFA on Windows .venv"
+  ]
+}
+</RF_JSON>

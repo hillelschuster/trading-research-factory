@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-20260317240000-01",
+  "title": "MACD Momentum Strategy WFA on Crypto Assets",
+  "execution_timestamp": "2026-03-17T22:45:00Z",
+  "data": {
+    "btcusdt": {"candles": 500},
+    "ethusdt": {"candles": 500},
+    "solusdt": {"candles": 500}
+  },
+  "results": {
+    "macd": {
+      "btcusdt": {"return": -0.001, "sharpe": -0.326, "drawdown": -0.001, "trades": 1},
+      "ethusdt": {"return": 0.003, "sharpe": 0.305, "drawdown": -0.004, "trades": 4},
+      "solusdt": {"return": 0.0, "sharpe": 0.0, "drawdown": 0.0, "trades": 0}
+    }
+  },
+  "comparison": {
+    "by_sharpe": ["MACD ETH (0.31)", "MACD BTC (-0.33)", "MACD SOL (0.0)"],
+    "best_overall": "MACD ETH (0.31)",
+    "vs_best_strategy": {
+      "rsi_btc_sharpe": 0.94,
+      "macd_eth_sharpe": 0.31,
+      "conclusion": "RSI on BTC remains the best strategy. MACD performed poorly overall, with ETH being the best MACD target but still far below RSI."
+    }
+  },
+  "artifacts_created": [
+    "workspace/results/wfa_macd_btc.json",
+    "workspace/results/wfa_macd_eth.json",
+    "workspace/results/wfa_macd_sol.json",
+    "workspace/results/macd_strategy_comparison.json"
+  ]
+}

@@ -1,0 +1,450 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Planning Task
+```json
+{
+  "iteration": 73,
+  "backlog_item": {
+    "id": "AUTO-1774014695161-jm2",
+    "title": "Multi-Timeframe EMA Confluence with Trend Strength Gate on BTC",
+    "objective": "Research whether filtering 1h RSI entries by 4h EMA trend direction improves Sharpe over pure RSI on BTC 1h candles. Hypothesis: Entries only when 4h EMA slope confirms direction reduce false signals from oscillating RSI in trendless markets, improving Sharpe from ~0.94 to >1.1 on OOS data. Test via WFA with Optuna optimization on 6+ months of BTCUSDT 1h data.",
+    "priority": 80,
+    "category": "strategy",
+    "data_source": "btc_1h",
+    "source": "idea_generator"
+  }
+}
+```
+
+## Required Plan Fields
+```json
+{
+  "required_scope_fields": [
+    "market_family",
+    "instrument_scope_or_instrument_selection_rule",
+    "timeframe",
+    "historical_depth_requirement",
+    "source_plan",
+    "scope_selection_rationale"
+  ],
+  "required_execution_fields": [
+    "expected_artifacts",
+    "evaluation_criteria"
+  ]
+}
+```
+
+## Market Policy
+```json
+{
+  "schema_version": "market_policy_v1",
+  "updated_at": "2026-03-25T08:20:00.000Z",
+  "market_family_priorities": [
+    {
+      "market_family": "crypto",
+      "priority": 1
+    },
+    {
+      "market_family": "prediction_markets",
+      "priority": 2
+    },
+    {
+      "market_family": "forex",
+      "priority": 3
+    }
+  ],
+  "allowed_source_families": {
+    "crypto": [
+      "binance",
+      "public_archive"
+    ],
+    "prediction_markets": [
+      "polymarket_public"
+    ],
+    "forex": [
+      "dukascopy"
+    ]
+  },
+  "default_history_rules_by_market_family": {
+    "crypto": {
+      "expectation": "multi-year when realistically available",
+      "short_window_requires_explicit_justification": true
+    },
+    "prediction_markets": {
+      "expectation": "as much event-history as realistically available",
+      "short_window_requires_explicit_justification": true
+    },
+    "forex": {
+      "expectation": "longest clean liquid-history realistically available",
+      "short_window_requires_explicit_justification": true
+    }
+  },
+  "selection_policy": {
+    "min_ready_backlog_depth": 3,
+    "ready_statuses": [
+      "ready"
+    ],
+    "minimum_trade_count_for_promotion": 20,
+    "ranking_weights": {
+      "base_priority": 1,
+      "comparable_evidence": 0.2,
+      "robustness_bonus": 8,
+      "revisit_bonus": 6,
+      "novelty_bonus": 5,
+      "repeated_blocker_penalty": 8,
+      "low_trade_penalty": 10,
+      "underexplored_market_bonus": 4
+    }
+  },
+  "exclusions": []
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "EMA Trend Gate on ETH: 85 windows, 1216 trades, aggregate OOS Sharpe 0.528, max DD -16.37%, profit factor 1.103. Below 0.8 gate but statistically significant (7.5yr ETH, 85 wind...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "WFA engine does not output IS Sharpe — WFR cannot be computed. This is a systematic gap in the engine's output format across all experiments.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Trade frequency on ETH (14.3 avg trades/window) far exceeds vol_adaptive_trend BTC (4.3 trades/window) — validates ETH's higher volatility as a signal generator.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Optimized parameters stable: RSI thresholds (rsi_oversold=35, rsi_overbought=65) have CV=0.10-0.14 across 85 windows. Hold_bars unstable (CV=0.54).",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "4h EMA regime filter on ETH underperforms pure unfiltered RSI on BTC (0.94). Regime filter may be too restrictive for mean-reversion strategy.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    }
+  ],
+  "contradiction": {
+    "positive": {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260317160000-01",
+      "verdict": "passed",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Best overall pairing was SMA on SOL with Sharpe 0.53 - confirms that higher-volatility assets can benefit more from trend-following strategies",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": null,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {}
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260317104344-t03bxi.md"
+      ]
+    },
+    "negative": {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "EMA Trend Gate on ETH: 85 windows, 1216 trades, aggregate OOS Sharpe 0.528, max DD -16.37%, profit factor 1.103. Below 0.8 gate but statistically significant (7.5yr ETH, 85 wind...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    }
+  },
+  "comparable_promoted_runs": [
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260331154332-55",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "success",
+      "evidence_score": 85,
+      "market_family": "crypto",
+      "asset_scope": "BTCUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "EMA_TREND_GATE",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9048,
+        "win_rate": 0.4835,
+        "total_trades": 848,
+        "fold_variance": 2.96,
+        "markets_tested": [
+          "BTCUSDT"
+        ],
+        "extra_metrics": {
+          "aggregate_return_pct": 0.8603,
+          "profit_factor": 1.1904,
+          "avg_trades_per_window": 14.88,
+          "total_windows": 57,
+          "successful_windows": 57,
+          "comparison_to_eth": {
+            "eth_sharpe_oos": 0.528,
+            "btc_sharpe_oos": 0.998,
+            "improvement_pct": 89,
+            "eth_max_drawdown": -16.37,
+            "btc_max_drawdown": -6.9048
+          }
+        }
+      },
+      "summary_path": "factory/summaries/RUN-20260331154332-55.md",
+      "evidence_kind": "research",
+      "promotable": true
+    },
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260331154310-1aowi1",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "evidence_score": 85,
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9048,
+        "win_rate": 0.4835,
+        "total_trades": 848,
+        "fold_variance": 2.96,
+        "markets_tested": [
+          "BTCUSDT"
+        ],
+        "extra_metrics": {}
+      },
+      "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+      "evidence_kind": "research",
+      "promotable": true
+    }
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/market-policy.json
+- factory/memory/lessons.jsonl
+- factory/evidence/index.json
+- factory/leaderboard.json
+- walk forward engine/src/strategies/
+- workspace/data/fetchers/
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

@@ -1,0 +1,64 @@
+{
+  "experiment_id": "EXP-20260331154332-55",
+  "backlog_item_id": "AUTO-1774971790939-dg1",
+  "summary": "EMA Trend Gate strategy on BTCUSDT 1h (43,789 bars, ~5 years) achieved 0.998 OOS Sharpe with 848 trades across 57 windows, validating the hypothesis that BTC's higher volatility generates better risk-adjusted returns than ETH baseline (0.528 Sharpe, -16.37% DD). Key improvements: +89% Sharpe, +58% drawdown reduction.",
+  "key_lessons": [
+    {
+      "lesson": "Cross-asset generalization validated: BTC outperforms ETH baseline",
+      "specific_finding": "BTC achieved 0.998 OOS Sharpe vs ETH 0.528 (+89% improvement), with significantly better drawdown profile (-6.9% vs -16.37%, +58% improvement)",
+      "result": {
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "max_drawdown": -6.9,
+        "trades": 848
+      }
+    },
+    {
+      "lesson": "Trade frequency maintained across assets",
+      "specific_finding": "14.88 trades/window on BTC vs 14.3 on ETH (+4%), confirming strategy generates consistent opportunities on higher-volatility assets",
+      "result": {
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "max_drawdown": -6.9,
+        "trades": 848
+      }
+    },
+    {
+      "lesson": "Parameter stability varies by component",
+      "specific_finding": "RSI thresholds stable (CV=0.10-0.14) across 57 windows, but hold_bars unstable (CV=0.43) - same pattern as ETH run (CV=0.54)",
+      "result": {
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "max_drawdown": -6.9,
+        "trades": 848
+      }
+    },
+    {
+      "lesson": "WFR remains uncomputed due to engine limitation",
+      "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+      "result": {
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "max_drawdown": -6.9,
+        "trades": 848
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Pin hold_bars to median range (48-72 bars) and re-optimize to reduce parameter instability",
+      "rationale": "hold_bars shows CV=0.43 (unstable) on both ETH and BTC runs; pinning to stable range may improve robustness without sacrificing performance",
+      "priority": "high"
+    },
+    {
+      "action": "Test on other major crypto pairs (BNB, SOL) to further validate cross-asset generalization",
+      "rationale": "BTC shows strong generalization vs ETH; testing on additional assets will strengthen evidence base for strategy family",
+      "priority": "medium"
+    },
+    {
+      "action": "Consider extending to larger timeframe combination (4h/1h already tested, try 8h/4h)",
+      "rationale": "Strategy leverages 4h regime filter + 1h entry; larger timeframes may capture broader trends with similar pullback logic",
+      "priority": "low"
+    }
+  ]
+}

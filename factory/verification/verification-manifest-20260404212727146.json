@@ -1,0 +1,2893 @@
+{
+  "schema_version": "verification_manifest_v1",
+  "generated_at": "2026-04-04T21:28:00.889Z",
+  "health_path": "factory/health.json",
+  "latest_transport_bakeoff": "factory/verification/transport-bakeoff-20260402140907184.json",
+  "stage_gate_counts": {
+    "total": 202,
+    "allowed": 74,
+    "denied": 128
+  },
+  "false_pass_prevention": {
+    "denied_stage_gates": 128,
+    "denied_false_executed_claims": 6,
+    "denied_generic_summaries": 0
+  },
+  "executor_completion_rate": {
+    "total_executor_stage_gates": 107,
+    "allowed_executor_stage_gates": 17,
+    "completion_rate": 0.1589
+  },
+  "evidence_yield": {
+    "live_research_entries_total": 24,
+    "live_research_entries_last_24h": 3
+  },
+  "run_gate_results": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260402182432-nt5n3g",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260402182432-nt5n3g/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-02T18:24:46.082Z",
+      "gate_path": "factory/runs/RUN-20260402182432-nt5n3g/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260402182432-nt5n3g",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260402182432-nt5n3g/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-02T18:24:51.340Z",
+      "gate_path": "factory/runs/RUN-20260402182432-nt5n3g/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260402182432-nt5n3g",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260402182432-nt5n3g/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-02T18:25:15.742Z",
+      "gate_path": "factory/runs/RUN-20260402182432-nt5n3g/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260402182432-nt5n3g",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260402182432-nt5n3g/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-02T18:25:20.034Z",
+      "gate_path": "factory/runs/RUN-20260402182432-nt5n3g/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:14.156Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:15.913Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:21.259Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070410-gapco4",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070410-gapco4/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:04:22.888Z",
+      "gate_path": "factory/runs/RUN-20260403070410-gapco4/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070906-b47mj8",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070906-b47mj8/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:09:11.140Z",
+      "gate_path": "factory/runs/RUN-20260403070906-b47mj8/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070906-b47mj8",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070906-b47mj8/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:09:12.924Z",
+      "gate_path": "factory/runs/RUN-20260403070906-b47mj8/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070906-b47mj8",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070906-b47mj8/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:09:18.157Z",
+      "gate_path": "factory/runs/RUN-20260403070906-b47mj8/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403070906-b47mj8",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403070906-b47mj8/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:09:19.951Z",
+      "gate_path": "factory/runs/RUN-20260403070906-b47mj8/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071315-u4ehur",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071315-u4ehur/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:13:21.864Z",
+      "gate_path": "factory/runs/RUN-20260403071315-u4ehur/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071315-u4ehur",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071315-u4ehur/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:13:24.262Z",
+      "gate_path": "factory/runs/RUN-20260403071315-u4ehur/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071315-u4ehur",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071315-u4ehur/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:13:30.841Z",
+      "gate_path": "factory/runs/RUN-20260403071315-u4ehur/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071315-u4ehur",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071315-u4ehur/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:13:32.929Z",
+      "gate_path": "factory/runs/RUN-20260403071315-u4ehur/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071729-wdy5sd",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071729-wdy5sd/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:17:34.338Z",
+      "gate_path": "factory/runs/RUN-20260403071729-wdy5sd/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071729-wdy5sd",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071729-wdy5sd/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:17:36.324Z",
+      "gate_path": "factory/runs/RUN-20260403071729-wdy5sd/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071729-wdy5sd",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071729-wdy5sd/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:17:41.089Z",
+      "gate_path": "factory/runs/RUN-20260403071729-wdy5sd/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403071729-wdy5sd",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403071729-wdy5sd/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:17:43.058Z",
+      "gate_path": "factory/runs/RUN-20260403071729-wdy5sd/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072450-x4tss7",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072450-x4tss7/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:24:56.433Z",
+      "gate_path": "factory/runs/RUN-20260403072450-x4tss7/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072450-x4tss7",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072450-x4tss7/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:24:58.894Z",
+      "gate_path": "factory/runs/RUN-20260403072450-x4tss7/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072450-x4tss7",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072450-x4tss7/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:25:03.904Z",
+      "gate_path": "factory/runs/RUN-20260403072450-x4tss7/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072450-x4tss7",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072450-x4tss7/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:25:05.993Z",
+      "gate_path": "factory/runs/RUN-20260403072450-x4tss7/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:22.415Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:24.609Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:30.903Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:32.795Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403073432-o5mk2z",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403073432-o5mk2z/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:34:38.982Z",
+      "gate_path": "factory/runs/RUN-20260403073432-o5mk2z/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403073432-o5mk2z",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403073432-o5mk2z/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:34:41.499Z",
+      "gate_path": "factory/runs/RUN-20260403073432-o5mk2z/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403073432-o5mk2z",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403073432-o5mk2z/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:34:47.102Z",
+      "gate_path": "factory/runs/RUN-20260403073432-o5mk2z/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403073432-o5mk2z",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403073432-o5mk2z/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:34:49.304Z",
+      "gate_path": "factory/runs/RUN-20260403073432-o5mk2z/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074130-srm4e3",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074130-srm4e3/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:41:35.086Z",
+      "gate_path": "factory/runs/RUN-20260403074130-srm4e3/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074130-srm4e3",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074130-srm4e3/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:41:37.206Z",
+      "gate_path": "factory/runs/RUN-20260403074130-srm4e3/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074130-srm4e3",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074130-srm4e3/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:41:42.204Z",
+      "gate_path": "factory/runs/RUN-20260403074130-srm4e3/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074130-srm4e3",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074130-srm4e3/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:41:44.114Z",
+      "gate_path": "factory/runs/RUN-20260403074130-srm4e3/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074634-vvs8zu",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074634-vvs8zu/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:46:39.490Z",
+      "gate_path": "factory/runs/RUN-20260403074634-vvs8zu/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074634-vvs8zu",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074634-vvs8zu/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:46:41.563Z",
+      "gate_path": "factory/runs/RUN-20260403074634-vvs8zu/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074634-vvs8zu",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074634-vvs8zu/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:46:46.728Z",
+      "gate_path": "factory/runs/RUN-20260403074634-vvs8zu/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403074634-vvs8zu",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403074634-vvs8zu/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:46:48.804Z",
+      "gate_path": "factory/runs/RUN-20260403074634-vvs8zu/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:43.065Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:45.170Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:50.055Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:51.990Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122700-29w30s",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122700-29w30s/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:27:06.778Z",
+      "gate_path": "factory/runs/RUN-20260403122700-29w30s/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122700-29w30s",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122700-29w30s/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:27:07.676Z",
+      "gate_path": "factory/runs/RUN-20260403122700-29w30s/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122700-29w30s",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122700-29w30s/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:27:13.440Z",
+      "gate_path": "factory/runs/RUN-20260403122700-29w30s/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122700-29w30s",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122700-29w30s/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:27:15.828Z",
+      "gate_path": "factory/runs/RUN-20260403122700-29w30s/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122943-1y5tal",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122943-1y5tal/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:29:48.515Z",
+      "gate_path": "factory/runs/RUN-20260403122943-1y5tal/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122943-1y5tal",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122943-1y5tal/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:29:50.638Z",
+      "gate_path": "factory/runs/RUN-20260403122943-1y5tal/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122943-1y5tal",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122943-1y5tal/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:29:56.671Z",
+      "gate_path": "factory/runs/RUN-20260403122943-1y5tal/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403122943-1y5tal",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403122943-1y5tal/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:29:58.627Z",
+      "gate_path": "factory/runs/RUN-20260403122943-1y5tal/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T12:35:57.076Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-03T12:40:49.400Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-03T12:45:45.409Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-03T12:50:44.236Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "OpenCode server manager not initialized.",
+      "recorded_at": "2026-04-03T14:16:34.356Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "OpenCode server manager not initialized.",
+      "recorded_at": "2026-04-03T14:16:37.548Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "OpenCode server manager not initialized.",
+      "recorded_at": "2026-04-03T14:16:42.895Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "executor",
+      "attempt": 7,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-7/stage-validated.json",
+        "walk forward engine/strategies/ema_trend_gate/results/walk_forward_summary_20260403_161304.csv",
+        "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+        "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+        "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260403_161304.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T14:23:56.569Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/executor-attempt-7/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-1/stage-error.json"
+      ],
+      "reason": "Evaluator must cite exact metric verification sources when metrics are claimed.",
+      "recorded_at": "2026-04-03T14:24:45.200Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "evaluator",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-2/stage-error.json"
+      ],
+      "reason": "Evaluator must cite exact metric verification sources when metrics are claimed.",
+      "recorded_at": "2026-04-03T14:25:25.006Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "evaluator",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-3/stage-error.json"
+      ],
+      "reason": "Evaluator must cite exact metric verification sources when metrics are claimed.",
+      "recorded_at": "2026-04-03T14:25:51.382Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "evaluator",
+      "attempt": 4,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-4/stage-validated.json",
+        "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+        "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+        "factory/runs/RUN-20260403123500-01/execution-result.json",
+        "factory/runs/RUN-20260403123500-01/evaluation.json",
+        "factory/summaries/RUN-20260403123500-01.md"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T14:33:50.333Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/evaluator-attempt-4/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403123516-uhaq6t/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T14:34:01.301Z",
+      "gate_path": "factory/runs/RUN-20260403123516-uhaq6t/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404075959-ij3gm9",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404075959-ij3gm9/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:00:44.403Z",
+      "gate_path": "factory/runs/RUN-20260404075959-ij3gm9/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404075959-ij3gm9",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404075959-ij3gm9/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:01:27.369Z",
+      "gate_path": "factory/runs/RUN-20260404075959-ij3gm9/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404075959-ij3gm9",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404075959-ij3gm9/evaluator-attempt-1/stage-validated.json",
+        "factory/experiments/EXP-20260404000000-NN.plan.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:01:47.166Z",
+      "gate_path": "factory/runs/RUN-20260404075959-ij3gm9/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404075959-ij3gm9",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404075959-ij3gm9/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:01:55.679Z",
+      "gate_path": "factory/runs/RUN-20260404075959-ij3gm9/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:08:05.942Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T08:13:24.345Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T08:18:43.322Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T08:24:09.543Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "HTTP transport request to /session/ses_2a8645c28ffeWGmhcaO3P3xfgb/message failed before a valid response was received.",
+      "recorded_at": "2026-04-04T08:33:51.292Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "HTTP transport request to /session/ses_2a85f6cebffeolHCZZxJyS9MMr/message failed before a valid response was received.",
+      "recorded_at": "2026-04-04T08:39:12.507Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "HTTP transport request to /session/ses_2a85a79d7ffeDyqegSksQbr8VY/message failed before a valid response was received.",
+      "recorded_at": "2026-04-04T08:44:39.133Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "executor",
+      "attempt": 7,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/executor-attempt-7/stage-validated.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_114858.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:53:05.406Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/executor-attempt-7/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/evaluator-attempt-1/stage-validated.json",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080753-bnb/execution-result.json",
+        "factory/runs/RUN-20260404080753-bnb/evaluation.json",
+        "factory/summaries/RUN-20260404080753-bnb.md",
+        "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_114858.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/parameter_stability_20260404_114858.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/analysis.json",
+        "factory/evidence/index.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:53:39.004Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404080723-hm4238",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404080723-hm4238/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T08:53:49.246Z",
+      "gate_path": "factory/runs/RUN-20260404080723-hm4238/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T09:03:46.692Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:04:39.673Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:05:25.875Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:08:47.308Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:09:43.247Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:10:51.212Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T09:13:36.569Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:14:32.354Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:15:25.290Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T13:34:22.616Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_v2/wfa_config.yaml",
+      "recorded_at": "2026-04-04T13:34:58.052Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T13:36:05.110Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T13:38:39.857Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 14,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T13:39:38.089Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:45:02.961Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:50:45.917Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:56:21.109Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:05:26.692Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:10:58.740Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:16:37.622Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:26:05.832Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:31:36.232Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:37:28.759Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 10,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-10/stage-validated.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_173914.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:00:57.483Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-10/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/evaluator-attempt-1/stage-validated.json",
+        "factory/experiments/EXP-20260404133920-01.plan.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_173914.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/parameter_stability_20260404_173914.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/analysis.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:01:45.105Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:02:02.299Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/summarizer-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T09:18:00.388Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/planner-attempt-2/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T09:20:09.156Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T09:26:19.533Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request failed before response was received.",
+      "recorded_at": "2026-04-04T09:26:55.238Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T12:42:12.400Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T12:47:35.572Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T12:53:06.992Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:00:43.259Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:06:05.057Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:11:28.934Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:19:32.948Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:25:02.691Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:30:44.703Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:46:20.384Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:51:50.948Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:57:25.147Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:16:14.993Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:21:50.242Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404091704-9063ea",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:27:33.386Z",
+      "gate_path": "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+      "recorded_at": "2026-04-04T15:04:55.983Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+      "recorded_at": "2026-04-04T15:05:43.227Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:06:36.831Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:09:22.289Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner result experiment_id must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:09:57.521Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate/wfa_config_eth.yaml",
+      "recorded_at": "2026-04-04T15:10:30.703Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 7,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:13:10.601Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:18:39.385Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:24:13.510Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:29:48.252Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:37:53.628Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:43:25.440Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:49:03.308Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:57:10.447Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:02:43.627Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:08:18.909Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:37:01.681Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:42:38.832Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:48:27.997Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "OpenCode executor session creation failed before a session was returned.",
+      "recorded_at": "2026-04-04T17:06:14.800Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:12:58.945Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:18:35.587Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:24:13.476Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+      "recorded_at": "2026-04-04T16:54:52.145Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "planner transport request failed before response was received.",
+      "recorded_at": "2026-04-04T16:55:51.216Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T17:29:16.586Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "planner",
+      "attempt": 4,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-4/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T17:30:07.011Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/planner-attempt-4/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:35:39.872Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:41:13.893Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:46:52.071Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:55:31.125Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T18:01:04.478Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T18:06:41.266Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T18:30:57.097Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T18:36:39.802Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404165325-7sqr6l",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T18:42:18.994Z",
+      "gate_path": "factory/runs/RUN-20260404165325-7sqr6l/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result source plan missing allowed source families.",
+      "recorded_at": "2026-04-04T18:10:50.223Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner result source plan missing allowed source families.",
+      "recorded_at": "2026-04-04T18:13:43.838Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result evaluation criteria must include meaningful numeric metrics.",
+      "recorded_at": "2026-04-04T18:15:15.104Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb/wfa_config_minimal.yaml",
+      "recorded_at": "2026-04-04T18:18:38.910Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner result evaluation criteria must include meaningful numeric metrics.",
+      "recorded_at": "2026-04-04T18:21:10.038Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must be exact file paths.",
+      "recorded_at": "2026-04-04T18:23:36.566Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "JSON parse failed: Expected ',' or '}' after property value in JSON at position 3155 (line 56 column 50). Content: {\n  \"experiment_id\": \"EXP-20260404190000-WFRVERIFY\",\n  \"title\": \"Verify WFR calculation capability from window results\",\n  \"backlog_item_id\": \"IDEA-923607-515\",\n  \"objective\": \"Verify WFR (Walk-Forwar",
+      "recorded_at": "2026-04-04T18:49:26.390Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner result data acquisition status must be 'present' or 'must_download'.",
+      "recorded_at": "2026-04-04T18:50:48.263Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "planner",
+      "attempt": 9,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-9/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T18:52:08.151Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-9/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "Executor provenance must declare the canonical walk_forward_engine.",
+      "recorded_at": "2026-04-04T18:52:40.271Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T18:54:03.308Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T18:55:23.796Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T18:58:44.204Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T18:59:36.712Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T19:00:37.375Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "Executor reported 'executed' without any observed WFA metrics.",
+      "recorded_at": "2026-04-04T19:45:08.590Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "Executor provenance must declare the canonical walk_forward_engine.",
+      "recorded_at": "2026-04-04T19:46:16.072Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404180915-mksmvv",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "Executor provenance must include the canonical WFA command.",
+      "recorded_at": "2026-04-04T19:47:26.052Z",
+      "gate_path": "factory/runs/RUN-20260404180915-mksmvv/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T19:03:54.549Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:09:27.550Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:15:02.285Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:20:43.730Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:28:59.089Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:34:34.727Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:40:13.571Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:37:06.454Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:42:12.846Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404190241-k4ttch",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:47:23.598Z",
+      "gate_path": "factory/runs/RUN-20260404190241-k4ttch/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result missing numeric min_evidence_score.",
+      "recorded_at": "2026-04-04T19:49:59.235Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/planner-attempt-2/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T19:51:14.856Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T19:56:47.775Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:02:22.600Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:07:48.718Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:16:04.450Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:21:16.020Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:26:47.308Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T20:57:13.073Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T21:02:21.422Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404194911-1mgaw5",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T21:07:29.101Z",
+      "gate_path": "factory/runs/RUN-20260404194911-1mgaw5/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404211002-hmi9jy",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "planner transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T21:15:11.958Z",
+      "gate_path": "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404211002-hmi9jy",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "planner transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T21:20:16.752Z",
+      "gate_path": "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404211002-hmi9jy",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "planner transport request failed before response was received.",
+      "recorded_at": "2026-04-04T21:25:15.491Z",
+      "gate_path": "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-3/stage-gate.json"
+    }
+  ]
+}

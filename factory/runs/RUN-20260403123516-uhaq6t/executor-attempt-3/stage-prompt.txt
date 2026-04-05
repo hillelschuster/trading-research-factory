@@ -1,0 +1,280 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Execution Task
+```json
+{
+  "iteration": 106,
+  "plan": {
+    "experiment_id": "EXP-20260403123500-01",
+    "title": "ETHUSDT EMA Trend Gate - Cross-Asset Generalization Test",
+    "backlog_item_id": "AUTO-1775219382971-vlo",
+    "objective": "Test whether EMA Trend Gate strategy (proven on BTC) generalizes to ETHUSDT with multi-year deep history",
+    "hypothesis": "The 4h EMA trend gate filtering 1h RSI mean-reversion signals, which achieved 0.998 OOS Sharpe on BTC, will produce similarly robust results on ETHUSDT - testing cross-asset generalization within crypto",
+    "strategy_rationale": "EMA_TREND_GATE is the highest-performing strategy from recent runs (BTC 0.998 OOS Sharpe, -6.9% DD, 848 trades). Testing on ETH validates whether the multi-timeframe regime filter approach generalizes across liquid crypto assets. This directly follows from the lesson that BTC outperformed ETH in the prior run - now testing if ETH can match BTC performance with optimized parameters.",
+    "strategy_type": "multi_timeframe",
+    "market_family": "crypto",
+    "instrument_scope": "ETHUSDT spot (binance_ethusdt_1h_deep.csv)",
+    "instrument_selection_rule": null,
+    "timeframe": "1h with 4h regime filter",
+    "dataset_requirements": [
+      "OHLCV 1h bars for ETHUSDT from Binance with maximum available history"
+    ],
+    "historical_depth_requirement": {
+      "target": "~7.5 years (64734 bars)",
+      "justification": "ETHUSDT has the deepest available history among liquid crypto datasets (64k bars vs BTC 43k). Multi-year history required for robust WFA across multiple market cycles. This exceeds minimum for statistical validity."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "Existing deep dataset in workspace/data/binance_ethusdt_1h_deep.csv already contains ~64k bars of clean 1h OHLCV data - no download needed. This is the deepest crypto dataset available in the factory."
+    },
+    "scope_selection_rationale": "ETHUSDT selected as the liquid crypto instrument with deepest available history (~7.5 years). This maximizes WFA window count and ensures testing across multiple market cycles (bull, bear, sideways). Prior BTC run achieved 57 windows; ETH should achieve similar or more windows given longer history.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Existing deep dataset binance_ethusdt_1h_deep.csv contains 64734 rows (~7.5 years of 1h data) - sufficient for full WFA without additional download",
+      "acquisition_method": "existing_fetcher",
+      "sources": [
+        "workspace/data/binance_ethusdt_1h_deep.csv"
+      ],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "walk forward engine/src/strategies/ema_trend_gate.py",
+      "walk forward engine/config/strategy_ema_trend_gate.json",
+      "factory/memory/lessons.jsonl (for prior EMA_TREND_GATE results on BTC)",
+      "factory/evidence/index.json (EXP-20260331154332-55 for BTC baseline)"
+    ],
+    "implementation_steps": [
+      "1. Verify ETHUSDT deep data exists and has correct columns (timestamp, open, high, low, close, volume)",
+      "2. Create WFA config for EMA_TREND_GATE on ETHUSDT 1h (or update existing config to point to ETHUSDT)",
+      "3. Execute WFA using canonical path: walk forward engine/.venv/Scripts/python.exe scripts/walk_forward_smoke_test.py",
+      "4. Capture execution artifacts: execution-result.json, evaluation.json, summary.json",
+      "5. Compare OOS Sharpe to BTC baseline (0.998) and ETH prior result (0.528)"
+    ],
+    "commands": [
+      "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "factory/runs/RUN-20260403123500-01/execution-result.json",
+      "factory/runs/RUN-20260403123500-01/evaluation.json",
+      "factory/runs/RUN-20260403123500-01/summary.json",
+      "factory/summaries/RUN-20260403123500-01.md"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 100,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "WFA must complete with at least 30 OOS trades and valid metrics",
+      "metrics": {
+        "min_sharpe_oos": 0.8,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 30
+      },
+      "min_evidence_score": 70
+    },
+    "fallback_if_blocked": [
+      "If ETHUSDT data has issues, fall back to BNBUSDT (43k bars, ~5 years)",
+      "If WFA fails on ETH, document as blocked with specific error"
+    ],
+    "notes": [
+      "This is a cross-asset generalization test - we already have BTC results, now testing ETH to see if strategy generalizes",
+      "Prior BTC run achieved 0.998 OOS Sharpe with -6.9% max DD over 57 windows and 848 trades",
+      "ETH has longer history so should achieve similar or more WFA windows",
+      "Compare results to both BTC (0.998) and prior ETH run (0.528) to measure improvement"
+    ]
+  }
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_execution_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "First WFA execution on ETHUSDT 1h — 64,733 bars (7.5yr history). ETHUSDT existed from 2017, Binance paginated API fetched full depth in 66 batches.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.528,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -16.37,
+        "win_rate": 0.461,
+        "total_trades": 1216,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "avg_trades_per_window": 14.3,
+          "profit_factor": 1.103,
+          "expectancy": 0.098,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "positive_sharpe_windows": 42,
+          "evidence_score": 60
+        }
+      },
+      "related_artifact_paths": []
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321183000-01",
+      "verdict": "inconclusive",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "5-year BTC dataset present (binance_btcusdt_1h_deep.csv, 43,789 bars) but WFA could not be run on it — historical depth policy satisfied at input but blocked at execution.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": null,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {}
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260321183000-01.md"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260318140000-01",
+      "verdict": "blocked",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Data validation passed: binance_btcusdt_1h_1000.csv, binance_ethusdt_1h_1000.csv, binance_solusdt_1h_1000.csv all contain volume column needed for strategy",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": null,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {}
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260317144547-s59h3s.md"
+      ]
+    }
+  ],
+  "known_blocker_patterns": [
+    {
+      "blocker_type": "general_execution",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "lesson": "EMA Trend Gate on ETH: 85 windows, 1216 trades, aggregate OOS Sharpe 0.528, max DD -16.37%, profit factor 1.103. Below 0.8 gate but statistically significant (7.5yr ETH, 85 wind..."
+    },
+    {
+      "blocker_type": "config_contract",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321200000-01",
+      "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window..."
+    },
+    {
+      "blocker_type": "python_environment",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260321183000-01",
+      "lesson": "MACD Divergence strategy created: hidden bullish/bearish divergence detection + RSI filter — a genuinely novel signal class not tested before."
+    }
+  ],
+  "relevant_paths": [
+    "factory/summaries/RUN-20260321183000-01.md",
+    "factory/summaries/RUN-20260317144547-s59h3s.md"
+  ]
+}
+```
+
+## Retry Or Handoff Note
+```json
+{
+  "stage": "executor",
+  "previous_attempt": 2,
+  "failure_class": "transport",
+  "last_error": "executor transport request timed out waiting for response headers."
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260403123500-01.plan.json
+- walk forward engine/src/strategies/ema_trend_gate.py
+- walk forward engine/config/strategy_ema_trend_gate.json
+- factory/memory/lessons.jsonl (for prior EMA_TREND_GATE results on BTC)
+- factory/evidence/index.json (EXP-20260331154332-55 for BTC baseline)
+- factory/runs/RUN-20260403123500-01/execution-result.json
+- factory/runs/RUN-20260403123500-01/evaluation.json
+- factory/runs/RUN-20260403123500-01/summary.json
+- factory/summaries/RUN-20260403123500-01.md
+- walk forward engine/strategies/
+- walk forward engine/config/
+- workspace/data/
+- factory/memory/lessons.jsonl
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

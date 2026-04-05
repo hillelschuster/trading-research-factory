@@ -1,0 +1,56 @@
+
+> trading-research-factory@2.0.0 run
+> node src/cli.mjs run --mode live --cycles 0 --interval-ms 5000
+
+[OpenCodeRunner] Existing server connection failed after 5 attempts: fetch failed
+[OpenCodeRunner] Starting new OpenCode server...
+[OpenCodeRunner] New server started
+[2026-04-01T06:17:40.775Z] Starting run
+[OpenCodeRunner] Session URL (planner attempt 1): http://127.0.0.1:4096/global/session/ses_2b84f327fffeu5HxU0kaUiM8As
+[2026-04-01T06:19:58.039Z] Planner completed
+[OpenCodeRunner] Session URL (executor attempt 1): http://127.0.0.1:4096/global/session/ses_2b84d1e55ffeTxg31E5DfHxH0G
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:25:14.850Z] Executor failed (attempt 1/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 2): http://127.0.0.1:4096/global/session/ses_2b8483ef2ffeY0cwXEAtiiCTRy
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:30:35.129Z] Executor failed (attempt 2/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 3): http://127.0.0.1:4096/global/session/ses_2b8435267ffeGNRP14BgzYCZwV
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:35:56.901Z] Executor failed (attempt 3/3) | error: executor agent request timed out waiting for response headers.
+[2026-04-01T06:35:57.749Z] Run failed | error: executor agent request timed out waiting for response headers.
+[2026-04-01T06:36:23.632Z] Resuming run
+[OpenCodeRunner] Session URL (executor attempt 1): http://127.0.0.1:4096/global/session/ses_2b83e1384ffen6x0FSdMWJi9rv
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:41:42.139Z] Executor failed (attempt 1/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 2): http://127.0.0.1:4096/global/session/ses_2b83926a6ffe8cOrh2v2Umy2Xt
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:47:05.590Z] Executor failed (attempt 2/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 3): http://127.0.0.1:4096/global/session/ses_2b83431b7ffeSaPvyH0RAE7XEr
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T06:52:46.325Z] Executor failed (attempt 3/3) | error: executor agent request timed out waiting for response headers.
+[2026-04-01T06:52:51.501Z] Run failed | error: executor agent request timed out waiting for response headers.
+[2026-04-01T06:56:44.897Z] Resuming run
+[OpenCodeRunner] Session URL (executor attempt 1): http://127.0.0.1:4096/global/session/ses_2b82b613dffeKjboQ1sXxETRJH
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:02:13.787Z] Executor failed (attempt 1/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 2): http://127.0.0.1:4096/global/session/ses_2b826551affeHaFgqH2XokRwXI
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:07:49.754Z] Executor failed (attempt 2/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 3): http://127.0.0.1:4096/global/session/ses_2b8210f75ffegcBtZdxOCCKvPl
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:13:34.317Z] Executor failed (attempt 3/3) | error: executor agent request timed out waiting for response headers.
+[2026-04-01T07:13:42.126Z] Run failed | error: executor agent request timed out waiting for response headers.
+[2026-04-01T07:16:58.950Z] Resuming run
+[OpenCodeRunner] Session URL (executor attempt 1): http://127.0.0.1:4096/global/session/ses_2b818c891ffehck0kPHO24PpEk
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:22:41.381Z] Executor failed (attempt 1/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 2): http://127.0.0.1:4096/global/session/ses_2b8137f34ffefKXaXt7mvdtlyA
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:28:23.563Z] Executor failed (attempt 2/3) | error: executor agent request timed out waiting for response headers.
+[OpenCodeRunner] Session URL (executor attempt 3): http://127.0.0.1:4096/global/session/ses_2b80e46f6ffe6eVx0pyqBcw1QN
+[OpenCodeRunner] Opened browser via cmd.exe
+[2026-04-01T07:34:10.724Z] Executor failed (attempt 3/3) | error: executor agent request timed out waiting for response headers.
+[2026-04-01T07:34:15.690Z] Run failed | error: executor agent request timed out waiting for response headers.
+[2026-04-01T07:36:17.166Z] Resuming run
+[OpenCodeRunner] Session URL (executor attempt 1): http://127.0.0.1:4096/global/session/ses_2b8072778ffeMnZuDquj6rK3ja
+[OpenCodeRunner] Opened browser via cmd.exe

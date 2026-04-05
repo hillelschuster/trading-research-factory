@@ -1,0 +1,52 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260405132700-01",
+  "backlog_item_id": "IDEA-923409-1zj",
+  "summary": "Robustness verification run for BNB-specific RSI parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168) tested across 54 WFA windows with FIXED parameters. Results show 61.1% positive Sharpe windows (below 70% target), aggregate OOS Sharpe 0.664 vs prior discovery 1.275 (-48% decline), confirming partial overfitting to original training window.",
+  "key_lessons": [
+    {
+      "lesson": "Fixed parameter robustness test exposes overfitting to original optimization window",
+      "specific_finding": "When the discovered BNB parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168) were run across 54 fixed windows (no per-window optimization), Sharpe dropped from 1.275 to 0.664 (-48%). Only 61.1% of windows achieved positive Sharpe, below the 70% threshold.",
+      "result": {
+        "sharpe_oos": 0.6636,
+        "wfr": null,
+        "max_drawdown": -9.16,
+        "trades": 399,
+        "positive_sharpe_windows_pct": 61.1,
+        "sharpe_decline_from_discovery": -48
+      }
+    },
+    {
+      "lesson": "168 hold_bars (7-day mean reversion) works for BNB but regime sensitivity remains high",
+      "specific_finding": "The longer hold_bars (168 bars = ~7 days at 1h) captures weekly mean reversion cycles in BNB's exchange token volatility profile. However, window-by-window performance varies dramatically (Sharpe range: -0.87 to 2.29), indicating strong regime dependency.",
+      "result": {
+        "sharpe_oos": 0.6636,
+        "wfr": null,
+        "max_drawdown": -9.16,
+        "trades": 399,
+        "min_window_sharpe": -0.87,
+        "max_window_sharpe": 2.29
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Test shorter hold_bars (96-120 bars / 4-5 days) for more adaptive signal",
+      "rationale": "The 168-bar hold period may be too long, causing sensitivity to specific market regimes. Shorter holds could provide more consistent signals across varying market conditions.",
+      "priority": "high"
+    },
+    {
+      "action": "Implement regime filter to avoid trading in low-conviction market conditions",
+      "rationale": "Given 61.1% positive Sharpe windows and high variance, adding a volatility or trend regime filter could improve consistency by avoiding unfavorable market periods.",
+      "priority": "high"
+    },
+    {
+      "action": "Consider ensemble approach combining EMA Trend Gate with complementary signal types",
+      "rationale": "Pure mean-reversion shows marginal robustness. Combining with momentum or funding-rate signals could improve consistency across regimes.",
+      "priority": "medium"
+    }
+  ]
+}
+</RF_JSON>

@@ -1,0 +1,224 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Execution Task
+```json
+{
+  "iteration": 140,
+  "plan": {
+    "experiment_id": "EXP-20260404180000-01",
+    "title": "Verify WFR calculation capability from window results",
+    "backlog_item_id": "IDEA-923607-515",
+    "objective": "Verify if WFR (Walk-Forward Ratio) calculation is possible from existing window results by inspecting engine code and available data structures",
+    "hypothesis": "The WFA engine currently does not persist in-sample Sharpe from optimization phase to window results, making WFR calculation impossible without engine modification. This experiment verifies this limitation and identifies the exact data that IS available for potential WFR reconstruction.",
+    "strategy_rationale": "This is an engineering verification task, not a trading strategy experiment. The goal is to understand what data exists in window results that could be used to compute WFR if needed for future strategy evaluations.",
+    "strategy_type": "regime",
+    "market_family": "crypto",
+    "instrument_scope": "N/A - engine verification only",
+    "instrument_selection_rule": "Use existing BTC/USDT data already present in workspace",
+    "timeframe": "1h",
+    "dataset_requirements": [
+      "Any existing CSV with WFA window results containing both optimization and validation metrics"
+    ],
+    "historical_depth_requirement": {
+      "target": "N/A - code inspection task",
+      "justification": "This is an engineering verification task that examines existing engine code and data structures, not market data-dependent"
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "public_archive",
+      "selection_reason": "Using pre-existing data already fetched for prior experiments"
+    },
+    "scope_selection_rationale": "This verification task uses existing code inspection rather than new market data. The primary goal is to determine what metrics are available in window results for potential WFR calculation.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Existing window result artifacts and engine code are sufficient for verification - no new data fetch needed",
+      "acquisition_method": "existing_fetcher",
+      "sources": [],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "walk forward engine/src/walk_forward/walk_forward_runner.py (WindowResult dataclass)",
+      "walk forward engine/src/walk_forward/wfa_efficiency.py (WFAEfficiencyCalculator)",
+      "factory/runs/*/execution-result.json (sample window outputs)",
+      "Prior lesson: WFR remains uncomputed due to engine limitation"
+    ],
+    "implementation_steps": [
+      "1. Inspect WindowResult dataclass in walk_forward_runner.py for available IS metrics",
+      "2. Check wfa_efficiency.py to see if optimization_sharpe is tracked but not persisted",
+      "3. Examine existing execution-result.json artifacts for what metrics are available",
+      "4. Verify if optimization_sharpe could be reconstructed from trial data",
+      "5. Document findings and determine if WFR calculation is feasible with current engine"
+    ],
+    "commands": [
+      "N/A - manual code inspection task"
+    ],
+    "expected_artifacts": [
+      "factory/experiments/EXP-20260404180000-01.plan.json (this plan)",
+      "factory/runs/verification-wfr-capability.md (verification findings document)"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 0,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "Verification complete with documented findings",
+      "metrics": {
+        "min_sharpe_oos": 0,
+        "min_wfr": 0,
+        "max_drawdown_pct": 100,
+        "min_trades": 0
+      },
+      "min_evidence_score": 0
+    },
+    "fallback_if_blocked": [
+      "Document that WFR calculation is not currently possible without engine modification"
+    ],
+    "notes": [
+      "This is a verification/engineering task, not a trading strategy experiment",
+      "The WFA engine needs to persist optimization_sharpe to enable WFR calculation",
+      "WFAEfficiencyCalculator tracks optimization/validation Sharpe but doesn't save to output",
+      "Recommendation: Add optimization_sharpe field to WindowResult for future WFR capability"
+    ]
+  }
+}
+```
+
+## Execution Discipline
+```json
+{
+  "inspect_scope": "Inspect only the exact files listed below unless a concrete blocker forces one adjacent file read.",
+  "first_action_rule": "If the canonical WFA config path already exists and data is present, use the provided command path immediately instead of broad repo exploration.",
+  "blocker_rule": "If the command cannot run, return a blocked result with exact path evidence and the smallest necessary fix path."
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_execution_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "lesson": "WFR remains uncomputed due to engine limitation",
+      "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9,
+        "win_rate": null,
+        "total_trades": 848,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 848
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/experiments/EXP-20260331154332-55.plan.json",
+        "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+        "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+        "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "verdict": "inconclusive",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": "multi_timeframe",
+      "lesson": "Config path validation is missing from planner workflow - recurring blocker pattern",
+      "specific_finding": "Multiple prior experiments blocked due to non-existent config paths; this indicates systematic gap where planners do not verify strategy directories exist before execution",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": 0,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 0
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404075959-ij3gm9.md",
+        "factory/experiments/EXP-20260404000000-NN.plan.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+      ]
+    }
+  ],
+  "known_blocker_patterns": [
+    {
+      "blocker_type": "config_contract",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+    },
+    {
+      "blocker_type": "general_execution",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+    }
+  ],
+  "relevant_paths": [
+    "factory/summaries/RUN-20260331154310-1aowi1.md",
+    "factory/experiments/EXP-20260331154332-55.plan.json",
+    "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+    "factory/runs/RUN-20260331154310-1aowi1/evaluation.json"
+  ]
+}
+```
+
+## Retry Or Handoff Note
+```json
+{
+  "stage": "executor",
+  "previous_attempt": 1,
+  "failure_class": "schema",
+  "validator_error": "Executor reported 'executed' without any observed WFA metrics."
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260404180000-01.plan.json
+- walk forward engine/src/walk_forward/walk_forward_runner.py (WindowResult dataclass)
+- walk forward engine/src/walk_forward/wfa_efficiency.py (WFAEfficiencyCalculator)
+- factory/runs/*/execution-result.json (sample window outputs)
+- Prior lesson: WFR remains uncomputed due to engine limitation
+- factory/experiments/EXP-20260404180000-01.plan.json (this plan)
+- factory/runs/verification-wfr-capability.md (verification findings document)
+- walk forward engine/strategies/
+- walk forward engine/config/
+- workspace/data/
+- factory/memory/lessons.jsonl
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-20260317180000-01",
+  "verdict": "passed",
+  "evidence_score": 70,
+  "objective_score": 75,
+  "reproducibility_score": 75,
+  "novelty_score": 55,
+  "metrics": {
+    "sharpe": 0.571,
+    "max_drawdown": -0.0049,
+    "win_rate": 0.31,
+    "trades": 4
+  },
+  "strengths": [
+    "SOL-BTC spread achieved best Sharpe (0.57) - best result in factory so far",
+    "Successfully tested multiple spread pairs",
+    "All expected artifacts created on disk and verified"
+  ],
+  "weaknesses": [
+    "SOL-ETH spread generated no trades",
+    "Short test period limits statistical significance"
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": true,
+  "next_backlog_actions": [
+    "Try RSI momentum strategy",
+    "Extend data history beyond 500 candles"
+  ]
+}

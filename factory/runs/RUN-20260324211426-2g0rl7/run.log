@@ -1,0 +1,6 @@
+{"ts":"2026-03-24T21:14:27.260Z","run_id":"RUN-20260324211426-2g0rl7","message":"Starting run","extra":{"iteration":48,"backlog_item_id":"IDEA-921600-z8l","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260324211426-2g0rl7"}}
+{"ts":"2026-03-24T21:14:28.038Z","run_id":"RUN-20260324211426-2g0rl7","message":"Planner completed","extra":{"experiment_id":"EXP-20260324211427-09"}}
+{"ts":"2026-03-24T21:14:29.824Z","run_id":"RUN-20260324211426-2g0rl7","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-03-24T21:14:31.024Z","run_id":"RUN-20260324211426-2g0rl7","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-03-24T21:14:32.669Z","run_id":"RUN-20260324211426-2g0rl7","message":"Summarizer completed","extra":{"run_id":"RUN-20260324211426-2g0rl7","verdict":"inconclusive"}}
+{"ts":"2026-03-24T21:14:32.719Z","run_id":"RUN-20260324211426-2g0rl7","message":"Run completed","extra":{"run_id":"RUN-20260324211426-2g0rl7","verdict":"inconclusive","iteration":48}}

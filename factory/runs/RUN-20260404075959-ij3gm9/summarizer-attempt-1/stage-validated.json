@@ -1,0 +1,54 @@
+{
+  "experiment_id": "EXP-20260404000000-NN",
+  "backlog_item_id": "IDEA-841424-mkw",
+  "summary": "Planned ETH-specific EMA Trend Gate optimization blocked due to non-existent config path. Planner referenced strategies/ema_trend_gate_eth/wfa_config.yaml without verifying the directory exists. Prior run showed ETH underperforms BTC (0.489 vs 0.998 Sharpe) using generic BTC parameters - this experiment could have tested asset-specific tuning but never executed.",
+  "key_lessons": [
+    {
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands",
+      "specific_finding": "Plan created execution command pointing to non-existent strategies/ema_trend_gate_eth/wfa_config.yaml, blocking experiment before WFA could run",
+      "result": {
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": 0
+      }
+    },
+    {
+      "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters",
+      "specific_finding": "Prior ETH run (RUN-20260403123500-01) achieved 0.489 OOS Sharpe vs BTC 0.998 using ema_trend_gate with pinned ema4h_period=50, ema1h_period=20, rsi_period=14",
+      "result": {
+        "sharpe_oos": 0.489,
+        "wfr": null,
+        "max_drawdown": -14.34,
+        "trades": 1238
+      }
+    },
+    {
+      "lesson": "Config path validation is missing from planner workflow - recurring blocker pattern",
+      "specific_finding": "Multiple prior experiments blocked due to non-existent config paths; this indicates systematic gap where planners do not verify strategy directories exist before execution",
+      "result": {
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": 0
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Create ema_trend_gate_eth strategy directory in walk forward engine/strategies/ with wfa_config.yaml containing ETH-specific expanded parameter ranges",
+      "rationale": "Execute the original hypothesis - test whether ETH-specific parameter tuning closes the 50% performance gap vs BTC",
+      "priority": "high"
+    },
+    {
+      "action": "Add pre-flight validation to planner role: verify strategy config path exists before outputting execution command",
+      "rationale": "Prevent blocked experiments - this is the 3rd+ instance of config path non-existence blocking execution",
+      "priority": "high"
+    },
+    {
+      "action": "Alternative: Modify existing ema_trend_gate/wfa_config.yaml to include ETH-specific optimization ranges instead of creating new directory",
+      "rationale": "Faster path - the strategy code already supports optimization; only config needs expansion",
+      "priority": "medium"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "experiment_id": "EXP-20260316000612-01",
+  "title": "Create test artifact to verify loop functionality",
+  "backlog_item_id": "IDEA-0001",
+  "objective": "Create a simple text file at workspace/test.txt with content 'Loop works!' to verify the factory can create artifacts end-to-end.",
+  "hypothesis": "If the factory loop is functioning correctly, writing a simple file to the workspace will succeed and the file will exist with correct content.",
+  "priority": 100,
+  "dataset_requirements": [],
+  "inputs": [],
+  "implementation_steps": [
+    "Create directory workspace/ if it does not exist",
+    "Write content 'Loop works!' to workspace/test.txt",
+    "Verify the file exists and contains correct content"
+  ],
+  "commands": [
+    "mkdir -p workspace",
+    "echo 'Loop works!' > workspace/test.txt",
+    "cat workspace/test.txt"
+  ],
+  "expected_artifacts": [
+    "workspace/test.txt"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "workspace/test.txt exists and contains exactly 'Loop works!'",
+    "metrics": [
+      "file_exists",
+      "content_match"
+    ],
+    "min_evidence_score": 100
+  },
+  "fallback_if_blocked": [
+    "Check filesystem permissions",
+    "Verify workspace directory is writable"
+  ],
+  "notes": [
+    "Simple sanity check to verify the factory loop can create artifacts",
+    "This is a foundational test - if this fails, more complex experiments will also fail"
+  ]
+}

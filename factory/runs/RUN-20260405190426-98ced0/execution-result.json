@@ -1,0 +1,83 @@
+{
+  "experiment_id": "EXP-20260405200000-01",
+  "run_id": "RUN-20260405190426-98ced0",
+  "status": "executed",
+  "timestamp": "2026-04-05T19:04:26.000Z",
+  "execution_command": "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml",
+  "config_source": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+  "data_source": "workspace/data/binance_btcusdt_1h_deep.csv",
+  "strategy": "volatility_regime.py (LightweightVolatilityRegime)",
+  "windows_completed": 3,
+  "windows_total": 3,
+  "total_trades": 22,
+  "metrics": {
+    "sharpe_is": 0.2618909444840005,
+    "sharpe_oos": -1.583232384368379,
+    "wfr": 0.6666666666666666,
+    "is_oos_ratio": null,
+    "max_drawdown": -9.551746010234574,
+    "win_rate": 0.4090909090909091,
+    "total_trades": 22,
+    "fold_variance": null,
+    "positive_sharpe_windows_pct": 66.66666666666666,
+    "aggregate_return_pct": -2.5050773869415957,
+    "profit_factor": 0.49979189620222936
+  },
+  "best_parameters": {
+    "atr_period": 10,
+    "contraction_pct": 30.0,
+    "ema_fast": 10,
+    "ema_slow": 40,
+    "hold_bars": 12,
+    "sl_atr_multiplier": 2.5
+  },
+  "window_details": [
+    {
+      "window_id": 0,
+      "training_period": "2021-03-22 to 2021-06-22",
+      "testing_period": "2021-06-22 to 2021-07-22",
+      "sharpe": 0.2618909444840005,
+      "return_pct": 0.2533262522726436,
+      "max_drawdown_pct": -3.3782099615404495,
+      "trades": 8,
+      "win_rate": 0.5
+    },
+    {
+      "window_id": 1,
+      "training_period": "2021-04-22 to 2021-07-22",
+      "testing_period": "2021-07-22 to 2021-08-22",
+      "sharpe": 0.8504606249893681,
+      "return_pct": 1.0488514806448657,
+      "max_drawdown_pct": -3.080317558383715,
+      "trades": 8,
+      "win_rate": 0.5
+    },
+    {
+      "window_id": 2,
+      "training_period": "2021-05-22 to 2021-08-22",
+      "testing_period": "2021-08-22 to 2021-09-22",
+      "sharpe": -5.301071742043097,
+      "return_pct": -8.817409893742296,
+      "max_drawdown_pct": -9.551746010234574,
+      "trades": 6,
+      "win_rate": 0.16666666666666666
+    }
+  ],
+  "artifacts_created": [
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_190926.json",
+    "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_190926.json",
+    "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "factory/runs/RUN-20260405190426-98ced0/execution-result.json"
+  ],
+  "execution_time_seconds": 298.027062,
+  "data_range": "2021-03-22 to 2026-03-21",
+  "data_rows": 43788,
+  "failure_reason": null,
+  "notes": [
+    "WFA completed but failed status gates: only 22 trades (need 200), negative aggregate Sharpe",
+    "Data starts from 2021-03-22 (not 2018 as expected) - missing 2+ years of historical data",
+    "Only 3 windows possible due to limited data range",
+    "66.7% positive Sharpe windows - below 70% target",
+    "Window 2 (Aug-Sep 2021) had catastrophic loss: -8.8% return, -9.55% drawdown"
+  ]
+}

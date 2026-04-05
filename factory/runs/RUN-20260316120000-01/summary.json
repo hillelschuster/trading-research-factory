@@ -1,0 +1,75 @@
+# Run Summary: RUN-20260316120000-01
+
+## Experiment: Live BTCUSDT WFA - RSI Momentum on Real Binance Data
+
+### Status: Completed (Partial Evidence)
+
+**Date:** 2026-03-16  
+**Duration:** ~5 minutes  
+**Mode:** Live
+
+---
+
+## What Was Executed
+
+1. **Data Fetch**: Retrieved 500 candles of BTCUSDT 1h data from Binance public API
+   - Date range: 2026-02-23 to 2026-03-16
+   - Output: `workspace/data/binance_btcusdt_1h_live.csv`
+
+2. **WFA Analysis**: Ran walk-forward analysis with RSI momentum strategy
+   - Train window: 200 candles
+   - Test window: 50 candles
+   - 6 param combinations tested per window
+   - 6 WFA windows executed
+
+3. **New Artifact Created**: `workspace/harness/wfa_standalone.py`
+   - Standalone WFA engine that works without pandas dependency
+   - Reusable for future experiments
+
+---
+
+## Results
+
+| Metric | Value |
+|--------|-------|
+| Total Return | 0.23% |
+| Sharpe Ratio | -0.234 |
+| Max Drawdown | -0.51% |
+| Win Rate | 17.45% |
+| Trades | 3 |
+| WFA Windows | 6 |
+
+---
+
+## Evidence Score: 35/100
+
+**Status Gate:** NOT MET (minimum 10 trades required)
+
+---
+
+## Key Findings
+
+1. **Pipeline Success**: End-to-end execution from API fetch to WFA analysis completed
+2. **Limited Trades**: Only 3 trades generated - conservative RSI parameters (30/70) missed signals in trending market
+3. **Negative Performance**: Strategy underperformed during this period (negative Sharpe)
+4. **Baseline Established**: First real-data experiment, improving evidence score from 25 → 35
+
+---
+
+## Improvements Identified
+
+1. Use wider RSI oversold/overbought bands (e.g., 20/80) to generate more trades
+2. Test SMA crossover strategy on same data for comparison
+3. Fetch additional crypto pairs (ETHUSDT, SOLUSDT)
+4. Expand param grid to include more aggressive RSI settings
+
+---
+
+## Files Created
+
+- `workspace/data/binance_btcusdt_1h_live.csv` - Live BTCUSDT data
+- `workspace/results/wfa_live_btc_rsi/report.json` - Full WFA report
+- `workspace/results/wfa_live_btc_rsi/results.json` - Aggregated results
+- `workspace/harness/wfa_standalone.py` - Standalone WFA engine
+- `factory/runs/RUN-20260316120000-01/execution-result.json`
+- `factory/runs/RUN-20260316120000-01/evaluation.json`

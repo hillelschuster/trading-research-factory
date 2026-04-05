@@ -1,0 +1,324 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Execution Task
+```json
+{
+  "iteration": 122,
+  "plan": {
+    "experiment_id": "EXP-20260404133920-01",
+    "title": "Asset-specific parameter tuning for BNB: looser RSI thresholds and longer hold periods",
+    "backlog_item_id": "IDEA-830240-a3f",
+    "objective": "Improve BNB underperformance vs other assets by testing looser RSI thresholds (30/70) and longer hold periods (120-168 bars) to accommodate exchange token volatility characteristics",
+    "hypothesis": "BNB's exchange token volatility regime requires more extreme RSI thresholds and longer hold periods than crypto assets like BTC/ETH/SOL. The prior run used rsi_oversold=35, rsi_overbought=50, hold_bars=96 achieving 0.432 Sharpe. Expanding to rsi_oversold 25-35, rsi_overbought 50-70, and hold_bars 96-168 bars will find a better BNB-specific parameter set.",
+    "strategy_rationale": "BNB is an exchange token with distinct volatility patterns from pure crypto assets. The cross-asset generalization test showed BNB struggles (0.432 Sharpe) while BTC (0.998), ETH (0.489), SOL (1.373) thrive with identical parameters. This confirms asset-specific tuning is required. The lesson explicitly states 'exchange tokens need asset-specific parameter adjustment'. This run tests the followup recommendation to use looser RSI thresholds and longer hold periods.",
+    "strategy_type": "multi_timeframe",
+    "market_family": "crypto",
+    "instrument_scope": "BNB/USDT spot",
+    "instrument_selection_rule": "Single instrument: BNB/USDT on Binance spot",
+    "timeframe": "1h with 4h regime filter",
+    "dataset_requirements": [
+      "BNB/USDT 1h OHLCV data from Binance, multi-year history"
+    ],
+    "historical_depth_requirement": {
+      "target": "5 years (~43788 bars from 2021-04-02 to 2026-04-01)",
+      "justification": "Same data used in prior BNB run - sufficient depth for WFA with training_months=3, testing_months=1 across 57 windows. Multi-year history is standard for liquid crypto per market policy."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "Data already present in workspace/data/binance_bnbusdt_1h_deep.csv from prior run. No new data acquisition required."
+    },
+    "scope_selection_rationale": "Targeting BNB specifically per backlog item. This is a followup to RUN-20260404080723-hm4238 which showed BNB underperforms with standard parameters. Testing the explicit recommendation: looser RSI (more extreme thresholds) and longer hold periods (more time for BNB's volatility to play out).",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Existing data from prior BNB run: workspace/data/binance_bnbusdt_1h_deep.csv with 43788 rows covering 2021-04-02 to 2026-04-01",
+      "acquisition_method": "existing_fetcher",
+      "sources": [],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "walk forward engine/src/strategies/ema_trend_gate.py",
+      "walk forward engine/config/strategy_ema_trend_gate.json",
+      "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml",
+      "factory/runs/RUN-20260404080723-hm4238/execution-result.json"
+    ],
+    "implementation_steps": [
+      "1. Read existing wfa_config.yaml from ema_trend_gate_bnb directory",
+      "2. Modify parameter_ranges to expand RSI thresholds and hold periods: rsi_oversold [25,30,35], rsi_overbought [50,55,60,65,70], hold_bars [96,120,144,168]",
+      "3. Increase n_parameter_trials from 30 to 50 to explore wider parameter space",
+      "4. Run WFA with updated config",
+      "5. Compare results to prior run (0.432 Sharpe, 837 trades)"
+    ],
+    "commands": [
+      "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_*.json",
+      "walk forward engine/strategies/ema_trend_gate_bnb/results/parameter_stability_*.json",
+      "walk forward engine/strategies/ema_trend_gate_bnb/results/analysis.json"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 50,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [
+        "stability"
+      ],
+      "stability_weight": 0.15
+    },
+    "evaluation_criteria": {
+      "status_gate": "Achieve OOS Sharpe >= 0.5 with >= 30 trades to show improvement over prior 0.432 Sharpe",
+      "metrics": {
+        "min_sharpe_oos": 0.5,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 30
+      },
+      "min_evidence_score": 60
+    },
+    "fallback_if_blocked": [
+      "If WFA fails due to config issue, revert to default parameters and report blocker"
+    ],
+    "notes": [
+      "Uses EXISTING strategy code and data - no new acquisition needed",
+      "Modifies parameter ranges in existing ema_trend_gate_bnb/wfa_config.yaml to test looser RSI and longer holds",
+      "Key insight: prior run found rsi_oversold=35, rsi_overbought=50, hold_bars=96 as best - this run expands beyond those bounds",
+      "If Sharpe improves but stays below 0.5, document partial improvement and asset-specific calibration requirements"
+    ]
+  }
+}
+```
+
+## Execution Discipline
+```json
+{
+  "inspect_scope": "Inspect only the exact files listed below unless a concrete blocker forces one adjacent file read.",
+  "first_action_rule": "If the canonical WFA config path already exists and data is present, use the provided command path immediately instead of broad repo exploration.",
+  "blocker_rule": "If the command cannot run, return a blocked result with exact path evidence and the smallest necessary fix path."
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_execution_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "verdict": "inconclusive",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": "multi_timeframe",
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands",
+      "specific_finding": "Plan created execution command pointing to non-existent strategies/ema_trend_gate_eth/wfa_config.yaml, blocking experiment before WFA could run",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": 0,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 0
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404075959-ij3gm9.md",
+        "factory/experiments/EXP-20260404000000-NN.plan.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404080753-bnb",
+      "verdict": "promising_with_caveats",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "Cross-asset generalization partially confirmed but asset-specific tuning required",
+      "specific_finding": "Same parameters (EMA 50/20, RSI 14, 35/50 thresholds, 96 hold bars) produce widely varying results across assets. SOL and BTC thrive while BNB struggles, indicating exchange tokens need asset-specific parameter adjustment.",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -11.15,
+        "win_rate": null,
+        "total_trades": 837,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 837
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+        "factory/runs/RUN-20260404080723-hm4238/summary.json"
+      ]
+    }
+  ],
+  "known_blocker_patterns": [
+    {
+      "blocker_type": "config_contract",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+    },
+    {
+      "blocker_type": "general_execution",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+    }
+  ],
+  "relevant_paths": [
+    "factory/summaries/RUN-20260404075959-ij3gm9.md",
+    "factory/experiments/EXP-20260404000000-NN.plan.json",
+    "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+    "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json"
+  ]
+}
+```
+
+## Retry Or Handoff Note
+```json
+{
+  "source": "handoff",
+  "resume_generation": 5,
+  "resume_from_stage": "executor",
+  "failure_class": "transport_failure",
+  "last_error": "executor transport request timed out waiting for response headers.",
+  "attempts_used": 3,
+  "safe_inputs": {
+    "backlog_item_id": "IDEA-830240-a3f",
+    "run_id": "RUN-20260404090255-5uejma",
+    "resume_from_stage": "executor",
+    "experiment_id": "EXP-20260404133920-01"
+  },
+  "produced_artifacts": [
+    "factory/runs/RUN-20260404090255-5uejma/run-state.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-heartbeat.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-4/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-5/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-6/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-7/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-8/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-9/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-10/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-11/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-12/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-13/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-4/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-5/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-6/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-7/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-8/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-9/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-10/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-11/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-12/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-13/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-4-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-5-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-6-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-7-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-8-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-9-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-10-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-11-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-12-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-13-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-4/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-5/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-6/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-7/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-8/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-9/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-10/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-11/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-12/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-13/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-response.raw.txt",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/handoff.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-validated.json",
+    "factory/runs/RUN-20260404090255-5uejma/planner-response.txt",
+    "factory/runs/RUN-20260404090255-5uejma/experiment-plan.json",
+    "factory/experiments/EXP-20260404133920-01.plan.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-heartbeat.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-input.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-prompt.txt",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3-session.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json",
+    "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260404133920-01.plan.json
+- walk forward engine/src/strategies/ema_trend_gate.py
+- walk forward engine/config/strategy_ema_trend_gate.json
+- walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml
+- factory/runs/RUN-20260404080723-hm4238/execution-result.json
+- walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_*.json
+- walk forward engine/strategies/ema_trend_gate_bnb/results/parameter_stability_*.json
+- walk forward engine/strategies/ema_trend_gate_bnb/results/analysis.json
+- walk forward engine/strategies/
+- walk forward engine/config/
+- workspace/data/
+- factory/memory/lessons.jsonl
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

@@ -1,0 +1,7 @@
+{
+  "agent": "executor",
+  "attempt": 2,
+  "attempts": 3,
+  "error": "Agent 'executor' timed out after 300000ms.",
+  "recorded_at": "2026-03-20T21:44:10.510Z"
+}

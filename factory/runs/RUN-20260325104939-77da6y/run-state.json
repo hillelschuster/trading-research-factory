@@ -1,0 +1,104 @@
+{
+  "run_id": "RUN-20260325104939-77da6y",
+  "backlog_item_id": "AUTO-1774435779812-ksc",
+  "owner_id": null,
+  "run_instance_id": "RUN-20260325104939-77da6y",
+  "resume_generation": 1,
+  "current_stage": null,
+  "current_stage_attempt": null,
+  "current_stage_session": null,
+  "last_completed_stage": null,
+  "observer_opened_at": null,
+  "poison_streak_count": 0,
+  "poison_stage": null,
+  "poison_failure_class": null,
+  "stage_status": {
+    "planner": {
+      "status": "completed",
+      "updated_at": "2026-03-25T10:57:35.273Z",
+      "attempt": 2,
+      "failure_class": "transport_failure"
+    },
+    "executor": {
+      "status": "failed",
+      "updated_at": "2026-03-25T11:12:56.719Z",
+      "attempt": 3,
+      "failure_class": "transport_failure"
+    },
+    "evaluator": {
+      "status": "pending",
+      "updated_at": null
+    },
+    "summarizer": {
+      "status": "pending",
+      "updated_at": null
+    }
+  },
+  "failure_class": "transport_failure",
+  "resume_from_stage": "executor",
+  "handoff_pending": true,
+  "last_error": "executor agent request timed out waiting for response headers.",
+  "attempt_counts": {
+    "planner": 2,
+    "executor": 3,
+    "evaluator": 0,
+    "summarizer": 0
+  },
+  "artifact_paths": {
+    "run_state": "factory\\runs\\RUN-20260325104939-77da6y\\run-state.json",
+    "planner_heartbeats": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-heartbeat.json"
+    ],
+    "planner_stage_inputs": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1\\stage-input.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-2\\stage-input.json"
+    ],
+    "planner_stage_prompts": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1\\stage-prompt.txt",
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-2\\stage-prompt.txt"
+    ],
+    "planner_sessions": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1-session.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-2-session.json"
+    ],
+    "planner_stage_errors": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1\\stage-error.json"
+    ],
+    "planner_stage_responses": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1\\stage-response.raw.txt",
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-2\\stage-response.raw.txt"
+    ],
+    "planner_stage_validated": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-1\\stage-validated.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\planner-attempt-2\\stage-validated.json"
+    ],
+    "planner_response": "factory\\runs\\RUN-20260325104939-77da6y\\planner-response.txt",
+    "experiment_plan": "factory\\runs\\RUN-20260325104939-77da6y\\experiment-plan.json",
+    "experiment_plan_index": "factory\\experiments\\EXP-20260325105657-01.plan.json",
+    "executor_heartbeats": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-heartbeat.json"
+    ],
+    "executor_stage_inputs": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-1\\stage-input.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-2\\stage-input.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-3\\stage-input.json"
+    ],
+    "executor_stage_prompts": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-1\\stage-prompt.txt",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-2\\stage-prompt.txt",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-3\\stage-prompt.txt"
+    ],
+    "executor_sessions": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-1-session.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-2-session.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-3-session.json"
+    ],
+    "executor_stage_errors": [
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-1\\stage-error.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-2\\stage-error.json",
+      "factory\\runs\\RUN-20260325104939-77da6y\\executor-attempt-3\\stage-error.json"
+    ],
+    "handoff": "factory\\runs\\RUN-20260325104939-77da6y\\handoff.json"
+  },
+  "updated_at": "2026-03-25T11:12:56.756Z"
+}

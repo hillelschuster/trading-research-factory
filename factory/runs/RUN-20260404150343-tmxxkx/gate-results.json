@@ -1,0 +1,329 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260404150343-tmxxkx",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+      "recorded_at": "2026-04-04T15:04:55.983Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+      "recorded_at": "2026-04-04T15:05:43.227Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:06:36.831Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:09:22.289Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner result experiment_id must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T15:09:57.521Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate/wfa_config_eth.yaml",
+      "recorded_at": "2026-04-04T15:10:30.703Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "planner",
+      "attempt": 7,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:13:10.601Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:18:39.385Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:24:13.510Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:29:48.252Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:37:53.628Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:43:25.440Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:49:03.308Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T15:57:10.447Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:02:43.627Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:08:18.909Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:37:01.681Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:42:38.832Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T16:48:27.997Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "OpenCode executor session creation failed before a session was returned.",
+      "recorded_at": "2026-04-04T17:06:14.800Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:12:58.945Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:18:35.587Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404150343-tmxxkx",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T17:24:13.476Z",
+      "gate_path": "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-04-04T17:24:13.800Z"
+}

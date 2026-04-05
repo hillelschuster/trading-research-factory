@@ -1,0 +1,20 @@
+{
+  "schema_version": "runtime_owner_lock_v1",
+  "status": "owned",
+  "owner_id": "live-owner-31424-mnm0ewj1-st0wj1",
+  "owner_token": "99b65b7b-65b3-4c51-afac-e77daff5a09b",
+  "pid": 31424,
+  "mode": "live",
+  "heartbeat_at": "2026-04-05T17:02:35.139Z",
+  "acquired_at": "2026-04-05T17:02:35.139Z",
+  "expires_at": "2026-04-05T17:03:05.139Z",
+  "ttl_ms": 30000,
+  "heartbeat_interval_ms": 5000,
+  "released_at": null,
+  "takeover_of": null,
+  "basis": {
+    "derived_from_interval_ms": 1000,
+    "heartbeat_multiplier": 2,
+    "ttl_multiplier_vs_heartbeat": 3
+  }
+}

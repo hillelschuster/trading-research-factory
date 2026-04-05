@@ -1,0 +1,73 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404190000-WFRVERIFY",
+  "title": "Verify WFR calculation capability from window results",
+  "backlog_item_id": "IDEA-923607-515",
+  "objective": "Verify WFR (Walk-Forward Ratio) calculation is possible from existing window results without engine modification, and document exact paths",
+  "hypothesis": "WFR can be computed from window results using either: (1) returns-based WFE as proxy, or (2) by adding optimization_sharpe field to WindowResult. This verification will confirm which path is feasible and document the exact method.",
+  "strategy_rationale": "This is an infrastructure verification task, not a trading strategy. WFR calculation enables proper overfitting detection in future strategy experiments. The WFA engine already computes optimization_sharpe during Optuna optimization but doesn't expose it in WindowResult - verification will confirm if post-hoc computation or minimal engine modification is needed.",
+  "strategy_type": "infrastructure",
+  "market_family": "infrastructure",
+  "instrument_scope": "N/A - WFA engine verification",
+  "instrument_selection_rule": "none",
+  "timeframe": "N/A - code analysis task",
+  "priority": 65,
+  "dataset_requirements": [],
+  "historical_depth_requirement": {
+    "target": "N/A - no historical data needed",
+    "justification": "This is a code verification task, not a trading strategy experiment"
+  },
+  "source_plan": {
+    "allowed_source_families": [],
+    "primary_source_family": "none",
+    "selection_reason": "No data acquisition needed - purely code analysis and verification"
+  },
+  "scope_selection_rationale": "Task scope limited to WFA engine code verification - no market data, instruments, or strategy execution required",
+  "data_acquisition": {
+    "status": "not_needed",
+    "reason": "Verification uses existing WFA engine source code - no external data required",
+    "acquisition_method": "none",
+    "sources": [],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/walk_forward/wfa_efficiency.py",
+    "walk forward engine/src/walk_forward/walk_forward_runner.py",
+    "walk forward engine/src/walk_forward/stage_optimizer.py"
+  ],
+  "implementation_steps": [
+    "1. Read WindowResult dataclass in walk_forward_runner.py to confirm current fields",
+    "2. Verify WFAEfficiencyCalculator stores optimization_sharpe from optimization results (wfa_efficiency.py line 115)",
+    "3. Analyze whether add_window_performance() is called anywhere in the engine flow",
+    "4. Create verification script to compute returns-based WFE from existing window CSV outputs",
+    "5. Document exact WFR calculation paths and feasibility"
+  ],
+  "commands": [],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260404190000-WFRVERIFY.plan.json",
+    "factory/verification/wfr_calculation_verification.py",
+    "factory/verification/wfr_paths_documentation.md"
+  ],
+  "advanced_wfa_config": {},
+  "evaluation_criteria": {
+    "status_gate": "Verification complete with documented paths",
+    "metrics": {
+      "returns_based_wfe_computable": true,
+      "optimization_sharpe_exposure_needed": true/false,
+      "wfr_formula_documented": true
+    },
+    "min_evidence_score": 70
+  },
+  "fallback_if_blocked": [
+    "If code analysis blocked, return partial verification with recommended engine modification path"
+  ],
+  "notes": [
+    "This is a follow-up task from RUN-20260404090255-5uejma where WFR was not calculated due to engine limitation",
+    "Priority is infrastructure verification, not trading strategy execution",
+    "No market family or instrument scope - purely engine code analysis"
+  ]
+}
+</RF_JSON>

@@ -1,0 +1,215 @@
+{
+  "agent": "executor",
+  "attempt": 1,
+  "attempts": 3,
+  "failure_class": "transport_failure",
+  "transport_phase": "first_headers",
+  "retryable": true,
+  "timeout_bucket": "first_headers",
+  "transport_adapter": "opencode_sdk",
+  "server_fingerprint": "ae89e3e7e8e273e74318a864dc66c4b243414e054da2fe29e1d4f4ec93e15473",
+  "error": {
+    "name": "Error",
+    "message": "executor transport request timed out waiting for response headers.",
+    "stack": "Error: executor transport request timed out waiting for response headers.\n    at createTransportError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:8:42)\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:33:14)\n    at OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:163:26)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1318:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:305:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1420:37)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
+    "failure_class": "transport_failure",
+    "retry_class": null,
+    "transport_phase": "first_headers",
+    "retryable": true,
+    "timeout_bucket": "first_headers",
+    "transport_adapter": "opencode_sdk",
+    "server_fingerprint": "ae89e3e7e8e273e74318a864dc66c4b243414e054da2fe29e1d4f4ec93e15473",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async fetch (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:81:28)\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:149:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1318:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:305:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1420:37)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20"
+    }
+  },
+  "message": "executor transport request timed out waiting for response headers.",
+  "recorded_at": "2026-04-04T20:37:06.240Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "plan": {
+      "experiment_id": "EXP-20260404190000-01",
+      "title": "Execute existing ETH-configured EMA Trend Gate with expanded parameter optimization",
+      "backlog_item_id": "IDEA-718513-pph",
+      "objective": "Execute the existing ema_trend_gate/wfa_config.yaml which is already configured with ETH data and expanded parameter ranges to achieve improved OOS Sharpe following the BNB success pattern",
+      "hypothesis": "The existing ema_trend_gate/wfa_config.yaml with expanded parameter ranges (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) applied to ETHUSDT will improve Sharpe from prior 0.489 to >0.7, following the BNB pattern where expanded tuning boosted Sharpe 195%",
+      "strategy_rationale": "Prior run failed by creating a non-existent config path. The existing ema_trend_gate/wfa_config.yaml is already configured for ETH with expanded ranges - simply execute it. This follows the BNB lesson: asset-specific expanded parameter tuning significantly improves performance.",
+      "strategy_type": "multi_timeframe",
+      "market_family": "crypto",
+      "instrument_scope": "ETHUSDT spot",
+      "instrument_selection_rule": null,
+      "timeframe": "1h with 4h regime filter",
+      "priority": 55,
+      "dataset_requirements": [
+        "Binance ETHUSDT 1h data - already configured in wfa_config.yaml as data/binance_ethusdt_1h_deep.csv (~64k rows)"
+      ],
+      "historical_depth_requirement": {
+        "target": "Maximum available: ~64k rows (~7.5 years from 2018)",
+        "justification": "ETH has deep Binance history; existing deep dataset already present. Multi-year history required for robust WFA with 85+ windows per market policy."
+      },
+      "source_plan": {
+        "allowed_source_families": [
+          "binance",
+          "public_archive"
+        ],
+        "primary_source_family": "binance",
+        "selection_reason": "Existing ema_trend_gate/wfa_config.yaml already specifies binance_ethusdt_1h_deep.csv - same source used in prior ETH run"
+      },
+      "scope_selection_rationale": "ETHUSDT is the natural followup to prior ETH run (0.489 Sharpe with generic params) and BTC baseline (0.998 Sharpe). The existing config already applies the BNB success pattern with expanded ranges - execute it.",
+      "data_acquisition": {
+        "status": "present",
+        "reason": "wfa_config.yaml already points to data/binance_ethusdt_1h_deep.csv which exists with ~64k rows",
+        "acquisition_method": "existing_fetcher",
+        "sources": [],
+        "commands": [],
+        "expected_outputs": []
+      },
+      "inputs": [
+        "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml (already configured for ETH with expanded params)",
+        "walk forward engine/src/strategies/ema_trend_gate.py (strategy implementation)",
+        "factory/memory/lessons.jsonl (BNB lesson showing 195% improvement with expanded ranges)"
+      ],
+      "implementation_steps": [
+        "1. Verify existing wfa_config.yaml is correctly configured for ETH",
+        "2. Execute WFA using the existing config - no modifications needed",
+        "3. Collect execution results and evaluate OOS metrics"
+      ],
+      "commands": [
+        "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+      ],
+      "expected_artifacts": [
+        "walk forward engine/strategies/ema_trend_gate/results/wfa_results.json",
+        "factory/runs/RUN-*/execution-result.json",
+        "factory/runs/RUN-*/evaluation.json",
+        "factory/runs/RUN-*/summary.json",
+        "factory/summaries/RUN-*.md"
+      ],
+      "advanced_wfa_config": {
+        "n_parameter_trials": 100,
+        "sampling_strategy": "tpe",
+        "backtest.fees": 0.0006,
+        "backtest.slippage": 0.0002,
+        "training_months": 3,
+        "testing_months": 1,
+        "step_months": 1,
+        "primary_objective": "sharpe",
+        "secondary_objectives": [
+          "stability"
+        ],
+        "stability_weight": 0.15
+      },
+      "evaluation_criteria": {
+        "status_gate": "WFA completes with valid OOS metrics",
+        "metrics": {
+          "min_sharpe_oos": 0.7,
+          "min_wfr": 0.5,
+          "max_drawdown_pct": 35,
+          "min_trades": 30
+        },
+        "min_evidence_score": 60
+      },
+      "fallback_if_blocked": [
+        "If WFA fails on ETH, test if data path issue exists - verify binance_ethusdt_1h_deep.csv is accessible from walk_forward_engine root",
+        "If still blocked, fall back to BNB/USDT which already showed 1.275 Sharpe with expanded ranges"
+      ],
+      "notes": [
+        "Prior failed run created non-existent path - this plan uses EXISTING config that already has ETH data and expanded params configured",
+        "BNB lesson: expanded parameter ranges (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) boosted Sharpe 195% from 0.432 to 1.275",
+        "Target: improve prior ETH 0.489 Sharpe using same expanded tuning approach"
+      ]
+    },
+    "retrieval": {
+      "relevant_execution_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "verdict": "inconclusive",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "Planner must verify strategy directories exist before referencing them in execution commands",
+          "specific_finding": "Plan created execution command pointing to non-existent strategies/ema_trend_gate_eth/wfa_config.yaml, blocking experiment before WFA could run",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": null,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": null,
+            "win_rate": null,
+            "total_trades": 0,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 0
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404075959-ij3gm9.md",
+            "factory/experiments/EXP-20260404000000-NN.plan.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "verdict": "inconclusive",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "Config path validation is missing from planner workflow - recurring blocker pattern",
+          "specific_finding": "Multiple prior experiments blocked due to non-existent config paths; this indicates systematic gap where planners do not verify strategy directories exist before execution",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": null,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": null,
+            "win_rate": null,
+            "total_trades": 0,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 0
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404075959-ij3gm9.md",
+            "factory/experiments/EXP-20260404000000-NN.plan.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+          ]
+        }
+      ],
+      "known_blocker_patterns": [
+        {
+          "blocker_type": "config_contract",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+        },
+        {
+          "blocker_type": "general_execution",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+        }
+      ],
+      "relevant_paths": [
+        "factory/summaries/RUN-20260404075959-ij3gm9.md",
+        "factory/experiments/EXP-20260404000000-NN.plan.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+        "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json"
+      ]
+    },
+    "retryNote": null
+  }
+}

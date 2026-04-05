@@ -1,0 +1,47 @@
+{
+  "experiment_id": "EXP-20260403123500-01",
+  "run_id": "RUN-20260403123500-01",
+  "status": "executed",
+  "execution_timestamp": "2026-04-03T16:13:04Z",
+  "command": "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml",
+  "working_directory": "walk forward engine",
+  "config_path": "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml",
+  "result_artifacts": [
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_summary_20260403_161304.csv",
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+    "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+    "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260403_161304.json"
+  ],
+  "windows_completed": 85,
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": 0.4894,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": -14.34,
+    "win_rate": 0.4604,
+    "total_trades": 1238,
+    "fold_variance": null,
+    "profit_factor": 1.086,
+    "expectancy": 0.0816,
+    "aggregate_return_pct": 0.5944,
+    "successful_windows": 85,
+    "total_windows": 85,
+    "avg_trades_per_window": 14.56
+  },
+  "comparison": {
+    "btc_baseline_sharpe": 0.998,
+    "prior_eth_run_sharpe": 0.528,
+    "current_eth_sharpe": 0.4894,
+    "verdict": "Below 0.8 gate but improved max DD vs prior ETH run"
+  },
+  "execution_duration_seconds": 2179.37,
+  "notes": [
+    "WFA completed successfully on ETHUSDT 1h with 7.5 years of data (64,733 bars)",
+    "85 windows executed, all successful",
+    "OOS Sharpe 0.489 is below the 0.8 gate but above the 0.3 minimum threshold",
+    "Max drawdown improved from prior ETH run (-16.37% to -14.34%)",
+    "Strategy generalizes to ETH but with lower Sharpe than BTC (0.998)",
+    "Cross-asset generalization partially confirmed - strategy works but underperforms BTC"
+  ]
+}

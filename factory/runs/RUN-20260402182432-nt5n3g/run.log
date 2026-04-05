@@ -1,0 +1,6 @@
+{"ts":"2026-04-02T18:24:43.062Z","run_id":"RUN-20260402182432-nt5n3g","message":"Starting run","extra":{"iteration":94,"backlog_item_id":"AUTO-1775153854911-eou","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260402182432-nt5n3g"}}
+{"ts":"2026-04-02T18:24:48.130Z","run_id":"RUN-20260402182432-nt5n3g","message":"Planner completed","extra":{"experiment_id":"EXP-20260402182445-02"}}
+{"ts":"2026-04-02T18:25:07.127Z","run_id":"RUN-20260402182432-nt5n3g","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-04-02T18:25:17.099Z","run_id":"RUN-20260402182432-nt5n3g","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-04-02T18:25:22.632Z","run_id":"RUN-20260402182432-nt5n3g","message":"Summarizer completed","extra":{"run_id":"RUN-20260402182432-nt5n3g","verdict":"inconclusive"}}
+{"ts":"2026-04-02T18:25:22.801Z","run_id":"RUN-20260402182432-nt5n3g","message":"Run completed","extra":{"run_id":"RUN-20260402182432-nt5n3g","verdict":"inconclusive","iteration":94}}

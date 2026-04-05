@@ -1,0 +1,63 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260403123500-01",
+  "backlog_item_id": "AUTO-1775219382971-vlo",
+  "summary": "EMA Trend Gate strategy tested on ETHUSDT with 7.5-year deep history (64,733 bars, 85 windows). Cross-asset generalization partially confirmed—strategy works on ETH but underperforms BTC baseline by ~51% (BTC 0.998 vs ETH 0.489). Max drawdown improved from prior ETH run (-16.37% to -14.34%), but OOS Sharpe remains below 0.8 gate at 0.489.",
+  "key_lessons": [
+    {
+      "lesson": "Cross-asset generalization gap confirmed",
+      "specific_finding": "BTC consistently outperforms ETH across multiple runs: BTC 0.998 (EXP-20260331154332-55), prior ETH 0.528, current ETH 0.489. This suggests asset-specific behavior rather than strategy robustness across crypto.",
+      "result": {
+        "sharpe_oos": 0.489,
+        "wfr": null,
+        "max_drawdown": -14.34,
+        "trades": 1238
+      }
+    },
+    {
+      "lesson": "Drawdown improved while Sharpe declined",
+      "specific_finding": "Compared to prior ETH run (EXP-20260321200000-01), max drawdown improved from -16.37% to -14.34% (+2pp), but OOS Sharpe dropped from 0.528 to 0.489 (-7%). This suggests parameter sensitivity or market regime shift.",
+      "result": {
+        "sharpe_oos": 0.489,
+        "wfr": null,
+        "max_drawdown": -14.34,
+        "trades": 1238
+      }
+    },
+    {
+      "lesson": "Evidence score below threshold despite robust execution",
+      "specific_finding": "Evidence score 65 below 70 minimum despite 85 windows and 1238 trades—both primary metrics passed gate but composite score insufficient. Indicates overfitting penalty applied.",
+      "result": {
+        "sharpe_oos": 0.489,
+        "wfr": null,
+        "max_drawdown": -14.34,
+        "trades": 1238
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Test EMA Trend Gate on BNB and SOL to validate cross-asset robustness beyond BTC-ETH pair",
+      "rationale": "If multiple assets underperform BTC consistently, strategy may be overfitted to BTC-specific regimes. If some assets match BTC, indicates selective asset applicability.",
+      "priority": "high"
+    },
+    {
+      "action": "Tune EMA/RSI parameters specifically for ETH rather than using BTC-optimized parameters",
+      "rationale": "Cross-asset generalization gap of 51% suggests parameters may be asset-specific. ETH-dedicated optimization could recover ~0.3-0.5 Sharpe.",
+      "priority": "high"
+    },
+    {
+      "action": "Investigate ETH vs BTC regime differences—funding rate patterns, volatility regimes, and correlation structure",
+      "rationale": "Understanding why BTC outperforms would clarify whether strategy exploits asset-specific edges or generalizable patterns.",
+      "priority": "medium"
+    },
+    {
+      "action": "Add WFR computation to WFA engine to enable secondary metric validation",
+      "rationale": "WFR not computed in multiple recent runs, blocking secondary metric gate verification. Engine-level fix needed.",
+      "priority": "medium"
+    }
+  ]
+}
+</RF_JSON>

@@ -1,0 +1,390 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Planning Task
+```json
+{
+  "iteration": 111,
+  "backlog_item": {
+    "id": "AUTO-1775219716376-dad",
+    "title": "EMA Trend Gate on BNB — Cross-Asset Generalization Extension",
+    "objective": "Extend the validated EMA Trend Gate strategy (4h EMA regime filter + 1h RSI pullback entries) to BNBUSDT to further validate cross-asset generalization. The strategy has now been validated on BTC (0.998 Sharpe, -6.9% DD), ETH (0.528 Sharpe, -16.37% DD), and SOL (1.373 Sharpe, -16.84% DD). BNB is the next largest Binance spot asset by volume and represents a different market character (exchange token vs pure crypto vs BTC). Hypothesis: BNB's unique utility-driven demand patterns may produce different volatility regimes but the multi-timeframe regime filter should still provide positive expectancy. Use existing BNB 1h deep data if available, or fetch via Binance API. Run WFA with same param grid as BTC/ETH experiments.",
+    "priority": 85,
+    "category": "strategy",
+    "market_family": "crypto",
+    "instrument_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+    "timeframe": "1h with 4h regime filter",
+    "history_requirement": "Minimum 2 years of 1h candles (requirement: multi-year for crypto per policy)",
+    "data_source": "existing_fetcher",
+    "data_requirement": "OHLCV from existing binance_bnbusdt_1h_deep.csv or fetch via Binance API",
+    "source": "ideator"
+  }
+}
+```
+
+## Required Plan Fields
+```json
+{
+  "required_scope_fields": [
+    "market_family",
+    "instrument_scope_or_instrument_selection_rule",
+    "timeframe",
+    "historical_depth_requirement",
+    "source_plan",
+    "scope_selection_rationale"
+  ],
+  "required_execution_fields": [
+    "expected_artifacts",
+    "evaluation_criteria"
+  ]
+}
+```
+
+## Market Policy
+```json
+{
+  "schema_version": "market_policy_v1",
+  "updated_at": "2026-03-25T08:20:00.000Z",
+  "market_family_priorities": [
+    {
+      "market_family": "crypto",
+      "priority": 1
+    },
+    {
+      "market_family": "prediction_markets",
+      "priority": 2
+    },
+    {
+      "market_family": "forex",
+      "priority": 3
+    }
+  ],
+  "allowed_source_families": {
+    "crypto": [
+      "binance",
+      "public_archive"
+    ],
+    "prediction_markets": [
+      "polymarket_public"
+    ],
+    "forex": [
+      "dukascopy"
+    ]
+  },
+  "default_history_rules_by_market_family": {
+    "crypto": {
+      "expectation": "multi-year when realistically available",
+      "short_window_requires_explicit_justification": true
+    },
+    "prediction_markets": {
+      "expectation": "as much event-history as realistically available",
+      "short_window_requires_explicit_justification": true
+    },
+    "forex": {
+      "expectation": "longest clean liquid-history realistically available",
+      "short_window_requires_explicit_justification": true
+    }
+  },
+  "selection_policy": {
+    "min_ready_backlog_depth": 3,
+    "ready_statuses": [
+      "ready"
+    ],
+    "minimum_trade_count_for_promotion": 20,
+    "ranking_weights": {
+      "base_priority": 1,
+      "comparable_evidence": 0.2,
+      "robustness_bonus": 8,
+      "revisit_bonus": 6,
+      "novelty_bonus": 5,
+      "repeated_blocker_penalty": 8,
+      "low_trade_penalty": 10,
+      "underexplored_market_bonus": 4
+    }
+  },
+  "exclusions": []
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "lesson": "Cross-asset generalization validated: BTC outperforms ETH baseline",
+      "specific_finding": "BTC achieved 0.998 OOS Sharpe vs ETH 0.528 (+89% improvement), with significantly better drawdown profile (-6.9% vs -16.37%, +58% improvement)",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9,
+        "win_rate": null,
+        "total_trades": 848,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 848
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/experiments/EXP-20260331154332-55.plan.json",
+        "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+        "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+        "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260403123500-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "ETHUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "EMA Trend Gate generalizes to ETHUSDT but with lower Sharpe than BTC baseline (0.489 vs 0.998). Cross-asset generalization partially confirmed - strategy works on ETH but underp...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.4894,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -14.34,
+        "win_rate": 0.4604,
+        "total_trades": 1238,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "aggregate_return_pct": 0.5944,
+          "profit_factor": 1.086,
+          "expectancy": 0.0816,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "avg_trades_per_window": 14.56
+        }
+      },
+      "related_artifact_paths": [
+        "factory/runs/RUN-20260403123500-01/execution-result.json",
+        "factory/runs/RUN-20260403123500-01/evaluation.json",
+        "factory/runs/RUN-20260403123500-01/summary.json",
+        "factory/summaries/RUN-20260403123500-01.md"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "lesson": "WFR remains uncomputed due to engine limitation",
+      "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9,
+        "win_rate": null,
+        "total_trades": 848,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 848
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/experiments/EXP-20260331154332-55.plan.json",
+        "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+        "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+        "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "lesson": "Trade frequency maintained across assets",
+      "specific_finding": "14.88 trades/window on BTC vs 14.3 on ETH (+4%), confirming strategy generates consistent opportunities on higher-volatility assets",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9,
+        "win_rate": null,
+        "total_trades": 848,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 848
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/experiments/EXP-20260331154332-55.plan.json",
+        "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+        "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+        "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+      ]
+    }
+  ],
+  "contradiction": {
+    "positive": {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "lesson": "Cross-asset generalization validated: BTC outperforms ETH baseline",
+      "specific_finding": "BTC achieved 0.998 OOS Sharpe vs ETH 0.528 (+89% improvement), with significantly better drawdown profile (-6.9% vs -16.37%, +58% improvement)",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9,
+        "win_rate": null,
+        "total_trades": 848,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 848
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/experiments/EXP-20260331154332-55.plan.json",
+        "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+        "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+        "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+      ]
+    },
+    "negative": {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260403123500-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "ETHUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "EMA Trend Gate generalizes to ETHUSDT but with lower Sharpe than BTC baseline (0.489 vs 0.998). Cross-asset generalization partially confirmed - strategy works on ETH but underp...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.4894,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -14.34,
+        "win_rate": 0.4604,
+        "total_trades": 1238,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "aggregate_return_pct": 0.5944,
+          "profit_factor": 1.086,
+          "expectancy": 0.0816,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "avg_trades_per_window": 14.56
+        }
+      },
+      "related_artifact_paths": [
+        "factory/runs/RUN-20260403123500-01/execution-result.json",
+        "factory/runs/RUN-20260403123500-01/evaluation.json",
+        "factory/runs/RUN-20260403123500-01/summary.json",
+        "factory/summaries/RUN-20260403123500-01.md"
+      ]
+    }
+  },
+  "comparable_promoted_runs": [
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260331154310-1aowi1",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "evidence_score": 85,
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9048,
+        "win_rate": 0.4835,
+        "total_trades": 848,
+        "fold_variance": 2.96,
+        "markets_tested": [
+          "BTCUSDT"
+        ],
+        "extra_metrics": {}
+      },
+      "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+      "evidence_kind": "research",
+      "promotable": true
+    },
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260403123516-uhaq6t",
+      "experiment_id": "EXP-20260403123500-01",
+      "verdict": "promising_with_caveats",
+      "evidence_score": 65,
+      "market_family": "crypto",
+      "asset_scope": "ETHUSDT spot (binance_ethusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.4894,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -14.34,
+        "win_rate": 0.4604,
+        "total_trades": 1238,
+        "fold_variance": null,
+        "markets_tested": [
+          "ETHUSDT"
+        ],
+        "extra_metrics": {}
+      },
+      "summary_path": "factory/summaries/RUN-20260403123516-uhaq6t.md",
+      "evidence_kind": "research",
+      "promotable": true
+    }
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/market-policy.json
+- factory/memory/lessons.jsonl
+- factory/evidence/index.json
+- factory/leaderboard.json
+- walk forward engine/src/strategies/
+- workspace/data/fetchers/
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

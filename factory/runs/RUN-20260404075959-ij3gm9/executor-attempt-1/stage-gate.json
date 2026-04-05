@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404075959-ij3gm9",
+  "stage": "executor",
+  "attempt": 1,
+  "decision": "allowed",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404075959-ij3gm9/executor-attempt-1/stage-validated.json"
+  ],
+  "reason": null,
+  "recorded_at": "2026-04-04T08:01:27.369Z"
+}

@@ -1,0 +1,89 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260322160000-01",
+  "title": "BB Width Squeeze — Volatility Expansion Breakout on BTC 1h",
+  "backlog_item_id": "AUTO-1774197200936-puf",
+  "objective": "Test BB Width squeeze strategy (volatility contraction → bandwidth expansion breakout with momentum confirmation) on maximum realistic BTCUSDT 1h history (~43,789 bars, ~5 years) via full WFA engine with Optuna optimization (100 trials). Hypothesis: periods of BB Width contraction precede explosive directional moves; momentum filter + ATR stops provide positive expectancy. This is a volatility expansion signal, distinct from all prior mean-reversion (RSI, BB) or trend (EMA, SMA) strategies.",
+  "hypothesis": "BB Width squeeze fires when volatility compresses to historical lows. When bandwidth subsequently expands, directional momentum tends to follow. BTC's 24/7 market avoids FX session-gap noise. With 43,789 bars (~5yr), WFA can run 55+ windows (3mo train / 1mo test) for statistical significance. Expected outcome: aggregate OOS Sharpe 0.5-1.0 if squeeze signals capture genuine vol-regime transitions.",
+  "strategy_rationale": "No strategy in the factory has ever used BB Width or squeeze-breakout mechanics. All prior successful strategies (RSI 0.94, SMA 0.53, BB 0.39, EMA 0.528) use price-at-extremes or EMA-crossover signals. BB Width squeeze is a fundamentally different signal class: it detects vol contractions and anticipates vol expansion breakouts, which are common in BTC (sharp pumps/dumps follow quiet consolidations). Research from Bollinger, Keltner, and PyQuantLab confirms this pattern. Prior squeeze-adjacent strategies (ATR Breakout, London Sweep) failed due to wrong asset (BTC vs FX sessions) or wrong signal type (session-range vs volatility-width). BB Width squeeze directly targets BTC vol dynamics.",
+  "strategy_type": "volatility",
+  "priority": 80,
+  "dataset_requirements": [
+    "BTCUSDT 1h, Binance, full history ~2017 to 2026 (43,789 bars minimum)"
+  ],
+  "historical_depth_requirement": {
+    "target": "Maximum realistic: Binance launched BTCUSDT in 2017. Current deep CSV has 43,789 bars (~5 years). This depth enables 55+ WFA windows for robust OOS statistics.",
+    "justification": "5yr BTC 1h is the maximum realistic depth available. Sufficient for 3mo train / 1mo test / 1mo step WFA (55+ windows). Longer history captures multiple market regimes (bull, bear, sideways). No structural reason to truncate."
+  },
+  "data_acquisition": {
+    "status": "present",
+    "reason": "binance_btcusdt_1h_deep.csv already present with 43,789 bars. No download needed.",
+    "acquisition_method": "existing_fetcher",
+    "sources": [
+      "workspace/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/bb_width_squeeze.py (strategy code)",
+    "walk forward engine/config/strategy_bb_width_squeeze.json (parameter ranges)",
+    "walk forward engine/strategies/bb_width_squeeze/wfa_config.yaml (WFA config)",
+    "walk forward engine/config/main_config.yaml (BB_WIDTH_SQUEEZE profile and definition already registered)",
+    "workspace/data/binance_btcusdt_1h_deep.csv (43,789 bars)"
+  ],
+  "implementation_steps": [
+    "1. Verify all inputs exist and are valid (py_compile for .py, json/yaml load for configs)",
+    "2. Create results directory: walk forward engine/strategies/bb_width_squeeze/results/",
+    "3. Run full WFA via smoke_test runner: .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/bb_width_squeeze/wfa_config.yaml",
+    "4. Monitor for squeeze_break signal frequency: flag if total trades across all folds < 20 (trade-starved)",
+    "5. Collect aggregate OOS Sharpe, WFR, max DD, trade count, per-window Sharpe distribution",
+    "6. If trade-starved: record as partial, note squeeze_pct range needs expansion",
+    "7. If Sharpe >= 0.8 and trades >= 30: mark as passed"
+  ],
+  "commands": [
+    "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/bb_width_squeeze/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/strategies/bb_width_squeeze/results/wfa_results.json",
+    "walk forward engine/strategies/bb_width_squeeze/results/window_results.csv",
+    "walk forward engine/strategies/bb_width_squeeze/results/aggregate_metrics.json",
+    "factory/runs/EXP-20260322160000-01.run.json",
+    "factory/runs/EXP-20260322160000-01.eval.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["return", "stability"],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "At least 20 trades across all WFA windows to avoid the trade-starved failure mode that killed ATR Breakout (2 trades) and London Sweep (2 trades).",
+    "metrics": {
+      "min_sharpe_oos": 0.8,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 30
+    },
+    "min_evidence_score": 70
+  },
+  "fallback_if_blocked": [
+    "If < 20 total trades across all folds: re-run with squeeze_pct expanded to [5, 10, 15, 20, 25, 30] and width_period pinned to 10 (more frequent squeeze detection)",
+    "If WFA engine crashes on pandas dependency: verify .venv has pandas installed, check import paths",
+    "If data file missing or corrupt: re-download via workspace/data/fetchers/binance_deep_fetcher.py"
+  ],
+  "notes": [
+    "Key risk: squeeze signals are rarer than RSI — squeeze_pct=20 means only fire when BB Width is below its 20th percentile of last 20 bars. With 43,789 bars, this should still produce sufficient signals, but watch for trade-starved windows.",
+    "BB Width Squeeze uses bb_width_squeeze.py with LightweightBBWidthSqueeze class — confirmed in main_config.yaml lines 321-324.",
+    "min_required_bars=500 in wfa_config.yaml is correctly set (not 2000 like the bug in EMA Trend Gate).",
+    "WFA engine does not output IS Sharpe → WFR unavailable. Evaluate by aggregate OOS Sharpe alone.",
+    "8 parameters to optimize across 100 trials (3mo train windows): acceptable but not ideal. Stability_weight=0.15 penalizes parameter sensitivity to reduce overfitting risk."
+  ]
+}
+</RF_JSON>

@@ -1,0 +1,98 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404160000-01",
+  "title": "ETH vs BTC EMA Trend Gate - Regime or Overfitting Investigation",
+  "backlog_item_id": "IDEA-841483-l7m",
+  "objective": "Investigate why ETH underperforms BTC with EMA Trend Gate strategy - distinguish between regime differences (structural) vs overfitting on BTC-optimized parameters",
+  "hypothesis": "If we re-optimize EMA Trend Gate parameters specifically for ETH and still see significantly lower Sharpe (0.4-0.5 vs 0.998), then regime differences are the structural cause. If ETH-optimized Sharpe reaches 0.8+, then the original underperformance was due to BTC-overfitting.",
+  "strategy_rationale": "EMA Trend Gate is proven on BTC (0.998 OOS Sharpe) and partially on ETH (0.489 OOS). By running parallel WFA optimization on both assets with identical config, we can isolate whether the gap is due to parameter overfitting or fundamental regime differences.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "BTCUSDT and ETHUSDT spot",
+  "instrument_selection_rule": "Use existing deep CSV datasets: binance_btcusdt_1h_deep.csv and binance_ethusdt_1h_deep.csv",
+  "timeframe": "1h with 4h regime filter",
+  "priority": 65,
+  "dataset_requirements": [
+    "binance_btcusdt_1h_deep.csv - multi-year BTC data (2018-2026)",
+    "binance_ethusdt_1h_deep.csv - multi-year ETH data (2018-2026)"
+  ],
+  "historical_depth_requirement": {
+    "target": "Multi-year (2018-2026, ~7+ years of data)",
+    "justification": "Longest realistic history available from Binance - essential for robust WFA with 85+ windows and capturing multiple market regimes (bull, bear, sideways)"
+  },
+  "source_plan": {
+    "allowed_source_families": ["binance", "public_archive"],
+    "primary_source_family": "binance",
+    "selection_reason": "Both deep CSV datasets already exist in workspace/data/ - no download needed. Binance provides the most liquid crypto data for both BTC and ETH."
+  },
+  "scope_selection_rationale": "Testing same strategy on both BTC and ETH isolates whether underperformance is asset-specific (regime) or parameter-specific (overfitting). Multi-year data ensures robust WFA statistics.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Both deep CSV files exist: binance_btcusdt_1h_deep.csv and binance_ethusdt_1h_deep.csv",
+    "acquisition_method": "existing_fetcher",
+    "sources": ["workspace/data/binance_btcusdt_1h_deep.csv", "workspace/data/binance_ethusdt_1h_deep.csv"],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "walk forward engine/config/strategy_ema_trend_gate.json",
+    "walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml"
+  ],
+  "implementation_steps": [
+    "1. Create new WFA config for ETH: strategies/ema_trend_gate_eth/wfa_config.yaml with identical structure to BTC config but targeting ETHUSDT data",
+    "2. Modify data source to point to binance_ethusdt_1h_deep.csv",
+    "3. Use identical optimization ranges as BTC (full parameter space, not pinned)",
+    "4. Execute WFA on ETH with 3mo train/1mo test/1mo step, 100 trials",
+    "5. Compare results: ETH optimized Sharpe vs BTC baseline (0.998)",
+    "6. Analyze parameter convergence: if ETH params diverge significantly from BTC, suggests regime adaptation; if similar but worse, suggests regime limitation"
+  ],
+  "commands": [
+    "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_eth/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260404160000-01.plan.json",
+    "walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+    "walk forward engine/strategies/ema_trend_gate_eth/results/wfa_results.json",
+    "factory/runs/RUN-YYYYMMDDHHMMSS-XXXX/execution-result.json",
+    "factory/runs/RUN-YYYYMMDDHHMMSS-XXXX/evaluation.json",
+    "factory/summaries/RUN-YYYYMMDDHHMMSS-XXXX.md"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["stability"],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA must complete with valid OOS metrics on ETH, then compare to BTC baseline",
+    "metrics": {
+      "min_sharpe_oos_eth": 0.4,
+      "target_sharpe_oos_eth": 0.8,
+      "btc_baseline_sharpe": 0.998,
+      "max_drawdown_pct": 35,
+      "min_trades": 30,
+      "min_windows": 50
+    },
+    "min_evidence_score": 70,
+    "comparison_logic": "If ETH optimized Sharpe ≥ 0.8 → overfitting is main issue (strategy can work on ETH). If ETH optimized Sharpe < 0.6 → regime differences are structural."
+  },
+  "fallback_if_blocked": [
+    "If ETH WFA fails, analyze existing BTC vs ETH results from memory and compare regime statistics (trend persistence, volatility regimes) to infer cause",
+    "If data issues, fetch fresh ETH data from Binance"
+  ],
+  "notes": [
+    "Parallel execution on both assets would be ideal but WFA engine runs sequentially",
+    "Key metric: ETH Sharpe after ETH-specific optimization vs BTC Sharpe after BTC-optimization",
+    "Secondary analysis: Compare optimal parameters between BTC and ETH - if they converge to similar values, overfitting is likely; if they diverge, regime adaptation is needed"
+  ]
+}
+</RF_JSON>

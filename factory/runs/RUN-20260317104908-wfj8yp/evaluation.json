@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-20260317170000-01",
+  "verdict": "passed",
+  "evidence_score": 50,
+  "objective_score": 55,
+  "reproducibility_score": 70,
+  "novelty_score": 60,
+  "metrics": {
+    "sharpe": 0.116,
+    "max_drawdown": -0.0142,
+    "win_rate": 0.361,
+    "trades": 6
+  },
+  "strengths": [
+    "First cross-asset strategy implemented in the factory",
+    "Successfully ran WFA on BTC-ETH spread with real data",
+    "Achieved positive Sharpe (0.12) despite underperforming best single-asset strategies",
+    "All expected artifacts created on disk and verified"
+  ],
+  "weaknesses": [
+    "Spread underperformed best single-asset (SMA on SOL Sharpe 0.53)",
+    "Short test period limits statistical significance",
+    "Only tested one spread combination (BTC-ETH)"
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": false,
+  "next_backlog_actions": [
+    "Test spread on other asset pairs (SOL-ETH, SOL-BTC)",
+    "Try RSI momentum strategy",
+    "Extend data history beyond 500 candles"
+  ]
+}

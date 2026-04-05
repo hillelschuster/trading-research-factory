@@ -1,0 +1,37 @@
+{
+  "run_id": "RUN-20260318160000-zxvj84",
+  "mode": "live",
+  "backlog_item_id": "IDEA-CRYPTO-002",
+  "experiment_id": "EXP-20260318160000-01",
+  "verdict": "inconclusive",
+  "evidence_score": 40,
+  "objective_score": 20,
+  "reproducibility_score": 60,
+  "summary_path": "factory/summaries/RUN-20260318160000-zxvj84.md",
+  "recorded_at": "2026-03-18T16:20:00Z",
+  "metrics": {
+    "sharpe_ratio": -4.997,
+    "total_return_pct": -1.20,
+    "win_rate": 0.0,
+    "max_drawdown_pct": -1.64,
+    "total_trades": 2,
+    "profit_factor": 0.0,
+    "aggregate_gross_profit": 0.0,
+    "aggregate_gross_loss": 1198.52
+  },
+  "wfa_windows": {
+    "total_windows": 1,
+    "successful_windows": 1,
+    "training_period": "2026-02-03 to 2026-03-03",
+    "testing_period": "2026-03-03 to 2026-03-17 (partial, data truncated)"
+  },
+  "best_parameters": {
+    "pip_size": 1.0,
+    "sweep_pips": 100.0,
+    "reentry_pips": 100.0,
+    "stop_buffer_pips": 200.0,
+    "tp_mode": "opposite",
+    "min_range_pips": 300.0,
+    "max_range_pips": 4000.0
+  }
+}

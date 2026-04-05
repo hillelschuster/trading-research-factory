@@ -1,0 +1,5 @@
+{"ts":"2026-03-17T10:53:25.438Z","run_id":"RUN-20260317105325-o1r5m4","message":"Starting run","extra":{"iteration":11,"backlog_item_id":"IDEA-800232-ecu","mode":"live"}}
+{"ts":"2026-03-17T10:55:47.456Z","run_id":"RUN-20260317105325-o1r5m4","message":"Planner completed","extra":{"experiment_id":"EXP-20260317180000-01"}}
+{"ts":"2026-03-17T10:56:34.951Z","run_id":"RUN-20260317105325-o1r5m4","message":"Executor completed","extra":{"status":"executed"}}
+{"ts":"2026-03-17T10:57:07.656Z","run_id":"RUN-20260317105325-o1r5m4","message":"Evaluator completed","extra":{"verdict":"passed","evidence_score":70}}
+{"ts":"2026-03-17T10:57:35.695Z","run_id":"RUN-20260317105325-o1r5m4","message":"Run completed","extra":{"run_id":"RUN-20260317105325-o1r5m4","verdict":"passed","iteration":11}}

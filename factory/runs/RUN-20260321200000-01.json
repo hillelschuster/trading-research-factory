@@ -1,0 +1,95 @@
+{
+  "run_id": "RUN-20260321200000-01",
+  "experiment_id": "EXP-20260321200000-01",
+  "iteration": 28,
+  "verdict": "partial",
+  "mode": "live",
+  "execution": {
+    "start_time": "2026-03-21T20:05:14+00:00",
+    "end_time": "2026-03-21T22:32:31+00:00",
+    "duration_seconds": 1636.3,
+    "status": "completed"
+  },
+  "metrics": {
+    "aggregate_sharpe_oos": 0.5283,
+    "aggregate_return_pct": 0.7016,
+    "total_trades": 1216,
+    "avg_trades_per_window": 14.31,
+    "win_rate": 0.4613,
+    "profit_factor": 1.103,
+    "max_drawdown_pct": -16.3671,
+    "expectancy": 0.0981,
+    "total_windows": 85,
+    "successful_windows": 85,
+    "failed_windows": 0,
+    "positive_sharpe_windows": 42,
+    "per_window_oos_sharpe_mean": 0.172,
+    "per_window_oos_sharpe_median": -0.024,
+    "per_window_oos_sharpe_std": 2.324,
+    "wfr": null,
+    "wfr_note": "WFA engine does not output IS (training) Sharpe — WFR cannot be computed. Use aggregate OOS Sharpe (0.528) as primary metric."
+  },
+  "best_parameters": {
+    "ema1h_period": 20,
+    "ema4h_period": 50,
+    "rsi_period": 14,
+    "rsi_oversold": 35.0,
+    "rsi_overbought": 65.0,
+    "hold_bars": 24,
+    "sl_atr_mult": 2.0,
+    "tp_rr_mult": 2.0
+  },
+  "parameter_stability": {
+    "rsi_oversold": {"cv": 0.143, "stability_score": 0.857, "mean": 42.18, "min": 35.0, "max": 50.0},
+    "rsi_overbought": {"cv": 0.105, "stability_score": 0.895, "mean": 56.59, "min": 50.0, "max": 65.0},
+    "hold_bars": {"cv": 0.545, "stability_score": 0.455, "mean": 51.67, "min": 24, "max": 96},
+    "ema1h_period": {"cv": 0.0, "stability_score": 1.0, "value": 20},
+    "ema4h_period": {"cv": 0.0, "stability_score": 1.0, "value": 50},
+    "rsi_period": {"cv": 0.0, "stability_score": 1.0, "value": 14},
+    "sl_atr_mult": {"cv": 0.0, "stability_score": 1.0, "value": 2.0},
+    "tp_rr_mult": {"cv": 0.0, "stability_score": 1.0, "value": 2.0}
+  },
+  "dataset": {
+    "symbol": "ETHUSDT",
+    "interval": "1h",
+    "bars": 64733,
+    "date_range": "2018-10-29 to 2026-03-21",
+    "source": "Binance public API (paginated)",
+    "file": "walk forward engine/data/binance_ethusdt_1h_deep.csv"
+  },
+  "data_fix": {
+    "issue": "First WFA attempt failed because data.min_required_bars (2000) was used for min_bars_per_window, but first window only had 720 validation bars (2000 required).",
+    "fix": "Changed data.min_required_bars from 2000 to 600 in wfa_config.yaml.",
+    "lesson": "data.min_required_bars controls min_bars_per_window in the runner — must match walk_forward.min_bars_per_window (600)."
+  },
+  "lessons": [
+    "EMA Trend Gate on ETH produces 14.3 avg trades/window — far more than vol_adaptive_trend BTC (4.3 trades/window), validating ETH's higher volatility for frequent signals.",
+    "Aggregate OOS Sharpe of 0.528 falls below the 0.8 gate. Per-window Sharpe median is -0.024 with only 49% positive windows — borderline result.",
+    "4h EMA regime filter (ema4h_period=50 pinned) combined with 1h RSI pullback (rsi_oversold=35, rsi_overbought=65) is a stable parameter set.",
+    "Hold_bars parameter is highly unstable (CV=0.545) — different windows prefer very different exit horizons. WFA selects 24-96 range across windows.",
+    "WFA engine does not output IS Sharpe — WFR cannot be computed. This is a data gap in the engine's output format.",
+    "Critical config bug found and fixed: data.min_required_bars (2000) overrides walk_forward.min_bars_per_window (600) in the smoke test runner. This caused the first WFA attempt to skip all 85 windows.",
+    "The strategy underperforms pure unfiltered RSI on BTC (0.94 Sharpe) — the 4h regime filter may be too restrictive, filtering out valid mean-reversion opportunities.",
+    "7.5 years of ETH data (64,733 hourly bars) across 85 WFA windows provides the most statistically robust result in the factory to date."
+  ],
+  "next_actions": [
+    "Test EMA Trend Gate on BTC with same parameters to compare vs ETH performance",
+    "Try wider RSI bands (rsi_oversold 25-35, rsi_overbought 65-75) to increase signal frequency",
+    "Test without 4h regime filter (pure RSI pullback on ETH) as comparison baseline",
+    "Fix WFA engine to output IS Sharpe for WFR computation",
+    "Consider shorter optimization windows (2mo train/1mo test) to increase number of windows"
+  ],
+  "evaluation": {
+    "status_gate": "PASS — 85 windows with 1216 trades produced. Aggregate Sharpe 0.528 below 0.8 target but WFR unavailable.",
+    "min_sharpe_oos": "Target 0.8, got 0.528 — BELOW",
+    "min_wfr": "Cannot compute — WFA engine doesn't output IS Sharpe",
+    "max_drawdown_pct": "Target 30%, got -16.37% — PASS",
+    "min_trades": "Target 30, got 1216 — PASS (avg 14.3/window)",
+    "evidence_score": 60
+  },
+  "comparison_vs_benchmarks": {
+    "vs_bollinger_bands_eth": "BB Sharpe 0.39 → this run 0.528 — BETTER by +0.14",
+    "vs_rsi_btc": "RSI BTC Sharpe 0.94 (wfa_minimal, no transaction costs) → this run 0.528 — WORSE",
+    "vs_vol_adaptive_trend_btc": "Vol Adaptive BTC Sharpe 0.63 (with costs) → this run 0.528 — WORSE, but more trades (14.3 vs 4.3 avg)"
+  }
+}

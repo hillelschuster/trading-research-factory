@@ -1,0 +1,40 @@
+{
+  "experiment_id": "EXP-20260317160000-01",
+  "title": "Strategy Comparison: Bollinger Bands vs SMA on Crypto Assets",
+  "execution_timestamp": "2026-03-17T16:00:00Z",
+  "strategies_compared": ["SMA Crossover", "Bollinger Bands"],
+  "data": {
+    "btcusdt": {"candles": 500},
+    "ethusdt": {"candles": 500},
+    "solusdt": {"candles": 500}
+  },
+  "results": {
+    "bollinger_bands": {
+      "btcusdt": {"return": 0.00156, "sharpe": 0.210, "drawdown": -0.0113, "trades": 7},
+      "ethusdt": {"return": 0.00295, "sharpe": 0.389, "drawdown": -0.00217, "trades": 2},
+      "solusdt": {"return": 0.00103, "sharpe": 0.145, "drawdown": -0.00185, "trades": 1}
+    },
+    "sma_crossover": {
+      "btcusdt": {"return": 0.01277, "sharpe": -0.102, "drawdown": -0.00207, "trades": 5},
+      "ethusdt": {"return": 0.00409, "sharpe": 0.185, "drawdown": -0.0095, "trades": 6},
+      "solusdt": {"return": 0.00694, "sharpe": 0.531, "drawdown": -0.00655, "trades": 3}
+    }
+  },
+  "best_pairings": {
+    "btcusdt": {"strategy": "SMA", "reason": "Higher return (1.28% vs 0.16%)"},
+    "ethusdt": {"strategy": "Bollinger Bands", "reason": "Better Sharpe (0.39 vs 0.19) and lower drawdown"},
+    "solusdt": {"strategy": "SMA", "reason": "Much higher Sharpe (0.53 vs 0.15)"}
+  },
+  "overall_best": {
+    "strategy": "SMA on SOL",
+    "sharpe": 0.531,
+    "return": 0.00694
+  },
+  "conclusion": "SMA outperformed Bollinger Bands on BTC and SOL, while Bollinger Bands showed better risk-adjusted performance on ETH. Overall, SMA on SOL achieved the best Sharpe ratio (0.53) in this experiment.",
+  "artifacts_created": [
+    "workspace/results/wfa_bb_btcusdt.json",
+    "workspace/results/wfa_bb_ethusdt.json",
+    "workspace/results/wfa_bb_solusdt.json",
+    "workspace/results/strategy_comparison.json"
+  ]
+}

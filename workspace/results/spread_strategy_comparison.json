@@ -1,0 +1,43 @@
+{
+  "experiment_id": "EXP-20260317170000-01",
+  "title": "Cross-Asset Momentum Spread Strategy: BTC-ETH",
+  "execution_timestamp": "2026-03-17T17:00:00Z",
+  "strategy": "BTC-ETH Momentum Spread",
+  "data": {
+    "btcusdt": {"candles": 500},
+    "ethusdt": {"candles": 500}
+  },
+  "results": {
+    "spread_btc_eth": {
+      "return": 0.0102,
+      "sharpe": 0.116,
+      "drawdown": -0.0142,
+      "win_rate": 0.361,
+      "trades": 6
+    },
+    "sma_btc": {
+      "return": 0.0128,
+      "sharpe": -0.102,
+      "drawdown": -0.0021
+    },
+    "sma_eth": {
+      "return": 0.0041,
+      "sharpe": 0.185,
+      "drawdown": -0.0095
+    },
+    "bb_eth": {
+      "return": 0.0030,
+      "sharpe": 0.389,
+      "drawdown": -0.0022
+    }
+  },
+  "comparison": {
+    "vs_sma_btc": "Spread has positive Sharpe (0.12 vs -0.10) but lower return",
+    "vs_sma_eth": "Spread has lower Sharpe (0.12 vs 0.19)",
+    "vs_bb_eth": "Spread has lower Sharpe (0.12 vs 0.39)",
+    "conclusion": "Spread strategy achieved positive Sharpe (0.12) but underperformed best single-asset strategies. Provides diversification benefit."
+  },
+  "artifacts_created": [
+    "workspace/results/wfa_spread_btc_eth.json"
+  ]
+}

@@ -1,0 +1,7 @@
+[
+  "harness/wfa_minimal.py",
+  "results/strategy_comparison.json",
+  "results/wfa_bb_btcusdt.json",
+  "results/wfa_bb_ethusdt.json",
+  "results/wfa_bb_solusdt.json"
+]

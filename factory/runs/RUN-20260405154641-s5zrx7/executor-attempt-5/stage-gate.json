@@ -1,0 +1,14 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260405154641-s5zrx7",
+  "stage": "executor",
+  "attempt": 5,
+  "decision": "allowed",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-5/stage-validated.json",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_190926.json"
+  ],
+  "reason": null,
+  "recorded_at": "2026-04-05T16:17:13.133Z"
+}

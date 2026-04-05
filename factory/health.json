@@ -1,0 +1,156 @@
+{
+  "schema_version": "health_v1",
+  "updated_at": "2026-04-05T17:01:23.504Z",
+  "prompt_bytes_per_stage": {
+    "planner": {
+      "count": 116,
+      "avg_bytes": 14326,
+      "max_bytes": 31428,
+      "last_bytes": 12593
+    },
+    "executor": {
+      "count": 196,
+      "avg_bytes": 11837,
+      "max_bytes": 22887,
+      "last_bytes": 11143
+    },
+    "evaluator": {
+      "count": 72,
+      "avg_bytes": 5163,
+      "max_bytes": 12959,
+      "last_bytes": 11345
+    },
+    "summarizer": {
+      "count": 69,
+      "avg_bytes": 8450,
+      "max_bytes": 13249,
+      "last_bytes": 12802
+    }
+  },
+  "prompt_budget_breaches": {
+    "ideator": 0,
+    "planner": 0,
+    "executor": 0,
+    "evaluator": 3,
+    "summarizer": 0
+  },
+  "compaction_frequency": {
+    "proxy_basis": "fresh_session_reuse_rate",
+    "estimated_compaction_events": 0,
+    "rate_per_session_record": 0
+  },
+  "session_reuse_count": {
+    "total_session_records": 442,
+    "reused_session_records": 0
+  },
+  "transport_retry_recovery_rate": {
+    "transport_failures": 45,
+    "recovered_after_retry": 10,
+    "recovery_rate": 0.2222
+  },
+  "transport_failures": {
+    "by_phase": {
+      "unknown": 10,
+      "request": 5,
+      "first_headers": 24,
+      "session_create": 6
+    },
+    "by_adapter": {
+      "unknown": {
+        "unknown": 10
+      },
+      "opencode_http": {
+        "request": 3
+      },
+      "opencode_sdk": {
+        "first_headers": 24,
+        "request": 2
+      },
+      "opencode_server_manager": {
+        "session_create": 6
+      }
+    }
+  },
+  "owner_lock_events": {
+    "observer_only_starts": 0,
+    "owner_lock_takeovers": 5,
+    "owner_lock_denials": 0
+  },
+  "operational_artifacts": {
+    "recovery_log_lines": 145,
+    "verification_files": 36
+  },
+  "stranded_lease_count": 0,
+  "cooldown_run_count": 0,
+  "quarantined_run_count": 7,
+  "false_pass_prevention": {
+    "denied_stage_gates": 156,
+    "denied_false_executed_claims": 6,
+    "denied_generic_summaries": 0
+  },
+  "resumable_run_recovery_rate": {
+    "handoff_runs": 16,
+    "recovered_runs": 8,
+    "recovery_rate": 0.5
+  },
+  "memory_validation_failure_count": {
+    "repair_reports": 3,
+    "total_bad_fragments": 6
+  },
+  "simulate_entries_in_leaderboard": 0,
+  "asset_timeframe_distribution_live_runs": {
+    "unknown|unknown|unknown": 17,
+    "crypto|BTCUSDT|1h with 4h regime filter": 1,
+    "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime filter": 1,
+    "crypto|ETHUSDT spot (binance_ethusdt_1h_deep.csv)|1h with 4h regime filter": 1,
+    "crypto|ETHUSDT|1h with 4h regime filter": 1,
+    "crypto|ETH/USDT spot (binance_ethusdt_1h_deep.csv)|1h with 4h regime filter": 1,
+    "crypto|BNB/USDT spot (binance_bnbusdt_1h_deep.csv)|1h with 4h regime filter": 2,
+    "crypto|BNB/USDT spot|1h with 4h regime filter": 2,
+    "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection for volatility contraction/expansion": 1,
+    "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection": 1
+  },
+  "executor_completion_rate": {
+    "total_executor_stage_gates": 136,
+    "allowed_executor_stage_gates": 20,
+    "completion_rate": 0.1471
+  },
+  "evidence_yield": {
+    "live_research_entries_total": 28,
+    "live_research_entries_last_24h": 4
+  },
+  "market_family_distribution_vs_policy": [
+    {
+      "market_family": "crypto",
+      "priority": 1,
+      "live_research_entries": 11
+    },
+    {
+      "market_family": "prediction_markets",
+      "priority": 2,
+      "live_research_entries": 0
+    },
+    {
+      "market_family": "forex",
+      "priority": 3,
+      "live_research_entries": 0
+    }
+  ],
+  "research_vs_infra_balance": {
+    "infra_blocked_like_items": 14,
+    "research_bearing_live_runs": 28,
+    "blocked_to_research_ratio": 0.5
+  },
+  "percent_of_plans_with_explicit_scope_justification": {
+    "total_plans": 96,
+    "plans_with_explicit_scope_justification": 60,
+    "percent": 0.625
+  },
+  "latest_transport_bakeoff": {
+    "artifact_path": "factory/verification/transport-bakeoff-20260402140907184.json",
+    "generated_at": "2026-04-02T14:08:49.777Z",
+    "winner_adapter": "sdk",
+    "evidence_supported": false,
+    "synthetic": false
+  }
+}

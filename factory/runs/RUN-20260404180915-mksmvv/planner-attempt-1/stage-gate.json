@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404180915-mksmvv",
+  "stage": "planner",
+  "attempt": 1,
+  "decision": "denied",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404180915-mksmvv/planner-attempt-1/stage-error.json"
+  ],
+  "reason": "JSON parse failed: Expected ',' or '}' after property value in JSON at position 3155 (line 56 column 50). Content: {\n  \"experiment_id\": \"EXP-20260404190000-WFRVERIFY\",\n  \"title\": \"Verify WFR calculation capability from window results\",\n  \"backlog_item_id\": \"IDEA-923607-515\",\n  \"objective\": \"Verify WFR (Walk-Forwar",
+  "recorded_at": "2026-04-04T18:49:26.390Z"
+}

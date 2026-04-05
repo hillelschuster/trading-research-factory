@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404211002-hmi9jy",
+  "stage": "planner",
+  "attempt": 2,
+  "decision": "denied",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404211002-hmi9jy/planner-attempt-2/stage-error.json"
+  ],
+  "reason": "planner transport request timed out waiting for response headers.",
+  "recorded_at": "2026-04-04T21:20:16.752Z"
+}

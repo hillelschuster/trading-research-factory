@@ -1,0 +1,95 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260321170250-01",
+  "title": "BB Width Squeeze — Volatility Expansion Breakout on BTC Deep Data",
+  "backlog_item_id": "AUTO-1774104820555-4a0",
+  "objective": "Test the BB Width Squeeze volatility expansion breakout strategy on 5 years of BTCUSDT hourly data (2021-2026). Strategy: Bollinger Band width contraction (squeeze) precedes explosive directional moves; enter on bandwidth expansion breakout with momentum confirmation. This differs from the Bollinger Bands mean-reversion tested on ETH (uses price at band extremes) — BB Width uses VOLATILITY contraction as the leading indicator. WFA with Optuna (100 trials, 3mo train/1mo test/1mo step) on the deep dataset.",
+  "hypothesis": "BB Width contraction followed by bandwidth expansion is a leading indicator of directional moves in BTC. By detecting low-volatility squeeze states and entering on expansion with momentum confirmation, the strategy captures explosive breakouts while filtering false signals. On 5 years of BTC 1h data, this strategy will produce positive OOS Sharpe because: (1) BTC exhibits repeated volatility cycles, (2) squeeze events are frequent and measurable, (3) momentum filter reduces noise entries.",
+  "strategy_rationale": "DISTINCT FROM ALL PRIOR STRATEGIES. Bollinger Bands mean-reversion (tested on ETH, Sharpe 0.39) uses price distance from bands as the signal. BB Width Squeeze uses BANDWIDTH CONTRACTION as a leading indicator — it captures the quiet-before-the-storm pattern that precedes big moves. This is a VOLATILITY strategy class, not momentum, mean-reversion, or spread. The existing bb_width_squeeze.py (291 lines) is complete but was NEVER registered or executed by the factory. This experiment activates unused infrastructure. The deep BTC dataset (43,789 candles, 2021-2026) enables proper multi-window WFA — the critical improvement over prior short-history failures (500-1000 candles producing only 2 trades per window).",
+  "strategy_type": "volatility",
+  "priority": 85,
+  "dataset_requirements": [
+    "BTC/USDT, H1, 2021-03-22 to 2026-03-21 (43,789 hourly candles)"
+  ],
+  "historical_depth_requirement": {
+    "target": "5 years of hourly BTC data — maximum realistic from Binance public API",
+    "justification": "BB Width Squeeze requires sufficient squeeze events per WFA fold. With 3-month training windows (~2000 candles per fold), the deep dataset provides 15+ training folds and 15+ OOS test folds across multiple market regimes (bull 2021, bear 2022, recovery 2023, ETF-driven 2024, volatile 2025). Short 500-1000 candle datasets produce insufficient squeeze events — confirmed by prior experiments with only 2-3 trades per window and Sharpe -5.0."
+  },
+  "data_acquisition": {
+    "status": "present",
+    "reason": "binance_btcusdt_1h_deep.csv at walk forward engine/data/binance_btcusdt_1h_deep.csv contains 43,789 hourly candles from 2021-03-22 to 2026-03-21. This IS the maximum realistic depth for Binance hourly BTC data. No download needed.",
+    "acquisition_method": "existing_local",
+    "sources": ["walk forward engine/data/binance_btcusdt_1h_deep.csv (already present)"],
+    "commands": [],
+    "expected_outputs": ["walk forward engine/data/binance_btcusdt_1h_deep.csv"]
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/bb_width_squeeze.py (291 lines — complete implementation, never executed)",
+    "walk forward engine/config/strategy_bb_width_squeeze.json (updated with atr_period)",
+    "walk forward engine/config/main_config.yaml (BB_WIDTH_SQUEEZE registered in asset_strategy_profiles AND strategy_definitions)",
+    "walk forward engine/strategies/bb_width_squeeze/wfa_config.yaml (updated for deep data, 100 trials)"
+  ],
+  "implementation_steps": [
+    "Step 1: Verify data present at walk forward engine/data/binance_btcusdt_1h_deep.csv (confirmed: 43,789 lines)",
+    "Step 2: Verify BB_WIDTH_SQUEEZE registered in main_config.yaml asset_strategy_profiles AND strategy_definitions",
+    "Step 3: Verify wfa_config.yaml: profile_key='BB_WIDTH_SQUEEZE', source_file='data/binance_btcusdt_1h_deep.csv', min_required_bars=40000, n_parameter_trials=100, fees=0.0006, slippage=0.0002",
+    "Step 4: HUMAN runs: cd 'walk forward engine' && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/bb_width_squeeze/wfa_config.yaml",
+    "Step 5: Collect results from walk forward engine/strategies/bb_width_squeeze/results/"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/bb_width_squeeze/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/src/strategies/bb_width_squeeze.py (already exists, 291 lines)",
+    "walk forward engine/config/strategy_bb_width_squeeze.json (already exists, updated)",
+    "walk forward engine/config/main_config.yaml (BB_WIDTH_SQUEEZE registered)",
+    "walk forward engine/strategies/bb_width_squeeze/wfa_config.yaml (updated for deep data)",
+    "walk forward engine/strategies/bb_width_squeeze/results/*.json (WFA output)",
+    "factory/experiments/EXP-20260321170250-01.plan.json (created)"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["return", "stability"],
+    "stability_weight": 0.15,
+    "parameter_ranges": {
+      "bb_period": [10, 15, 20, 25],
+      "bb_std": [1.5, 2.0, 2.5],
+      "width_period": [10, 20, 30],
+      "squeeze_pct": [10.0, 15.0, 20.0, 25.0],
+      "momentum_period": [10, 15, 20, 30],
+      "hold_bars": [12, 24, 36, 48],
+      "sl_atr_mult": [1.5, 2.0, 2.5, 3.0],
+      "atr_period": [10, 14, 20]
+    }
+  },
+  "evaluation_criteria": {
+    "status_gate": "Experiment must produce Sharpe OOS > 0.5 AND minimum 20 trades across OOS windows to be considered meaningful. Sharpe 0.0-0.5 with low trade count = inconclusive. Negative Sharpe = fail.",
+    "metrics": {
+      "min_sharpe_oos": 0.5,
+      "min_wfr": 0.4,
+      "max_drawdown_pct": 40,
+      "min_trades": 20
+    },
+    "min_evidence_score": 60
+  },
+  "fallback_if_blocked": [
+    "If WFA engine fails to load strategy: fallback to pure Python wfa_minimal.py using BB Width Squeeze signals",
+    "If deep data path resolution fails: use walk forward engine/data/binance_btcusdt_1h_deep.csv directly"
+  ],
+  "notes": [
+    "VOLATILITY strategy class — first of its kind in the factory (distinct from all momentum/mean-reversion/spread strategies)",
+    "bb_width_squeeze.py already implemented (291 lines) but NEVER executed — this activates unused code",
+    "Deep dataset (5 years) enables proper WFA: 15+ training folds and 15+ OOS test folds",
+    "8 parameters with wide ranges — 100 Optuna TPE trials should find robust regions",
+    "If Sharpe OOS > 1.0, follow up with ETH and SOL on same strategy class",
+    "Consider cost stress test (2x fees) as follow-up if base results are positive"
+  ]
+}
+</RF_JSON>

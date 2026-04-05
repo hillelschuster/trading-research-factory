@@ -1,0 +1,78 @@
+{
+  "experiment_id": "EXP-20260405132700-01",
+  "status": "executed",
+  "commands_attempted": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+  ],
+  "commands_completed": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+  ],
+  "artifacts_created": [
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_164250.json",
+    "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_164250.json",
+    "factory/runs/RUN-20260405132700-01/execution-result.json",
+    "factory/runs/RUN-20260405132700-01/evaluation.json",
+    "factory/summaries/RUN-20260405132700-01.md"
+  ],
+  "datasets_acquired": [
+    {
+      "source": "existing_fetcher",
+      "output": "workspace/data/binance_bnbusdt_1h_deep.csv",
+      "rows": 43788,
+      "notes": "BNB/USDT 1h data from 2021-04-02 to 2026-04-01",
+      "date_range": "2021-04-02 to 2026-04-01"
+    }
+  ],
+  "artifacts_updated": [],
+  "workspace_changes": [
+    "WFA executed with FIXED discovered parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168)",
+    "54 windows completed with 399 trades across 4.5 years of data",
+    "Robustness test completed: 61.1% positive Sharpe windows"
+  ],
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": 0.6636,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": -9.16,
+    "win_rate": 0.484,
+    "total_trades": 399,
+    "fold_variance": null,
+    "positive_sharpe_windows_pct": 61.1
+  },
+  "provenance": {
+    "engine": "walk_forward_engine",
+    "command": "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml",
+    "working_directory": "walk forward engine",
+    "config_path": "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml",
+    "result_artifacts": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_164250.json"
+    ],
+    "windows_completed": 54
+  },
+  "variants_tested": [
+    {
+      "params": {
+        "ema4h_period": 50,
+        "ema1h_period": 20,
+        "rsi_period": 14,
+        "rsi_oversold": 25,
+        "rsi_overbought": 60,
+        "hold_bars": 168,
+        "sl_atr_mult": 2,
+        "tp_rr_mult": 2
+      },
+      "result": "FIXED parameters test: 61.1% positive Sharpe windows (33/54), OOS Sharpe 0.664 vs discovery 1.275. Max DD -9.16% within 15%. PARTIAL robustness confirmed but below 70% target."
+    }
+  ],
+  "blockers": [],
+  "errors": [],
+  "notes": [
+    "WFA completed with FIXED discovered parameters to test robustness across 54 windows",
+    "61.1% positive Sharpe windows (33/54) - BELOW 70% target threshold - FAIL",
+    "Aggregate OOS Sharpe 0.664 vs prior discovery 1.275 (-48% decline) - indicates overfitting to original window",
+    "Max DD -9.16% meets <15% threshold - PASS",
+    "399 trades with 48.4% win rate - above 200 threshold - PASS",
+    "CONCLUSION: Parameters show PARTIAL robustness - genuine edge exists but original 1.275 was partially lucky. Recommend conservative deployment with reduced position sizing."
+  ]
+}

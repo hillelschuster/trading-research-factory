@@ -1,0 +1,333 @@
+{
+  "agent": "planner",
+  "attempt": 1,
+  "attempts": 3,
+  "failure_class": "orchestrator_bug",
+  "transport_phase": null,
+  "retryable": null,
+  "timeout_bucket": null,
+  "transport_adapter": null,
+  "server_fingerprint": null,
+  "error": {
+    "name": "Error",
+    "message": "Planner result expected artifacts must not contain placeholder tokens.",
+    "stack": "Error: Planner result expected artifacts must not contain placeholder tokens.\n    at validatePlannerResult (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/validators.mjs:167:11)\n    at validate (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1386:15)\n    at file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1317:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:305:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1374:32)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
+    "failure_class": null,
+    "retry_class": null,
+    "transport_phase": null,
+    "retryable": null,
+    "timeout_bucket": null,
+    "transport_adapter": null,
+    "server_fingerprint": null,
+    "cause": null
+  },
+  "message": "Planner result expected artifacts must not contain placeholder tokens.",
+  "recorded_at": "2026-04-04T15:09:22.209Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "backlogItem": {
+      "id": "IDEA-718440-afg",
+      "title": "Modify existing ema_trend_gate/wfa_config.yaml to include ETH-specific parameter ranges, OR",
+      "status": "infra_blocked",
+      "priority": 55,
+      "category": "followup",
+      "objective": "Modify existing ema_trend_gate/wfa_config.yaml to include ETH-specific parameter ranges, OR",
+      "source": "RUN-20260404075959-ij3gm9",
+      "research_status": null,
+      "cooldown_until": null,
+      "quarantine_until": null,
+      "lease_owner": null,
+      "lease_expires_at": null,
+      "current_run_id": "RUN-20260404150343-tmxxkx",
+      "last_failure_class": "orchestrator_bug",
+      "resume_from_stage": "planner",
+      "last_verdict": null,
+      "started_at": "2026-04-04T15:03:47.429Z",
+      "last_error": "Planner result expected artifacts must not contain placeholder tokens."
+    },
+    "retrieval": {
+      "relevant_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404133920-01",
+          "verdict": "promising",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "BNB exchange token volatility regime responds to asset-specific parameter tuning",
+          "specific_finding": "Prior run with generic parameters (rsi_oversold=35, rsi_overbought=50, hold_bars=96) yielded 0.432 OOS Sharpe - worst in EMA Trend Gate series. Expanded parameter search (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) discovered optimal BNB settings at rsi_oversold=25, rsi_overbought=60, hold_bars=168, achieving 1.275 OOS Sharpe (+195%).",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 1.2751,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -8.1353,
+            "win_rate": 0.4979,
+            "total_trades": 484,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "improvement_vs_prior": "+195% Sharpe, +27% DD reduction"
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404090255-5uejma.md",
+            "factory/experiments/EXP-20260404133920-01.plan.json",
+            "factory/runs/RUN-20260404090255-5uejma/execution-result.json",
+            "factory/runs/RUN-20260404090255-5uejma/evaluation.json",
+            "factory/runs/RUN-20260404090255-5uejma/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260403123500-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "ETHUSDT",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "EMA Trend Gate generalizes to ETHUSDT but with lower Sharpe than BTC baseline (0.489 vs 0.998). Cross-asset generalization partially confirmed - strategy works on ETH but underp...",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.4894,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -14.34,
+            "win_rate": 0.4604,
+            "total_trades": 1238,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "aggregate_return_pct": 0.5944,
+              "profit_factor": 1.086,
+              "expectancy": 0.0816,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "avg_trades_per_window": 14.56
+            }
+          },
+          "related_artifact_paths": [
+            "factory/runs/RUN-20260403123500-01/execution-result.json",
+            "factory/runs/RUN-20260403123500-01/evaluation.json",
+            "factory/runs/RUN-20260403123500-01/summary.json",
+            "factory/summaries/RUN-20260403123500-01.md"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "verdict": "inconclusive",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "Planner must verify strategy directories exist before referencing them in execution commands",
+          "specific_finding": "Plan created execution command pointing to non-existent strategies/ema_trend_gate_eth/wfa_config.yaml, blocking experiment before WFA could run",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": null,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": null,
+            "win_rate": null,
+            "total_trades": 0,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 0
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404075959-ij3gm9.md",
+            "factory/experiments/EXP-20260404000000-NN.plan.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/execution-result.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/evaluation.json",
+            "factory/runs/RUN-20260404075959-ij3gm9/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window...",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.528,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -16.37,
+            "win_rate": 0.461,
+            "total_trades": 1216,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "avg_trades_per_window": 14.3,
+              "profit_factor": 1.103,
+              "expectancy": 0.098,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "positive_sharpe_windows": 42,
+              "evidence_score": 60
+            }
+          },
+          "related_artifact_paths": []
+        }
+      ],
+      "contradiction": {
+        "positive": {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404133920-01",
+          "verdict": "promising",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "BNB exchange token volatility regime responds to asset-specific parameter tuning",
+          "specific_finding": "Prior run with generic parameters (rsi_oversold=35, rsi_overbought=50, hold_bars=96) yielded 0.432 OOS Sharpe - worst in EMA Trend Gate series. Expanded parameter search (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) discovered optimal BNB settings at rsi_oversold=25, rsi_overbought=60, hold_bars=168, achieving 1.275 OOS Sharpe (+195%).",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 1.2751,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -8.1353,
+            "win_rate": 0.4979,
+            "total_trades": 484,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "improvement_vs_prior": "+195% Sharpe, +27% DD reduction"
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404090255-5uejma.md",
+            "factory/experiments/EXP-20260404133920-01.plan.json",
+            "factory/runs/RUN-20260404090255-5uejma/execution-result.json",
+            "factory/runs/RUN-20260404090255-5uejma/evaluation.json",
+            "factory/runs/RUN-20260404090255-5uejma/summary.json"
+          ]
+        },
+        "negative": {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260403123500-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "ETHUSDT",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "EMA Trend Gate generalizes to ETHUSDT but with lower Sharpe than BTC baseline (0.489 vs 0.998). Cross-asset generalization partially confirmed - strategy works on ETH but underp...",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.4894,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -14.34,
+            "win_rate": 0.4604,
+            "total_trades": 1238,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "aggregate_return_pct": 0.5944,
+              "profit_factor": 1.086,
+              "expectancy": 0.0816,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "avg_trades_per_window": 14.56
+            }
+          },
+          "related_artifact_paths": [
+            "factory/runs/RUN-20260403123500-01/execution-result.json",
+            "factory/runs/RUN-20260403123500-01/evaluation.json",
+            "factory/runs/RUN-20260403123500-01/summary.json",
+            "factory/summaries/RUN-20260403123500-01.md"
+          ]
+        }
+      },
+      "comparable_promoted_runs": [
+        {
+          "source_path": "factory/evidence/index.json",
+          "run_id": "RUN-20260331154332-55",
+          "experiment_id": "EXP-20260331154332-55",
+          "verdict": "success",
+          "evidence_score": 85,
+          "market_family": "crypto",
+          "asset_scope": "BTCUSDT",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "EMA_TREND_GATE",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.998,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -6.9048,
+            "win_rate": 0.4835,
+            "total_trades": 848,
+            "fold_variance": 2.96,
+            "markets_tested": [
+              "BTCUSDT"
+            ],
+            "extra_metrics": {
+              "aggregate_return_pct": 0.8603,
+              "profit_factor": 1.1904,
+              "avg_trades_per_window": 14.88,
+              "total_windows": 57,
+              "successful_windows": 57,
+              "comparison_to_eth": {
+                "eth_sharpe_oos": 0.528,
+                "btc_sharpe_oos": 0.998,
+                "improvement_pct": 89,
+                "eth_max_drawdown": -16.37,
+                "btc_max_drawdown": -6.9048
+              }
+            }
+          },
+          "summary_path": "factory/summaries/RUN-20260331154332-55.md",
+          "evidence_kind": "research",
+          "promotable": true
+        },
+        {
+          "source_path": "factory/evidence/index.json",
+          "run_id": "RUN-20260404090255-5uejma",
+          "experiment_id": "EXP-20260404133920-01",
+          "verdict": "promising",
+          "evidence_score": 75,
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 1.2751,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -8.1353,
+            "win_rate": 0.4979,
+            "total_trades": 484,
+            "fold_variance": null,
+            "markets_tested": [
+              "BNB/USDT"
+            ],
+            "extra_metrics": {}
+          },
+          "summary_path": "factory/summaries/RUN-20260404090255-5uejma.md",
+          "evidence_kind": "research",
+          "promotable": true
+        }
+      ]
+    },
+    "retryNote": null
+  }
+}

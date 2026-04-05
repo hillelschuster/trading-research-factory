@@ -1,0 +1,5 @@
+[
+  "harness/wfa_minimal.py",
+  "results/spread_strategy_comparison.json",
+  "results/wfa_spread_btc_eth.json"
+]

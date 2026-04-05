@@ -1,0 +1,84 @@
+{
+  "experiment_id": "EXP-20260322000000-01",
+  "title": "Volatility-Adaptive RSI on ETH — Pure RSI Pullback Without 4h Regime Filter",
+  "backlog_item_id": "AUTO-1774195902743-gx3",
+  "objective": "Test pure RSI pullback entries (long when RSI < oversold, short when RSI > overbought) on ETH 1h candles, with volatility-adaptive stop-loss (SL% = ATR × mult / close, which widens in high-vol regimes). The core hypothesis: removing the 4h EMA regime filter used in EMA Trend Gate (which killed 51% of potential windows, producing only 49% positive Sharpe windows) will improve the consistency of positive Sharpe across windows. The strategy is long/short with 1:1 RR and time-based exits. Test on the existing 7.5-year ETHUSDT 1h dataset (64,733 bars) via full WFA with Optuna TPE over 4 optimized parameters (192 combos × 100 trials).",
+  "hypothesis": "Pure RSI pullback without the 4h regime filter will produce a higher percentage of positive Sharpe windows than EMA Trend Gate (49%), because the 4h filter restricted trades to only trending regimes. With ETH's higher volatility vs BTC, RSI signals should fire more frequently than the 1-9 trades/window that killed vol_adaptive_trend on BTC. If Sharpe OOS >= 0.8 with >= 50% positive Sharpe windows and >= 30 total OOS trades, the pure approach is validated.",
+  "strategy_rationale": "Why this over alternatives: (1) EMA Trend Gate on ETH (Sharpe 0.528, 85 windows, 1216 trades) used a 4h EMA regime filter that blocked trades in ranging conditions — only 49% of windows had positive Sharpe. The filter improved directional accuracy but hurt consistency. Removing it should raise the positive-window rate. (2) vol_adaptive_trend used Supertrend crossovers on BTC (Sharpe 0.63) but had only 4.3 avg trades/window — too sparse for reliable inference. (3) Pure RSI on BTC is the factory's best result (Sharpe 0.79–0.94) but was never tested on ETH. Why not duplicate: No strategy has tested RSI pullback without any regime filter on ETH. The combination of (a) pure signal + (b) vol-adaptive stops + (c) ETH's higher volatility is genuinely novel for this factory.",
+  "strategy_type": "mean_reversion",
+  "priority": 80,
+  "dataset_requirements": [
+    "ETHUSDT 1h candles — maximum available history (~7.5 years, 2018-10 to 2026-03)"
+  ],
+  "historical_depth_requirement": {
+    "target": "7.5 years (2018-10-29 to 2026-03-21) — 64,733 hourly bars",
+    "justification": "WFA with 3mo train / 1mo test / 1mo step on 7.5 years yields 85+ WFA windows (same as the successful EMA Trend Gate run). ETH's deep history provides statistically meaningful inference. Existing dataset confirmed present — no download required. ETH's higher volatility vs BTC should produce more frequent RSI signals than the 1-9 trades/window that killed prior experiments."
+  },
+  "data_acquisition": {
+    "status": "present",
+    "reason": "ETHUSDT 1h deep data already present at workspace/data/binance_ethusdt_1h_deep.csv: 64,733 bars from 2018-10-29 to 2026-03-21. Columns verified: timestamp,open,high,low,close,volume. Same dataset used for the successful EMA Trend Gate WFA run (EXP-20260321200000-01). No download required.",
+    "acquisition_method": "existing_dataset",
+    "sources": [
+      "workspace/data/binance_ethusdt_1h_deep.csv (already present, 64,733 bars)"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/vol_adaptive_rsi_eth.py (new strategy — pure RSI pullback + vol-adaptive stops, LightweightVolAdaptiveRSI class with generate_vectorized_signals method; py_compile verified exit 0)",
+    "walk forward engine/strategies/vol_adaptive_rsi_eth/wfa_config.yaml (new WFA config — 3mo train/1mo test/1mo step, 100 TPE trials, 4 optimized params, profile_key VOL_ADAPTIVE_RSI; yaml.safe_load verified)"
+  ],
+  "implementation_steps": [
+    "1. Pre-execution verification DONE: strategy compiles (py_compile exit 0), YAML valid (yaml.safe_load OK), ETH deep data confirmed (64,734 lines, 2018-10-29 to 2026-03-21, correct columns).",
+    "2. Run WFA: cd 'walk forward engine' && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/vol_adaptive_rsi_eth/wfa_config.yaml",
+    "3. Parse results from strategies/vol_adaptive_rsi_eth/results/analysis.json: extract aggregate Sharpe OOS, total trades, positive Sharpe windows, max drawdown, win rate.",
+    "4. Compare vs benchmarks: EMA Trend Gate ETH (Sharpe 0.528, 49% positive windows), vol_adaptive_trend BTC (Sharpe 0.63, 4.3 trades/window), pure RSI BTC (Sharpe 0.79–0.94)."
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/vol_adaptive_rsi_eth/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/strategies/vol_adaptive_rsi_eth/results/analysis.json (WFA aggregate metrics)",
+    "walk forward engine/strategies/vol_adaptive_rsi_eth/results/walk_forward_summary_*.csv (per-window results)",
+    "walk forward engine/strategies/vol_adaptive_rsi_eth/results/walk_forward_results_*.json (detailed per-window data)",
+    "walk forward engine/strategies/vol_adaptive_rsi_eth/results/parameter_stability_*.json (param stability metrics)",
+    "factory/experiments/EXP-20260322000000-01.plan.json (this plan)",
+    "factory/runs/EXP-20260322000000-01.run.json (execution result)"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": [
+      "stability"
+    ],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "At least 6 complete OOS windows with >= 30 total trades across OOS. Primary risk is insufficient trades — same failure mode that killed London Sweep (2 trades), ATR Breakout (2 trades), and MACD Divergence (WFA never ran). If < 10 trades appear in the first 2 windows, flag as potentially low-signal.",
+    "metrics": {
+      "min_sharpe_oos": 0.8,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 30
+    },
+    "min_evidence_score": 70
+  },
+  "fallback_if_blocked": [
+    "If WFA execution fails due to environment issue: fall back to pure Python wfa_minimal.py on the same strategy+data (lower quality but produces metrics).",
+    "If the pure RSI strategy produces < 10 trades/window: widen RSI thresholds (OS 20-50, OB 50-80) and reduce hold_bars to 24-36 to increase signal frequency.",
+    "If total trades across all OOS windows < 30: the RSI signal is too rare on ETH — switch to BTCUSDT 1h deep data with the same strategy."
+  ],
+  "notes": [
+    "The 4h EMA regime filter in EMA Trend Gate was the primary suspect for only 49% positive Sharpe windows. Pure RSI without filter tests this hypothesis directly — if positive-window rate stays < 50%, the filter was not the cause.",
+    "ETH's higher volatility (vs BTC) should produce more frequent RSI signals than the 4.3 trades/window that limited vol_adaptive_trend's reliability on BTC.",
+    "The volatility-adaptive stop mechanism (SL% = ATR × mult / close) provides systematic risk scaling without needing the WFA engine to support dynamic position sizing — it works with the existing vectorized backtester.",
+    "Strategy is long/short symmetric with 1:1 risk-reward. Time-based exits (hold_bars) prevent overnight gap risk accumulation.",
+    "CRITICAL FIX already applied: data.min_required_bars=600 in wfa_config.yaml (not 2000) to avoid the bug that caused the smoke_test runner to skip all windows in EXP-20260321200000-01."
+  ]
+}

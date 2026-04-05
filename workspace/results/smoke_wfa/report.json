@@ -1,0 +1,1796 @@
+{
+  "windows": [
+    {
+      "train_start": "2024-01-01 00:00:00",
+      "train_end": "2024-01-05 23:00:00",
+      "test_start": "2024-01-06 00:00:00",
+      "test_end": "2024-01-08 11:00:00",
+      "params": {
+        "fast": 10,
+        "slow": 20
+      },
+      "train": {
+        "total_return": 0.0692068044501768,
+        "sharpe": 1.4724442697338234,
+        "max_drawdown": -0.028794456673459923,
+        "win_rate": 0.5303030303030303,
+        "trades": 3
+      },
+      "test": {
+        "total_return": -0.007785080843608849,
+        "sharpe": -0.5165017792395235,
+        "max_drawdown": -0.023474831957363107,
+        "win_rate": 0.42857142857142855,
+        "trades": 1
+      },
+      "trades": [
+        {
+          "timestamp": "2024-01-06 00:00:00",
+          "close": 109.0846,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 01:00:00",
+          "close": 108.2722,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 02:00:00",
+          "close": 109.0073,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 03:00:00",
+          "close": 109.0336,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 04:00:00",
+          "close": 109.0913,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 05:00:00",
+          "close": 109.9991,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 06:00:00",
+          "close": 110.5229,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 07:00:00",
+          "close": 110.5386,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 08:00:00",
+          "close": 111.6972,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 09:00:00",
+          "close": 112.1274,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 10:00:00",
+          "close": 111.3727,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 11:00:00",
+          "close": 111.1771,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 12:00:00",
+          "close": 110.8831,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 13:00:00",
+          "close": 110.9219,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 14:00:00",
+          "close": 110.0961,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 15:00:00",
+          "close": 108.4458,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 16:00:00",
+          "close": 108.3885,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 17:00:00",
+          "close": 107.4628,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 18:00:00",
+          "close": 105.703,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 19:00:00",
+          "close": 106.2002,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 20:00:00",
+          "close": 105.7268,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 21:00:00",
+          "close": 106.0824,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 22:00:00",
+          "close": 105.5495,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-06 23:00:00",
+          "close": 104.6715,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 00:00:00",
+          "close": 103.5775,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 01:00:00",
+          "close": 103.2462,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 02:00:00",
+          "close": 102.8039,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 03:00:00",
+          "close": 102.1401,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 04:00:00",
+          "close": 101.8492,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 05:00:00",
+          "close": 100.7819,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 06:00:00",
+          "close": 100.7823,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 07:00:00",
+          "close": 99.1559,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 08:00:00",
+          "close": 99.023,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 09:00:00",
+          "close": 99.7158,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 10:00:00",
+          "close": 100.713,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 11:00:00",
+          "close": 102.3666,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 12:00:00",
+          "close": 100.9987,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 13:00:00",
+          "close": 101.9199,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 14:00:00",
+          "close": 102.9489,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 15:00:00",
+          "close": 103.7672,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 16:00:00",
+          "close": 103.0043,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 17:00:00",
+          "close": 103.6032,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 18:00:00",
+          "close": 105.2526,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-07 19:00:00",
+          "close": 103.9393,
+          "signal": 1.0,
+          "strategy_return": -0.012477601503430802,
+          "equity": 0.9875223984965692
+        },
+        {
+          "timestamp": "2024-01-07 20:00:00",
+          "close": 104.4606,
+          "signal": 1.0,
+          "strategy_return": 0.005015427273418194,
+          "equity": 0.9924752452671003
+        },
+        {
+          "timestamp": "2024-01-07 21:00:00",
+          "close": 105.5982,
+          "signal": 1.0,
+          "strategy_return": 0.010890230383513,
+          "equity": 1.0032835293379925
+        },
+        {
+          "timestamp": "2024-01-07 22:00:00",
+          "close": 104.7409,
+          "signal": 1.0,
+          "strategy_return": -0.008118509595807621,
+          "equity": 0.9951383623777462
+        },
+        {
+          "timestamp": "2024-01-07 23:00:00",
+          "close": 105.3628,
+          "signal": 1.0,
+          "strategy_return": 0.005937508652303025,
+          "equity": 1.0010470050146028
+        },
+        {
+          "timestamp": "2024-01-08 00:00:00",
+          "close": 104.3495,
+          "signal": 1.0,
+          "strategy_return": -0.00961724631463845,
+          "equity": 0.9914196893948463
+        },
+        {
+          "timestamp": "2024-01-08 01:00:00",
+          "close": 103.892,
+          "signal": 1.0,
+          "strategy_return": -0.004384304668446082,
+          "equity": 0.987073003422243
+        },
+        {
+          "timestamp": "2024-01-08 02:00:00",
+          "close": 103.1193,
+          "signal": 1.0,
+          "strategy_return": -0.007437531282485699,
+          "equity": 0.9797316170811929
+        },
+        {
+          "timestamp": "2024-01-08 03:00:00",
+          "close": 103.3131,
+          "signal": 1.0,
+          "strategy_return": 0.0018793766055433814,
+          "equity": 0.9815729017620465
+        },
+        {
+          "timestamp": "2024-01-08 04:00:00",
+          "close": 103.2721,
+          "signal": 1.0,
+          "strategy_return": -0.00039685189971083723,
+          "equity": 0.9811833626912775
+        },
+        {
+          "timestamp": "2024-01-08 05:00:00",
+          "close": 104.3262,
+          "signal": 1.0,
+          "strategy_return": 0.010207016222193666,
+          "equity": 0.9911983171912139
+        },
+        {
+          "timestamp": "2024-01-08 06:00:00",
+          "close": 103.4466,
+          "signal": 1.0,
+          "strategy_return": -0.008431247376018636,
+          "equity": 0.9828412789802814
+        },
+        {
+          "timestamp": "2024-01-08 07:00:00",
+          "close": 103.3396,
+          "signal": 1.0,
+          "strategy_return": -0.001034350089804792,
+          "equity": 0.9818246770151043
+        },
+        {
+          "timestamp": "2024-01-08 08:00:00",
+          "close": 104.4332,
+          "signal": 1.0,
+          "strategy_return": 0.010582584023936636,
+          "equity": 0.9922149191563912
+        },
+        {
+          "timestamp": "2024-01-08 09:00:00",
+          "close": 104.7577,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9922149191563912
+        },
+        {
+          "timestamp": "2024-01-08 10:00:00",
+          "close": 103.5937,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9922149191563912
+        },
+        {
+          "timestamp": "2024-01-08 11:00:00",
+          "close": 104.6283,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9922149191563912
+        }
+      ]
+    },
+    {
+      "train_start": "2024-01-03 12:00:00",
+      "train_end": "2024-01-08 11:00:00",
+      "test_start": "2024-01-08 12:00:00",
+      "test_end": "2024-01-10 23:00:00",
+      "params": {
+        "fast": 5,
+        "slow": 20
+      },
+      "train": {
+        "total_return": 0.07266619920163375,
+        "sharpe": 1.5858177274629877,
+        "max_drawdown": -0.04703935136504278,
+        "win_rate": 0.547945205479452,
+        "trades": 3
+      },
+      "test": {
+        "total_return": 0.021743609795741525,
+        "sharpe": 1.778886200510925,
+        "max_drawdown": -0.012842223698119382,
+        "win_rate": 0.5555555555555556,
+        "trades": 1
+      },
+      "trades": [
+        {
+          "timestamp": "2024-01-08 12:00:00",
+          "close": 103.9515,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 13:00:00",
+          "close": 104.3308,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 14:00:00",
+          "close": 104.633,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 15:00:00",
+          "close": 105.8394,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 16:00:00",
+          "close": 106.0863,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 17:00:00",
+          "close": 104.4649,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 18:00:00",
+          "close": 103.2611,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 19:00:00",
+          "close": 103.8869,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 20:00:00",
+          "close": 103.5833,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 21:00:00",
+          "close": 104.8347,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 22:00:00",
+          "close": 105.2544,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-08 23:00:00",
+          "close": 104.5853,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 00:00:00",
+          "close": 105.4857,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 01:00:00",
+          "close": 104.9061,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 02:00:00",
+          "close": 102.99,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 03:00:00",
+          "close": 104.9304,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 04:00:00",
+          "close": 103.1428,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 05:00:00",
+          "close": 103.8575,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 06:00:00",
+          "close": 104.7981,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 07:00:00",
+          "close": 104.9495,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 08:00:00",
+          "close": 103.5783,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 09:00:00",
+          "close": 104.6532,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 10:00:00",
+          "close": 103.3496,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 11:00:00",
+          "close": 102.0277,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 12:00:00",
+          "close": 101.7095,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 13:00:00",
+          "close": 102.477,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 14:00:00",
+          "close": 102.7646,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 15:00:00",
+          "close": 103.6455,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 16:00:00",
+          "close": 103.3349,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 17:00:00",
+          "close": 103.2062,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 18:00:00",
+          "close": 102.2338,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 19:00:00",
+          "close": 101.9951,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 20:00:00",
+          "close": 102.5499,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 21:00:00",
+          "close": 102.269,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 22:00:00",
+          "close": 102.9936,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-09 23:00:00",
+          "close": 102.46,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 00:00:00",
+          "close": 101.7812,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 01:00:00",
+          "close": 101.8668,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 02:00:00",
+          "close": 101.7733,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 03:00:00",
+          "close": 102.4184,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 04:00:00",
+          "close": 102.7514,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 05:00:00",
+          "close": 104.3433,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-10 06:00:00",
+          "close": 104.2011,
+          "signal": 1.0,
+          "strategy_return": -0.0013628091118452756,
+          "equity": 0.9986371908881547
+        },
+        {
+          "timestamp": "2024-01-10 07:00:00",
+          "close": 104.0485,
+          "signal": 1.0,
+          "strategy_return": -0.0014644759028454857,
+          "equity": 0.9971747107864137
+        },
+        {
+          "timestamp": "2024-01-10 08:00:00",
+          "close": 103.1643,
+          "signal": 1.0,
+          "strategy_return": -0.008497960085921519,
+          "equity": 0.9887007598954605
+        },
+        {
+          "timestamp": "2024-01-10 09:00:00",
+          "close": 103.1978,
+          "signal": 1.0,
+          "strategy_return": 0.00032472473520406275,
+          "equity": 0.9890218154879136
+        },
+        {
+          "timestamp": "2024-01-10 10:00:00",
+          "close": 103.8341,
+          "signal": 1.0,
+          "strategy_return": 0.006165829116512311,
+          "equity": 0.9951199549947148
+        },
+        {
+          "timestamp": "2024-01-10 11:00:00",
+          "close": 103.1605,
+          "signal": 1.0,
+          "strategy_return": -0.006487271522553795,
+          "equity": 0.9886643416491526
+        },
+        {
+          "timestamp": "2024-01-10 12:00:00",
+          "close": 103.0033,
+          "signal": 1.0,
+          "strategy_return": -0.0015238390663093737,
+          "equity": 0.9871577763018806
+        },
+        {
+          "timestamp": "2024-01-10 13:00:00",
+          "close": 103.8615,
+          "signal": 1.0,
+          "strategy_return": 0.008331771894686923,
+          "equity": 0.9953825497180943
+        },
+        {
+          "timestamp": "2024-01-10 14:00:00",
+          "close": 103.9904,
+          "signal": 1.0,
+          "strategy_return": 0.0012410758558270008,
+          "equity": 0.9966178949678609
+        },
+        {
+          "timestamp": "2024-01-10 15:00:00",
+          "close": 103.339,
+          "signal": 1.0,
+          "strategy_return": -0.006264039757515993,
+          "equity": 0.9903750408507304
+        },
+        {
+          "timestamp": "2024-01-10 16:00:00",
+          "close": 104.2562,
+          "signal": 1.0,
+          "strategy_return": 0.008875642303486586,
+          "equity": 0.9991652554596223
+        },
+        {
+          "timestamp": "2024-01-10 17:00:00",
+          "close": 104.5578,
+          "signal": 1.0,
+          "strategy_return": 0.002892873517354344,
+          "equity": 1.002055714166602
+        },
+        {
+          "timestamp": "2024-01-10 18:00:00",
+          "close": 104.871,
+          "signal": 1.0,
+          "strategy_return": 0.0029954723607421574,
+          "equity": 1.0050573443623119
+        },
+        {
+          "timestamp": "2024-01-10 19:00:00",
+          "close": 105.9192,
+          "signal": 1.0,
+          "strategy_return": 0.009995136882455569,
+          "equity": 1.0151030300939305
+        },
+        {
+          "timestamp": "2024-01-10 20:00:00",
+          "close": 107.2038,
+          "signal": 1.0,
+          "strategy_return": 0.012128112750096287,
+          "equity": 1.027414314095874
+        },
+        {
+          "timestamp": "2024-01-10 21:00:00",
+          "close": 106.8479,
+          "signal": 1.0,
+          "strategy_return": -0.003319845005494204,
+          "equity": 1.0240034578166495
+        },
+        {
+          "timestamp": "2024-01-10 22:00:00",
+          "close": 106.4384,
+          "signal": 1.0,
+          "strategy_return": -0.0038325507567298356,
+          "equity": 1.0200789125895002
+        },
+        {
+          "timestamp": "2024-01-10 23:00:00",
+          "close": 106.6121,
+          "signal": 1.0,
+          "strategy_return": 0.001631929829835732,
+          "equity": 1.0217436097957415
+        }
+      ]
+    },
+    {
+      "train_start": "2024-01-06 00:00:00",
+      "train_end": "2024-01-10 23:00:00",
+      "test_start": "2024-01-11 00:00:00",
+      "test_end": "2024-01-13 11:00:00",
+      "params": {
+        "fast": 10,
+        "slow": 40
+      },
+      "train": {
+        "total_return": 0.05043193192812301,
+        "sharpe": 1.2840542601350444,
+        "max_drawdown": -0.029186615048314435,
+        "win_rate": 0.6190476190476191,
+        "trades": 2
+      },
+      "test": {
+        "total_return": -0.02615622377429927,
+        "sharpe": -2.2370223030014094,
+        "max_drawdown": -0.036276420601763615,
+        "win_rate": 0.42857142857142855,
+        "trades": 1
+      },
+      "trades": [
+        {
+          "timestamp": "2024-01-11 00:00:00",
+          "close": 106.6487,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 01:00:00",
+          "close": 104.9768,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 02:00:00",
+          "close": 106.2147,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 03:00:00",
+          "close": 106.3193,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 04:00:00",
+          "close": 107.0297,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 05:00:00",
+          "close": 105.9286,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 06:00:00",
+          "close": 107.1898,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 07:00:00",
+          "close": 106.5269,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 08:00:00",
+          "close": 106.6589,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 09:00:00",
+          "close": 105.4517,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 10:00:00",
+          "close": 105.2441,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 11:00:00",
+          "close": 105.0488,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 12:00:00",
+          "close": 105.0035,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 13:00:00",
+          "close": 105.3327,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 14:00:00",
+          "close": 105.5924,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 15:00:00",
+          "close": 106.516,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 16:00:00",
+          "close": 106.0203,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 17:00:00",
+          "close": 105.2735,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 18:00:00",
+          "close": 105.4084,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 19:00:00",
+          "close": 106.0234,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 20:00:00",
+          "close": 107.1883,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 21:00:00",
+          "close": 107.8548,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 22:00:00",
+          "close": 106.2971,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-11 23:00:00",
+          "close": 106.6812,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 00:00:00",
+          "close": 108.1439,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 01:00:00",
+          "close": 108.4261,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 02:00:00",
+          "close": 107.917,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 03:00:00",
+          "close": 108.2633,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 04:00:00",
+          "close": 107.8368,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 05:00:00",
+          "close": 108.1657,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 06:00:00",
+          "close": 108.3453,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 07:00:00",
+          "close": 109.6258,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 08:00:00",
+          "close": 110.2935,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 09:00:00",
+          "close": 109.7359,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 10:00:00",
+          "close": 110.0949,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 11:00:00",
+          "close": 111.0575,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 12:00:00",
+          "close": 110.6478,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 13:00:00",
+          "close": 110.21,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 14:00:00",
+          "close": 108.1713,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 15:00:00",
+          "close": 109.0295,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-12 16:00:00",
+          "close": 108.7067,
+          "signal": 1.0,
+          "strategy_return": -0.0029606666085784106,
+          "equity": 0.9970393333914216
+        },
+        {
+          "timestamp": "2024-01-12 17:00:00",
+          "close": 106.6672,
+          "signal": 1.0,
+          "strategy_return": -0.01876149308184316,
+          "equity": 0.978333386835673
+        },
+        {
+          "timestamp": "2024-01-12 18:00:00",
+          "close": 105.3298,
+          "signal": 1.0,
+          "strategy_return": -0.012538062309688347,
+          "equity": 0.9660669818718789
+        },
+        {
+          "timestamp": "2024-01-12 19:00:00",
+          "close": 105.0743,
+          "signal": 1.0,
+          "strategy_return": -0.0024257142802892595,
+          "equity": 0.9637235793982364
+        },
+        {
+          "timestamp": "2024-01-12 20:00:00",
+          "close": 105.8754,
+          "signal": 1.0,
+          "strategy_return": 0.0076241288307417054,
+          "equity": 0.9710711321247921
+        },
+        {
+          "timestamp": "2024-01-12 21:00:00",
+          "close": 105.9245,
+          "signal": 1.0,
+          "strategy_return": 0.0004637526753146215,
+          "equity": 0.9715214689602358
+        },
+        {
+          "timestamp": "2024-01-12 22:00:00",
+          "close": 106.1777,
+          "signal": 1.0,
+          "strategy_return": 0.0023903818285666567,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-12 23:00:00",
+          "close": 105.2216,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 00:00:00",
+          "close": 104.1887,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 01:00:00",
+          "close": 104.89,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 02:00:00",
+          "close": 105.4131,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 03:00:00",
+          "close": 105.4973,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 04:00:00",
+          "close": 106.7282,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 05:00:00",
+          "close": 105.7821,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 06:00:00",
+          "close": 105.54,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 07:00:00",
+          "close": 106.6102,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 08:00:00",
+          "close": 108.3903,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 09:00:00",
+          "close": 108.1176,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 10:00:00",
+          "close": 110.0055,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 0.9738437762257007
+        },
+        {
+          "timestamp": "2024-01-13 11:00:00",
+          "close": 109.4709,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 0.9738437762257007
+        }
+      ]
+    },
+    {
+      "train_start": "2024-01-08 12:00:00",
+      "train_end": "2024-01-13 11:00:00",
+      "test_start": "2024-01-13 12:00:00",
+      "test_end": "2024-01-15 23:00:00",
+      "params": {
+        "fast": 10,
+        "slow": 40
+      },
+      "train": {
+        "total_return": 0.03081843008913343,
+        "sharpe": 0.7892115542344205,
+        "max_drawdown": -0.05387479458838873,
+        "win_rate": 0.603448275862069,
+        "trades": 1
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0.0,
+        "trades": 0
+      },
+      "trades": [
+        {
+          "timestamp": "2024-01-13 12:00:00",
+          "close": 109.6214,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 13:00:00",
+          "close": 109.4765,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 14:00:00",
+          "close": 108.2854,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 15:00:00",
+          "close": 108.4841,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 16:00:00",
+          "close": 109.429,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 17:00:00",
+          "close": 109.4178,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 18:00:00",
+          "close": 109.2815,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 19:00:00",
+          "close": 110.6384,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 20:00:00",
+          "close": 109.5948,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 21:00:00",
+          "close": 108.3382,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 22:00:00",
+          "close": 107.8865,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-13 23:00:00",
+          "close": 106.8535,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 00:00:00",
+          "close": 107.9697,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 01:00:00",
+          "close": 108.2509,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 02:00:00",
+          "close": 107.7831,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 03:00:00",
+          "close": 107.1075,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 04:00:00",
+          "close": 109.7112,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 05:00:00",
+          "close": 109.06,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 06:00:00",
+          "close": 108.6113,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 07:00:00",
+          "close": 108.7804,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 08:00:00",
+          "close": 109.4365,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 09:00:00",
+          "close": 109.5988,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 10:00:00",
+          "close": 108.9122,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 11:00:00",
+          "close": 107.9768,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 12:00:00",
+          "close": 108.4078,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 13:00:00",
+          "close": 108.4693,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 14:00:00",
+          "close": 107.1233,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 15:00:00",
+          "close": 108.1093,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 16:00:00",
+          "close": 108.8582,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 17:00:00",
+          "close": 108.7331,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 18:00:00",
+          "close": 108.4916,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 19:00:00",
+          "close": 108.9511,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 20:00:00",
+          "close": 108.2228,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 21:00:00",
+          "close": 107.2348,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 22:00:00",
+          "close": 107.5905,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-14 23:00:00",
+          "close": 106.134,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 00:00:00",
+          "close": 106.659,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 01:00:00",
+          "close": 105.3602,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 02:00:00",
+          "close": 105.2553,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 03:00:00",
+          "close": 105.2631,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 04:00:00",
+          "close": 106.9268,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 05:00:00",
+          "close": 106.1137,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 06:00:00",
+          "close": 104.9216,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 07:00:00",
+          "close": 104.1783,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 08:00:00",
+          "close": 103.2861,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 09:00:00",
+          "close": 102.8986,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 10:00:00",
+          "close": 103.3918,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 11:00:00",
+          "close": 103.7758,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 12:00:00",
+          "close": 105.6903,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 13:00:00",
+          "close": 104.9331,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 14:00:00",
+          "close": 107.5273,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 15:00:00",
+          "close": 109.1662,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 16:00:00",
+          "close": 108.9924,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 17:00:00",
+          "close": 107.0675,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 18:00:00",
+          "close": 107.1549,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 19:00:00",
+          "close": 107.1565,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 20:00:00",
+          "close": 104.899,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 21:00:00",
+          "close": 105.3189,
+          "signal": 0.0,
+          "strategy_return": 0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 22:00:00",
+          "close": 104.9599,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        },
+        {
+          "timestamp": "2024-01-15 23:00:00",
+          "close": 104.3657,
+          "signal": 0.0,
+          "strategy_return": -0.0,
+          "equity": 1.0
+        }
+      ]
+    }
+  ],
+  "out_of_sample": {
+    "total_return": -0.0030494237055416484,
+    "sharpe": -0.24365947043250197,
+    "max_drawdown": -0.018148369064311526,
+    "win_rate": 0.35317460317460314,
+    "trades": 3,
+    "windows": 4
+  }
+}

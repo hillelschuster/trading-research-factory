@@ -1,0 +1,1 @@
+Iter 1: EXP-20260325084656-02 | Verdict: inconclusive | Sharpe: N/A | Key: Persistent state and artifact writing work end-to-end.

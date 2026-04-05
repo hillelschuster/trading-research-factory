@@ -1,0 +1,76 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260403123500-01",
+  "verdict": "promising_with_caveats",
+  "evidence_score": 65,
+  "performance_score": 45,
+  "robustness_score": 70,
+  "novelty_score": 30,
+  "overall_score": 52,
+  "metrics": {
+    "sharpe_is": null,
+    "sharpe_oos": 0.4894,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": -14.34,
+    "win_rate": 0.4604,
+    "total_trades": 1238,
+    "fold_variance": null,
+    "markets_tested": ["ETHUSDT"]
+  },
+  "red_flags": [
+    "OOS Sharpe 0.489 below 0.8 gate criterion - significant underperformance vs BTC baseline (0.998)",
+    "Evidence score 65 below 70 minimum threshold",
+    "WFR not computed - cannot verify secondary metric",
+    "Cross-asset generalization gap of ~51% (BTC 0.998 vs ETH 0.489) suggests asset-specific behavior"
+  ],
+  "verification": {
+    "artifacts_checked": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+      "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+      "factory/runs/RUN-20260403123500-01/execution-result.json",
+      "factory/runs/RUN-20260403123500-01/evaluation.json",
+      "factory/summaries/RUN-20260403123500-01.md"
+    ],
+    "metrics_verified_from": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260403_161304.json",
+      "walk forward engine/strategies/ema_trend_gate/results/analysis.json"
+    ],
+    "missing_or_unverified": ["fold_variance", "wfr", "sharpe_is"]
+  },
+  "strengths": [
+    "Full WFA executed with 85 windows across 7.5 years - robust OOS validation",
+    "1238 trades provides strong statistical validity",
+    "Max drawdown improved from prior ETH run (-16.37% to -14.34%)",
+    "Real execution with verified artifacts - no simulation",
+    "Status gate passed: 85 windows, 1238 OOS trades, valid metrics"
+  ],
+  "weaknesses": [
+    {
+      "type": "OOS Sharpe below gate (0.489 vs 0.8 target)",
+      "cross_experiment_patterns": "Cross-asset generalization gap consistently observed - BTC outperforms ETH across multiple runs (BTC 0.998, prior ETH 0.528, current ETH 0.489)"
+    },
+    {
+      "type": "Evidence score below minimum (65 vs 70)",
+      "cross_experiment_patterns": null
+    },
+    {
+      "type": "WFR not computed - secondary metric gate cannot be verified",
+      "cross_experiment_patterns": "WFR computation missing in multiple recent runs"
+    }
+  ],
+  "missing_evidence": ["fold_variance metric not in output", "wfr not computed by WFA engine"],
+  "promote_to_leaderboard": false,
+  "leaderboard_tier": "experimental",
+  "next_backlog_actions": [
+    "Test on other crypto assets (BNB, SOL) to validate cross-asset robustness",
+    "Consider asset-specific parameter tuning for ETH vs BTC",
+    "Investigate why ETH underperforms BTC - regime differences or overfitting on BTC?",
+    "Add WFR computation to WFA engine for secondary metric validation"
+  ],
+  "confidence_level": "high",
+  "confidence_rationale": "All metrics verified from real WFA output files on disk. Execution artifacts confirmed. OOS Sharpe 0.489 from aggregate_sharpe_ratio (line 9 of walk_forward_results_20260403_161304.json). Max drawdown -14.335801808399337 from aggregate_max_drawdown_pct (line 6). Trade count 1238 from aggregate_total_trades (line 11). 85 successful windows from successful_windows (line 147). All primary metrics traceable to source files."
+}
+</RF_JSON>

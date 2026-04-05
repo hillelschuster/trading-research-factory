@@ -1,0 +1,17 @@
+{
+  "agent": "executor",
+  "attempt": 1,
+  "attempts": 3,
+  "error": {
+    "name": "Error",
+    "message": "executor agent request timed out waiting for response headers.",
+    "stack": "Error: executor agent request timed out waiting for response headers.\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:21:14)\n    at OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:117:13)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:420:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:155:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:418:35)",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:110:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:420:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:155:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:418:35)"
+    }
+  },
+  "message": "executor agent request timed out waiting for response headers.",
+  "recorded_at": "2026-03-21T20:55:35.510Z"
+}

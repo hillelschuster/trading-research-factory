@@ -1,0 +1,100 @@
+
+
+Now I have a clear picture. The prior BNB run achieved 0.432 OOS Sharpe with the same parameters used for BTC/ETH/SOL. The backlog item explicitly requests "asset-specific parameter tuning for BNB (looser RSI thresholds, longer hold periods)". Let me create a focused experiment plan:
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404094000-bnb-tuned",
+  "title": "Asset-Specific Parameter Tuning for BNB — Looser RSI and Longer Holds",
+  "backlog_item_id": "IDEA-830240-a3f",
+  "objective": "Test BNB-specific parameter adjustments (looser RSI thresholds 25/75, longer hold periods 120-150 bars) to improve on the baseline 0.432 OOS Sharpe achieved with generic parameters.",
+  "hypothesis": "Looser RSI thresholds (25/75 instead of 35/50) and longer hold periods (120-150 bars instead of 96) will capture BNB's unique exchange-token volatility dynamics, producing higher OOS Sharpe than the generic parameter baseline.",
+  "strategy_rationale": "BNB's previous run (0.432 Sharpe) underperformed vs BTC (0.998), ETH (0.489), SOL (1.373). Exchange tokens have distinct demand drivers (fee discounts, BNB chain utility) causing different volatility regimes. Widening RSI thresholds captures more pullback opportunities; longer holds capture larger trends in BNB's price swings.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+  "instrument_selection_rule": null,
+  "timeframe": "1h with 4h regime filter",
+  "priority": 75,
+  "dataset_requirements": [
+    "1h OHLCV candles for BNB/USDT from Binance, minimum 2 years history"
+  ],
+  "historical_depth_requirement": {
+    "target": "5 years (2021-04 to 2026)",
+    "justification": "BNB data available from April 2021. Multi-year history required per market policy for crypto. Existing dataset has 43,788 rows from 2021-04-02 to 2026-04-01."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "Existing BNB/USDT 1h deep data already available at workspace/data/binance_bnbusdt_1h_deep.csv with 43,788 rows. No fetch required."
+  },
+  "scope_selection_rationale": "BNB is the 3rd largest Binance spot asset. This follow-up tests asset-specific parameter tuning as explicitly suggested in the backlog item. Previous run used generic BTC/ETH/SOL parameters and achieved 0.432 Sharpe — testing looser RSI and longer holds specifically for BNB.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Data already present at workspace/data/binance_bnbusdt_1h_deep.csv with 43,788 rows spanning 2021-04-02 to 2026-04-01. Sufficient for multi-year WFA.",
+    "acquisition_method": "existing_fetcher",
+    "sources": [
+      "workspace/data/binance_bnbusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "walk forward engine/config/strategy_ema_trend_gate.json",
+    "workspace/data/binance_bnbusdt_1h_deep.csv"
+  ],
+  "implementation_steps": [
+    "1. Create wfa_config.yaml for BNB-specific tuning at walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+    "2. Define param grid with: RSI oversold 20-30, RSI overbought 70-80, hold_bars 100-160",
+    "3. Run WFA with same training/testing windows as prior BNB run (3mo train, 1mo test, 1mo step)",
+    "4. Compare OOS Sharpe vs baseline 0.432"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260404094000-bnb-tuned.plan.json",
+    "factory/runs/RUN-20260404094000-bnb-tuned/execution-result.json",
+    "factory/runs/RUN-20260404094000-bnb-tuned/evaluation.json",
+    "factory/runs/RUN-20260404094000-bnb-tuned/summary.json",
+    "walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+    "walk forward engine/strategies/ema_trend_gate_bnb_tuned/results/walk_forward_results_20260404_*.json",
+    "walk forward engine/strategies/ema_trend_gate_bnb_tuned/results/parameter_stability_20260404_*.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": [
+      "stability"
+    ],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA completes with valid OOS Sharpe; trade count >= 30",
+    "metrics": {
+      "min_sharpe_oos": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 30
+    },
+    "min_evidence_score": 60
+  },
+  "fallback_if_blocked": [
+    "If WFA fails, test single parameter set with manual backtest for signal validation"
+  ],
+  "notes": [
+    "Direct follow-up to RUN-20260404080723-hm4238 which achieved 0.432 OOS Sharpe with generic parameters",
+    "Asset-specific tuning: looser RSI thresholds (25/75 vs 35/50), longer holds (120-150 vs 96)",
+    "Success target: OOS Sharpe > 0.432 baseline, ideally > 0.5 to meet evidence score threshold"
+  ]
+}
+</RF_JSON>

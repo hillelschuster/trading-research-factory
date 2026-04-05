@@ -1,0 +1,165 @@
+Loading data from workspace/data/binance_btcusdt_1h_1000.csv...
+Loaded 1000 rows
+Running WFA with RSI, train_size=336, test_size=96...
+{
+  "windows": [
+    {
+      "train_start": "2026-02-03 20:00:00",
+      "train_end": "2026-02-17 19:00:00",
+      "test_start": "2026-02-17 20:00:00",
+      "test_end": "2026-02-21 19:00:00",
+      "params": {
+        "period": 21,
+        "oversold": 30,
+        "overbought": 70
+      },
+      "train": {
+        "total_return": -0.03904083210790654,
+        "sharpe": -0.26501618273080596,
+        "max_drawdown": -0.14017431361060206,
+        "win_rate": 0.4900662251655629,
+        "trades": 3
+      },
+      "test": {
+        "total_return": 0.02098990385338828,
+        "sharpe": 1.1537401679100385,
+        "max_drawdown": -0.02077475653723293,
+        "win_rate": 0.5892857142857143,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-07 20:00:00",
+      "train_end": "2026-02-21 19:00:00",
+      "test_start": "2026-02-21 20:00:00",
+      "test_end": "2026-02-25 19:00:00",
+      "params": {
+        "period": 14,
+        "oversold": 30,
+        "overbought": 70
+      },
+      "train": {
+        "total_return": -0.006560679974156991,
+        "sharpe": -0.03975831603837777,
+        "max_drawdown": -0.07196848999571737,
+        "win_rate": 0.5348837209302325,
+        "trades": 3
+      },
+      "test": {
+        "total_return": -0.030292143587802633,
+        "sharpe": -0.8227201678954341,
+        "max_drawdown": -0.0706833240401662,
+        "win_rate": 0.47058823529411764,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-11 20:00:00",
+      "train_end": "2026-02-25 19:00:00",
+      "test_start": "2026-02-25 20:00:00",
+      "test_end": "2026-03-01 19:00:00",
+      "params": {
+        "period": 21,
+        "oversold": 30,
+        "overbought": 70
+      },
+      "train": {
+        "total_return": 0.1429166940154567,
+        "sharpe": 1.6742438039985115,
+        "max_drawdown": -0.04765515631806072,
+        "win_rate": 0.5594059405940595,
+        "trades": 3
+      },
+      "test": {
+        "total_return": -0.018807018065792214,
+        "sharpe": -0.49542299908533377,
+        "max_drawdown": -0.06934330532648336,
+        "win_rate": 0.4925373134328358,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-15 20:00:00",
+      "train_end": "2026-03-01 19:00:00",
+      "test_start": "2026-03-01 20:00:00",
+      "test_end": "2026-03-05 19:00:00",
+      "params": {
+        "period": 14,
+        "oversold": 25,
+        "overbought": 75
+      },
+      "train": {
+        "total_return": 0.053502128609389965,
+        "sharpe": 0.7601884775049771,
+        "max_drawdown": -0.03292976488820987,
+        "win_rate": 0.5419847328244275,
+        "trades": 3
+      },
+      "test": {
+        "total_return": 0.06594240187120803,
+        "sharpe": 2.3784719239281653,
+        "max_drawdown": -0.02222719778542248,
+        "win_rate": 0.5294117647058824,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-19 20:00:00",
+      "train_end": "2026-03-05 19:00:00",
+      "test_start": "2026-03-05 20:00:00",
+      "test_end": "2026-03-09 19:00:00",
+      "params": {
+        "period": 14,
+        "oversold": 25,
+        "overbought": 75
+      },
+      "train": {
+        "total_return": 0.13443934542023372,
+        "sharpe": 1.6014923749679417,
+        "max_drawdown": -0.031583218350687,
+        "win_rate": 0.5304347826086957,
+        "trades": 4
+      },
+      "test": {
+        "total_return": -0.017390239264978513,
+        "sharpe": -0.6414084134475082,
+        "max_drawdown": -0.060412644675946536,
+        "win_rate": 0.475,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-23 20:00:00",
+      "train_end": "2026-03-09 19:00:00",
+      "test_start": "2026-03-09 20:00:00",
+      "test_end": "2026-03-13 19:00:00",
+      "params": {
+        "period": 14,
+        "oversold": 25,
+        "overbought": 75
+      },
+      "train": {
+        "total_return": 0.13291440707585678,
+        "sharpe": 1.475322413969991,
+        "max_drawdown": -0.04582530699748477,
+        "win_rate": 0.5128205128205128,
+        "trades": 4
+      },
+      "test": {
+        "total_return": 0.0192712874164489,
+        "sharpe": 1.4230999053130076,
+        "max_drawdown": -0.0027875486880036826,
+        "win_rate": 0.3333333333333333,
+        "trades": 1
+      }
+    }
+  ],
+  "out_of_sample": {
+    "total_return": 0.006619032037078643,
+    "sharpe": 0.4992934027871559,
+    "max_drawdown": -0.041038129508875865,
+    "win_rate": 0.48169272684198056,
+    "trades": 6,
+    "windows": 6
+  }
+}

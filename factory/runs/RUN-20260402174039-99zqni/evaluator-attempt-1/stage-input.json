@@ -1,0 +1,213 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "plan": {
+    "experiment_id": "EXP-20260402174047-02",
+    "title": "Simulated baseline WFA verification",
+    "backlog_item_id": "IDEA-0001",
+    "objective": "Verify that the baseline WFA engine can be executed reproducibly on demo data.",
+    "hypothesis": "If the harness and demo data are wired correctly, the engine will produce result JSON and trades CSV.",
+    "strategy_rationale": "Synthetic planning artifact for orchestration verification only.",
+    "strategy_type": "momentum",
+    "market_family": "crypto",
+    "instrument_scope": "Single explicit demo instrument for orchestration-only validation",
+    "instrument_selection_rule": "Pick one liquid demo instrument only for orchestration verification, not research narrowing.",
+    "timeframe": "Explicit demo timeframe chosen for orchestration verification only",
+    "priority": 100,
+    "dataset_requirements": [
+      "workspace/data/demo_ohlcv.csv"
+    ],
+    "historical_depth_requirement": {
+      "target": "Demo dataset only",
+      "justification": "Simulate mode validates orchestration, not real research depth."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "existing_fetcher"
+      ],
+      "primary_source_family": "existing_fetcher",
+      "selection_reason": "Simulate mode uses a synthetic local dataset path to verify orchestration only."
+    },
+    "scope_selection_rationale": "Use one explicit crypto demo scope so planner output still carries the same machine-checkable fields required in live mode.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Demo dataset is already present for orchestration verification.",
+      "acquisition_method": "existing_fetcher",
+      "sources": [
+        "workspace/data/demo_ohlcv.csv"
+      ],
+      "commands": [],
+      "expected_outputs": [
+        "workspace/data/demo_ohlcv.csv"
+      ]
+    },
+    "inputs": [
+      "workspace/strategies/sma_cross.py",
+      "workspace/harness/wfa_engine.py"
+    ],
+    "implementation_steps": [
+      "Run the baseline WFA engine on demo data.",
+      "Collect metrics artifacts.",
+      "Record evidence in the factory state."
+    ],
+    "commands": [
+      "python3 workspace/harness/wfa_engine.py --csv workspace/data/demo_ohlcv.csv --strategy workspace.strategies.sma_cross --output workspace/results/simulated_baseline"
+    ],
+    "expected_artifacts": [
+      "workspace/results/simulated_baseline/report.json",
+      "workspace/results/simulated_baseline/trades.csv"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 10,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "report.json exists and includes out_of_sample metrics",
+      "metrics": {
+        "min_sharpe_oos": 1,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 30
+      },
+      "min_evidence_score": 60
+    },
+    "fallback_if_blocked": [
+      "Check data path",
+      "Check Python availability"
+    ],
+    "notes": [
+      "Synthetic plan created by simulate mode."
+    ]
+  },
+  "executionResult": {
+    "experiment_id": "EXP-20260402174052-03",
+    "status": "partial",
+    "commands_attempted": [
+      "simulate: no live OpenCode execution used"
+    ],
+    "commands_completed": [
+      "simulate: wrote non-evidentiary artifact"
+    ],
+    "artifacts_created": [
+      "workspace/results/simulated_baseline/simulation_note.txt"
+    ],
+    "datasets_acquired": [],
+    "artifacts_updated": [],
+    "workspace_changes": [
+      "workspace/results/simulated_baseline/simulation_note.txt"
+    ],
+    "metrics_observed": {
+      "sharpe_is": null,
+      "sharpe_oos": null,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": null,
+      "win_rate": null,
+      "total_trades": null,
+      "fold_variance": null
+    },
+    "variants_tested": [],
+    "blockers": [
+      "Simulate mode does not run the live WFA engine."
+    ],
+    "errors": [
+      {
+        "command": "simulate: no live OpenCode execution used",
+        "message": "Synthetic execution stopped before real WFA outputs by design.",
+        "suggestion": "Use live mode for real evidence.",
+        "code_path_inspected": "src/core/runner-simulate.mjs",
+        "recovery_attempts": [
+          "Wrote a clearly synthetic artifact instead of claiming real WFA execution."
+        ]
+      }
+    ],
+    "notes": [
+      "Synthetic execution result for orchestration verification only.",
+      "Prompt digest length: 9957"
+    ]
+  },
+  "changedFiles": [
+    "results/simulated_baseline/simulation_note.txt"
+  ],
+  "retrieval": {
+    "comparable_prior_experiments": [
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260331154310-1aowi1",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "evidence_score": 85,
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9048,
+          "win_rate": 0.4835,
+          "total_trades": 848,
+          "fold_variance": 2.96,
+          "markets_tested": [
+            "BTCUSDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "evidence_kind": "research",
+        "promotable": true
+      },
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260331154332-55",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "success",
+        "evidence_score": 85,
+        "market_family": "crypto",
+        "asset_scope": "BTCUSDT",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "EMA_TREND_GATE",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9048,
+          "win_rate": 0.4835,
+          "total_trades": 848,
+          "fold_variance": 2.96,
+          "markets_tested": [
+            "BTCUSDT"
+          ],
+          "extra_metrics": {
+            "aggregate_return_pct": 0.8603,
+            "profit_factor": 1.1904,
+            "avg_trades_per_window": 14.88,
+            "total_windows": 57,
+            "successful_windows": 57,
+            "comparison_to_eth": {
+              "eth_sharpe_oos": 0.528,
+              "btc_sharpe_oos": 0.998,
+              "improvement_pct": 89,
+              "eth_max_drawdown": -16.37,
+              "btc_max_drawdown": -6.9048
+            }
+          }
+        },
+        "summary_path": "factory/summaries/RUN-20260331154332-55.md",
+        "evidence_kind": "research",
+        "promotable": true
+      }
+    ]
+  },
+  "retryNote": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260403072816-wcmn28",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:22.415Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:24.609Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:30.903Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403072816-wcmn28",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403072816-wcmn28/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:28:32.795Z",
+      "gate_path": "factory/runs/RUN-20260403072816-wcmn28/summarizer-attempt-1/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-04-03T07:28:32.954Z"
+}

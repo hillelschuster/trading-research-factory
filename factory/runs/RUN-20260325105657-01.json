@@ -1,0 +1,65 @@
+{
+  "run_id": "RUN-20260325105657-01",
+  "experiment_id": "EXP-20260325105657-01",
+  "iteration": 54,
+  "verdict": "executed",
+  "mode": "live",
+  "execution": {
+    "start_time": "2026-03-25T11:38:38+00:00",
+    "end_time": "2026-03-25T11:50:24+00:00",
+    "duration_seconds": 712.6,
+    "status": "completed"
+  },
+  "metrics": {
+    "aggregate_sharpe_oos": 1.3735,
+    "aggregate_return_pct": 2.3538,
+    "total_trades": 875,
+    "avg_trades_per_window": 15.35,
+    "win_rate": 0.488,
+    "profit_factor": 1.2396,
+    "max_drawdown_pct": -16.8374,
+    "expectancy": 0.3067,
+    "total_windows": 57,
+    "successful_windows": 57,
+    "failed_windows": 0,
+    "positive_sharpe_windows": null,
+    "wfr": null,
+    "wfr_note": "WFA engine does not output IS Sharpe — WFR cannot be computed"
+  },
+  "best_parameters": {
+    "ema1h_period": 20,
+    "ema4h_period": 50,
+    "rsi_period": 14,
+    "rsi_oversold": 35.0,
+    "rsi_overbought": 50.0,
+    "hold_bars": 96,
+    "sl_atr_mult": 2.0,
+    "tp_rr_mult": 2.0
+  },
+  "dataset": {
+    "symbol": "SOLUSDT",
+    "interval": "1h",
+    "bars": 43788,
+    "date_range": "2021-03-26 to 2026-03-25",
+    "source": "Binance public API",
+    "file": "workspace/data/binance_solusdt_1h_deep.csv"
+  },
+  "comparison_vs_eth": {
+    "eth_sharpe": 0.528,
+    "sol_sharpe": 1.3735,
+    "improvement": "+160%"
+  },
+  "lessons": [
+    "SOL significantly outperforms ETH on EMA Trend Gate: 1.3735 vs 0.528 Sharpe",
+    "Trade frequency is slightly higher on SOL: 15.35 vs 14.3 trades per window",
+    "Drawdown remains comparable to ETH despite higher volatility: -16.84% vs -16.37%",
+    "The strategy generalizes to SOL and supports the volatility-edge hypothesis",
+    "The fast SOL configuration produced a promotable live evidence record with 875 total trades"
+  ],
+  "evaluation": {
+    "status_gate": "PASS — 57 windows, 875 trades, Sharpe 1.3735 exceeds 0.4 target",
+    "min_sharpe_oos": "Target 0.4, got 1.3735 — PASS",
+    "max_drawdown_pct": "Target 35%, got -16.8374% — PASS",
+    "evidence_score": 85
+  }
+}

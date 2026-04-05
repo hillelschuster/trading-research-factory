@@ -1,0 +1,64 @@
+Now I'll create the experiment plan for a multi-timeframe volatility contraction/expansion strategy. This is a DIFFERENT approach from existing RSI/momentum strategies and aligns with the guidance to explore volatility-based and multi-timeframe methods.
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260318070000-01",
+  "title": "Multi-Timeframe Volatility Contraction/Expansion Strategy",
+  "backlog_item_id": "IDEA-WFA-003",
+  "objective": "Create and WFA-test a volatility contraction/expansion strategy using multiple timeframes. Uses higher timeframe (4h) for volatility regime detection and trend direction, lower timeframe (1h) for entry signals.",
+  "hypothesis": "Trading breakouts from low-volatility contractions, filtered by higher-timeframe trend direction, will produce positive risk-adjusted returns across crypto assets (BTC, ETH, SOL). Volatility expansion after contraction often precedes strong directional moves.",
+  "priority": 85,
+  "dataset_requirements": [
+    "BTCUSD 1h OHLCV (1000 bars minimum)",
+    "ETHUSD 1h OHLCV (1000 bars minimum)",
+    "SOLUSD 1h OHLCV (1000 bars minimum)"
+  ],
+  "inputs": [
+    "walk forward engine/src/strategies/volatility_regime.py",
+    "walk forward engine/config/strategy_volatility_regime.json",
+    "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "workspace/data/binance_btcusdt_1h_1000.csv",
+    "workspace/data/binance_ethusdt_1h_1000.csv",
+    "workspace/data/binance_solusdt_1h_1000.csv"
+  ],
+  "implementation_steps": [
+    "1. Create volatility regime strategy code at walk forward engine/src/strategies/volatility_regime.py",
+    "2. Implement generate_vectorized_signals() with multi-timeframe logic: resample 1h to 4h, compute ATR percentiles, detect contraction/expansion regimes, filter entries by trend direction",
+    "3. Create strategy params at walk forward engine/config/strategy_volatility_regime.json with parameters and optimization_ranges",
+    "4. Create WFA config at walk forward engine/strategies/volatility_regime/wfa_config.yaml for BTC/ETH/SOL testing",
+    "5. Human runs WFA locally: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/src/strategies/volatility_regime.py",
+    "walk forward engine/config/strategy_volatility_regime.json",
+    "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "walk forward engine/strategies/volatility_regime/results/wfa_results.json"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "Strategy produces valid signals without errors; WFA completes at least 3 walk-forward windows",
+    "metrics": [
+      "Sharpe ratio (target > 0.3 for viability)",
+      "Win rate",
+      "Max drawdown",
+      "Average trade return",
+      "Number of trades",
+      "Consistency across assets (BTC/ETH/SOL)"
+    ],
+    "min_evidence_score": 0.3
+  },
+  "fallback_if_blocked": [
+    "If WFA engine fails due to environment issues, use pure Python backtest script in workspace/strategies/ for single-asset validation",
+    "If data insufficient, use demo_ohlcv.csv for smoke test"
+  ],
+  "notes": [
+    "Strategy is DIFFERENT from existing RSI/momentum strategies - uses volatility regime detection instead",
+    "Multi-timeframe: 4h for regime/trend, 1h for entries",
+    "Economic rationale: volatility clustering is well-documented; low vol -> expansion often precedes big moves",
+    "Focus on robustness over Sharpe maximization - avoid overfitting to optimization ranges",
+    "If Sharpe < 0 on OOS, document as failed experiment and move to next strategy class"
+  ]
+}
+</RF_JSON>

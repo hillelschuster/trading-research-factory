@@ -1,0 +1,102 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404120000-bnb-tuned",
+  "title": "Asset-Specific Parameter Tuning for BNB - Looser RSI Thresholds",
+  "backlog_item_id": "IDEA-830240-a3f",
+  "objective": "Optimize EMA Trend Gate parameters specifically for BNB/USDT to improve on the 0.432 OOS Sharpe achieved with generic parameters. Test looser RSI thresholds (more oversold/overbought) and longer hold periods to better match BNB's exchange-token volatility characteristics.",
+  "hypothesis": "BNB's exchange token dynamics require different parameterization than pure crypto assets. Specifically, looser RSI thresholds (30/70 instead of 35/50) and longer hold periods (96-128 bars) will capture larger BNB moves triggered by Binance ecosystem events, improving OOS Sharpe above the 0.432 baseline.",
+  "strategy_rationale": "Prior BNB run used identical parameters to BTC/ETH/SOL and achieved only 0.432 OOS Sharpe vs 0.998 (BTC), 0.489 (ETH), 1.373 (SOL). This indicates BNB needs asset-specific tuning. The prior run found 837 trades over 85 windows, indicating sufficient signal frequency - the issue is parameter selection, not signal availability.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+  "instrument_selection_rule": null,
+  "timeframe": "1h with 4h regime filter",
+  "priority": 75,
+  "dataset_requirements": [
+    "1h OHLCV candles for BNB/USDT from Binance",
+    "Minimum 2 years history per market policy",
+    "Must include volume data for validation"
+  ],
+  "historical_depth_requirement": {
+    "target": "5 years (2021-04 to 2026)",
+    "justification": "BNB data available from April 2021. Multi-year history required per market policy for crypto. Current dataset provides ~43,789 1h bars, exceeding 2-year minimum."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "Existing BNB/USDT 1h deep data available at workspace/data/binance_bnbusdt_1h_deep.csv with 43,789 rows spanning 2021-04-02 to present. No fetch required."
+  },
+  "scope_selection_rationale": "BNB is the 3rd largest Binance spot asset by volume and represents distinct market character as exchange token. This follow-up specifically tunes parameters for BNB after the prior run showed underperformance (0.432 Sharpe) vs other assets using identical parameters.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Data already present at workspace/data/binance_bnbusdt_1h_deep.csv with 43,789 rows spanning 2021-04-02 to present. Sufficient for multi-year WFA.",
+    "acquisition_method": "existing_fetcher",
+    "sources": [
+      "workspace/data/binance_bnbusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "walk forward engine/config/strategy_ema_trend_gate.json",
+    "workspace/data/binance_bnbusdt_1h_deep.csv"
+  ],
+  "implementation_steps": [
+    "1. Create ema_trend_gate_bnb_tuned strategy folder with expanded parameter ranges",
+    "2. Expand RSI oversold range to include [25, 30, 35, 40] (looser than prior 35-50)",
+    "3. Expand RSI overbought range to include [60, 65, 70, 75] (looser than prior 50-65)",
+    "4. Expand hold_bars range to include [96, 128] (longer than prior 24-96)",
+    "5. Run WFA with 100 trials on BNB data",
+    "6. Collect OOS Sharpe, drawdown, trade count, win rate metrics",
+    "7. Compare against prior BNB baseline (0.432 Sharpe, -11.15% DD, 837 trades)"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/experiments/EXP-20260404120000-bnb-tuned.plan.json",
+    "factory/runs/RUN-20260404120000/execution-result.json",
+    "factory/runs/RUN-20260404120000/evaluation.json",
+    "factory/runs/RUN-20260404120000/summary.json",
+    "walk forward engine/strategies/ema_trend_gate_bnb_tuned/results/walk_forward_results_*.json",
+    "walk forward engine/strategies/ema_trend_gate_bnb_tuned/results/walk_forward_summary_*.csv"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["stability"],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA completes with valid OOS Sharpe; trade count >= 30",
+    "metrics": {
+      "min_sharpe_oos": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 30
+    },
+    "min_evidence_score": 60
+  },
+  "fallback_if_blocked": [
+    "If WFA engine fails, fall back to vectorized backtest with grid search on same param ranges",
+    "If parameter expansion still underperforms, test alternative strategy families (volatility regime, mean reversion) on BNB"
+  ],
+  "notes": [
+    "This is a follow-up from RUN-20260404080723-hm4238 (BNB baseline with 0.432 Sharpe)",
+    "Key insight: BNB is exchange token with unique Binance ecosystem-driven volatility",
+    "Looser RSI thresholds allow capturing larger BNB moves from Binance events (listings, burns, launches)",
+    "Longer hold periods accommodate BNB's characteristic multi-day moves vs shorter crypto cycles"
+  ]
+}
+</RF_JSON>

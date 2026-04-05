@@ -1,0 +1,26 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260317140000-01",
+  "summary": "Multi-asset WFA comparison between ETHUSDT and BTCUSDT completed. Fetched ETH data (500 candles) from Binance, created pure Python WFA runner to work around missing pandas, ran SMA crossover strategy on both assets. ETH achieved positive Sharpe (0.19) while BTC showed higher return (1.28%). Evidence score: 55/100.",
+  "key_lessons": [
+    "Environment lacks pandas - created wfa_minimal.py (pure Python WFA) as workaround; this should be noted for future experiments",
+    "ATR breakout strategy parameters were too conservative for the trending market - price never broke above rolling_high + ATR multiplier; switched to SMA crossover which generated trades",
+    "ETHUSDT showed positive Sharpe (0.185) while BTCUSDT showed negative Sharpe (-0.10) despite higher absolute returns - demonstrates return quality vs quantity tradeoff",
+    "Multi-asset capability now established in factory with 2 crypto pairs (BTC, ETH) - template ready for adding SOL",
+    "WFA with 168h train / 48h test windows produces 6 out-of-sample windows on 500-candle dataset - adequate for proof-of-concept but needs longer history for robust results"
+  ],
+  "next_actions": [
+    "Fetch SOLUSDT data to establish three-asset comparison framework",
+    "Install pandas in environment to enable full wfa_engine.py functionality (pip install pandas)",
+    "Test Bollinger Bands strategy on ETH/BTC as alternative to SMA/ATR",
+    "Implement cross-asset momentum spread (BTC-ETH relative strength) as next strategy experiment",
+    "Extend data history beyond 500 candles for more robust WFA (1000+ recommended)"
+  ],
+  "risk_notes": [
+    "Short out-of-sample period (48h per window) may produce unreliable metrics - 6 test windows over ~12 days is not statistically significant",
+    "Strategy pivot from ATR to SMA may have introduced bias - ATR was original hypothesis but wasn't properly tested",
+    "Both assets showed limited profitability (<2% returns) suggesting strategy parameters need optimization or market conditions unfavorable",
+    "No transaction costs modeled in WFA - real trading would reduce returns by ~0.1-0.2% per trade"
+  ]
+}
+</RF_JSON>

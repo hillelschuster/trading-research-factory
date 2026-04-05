@@ -1,0 +1,270 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "plan": {
+    "experiment_id": "EXP-20260331154332-55",
+    "title": "EMA Trend Gate on BTC — Multi-Timeframe Regime-Filtered Pullback",
+    "backlog_item_id": "AUTO-1774971790939-dg1",
+    "objective": "Test the EMA Trend Gate strategy (4h EMA regime filter + 1h RSI pullback entries) on BTCUSDT 1h data (43,789 bars, ~5 years from 2021-03-22 to 2026-03-21). The strategy generated 0.528 OOS Sharpe on ETH with 1216 trades; hypothesis is BTC's higher volatility will generate more trade opportunities and potentially higher risk-adjusted returns. This fills the BTC gap in the EMA Trend Gate strategy family and tests cross-asset generalization.",
+    "hypothesis": "BTC's higher volatility compared to ETH will generate more RSI pullback trade opportunities (target: >14.3 trades/window) and potentially higher risk-adjusted returns (target: OOS Sharpe >= 0.528, matching or exceeding ETH baseline). The 4h EMA regime filter will provide regime context that may improve trade quality on BTC's more volatile price action.",
+    "strategy_rationale": "Using existing EMA Trend Gate strategy that already demonstrated viability on ETH (0.528 OOS Sharpe, 85 windows, 1216 trades). This run tests cross-asset generalization to BTC, the highest-liquidity crypto pair. The strategy uses 4h EMA slope as regime filter (trending vs ranging) combined with 1h RSI pullback entries - a theoretically grounded approach that filters counter-trend trades. Previous lessons show RSI thresholds stable (CV=0.10-0.14) while hold_bars unstable (CV=0.54), so parameter optimization should focus on entry thresholds.",
+    "strategy_type": "mean_reversion",
+    "market_family": "crypto",
+    "instrument_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+    "instrument_selection_rule": null,
+    "timeframe": "1h with 4h regime filter",
+    "priority": 85,
+    "dataset_requirements": [
+      "BTCUSDT 1h OHLCV data from Binance, minimum 43,000 bars covering 2021-03-22 to 2026-03-21"
+    ],
+    "historical_depth_requirement": {
+      "target": "5 years of BTCUSDT 1h data (43,789 bars)",
+      "justification": "Multi-year history required per crypto market policy. Deep BTC data already present in workspace/data/binance_btcusdt_1h_deep.csv. Data starts 2021-03-22, approximately 5 years covering bull/bear/ sideways regimes essential for robust WFA testing."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "Existing deep BTC data already fetched from Binance API and stored locally in workspace/data/binance_btcusdt_1h_deep.csv. No need to re-fetch; data is clean, paginated to full depth, and validated."
+    },
+    "scope_selection_rationale": "BTC/USDT is the highest-liquidity crypto pair, essential for testing strategy generalization beyond ETH. The strategy already demonstrated partial success on ETH (0.528 Sharpe) but with indication that the 4h regime filter may be restrictive. BTC's different volatility profile will reveal whether the strategy's regime filtering is asset-appropriate or overly restrictive.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Deep BTC data already exists in workspace/data/binance_btcusdt_1h_deep.csv with 43,789 rows spanning 2021-03-22 to 2026-03-21. Data was fetched via Binance paginated API in prior run. No additional acquisition required.",
+      "acquisition_method": "existing_fetcher",
+      "sources": [
+        "workspace/data/binance_btcusdt_1h_deep.csv"
+      ],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "walk forward engine/src/strategies/ema_trend_gate.py",
+      "walk forward engine/config/strategy_ema_trend_gate.json",
+      "workspace/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "implementation_steps": [
+      "1. Verify BTC deep data file exists and validate columns (timestamp, open, high, low, close, volume)",
+      "2. Create WFA config for BTC run: walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml",
+      "3. Configure WFA with training_months=3, testing_months=1, step_months=1 for ~60+ windows",
+      "4. Run WFA using Windows venv: cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml",
+      "5. Capture WFA output artifacts and aggregate metrics"
+    ],
+    "commands": [
+      "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "factory/experiments/EXP-20260331154332-55.json",
+      "factory/runs/RUN-20260331154332-55.json",
+      "factory/runs/RUN-20260331154332-55_wfa_output.json",
+      "factory/summaries/RUN-20260331154332-55.md",
+      "walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 100,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "WFA must complete and produce valid OOS metrics for at least 50 windows",
+      "metrics": {
+        "min_sharpe_oos": 0.528,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 600
+      },
+      "min_evidence_score": 70
+    },
+    "fallback_if_blocked": [
+      "If WFA engine fails on BTC data, fall back to minimal harness for quick validation of signal generation before full WFA retry",
+      "If data loading fails, verify CSV structure and re-fetch from Binance if needed"
+    ],
+    "notes": [
+      "ETH baseline achieved 0.528 OOS Sharpe with 1216 trades over 85 windows (14.3 trades/window). BTC target: match or exceed this performance.",
+      "Lesson: RSI thresholds stable (CV=0.10-0.14), hold_bars unstable (CV=0.54) - may want to fix hold_bars to median value (48) and optimize entry thresholds only",
+      "Data spans approximately 5 years (2021-03-22 to 2026-03-21) covering multiple market regimes - sufficient for robust WFA"
+    ]
+  },
+  "executionResult": {
+    "experiment_id": "EXP-20260331154332-55",
+    "status": "executed",
+    "commands_attempted": [
+      "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml"
+    ],
+    "commands_completed": [
+      "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml"
+    ],
+    "artifacts_created": [
+      "walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml",
+      "walk forward engine/strategies/ema_trend_gate_btc/results/walk_forward_summary_20260401_000556.csv",
+      "walk forward engine/strategies/ema_trend_gate_btc/results/analysis.json",
+      "walk forward engine/strategies/ema_trend_gate_btc/results/parameter_stability_20260401_000556.json",
+      "walk forward engine/strategies/ema_trend_gate_btc/results/walk_forward_results_20260401_000556.json"
+    ],
+    "datasets_acquired": [
+      {
+        "source": "existing_fetcher",
+        "output": "workspace/data/binance_btcusdt_1h_deep.csv",
+        "rows": 43789,
+        "notes": "BTCUSDT 1h deep data already present, spanning 2021-03-22 to 2026-03-21 (~5 years)",
+        "date_range": "2021-03-22 to 2026-03-21"
+      }
+    ],
+    "artifacts_updated": [],
+    "workspace_changes": [
+      "WFA run completed on BTC deep data (43,789 bars, 5 years)",
+      "57 windows completed successfully (100% success rate)",
+      "Strategy: EMA Trend Gate (4h EMA regime filter + 1h RSI pullback)"
+    ],
+    "metrics_observed": {
+      "sharpe_is": null,
+      "sharpe_oos": 0.998,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -6.9048,
+      "win_rate": 0.4835,
+      "total_trades": 848,
+      "fold_variance": null
+    },
+    "variants_tested": [
+      {
+        "params": {
+          "ema4h_period": 50,
+          "ema1h_period": 20,
+          "rsi_period": 14,
+          "rsi_oversold": "35.0-50.0 (optimized)",
+          "rsi_overbought": "50.0-65.0 (optimized)",
+          "hold_bars": "24-96 (optimized)",
+          "sl_atr_mult": 2,
+          "tp_rr_mult": 2
+        },
+        "result": "57 windows, 848 trades, OOS Sharpe 0.998, max DD -6.9%"
+      }
+    ],
+    "blockers": [],
+    "errors": [],
+    "notes": [
+      "Hypothesis VALIDATED: BTC achieved 0.998 OOS Sharpe vs ETH baseline 0.528 (+89% improvement)",
+      "Trade frequency: 14.88 trades/window vs ETH 14.3 trades/window (BTC slightly higher)",
+      "Drawdown: -6.9% vs ETH -16.37% (BTC significantly better risk profile)",
+      "Parameter stability confirmed: RSI thresholds stable (CV=0.10-0.14), hold_bars unstable (CV=0.43)",
+      "WFA engine does not output IS Sharpe - WFR cannot be computed (known engine gap)",
+      "Status gate met: 57 windows completed (>50 required)"
+    ]
+  },
+  "changedFiles": [],
+  "retrieval": {
+    "comparable_prior_experiments": [
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260325105657-01",
+        "experiment_id": "EXP-20260325105657-01",
+        "verdict": "success",
+        "evidence_score": 85,
+        "market_family": "crypto",
+        "asset_scope": "SOLUSDT",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 1.3735,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -16.8374,
+          "win_rate": 0.488,
+          "total_trades": 875,
+          "fold_variance": null,
+          "markets_tested": [
+            "SOLUSDT"
+          ],
+          "extra_metrics": {
+            "aggregate_return_pct": 2.3538,
+            "avg_trades_per_window": 15.35,
+            "total_windows": 57,
+            "successful_windows": 57,
+            "failed_windows": 0,
+            "profit_factor": 1.2396,
+            "expectancy": 0.3067
+          }
+        },
+        "summary_path": "factory/summaries/RUN-20260325105657-01.md",
+        "evidence_kind": "research",
+        "promotable": true
+      },
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260321200000-01",
+        "experiment_id": "EXP-20260321200000-01",
+        "verdict": "partial",
+        "evidence_score": 60,
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": null,
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.528,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -16.37,
+          "win_rate": 0.461,
+          "total_trades": 1216,
+          "fold_variance": 2.324,
+          "markets_tested": [
+            "ETHUSDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": null,
+        "evidence_kind": "research",
+        "promotable": false
+      }
+    ]
+  },
+  "retryNote": {
+    "source": "handoff",
+    "resume_from_stage": "executor",
+    "failure_class": "interruption",
+    "last_error": "Interrupted by SIGTERM.",
+    "attempts_used": 1,
+    "safe_inputs": {
+      "backlog_item_id": "AUTO-1774971790939-dg1",
+      "run_id": "RUN-20260331154310-1aowi1",
+      "resume_from_stage": "executor"
+    },
+    "produced_artifacts": [
+      "factory/runs/RUN-20260331154310-1aowi1/run-state.json",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-heartbeat.json",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1-session.json",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-response.raw.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-validated.json",
+      "factory/runs/RUN-20260331154310-1aowi1/planner-response.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/experiment-plan.json",
+      "factory/experiments/EXP-20260331154332-55.plan.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-heartbeat.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-input.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-input.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-prompt.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-prompt.txt",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1-session.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2-session.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3-session.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-error.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-error.json",
+      "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-error.json",
+      "factory/runs/RUN-20260331154310-1aowi1/handoff.json"
+    ]
+  }
+}

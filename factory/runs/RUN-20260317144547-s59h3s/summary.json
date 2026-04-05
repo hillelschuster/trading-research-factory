@@ -1,0 +1,24 @@
+{
+  "experiment_id": "EXP-20260318140000-01",
+  "summary": "Created Volume Profile/Order Flow strategy following WFA pattern but execution blocked due to Linux agent vs Windows .venv infrastructure gap. Strategy code (306 lines), config JSON, and WFA YAML all created successfully. Strategy implements VWAP-based entries, volume spike confirmation, and cumulative volume delta - a genuinely new strategy class not previously tested in the factory. All data files verified to exist with volume columns. WFA execution requires human intervention on Windows machine.",
+  "key_lessons": [
+    "WFA execution blocked: Agent environment lacks pandas/numpy, WFA .venv is Windows-based - this continues to block all WFA experiments",
+    "Strategy preparation phase complete: volume_profile.py follows exact pattern of volatility_regime.py template with generate_vectorized_signals() interface",
+    "Order flow strategy is novel: Uses VWAP as dynamic S/R, volume spikes for confirmation, cumulative volume delta for order flow direction - different from existing RSI/momentum/volatility strategies",
+    "Data validation passed: binance_btcusdt_1h_1000.csv, binance_ethusdt_1h_1000.csv, binance_solusdt_1h_1000.csv all contain volume column needed for strategy",
+    "Critical infrastructure gap persists: Agent cannot execute WFA tests - noted in prior lessons but not resolved"
+  ],
+  "next_actions": [
+    "Human runs WFA locally on Windows: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/volume_profile/wfa_config.yaml",
+    "If Sharpe < 0 on OOS, try alternative order flow variants: volume imbalance ratio, market profile levels, or order book imbalance (if tick data available)",
+    "Consider adding multi-asset testing to WFA config (currently only BTC configured)",
+    "If infrastructure gap blocks future iterations, prioritize creating Linux-compatible WFA environment"
+  ],
+  "risk_notes": [
+    "Strategy untested - no evidence it produces valid signals or positive Sharpe",
+    "Cumulative volume delta calculation is computationally intensive (loop-based) - may slow down WFA on large datasets",
+    "VWAP period sensitivity: 20-bar default may be too short for 1h crypto data - optimization ranges include 10/20/30/50 to test",
+    "Volume spike multiplier of 2.0x may be too strict for crypto markets which often have high volume variance - may result in low trade count",
+    "Cannot verify strategy in current environment - actual performance unknown until human executes WFA"
+  ]
+}

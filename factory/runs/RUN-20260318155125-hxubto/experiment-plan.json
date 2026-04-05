@@ -1,0 +1,59 @@
+{
+  "experiment_id": "EXP-20260318160000-01",
+  "title": "Execute London Sweep BTC WFA on real data",
+  "backlog_item_id": "IDEA-CRYPTO-002",
+  "objective": "Execute the London Sweep strategy WFA on BTC 1h data and produce out-of-sample metrics. Previous attempt (EXP-20260317211232-01) was inconclusive due to simulate mode - this run uses LIVE mode with actual WFA engine.",
+  "hypothesis": "London Sweep fade strategy can capture mean-reversion opportunities on BTC during the London session overlap, with Sharpe > 0 as evidence of directional edge.",
+  "priority": 95,
+  "dataset_requirements": [
+    "workspace/data/binance_btcusdt_1h_1000.csv (1000 hourly OHLCV bars, ~42 days)"
+  ],
+  "inputs": [
+    "walk forward engine/strategies/london_sweep_btc/wfa_config.yaml (existing config, needs data path fix)",
+    "walk forward engine/src/strategies/london_sweep.py (strategy with generate_vectorized_signals)",
+    "workspace/data/binance_btcusdt_1h_1000.csv"
+  ],
+  "implementation_steps": [
+    "1. Copy workspace/data/binance_btcusdt_1h_1000.csv to walk forward engine/data/btcusdt_1h_1000.csv (WFA expects data in engine subfolder)",
+    "2. Verify wfa_config.yaml data source path points to 'data/btcusdt_1h_1000.csv'",
+    "3. Create experiment JSON plan at factory/experiments/EXP-20260318160000-01.json",
+    "4. Update backlog to mark IDEA-CRYPTO-002 as in_progress",
+    "5. Human executes: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/london_sweep_btc/wfa_config.yaml",
+    "6. Parse WFA output for Sharpe, win rate, max drawdown, trade count",
+    "7. Record results to factory/runs/ and factory/leaderboard.json"
+  ],
+  "commands": [
+    "cp 'workspace/data/binance_btcusdt_1h_1000.csv' 'walk forward engine/data/btcusdt_1h_1000.csv'",
+    "cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/london_sweep_btc/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/data/btcusdt_1h_1000.csv",
+    "factory/experiments/EXP-20260318160000-01.json",
+    "factory/runs/EXP-20260318160000-01_result.json",
+    "factory/summaries/EXP-20260318160000-01.md",
+    "walk forward engine/strategies/london_sweep_btc/results/ (WFA output directory)"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "WFA must complete without crash; at least 5 trades in OOS window; Sharpe >= 0",
+    "metrics": [
+      "Sharpe ratio (OOS walk-forward average)",
+      "Win rate",
+      "Max drawdown",
+      "Total trades in OOS windows",
+      "CAGR / total return",
+      "Calmar ratio"
+    ],
+    "min_evidence_score": 40
+  },
+  "fallback_if_blocked": [
+    "If WFA crashes on BTC data → check CSV format compatibility, try demo_ohlcv.csv first",
+    "If pip-based params fail on BTC price scale → adapt sweep_pips from 3-20 pips to BTC-appropriate thresholds (e.g., 50-500 USDT points)",
+    "If no trades generate → widen min_range_pips, disable ATR filter"
+  ],
+  "notes": [
+    "Previous EXP-20260317211232-01 was inconclusive (score 25) - ran in simulate mode, no real WFA execution",
+    "This is the same backlog item (IDEA-CRYPTO-002) being re-attempted with proper LIVE mode execution",
+    "Data path mismatch is the most likely blocker - WFA expects data/btcusdt_1h_1000.csv inside walk forward engine/",
+    "BTC price scale (~75,000 USDT) means pip-based params (pip=0.0001) produce negligible thresholds - sweep_pips values of 5-20 pips = 0.5-2.0 USDT which is too small. Need to scale params for crypto: sweep_pips should be in USDT points (e.g., 50, 100, 200, 500)"
+  ]
+}

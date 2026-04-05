@@ -1,0 +1,41 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260402133929-05",
+  "backlog_item_id": "IDEA-0001",
+  "summary": "Simulate mode verified orchestrator mechanics but did not establish trading evidence.",
+  "key_lessons": [
+    {
+      "lesson": "Persistent state and artifact writing work end-to-end.",
+      "specific_finding": "The simulate path can exercise the full orchestrator without claiming real evidence.",
+      "result": {
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": null
+      }
+    },
+    {
+      "lesson": "Simulation output must remain clearly separated from real evidence.",
+      "specific_finding": "Synthetic artifacts should not be interpreted as WFA results or promotable evidence.",
+      "result": {
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": null
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Run smoke test with actual Python WFA harness",
+      "rationale": "Verify the non-simulated path still works.",
+      "priority": "medium"
+    },
+    {
+      "action": "Use live mode for real OpenCode-driven research",
+      "rationale": "Only live mode can produce promotable WFA evidence.",
+      "priority": "high"
+    }
+  ]
+}
+</RF_JSON>

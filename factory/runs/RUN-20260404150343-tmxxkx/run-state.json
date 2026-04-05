@@ -1,0 +1,180 @@
+{
+  "run_id": "RUN-20260404150343-tmxxkx",
+  "backlog_item_id": "IDEA-718440-afg",
+  "owner_id": "live-owner-13105-mnkgq4px-y4kven",
+  "run_instance_id": "RUN-20260404150343-tmxxkx",
+  "resume_generation": 8,
+  "current_stage": "executor",
+  "current_stage_attempt": 16,
+  "current_stage_session": {
+    "stage": "executor",
+    "attempt": 16,
+    "session_id": "ses_2a67ef742ffeHgChBnsGYVWyyM",
+    "session_url": "http://127.0.0.1:4096/global/session/ses_2a67ef742ffeHgChBnsGYVWyyM",
+    "recorded_at": "2026-04-04T17:18:42.366Z"
+  },
+  "last_completed_stage": "planner",
+  "observer_opened_at": null,
+  "poison_streak_count": 5,
+  "poison_stage": "executor",
+  "poison_failure_class": "transport_failure",
+  "stage_status": {
+    "planner": {
+      "status": "completed",
+      "updated_at": "2026-04-04T15:13:10.775Z",
+      "attempt": 7,
+      "failure_class": "execution_failure"
+    },
+    "executor": {
+      "status": "failed",
+      "updated_at": "2026-04-04T17:24:13.944Z",
+      "attempt": 3,
+      "failure_class": "transport_failure"
+    },
+    "evaluator": {
+      "status": "pending",
+      "updated_at": null
+    },
+    "summarizer": {
+      "status": "pending",
+      "updated_at": null
+    }
+  },
+  "failure_class": "transport_failure",
+  "resume_from_stage": "executor",
+  "handoff_pending": true,
+  "last_error": "executor transport request timed out waiting for response headers.",
+  "attempt_counts": {
+    "planner": 7,
+    "executor": 16,
+    "evaluator": 0,
+    "summarizer": 0
+  },
+  "artifact_paths": {
+    "run_state": "factory/runs/RUN-20260404150343-tmxxkx/run-state.json",
+    "planner_heartbeats": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-heartbeat.json"
+    ],
+    "planner_stage_inputs": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-input.json"
+    ],
+    "planner_stage_prompts": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-prompt.txt"
+    ],
+    "planner_sessions": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7-session.json"
+    ],
+    "planner_stage_responses": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-4/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-5/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-6/stage-response.raw.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-response.raw.txt"
+    ],
+    "planner_stage_errors": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-error.json"
+    ],
+    "planner_stage_gates": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-1/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-2/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-3/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-gate.json"
+    ],
+    "handoff": "factory/runs/RUN-20260404150343-tmxxkx/handoff.json",
+    "planner_stage_validated": [
+      "factory/runs/RUN-20260404150343-tmxxkx/planner-attempt-7/stage-validated.json"
+    ],
+    "planner_response": "factory/runs/RUN-20260404150343-tmxxkx/planner-response.txt",
+    "experiment_plan": "factory/runs/RUN-20260404150343-tmxxkx/experiment-plan.json",
+    "experiment_plan_index": "factory/experiments/EXP-20260404160000-01.plan.json",
+    "executor_heartbeats": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-heartbeat.json"
+    ],
+    "executor_stage_inputs": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-13/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-14/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-15/stage-input.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-16/stage-input.json"
+    ],
+    "executor_stage_prompts": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-13/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-14/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-15/stage-prompt.txt",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-16/stage-prompt.txt"
+    ],
+    "executor_sessions": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-4-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-5-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-6-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-7-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-8-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-9-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-10-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-11-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-12-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-14-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-15-session.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-16-session.json"
+    ],
+    "executor_stage_errors": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-error.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-error.json"
+    ],
+    "executor_stage_gates": [
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-1/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-2/stage-gate.json",
+      "factory/runs/RUN-20260404150343-tmxxkx/executor-attempt-3/stage-gate.json"
+    ]
+  },
+  "updated_at": "2026-04-04T17:24:14.949Z"
+}

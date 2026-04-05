@@ -1,0 +1,902 @@
+[
+  {
+    "id": "12",
+    "slug": "will-joe-biden-get-coronavirus-before-the-election",
+    "title": "Will Joe Biden get Coronavirus before the election?",
+    "description": "This is a market on if presidential candidate Joe Biden will test positive for COVID-19 before November 3rd, 2020. This will be defined as Joe publicly announcing - via any medium, including social me",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 32257.445115,
+    "liquidity": 0.0,
+    "end_date": "2020-11-04T00:00:00Z",
+    "created_at": "2020-10-02T16:10:01.467Z"
+  },
+  {
+    "id": "17",
+    "slug": "will-airbnb-begin-publicly-trading-before-jan-1-2021",
+    "title": "Will Airbnb begin publicly trading before Jan 1, 2021?",
+    "description": "This market is on whether or not Airbnb will be a publicly traded company by January 1, 2021. This market will resolve to Yes if Airbnb starts publicly trading on NASDAQ or NYSE before January 1st 202",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 89665.252158,
+    "liquidity": 0.0,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-02T19:20:04.234Z"
+  },
+  {
+    "id": "18",
+    "slug": "will-a-new-supreme-court-justice-be-confirmed-before-nov-3rd-2020",
+    "title": "Will a new Supreme Court Justice be confirmed before Nov 3rd, 2020?",
+    "description": "This is a market on whether or not a new Supreme Court Justice will be both nominated and confirmed before Nov 3rd, 2020. Nominated and Confirmed, in the context of the Supreme Court, are defined here",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 43279.456005,
+    "liquidity": 0.0,
+    "end_date": "2020-11-04T00:00:00Z",
+    "created_at": "2020-10-02T19:20:04.234Z"
+  },
+  {
+    "id": "19",
+    "slug": "will-kim-kardashian-and-kanye-west-divorce-before-jan-1-2021",
+    "title": "Will Kim Kardashian and Kanye West divorce before Jan 1, 2021?",
+    "description": "This is a market on whether Kanye West and Kim Kardashian will officially file for a divorce before January 1st 2021. Divorce can be defined empirically as either an official announcement direct from ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.0110820525225415e-06,
+      0.9999989889179475
+    ],
+    "volume": 22067.475119,
+    "liquidity": 0.179651,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-02T19:20:04.234Z"
+  },
+  {
+    "id": "20",
+    "slug": "will-coinbase-begin-publicly-trading-before-jan-1-2021",
+    "title": "Will Coinbase begin publicly trading before Jan 1, 2021?",
+    "description": "This market is on whether Coinbase will be a publicly traded company by January 1, 2021. This market will resolve to Yes if Coinbase starts publicly trading on NASDAQ or NYSE before January 1st 2021. ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.0245195095681696e-06,
+      0.9999989754804904
+    ],
+    "volume": 116803.377183,
+    "liquidity": 0.367501,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-02T19:20:04.249Z"
+  },
+  {
+    "id": "36",
+    "slug": "what-will-the-price-of-bitcoin-be-on-november-4th-2020",
+    "title": "What will the price of Bitcoin be on November 4th, 2020?",
+    "description": "This is a scalar market on what the USD price of Bitcoin will be on November 4th, 2020, according to Coingecko. The lower bound for this market is $5,000/BTC, and the upper bound is $15,000/BTC - you ",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 59755.804763,
+    "liquidity": 0.0,
+    "end_date": "2020-11-04T00:00:00Z",
+    "created_at": "2020-10-02T20:00:04.856Z"
+  },
+  {
+    "id": "40",
+    "slug": "will-trump-win-the-2020-us-presidential-election",
+    "title": "Will Trump win the 2020 U.S. presidential election?",
+    "description": "This is a market on if Donald Trump will win the 2020 US presidential election. This is not about the popular vote - it's particularly about if Trump will win the election, as defined by the electoral",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      4.3643034980462864e-08,
+      0.999999956356965
+    ],
+    "volume": 10802601.987023,
+    "liquidity": 68.283267,
+    "end_date": "2020-11-20T00:00:00Z",
+    "created_at": "2020-10-09T17:00:08.468Z"
+  },
+  {
+    "id": "42",
+    "slug": "will-there-be-an-emergency-use-authorization-granted-for-a-covid-19-vaccine-prior-to-nov-3",
+    "title": "Will there be an Emergency Use Authorization (EUA) granted for a COVID-19 vaccine prior to Nov 3 2020?",
+    "description": "This market is on if there will be an Emergency Use Authorization (EUA) granted for a COVID-19 vaccine before November 3rd, 2020. \"The Emergency Use Authorization (EUA) authority allows FDA to help st",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 21881.05833,
+    "liquidity": 0.0,
+    "end_date": "2020-11-04T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.783Z"
+  },
+  {
+    "id": "43",
+    "slug": "what-will-the-total-value-locked-tvl-in-defi-be-at-the-end-of-2020-according-to-defipulse",
+    "title": "What will the total value locked (TVL) in DeFi be at the end of 2020, according to DefiPulse?",
+    "description": "This is a scalar market on what the TVL metric on [Defipulse.com] (http://defipulse.com/) will be on December 31st, 2020. TVL stands for the Total Value of cryptoassets Locked as collateral in the mos",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.5843311669077693,
+      0.4156688330922307
+    ],
+    "volume": 46944.579746,
+    "liquidity": 4.601742,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.791Z"
+  },
+  {
+    "id": "44",
+    "slug": "what-will-the-usd-price-of-filecoin-fil-be-on-november-17th-2020",
+    "title": "What will the USD price of Filecoin ($FIL) be on November 17th, 2020?",
+    "description": "This is a scalar market on what the USD price of 1 Filecoin ($FIL) will be on November 17th, 2020, at 2pm EST, according to Coingecko. The lower bound for this market is $10/FIL, and the upper bound i",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.4988929462743077,
+      0.5011070537256923
+    ],
+    "volume": 69947.098531,
+    "liquidity": 190.134841,
+    "end_date": "2020-11-17T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.791Z"
+  },
+  {
+    "id": "46",
+    "slug": "will-drake-release-a-new-studio-album-before-the-end-of-2020",
+    "title": "Will Drake release a new studio album before the end of 2020?",
+    "description": "This is a market on if Drake will release a new studio album before the end of 2020. A studio album in this case can be defined as a new project on his Spotify page in the Albums section, with 8 or mo",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 31841.386373,
+    "liquidity": 0.0,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.798Z"
+  },
+  {
+    "id": "47",
+    "slug": "which-party-will-win-florida-in-the-2020-presidential-election",
+    "title": "Which party will win Florida in the 2020 presidential election?",
+    "description": "This is a market on which party will win Florida in the 2020 presidential election. This market will resolve based on the information made available by the Florida Division of Elections. Official resu",
+    "outcomes": [
+      "Dems",
+      "Reps"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 243053.252109,
+    "liquidity": 0.0,
+    "end_date": "2020-11-20T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.798Z"
+  },
+  {
+    "id": "48",
+    "slug": "how-many-confirmed-coronavirus-cases-will-there-be-at-eoy-in-the-usa",
+    "title": "How many confirmed Coronavirus cases will there be at EOY in the USA?",
+    "description": "This is a scalar market on the number of confirmed coronavirus cases there will be at the end of 2020 in the United States, according to https://coronavirus.jhu.edu/map.html. The lower bound for this ",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.999968870970368,
+      3.1129029632008394e-05
+    ],
+    "volume": 72112.484035,
+    "liquidity": 1.937475,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-12T22:00:05.798Z"
+  },
+  {
+    "id": "56",
+    "slug": "who-will-win-the-2020-mlb-world-series-1",
+    "title": "Who will win the 2020 MLB World Series?",
+    "description": "This is a market on which team will win the 2020 Major League Baseball world series. The World Series is the annual championship series of Major League Baseball in the United States and Canada, contes",
+    "outcomes": [
+      "Rays",
+      "Dodgers"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 107601.586423,
+    "liquidity": 0.0,
+    "end_date": "2020-10-29T00:00:00Z",
+    "created_at": "2020-10-20T18:20:05.236Z"
+  },
+  {
+    "id": "57",
+    "slug": "will-dharma-s-phase-1-retroactive-uni-distribution-proposal-pass",
+    "title": "Will Dharma\u2019s Phase 1 Retroactive UNI Distribution proposal pass?",
+    "description": "This is a market on if Dharma\u2019s \u201cPhase 1\u201d Uniswap (UNI) governance proposal, described as \u201cRetroactive UNI Distribution\u201d, will pass. As of the date of market creation, 10-21-20, Dharma has announced t",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 35661.941003,
+    "liquidity": 0.0,
+    "end_date": "2020-10-31T00:00:00Z",
+    "created_at": "2020-10-21T21:00:05.999Z"
+  },
+  {
+    "id": "59",
+    "slug": "will-there-be-a-federal-charge-filed-against-hunter-biden-before-2021",
+    "title": "Will there be a federal charge filed against Hunter Biden before 2021?",
+    "description": "This is a market on whether Hunter Biden, son of former U.S. Vice President Joe Biden, shall be indicted or otherwise formally charged with a federal crime, as publicly confirmed on or before December",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      2.3657601363117614e-07,
+      0.9999997634239863
+    ],
+    "volume": 127476.154269,
+    "liquidity": 0.13149,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-10-21T21:00:06.008Z"
+  },
+  {
+    "id": "63",
+    "slug": "will-btc-break-15k-before-2021-1",
+    "title": "Will BTC break $15k before 2021?",
+    "description": "This is a market on whether BTC (bitcoin) will reach a price higher than USD $15,000 before the end of the 2020 calendar year according to coinmarketcap.com. If bitcoin reaches a price higher than $15",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 224706.488667,
+    "liquidity": 0.0,
+    "end_date": "2021-01-01T00:00:00Z",
+    "created_at": "2020-10-22T16:50:03.826Z"
+  },
+  {
+    "id": "64",
+    "slug": "will-khabib-win-his-ufc-254-fight",
+    "title": "Will Khabib win his UFC 254 Fight?",
+    "description": "This is a market on whether Khabib Nurmagomedov will win his UFC 254 fight against Justin Gaethje. If Khabib Nurmagomedov is declared the winner of this bout, either by knockout or by judgement, this ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 17497.115264,
+    "liquidity": 0.0,
+    "end_date": "2020-10-25T00:00:00Z",
+    "created_at": "2020-10-23T21:10:04.397Z"
+  },
+  {
+    "id": "65",
+    "slug": "will-538-outperform-the-economist-in-forecasting-the-2020-presidential-election",
+    "title": "Will 538 outperform The Economist in forecasting the 2020 Presidential Election?",
+    "description": "This is a market on whether 538 will outperform The Economist in forecasting the 2020 Presidential Election. This market will be resolved by comparing the Brier score of 538 and the Economist averaged",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 81312.461764,
+    "liquidity": 0.0,
+    "end_date": "2020-11-20T00:00:00Z",
+    "created_at": "2020-10-27T17:35:06.01Z"
+  },
+  {
+    "id": "66",
+    "slug": "who-will-win-the-2020-league-of-legends-world-championship",
+    "title": "Who will win the 2020 League of Legends World Championship?",
+    "description": "This is a market on which team will win the 2020 league of legends world championship, taking place on October 31st, 2020. The two teams competing are SN Gaming (Suning) and Damwon. Whichever team win",
+    "outcomes": [
+      "Damwon",
+      "Suning"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 84205.451739,
+    "liquidity": 0.0,
+    "end_date": "2021-11-01T00:00:00Z",
+    "created_at": "2020-10-27T21:40:03.746Z"
+  },
+  {
+    "id": "67",
+    "slug": "which-party-will-win-pennsylvania-in-the-2020-presidential-election",
+    "title": "Which party will win Pennsylvania in the 2020 presidential election?",
+    "description": "This is a market on which party will win Pennsylvania in the 2020 presidential election. This market will resolve based on the information made available by the Pennsylvania Department of State and [h",
+    "outcomes": [
+      "Democratic",
+      "Republican"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 1421876.344845,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-10-28T20:20:03.681Z"
+  },
+  {
+    "id": "69",
+    "slug": "which-party-will-win-texas-in-the-2020-presidential-election",
+    "title": "Which party will win Texas in the 2020 presidential election?",
+    "description": "This is a market on which party will win Texas in the 2020 presidential election. This market will resolve based on the information made available by the Elections Division of the Texas  Secretary of ",
+    "outcomes": [
+      "Democratic",
+      "Republican"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 194336.890284,
+    "liquidity": 0.0,
+    "end_date": "2020-11-20T00:00:00Z",
+    "created_at": "2020-10-28T20:20:03.681Z"
+  },
+  {
+    "id": "70",
+    "slug": "which-party-will-win-north-carolina-in-the-2020-presidential-election",
+    "title": "Which party will win North Carolina in the 2020 presidential election?",
+    "description": "This is a market on which party will win North Carolina in the 2020 presidential election. This market will resolve based on the information made available by the North Carolina State Board of Electio",
+    "outcomes": [
+      "Democratic",
+      "Republican"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 244840.590497,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-10-28T20:20:03.681Z"
+  },
+  {
+    "id": "71",
+    "slug": "which-party-will-win-georgia-in-the-2020-presidential-election",
+    "title": "Which party will win Georgia in the 2020 presidential election?",
+    "description": "This is a market on which party will win Georgia in the 2020 presidential election. This market will resolve based on the information made available by the Elections Division of the Georgia Secretary ",
+    "outcomes": [
+      "Democratic",
+      "Republican"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 1253550.166932,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-10-28T20:20:03.692Z"
+  },
+  {
+    "id": "72",
+    "slug": "which-party-will-win-arizona-in-the-2020-presidential-election",
+    "title": "Which party will win Arizona in the 2020 Presidential Election?",
+    "description": "This is a market on which party will win Arizona in the 2020 presidential election. This market will resolve based on the information made available by the Elections Division of the Arizona Secretary ",
+    "outcomes": [
+      "Democratic",
+      "Republican"
+    ],
+    "prices": [
+      0.9999928071628366,
+      7.192837163404889e-06
+    ],
+    "volume": 1506034.746644,
+    "liquidity": 5.470261,
+    "end_date": "",
+    "created_at": "2020-10-29T15:50:05.329Z"
+  },
+  {
+    "id": "73",
+    "slug": "will-donald-trump-tweet-announcing-that-he-won-the-election-before-november-5th-2020",
+    "title": "Will Donald Trump tweet announcing that he won the election before November 5th 2020?",
+    "description": "This is a market on if Donald Trump will tweet an announcement that he successfully won the election before November 5th, 12:01 am EST. If Trump says he \u201cWon\u201d, or claims definitive victory, this marke",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.9691261984867876e-06,
+      0.9999980308738015
+    ],
+    "volume": 127490.669491,
+    "liquidity": 3.295904,
+    "end_date": "2020-11-05T00:00:00Z",
+    "created_at": "2020-10-30T15:45:08.932Z"
+  },
+  {
+    "id": "74",
+    "slug": "will-the-associated-press-publish-a-tweet-calling-the-2020-us-presidential-election-before-november-6",
+    "title": "Will the Associated Press publish a tweet calling the 2020 US presidential election before November 6?",
+    "description": "This is a market on whether the Associated Press twitter account, https://twitter.com/AP, will publish a tweet declaring a definitive winner of the 2020 US presidential election prior to 11:59PM EST o",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 261432.197705,
+    "liquidity": 0.0,
+    "end_date": "2020-11-06T00:00:00Z",
+    "created_at": "2020-11-04T16:15:05.543Z"
+  },
+  {
+    "id": "75",
+    "slug": "will-the-ethereum-20-genesis-event-happen-successfully-on-december-1st-2020",
+    "title": "Will the Ethereum 2.0 Genesis Event happen successfully on December 1st, 2020?",
+    "description": "This is a market on if the Ethereum 2.0 Beacon Chain genesis event will happen successfully on December 1st, 2020, as planned contingent on the ETH deposit threshold being met in time. The ETH 2 \u201cMIN_",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.9999991353509499,
+      8.646490501333051e-07
+    ],
+    "volume": 560270.423771,
+    "liquidity": 7.877976,
+    "end_date": "2020-12-02T00:00:00Z",
+    "created_at": "2020-11-04T19:25:05.178Z"
+  },
+  {
+    "id": "76",
+    "slug": "will-btc-break-20k-before-2021",
+    "title": "Will $BTC break $20k before 2021?",
+    "description": "This is a market on if the USD price of Bitcoin $BTC will be above $20,000 at any point before January 1st, 2021, 12:00am EST, according to Coinmarketcap.com/currencies/bitcoin. This market starts on ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.9999998888806887,
+      1.1111931131046978e-07
+    ],
+    "volume": 1467610.681134,
+    "liquidity": 1170.706736,
+    "end_date": "2021-01-01T00:00:00Z",
+    "created_at": "2020-11-06T21:50:06.493Z"
+  },
+  {
+    "id": "77",
+    "slug": "will-donald-trump-formally-concede-the-2020-us-election-before-december-1st-2020",
+    "title": "Will Donald Trump formally concede the 2020 US Election before December 1st, 2020?",
+    "description": "This is a market on if Donald Trump will formally concede the 2020 US Election before December 1st, 2020, 12:00am EST. Conceding can be defined as publicly admitting to losing the election and thus no",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.5902607454513276e-07,
+      0.9999998409739255
+    ],
+    "volume": 454342.990794,
+    "liquidity": 8688.076983,
+    "end_date": "2020-12-01T00:00:00Z",
+    "created_at": "2020-11-06T23:05:12.952Z"
+  },
+  {
+    "id": "78",
+    "slug": "will-lamelo-ball-be-the-first-pick-in-the-2020-nba-draft",
+    "title": "Will LaMelo Ball be the first pick in the 2020 NBA draft?",
+    "description": "This is a market on if LaMelo Ball will be chosen/drafted with the 1st pick of the 2020 NBA Draft, currently owned by the Minnesota Timberwolves. This market will resolve to \u201cYes\u201d if he is chosen 1st,",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 143938.782615,
+    "liquidity": 0.0,
+    "end_date": "2020-11-19T00:00:00Z",
+    "created_at": "2020-11-06T23:05:12.957Z"
+  },
+  {
+    "id": "86",
+    "slug": "will-kanye-west-release-a-new-studio-album-before-2021",
+    "title": "Will Kanye West release a new studio album before 2021?",
+    "description": "This is a market on if Kanye West will release a new studio album before December 31st, 11:59pm EST. A studio album in this case can be defined as a new project on his Spotify page in the Albums secti",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 54154.420953,
+    "liquidity": 0.0,
+    "end_date": "2021-01-01T00:00:00Z",
+    "created_at": "2020-11-07T20:35:05.27Z"
+  },
+  {
+    "id": "87",
+    "slug": "will-donald-trump-attend-joe-biden-s-inauguration-ceremony-in-person",
+    "title": "Will Donald Trump attend Joe Biden\u2019s inauguration ceremony in person?",
+    "description": "This is a market on if Donald Trump will attend Joe Biden\u2019s inauguration ceremony in person.\nThis market is based on the linked Forecast question (https://forecastapp.net/q/TWFya2V0OlJpZXFKYTBGQU5n). ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.9420774724493336e-06,
+      0.9999980579225276
+    ],
+    "volume": 192840.874875,
+    "liquidity": 54.798207,
+    "end_date": "2021-02-01T00:00:00Z",
+    "created_at": "2020-11-07T21:05:04.715Z"
+  },
+  {
+    "id": "92",
+    "slug": "what-will-airbnb-s-market-cap-be-at-close-on-its-1st-day-publicly-trading",
+    "title": "What will Airbnb's market cap be at close on its 1st day publicly trading?",
+    "description": "This is a scalar market on what Airbnb's market capitalization will be upon market close on its first day publicly trading, denominated in $USD and according to Google Finance. Airbnb is set to start ",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 114807.198845,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-11-07T21:35:04.885Z"
+  },
+  {
+    "id": "93",
+    "slug": "will-donald-trump-be-inaugurated-for-his-second-term-as-president-of-the-usa-on-inauguration-day-january-20th-2021",
+    "title": "Will Donald Trump be inaugurated for his second term as President of the USA on Inauguration Day, January 20th, 2021?",
+    "description": "This is a market on if Donald Trump will be inaugurated for his second term as President of the United States of America, on Inauguration Day\u2014January 20th, 2021. At the time of market creation, AP, CN",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      2.0626664460443175e-08,
+      0.9999999793733355
+    ],
+    "volume": 30207577.413504,
+    "liquidity": 43.468918,
+    "end_date": "2021-02-01T00:00:00Z",
+    "created_at": "2020-11-08T19:50:06.096Z"
+  },
+  {
+    "id": "96",
+    "slug": "will-trump-win-any-of-pennsylvania-arizona-or-georgia",
+    "title": "Will Trump win any of Pennsylvania, Arizona or Georgia?",
+    "description": "This is a market on whether Donald Trump will win the popular vote in the 2020 general election for U.S. President in one or more of the states of Pennsylvania, Arizona or Georgia. The linked PredictI",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.2565989785062253e-05,
+      0.999987434010215
+    ],
+    "volume": 1376323.081579,
+    "liquidity": 2.945378,
+    "end_date": "2021-01-23T00:00:00Z",
+    "created_at": "2020-11-11T17:35:06.676Z"
+  },
+  {
+    "id": "97",
+    "slug": "will-any-art-piece-on-superrare-sell-for-more-than-100k-before-2021",
+    "title": "Will any art piece on Superrare sell for more than $100k before 2021?",
+    "description": "This is a market, done in collaboration with Superrare, on if any single piece of digital art (NFT) on [Superrare.co](https://superrare.co) will be sold, via either primary or secondary sale, for more",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      9.633486254782601e-06,
+      0.9999903665137452
+    ],
+    "volume": 44204.852746,
+    "liquidity": 5.6e-05,
+    "end_date": "2020-01-01T00:00:00Z",
+    "created_at": "2020-11-11T18:15:05.601Z"
+  },
+  {
+    "id": "98",
+    "slug": "will-uniswap-v3-launch-before-2021",
+    "title": "Will Uniswap v3 launch before 2021?",
+    "description": "This is a market on if Uniswap v3 will launch before January 1st, 2021, 12:00am EST. \u201cLaunch\u201d in this context can be defined as being deployed and usable on the Ethereum mainnet and publicly announced",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 87371.439296,
+    "liquidity": 0.0,
+    "end_date": "2021-01-01T00:00:00Z",
+    "created_at": "2020-11-11T18:25:08.208Z"
+  },
+  {
+    "id": "99",
+    "slug": "will-the-seahawks-or-the-rams-win-their-week-10-nfl-matchup",
+    "title": "Will the Seahawks or the Rams win their week 10 NFL matchup?",
+    "description": "This is a market on which team will win the NFL week 10 matchup between the Seattle Seahawks and the Los Angeles Rams. This game is set to take place on November 15th, 2020 at SoFi Stadium. Whichever ",
+    "outcomes": [
+      "Seahawks",
+      "Rams"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 140094.576395,
+    "liquidity": 0.0,
+    "end_date": "2020-11-16T00:00:00Z",
+    "created_at": "2020-11-12T21:55:08.856Z"
+  },
+  {
+    "id": "100",
+    "slug": "will-indoor-dining-be-prohibited-in-nyc-at-any-point-before-2021",
+    "title": "Will indoor dining be prohibited in NYC at any point before 2021?",
+    "description": "This market is on if indoor dining will be prohibited in all restaurants in NYC by any written local or state government order, at any point for any duration, before January 1st, 2021, 12:00am EST. Th",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.9999989051848532,
+      1.09481514672141e-06
+    ],
+    "volume": 195834.468106,
+    "liquidity": 3.1e-05,
+    "end_date": "2021-01-01T00:00:00Z",
+    "created_at": "2020-11-13T18:40:06.566Z"
+  },
+  {
+    "id": "101",
+    "slug": "will-pfizer-s-covid-19-vaccine-be-the-first-to-receive-fda-approval-or-emergency-use-authorization-eua",
+    "title": "Will Pfizer's COVID-19 vaccine be the first to receive FDA approval or Emergency Use Authorization (EUA)?",
+    "description": "This is a market on whether Pfizer's COVID-19 vaccine will be the first vaccine to receive regulatory approval in the USA, in the form of either FDA approval OR Emergency Use Authorization, whichever ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 151822.615733,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-11-16T19:35:07.993Z"
+  },
+  {
+    "id": "102",
+    "slug": "will-sushiswap-have-more-tvl-than-uniswap-at-any-time-before-november-24th-according-to-defipulse",
+    "title": "Will Sushiswap have more TVL than Uniswap at any time before November 24th, according to DefiPulse?",
+    "description": "This is a market on if Sushiswap will have more Total Value Locked (TVL) than Uniswap, at any time before November 24th, 2020, 12:00am EST. This market\u2019s inception date is November 18th, 2020, and thu",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 139390.060805,
+    "liquidity": 0.0,
+    "end_date": "2020-11-24T00:00:00Z",
+    "created_at": "2020-11-17T18:40:13.819Z"
+  },
+  {
+    "id": "103",
+    "slug": "will-btc-break-20k-before-thanksgiving",
+    "title": "Will $BTC break $20k before Thanksgiving?",
+    "description": "This is a market on if the USD price of Bitcoin $BTC will be above $20,000 at any point before Thanksgiving - defined as before November 26th, 2020, 12:00am EST - according to Coinmarketcap.com/curren",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 457360.180333,
+    "liquidity": 0.0,
+    "end_date": "2020-11-26T00:00:00Z",
+    "created_at": "2020-11-18T17:50:08.3Z"
+  },
+  {
+    "id": "105",
+    "slug": "will-liverpool-win-their-match-against-leicester-this-weekend",
+    "title": "Will Liverpool beat Leicester City in their Matchday 9 game?",
+    "description": "This is a market on whether Liverpool will be the winner of their Matchday 9 match against Leicester City, scheduled for November 22nd, 2020. If Liverpool wins this match, the market will resolve to \"",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 50163.470657,
+    "liquidity": 0.0,
+    "end_date": "2020-11-23T00:00:00Z",
+    "created_at": "2020-11-20T18:00:08Z"
+  },
+  {
+    "id": "107",
+    "slug": "will-figueiredo-win-his-ufc-255-match",
+    "title": "Will Deiveson Figueiredo win his UFC 255 match?",
+    "description": "This is a market on whether Deiveson Figueiredo will win his UFC 255 fight against Alex Perez. If Dievson Figueiredo is declared the winner of this bout, either by knockout or by judgement, this marke",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 69325.229436,
+    "liquidity": 0.0,
+    "end_date": "2020-11-22T00:00:00Z",
+    "created_at": "2020-11-20T18:05:07.084Z"
+  },
+  {
+    "id": "108",
+    "slug": "what-will-the-average-sale-price-of-the-jordan-1-mocha-on-stock-x-be-on-christmas-day",
+    "title": "What will the average sale price of the Jordan 1 Mocha on StockX be on Christmas Day?",
+    "description": "This is a scalar market on the average sale price of the Air Jordan 1 Mocha Men\u2019s Shoe on Christmas day, 2020. The lower bound for this market is $300 and upper bound is $500. This market will resolve",
+    "outcomes": [
+      "Long",
+      "Short"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 21681.539389,
+    "liquidity": 0.0,
+    "end_date": "2020-12-26T00:00:00Z",
+    "created_at": "2020-11-23T17:25:07.518Z"
+  },
+  {
+    "id": "109",
+    "slug": "will-trump-pardon-himself-in-his-first-term",
+    "title": "Will Trump Pardon Himself in His First Term?",
+    "description": "This is a market on whether Donald Trump pardon himself during his first term. The linked PredictIt question is the basis for the creation of this market and will be referenced as the leading resoluti",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      1.0310124768476219e-07,
+      0.9999998968987523
+    ],
+    "volume": 566518.152363,
+    "liquidity": 99.338559,
+    "end_date": "2021-02-16T00:00:00Z",
+    "created_at": "2020-11-23T17:25:07.518Z"
+  },
+  {
+    "id": "110",
+    "slug": "which-party-will-win-the-u-s-senate-runoff-in-georgia-ossoff-d-vs-perdue-r",
+    "title": "Which party will win the U.S. Senate runoff in Georgia? (Ossoff - D vs. Perdue - R)",
+    "description": "This is a market on whether the democratic or republican candidate will win the U.S. Senate runoff in Georgia taking place on January 5th, 2021. Currently, candidates for this election are David Perdu",
+    "outcomes": [
+      "Dems/Ossoff",
+      "Reps/Perdue"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 206128.535439,
+    "liquidity": 0.0,
+    "end_date": "",
+    "created_at": "2020-11-23T19:00:09.757Z"
+  },
+  {
+    "id": "111",
+    "slug": "which-party-will-win-the-u-s-senate-special-election-in-georgia-loeffler-r-vs-warnock-d",
+    "title": "Which party will win the U.S. Senate special election in Georgia? (Loeffler - R vs Warnock - D)",
+    "description": "This is a market on which party will win the US Senate special election in Georgia, taking place on January 5th, 2021. Currently, the candidates for this election are Kelly Loeffler on the Republican ",
+    "outcomes": [
+      "Dems/Warnock",
+      "Reps/Loeffler"
+    ],
+    "prices": [
+      0.9999989006962045,
+      1.0993037955191074e-06
+    ],
+    "volume": 237532.290807,
+    "liquidity": 45.370082,
+    "end_date": "",
+    "created_at": "2020-11-23T19:00:09.756Z"
+  },
+  {
+    "id": "114",
+    "slug": "will-coinbase-reach-1-in-i-os-app-store-finance-category-before-2021",
+    "title": "Will Coinbase reach #1 in the Finance category on the US iOS App Store before 2021?",
+    "description": "This is a market on if the Coinbase iOS app will reach #1 in the United States iPhone Apple App Store in the Finance category, under \"Free Apps\". It does not matter how long the app remains #1, if it ",
+    "outcomes": [
+      "Yes",
+      "No"
+    ],
+    "prices": [
+      0.0,
+      0.0
+    ],
+    "volume": 195420.953091,
+    "liquidity": 0.0,
+    "end_date": "2021-01-02T00:00:00Z",
+    "created_at": "2020-11-24T16:15:09.126Z"
+  }
+]

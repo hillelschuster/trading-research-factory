@@ -1,0 +1,90 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404150000-01",
+  "title": "ETH-specific EMA Trend Gate parameter tuning",
+  "backlog_item_id": "IDEA-718440-afg",
+  "objective": "Expand EMA Trend Gate parameter search for ETHUSDT to find asset-specific optimal settings, following the BNB success pattern that improved Sharpe by +195%",
+  "hypothesis": "ETHUSDT will respond to expanded parameter ranges (lower rsi_oversold, higher rsi_overbought, longer hold_bars) similar to BNB's improvement from 0.432 to 1.275 Sharpe",
+  "strategy_rationale": "BNB experiment proved asset-specific tuning works: expanded ranges (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) found optimal at rsi_oversold=25, rsi_overbought=60, hold_bars=168. ETH previously used generic params and got 0.489 Sharpe - room for similar improvement exists.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "ETHUSDT spot",
+  "instrument_selection_rule": null,
+  "timeframe": "1h with 4h regime filter",
+  "priority": 55,
+  "dataset_requirements": [
+    "ETH/USDT 1h OHLCV from Binance, minimum 5 years history"
+  ],
+  "historical_depth_requirement": {
+    "target": "~7 years (2018-10 to 2026-03, ~64k bars)",
+    "justification": "Crypto markets exhibit varying regimes; multi-year history captures bull/bear/ sideways cycles essential for robust WFA. ETH has deep Binance history available."
+  },
+  "source_plan": {
+    "allowed_source_families": ["binance", "public_archive"],
+    "primary_source_family": "binance",
+    "selection_reason": "Existing deep ETH dataset available in workspace/data/binance_ethusdt_1h_deep.csv with ~64k bars covering 2018-2026"
+  },
+  "scope_selection_rationale": "ETH is the second-largest crypto by market cap with distinct volatility characteristics from BTC and BNB. Prior ETH run used generic parameters and achieved 0.489 Sharpe - significantly below BTC's 0.998. Asset-specific tuning should close this gap.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Existing deep ETH data already available: workspace/data/binance_ethusdt_1h_deep.csv with 64,734 rows spanning ~7 years",
+    "acquisition_method": "existing_fetcher",
+    "sources": ["workspace/data/binance_ethusdt_1h_deep.csv"],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml",
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "factory/memory/lessons.jsonl (BNB tuning lesson)"
+  ],
+  "implementation_steps": [
+    "1. Create copy of ema_trend_gate strategy config for ETH: strategies/ema_trend_gate_eth/wfa_config.yaml",
+    "2. Update data.source_file to point to binance_ethusdt_1h_deep.csv",
+    "3. Expand parameter_ranges based on BNB success: rsi_oversold [25, 30, 35], rsi_overbought [50, 55, 60, 65, 70], hold_bars [48, 72, 96, 120, 144, 168]",
+    "4. Run WFA with expanded parameter search",
+    "5. Compare results to prior ETH run (0.489 Sharpe) and BTC baseline (0.998 Sharpe)"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_eth/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+    "walk forward engine/strategies/ema_trend_gate_eth/results/walk_forward_results_*.json",
+    "walk forward engine/strategies/ema_trend_gate_eth/results/walk_forward_summary_*.csv",
+    "walk forward engine/strategies/ema_trend_gate_eth/results/parameter_stability_*.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 150,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["stability"],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA completes with >30 windows and >200 total trades",
+    "metrics": {
+      "min_sharpe_oos": 0.7,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 25,
+      "min_trades": 200
+    },
+    "min_evidence_score": 60
+  },
+  "fallback_if_blocked": [
+    "If strategy directory creation fails, fall back to modifying existing ema_trend_gate/wfa_config.yaml in place with ETH data and expanded params"
+  ],
+  "notes": [
+    "Key insight from BNB run: expanding rsi_oversold to 25 and hold_bars to 168 was critical for +195% Sharpe improvement",
+    "Prior ETH run used generic ranges (rsi_oversold: 35-50, hold_bars: 24-96) - too conservative",
+    "Current ema_trend_gate/wfa_config.yaml incorrectly references BNB data - must fix to ETH for this experiment"
+  ]
+}
+</RF_JSON>

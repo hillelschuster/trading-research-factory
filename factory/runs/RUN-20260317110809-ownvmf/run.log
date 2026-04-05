@@ -1,0 +1,5 @@
+{"ts":"2026-03-17T11:08:09.032Z","run_id":"RUN-20260317110809-ownvmf","message":"Starting run","extra":{"iteration":14,"backlog_item_id":"IDEA-418243-4o6","mode":"live"}}
+{"ts":"2026-03-17T11:10:10.878Z","run_id":"RUN-20260317110809-ownvmf","message":"Planner completed","extra":{"experiment_id":"EXP-20260317210000-01"}}
+{"ts":"2026-03-17T11:10:45.826Z","run_id":"RUN-20260317110809-ownvmf","message":"Executor completed","extra":{"status":"executed"}}
+{"ts":"2026-03-17T11:11:18.084Z","run_id":"RUN-20260317110809-ownvmf","message":"Evaluator completed","extra":{"verdict":"passed","evidence_score":80}}
+{"ts":"2026-03-17T11:11:32.086Z","run_id":"RUN-20260317110809-ownvmf","message":"Run completed","extra":{"run_id":"RUN-20260317110809-ownvmf","verdict":"passed","iteration":14}}

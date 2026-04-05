@@ -1,0 +1,97 @@
+[
+  {
+    "schema_version": "retrieval_v1",
+    "retrieval_id": "lesson:RUN-IDEMP-VERIFY:1",
+    "source_type": "lesson",
+    "source_path": "factory/memory/lessons.jsonl",
+    "run_id": "RUN-IDEMP-VERIFY",
+    "experiment_id": "EXP-IDEMP-VERIFY",
+    "backlog_item_id": "IDEA-IDEMP-VERIFY",
+    "mode": "live",
+    "verdict": "passed",
+    "evidence_score": 65,
+    "strategy_family": null,
+    "market_family": null,
+    "asset_scope": null,
+    "timeframe": null,
+    "recorded_at": "2026-03-24T10:00:00.000Z",
+    "stage_targets": [
+      "ideator",
+      "planner",
+      "executor",
+      "summarizer"
+    ],
+    "related_artifact_paths": [
+      "factory/summaries/RUN-IDEMP-VERIFY.md"
+    ],
+    "retrieval_text": "EXP-IDEMP-VERIFY | passed | live | Idempotence verification lesson. | Keep rebuild stable | {\"sharpe_is\":null,\"sharpe_oos\":null,\"wfr\":null,\"is_oos_ratio\":null,\"max_drawdown\":null,\"win_rate\":null,\"total_trades\":null,\"fold_variance\":null,\"markets_tested\":[],\"extra_metrics\":{}}",
+    "snippet": {
+      "lesson": "Idempotence verification lesson.",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": null,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {}
+      },
+      "next_actions": [
+        "Keep rebuild stable"
+      ]
+    }
+  },
+  {
+    "schema_version": "retrieval_v1",
+    "retrieval_id": "evidence:RUN-IDEMP-VERIFY",
+    "source_type": "evidence",
+    "source_path": "factory/evidence/index.json",
+    "run_id": "RUN-IDEMP-VERIFY",
+    "experiment_id": "EXP-IDEMP-VERIFY",
+    "backlog_item_id": "IDEA-IDEMP-VERIFY",
+    "mode": "live",
+    "verdict": "passed",
+    "evidence_score": 65,
+    "strategy_family": null,
+    "market_family": null,
+    "asset_scope": null,
+    "timeframe": null,
+    "recorded_at": "2026-03-24T10:00:00.000Z",
+    "stage_targets": [
+      "ideator",
+      "planner",
+      "evaluator"
+    ],
+    "related_artifact_paths": [
+      "factory/summaries/RUN-IDEMP-VERIFY.md"
+    ],
+    "retrieval_text": "EXP-IDEMP-VERIFY | IDEA-IDEMP-VERIFY | passed | live | {\"sharpe_is\":null,\"sharpe_oos\":0.8,\"wfr\":null,\"is_oos_ratio\":null,\"max_drawdown\":null,\"win_rate\":null,\"total_trades\":32,\"fold_variance\":null,\"markets_tested\":[],\"extra_metrics\":{\"foo\":1,\"bar\":2,\"baz\":3}}",
+    "snippet": {
+      "evidence_score": 65,
+      "overall_score": 60,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.8,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": 32,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "foo": 1,
+          "bar": 2,
+          "baz": 3
+        }
+      },
+      "summary_path": "factory/summaries/RUN-IDEMP-VERIFY.md",
+      "evidence_kind": "research",
+      "promotable": true
+    }
+  }
+]

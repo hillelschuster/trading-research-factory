@@ -1,0 +1,329 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "backlogItem": {
+    "id": "IDEA-783521-c70",
+    "title": "Explore shorter hold_bars (96-120) for more adaptive signals",
+    "status": "infra_blocked",
+    "priority": 55,
+    "category": "followup",
+    "objective": "Explore shorter hold_bars (96-120) for more adaptive signals",
+    "source": "RUN-20260404211002-hmi9jy",
+    "research_status": null,
+    "cooldown_until": null,
+    "quarantine_until": null,
+    "lease_owner": null,
+    "lease_expires_at": null,
+    "current_run_id": "RUN-20260405135010-kps8ds",
+    "last_failure_class": "interruption",
+    "resume_from_stage": "planner",
+    "last_verdict": null,
+    "started_at": "2026-04-05T13:50:15.552Z",
+    "last_error": "Interrupted by SIGTERM."
+  },
+  "retrieval": {
+    "relevant_lessons": [
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404133920-01",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": "multi_timeframe",
+        "lesson": "Parameter consistency score of 0.37 indicates adaptive regime behavior, not necessarily overfitting",
+        "specific_finding": "Hold_bars ranges from 96-168 and rsi_overbought 50-70 across windows, yielding consistency score 0.37. However, core parameters (ema1h, ema4h, rsi_period, sl/tp) remain stable at 1.0. Some variation expected in adaptive multi-timeframe regime; the question is whether this level of parameter variation is acceptable for production deployment.",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": null,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": null,
+          "win_rate": null,
+          "total_trades": null,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "consistency_score": 0.37,
+            "stable_params": [
+              "ema1h",
+              "ema4h",
+              "rsi_period",
+              "sl_atr_mult",
+              "tp_rr_mult"
+            ],
+            "variable_params": [
+              "hold_bars",
+              "rsi_overbought",
+              "rsi_oversold"
+            ]
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260404090255-5uejma.md",
+          "factory/experiments/EXP-20260404133920-01.plan.json",
+          "factory/runs/RUN-20260404090255-5uejma/execution-result.json",
+          "factory/runs/RUN-20260404090255-5uejma/evaluation.json",
+          "factory/runs/RUN-20260404090255-5uejma/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "Cross-asset generalization validated: BTC outperforms ETH baseline",
+        "specific_finding": "BTC achieved 0.998 OOS Sharpe vs ETH 0.528 (+89% improvement), with significantly better drawdown profile (-6.9% vs -16.37%, +58% improvement)",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "Trade frequency maintained across assets",
+        "specific_finding": "14.88 trades/window on BTC vs 14.3 on ETH (+4%), confirming strategy generates consistent opportunities on higher-volatility assets",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "lesson": "Parameter stability varies by component",
+        "specific_finding": "RSI thresholds stable (CV=0.10-0.14) across 57 windows, but hold_bars unstable (CV=0.43) - same pattern as ETH run (CV=0.54)",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9,
+          "win_rate": null,
+          "total_trades": 848,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "trades": 848
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260331154310-1aowi1.md",
+          "factory/experiments/EXP-20260331154332-55.plan.json",
+          "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+          "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+          "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+        ]
+      }
+    ],
+    "contradiction": {
+      "positive": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260404133920-01",
+        "verdict": "promising",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": "multi_timeframe",
+        "lesson": "Parameter consistency score of 0.37 indicates adaptive regime behavior, not necessarily overfitting",
+        "specific_finding": "Hold_bars ranges from 96-168 and rsi_overbought 50-70 across windows, yielding consistency score 0.37. However, core parameters (ema1h, ema4h, rsi_period, sl/tp) remain stable at 1.0. Some variation expected in adaptive multi-timeframe regime; the question is whether this level of parameter variation is acceptable for production deployment.",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": null,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": null,
+          "win_rate": null,
+          "total_trades": null,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "consistency_score": 0.37,
+            "stable_params": [
+              "ema1h",
+              "ema4h",
+              "rsi_period",
+              "sl_atr_mult",
+              "tp_rr_mult"
+            ],
+            "variable_params": [
+              "hold_bars",
+              "rsi_overbought",
+              "rsi_oversold"
+            ]
+          }
+        },
+        "related_artifact_paths": [
+          "factory/summaries/RUN-20260404090255-5uejma.md",
+          "factory/experiments/EXP-20260404133920-01.plan.json",
+          "factory/runs/RUN-20260404090255-5uejma/execution-result.json",
+          "factory/runs/RUN-20260404090255-5uejma/evaluation.json",
+          "factory/runs/RUN-20260404090255-5uejma/summary.json"
+        ]
+      },
+      "negative": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260321200000-01",
+        "verdict": "partial",
+        "mode": "live",
+        "market_family": null,
+        "asset_scope": null,
+        "timeframe": null,
+        "strategy_family": null,
+        "lesson": "Optimized parameters stable: RSI thresholds (rsi_oversold=35, rsi_overbought=65) have CV=0.10-0.14 across 85 windows. Hold_bars unstable (CV=0.54).",
+        "specific_finding": null,
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.528,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -16.37,
+          "win_rate": 0.461,
+          "total_trades": 1216,
+          "fold_variance": null,
+          "markets_tested": [],
+          "extra_metrics": {
+            "avg_trades_per_window": 14.3,
+            "profit_factor": 1.103,
+            "expectancy": 0.098,
+            "total_windows": 85,
+            "successful_windows": 85,
+            "positive_sharpe_windows": 42,
+            "evidence_score": 60
+          }
+        },
+        "related_artifact_paths": []
+      }
+    },
+    "comparable_promoted_runs": [
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260404090255-5uejma",
+        "experiment_id": "EXP-20260404133920-01",
+        "verdict": "promising",
+        "evidence_score": 75,
+        "market_family": "crypto",
+        "asset_scope": "BNB/USDT spot",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "multi_timeframe",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 1.2751,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -8.1353,
+          "win_rate": 0.4979,
+          "total_trades": 484,
+          "fold_variance": null,
+          "markets_tested": [
+            "BNB/USDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": "factory/summaries/RUN-20260404090255-5uejma.md",
+        "evidence_kind": "research",
+        "promotable": true
+      },
+      {
+        "source_path": "factory/evidence/index.json",
+        "run_id": "RUN-20260331154310-1aowi1",
+        "experiment_id": "EXP-20260331154332-55",
+        "verdict": "promising",
+        "evidence_score": 85,
+        "market_family": "crypto",
+        "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+        "timeframe": "1h with 4h regime filter",
+        "strategy_family": "mean_reversion",
+        "metrics": {
+          "sharpe_is": null,
+          "sharpe_oos": 0.998,
+          "wfr": null,
+          "is_oos_ratio": null,
+          "max_drawdown": -6.9048,
+          "win_rate": 0.4835,
+          "total_trades": 848,
+          "fold_variance": 2.96,
+          "markets_tested": [
+            "BTCUSDT"
+          ],
+          "extra_metrics": {}
+        },
+        "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "evidence_kind": "research",
+        "promotable": true
+      }
+    ]
+  },
+  "retryNote": {
+    "source": "handoff",
+    "resume_generation": 1,
+    "resume_from_stage": "planner",
+    "failure_class": "interruption",
+    "last_error": "Interrupted by SIGTERM.",
+    "attempts_used": 1,
+    "safe_inputs": {
+      "backlog_item_id": "IDEA-783521-c70",
+      "run_id": "RUN-20260405135010-kps8ds",
+      "resume_from_stage": "planner"
+    },
+    "produced_artifacts": [
+      "factory/runs/RUN-20260405135010-kps8ds/run-state.json",
+      "factory/runs/RUN-20260405135010-kps8ds/planner-heartbeat.json",
+      "factory/runs/RUN-20260405135010-kps8ds/planner-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260405135010-kps8ds/planner-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260405135010-kps8ds/planner-attempt-1-session.json"
+    ]
+  }
+}

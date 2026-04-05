@@ -1,0 +1,6 @@
+{"ts":"2026-04-02T13:39:16.015Z","run_id":"RUN-20260402133909-4jn1zi","message":"Starting run","extra":{"iteration":68,"backlog_item_id":"AUTO-1775132277130-mcw","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260402133909-4jn1zi"}}
+{"ts":"2026-04-02T13:39:17.844Z","run_id":"RUN-20260402133909-4jn1zi","message":"Planner completed","extra":{"experiment_id":"EXP-20260402133917-02"}}
+{"ts":"2026-04-02T13:39:25.492Z","run_id":"RUN-20260402133909-4jn1zi","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-04-02T13:39:27.803Z","run_id":"RUN-20260402133909-4jn1zi","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-04-02T13:39:30.555Z","run_id":"RUN-20260402133909-4jn1zi","message":"Summarizer completed","extra":{"run_id":"RUN-20260402133909-4jn1zi","verdict":"inconclusive"}}
+{"ts":"2026-04-02T13:39:30.634Z","run_id":"RUN-20260402133909-4jn1zi","message":"Run completed","extra":{"run_id":"RUN-20260402133909-4jn1zi","verdict":"inconclusive","iteration":68}}

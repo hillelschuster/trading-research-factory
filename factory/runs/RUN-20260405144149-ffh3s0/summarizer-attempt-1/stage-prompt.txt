@@ -1,0 +1,252 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Summarization Task
+```json
+{
+  "iteration": 155,
+  "plan": {
+    "experiment_id": "EXP-20260405180000-01",
+    "backlog_item_id": "IDEA-923545-x3i",
+    "objective": "Test even looser RSI bounds (20/80) to further exploit BNB exchange token volatility regime discovered in prior run (1.275 Sharpe with 25/60)"
+  },
+  "execution_result": {
+    "experiment_id": "EXP-20260405180000-01",
+    "status": "executed",
+    "commands_attempted": [
+      "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+    ],
+    "commands_completed": [
+      "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+    ],
+    "artifacts_created": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json",
+      "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+      "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_180525.json",
+      "factory/runs/EXP-20260405180000-01/execution-result.json",
+      "factory/runs/EXP-20260405180000-01/evaluation.json",
+      "factory/runs/EXP-20260405180000-01/summary.json",
+      "factory/summaries/EXP-20260405180000-01.md"
+    ],
+    "datasets_acquired": [
+      {
+        "source": "existing cached data",
+        "output": "workspace/data/binance_bnbusdt_1h_deep.csv",
+        "rows": 43788,
+        "notes": "Pre-existing BNB/USDT 1h data from source run, ~5 years of history",
+        "date_range": "2021-04-02 to 2026-04-01"
+      }
+    ],
+    "artifacts_updated": [],
+    "workspace_changes": [
+      "WFA completed successfully on BNB with expanded RSI bounds search (20/80 vs 25/60)",
+      "Results written to walk_forward_results_20260405_180525.json"
+    ],
+    "metrics_observed": {
+      "sharpe_is": null,
+      "sharpe_oos": 1.4205,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -7.8934,
+      "win_rate": 0.4944,
+      "total_trades": 443,
+      "fold_variance": null
+    },
+    "variants_tested": [
+      {
+        "params": {
+          "rsi_oversold": [
+            20,
+            25
+          ],
+          "rsi_overbought": [
+            60,
+            70,
+            80
+          ],
+          "hold_bars": [
+            144,
+            168
+          ],
+          "ema4h_period": [
+            50
+          ],
+          "ema1h_period": [
+            20
+          ],
+          "rsi_period": [
+            14
+          ]
+        },
+        "result": "Optimizer converged to rsi_oversold=25, rsi_overbought=60 - same as source run. Extreme bounds (20/80) explored but underperformed. OOS Sharpe 1.4205 achieved."
+      }
+    ],
+    "blockers": [],
+    "errors": [],
+    "notes": [
+      "WFA completed with 57/57 windows successful",
+      "Extended RSI bounds (20/80) tested but optimizer selected 25/60 - confirming prior optimal",
+      "OOS Sharpe improved from 1.275 (source) to 1.4205 (+11.4%)",
+      "Max DD improved from -8.14% to -7.89%",
+      "Hypothesis that 'trend toward extremes continues' was NOT validated - 25/60 remains optimal"
+    ]
+  },
+  "evaluation": {
+    "experiment_id": "EXP-20260405180000-01",
+    "verdict": "promising",
+    "evidence_score": 85,
+    "performance_score": 85,
+    "robustness_score": 80,
+    "novelty_score": 60,
+    "overall_score": 78,
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 1.4205,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": -7.89,
+      "win_rate": 0.4944,
+      "total_trades": 443,
+      "fold_variance": null,
+      "markets_tested": [
+        "BNB/USDT"
+      ]
+    },
+    "red_flags": [
+      "Win rate near 50% - limited edge per trade",
+      "Consistency score moderate at 0.41 - some parameter variance across windows"
+    ],
+    "verification": {
+      "artifacts_checked": [
+        "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json",
+        "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+        "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_180525.json",
+        "factory/runs/EXP-20260405180000-01/execution-result.json",
+        "factory/runs/EXP-20260405180000-01/evaluation.json",
+        "factory/summaries/EXP-20260405180000-01.md"
+      ],
+      "metrics_verified_from": [
+        "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json"
+      ],
+      "missing_or_unverified": []
+    },
+    "strengths": [
+      "OOS Sharpe improved +11.4% vs source (1.275 -> 1.4205)",
+      "Max drawdown improved from -8.14% to -7.89%",
+      "57/57 windows completed successfully - full WFA robustness",
+      "Parameter stability high: RSI bounds consistently selected across all windows",
+      "Total 443 trades provides statistical robustness",
+      "Evidence score 85 exceeds 70 gate by significant margin"
+    ],
+    "weaknesses": [
+      {
+        "type": "Hypothesis not validated - extreme RSI bounds (20/80) did not outperform 25/60",
+        "cross_experiment_patterns": "Repeated pattern: optimizer consistently selects 25/60 over 20/80 across multiple experiments"
+      },
+      {
+        "type": "Win rate near 50% - limited edge per trade",
+        "cross_experiment_patterns": "Consistently observed in prior BNB runs (49.44% here vs 49.79% in source)"
+      }
+    ],
+    "missing_evidence": [],
+    "promote_to_leaderboard": true,
+    "leaderboard_tier": "top",
+    "next_backlog_actions": [
+      "Explore hold_bars optimization (more granular values around 108)",
+      "Test different EMA period combinations (ema4h_period, ema1h_period)",
+      "Consider alternative signal types (volume, volatility indicators)"
+    ],
+    "confidence_level": "high",
+    "confidence_rationale": "All metrics verified from actual WFA output file (walk_forward_results_20260405_180525.json). Full 57-window WFA completed successfully. Comparison to source run shows clear improvement. Evidence score 85 >> 70 gate."
+  }
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "comparable_prior_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404080753-bnb",
+      "verdict": "promising_with_caveats",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+      "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -11.15,
+        "win_rate": null,
+        "total_trades": 837,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 837
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+        "factory/runs/RUN-20260404080723-hm4238/summary.json"
+      ],
+      "contradiction": true
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404080753-bnb",
+      "verdict": "promising_with_caveats",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "Marginal OOS Sharpe indicates strategy vulnerability for exchange tokens",
+      "specific_finding": "0.432 barely exceeds 0.4 threshold - strategy is borderline robust for BNB. The 4h EMA regime filter may not adequately capture exchange token-specific volatility patterns (utility demand cycles, burn events, staking rewards).",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -11.15,
+        "win_rate": null,
+        "total_trades": 837,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 837
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+        "factory/runs/RUN-20260404080723-hm4238/summary.json"
+      ],
+      "contradiction": true
+    }
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260405180000-01.plan.json
+- walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json
+- walk forward engine/strategies/ema_trend_gate/results/analysis.json
+- walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_180525.json
+- factory/runs/EXP-20260405180000-01/execution-result.json
+- factory/runs/EXP-20260405180000-01/evaluation.json
+- factory/runs/EXP-20260405180000-01/summary.json
+- factory/summaries/EXP-20260405180000-01.md
+- factory/memory/lessons.jsonl
+- factory/leaderboard.json
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

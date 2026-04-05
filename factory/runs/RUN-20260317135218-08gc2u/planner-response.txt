@@ -1,0 +1,67 @@
+Now I understand the situation clearly. The Gold Rush Pro strategy exists in the WFA engine but hasn't been executed. Given the lessons learned (avoid RSI variants, focus on crypto), I'll create a plan that:
+
+1. Adapts the Gold Rush Pro concept (day-of-week + mean-reversion) to crypto
+2. Uses a non-RSI indicator to avoid the overfitting concern
+3. Tests on crypto data (BTC, ETH, SOL)
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260318060000-01",
+  "title": "Create Crypto Day-of-Week Momentum Strategy using WFA Pattern",
+  "backlog_item_id": "IDEA-WFA-002",
+  "objective": "Create a day-of-week momentum strategy for crypto (BTC, ETH, SOL) following the WFA pattern. Adapt Gold Rush Pro concept (day-of-week filtering + mean-reversion) but use MACD instead of RSI to avoid the RSI overfitting issue identified in lessons.",
+  "hypothesis": "Day-of-week effects exist in crypto markets. Using MACD (a momentum oscillator) instead of RSI will provide similar mean-reversion signals but with different characteristics, potentially showing better out-of-sample performance than RSI-based strategies.",
+  "priority": 90,
+  "dataset_requirements": [
+    "BTCUSD 1h data (workspace/data/binance_btcusdt_1h_1000.csv)",
+    "ETHUSD 1h data (workspace/data/binance_ethusdt_1h_1000.csv)",
+    "SOLUSD 1h data (workspace/data/binance_solusdt_1h_1000.csv)"
+  ],
+  "inputs": [
+    "walk forward engine/src/strategies/gold_rush_pro.py (reference pattern)",
+    "walk forward engine/config/strategy_gold_rush_pro.json (reference structure)",
+    "workspace/data/binance_btcusdt_1h_1000.csv",
+    "workspace/data/binance_ethusdt_1h_1000.csv",
+    "workspace/data/binance_solusdt_1h_1000.csv"
+  ],
+  "implementation_steps": [
+    "Create strategy file: walk forward engine/src/strategies/crypto_day_of_week.py implementing generate_vectorized_signals() with MACD-based day-of-week entries",
+    "Create strategy params: walk forward engine/config/strategy_crypto_dow.json with parameters: macd_fast, macd_slow, macd_signal, atr_period, atr_sl_multiplier, hold_hours, entry_day",
+    "Create WFA config: walk forward engine/strategies/crypto_day_of_week/wfa_config.yaml configured for BTCUSD testing",
+    "Create strategy directory structure: walk forward engine/strategies/crypto_day_of_week/results/",
+    "Human runs WFA: cd 'walk forward engine' && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/crypto_day_of_week/wfa_config.yaml"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python scripts/walk_forward_smoke_test.py --config strategies/crypto_day_of_week/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/src/strategies/crypto_day_of_week.py",
+    "walk forward engine/config/strategy_crypto_dow.json",
+    "walk forward engine/strategies/crypto_day_of_week/wfa_config.yaml",
+    "walk forward engine/strategies/crypto_day_of_week/results/walk_forward_summary_*.csv",
+    "walk forward engine/strategies/crypto_day_of_week/results/walk_forward_results_*.json"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "WFA completes without errors and produces valid results",
+    "metrics": [
+      "Sharpe ratio (out-of-sample)",
+      "Win rate",
+      "Profit factor",
+      "Max drawdown",
+      "Number of trades",
+      "Consistency across walk-forward windows"
+    ],
+    "min_evidence_score": 50
+  },
+  "fallback_if_blocked": [
+    "If crypto data format is incompatible, adapt strategy to use XAUUSD or EURUSD from walk forward engine/data/",
+    "If WFA engine has issues, create standalone test using wfa_minimal.py pattern"
+  ],
+  "notes": [
+    "This adapts the Gold Rush Pro concept (day-of-week filtering) to crypto with MACD instead of RSI",
+    "The lessons learned indicate RSI-based strategies may be overfitted (best Sharpe 0.945)",
+    "MACD provides similar momentum signals but with different smoothing characteristics",
+    "Testing on multiple crypto assets (BTC, ETH, SOL) ensures generalizability"
+  ]
+}
+</RF_JSON>

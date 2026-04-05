@@ -1,0 +1,107 @@
+
+
+Looking at this, I understand the task:
+
+1. **Backlog item**: Add regime filter to avoid trading in low-conviction market conditions
+2. **Source run**: RUN-20260404211002-hmi9jy - EMA Trend Gate on BNB showed partial robustness (61.1% positive windows, Sharpe 0.664 vs discovered 1.275)
+3. **Key lesson**: BTC with 4h regime filter achieved 0.998 OOS Sharpe vs ETH 0.528 - regime filtering helps
+4. **Strategy options**: `volatility_regime.py` already implements ATR-based contraction/expansion regime detection
+
+The backlog is asking to add/improve regime filtering to avoid trading in low-conviction conditions. I'll design a test of the volatility_regime strategy on BTC (the best performer) to validate the regime filter approach.
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260405180000-02",
+  "title": "Test volatility regime filter on BTC - avoid low-volatility contraction periods",
+  "backlog_item_id": "IDEA-783428-k8f",
+  "objective": "Test volatility regime filter (ATR% percentile) on BTC to confirm it avoids low-conviction conditions and maintains positive performance",
+  "hypothesis": "Filtering trades to only enter during volatility expansion after contraction periods will improve Sharpe and reduce drawdown vs unfiltered trading, building on the 4h regime filter success seen in EMA Trend Gate (BTC 0.998 vs ETH 0.528 Sharpe)",
+  "strategy_rationale": "The volatility_regime.py strategy already implements ATR-based regime detection (contraction detection via percentile threshold). Rather than adding a new filter to existing strategies, this experiment tests the standalone volatility regime approach which explicitly avoids low-volatility (low-conviction) periods. Prior EMA Trend Gate lessons show 4h regime filters improve outcomes (BTC outperformed ETH by 89%). This tests whether the explicit volatility contraction/expansion regime is a stronger filter than just EMA trend direction.",
+  "strategy_type": "regime",
+  "market_family": "crypto",
+  "instrument_scope": "BTC/USDT spot",
+  "instrument_selection_rule": "BTC/USDT - the best-performing asset in prior regime-filtered experiments (0.998 OOS Sharpe)",
+  "timeframe": "1h with 4h regime detection",
+  "priority": 55,
+  "dataset_requirements": [
+    "BTC/USDT 1h OHLCV from Binance, minimum 3 years history for robust WFA"
+  ],
+  "historical_depth_requirement": {
+    "target": "Maximum available - approximately 64k bars (~2018-2026, ~7+ years)",
+    "justification": "BTC has the deepest available history in the workspace. Crypto markets require multi-year history for reliable WFA. The binance_btcusdt_1h_deep.csv has ~64k rows, the maximum realistic Binance history for BTC."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "BTC deep dataset exists locally at workspace/data/binance_btcusdt_1h_deep.csv with ~64k rows covering 2018-2026"
+  },
+  "scope_selection_rationale": "BTC is chosen because: (1) Prior lessons show it performs best with regime filters (0.998 OOS Sharpe vs ETH 0.528), (2) It has the deepest history for robust WFA, (3) As the largest crypto asset, it provides the most liquid signal. Testing volatility regime filter specifically on the asset that showed best regime-filtered performance.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "binance_btcusdt_1h_deep.csv already exists with ~64k rows of clean 1h data",
+    "acquisition_method": "existing_fetcher",
+    "sources": [
+      "workspace/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "Strategy: volatility_regime.py (LightweightVolatilityRegime)",
+    "Prior reference: EMA Trend Gate lessons showing BTC 0.998 vs ETH 0.528 with 4h regime filter",
+    "Data: binance_btcusdt_1h_deep.csv (~64k rows)"
+  ],
+  "implementation_steps": [
+    "1. Verify volatility_regime.py strategy is properly registered in WFA engine",
+    "2. Configure WFA for BTC with volatility_regime strategy",
+    "3. Run WFA with standard training (3 months), testing (1 month), step (1 month)",
+    "4. Evaluate: OOS Sharpe, drawdown, trade count, positive Sharpe window %",
+    "5. Compare vs prior EMA Trend Gate results on BTC (0.998 Sharpe)"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/runs/<RUN-ID>/execution-result.json",
+    "factory/runs/<RUN-ID>/evaluation.json",
+    "factory/summaries/<RUN-ID>.md",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_results_<timestamp>.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 100,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": [],
+    "stability_weight": 0.1
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA completes with at least 30 windows and 200 total trades",
+    "metrics": {
+      "min_sharpe_oos": 0.8,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 15,
+      "min_trades": 200,
+      "min_positive_sharpe_windows_pct": 60
+    },
+    "min_evidence_score": 70
+  },
+  "fallback_if_blocked": [
+    "If volatility_regime strategy fails to load, fallback to ema_trend_gate on BTC (proven to work)",
+    "If BTC data unavailable, use ETH with same regime approach"
+  ],
+  "notes": [
+    "This tests the core hypothesis of the backlog: regime filtering to avoid low-conviction conditions",
+    "The volatility_regime strategy explicitly avoids trading during low-volatility (low-conviction) periods by only entering during volatility expansion after contraction",
+    "Comparison point: EMA Trend Gate on BTC achieved 0.998 OOS Sharpe - if volatility_regime underperforms, it suggests EMA trend is a better filter than ATR contraction",
+    "If volatility_regime outperforms, confirms ATR-based regime detection is valuable for avoiding low-conviction periods"
+  ]
+}
+</RF_JSON>

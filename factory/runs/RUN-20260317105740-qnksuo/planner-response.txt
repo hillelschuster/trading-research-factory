@@ -1,0 +1,38 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260317190000-01",
+  "status": "executed",
+  "commands_attempted": [
+    "python3 workspace/harness/wfa_minimal.py rsi workspace/data/binance_btcusdt_1h_live.csv 168 48",
+    "python3 workspace/harness/wfa_minimal.py rsi workspace/data/binance_ethusdt_1h_live.csv 168 48",
+    "python3 workspace/harness/wfa_minimal.py rsi workspace/data/binance_solusdt_1h_live.csv 168 48"
+  ],
+  "artifacts_created": [
+    "workspace/results/wfa_rsi_btcusdt.json",
+    "workspace/results/wfa_rsi_ethusdt.json",
+    "workspace/results/wfa_rsi_solusdt.json",
+    "workspace/results/rsi_strategy_comparison.json"
+  ],
+  "artifacts_updated": [
+    "factory/experiments/EXP-20260317190000-01.plan.json",
+    "factory/backlog.json",
+    "workspace/harness/wfa_minimal.py"
+  ],
+  "workspace_changes": [
+    "Added RSI momentum strategy to wfa_minimal.py",
+    "Ran RSI WFA on all three crypto assets"
+  ],
+  "metrics_observed": {
+    "rsi_btc_sharpe": 0.790,
+    "rsi_btc_return": 0.0141,
+    "rsi_eth_sharpe": -0.043,
+    "rsi_sol_sharpe": 0.058
+  },
+  "blockers": [],
+  "notes": [
+    "RSI on BTC achieved best Sharpe (0.79) - best result in factory",
+    "Third strategy type now available (SMA, BB, RSI, Spread)",
+    "Best overall: RSI BTC > SOL-BTC spread > SMA SOL"
+  ]
+}
+</RF_JSON>

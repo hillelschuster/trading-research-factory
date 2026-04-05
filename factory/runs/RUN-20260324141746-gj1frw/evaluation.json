@@ -1,0 +1,30 @@
+{
+  "experiment_id": "EXP-20260324141749-04",
+  "verdict": "inconclusive",
+  "evidence_score": 25,
+  "objective_score": 20,
+  "reproducibility_score": 40,
+  "novelty_score": 5,
+  "metrics": {
+    "sharpe": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "trades": null
+  },
+  "strengths": [
+    "State transitions and artifact writing executed."
+  ],
+  "weaknesses": [
+    "No live model execution.",
+    "No real trading evidence produced in simulate mode."
+  ],
+  "missing_evidence": [
+    "Real backtest report",
+    "Out-of-sample metrics"
+  ],
+  "promote_to_leaderboard": false,
+  "next_backlog_actions": [
+    "Run the real WFA engine",
+    "Use live mode with model credentials"
+  ]
+}

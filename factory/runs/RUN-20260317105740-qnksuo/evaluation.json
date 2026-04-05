@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP-20260317190000-01",
+  "verdict": "passed",
+  "evidence_score": 75,
+  "objective_score": 80,
+  "reproducibility_score": 75,
+  "novelty_score": 55,
+  "metrics": {
+    "sharpe": 0.79,
+    "max_drawdown": -0.0103,
+    "win_rate": 0.556,
+    "trades": 6
+  },
+  "strengths": [
+    "RSI on BTC achieved best Sharpe (0.79) - best result in factory so far",
+    "Successfully implemented RSI strategy in pure Python WFA runner",
+    "All three strategy types now available (SMA, BB, RSI) plus spread",
+    "All expected artifacts created on disk and verified"
+  ],
+  "weaknesses": [
+    "RSI underperformed on ETH (Sharpe -0.04) and SOL (Sharpe 0.06)",
+    "Short test period limits statistical significance"
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": true,
+  "next_backlog_actions": [
+    "Extend data history beyond 500 candles",
+    "Try different RSI parameters",
+    "Test ensemble strategies"
+  ]
+}

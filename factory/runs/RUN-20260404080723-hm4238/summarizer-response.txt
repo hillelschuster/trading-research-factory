@@ -1,0 +1,58 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404080753-bnb",
+  "backlog_item_id": "AUTO-1775219716376-dad",
+  "summary": "EMA Trend Gate cross-asset validation on BNB/USDT completed with 0.432 OOS Sharpe (837 trades, 57 windows). BNB underperforms all other tested assets: SOL (1.373), BTC (0.998), ETH (0.489). Strategy generalizes to exchange tokens but with marginal Sharpe barely above 0.4 threshold. Evidence score 55 below 60 threshold - strategy meets status gate but not evidence quality threshold.",
+  "key_lessons": [
+    {
+      "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+      "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+      "result": {
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "max_drawdown": -11.15,
+        "trades": 837
+      }
+    },
+    {
+      "lesson": "Cross-asset generalization partially confirmed but asset-specific tuning required",
+      "specific_finding": "Same parameters (EMA 50/20, RSI 14, 35/50 thresholds, 96 hold bars) produce widely varying results across assets. SOL and BTC thrive while BNB struggles, indicating exchange tokens need asset-specific parameter adjustment.",
+      "result": {
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "max_drawdown": -11.15,
+        "trades": 837
+      }
+    },
+    {
+      "lesson": "Marginal OOS Sharpe indicates strategy vulnerability for exchange tokens",
+      "specific_finding": "0.432 barely exceeds 0.4 threshold - strategy is borderline robust for BNB. The 4h EMA regime filter may not adequately capture exchange token-specific volatility patterns (utility demand cycles, burn events, staking rewards).",
+      "result": {
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "max_drawdown": -11.15,
+        "trades": 837
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Exclude BNB from core strategy deployment or create asset-specific variant",
+      "rationale": "BNB underperforms all other tested assets with marginal 0.432 Sharpe. Including BNB in deployment would reduce overall portfolio performance without additional diversification benefit.",
+      "priority": "high"
+    },
+    {
+      "action": "Test asset-specific parameter tuning for BNB (looser RSI thresholds, longer hold periods)",
+      "rationale": "Exchange tokens may require different RSI oversold/overbought levels (e.g., 30/70 instead of 35/50) and longer hold periods to capture utility-driven price cycles.",
+      "priority": "medium"
+    },
+    {
+      "action": "Evaluate funding rate or staking yield as regime filter instead of 4h EMA",
+      "rationale": "Exchange token volatility may be more driven by utility events (token burns, staking rewards) than pure trend following. Alternative regime filters may improve BNB performance.",
+      "priority": "low"
+    }
+  ]
+}
+</RF_JSON>

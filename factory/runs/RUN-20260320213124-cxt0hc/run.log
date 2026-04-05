@@ -1,0 +1,4 @@
+{"ts":"2026-03-20T21:31:24.657Z","run_id":"RUN-20260320213124-cxt0hc","message":"Starting run","extra":{"iteration":25,"backlog_item_id":"AUTO-1774042281534-6fn","mode":"live"}}
+{"ts":"2026-03-20T21:34:08.118Z","run_id":"RUN-20260320213124-cxt0hc","message":"Planner completed","extra":{"experiment_id":"EXP-20260321000000-01"}}
+{"ts":"2026-03-20T21:39:08.185Z","run_id":"RUN-20260320213124-cxt0hc","message":"Executor failed (attempt 1/3)","extra":{"error":"Agent 'executor' timed out after 300000ms."}}
+{"ts":"2026-03-20T21:44:10.446Z","run_id":"RUN-20260320213124-cxt0hc","message":"Executor failed (attempt 2/3)","extra":{"error":"Agent 'executor' timed out after 300000ms."}}

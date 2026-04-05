@@ -1,0 +1,12 @@
+{"ts":"2026-03-17T11:03:43.599Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315221524-ubfw1q"}}
+{"ts":"2026-03-17T11:03:43.676Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315222936-fie68u"}}
+{"ts":"2026-03-17T11:03:43.754Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315222937-uhip9y"}}
+{"ts":"2026-03-17T11:03:43.847Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315222938-0aywkq"}}
+{"ts":"2026-03-17T11:03:43.928Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315231844-el26r9"}}
+{"ts":"2026-03-17T11:03:43.981Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup","extra":{"deleted":"RUN-20260315232213-tj5c5q"}}
+{"ts":"2026-03-17T11:03:44.045Z","run_id":"RUN-20260317110343-7oexoe","message":"Cleanup completed","extra":{"kept":20}}
+{"ts":"2026-03-17T11:03:44.066Z","run_id":"RUN-20260317110343-7oexoe","message":"Starting run","extra":{"iteration":13,"backlog_item_id":"IDEA-800316-3vw","mode":"live"}}
+{"ts":"2026-03-17T11:06:33.390Z","run_id":"RUN-20260317110343-7oexoe","message":"Planner completed","extra":{"experiment_id":"EXP-20260317200000-01"}}
+{"ts":"2026-03-17T11:07:12.751Z","run_id":"RUN-20260317110343-7oexoe","message":"Executor completed","extra":{"status":"executed"}}
+{"ts":"2026-03-17T11:07:42.528Z","run_id":"RUN-20260317110343-7oexoe","message":"Evaluator completed","extra":{"verdict":"passed","evidence_score":55}}
+{"ts":"2026-03-17T11:08:03.977Z","run_id":"RUN-20260317110343-7oexoe","message":"Run completed","extra":{"run_id":"RUN-20260317110343-7oexoe","verdict":"passed","iteration":13}}

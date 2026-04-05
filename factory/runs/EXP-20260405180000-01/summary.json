@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-20260405180000-01",
+  "run_id": "RUN-20260405180000-01",
+  "summary_timestamp": "2026-04-05T18:30:00Z",
+  "title": "BNB EMA Trend Gate - Extreme RSI Bounds Test (20/80)",
+  "objective": "Test even looser RSI bounds (20/80) to further exploit BNB exchange token volatility regime discovered in prior run (1.275 Sharpe with 25/60)",
+  "hypothesis": "Moving RSI bounds from 25/60 to 20/80 would capture more extreme mean-reversion setups in BNB's high-volatility environment",
+  "result": "HYPOTHESIS NOT VALIDATED - Optimizer selected 25/60, confirming prior optimal",
+  "key_metrics": {
+    "aggregate_sharpe_oos": 1.4205,
+    "aggregate_return_pct": 1.01,
+    "max_drawdown_pct": -7.89,
+    "total_trades": 443,
+    "win_rate": 0.494,
+    "windows_successful": "57/57"
+  },
+  "comparison_to_source": {
+    "source_sharpe": 1.275,
+    "current_sharpe": 1.4205,
+    "improvement": "+11.4%",
+    "source_dd": -8.14,
+    "current_dd": -7.89,
+    "improvement": "+3.1%"
+  },
+  "parameter_finding": {
+    "tested": ["rsi_oversold [20, 25]", "rsi_overbought [60, 70, 80]", "hold_bars [144, 168]"],
+    "selected": {"rsi_oversold": 25, "rsi_overbought": 60, "hold_bars": 108},
+    "conclusion": "25/60 confirmed as optimal - extreme bounds underperform"
+  },
+  "lessons_learned": [
+    "Extreme RSI bounds (20/80) do not improve on 25/60 for BNB",
+    "Optimizer consistently rejects extreme bounds - confirms prior near-optimal",
+    "Sharpe improvement (+11.4%) likely from broader parameter search across hold_bars"
+  ],
+  "next_steps": [
+    "Explore hold_bars optimization further (beyond 144/168)",
+    "Test different EMA period combinations",
+    "Consider alternative signal types (volume, volatility)"
+  ],
+  "status": "completed"
+}

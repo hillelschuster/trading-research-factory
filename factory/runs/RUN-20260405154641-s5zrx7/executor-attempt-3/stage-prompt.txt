@@ -1,0 +1,270 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Execution Task
+```json
+{
+  "iteration": 156,
+  "plan": {
+    "experiment_id": "EXP-20260405200000-01",
+    "title": "Test volatility regime ATR-based conviction filter on BTC - avoid low-conviction conditions",
+    "backlog_item_id": "IDEA-783428-k8f",
+    "objective": "Test volatility_regime.py strategy with ATR-based conviction filter on BTC to validate whether explicitly avoiding low-volatility (low-conviction) periods improves robustness vs prior EMA Trend Gate results",
+    "hypothesis": "The volatility_regime.py ATR-based conviction filter (entering only during volatility expansion after contraction) will achieve >= 70% positive Sharpe windows and improved OOS Sharpe vs EMA Trend Gate baseline (61.1% positive windows, 0.664 OOS Sharpe on BNB), by explicitly avoiding low-conviction conditions that the EMA-only filter does not address",
+    "strategy_rationale": "The backlog item explicitly asks to avoid trading in low-conviction market conditions. The existing volatility_regime.py strategy implements exactly this: ATR% percentile detects contractions (low-conviction), only enters during expansions (high-conviction). This differs from EMA Trend Gate which filters by trend direction only, not conviction level. Prior EMA Trend Gate lessons show regime filters help (BTC 0.998 vs ETH 0.528 Sharpe), but this tests whether ATR-based conviction filtering is even more robust.",
+    "strategy_type": "volatility",
+    "market_family": "crypto",
+    "instrument_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+    "instrument_selection_rule": "Single asset: BTC/USDT - best performer with prior regime-filtered experiments (0.998 OOS Sharpe vs ETH 0.528)",
+    "timeframe": "1h with 4h regime detection for volatility contraction/expansion",
+    "dataset_requirements": [
+      "BTC/USDT 1h OHLCV from Binance, minimum 3 years history for robust WFA"
+    ],
+    "historical_depth_requirement": {
+      "target": "Maximum available - ~64,000 bars (~7.5 years from 2018)",
+      "justification": "BTC deep dataset provides maximum realistic crypto history. Multi-year history required for reliable WFA. Short windows not justified as BTC is the most liquid crypto asset with deepest available history."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "BTC deep dataset already exists locally at workspace/data/binance_btcusdt_1h_deep.csv with ~64k rows of clean 1h data from 2018"
+    },
+    "scope_selection_rationale": "BTC is chosen because: (1) Prior EMA Trend Gate lessons show it performs best with regime filters (0.998 OOS Sharpe vs ETH 0.528), (2) Deepest available history for robust WFA, (3) Most liquid crypto asset providing cleanest signals. Testing whether ATR-based conviction filtering improves on the 61.1% positive window rate achieved by EMA direction-only filter.",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "binance_btcusdt_1h_deep.csv already exists with ~64k rows of clean 1h data",
+      "acquisition_method": "existing_fetcher",
+      "sources": [
+        "workspace/data/binance_btcusdt_1h_deep.csv"
+      ],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "Strategy: volatility_regime.py (LightweightVolatilityRegime) - implements ATR-based contraction/expansion detection",
+      "WFA config reference: walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+      "Prior baseline: EMA Trend Gate on BNB achieved 61.1% positive windows with 0.664 OOS Sharpe"
+    ],
+    "implementation_steps": [
+      "1. Update volatility_regime WFA config to use btcusdt_1h_deep.csv data source instead of btcusdt_1h_full.csv",
+      "2. Configure WFA with 3-month training, 1-month testing, 100 Optuna trials for parameter optimization",
+      "3. Run WFA to discover best ATR-based conviction filter parameters",
+      "4. Evaluate positive window rate vs 70% threshold and compare to EMA Trend Gate 61.1% baseline",
+      "5. Document whether explicit conviction filtering improves robustness"
+    ],
+    "commands": [
+      "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "walk forward engine/strategies/volatility_regime/results/walk_forward_results_YYYYMMDD_*.json",
+      "walk forward engine/strategies/volatility_regime/results/parameter_stability_YYYYMMDD_*.json",
+      "factory/runs/RUN-YYYYMMDDHHMMSS-XX/execution-result.json",
+      "factory/runs/RUN-YYYYMMDDHHMMSS-XX/evaluation.json",
+      "factory/summaries/RUN-YYYYMMDDHHMMSS-XX.md"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 100,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [
+        "return",
+        "stability"
+      ],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "WFA completes with at least 30 windows and 200 total trades",
+      "metrics": {
+        "min_sharpe_oos": 0.8,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 15,
+        "min_trades": 200,
+        "min_positive_sharpe_windows_pct": 70
+      },
+      "min_evidence_score": 70
+    },
+    "fallback_if_blocked": [
+      "If WFA fails on BTC, try ETHUSDT as alternative asset",
+      "If data unavailable, fetch fresh BTC 1h from Binance API"
+    ],
+    "notes": [
+      "This experiment directly tests the backlog item: add regime filter to avoid trading in low-conviction market conditions",
+      "volatility_regime.py implements ATR-based conviction filtering - enters only during volatility expansion after contraction",
+      "Comparison baseline: EMA Trend Gate on BNB achieved 61.1% positive windows, 0.664 OOS Sharpe - we target >= 70% positive windows",
+      "If ATR-based conviction filtering improves positive window rate, it validates the hypothesis that avoiding low-conviction conditions improves robustness"
+    ]
+  }
+}
+```
+
+## Execution Discipline
+```json
+{
+  "inspect_scope": "Inspect only the exact files listed below unless a concrete blocker forces one adjacent file read.",
+  "first_action_rule": "If the canonical WFA config path already exists and data is present, use the provided command path immediately instead of broad repo exploration.",
+  "blocker_rule": "If the command cannot run, return a blocked result with exact path evidence and the smallest necessary fix path."
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_execution_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260318140000-01",
+      "verdict": "blocked",
+      "mode": "live",
+      "market_family": null,
+      "asset_scope": null,
+      "timeframe": null,
+      "strategy_family": null,
+      "lesson": "Strategy preparation phase complete: volume_profile.py follows exact pattern of volatility_regime.py template with generate_vectorized_signals() interface",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": null,
+        "win_rate": null,
+        "total_trades": null,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {}
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260317144547-s59h3s.md"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404080753-bnb",
+      "verdict": "promising_with_caveats",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+      "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -11.15,
+        "win_rate": null,
+        "total_trades": 837,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 837
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+        "factory/runs/RUN-20260404080723-hm4238/summary.json"
+      ]
+    }
+  ],
+  "known_blocker_patterns": [
+    {
+      "blocker_type": "config_contract",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+    },
+    {
+      "blocker_type": "general_execution",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+    }
+  ],
+  "relevant_paths": [
+    "factory/summaries/RUN-20260317144547-s59h3s.md",
+    "factory/summaries/RUN-20260404080723-hm4238.md",
+    "factory/experiments/EXP-20260404080753-bnb.plan.json",
+    "factory/runs/RUN-20260404080723-hm4238/execution-result.json"
+  ]
+}
+```
+
+## Retry Or Handoff Note
+```json
+{
+  "source": "handoff",
+  "resume_generation": 2,
+  "resume_from_stage": "executor",
+  "failure_class": "interruption",
+  "last_error": "Interrupted by SIGTERM.",
+  "attempts_used": 2,
+  "safe_inputs": {
+    "backlog_item_id": "IDEA-783428-k8f",
+    "run_id": "RUN-20260405154641-s5zrx7",
+    "resume_from_stage": "executor"
+  },
+  "produced_artifacts": [
+    "factory/runs/RUN-20260405154641-s5zrx7/run-state.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-heartbeat.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1/stage-input.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2/stage-input.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3/stage-input.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1/stage-prompt.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2/stage-prompt.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3/stage-prompt.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1-session.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2-session.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3-session.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1/stage-response.raw.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2/stage-response.raw.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3/stage-response.raw.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1/stage-error.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2/stage-error.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-1/stage-gate.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-2/stage-gate.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3/stage-gate.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-attempt-3/stage-validated.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/planner-response.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/experiment-plan.json",
+    "factory/experiments/EXP-20260405200000-01.plan.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-heartbeat.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-1/stage-input.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-2/stage-input.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-1/stage-prompt.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-2/stage-prompt.txt",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-1-session.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/handoff.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-1/stage-error.json",
+    "factory/runs/RUN-20260405154641-s5zrx7/executor-attempt-1/stage-gate.json"
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260405200000-01.plan.json
+- Strategy: volatility_regime.py (LightweightVolatilityRegime) - implements ATR-based contraction/expansion detection
+- WFA config reference: walk forward engine/strategies/volatility_regime/wfa_config.yaml
+- Prior baseline: EMA Trend Gate on BNB achieved 61.1% positive windows with 0.664 OOS Sharpe
+- walk forward engine/strategies/volatility_regime/results/walk_forward_results_YYYYMMDD_*.json
+- walk forward engine/strategies/volatility_regime/results/parameter_stability_YYYYMMDD_*.json
+- factory/runs/RUN-YYYYMMDDHHMMSS-XX/execution-result.json
+- factory/runs/RUN-YYYYMMDDHHMMSS-XX/evaluation.json
+- factory/summaries/RUN-YYYYMMDDHHMMSS-XX.md
+- walk forward engine/strategies/
+- walk forward engine/config/
+- workspace/data/
+- factory/memory/lessons.jsonl
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

@@ -1,0 +1,51 @@
+{
+  "run_id": "RUN-20260325105657-01",
+  "experiment_id": "EXP-20260325105657-01",
+  "status": "executed",
+  "start_time": "2026-03-25T11:45:20.285566+00:00",
+  "end_time": "2026-03-25T11:54:45.763560+00:00",
+  "duration_seconds": 565.48,
+  "config_file": "walk forward engine/strategies/ema_trend_gate/wfa_config_sol_fast.yaml",
+  "data_source": "workspace/data/binance_solusdt_1h_deep.csv",
+  "data_bars": 43788,
+  "windows": {
+    "total": 57,
+    "successful": 57,
+    "failed": 0
+  },
+  "metrics": {
+    "aggregate_return_pct": 2.3538,
+    "aggregate_sharpe": 1.3735,
+    "total_trades": 875,
+    "avg_trades_per_window": 15.35,
+    "win_rate": 0.488,
+    "max_drawdown_pct": -16.8374,
+    "profit_factor": 1.2396,
+    "expectancy": 0.3067,
+    "avg_winning_window_pct": 6.0041,
+    "avg_losing_window_pct": -3.4536,
+    "best_window_return": 17.3015,
+    "worst_window_return": -8.2061
+  },
+  "stability": {
+    "consistency_score": 0.4,
+    "parameter_cv": 0.024,
+    "return_volatility": 5.8841
+  },
+  "comparison_to_eth": {
+    "eth_sharpe": 0.528,
+    "sol_sharpe": 1.3735,
+    "sharpe_improvement": 160.1,
+    "eth_total_trades": 1216,
+    "sol_total_trades": 875,
+    "eth_avg_trades_window": 14.3,
+    "sol_avg_trades_window": 15.35,
+    "verdict": "SOL significantly outperforms ETH on OOS Sharpe"
+  },
+  "artifacts_created": [
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260325_135445.json",
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_summary_20260325_135445.csv",
+    "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+    "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260325_135445.json"
+  ]
+}

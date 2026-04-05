@@ -1,0 +1,93 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404170000-01",
+  "title": "EMA Trend Gate ETH-Specific Parameter Tuning",
+  "backlog_item_id": "IDEA-718440-afg",
+  "objective": "Run WFA on ETHUSDT with expanded parameter ranges based on BNB success pattern - looser RSI oversold threshold (25-35) and longer hold bars (96-168) to improve upon baseline 0.489 Sharpe",
+  "hypothesis": "ETH, like BNB, responds to asset-specific tuning: lower rsi_oversold (25-30) and longer hold_bars (120-168) will improve OOS Sharpe above 0.489 baseline",
+  "strategy_rationale": "BNB showed +195% Sharpe improvement with asset-specific tuning (rsi_oversold=25, hold_bars=168). ETH baseline (0.489) is below BTC (0.998), suggesting similar tuning headroom. Using ETH-specific config similar to BNB pattern.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "ETHUSDT spot",
+  "instrument_selection_rule": null,
+  "timeframe": "1h with 4h regime filter",
+  "priority": 55,
+  "dataset_requirements": [
+    "ETHUSDT 1h OHLCV data, minimum 7 years history"
+  ],
+  "historical_depth_requirement": {
+    "target": "Maximum realistic ETH history from Binance (~7.5 years, 64k bars)",
+    "justification": "Crypto markets benefit from multi-year history; ETH deep data exists with 64734 rows spanning 2018-2026"
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "ETHUSDT deep CSV already exists in workspace/data/"
+  },
+  "scope_selection_rationale": "ETH is the second-largest crypto asset with deep liquidity. Prior run showed 0.489 Sharpe vs BTC 0.998. BNB tuning success suggests ETH can improve with similar asset-specific ranges.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "ETH deep CSV already present: workspace/data/binance_ethusdt_1h_deep.csv with 64k rows",
+    "acquisition_method": "existing_fetcher",
+    "sources": [],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml (pattern for ETH-specific ranges)",
+    "walk forward engine/src/strategies/ema_trend_gate.py",
+    "factory/memory/lessons.jsonl (BNB tuning lesson)"
+  ],
+  "implementation_steps": [
+    "1. Create ETH-specific WFA config at walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+    "2. Set source_file to data/binance_ethusdt_1h_deep.csv",
+    "3. Expand parameter ranges: rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96,120,144,168]",
+    "4. Run WFA via walk_forward_smoke_test.py",
+    "5. Collect execution artifacts and metrics"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_eth/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/strategies/ema_trend_gate_eth/wfa_config.yaml",
+    "walk forward engine/strategies/ema_trend_gate_eth/results/*.csv",
+    "factory/runs/<run_id>/execution-result.json",
+    "factory/runs/<run_id>/evaluation.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 50,
+    "sampling_strategy": "tpe",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["stability"],
+    "stability_weight": 0.15
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA must complete with OOS Sharpe >= 0.489 (prior ETH baseline) and >= 30 trades",
+    "metrics": {
+      "min_sharpe_oos": 0.489,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades": 30
+    },
+    "min_evidence_score": 60
+  },
+  "fallback_if_blocked": [
+    "If ETH-specific config fails, fall back to running generic ema_trend_gate config with ETH data"
+  ],
+  "notes": [
+    "BNB tuning proof point: generic params (rsi_oversold=35, hold_bars=96) gave 0.432 Sharpe; asset-specific (rsi_oversold=25, hold_bars=168) gave 1.275 Sharpe",
+    "Prior ETH run used generic ranges: rsi_oversold [35,40,45,50], hold_bars [24,48,72,96]",
+    "This plan expands to rsi_oversold [25,30,35], hold_bars [96,120,144,168] matching BNB success pattern"
+  ]
+}
+</RF_JSON>

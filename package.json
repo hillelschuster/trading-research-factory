@@ -1,0 +1,39 @@
+{
+  "name": "trading-research-factory",
+  "version": "2.0.0",
+  "description": "Autonomous trading research factory wrapper for OpenCode SDK with WFA-first orchestration",
+  "type": "module",
+  "main": "src/cli.mjs",
+  "scripts": {
+    "run": "node src/cli.mjs run",
+    "simulate": "node src/cli.mjs run --mode simulate",
+    "status": "node src/cli.mjs status",
+    "transport-bakeoff": "node scripts/transport-bakeoff.mjs",
+    "gate:0": "node scripts/run-rollout-gate.mjs gate-0",
+    "gate:1": "node scripts/run-rollout-gate.mjs gate-1",
+    "gate:2": "node scripts/run-rollout-gate.mjs gate-2",
+    "gate:3": "node scripts/run-rollout-gate.mjs gate-3",
+    "gate:4": "node scripts/run-rollout-gate.mjs gate-4",
+    "validate": "node scripts/validate-structure.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "test:root": "node --test tests/root-identity.test.mjs tests/closeout-docs.test.mjs",
+    "test:transport": "node --test tests/transport-interface.test.mjs tests/transport-http.test.mjs tests/transport-sdk.test.mjs tests/transport-server-manager.test.mjs tests/transport-bakeoff.test.mjs",
+    "test:runtime": "node --test tests/runtime-lock.test.mjs tests/runtime-state.test.mjs",
+    "test:observer": "node --test tests/observer.test.mjs tests/cli-follow.test.mjs",
+    "test:retrieval": "node --test tests/retrieval-hygiene.test.mjs",
+    "test:verification": "node --test tests/verification.test.mjs",
+    "test:health": "node --test tests/health.test.mjs",
+    "test:factory": "node --test tests/factory.test.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "keywords": [
+    "opencode",
+    "trading",
+    "wfa",
+    "research-factory"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@opencode-ai/sdk": "^1.2.26"
+  }
+}

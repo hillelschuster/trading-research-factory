@@ -1,0 +1,234 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Execution Task
+```json
+{
+  "iteration": 135,
+  "plan": {
+    "experiment_id": "EXP-20260404170000-01",
+    "title": "ETH vs BTC Underperformance Analysis - Fresh ETH-Optimized EMA Trend Gate",
+    "backlog_item_id": "IDEA-841483-l7m",
+    "objective": "Determine if ETH underperformance vs BTC (0.489 vs 0.998 Sharpe) is due to BTC-optimized parameters overfitting, or genuine regime/structural differences by running fresh optimization on ETH",
+    "hypothesis": "If ETH with fresh optimization achieves Sharpe > 0.7, then previous underperformance was due to BTC-parameter overfitting. If ETH remains below 0.5 Sharpe even with fresh optimization, the underperformance is due to regime/structural differences between BTC and ETH",
+    "strategy_rationale": "EMA Trend Gate strategy was previously tested on ETH using BTC-optimized parameters (0.489 Sharpe). Running fresh optimization on ETH will reveal whether the gap is due to parameter overfitting or market regime differences. This follows the same strategy to ensure comparability while varying the optimization target.",
+    "strategy_type": "multi_timeframe",
+    "market_family": "crypto",
+    "instrument_scope": "ETHUSDT spot (binance_ethusdt_1h_deep.csv)",
+    "instrument_selection_rule": null,
+    "timeframe": "1h with 4h regime filter",
+    "dataset_requirements": [
+      "ETH/USDT 1h OHLCV data from Binance, minimum 2 years for robust WFA"
+    ],
+    "historical_depth_requirement": {
+      "target": "Maximum available: ~2018-10-29 to present (~7+ years)",
+      "justification": "ETH has deep Binance history similar to BTC. Multi-year history required for robust WFA with 85+ windows. Market policy requires multi-year when realistically available."
+    },
+    "source_plan": {
+      "allowed_source_families": [
+        "binance",
+        "public_archive"
+      ],
+      "primary_source_family": "binance",
+      "selection_reason": "Existing deep ETH data at workspace/data/binance_ethusdt_1h_deep.csv. Same source as prior BTC/ETH experiments for comparability."
+    },
+    "scope_selection_rationale": "ETHUSDT is the natural follow-up to the prior BTC run (RUN-20260331154310-1aowi1) which achieved 0.998 Sharpe. Using same strategy type (EMA Trend Gate multi-timeframe) enables direct comparison of whether underperformance is due to overfitting (BTC params on ETH) or regime differences (even ETH-optimized underperforms).",
+    "data_acquisition": {
+      "status": "present",
+      "reason": "Existing ETH data at workspace/data/binance_ethusdt_1h_deep.csv. Verify coverage before execution.",
+      "acquisition_method": "existing_fetcher",
+      "sources": [
+        "workspace/data/binance_ethusdt_1h_deep.csv"
+      ],
+      "commands": [],
+      "expected_outputs": []
+    },
+    "inputs": [
+      "Reference: EXP-20260331154332-55 (BTC baseline with 0.998 Sharpe)",
+      "Reference: RUN-20260403123500-01 (ETH with BTC params, 0.489 Sharpe)",
+      "Strategy: walk forward engine/src/strategies/ema_trend_gate.py",
+      "Config: Similar to BTC run wfa_config"
+    ],
+    "implementation_steps": [
+      "1. Verify ETH data coverage (timestamp range, row count)",
+      "2. Create WFA config for ETH-optimized EMA Trend Gate (fresh optimization, not using BTC params)",
+      "3. Execute WFA with Optuna optimization on ETH data only",
+      "4. Compare resulting Sharpe to BTC baseline (0.998) and ETH-with-BTC-params (0.489)",
+      "5. Analyze if improvement from fresh optimization indicates overfitting, or if gap persists indicating regime differences"
+    ],
+    "commands": [
+      "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+    ],
+    "expected_artifacts": [
+      "factory/runs/RUN-YYYYMMDDHHMMSS-XX/execution-result.json",
+      "factory/runs/RUN-YYYYMMDDHHMMSS-XX/evaluation.json",
+      "factory/runs/RUN-YYYYMMDDHHMMSS-XX/summary.json",
+      "factory/summaries/RUN-YYYYMMDDHHMMSS-XX.md"
+    ],
+    "advanced_wfa_config": {
+      "n_parameter_trials": 100,
+      "sampling_strategy": "tpe",
+      "backtest.fees": 0.0006,
+      "backtest.slippage": 0.0002,
+      "training_months": 3,
+      "testing_months": 1,
+      "step_months": 1,
+      "primary_objective": "sharpe",
+      "secondary_objectives": [],
+      "stability_weight": 0.1
+    },
+    "evaluation_criteria": {
+      "status_gate": "WFA must complete with valid OOS metrics. Compare Sharpe to BTC baseline (0.998) and ETH-with-BTC-params (0.489).",
+      "metrics": {
+        "min_sharpe_oos": 0.4,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 30
+      },
+      "min_evidence_score": 60
+    },
+    "fallback_if_blocked": [
+      "If ETH data insufficient, fall back to BNB/USDT as alternative altcoin for cross-asset generalization test",
+      "If WFA fails on ETH, run on SOL/USDT to test if underperformance is general to altcoins vs BTC"
+    ],
+    "notes": [
+      "Key comparison: Fresh ETH optimization should improve over BTC-params-on-ETH (0.489). If reaches > 0.7, indicates overfitting. If stays < 0.5, indicates regime difference.",
+      "This directly addresses the backlog question: regime differences vs overfitting on BTC",
+      "Same strategy, fresh optimization = controlled experiment for parameter overfitting"
+    ]
+  }
+}
+```
+
+## Execution Discipline
+```json
+{
+  "inspect_scope": "Inspect only the exact files listed below unless a concrete blocker forces one adjacent file read.",
+  "first_action_rule": "If the canonical WFA config path already exists and data is present, use the provided command path immediately instead of broad repo exploration.",
+  "blocker_rule": "If the command cannot run, return a blocked result with exact path evidence and the smallest necessary fix path."
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "relevant_execution_lessons": [
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404080753-bnb",
+      "verdict": "promising_with_caveats",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+      "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.432,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -11.15,
+        "win_rate": null,
+        "total_trades": 837,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "trades": 837
+        }
+      },
+      "related_artifact_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+        "factory/runs/RUN-20260404080723-hm4238/summary.json"
+      ]
+    },
+    {
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260403123500-01",
+      "verdict": "partial",
+      "mode": "live",
+      "market_family": "crypto",
+      "asset_scope": "ETHUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "multi_timeframe",
+      "lesson": "EMA Trend Gate generalizes to ETHUSDT but with lower Sharpe than BTC baseline (0.489 vs 0.998). Cross-asset generalization partially confirmed - strategy works on ETH but underp...",
+      "specific_finding": null,
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.4894,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -14.34,
+        "win_rate": 0.4604,
+        "total_trades": 1238,
+        "fold_variance": null,
+        "markets_tested": [],
+        "extra_metrics": {
+          "aggregate_return_pct": 0.5944,
+          "profit_factor": 1.086,
+          "expectancy": 0.0816,
+          "total_windows": 85,
+          "successful_windows": 85,
+          "avg_trades_per_window": 14.56
+        }
+      },
+      "related_artifact_paths": [
+        "factory/runs/RUN-20260403123500-01/execution-result.json",
+        "factory/runs/RUN-20260403123500-01/evaluation.json",
+        "factory/runs/RUN-20260403123500-01/summary.json",
+        "factory/summaries/RUN-20260403123500-01.md"
+      ]
+    }
+  ],
+  "known_blocker_patterns": [
+    {
+      "blocker_type": "config_contract",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+    },
+    {
+      "blocker_type": "general_execution",
+      "source_path": "factory/memory/lessons.jsonl",
+      "experiment_id": "EXP-20260404000000-NN",
+      "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+    }
+  ],
+  "relevant_paths": [
+    "factory/summaries/RUN-20260404080723-hm4238.md",
+    "factory/experiments/EXP-20260404080753-bnb.plan.json",
+    "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+    "factory/runs/RUN-20260404080723-hm4238/evaluation.json"
+  ]
+}
+```
+
+## Retry Or Handoff Note
+```json
+{
+  "stage": "executor",
+  "previous_attempt": 1,
+  "failure_class": "transport",
+  "last_error": "executor transport request timed out waiting for response headers."
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260404170000-01.plan.json
+- Reference: EXP-20260331154332-55 (BTC baseline with 0.998 Sharpe)
+- Reference: RUN-20260403123500-01 (ETH with BTC params, 0.489 Sharpe)
+- Strategy: walk forward engine/src/strategies/ema_trend_gate.py
+- Config: Similar to BTC run wfa_config
+- factory/runs/RUN-YYYYMMDDHHMMSS-XX/execution-result.json
+- factory/runs/RUN-YYYYMMDDHHMMSS-XX/evaluation.json
+- factory/runs/RUN-YYYYMMDDHHMMSS-XX/summary.json
+- factory/summaries/RUN-YYYYMMDDHHMMSS-XX.md
+- walk forward engine/strategies/
+- walk forward engine/config/
+- workspace/data/
+- factory/memory/lessons.jsonl
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

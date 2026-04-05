@@ -1,0 +1,35 @@
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260317150000-01",
+  "verdict": "passed",
+  "evidence_score": 65,
+  "objective_score": 70,
+  "reproducibility_score": 75,
+  "novelty_score": 55,
+  "metrics": {
+    "sharpe": 0.531,
+    "max_drawdown": -0.00655,
+    "win_rate": 0.192,
+    "trades": 3
+  },
+  "strengths": [
+    "Successfully fetched SOLUSDT data from Binance (500 candles)",
+    "Three-asset comparison completed for BTC, ETH, SOL",
+    "Clear findings: SOL achieved best risk-adjusted performance (Sharpe 0.53)",
+    "All expected artifacts created on disk and verified"
+  ],
+  "weaknesses": [
+    "Short test period (48h per window) limits statistical significance",
+    "SOL showed best Sharpe but also highest volatility",
+    "Same SMA parameters used across all assets - may not be optimal for each"
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": false,
+  "next_backlog_actions": [
+    "Optimize SMA parameters per asset",
+    "Try Bollinger Bands strategy as alternative",
+    "Implement cross-asset momentum spread",
+    "Extend data history beyond 500 candles"
+  ]
+}
+</RF_JSON>

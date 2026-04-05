@@ -1,0 +1,55 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260404180000-01",
+  "status": "executed",
+  "commands_attempted": [
+    "N/A - manual code inspection task"
+  ],
+  "commands_completed": [
+    "N/A - manual code inspection task"
+  ],
+  "artifacts_created": [
+    "factory/runs/verification-wfr-capability.md"
+  ],
+  "datasets_acquired": [],
+  "artifacts_updated": [],
+  "workspace_changes": [
+    "Code inspection completed: verified WindowResult dataclass lacks optimization_sharpe field",
+    "Code inspection completed: verified WFAEfficiencyCalculator not integrated into output pipeline",
+    "Code inspection completed: verified Optuna study.best_value exists but not captured"
+  ],
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": null,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "total_trades": 0,
+    "fold_variance": null
+  },
+  "provenance": {
+    "engine": "code_inspection",
+    "command": "N/A - manual code inspection",
+    "working_directory": "walk forward engine",
+    "config_path": "N/A",
+    "result_artifacts": [
+      "factory/runs/verification-wfr-capability.md"
+    ],
+    "windows_completed": 0
+  },
+  "variants_tested": [],
+  "blockers": [],
+  "errors": [],
+  "notes": [
+    "Hypothesis VALIDATED: WFA engine does NOT persist in-sample Sharpe to WindowResult",
+    "WindowResult dataclass (lines 126-186) lacks optimization_sharpe field - only validation sharpe is stored",
+    "WFAEfficiencyCalculator computes optimization_sharpe internally but not wired to output",
+    "Optuna study.best_value exists but not captured in WindowResult creation (line 903-905)",
+    "Recommendation: Add optimization_sharpe: float field to WindowResult and capture study.best_value",
+    "This is an engineering verification task - no WFA execution required"
+  ]
+}
+</RF_JSON>

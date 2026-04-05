@@ -1,0 +1,159 @@
+Loading data from workspace/data/binance_solusdt_1h_live.csv and workspace/data/binance_ethusdt_1h_live.csv...
+Loaded 500 and 500 rows
+Running WFA with Spread, train_size=168, test_size=48...
+{
+  "windows": [
+    {
+      "train_start": "2026-02-24 15:00:00",
+      "train_end": "2026-03-03 14:00:00",
+      "test_start": "2026-03-03 15:00:00",
+      "test_end": "2026-03-05 14:00:00",
+      "params": {
+        "period": 24,
+        "threshold": 0.02
+      },
+      "train": {
+        "total_return": 0.05235493251781076,
+        "sharpe": 1.4585454335246013,
+        "max_drawdown": -0.03567371052033619,
+        "win_rate": 0.5,
+        "trades": 2
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-02-26 15:00:00",
+      "train_end": "2026-03-05 14:00:00",
+      "test_start": "2026-03-05 15:00:00",
+      "test_end": "2026-03-07 14:00:00",
+      "params": {
+        "period": 48,
+        "threshold": 0.03
+      },
+      "train": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-02-28 15:00:00",
+      "train_end": "2026-03-07 14:00:00",
+      "test_start": "2026-03-07 15:00:00",
+      "test_end": "2026-03-09 14:00:00",
+      "params": {
+        "period": 48,
+        "threshold": 0.03
+      },
+      "train": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-03-02 15:00:00",
+      "train_end": "2026-03-09 14:00:00",
+      "test_start": "2026-03-09 15:00:00",
+      "test_end": "2026-03-11 14:00:00",
+      "params": {
+        "period": 48,
+        "threshold": 0.03
+      },
+      "train": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-03-04 15:00:00",
+      "train_end": "2026-03-11 14:00:00",
+      "test_start": "2026-03-11 15:00:00",
+      "test_end": "2026-03-13 14:00:00",
+      "params": {
+        "period": 24,
+        "threshold": 0.02
+      },
+      "train": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-03-06 15:00:00",
+      "train_end": "2026-03-13 14:00:00",
+      "test_start": "2026-03-13 15:00:00",
+      "test_end": "2026-03-15 14:00:00",
+      "params": {
+        "period": 24,
+        "threshold": 0.02
+      },
+      "train": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    }
+  ],
+  "out_of_sample": {
+    "total_return": 0.0,
+    "sharpe": 0.0,
+    "max_drawdown": 0.0,
+    "win_rate": 0,
+    "trades": 0,
+    "windows": 6
+  }
+}

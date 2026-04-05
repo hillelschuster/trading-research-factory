@@ -1,0 +1,17 @@
+{
+  "schema_version": "active_run_v1",
+  "status": "idle",
+  "owner_id": null,
+  "heartbeat_at": null,
+  "updated_at": "2026-04-05T17:00:52.278Z",
+  "last_error": null,
+  "last_retry_note": null,
+  "run_id": null,
+  "run_instance_id": null,
+  "backlog_item_id": null,
+  "stage": null,
+  "attempt": null,
+  "session_id": null,
+  "session_url": null,
+  "follow_url": null
+}

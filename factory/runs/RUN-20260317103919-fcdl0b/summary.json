@@ -1,0 +1,23 @@
+{
+  "experiment_id": "EXP-20260317150000-01",
+  "summary": "Three-asset crypto WFA comparison completed. Fetched SOLUSDT data (500 candles) from Binance, ran SMA crossover on all three assets (BTC, ETH, SOL). SOL achieved best risk-adjusted performance with Sharpe 0.53 vs ETH 0.19 and BTC -0.10. Evidence score: 65/100.",
+  "key_lessons": [
+    "SOL outperformed both BTC and ETH on risk-adjusted basis (Sharpe 0.53) despite lower absolute return - demonstrates importance of looking beyond raw returns",
+    "Higher volatility assets (SOL) can be better suited to trend-following strategies like SMA crossover when parameters are fixed across assets",
+    "BTC had highest return (1.28%) but worst Sharpe (-0.10) - return quality vs quantity tradeoff confirmed",
+    "Three-asset framework now established with BTC, ETH, SOL data - template ready for adding more pairs",
+    "Same SMA parameters (fast 5-20, slow 10-50) used across all assets - asset-specific optimization could improve results"
+  ],
+  "next_actions": [
+    "Optimize SMA parameters per asset (e.g., faster SMAs for more volatile SOL)",
+    "Test Bollinger Bands strategy on three assets as alternative to SMA",
+    "Implement cross-asset momentum spread (long SOL/short BTC or similar)",
+    "Extend data history to 1000+ candles for more robust WFA windows"
+  ],
+  "risk_notes": [
+    "Short test period (48h per window, 6 windows total) limits statistical significance - need longer history",
+    "Same parameter grid used across all assets - not optimized per-asset which may understate potential",
+    "No transaction costs modeled - real trading would reduce returns by 0.1-0.2% per trade",
+    "Three-asset comparison over ~21 days may not represent long-term behavior"
+  ]
+}

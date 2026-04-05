@@ -1,0 +1,80 @@
+{
+  "experiment_id": "EXP-20260405132700-01",
+  "status": "executed",
+  "evaluation_timestamp": "2026-04-05T13:40:00Z",
+  "verdict": "partial_robustness",
+  "evidence_score": 55,
+  "gate_status": "partial_pass",
+  
+  "status_gate": {
+    "criterion": "WFA completes with at least 30 windows and 200 total trades",
+    "required": "30 windows, 200 trades",
+    "actual": "54 windows, 399 trades",
+    "passed": true
+  },
+  
+  "primary_metrics": {
+    "sharpe_oos": {
+      "value": 0.664,
+      "target": 0.8,
+      "passed": false,
+      "notes": "Below 0.8 threshold - 0.664 vs 0.8 target"
+    },
+    "max_drawdown": {
+      "value": -9.16,
+      "target": 15,
+      "passed": true,
+      "notes": "Max DD -9.16% well under 15% threshold"
+    },
+    "total_trades": {
+      "value": 399,
+      "target": 200,
+      "passed": true
+    },
+    "positive_sharpe_windows_pct": {
+      "value": 61.1,
+      "target": 70,
+      "passed": false,
+      "notes": "33/54 windows positive Sharpe - below 70% target"
+    }
+  },
+  
+  "robustness_assessment": {
+    "window_consistency": "marginal",
+    "positive_sharpe_rate": "61.1% (target: 70%)",
+    "aggregate_sharpe": "0.664 (target: 0.8)",
+    "max_drawdown": "-9.16% (within 15%)",
+    "trade_density": "399 trades across 54 windows (~7.4 trades/window)",
+    
+    "verdict": "Parameters show PARTIAL robustness but NOT fully robust. The 61.1% positive Sharpe rate is below the 70% threshold, suggesting partial overfitting to original training windows. However, aggregate Sharpe 0.664 and max DD -9.16% indicate some genuine edge exists."
+  },
+  
+  "comparison_to_prior_run": {
+    "prior_experiment": "EXP-20260404133920-01",
+    "prior_sharpe": 1.275,
+    "current_sharpe": 0.664,
+    "sharpe_decline_pct": -47.9,
+    "prior_positive_sharpe_pct": "unknown (not calculated)",
+    "current_positive_sharpe_pct": 61.1,
+    
+    "interpretation": "The ~48% Sharpe decline when running FIXED parameters across multiple windows vs single optimized window confirms some degree of overfitting. However, Sharpe 0.664 and 61.1% positive windows indicate the parameters are not completely arbitrary - there is genuine signal, but the original 1.275 was likely partially lucky."
+  },
+  
+  "hypothesis_test": {
+    "hypothesis": "Parameters will maintain Sharpe > 0.8 and Drawdown < 15% across at least 70% of WFA windows",
+    "sharpe_above_0.8": false,
+    "dd_below_15": true,
+    "positive_sharpe_windows_above_70pct": false,
+    "hypothesis_confirmed": false,
+    "partial_confirmation": "Max DD criterion met; Sharpe and positive window % criteria NOT met"
+  },
+  
+  "recommendations": [
+    "The discovered BNB parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168) show partial robustness but NOT full robustness",
+    "Consider: (1) More conservative parameter deployment - reduce position size, (2) Additional out-of-sample validation, (3) Ensemble with other signals",
+    "The ~48% Sharpe decline (1.275 -> 0.664) when tested across multiple windows confirms significant overfitting",
+    "Max DD -9.16% is acceptable for live deployment with appropriate position sizing"
+  ],
+  
+  "blocking_issues": []
+}

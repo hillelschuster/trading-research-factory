@@ -1,0 +1,69 @@
+{
+  "experiment_id": "EXP-20260405200000-01",
+  "backlog_item_id": "IDEA-783428-k8f",
+  "summary": "Tested ATR-based conviction filter on volatility_regime.py with BTC - strategy FAILED all critical gates with negative OOS Sharpe (-1.583), only 22 trades (vs 200 required), and 3 windows (vs 30 required). ATR filtering does not improve over EMA Trend Gate baseline and produces too few trades due to rare volatility expansion events.",
+  "key_lessons": [
+    {
+      "lesson": "ATR-based conviction filter does NOT improve over EMA Trend Gate baseline",
+      "specific_finding": "volatility_regime.py achieved -1.583 OOS Sharpe vs EMA Trend Gate on BNB (0.432) - worse despite more complex filtering. ATR filter creates too few entry signals.",
+      "result": {
+        "sharpe_oos": -1.583,
+        "wfr": 0.667,
+        "max_drawdown": -9.55,
+        "trades": 22
+      }
+    },
+    {
+      "lesson": "Strategy produces too few trades for robust WFA - enters only on rare volatility expansion events",
+      "specific_finding": "Only 22 trades across 3 windows (2021-2026) vs 200 minimum required. ATR contraction filter is too selective; strategy waits for extreme volatility expansion after contraction periods.",
+      "result": {
+        "sharpe_oos": -1.583,
+        "wfr": 0.667,
+        "max_drawdown": -9.55,
+        "trades": 22
+      }
+    },
+    {
+      "lesson": "Data range mismatch persists across experiments - BTC shows 2021-start gap similar to prior ETH",
+      "specific_finding": "Expected ~64k rows from 2018, actual 43,788 rows from 2021-03-22. Suggests systematic data fetching issues affecting multiple assets in the dataset.",
+      "result": {
+        "sharpe_oos": -1.583,
+        "wfr": 0.667,
+        "max_drawdown": -9.55,
+        "trades": 22
+      }
+    },
+    {
+      "lesson": "Extreme regime sensitivity causes catastrophic window failures",
+      "specific_finding": "Window 2 (Aug-Sep 2021) had Sharpe -5.3, -8.82% return - catastrophic failure in specific market regime. Strategy cannot adapt to rapid volatility regime changes.",
+      "result": {
+        "sharpe_oos": -1.583,
+        "wfr": 0.667,
+        "max_drawdown": -9.55,
+        "trades": 22
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Fix BTC data source to get full 2018-present history (~64k rows)",
+      "rationale": "Data quality is prerequisite - only 3 windows possible with 2021-start data, insufficient for reliable WFA",
+      "priority": "high"
+    },
+    {
+      "action": "Widen volatility_regime parameters to increase trade frequency",
+      "rationale": "22 trades is far below 200 minimum - contraction_pct range needs expansion or add alternative entry conditions",
+      "priority": "high"
+    },
+    {
+      "action": "Test volatility_regime on shorter timeframe (15m or 30m) on same asset",
+      "rationale": "More granular data should increase trade count for better statistical significance",
+      "priority": "medium"
+    },
+    {
+      "action": "Add regime-based position sizing to reduce catastrophic drawdowns",
+      "rationale": "Window 2 catastrophic failure (-5.3 Sharpe) indicates need for adaptive sizing in adverse regimes",
+      "priority": "medium"
+    }
+  ]
+}

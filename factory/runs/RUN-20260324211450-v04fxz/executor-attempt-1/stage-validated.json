@@ -1,0 +1,47 @@
+{
+  "experiment_id": "EXP-20260324211452-18",
+  "status": "partial",
+  "commands_attempted": [
+    "simulate: no live OpenCode execution used"
+  ],
+  "commands_completed": [
+    "simulate: wrote non-evidentiary artifact"
+  ],
+  "artifacts_created": [
+    "workspace/results/simulated_baseline/simulation_note.txt"
+  ],
+  "datasets_acquired": [],
+  "artifacts_updated": [],
+  "workspace_changes": [
+    "workspace/results/simulated_baseline/simulation_note.txt"
+  ],
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": null,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "total_trades": null,
+    "fold_variance": null
+  },
+  "variants_tested": [],
+  "blockers": [
+    "Simulate mode does not run the live WFA engine."
+  ],
+  "errors": [
+    {
+      "command": "simulate: no live OpenCode execution used",
+      "message": "Synthetic execution stopped before real WFA outputs by design.",
+      "suggestion": "Use live mode for real evidence.",
+      "code_path_inspected": "src/core/runner-simulate.mjs",
+      "recovery_attempts": [
+        "Wrote a clearly synthetic artifact instead of claiming real WFA execution."
+      ]
+    }
+  ],
+  "notes": [
+    "Synthetic execution result for orchestration verification only.",
+    "Prompt digest length: 8352"
+  ]
+}

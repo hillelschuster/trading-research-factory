@@ -1,0 +1,2 @@
+{"ts":"2026-03-17T15:14:22.930Z","run_id":"RUN-20260317151422-fp9mhq","message":"Starting run","extra":{"iteration":21,"backlog_item_id":"IDEA-WFA-002","mode":"live"}}
+{"ts":"2026-03-17T15:16:30.432Z","run_id":"RUN-20260317151422-fp9mhq","message":"Planner completed","extra":{"experiment_id":"EXP-20260320060000-01"}}

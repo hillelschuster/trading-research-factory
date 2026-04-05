@@ -1,0 +1,376 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260404090255-5uejma",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T09:03:46.692Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:04:39.673Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:05:25.875Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:08:47.308Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:09:43.247Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:10:51.212Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T09:13:36.569Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:14:32.354Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T09:15:25.290Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T13:34:22.616Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_v2/wfa_config.yaml",
+      "recorded_at": "2026-04-04T13:34:58.052Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-error.json"
+      ],
+      "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+      "recorded_at": "2026-04-04T13:36:05.110Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-error.json"
+      ],
+      "reason": "Planner canonical command references missing WFA config path: walk forward engine/strategies/ema_trend_gate_bnb_tuned/wfa_config.yaml",
+      "recorded_at": "2026-04-04T13:38:39.857Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "planner",
+      "attempt": 14,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T13:39:38.089Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:45:02.961Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:50:45.917Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T13:56:21.109Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:05:26.692Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:10:58.740Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:16:37.622Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:26:05.832Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 2,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:31:36.232Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 3,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-error.json"
+      ],
+      "reason": "executor transport request timed out waiting for response headers.",
+      "recorded_at": "2026-04-04T14:37:28.759Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-3/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "executor",
+      "attempt": 10,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/executor-attempt-10/stage-validated.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_173914.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:00:57.483Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/executor-attempt-10/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/evaluator-attempt-1/stage-validated.json",
+        "factory/experiments/EXP-20260404133920-01.plan.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/walk_forward_results_20260404_173914.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/parameter_stability_20260404_173914.json",
+        "walk forward engine/strategies/ema_trend_gate_bnb/results/analysis.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:01:45.105Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260404090255-5uejma",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260404090255-5uejma/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-04T15:02:02.299Z",
+      "gate_path": "factory/runs/RUN-20260404090255-5uejma/summarizer-attempt-1/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-04-04T15:02:02.439Z"
+}

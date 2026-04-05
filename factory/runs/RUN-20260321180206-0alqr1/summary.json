@@ -1,0 +1,148 @@
+{
+  "experiment_id": "EXP-20260321183000-01",
+  "backlog_item_id": "AUTO-1774116123721-dw4",
+  "verdict": "inconclusive",
+  "summary": "MACD Divergence with RSI Filter strategy was fully designed, coded, and parameterized — all 3 required artifacts created on disk and syntax-validated (py_compile, JSON parse, YAML parse all pass). The WFA engine was never executed because the WSL agent environment lacks pandas/numpy, while the Windows .venv is the only environment that can run the WFA harness. The 5-year BTC dataset (43,789 bars) is confirmed present. This is the 4th experiment blocked by the same WSL/pandas environment gap. The experiment is preparation-only with zero performance metrics.",
+  "key_lessons": [
+    {
+      "lesson": "WSL/pandas blocker has now blocked 4 experiments: MACD Divergence, Volume Profile (EXP-20260318140000-01), RSI+Polymarket (EXP-20260317110000-01), and Volatility Regime (backlog). The factory cannot generate scored evidence while this gap persists.",
+      "strategy_type": "infrastructure",
+      "asset": "N/A",
+      "params_tested": {},
+      "result": {},
+      "verdict": "inconclusive",
+      "specific_finding": "All 4 experiments produced valid artifacts (strategy code, configs) but zero WFA metrics. The blocker is systematic, not isolated.",
+      "contradicts_prior": null
+    },
+    {
+      "lesson": "Divergence signals are rare on 1h BTC — the same low-trade-count risk that killed London Sweep (2 trades) and ATR Breakout (2 trades). A 10-parameter Optuna grid compounds this: 100 trials cannot adequately explore 10-D space.",
+      "strategy_type": "momentum",
+      "asset": "BTCUSDT",
+      "params_tested": {
+        "macd_fast": "[8,10,12,16]",
+        "macd_slow": "[20,24,26,32]",
+        "macd_signal": "[7,9,11]",
+        "div_lookback": "[10,15,20,25,30]",
+        "rsi_period": "[7,14,21]",
+        "hold_bars": "[12,24,36,48]",
+        "total_params": 10
+      },
+      "result": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": null
+      },
+      "verdict": "inconclusive",
+      "specific_finding": "WFA never ran, but pivot detection logic was verified on synthetic sine wave data. Whether 43,789 hourly bars produce enough divergence signals to avoid the 2-6 trade failure mode is unknown.",
+      "contradicts_prior": "Extends the pattern from ATR Breakout and London Sweep: complex strategies with rare signals on 1h fail to produce statistically meaningful trade counts."
+    },
+    {
+      "lesson": "MACD divergence is a genuinely novel signal class — price-vs-momentum divergence vs price-based RSI/SMA/BB and volatility-based BB Width/ATR Regime. Strategy code and config architecture follow established patterns correctly.",
+      "strategy_type": "momentum",
+      "asset": "BTCUSDT",
+      "params_tested": {
+        "hidden_divergence": true,
+        "rsi_filter": true,
+        "atr_stop": true,
+        "total_params": 10
+      },
+      "result": {
+        "sharpe_is": null,
+        "sharpe_oos": null,
+        "wfr": null,
+        "max_drawdown": null,
+        "trades": null
+      },
+      "verdict": "inconclusive",
+      "specific_finding": "Strategy design is sound: hidden bullish divergence (price lower low + MACD higher low) and hidden bearish divergence (price higher high + MACD lower high) with RSI confirmation and ATR stop. Artifacts verified on disk.",
+      "contradicts_prior": null
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "HUMAN ACTION: Run WFA locally — cd 'walk forward engine' && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/macd_divergence/wfa_config.yaml",
+      "rationale": "The strategy is ready. Only human can execute WFA because WSL lacks pandas/numpy.",
+      "priority": "high"
+    },
+    {
+      "action": "If WFA produces < 20 trades across all folds, reduce div_lookback from 20-30 to 10-15 and test on 4h timeframe instead of 1h",
+      "rationale": "Shorter lookback finds more frequent pivots; 4h timeframe has more pronounced swings for divergence detection. Prevents repeating the 2-trade failure from London Sweep/ATR Breakout.",
+      "priority": "high"
+    },
+    {
+      "action": "Consider pinning 6-8 parameters to defaults and optimizing only 2-3 key ones (div_lookback + rsi_oversold/overbought) to reduce search space",
+      "rationale": "100 Optuna trials in 10-D space is insufficient. Reducing to 2-3 free parameters gives the optimizer enough samples per dimension to find signal.",
+      "priority": "medium"
+    },
+    {
+      "action": "Resolve WSL/pandas environment gap permanently — install pandas/numpy in WSL Python or restructure the orchestrator to invoke Windows .venv directly",
+      "rationale": "This blocker has now wasted 4 experiments. A permanent fix would allow the factory to be fully autonomous.",
+      "priority": "high"
+    }
+  ],
+  "risk_notes": [
+    {
+      "risk": "WFA not executed — zero metrics, experiment is preparation-only",
+      "impact": "Cannot assess whether the strategy is profitable, robust, or produces sufficient trades. Evidence score is artificially depressed (40) not because the strategy failed but because it was never tested.",
+      "mitigation": "Human must run WFA locally. Until then, the backlog item remains inconclusive."
+    },
+    {
+      "risk": "Divergence signals may be too rare on 1h BTC to produce statistically meaningful trade counts",
+      "impact": "Same failure mode as London Sweep (2 trades) and ATR Breakout (2 trades): zero or near-zero trades make optimization meaningless and WFR incalculable.",
+      "mitigation": "Monitor trade count in first WFA run. If < 20 trades, immediately fall back to 4h timeframe or reduce div_lookback to 10."
+    },
+    {
+      "risk": "10-parameter Optuna grid with 100 trials is high-dimensional for a new signal class",
+      "impact": "Sparse exploration means Optuna may never find the parameter sweet spot. Sharpe IS may be noise rather than genuine signal.",
+      "mitigation": "Pin MACD params to defaults (12/26/9) and RSI period to 14, optimize only div_lookback, rsi_oversold, rsi_overbought (3 free params)."
+    },
+    {
+      "risk": "Recurring WSL/pandas blocker prevents the factory from generating scored evidence",
+      "impact": "Every sophisticated strategy (Volume Profile, RSI+Polymarket, Volatility Regime, MACD Divergence) is blocked at execution. The factory can only produce evidence for simple strategies that run via wfa_minimal.py.",
+      "mitigation": "Infrastructure fix needed: install pandas in WSL Python3 environment, or restructure orchestrator to spawn Windows .venv as subprocess for WFA runs."
+    }
+  ],
+  "metrics_summary": {
+    "sharpe_is": null,
+    "sharpe_oos": null,
+    "wfr": null,
+    "max_drawdown": null,
+    "trades": null,
+    "evidence_score": 40,
+    "overall_score": 25
+  },
+  "files_to_update": [
+    "factory/backlog.json",
+    "factory/memory/lessons.jsonl",
+    "factory/strategy_digest.md",
+    "factory/state.json",
+    "factory/evidence/index.json"
+  ],
+  "strategy_digest_entry": "| MACD Divergence + RSI | momentum | BTC/USDT | 1h | N/A | N/A | N/A | inconclusive | Novel signal class; WFA not executed; WSL/pandas blocker; divergence may be too rare on 1h (10 params, 43k bars) |",
+  "update_instructions": {
+    "backlog_item_id AUTO-1774116123721-dw4": {
+      "status": "inconclusive",
+      "last_verdict": "inconclusive",
+      "last_evidence_score": 40,
+      "key_findings": [
+        "MACD Divergence strategy created: hidden bullish/bearish divergence + RSI filter — a genuinely novel signal class not tested before",
+        "All 3 artifacts created and syntax-validated (py_compile exit 0, JSON parse OK, YAML safe_load OK)",
+        "WFA never executed — WSL lacks pandas/numpy, same blocker that hit Volume Profile and RSI+Polymarket",
+        "5-year BTC dataset present (43,789 bars) but blocked at execution level",
+        "10-parameter grid is high-dimensional; divergence signals may be too rare on 1h (same risk as London Sweep/ATR Breakout with 2 trades)"
+      ],
+      "completed_at": "2026-03-21T18:30:00.000Z",
+      "experiment_id": "EXP-20260321183000-01"
+    }
+  },
+  "contradicts_prior": null,
+  "additional_notes": [
+    "State updated: iteration=26, last_run=RUN-20260321183000-01, status=completed",
+    "Evidence index updated: appended RUN-20260321183000-01 with verdict=inconclusive, score=40",
+    "Lessons appended: 26th entry, verdict=inconclusive",
+    "Strategy digest updated: appended MACD Divergence entry with inconclusive status",
+    "The core lesson across all 4 blocked experiments is the same: the factory must resolve the WSL/pandas gap to achieve autonomy. Valid artifacts + no execution = zero scored evidence."
+  ]
+}

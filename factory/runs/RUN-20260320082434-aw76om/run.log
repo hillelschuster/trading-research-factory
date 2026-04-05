@@ -1,0 +1,3 @@
+{"ts":"2026-03-20T08:24:34.631Z","run_id":"RUN-20260320082434-aw76om","message":"Starting run","extra":{"iteration":25,"backlog_item_id":"AUTO-1773995071556-10z","mode":"live"}}
+{"ts":"2026-03-20T08:27:22.594Z","run_id":"RUN-20260320082434-aw76om","message":"Planner completed","extra":{"experiment_id":"EXP-20260320082634-01"}}
+{"ts":"2026-03-20T08:32:41.567Z","run_id":"RUN-20260320082434-aw76om","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}

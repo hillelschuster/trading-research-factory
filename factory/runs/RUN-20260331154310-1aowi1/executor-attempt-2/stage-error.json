@@ -1,0 +1,272 @@
+{
+  "agent": "executor",
+  "attempt": 2,
+  "attempts": 3,
+  "failure_class": "transport_failure",
+  "error": {
+    "name": "Error",
+    "message": "executor agent request timed out waiting for response headers.",
+    "stack": "Error: executor agent request timed out waiting for response headers.\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:105:14)\n    at OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:251:13)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1026:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:258:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1102:37)",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:242:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1026:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:258:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1102:37)"
+    }
+  },
+  "message": "executor agent request timed out waiting for response headers.",
+  "recorded_at": "2026-03-31T20:43:49.752Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "plan": {
+      "experiment_id": "EXP-20260331154332-55",
+      "title": "EMA Trend Gate on BTC — Multi-Timeframe Regime-Filtered Pullback",
+      "backlog_item_id": "AUTO-1774971790939-dg1",
+      "objective": "Test the EMA Trend Gate strategy (4h EMA regime filter + 1h RSI pullback entries) on BTCUSDT 1h data (43,789 bars, ~5 years from 2021-03-22 to 2026-03-21). The strategy generated 0.528 OOS Sharpe on ETH with 1216 trades; hypothesis is BTC's higher volatility will generate more trade opportunities and potentially higher risk-adjusted returns. This fills the BTC gap in the EMA Trend Gate strategy family and tests cross-asset generalization.",
+      "hypothesis": "BTC's higher volatility compared to ETH will generate more RSI pullback trade opportunities (target: >14.3 trades/window) and potentially higher risk-adjusted returns (target: OOS Sharpe >= 0.528, matching or exceeding ETH baseline). The 4h EMA regime filter will provide regime context that may improve trade quality on BTC's more volatile price action.",
+      "strategy_rationale": "Using existing EMA Trend Gate strategy that already demonstrated viability on ETH (0.528 OOS Sharpe, 85 windows, 1216 trades). This run tests cross-asset generalization to BTC, the highest-liquidity crypto pair. The strategy uses 4h EMA slope as regime filter (trending vs ranging) combined with 1h RSI pullback entries - a theoretically grounded approach that filters counter-trend trades. Previous lessons show RSI thresholds stable (CV=0.10-0.14) while hold_bars unstable (CV=0.54), so parameter optimization should focus on entry thresholds.",
+      "strategy_type": "mean_reversion",
+      "market_family": "crypto",
+      "instrument_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "instrument_selection_rule": null,
+      "timeframe": "1h with 4h regime filter",
+      "priority": 85,
+      "dataset_requirements": [
+        "BTCUSDT 1h OHLCV data from Binance, minimum 43,000 bars covering 2021-03-22 to 2026-03-21"
+      ],
+      "historical_depth_requirement": {
+        "target": "5 years of BTCUSDT 1h data (43,789 bars)",
+        "justification": "Multi-year history required per crypto market policy. Deep BTC data already present in workspace/data/binance_btcusdt_1h_deep.csv. Data starts 2021-03-22, approximately 5 years covering bull/bear/ sideways regimes essential for robust WFA testing."
+      },
+      "source_plan": {
+        "allowed_source_families": [
+          "binance",
+          "public_archive"
+        ],
+        "primary_source_family": "binance",
+        "selection_reason": "Existing deep BTC data already fetched from Binance API and stored locally in workspace/data/binance_btcusdt_1h_deep.csv. No need to re-fetch; data is clean, paginated to full depth, and validated."
+      },
+      "scope_selection_rationale": "BTC/USDT is the highest-liquidity crypto pair, essential for testing strategy generalization beyond ETH. The strategy already demonstrated partial success on ETH (0.528 Sharpe) but with indication that the 4h regime filter may be restrictive. BTC's different volatility profile will reveal whether the strategy's regime filtering is asset-appropriate or overly restrictive.",
+      "data_acquisition": {
+        "status": "present",
+        "reason": "Deep BTC data already exists in workspace/data/binance_btcusdt_1h_deep.csv with 43,789 rows spanning 2021-03-22 to 2026-03-21. Data was fetched via Binance paginated API in prior run. No additional acquisition required.",
+        "acquisition_method": "existing_fetcher",
+        "sources": [
+          "workspace/data/binance_btcusdt_1h_deep.csv"
+        ],
+        "commands": [],
+        "expected_outputs": []
+      },
+      "inputs": [
+        "walk forward engine/src/strategies/ema_trend_gate.py",
+        "walk forward engine/config/strategy_ema_trend_gate.json",
+        "workspace/data/binance_btcusdt_1h_deep.csv"
+      ],
+      "implementation_steps": [
+        "1. Verify BTC deep data file exists and validate columns (timestamp, open, high, low, close, volume)",
+        "2. Create WFA config for BTC run: walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml",
+        "3. Configure WFA with training_months=3, testing_months=1, step_months=1 for ~60+ windows",
+        "4. Run WFA using Windows venv: cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml",
+        "5. Capture WFA output artifacts and aggregate metrics"
+      ],
+      "commands": [
+        "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_btc/wfa_config.yaml"
+      ],
+      "expected_artifacts": [
+        "factory/experiments/EXP-20260331154332-55.json",
+        "factory/runs/RUN-20260331154332-55.json",
+        "factory/runs/RUN-20260331154332-55_wfa_output.json",
+        "factory/summaries/RUN-20260331154332-55.md",
+        "walk forward engine/strategies/ema_trend_gate_btc/wfa_config.yaml"
+      ],
+      "advanced_wfa_config": {
+        "n_parameter_trials": 100,
+        "sampling_strategy": "tpe",
+        "backtest.fees": 0.0006,
+        "backtest.slippage": 0.0002,
+        "training_months": 3,
+        "testing_months": 1,
+        "step_months": 1,
+        "primary_objective": "sharpe",
+        "secondary_objectives": [],
+        "stability_weight": 0.1
+      },
+      "evaluation_criteria": {
+        "status_gate": "WFA must complete and produce valid OOS metrics for at least 50 windows",
+        "metrics": {
+          "min_sharpe_oos": 0.528,
+          "min_wfr": 0.5,
+          "max_drawdown_pct": 35,
+          "min_trades": 600
+        },
+        "min_evidence_score": 70
+      },
+      "fallback_if_blocked": [
+        "If WFA engine fails on BTC data, fall back to minimal harness for quick validation of signal generation before full WFA retry",
+        "If data loading fails, verify CSV structure and re-fetch from Binance if needed"
+      ],
+      "notes": [
+        "ETH baseline achieved 0.528 OOS Sharpe with 1216 trades over 85 windows (14.3 trades/window). BTC target: match or exceed this performance.",
+        "Lesson: RSI thresholds stable (CV=0.10-0.14), hold_bars unstable (CV=0.54) - may want to fix hold_bars to median value (48) and optimize entry thresholds only",
+        "Data spans approximately 5 years (2021-03-22 to 2026-03-21) covering multiple market regimes - sufficient for robust WFA"
+      ]
+    },
+    "retrieval": {
+      "relevant_execution_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window...",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.528,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -16.37,
+            "win_rate": 0.461,
+            "total_trades": 1216,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "avg_trades_per_window": 14.3,
+              "profit_factor": 1.103,
+              "expectancy": 0.098,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "positive_sharpe_windows": 42,
+              "evidence_score": 60
+            }
+          },
+          "related_artifact_paths": []
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "WFA engine does not output IS Sharpe — WFR cannot be computed. This is a systematic gap in the engine's output format across all experiments.",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.528,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -16.37,
+            "win_rate": 0.461,
+            "total_trades": 1216,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "avg_trades_per_window": 14.3,
+              "profit_factor": 1.103,
+              "expectancy": 0.098,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "positive_sharpe_windows": 42,
+              "evidence_score": 60
+            }
+          },
+          "related_artifact_paths": []
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "Trade frequency on ETH (14.3 avg trades/window) far exceeds vol_adaptive_trend BTC (4.3 trades/window) — validates ETH's higher volatility as a signal generator.",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.528,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -16.37,
+            "win_rate": 0.461,
+            "total_trades": 1216,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "avg_trades_per_window": 14.3,
+              "profit_factor": 1.103,
+              "expectancy": 0.098,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "positive_sharpe_windows": 42,
+              "evidence_score": 60
+            }
+          },
+          "related_artifact_paths": []
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "verdict": "partial",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "First WFA execution on ETHUSDT 1h — 64,733 bars (7.5yr history). ETHUSDT existed from 2017, Binance paginated API fetched full depth in 66 batches.",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.528,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -16.37,
+            "win_rate": 0.461,
+            "total_trades": 1216,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "avg_trades_per_window": 14.3,
+              "profit_factor": 1.103,
+              "expectancy": 0.098,
+              "total_windows": 85,
+              "successful_windows": 85,
+              "positive_sharpe_windows": 42,
+              "evidence_score": 60
+            }
+          },
+          "related_artifact_paths": []
+        }
+      ],
+      "known_blocker_patterns": [
+        {
+          "blocker_type": "general_execution",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "lesson": "EMA Trend Gate on ETH: 85 windows, 1216 trades, aggregate OOS Sharpe 0.528, max DD -16.37%, profit factor 1.103. Below 0.8 gate but statistically significant (7.5yr ETH, 85 wind..."
+        },
+        {
+          "blocker_type": "config_contract",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window..."
+        },
+        {
+          "blocker_type": "python_environment",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321183000-01",
+          "lesson": "MACD Divergence strategy created: hidden bullish/bearish divergence detection + RSI filter — a genuinely novel signal class not tested before."
+        }
+      ],
+      "relevant_paths": []
+    },
+    "retryNote": null
+  }
+}

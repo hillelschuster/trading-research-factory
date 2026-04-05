@@ -1,0 +1,6 @@
+{"ts":"2026-04-03T07:50:41.711Z","run_id":"RUN-20260403075038-ytxpt2","message":"Starting run","extra":{"iteration":104,"backlog_item_id":"AUTO-1775202394857-a1q","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260403075038-ytxpt2"}}
+{"ts":"2026-04-03T07:50:43.776Z","run_id":"RUN-20260403075038-ytxpt2","message":"Planner completed","extra":{"experiment_id":"EXP-20260403075042-02"}}
+{"ts":"2026-04-03T07:50:48.816Z","run_id":"RUN-20260403075038-ytxpt2","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-04-03T07:50:50.643Z","run_id":"RUN-20260403075038-ytxpt2","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-04-03T07:50:53.186Z","run_id":"RUN-20260403075038-ytxpt2","message":"Summarizer completed","extra":{"run_id":"RUN-20260403075038-ytxpt2","verdict":"inconclusive"}}
+{"ts":"2026-04-03T07:50:53.292Z","run_id":"RUN-20260403075038-ytxpt2","message":"Run completed","extra":{"run_id":"RUN-20260403075038-ytxpt2","verdict":"inconclusive","iteration":104}}

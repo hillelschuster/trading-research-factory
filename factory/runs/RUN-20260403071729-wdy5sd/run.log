@@ -1,0 +1,6 @@
+{"ts":"2026-04-03T07:17:32.941Z","run_id":"RUN-20260403071729-wdy5sd","message":"Starting run","extra":{"iteration":98,"backlog_item_id":"AUTO-1775200394992-0hn","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260403071729-wdy5sd"}}
+{"ts":"2026-04-03T07:17:35.004Z","run_id":"RUN-20260403071729-wdy5sd","message":"Planner completed","extra":{"experiment_id":"EXP-20260403071734-02"}}
+{"ts":"2026-04-03T07:17:39.891Z","run_id":"RUN-20260403071729-wdy5sd","message":"Executor completed","extra":{"status":"partial"}}
+{"ts":"2026-04-03T07:17:41.714Z","run_id":"RUN-20260403071729-wdy5sd","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
+{"ts":"2026-04-03T07:17:44.223Z","run_id":"RUN-20260403071729-wdy5sd","message":"Summarizer completed","extra":{"run_id":"RUN-20260403071729-wdy5sd","verdict":"inconclusive"}}
+{"ts":"2026-04-03T07:17:44.599Z","run_id":"RUN-20260403071729-wdy5sd","message":"Run completed","extra":{"run_id":"RUN-20260403071729-wdy5sd","verdict":"inconclusive","iteration":98}}

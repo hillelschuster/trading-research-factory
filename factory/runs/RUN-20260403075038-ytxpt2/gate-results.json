@@ -1,0 +1,64 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260403075038-ytxpt2",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "planner",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/planner-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:43.065Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/planner-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/executor-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:45.170Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/evaluator-attempt-1/stage-validated.json",
+        "workspace/results/simulated_baseline/simulation_note.txt"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:50.055Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260403075038-ytxpt2",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260403075038-ytxpt2/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-04-03T07:50:51.990Z",
+      "gate_path": "factory/runs/RUN-20260403075038-ytxpt2/summarizer-attempt-1/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-04-03T07:50:52.126Z"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260404090255-5uejma",
+  "stage": "planner",
+  "attempt": 14,
+  "decision": "allowed",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260404090255-5uejma/planner-attempt-14/stage-validated.json"
+  ],
+  "reason": null,
+  "recorded_at": "2026-04-04T13:39:38.089Z"
+}

@@ -1,0 +1,57 @@
+{
+  "experiment_id": "EXP-0001-WFA-VERIFY",
+  "title": "Verify baseline SMA crossover WFA harness on demo OHLCV data",
+  "backlog_item_id": "IDEA-0001",
+  "objective": "Confirm the baseline WFA engine produces reproducible artifacts and metrics on the included demo data.",
+  "hypothesis": "The WFA engine will successfully run walk-forward analysis on the demo data and produce consistent metrics across multiple runs, validating the bootstrap pipeline.",
+  "priority": 100,
+  "dataset_requirements": [
+    "workspace/data/demo_ohlcv.csv - 361 hourly OHLCV rows from 2024-01-01 to 2024-01-15"
+  ],
+  "inputs": [
+    "workspace/data/demo_ohlcv.csv",
+    "workspace/strategies/sma_cross.py",
+    "workspace/harness/wfa_engine.py"
+  ],
+  "implementation_steps": [
+    "1. Run WFA engine with train_size=120, test_size=60 on demo data",
+    "2. Verify report.json and trades.csv artifacts are created in output directory",
+    "3. Run WFA engine again with identical parameters to verify reproducibility",
+    "4. Compare the two run outputs to confirm metrics are identical",
+    "5. Validate metrics are reasonable (sharpe, drawdown, win_rate within expected ranges)"
+  ],
+  "commands": [
+    "python /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/harness/wfa_engine.py --csv /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/data/demo_ohlcv.csv --strategy workspace.strategies.sma_cross --output /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/results/wfa_verify_run1 --train-size 120 --test-size 60",
+    "python /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/harness/wfa_engine.py --csv /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/data/demo_ohlcv.csv --strategy workspace.strategies.sma_cross --output /mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/workspace/results/wfa_verify_run2 --train-size 120 --test-size 60"
+  ],
+  "expected_artifacts": [
+    "workspace/results/wfa_verify_run1/report.json",
+    "workspace/results/wfa_verify_run1/trades.csv",
+    "workspace/results/wfa_verify_run2/report.json",
+    "workspace/results/wfa_verify_run2/trades.csv"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "WFA engine runs without errors and produces both report.json and trades.csv files",
+    "metrics": [
+      "reproducibility - run1 and run2 produce identical out_of_sample metrics",
+      "sharpe - metric present and within reasonable range (-3 to 3)",
+      "max_drawdown - metric present and between -1 and 0",
+      "total_return - metric present and between -1 and 10",
+      "win_rate - metric present and between 0 and 1",
+      "trades - at least 1 trade generated in test periods",
+      "windows - 4 walk-forward windows executed"
+    ],
+    "min_evidence_score": 5
+  },
+  "fallback_if_blocked": [
+    "If Python/pandas missing: install with pip install pandas",
+    "If import errors: verify workspace.strategies.sma_cross is in Python path",
+    "If data errors: verify demo_ohlcv.csv has required columns (timestamp, open, high, low, close, volume)"
+  ],
+  "notes": [
+    "This is a bootstrap verification experiment to confirm the core WFA pipeline works.",
+    "Demo data has 361 rows - with train_size=120, test_size=60 we expect 4 walk-forward windows.",
+    "Reproducibility is key: if the engine produces different results on identical inputs, the pipeline is not trustworthy.",
+    "The strategy module is imported via --strategy workspace.strategies.sma_cross which requires the working directory to be the project root."
+  ]
+}

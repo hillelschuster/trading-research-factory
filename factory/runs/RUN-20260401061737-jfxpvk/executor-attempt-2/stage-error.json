@@ -1,0 +1,366 @@
+{
+  "agent": "executor",
+  "attempt": 2,
+  "attempts": 3,
+  "failure_class": "transport_failure",
+  "error": {
+    "name": "Error",
+    "message": "executor agent request timed out waiting for response headers.",
+    "stack": "Error: executor agent request timed out waiting for response headers.\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:113:14)\n    at OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:263:13)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1026:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:258:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1102:37)",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeRunner.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/runner-opencode.mjs:254:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1026:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:258:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1102:37)"
+    }
+  },
+  "message": "executor agent request timed out waiting for response headers.",
+  "recorded_at": "2026-04-01T07:28:23.820Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "plan": {
+      "experiment_id": "EXP-20260401061900-01",
+      "title": "Cross-Asset Generalization: EMA Trend Gate on BNB and SOL",
+      "backlog_item_id": "IDEA-138758-vzt",
+      "objective": "Test EMA Trend Gate strategy on BNBUSDT and SOLUSDT to validate cross-asset generalization beyond the successful BTC run (0.998 OOS Sharpe). This follows up on the BTC vs ETH comparison which showed BTC significantly outperformed ETH.",
+      "hypothesis": "If BTC outperformed ETH by 89% (0.998 vs 0.528 OOS Sharpe), then testing on additional major crypto pairs (BNB, SOL) will reveal whether the strategy generalizes well across assets or if BTC was an outlier. SOL's higher volatility than ETH may yield more trades; BNB provides a third major Binance-listed asset for validation.",
+      "strategy_rationale": "EMA Trend Gate already demonstrated strong cross-asset behavior on BTC vs ETH comparison (BTC 0.998 vs ETH 0.528). The strategy uses 4h EMA regime filter + 1h RSI pullback entries - a theoretically grounded approach. Testing on BNB and SOL tests whether the regime filtering works across different volatility regimes and asset characteristics.",
+      "strategy_type": "mean_reversion",
+      "market_family": "crypto",
+      "instrument_scope": "BNB/USDT and SOL/USDT spot",
+      "instrument_selection_rule": "Top 3 Binance spot pairs by market cap excluding BTC/ETH: BNBUSDT, SOLUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "priority": 75,
+      "dataset_requirements": [
+        "BNBUSDT 1h OHLCV data from Binance, minimum 40,000 bars covering 2021-2026",
+        "SOLUSDT 1h OHLCV data from Binance, minimum 40,000 bars covering 2021-2026"
+      ],
+      "historical_depth_requirement": {
+        "target": "5 years of 1h data for both pairs (~43k+ bars each)",
+        "justification": "Multi-year history required per crypto market policy. SOL data exists (binance_solusdt_1h_deep.csv, 43,789 rows from 2021-03-26). BNB data must be fetched - similar timeframe needed for comparable WFA windows."
+      },
+      "source_plan": {
+        "allowed_source_families": [
+          "binance",
+          "public_archive"
+        ],
+        "primary_source_family": "binance",
+        "selection_reason": "SOL deep data already exists in workspace/data/binance_solusdt_1h_deep.csv. BNB data must be fetched using the binance_deep_fetcher.py script with BNBUSDT symbol."
+      },
+      "scope_selection_rationale": "Testing on BNB and SOL extends the cross-asset validation beyond the BTC vs ETH comparison. These are the next two largest Binance spot pairs by volume. If the strategy generalizes well across all four pairs (BTC, ETH, BNB, SOL), it suggests robust cross-asset applicability. If results vary significantly, it reveals asset-specific characteristics that may require parameter tuning.",
+      "data_acquisition": {
+        "status": "must_download",
+        "reason": "SOL data exists (43,789 rows), BNB data missing. Must fetch BNBUSDT 1h data using the existing binance_deep_fetcher.py with modified symbol.",
+        "acquisition_method": "direct_public_api",
+        "sources": [
+          "Binance public API: https://api.binance.com/api/v3/klines",
+          "Script: workspace/data/fetchers/binance_deep_fetcher.py (modify for BNBUSDT)"
+        ],
+        "commands": [
+          "cd workspace/data/fetchers && python3 binance_deep_fetcher.py --output ../binance_bnbusdt_1h_deep.csv --symbol BNBUSDT"
+        ],
+        "expected_outputs": [
+          "workspace/data/binance_bnbusdt_1h_deep.csv",
+          "workspace/data/binance_solusdt_1h_deep.csv (already exists)"
+        ]
+      },
+      "inputs": [
+        "walk forward engine/src/strategies/ema_trend_gate.py",
+        "walk forward engine/config/strategy_ema_trend_gate.json",
+        "workspace/data/binance_solusdt_1h_deep.csv",
+        "workspace/data/binance_bnbusdt_1h_deep.csv (to be fetched)"
+      ],
+      "implementation_steps": [
+        "1. Fetch BNBUSDT 1h deep data using modified binance_deep_fetcher.py",
+        "2. Validate SOL data exists and has correct structure (timestamp, open, high, low, close, volume)",
+        "3. Create BNB WFA config: walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml",
+        "4. Create SOL WFA config: walk forward engine/strategies/ema_trend_gate_sol/wfa_config.yaml (reuse existing)",
+        "5. Run WFA for BNB: cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb/wfa_config.yaml",
+        "6. Run WFA for SOL: cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_sol/wfa_config.yaml",
+        "7. Compare results: BTC (0.998), ETH (0.528), BNB (TBD), SOL (TBD)"
+      ],
+      "commands": [
+        "cd workspace/data/fetchers && python3 binance_deep_fetcher.py --output ../binance_bnbusdt_1h_deep.csv --symbol BNBUSDT",
+        "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb/wfa_config.yaml",
+        "cd 'walk forward engine' && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_sol/wfa_config.yaml"
+      ],
+      "expected_artifacts": [
+        "workspace/data/binance_bnbusdt_1h_deep.csv",
+        "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml",
+        "factory/experiments/EXP-20260401061900-01.json",
+        "factory/runs/RUN-20260401061900-01_bnb/execution-result.json",
+        "factory/runs/RUN-20260401061900-01_sol/execution-result.json",
+        "factory/summaries/RUN-20260401061900-01.md"
+      ],
+      "advanced_wfa_config": {
+        "n_parameter_trials": 100,
+        "sampling_strategy": "tpe",
+        "backtest.fees": 0.0006,
+        "backtest.slippage": 0.0002,
+        "training_months": 3,
+        "testing_months": 1,
+        "step_months": 1,
+        "primary_objective": "sharpe",
+        "secondary_objectives": [],
+        "stability_weight": 0.1
+      },
+      "evaluation_criteria": {
+        "status_gate": "Both BNB and SOL WFA runs must complete with valid OOS metrics for at least 50 windows each",
+        "metrics": {
+          "min_sharpe_oos": 0.5,
+          "min_wfr": 0.5,
+          "max_drawdown_pct": 35,
+          "min_trades": 600
+        },
+        "min_evidence_score": 70
+      },
+      "fallback_if_blocked": [
+        "If BNB fetch fails, test SOL only and note BNB as blocked for future",
+        "If SOL WFA fails but BNB succeeds, prioritize BNB results",
+        "If both fail on full WFA, fall back to minimal harness for signal validation"
+      ],
+      "notes": [
+        "BTC baseline: 0.998 OOS Sharpe, -6.9% DD, 848 trades, 57 windows",
+        "ETH baseline: 0.528 OOS Sharpe, -16.37% DD, 1216 trades, 85 windows",
+        "BTC improved 89% over ETH in Sharpe, 58% in DD",
+        "Testing whether this improvement generalizes to BNB/SOL or if BTC was outlier",
+        "SOL has higher volatility than ETH - may yield more trade opportunities",
+        "BNB is Binance native token - may show unique dynamics"
+      ]
+    },
+    "retrieval": {
+      "relevant_execution_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321183000-01",
+          "verdict": "inconclusive",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "5-year BTC dataset present (binance_btcusdt_1h_deep.csv, 43,789 bars) but WFA could not be run on it — historical depth policy satisfied at input but blocked at execution.",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": null,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": null,
+            "win_rate": null,
+            "total_trades": null,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {}
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260321183000-01.md"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260318140000-01",
+          "verdict": "blocked",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": null,
+          "lesson": "Data validation passed: binance_btcusdt_1h_1000.csv, binance_ethusdt_1h_1000.csv, binance_solusdt_1h_1000.csv all contain volume column needed for strategy",
+          "specific_finding": null,
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": null,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": null,
+            "win_rate": null,
+            "total_trades": null,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {}
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260317144547-s59h3s.md"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260331154332-55",
+          "verdict": "promising",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "mean_reversion",
+          "lesson": "Cross-asset generalization validated: BTC outperforms ETH baseline",
+          "specific_finding": "BTC achieved 0.998 OOS Sharpe vs ETH 0.528 (+89% improvement), with significantly better drawdown profile (-6.9% vs -16.37%, +58% improvement)",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.998,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -6.9,
+            "win_rate": null,
+            "total_trades": 848,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 848
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260331154310-1aowi1.md",
+            "factory/runs/RUN-20260331154310-1aowi1/run-state.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/experiment-plan.json",
+            "factory/experiments/EXP-20260331154332-55.plan.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/handoff.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+            "factory/runs/RUN-20260331154310-1aowi1/changed-files.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260331154332-55",
+          "verdict": "promising",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "mean_reversion",
+          "lesson": "WFR remains uncomputed due to engine limitation",
+          "specific_finding": "WFA engine does not output IS Sharpe, preventing WFR calculation - this affects all factory experiments, not specific to this run",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.998,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -6.9,
+            "win_rate": null,
+            "total_trades": 848,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 848
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260331154310-1aowi1.md",
+            "factory/runs/RUN-20260331154310-1aowi1/run-state.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/planner-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/experiment-plan.json",
+            "factory/experiments/EXP-20260331154332-55.plan.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-1/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-3/stage-error.json",
+            "factory/runs/RUN-20260331154310-1aowi1/handoff.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-attempt-2/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/executor-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/execution-result.json",
+            "factory/runs/RUN-20260331154310-1aowi1/changed-files.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluator-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/evaluation.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-heartbeat.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-input.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-prompt.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1-session.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-response.raw.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-attempt-1/stage-validated.json",
+            "factory/runs/RUN-20260331154310-1aowi1/summarizer-response.txt",
+            "factory/runs/RUN-20260331154310-1aowi1/summary.json"
+          ]
+        }
+      ],
+      "known_blocker_patterns": [
+        {
+          "blocker_type": "general_execution",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "lesson": "EMA Trend Gate on ETH: 85 windows, 1216 trades, aggregate OOS Sharpe 0.528, max DD -16.37%, profit factor 1.103. Below 0.8 gate but statistically significant (7.5yr ETH, 85 wind..."
+        },
+        {
+          "blocker_type": "config_contract",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321200000-01",
+          "lesson": "Critical config bug found and fixed: data.min_required_bars (2000) OVERRIDES walk_forward.min_bars_per_window (600) in smoke_test runner. First WFA attempt skipped all 85 window..."
+        },
+        {
+          "blocker_type": "python_environment",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260321183000-01",
+          "lesson": "MACD Divergence strategy created: hidden bullish/bearish divergence detection + RSI filter — a genuinely novel signal class not tested before."
+        }
+      ],
+      "relevant_paths": [
+        "factory/summaries/RUN-20260321183000-01.md",
+        "factory/summaries/RUN-20260317144547-s59h3s.md",
+        "factory/summaries/RUN-20260331154310-1aowi1.md",
+        "factory/runs/RUN-20260331154310-1aowi1/run-state.json",
+        "factory/runs/RUN-20260331154310-1aowi1/planner-heartbeat.json",
+        "factory/runs/RUN-20260331154310-1aowi1/planner-attempt-1/stage-input.json"
+      ]
+    },
+    "retryNote": null
+  }
+}

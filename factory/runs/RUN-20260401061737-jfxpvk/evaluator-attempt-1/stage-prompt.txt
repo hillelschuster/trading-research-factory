@@ -1,0 +1,164 @@
+Goal: An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.
+
+## Evaluation Task
+```json
+{
+  "iteration": 63,
+  "plan": {
+    "experiment_id": "EXP-20260401061900-01",
+    "objective": "Test EMA Trend Gate strategy on BNBUSDT and SOLUSDT to validate cross-asset generalization beyond the successful BTC run (0.998 OOS Sharpe). This follows up on the BTC vs ETH comparison which showed BTC significantly outperformed ETH.",
+    "expected_artifacts": [
+      "workspace/data/binance_bnbusdt_1h_deep.csv",
+      "walk forward engine/strategies/ema_trend_gate_bnb/wfa_config.yaml",
+      "factory/experiments/EXP-20260401061900-01.json",
+      "factory/runs/RUN-20260401061900-01_bnb/execution-result.json",
+      "factory/runs/RUN-20260401061900-01_sol/execution-result.json",
+      "factory/summaries/RUN-20260401061900-01.md"
+    ],
+    "evaluation_criteria": {
+      "status_gate": "Both BNB and SOL WFA runs must complete with valid OOS metrics for at least 50 windows each",
+      "metrics": {
+        "min_sharpe_oos": 0.5,
+        "min_wfr": 0.5,
+        "max_drawdown_pct": 35,
+        "min_trades": 600
+      },
+      "min_evidence_score": 70
+    }
+  },
+  "execution_result": {
+    "experiment_id": "EXP-20260401234550-01",
+    "status": "partial",
+    "commands_attempted": [
+      "simulate: no live OpenCode execution used"
+    ],
+    "commands_completed": [
+      "simulate: wrote non-evidentiary artifact"
+    ],
+    "artifacts_created": [
+      "workspace/results/simulated_baseline/simulation_note.txt"
+    ],
+    "datasets_acquired": [],
+    "artifacts_updated": [],
+    "workspace_changes": [
+      "workspace/results/simulated_baseline/simulation_note.txt"
+    ],
+    "metrics_observed": {
+      "sharpe_is": null,
+      "sharpe_oos": null,
+      "wfr": null,
+      "is_oos_ratio": null,
+      "max_drawdown": null,
+      "win_rate": null,
+      "total_trades": null,
+      "fold_variance": null
+    },
+    "variants_tested": [],
+    "blockers": [
+      "Simulate mode does not run the live WFA engine."
+    ],
+    "errors": [
+      {
+        "command": "simulate: no live OpenCode execution used",
+        "message": "Synthetic execution stopped before real WFA outputs by design.",
+        "suggestion": "Use live mode for real evidence.",
+        "code_path_inspected": "src/core/runner-simulate.mjs",
+        "recovery_attempts": [
+          "Wrote a clearly synthetic artifact instead of claiming real WFA execution."
+        ]
+      }
+    ],
+    "notes": [
+      "Synthetic execution result for orchestration verification only.",
+      "Prompt digest length: 22883"
+    ]
+  },
+  "changed_files": [
+    "results/simulated_baseline/simulation_note.txt"
+  ]
+}
+```
+
+## Targeted Retrieval
+```json
+{
+  "comparable_prior_experiments": [
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260331154310-1aowi1",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "promising",
+      "evidence_score": 85,
+      "market_family": "crypto",
+      "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "mean_reversion",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9048,
+        "win_rate": 0.4835,
+        "total_trades": 848,
+        "fold_variance": 2.96,
+        "markets_tested": [
+          "BTCUSDT"
+        ],
+        "extra_metrics": {}
+      },
+      "summary_path": "factory/summaries/RUN-20260331154310-1aowi1.md",
+      "evidence_kind": "research",
+      "promotable": true
+    },
+    {
+      "source_path": "factory/evidence/index.json",
+      "run_id": "RUN-20260331154332-55",
+      "experiment_id": "EXP-20260331154332-55",
+      "verdict": "success",
+      "evidence_score": 85,
+      "market_family": "crypto",
+      "asset_scope": "BTCUSDT",
+      "timeframe": "1h with 4h regime filter",
+      "strategy_family": "EMA_TREND_GATE",
+      "metrics": {
+        "sharpe_is": null,
+        "sharpe_oos": 0.998,
+        "wfr": null,
+        "is_oos_ratio": null,
+        "max_drawdown": -6.9048,
+        "win_rate": 0.4835,
+        "total_trades": 848,
+        "fold_variance": 2.96,
+        "markets_tested": [
+          "BTCUSDT"
+        ],
+        "extra_metrics": {
+          "aggregate_return_pct": 0.8603,
+          "profit_factor": 1.1904,
+          "avg_trades_per_window": 14.88,
+          "total_windows": 57,
+          "successful_windows": 57,
+          "comparison_to_eth": {
+            "eth_sharpe_oos": 0.528,
+            "btc_sharpe_oos": 0.998,
+            "improvement_pct": 89,
+            "eth_max_drawdown": -16.37,
+            "btc_max_drawdown": -6.9048
+          }
+        }
+      },
+      "summary_path": "factory/summaries/RUN-20260331154332-55.md",
+      "evidence_kind": "research",
+      "promotable": true
+    }
+  ]
+}
+```
+
+## Exact Files To Inspect
+- factory/experiments/EXP-20260401061900-01.plan.json
+- workspace/results/simulated_baseline/simulation_note.txt
+- factory/evidence/index.json
+
+Return ONLY JSON in <RF_JSON>...</RF_JSON>

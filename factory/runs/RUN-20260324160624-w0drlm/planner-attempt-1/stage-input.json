@@ -1,0 +1,108 @@
+{
+  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+  "backlogItem": {
+    "id": "IDEA-079118-13l",
+    "title": "Try the same strategy class as \"Investigate why \"Simulated trend-following replenishment idea\" was inconclusive and design a simpler variant\" on a different asset or timeframe",
+    "status": "ready",
+    "priority": 55,
+    "category": "followup",
+    "objective": "Try the same strategy class as \"Investigate why \"Simulated trend-following replenishment idea\" was inconclusive and design a simpler variant\" on a different asset or timeframe",
+    "source": "RUN-20260324142113-k8ippv",
+    "lease_owner": null,
+    "lease_expires_at": null,
+    "current_run_id": null,
+    "last_failure_class": null,
+    "resume_from_stage": null
+  },
+  "retrieval": {
+    "relevant_lessons": [
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317160000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "Strategy performance is asset-dependent: SMA outperformed BB on BTC and SOL, while BB outperformed SMA on ETH (Sharpe 0.39 vs 0.19)",
+        "metrics": null
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260318140000-01",
+        "verdict": "blocked",
+        "mode": "live",
+        "lesson": "WFA execution blocked: Agent environment lacks pandas/numpy, WFA .venv is Windows-based - this continues to block all WFA experiments",
+        "metrics": null
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317210000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "Extended RSI parameters improved Sharpe from 0.79 to 0.94 - new best result in factory",
+        "metrics": null
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317190000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "RSI on BTC achieved best Sharpe (0.79) - highest in factory, better than SOL-BTC spread (0.57), SMA SOL (0.53), and BB ETH (0.39)",
+        "metrics": null
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317180000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "SOL-BTC spread achieved best Sharpe (0.57) - highest in factory, better than any single-asset strategy",
+        "metrics": null
+      },
+      {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317150000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "SOL outperformed both BTC and ETH on risk-adjusted basis (Sharpe 0.53) despite lower absolute return - demonstrates importance of looking beyond raw returns",
+        "metrics": null
+      }
+    ],
+    "contradiction": {
+      "positive": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260317160000-01",
+        "verdict": "passed",
+        "mode": "live",
+        "lesson": "Strategy performance is asset-dependent: SMA outperformed BB on BTC and SOL, while BB outperformed SMA on ETH (Sharpe 0.39 vs 0.19)",
+        "metrics": null
+      },
+      "negative": {
+        "source_path": "factory/memory/lessons.jsonl",
+        "experiment_id": "EXP-20260318140000-01",
+        "verdict": "blocked",
+        "mode": "live",
+        "lesson": "WFA execution blocked: Agent environment lacks pandas/numpy, WFA .venv is Windows-based - this continues to block all WFA experiments",
+        "metrics": null
+      }
+    },
+    "comparable_promoted_runs": [
+      {
+        "source_path": "factory/leaderboard.json",
+        "run_id": "RUN-20260318153742-zxvj84",
+        "experiment_id": "EXP-20260318160000-01",
+        "verdict": "inconclusive",
+        "evidence_score": 40,
+        "metrics": null,
+        "summary_path": "factory/summaries/RUN-20260318153742-zxvj84.md"
+      },
+      {
+        "source_path": "factory/leaderboard.json",
+        "run_id": "RUN-20260317105325-o1r5m4",
+        "experiment_id": "EXP-20260317180000-01",
+        "verdict": "passed",
+        "evidence_score": 70,
+        "metrics": null,
+        "summary_path": "factory/summaries/RUN-20260317105325-o1r5m4.md"
+      }
+    ]
+  },
+  "retryNote": null
+}

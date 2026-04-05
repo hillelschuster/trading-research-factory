@@ -1,0 +1,225 @@
+{
+  "agent": "executor",
+  "attempt": 1,
+  "attempts": 3,
+  "failure_class": "transport_failure",
+  "transport_phase": "first_headers",
+  "retryable": true,
+  "timeout_bucket": "first_headers",
+  "transport_adapter": "opencode_sdk",
+  "server_fingerprint": "ae89e3e7e8e273e74318a864dc66c4b243414e054da2fe29e1d4f4ec93e15473",
+  "error": {
+    "name": "Error",
+    "message": "executor transport request timed out waiting for response headers.",
+    "stack": "Error: executor transport request timed out waiting for response headers.\n    at createTransportError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:8:42)\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:33:14)\n    at OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:163:26)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1340:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:324:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1442:37)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
+    "failure_class": "transport_failure",
+    "retry_class": null,
+    "transport_phase": "first_headers",
+    "retryable": true,
+    "timeout_bucket": "first_headers",
+    "transport_adapter": "opencode_sdk",
+    "server_fingerprint": "ae89e3e7e8e273e74318a864dc66c4b243414e054da2fe29e1d4f4ec93e15473",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async fetch (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:81:28)\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:149:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1340:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:324:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1442:37)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20"
+    }
+  },
+  "message": "executor transport request timed out waiting for response headers.",
+  "recorded_at": "2026-04-05T13:35:12.368Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "plan": {
+      "experiment_id": "EXP-20260405132700-01",
+      "title": "Verify BNB robustness with discovered RSI parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168)",
+      "backlog_item_id": "IDEA-923409-1zj",
+      "objective": "Verify that the discovered BNB-specific parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168) produce consistent results across different WFA windows to confirm robustness vs overfitting",
+      "hypothesis": "The BNB-specific parameters (rsi_oversold=25, rsi_overbought=60, hold_bars=168) will maintain Sharpe > 0.8 and Drawdown < 15% across at least 70% of WFA windows, demonstrating genuine robustness rather than single-window overfitting",
+      "strategy_rationale": "Prior run showed these parameters achieved 1.275 OOS Sharpe (+195% vs generic params). This follow-up tests whether that result was a genuine edge or lucky window selection by running extended WFA with same parameters but different train/test splits. The 168 hold_bars (7 days) indicates longer-term mean reversion works better for BNB's exchange token volatility profile.",
+      "strategy_type": "multi_timeframe",
+      "market_family": "crypto",
+      "instrument_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+      "instrument_selection_rule": "Single asset: BNB/USDT - same asset as prior discovery run",
+      "timeframe": "1h with 4h regime filter",
+      "priority": 65,
+      "dataset_requirements": [
+        "BNB/USDT 1h OHLCV from Binance, minimum 3 years history for robust WFA"
+      ],
+      "historical_depth_requirement": {
+        "target": "Maximum available - 43,789 bars (~5 years from 2021-04)",
+        "justification": "Multi-year crypto history required for reliable WFA; the BNB deep dataset has 43,789 1h bars which is the maximum realistic Binance history for this pair. Short windows not justified as BNB is a liquid top-10 asset."
+      },
+      "source_plan": {
+        "allowed_source_families": [
+          "binance",
+          "public_archive"
+        ],
+        "primary_source_family": "binance",
+        "selection_reason": "BNB deep dataset already exists locally at workspace/data/binance_bnbusdt_1h_deep.csv; verified clean with 43,789 rows"
+      },
+      "scope_selection_rationale": "BNB is the exact asset where parameters were discovered. Testing on same asset to verify robustness - if parameters work across multiple train/test splits on BNB, it suggests genuine edge rather than overfitting. Using same deep dataset but different WFA window configurations to stress-test the parameters.",
+      "data_acquisition": {
+        "status": "present",
+        "reason": "binance_bnbusdt_1h_deep.csv already exists with 43,789 rows of clean 1h data",
+        "acquisition_method": "existing_fetcher",
+        "sources": [
+          "workspace/data/binance_bnbusdt_1h_deep.csv"
+        ],
+        "commands": [],
+        "expected_outputs": []
+      },
+      "inputs": [
+        "Prior discovery run: RUN-20260404090255-5uejma",
+        "Strategy: ema_trend_gate.py (LightweightEMATrendGate)",
+        "Discovered parameters: rsi_oversold=25, rsi_overbought=60, hold_bars=168"
+      ],
+      "implementation_steps": [
+        "1. Create WFA config for BNB robustness test with fixed discovered parameters",
+        "2. Configure WFA to use discovered parameters as fixed (not optimized) to test robustness",
+        "3. Run WFA with longer training window (6 months) and standard testing (1 month) to increase statistical confidence",
+        "4. Evaluate window-by-window metrics to check consistency",
+        "5. Compare % of positive Sharpe windows vs prior run"
+      ],
+      "commands": [
+        "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate/wfa_config.yaml"
+      ],
+      "expected_artifacts": [
+        "factory/runs/RUN-20260405132700-01/execution-result.json",
+        "factory/runs/RUN-20260405132700-01/evaluation.json",
+        "factory/summaries/RUN-20260405132700-01.md"
+      ],
+      "advanced_wfa_config": {
+        "n_parameter_trials": 1,
+        "sampling_strategy": "fixed",
+        "backtest.fees": 0.0006,
+        "backtest.slippage": 0.0002,
+        "training_months": 6,
+        "testing_months": 1,
+        "step_months": 1,
+        "primary_objective": "sharpe",
+        "secondary_objectives": [],
+        "stability_weight": 0.2,
+        "fixed_params": {
+          "ema4h_period": 50,
+          "ema1h_period": 20,
+          "rsi_period": 14,
+          "rsi_oversold": 25,
+          "rsi_overbought": 60,
+          "hold_bars": 168,
+          "sl_atr_mult": 2,
+          "tp_rr_mult": 2
+        }
+      },
+      "evaluation_criteria": {
+        "status_gate": "WFA completes with at least 30 windows and 200 total trades",
+        "metrics": {
+          "min_sharpe_oos": 0.8,
+          "min_wfr": 0.5,
+          "max_drawdown_pct": 15,
+          "min_trades": 200,
+          "min_positive_sharpe_windows_pct": 70
+        },
+        "min_evidence_score": 70
+      },
+      "fallback_if_blocked": [
+        "If WFA fails, run simplified backtest on same data to verify parameter validity",
+        "If data unavailable, fetch fresh BNB 1h from Binance API"
+      ],
+      "notes": [
+        "Key difference from prior run: This run uses FIXED parameters (no optimization) to test robustness. Prior run optimized to find these parameters - this run verifies they hold across multiple train/test splits.",
+        "The 70% positive Sharpe window threshold is critical - if parameters only work on the single optimized window, that's overfitting. Genuine edges should work across multiple windows."
+      ]
+    },
+    "retrieval": {
+      "relevant_execution_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "Cross-asset generalization partially confirmed but asset-specific tuning required",
+          "specific_finding": "Same parameters (EMA 50/20, RSI 14, 35/50 thresholds, 96 hold bars) produce widely varying results across assets. SOL and BTC thrive while BNB struggles, indicating exchange tokens need asset-specific parameter adjustment.",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -11.15,
+            "win_rate": null,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 837
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404080723-hm4238.md",
+            "factory/experiments/EXP-20260404080753-bnb.plan.json",
+            "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+            "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+            "factory/runs/RUN-20260404080723-hm4238/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404133920-01",
+          "verdict": "promising",
+          "mode": "live",
+          "market_family": null,
+          "asset_scope": null,
+          "timeframe": null,
+          "strategy_family": "multi_timeframe",
+          "lesson": "BNB exchange token volatility regime responds to asset-specific parameter tuning",
+          "specific_finding": "Prior run with generic parameters (rsi_oversold=35, rsi_overbought=50, hold_bars=96) yielded 0.432 OOS Sharpe - worst in EMA Trend Gate series. Expanded parameter search (rsi_oversold [25,30,35], rsi_overbought [50-70], hold_bars [96-168]) discovered optimal BNB settings at rsi_oversold=25, rsi_overbought=60, hold_bars=168, achieving 1.275 OOS Sharpe (+195%).",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 1.2751,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -8.1353,
+            "win_rate": 0.4979,
+            "total_trades": 484,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "improvement_vs_prior": "+195% Sharpe, +27% DD reduction"
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404090255-5uejma.md",
+            "factory/experiments/EXP-20260404133920-01.plan.json",
+            "factory/runs/RUN-20260404090255-5uejma/execution-result.json",
+            "factory/runs/RUN-20260404090255-5uejma/evaluation.json",
+            "factory/runs/RUN-20260404090255-5uejma/summary.json"
+          ]
+        }
+      ],
+      "known_blocker_patterns": [
+        {
+          "blocker_type": "config_contract",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "lesson": "Planner must verify strategy directories exist before referencing them in execution commands"
+        },
+        {
+          "blocker_type": "general_execution",
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404000000-NN",
+          "lesson": "Cross-asset generalization gap confirmed: ETH underperforms BTC with same strategy using BTC-pinned parameters"
+        }
+      ],
+      "relevant_paths": [
+        "factory/summaries/RUN-20260404080723-hm4238.md",
+        "factory/experiments/EXP-20260404080753-bnb.plan.json",
+        "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+        "factory/runs/RUN-20260404080723-hm4238/evaluation.json"
+      ]
+    },
+    "retryNote": null
+  }
+}

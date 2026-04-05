@@ -1,0 +1,60 @@
+{
+  "schema_version": "health_v1",
+  "updated_at": "2026-03-25T08:46:56.298Z",
+  "prompt_bytes_per_stage": {
+    "planner": {
+      "count": 1,
+      "avg_bytes": 2929,
+      "max_bytes": 2929,
+      "last_bytes": 2929
+    },
+    "executor": {
+      "count": 1,
+      "avg_bytes": 3795,
+      "max_bytes": 3795,
+      "last_bytes": 3795
+    },
+    "evaluator": {
+      "count": 1,
+      "avg_bytes": 2527,
+      "max_bytes": 2527,
+      "last_bytes": 2527
+    },
+    "summarizer": {
+      "count": 1,
+      "avg_bytes": 3598,
+      "max_bytes": 3598,
+      "last_bytes": 3598
+    }
+  },
+  "compaction_frequency": {
+    "observed_events": 0,
+    "measurement_status": "sdk_signal_not_exposed"
+  },
+  "session_reuse_count": {
+    "total_session_records": 4,
+    "reused_session_records": 0
+  },
+  "transport_retry_recovery_rate": {
+    "transport_failures": 0,
+    "recovered_after_retry": 0,
+    "recovery_rate": null
+  },
+  "stranded_lease_count": 0,
+  "resumable_run_recovery_rate": {
+    "handoff_runs": 0,
+    "recovered_runs": 0,
+    "recovery_rate": null
+  },
+  "memory_validation_failure_count": {
+    "repair_reports": 0,
+    "total_bad_fragments": 0
+  },
+  "simulate_entries_in_leaderboard": 0,
+  "asset_timeframe_distribution_live_runs": {},
+  "percent_of_plans_with_explicit_scope_justification": {
+    "total_plans": 1,
+    "plans_with_explicit_scope_justification": 1,
+    "percent": 1
+  }
+}

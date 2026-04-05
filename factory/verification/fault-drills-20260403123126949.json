@@ -1,0 +1,79 @@
+{
+  "schema_version": "fault_drills_v1",
+  "generated_at": "2026-04-03T12:31:27.018Z",
+  "drills": [
+    {
+      "drill_id": "timeout_before_headers",
+      "outcome": "explicit_rejection",
+      "details": {
+        "outcome": "explicit_rejection",
+        "phase": "first_headers"
+      }
+    },
+    {
+      "drill_id": "disconnect_after_headers",
+      "outcome": "explicit_rejection",
+      "details": {
+        "outcome": "explicit_rejection",
+        "phase": "request"
+      }
+    },
+    {
+      "drill_id": "session_create_success_then_prompt_hang",
+      "outcome": "explicit_rejection",
+      "details": {
+        "outcome": "explicit_rejection",
+        "phase": "request"
+      }
+    },
+    {
+      "drill_id": "owner_death_mid_executor",
+      "outcome": "safe_recovery",
+      "details": {
+        "outcome": "safe_recovery"
+      }
+    },
+    {
+      "drill_id": "clean_shutdown_during_executor",
+      "outcome": "safe_recovery",
+      "details": {
+        "outcome": "safe_recovery"
+      }
+    },
+    {
+      "drill_id": "bad_evaluator_artifact_path",
+      "outcome": "explicit_rejection",
+      "details": {
+        "message": "Evaluator result missing confidence fields."
+      }
+    },
+    {
+      "drill_id": "generic_summary",
+      "outcome": "explicit_rejection",
+      "details": {
+        "message": "Summarizer key lessons must not be generic boilerplate."
+      }
+    },
+    {
+      "drill_id": "false_executed_claim",
+      "outcome": "explicit_rejection",
+      "details": {
+        "message": "Executor reported 'executed' without canonical execution provenance."
+      }
+    },
+    {
+      "drill_id": "stale_active_run_reconciliation",
+      "outcome": "safe_recovery",
+      "details": {
+        "outcome": "safe_recovery"
+      }
+    },
+    {
+      "drill_id": "poisoned_run_move_on_behavior",
+      "outcome": "safe_recovery",
+      "details": {
+        "outcome": "safe_recovery"
+      }
+    }
+  ]
+}

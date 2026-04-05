@@ -1,0 +1,69 @@
+Now I have a complete picture of the workspace. The key gap is clear: **No real crypto data has been fetched and used**. The factory has:
+- Working WFA engine (tested with demo data)
+- Two basic strategies (RSI momentum, SMA crossover)
+- Binance fetcher (exists but never validated with live data)
+- Only demo data exists, no real BTC/ETH data
+
+This is the ideal next experiment: **Fetch live BTC data from Binance and run complete WFA analysis**. This will validate the crypto data pipeline end-to-end and produce real evidence.
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260316113000-01",
+  "title": "Fetch live BTCUSDT data and run complete WFA analysis",
+  "backlog_item_id": "IDEA-0001",
+  "objective": "Fetch real BTCUSDT 1h OHLCV data from Binance public API, then run walk-forward analysis using both RSI momentum and SMA crossover strategies to validate the end-to-end crypto data pipeline and produce scored evidence.",
+  "hypothesis": "The Binance fetcher will successfully retrieve OHLCV data, and both strategies will produce measurable out-of-sample results that can be compared. This validates the data pipeline is working for crypto strategies.",
+  "priority": 100,
+  "dataset_requirements": [
+    "Live BTCUSDT 1h OHLCV data from Binance (1000 candles)"
+  ],
+  "inputs": [
+    "workspace/data/fetchers/binance_fetcher.py",
+    "workspace/harness/wfa_engine.py",
+    "workspace/strategies/rsi_momentum.py",
+    "workspace/strategies/sma_cross.py"
+  ],
+  "implementation_steps": [
+    "Fetch BTCUSDT 1h data from Binance API using binance_fetcher.py and save to workspace/data/binance_btcusdt_1h.csv",
+    "Run WFA analysis with RSI momentum strategy: python3 workspace/harness/wfa_engine.py --csv workspace/data/binance_btcusdt_1h.csv --strategy workspace.strategies.rsi_momentum --output workspace/results/btc_rsi_wfa --train-size 200 --test-size 50",
+    "Run WFA analysis with SMA crossover strategy: python3 workspace/harness/wfa_engine.py --csv workspace/data/binance_btcusdt_1h.csv --strategy workspace.strategies.sma_cross --output workspace/results/btc_sma_wfa --train-size 200 --test-size 50",
+    "Compare results and generate summary report in workspace/results/btc_comparison/report.json"
+  ],
+  "commands": [
+    "python3 workspace/data/fetchers/binance_fetcher.py --symbol BTCUSDT --interval 1h --limit 1000 --output workspace/data/binance_btcusdt_1h.csv",
+    "python3 workspace/harness/wfa_engine.py --csv workspace/data/binance_btcusdt_1h.csv --strategy workspace.strategies.rsi_momentum --output workspace/results/btc_rsi_wfa --train-size 200 --test-size 50",
+    "python3 workspace/harness/wfa_engine.py --csv workspace/data/binance_btcusdt_1h.csv --strategy workspace.strategies.sma_cross --output workspace/results/btc_sma_wfa --train-size 200 --test-size 50"
+  ],
+  "expected_artifacts": [
+    "workspace/data/binance_btcusdt_1h.csv",
+    "workspace/results/btc_rsi_wfa/report.json",
+    "workspace/results/btc_rsi_wfa/trades.csv",
+    "workspace/results/btc_sma_wfa/report.json",
+    "workspace/results/btc_sma_wfa/trades.csv",
+    "workspace/results/btc_comparison/report.json"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "Binance data fetched successfully (CSV exists with >500 rows), both WFA reports generated with valid out_of_sample metrics",
+    "metrics": [
+      "data_fetch_rows",
+      "rsi_total_return",
+      "rsi_sharpe",
+      "rsi_max_drawdown",
+      "sma_total_return",
+      "sma_sharpe",
+      "sma_max_drawdown"
+    ],
+    "min_evidence_score": 75
+  },
+  "fallback_if_blocked": [
+    "Check Binance API connectivity (network issues)",
+    "Verify CSV has correct OHLCV format",
+    "Check WFA engine handles real market data correctly"
+  ],
+  "notes": [
+    "This validates the core crypto data pipeline end-to-end",
+    "Compares momentum (RSI) vs trend-following (SMA) on real BTC data",
+    "First real evidence for crypto strategies in the factory"
+  ]
+}
+</RF_JSON>

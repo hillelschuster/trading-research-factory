@@ -1,0 +1,61 @@
+I've already created the experiment plan and the Bollinger Bands strategy. Let me provide the final JSON output as required:
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260316140000-01",
+  "title": "Add Bollinger Bands Strategy and Test on BTCUSDT",
+  "backlog_item_id": "IDEA-0001",
+  "objective": "Add Bollinger Bands mean-reversion strategy to the strategy library and run WFA to produce evidence on live BTCUSDT data, comparing performance against existing RSI and SMA strategies.",
+  "hypothesis": "Bollinger Bands strategy will provide complementary performance to RSI momentum, with potential for better risk-adjusted returns in trending markets due to its mean-reversion design using standard deviation bands.",
+  "priority": 100,
+  "dataset_requirements": [
+    "Live BTCUSDT 1h OHLCV data from Binance (500+ candles)",
+    "CSV format: timestamp,open,high,low,close,volume"
+  ],
+  "inputs": [
+    "workspace/data/binance_btcusdt_1h_live.csv",
+    "workspace/strategies/bollinger_bands.py (new)",
+    "workspace/harness/wfa_engine.py"
+  ],
+  "implementation_steps": [
+    "1. Create new Bollinger Bands strategy module at workspace/strategies/bollinger_bands.py",
+    "2. Implement generate_signal() function with configurable period and std_dev parameters",
+    "3. Define DEFAULT_PARAM_GRID with period=[14,20,30] and std_dev=[1.5,2.0,2.5]",
+    "4. Run WFA engine with bollinger_bands strategy on existing BTCUSDT data",
+    "5. Configure train_size=168 (7 days), test_size=48 (2 days) for adequate windows",
+    "6. Save results to workspace/results/wfa_live_btc_bollinger/",
+    "7. Compare metrics against RSI strategy baseline from previous experiment"
+  ],
+  "commands": [
+    "cd /mnt/c/Users/הלל/Desktop/algo/projects/trading-research-factory && python3 workspace/harness/wfa_engine.py --csv workspace/data/binance_btcusdt_1h_live.csv --strategy workspace.strategies.bollinger_bands --output workspace/results/wfa_live_btc_bollinger --train-size 168 --test-size 48"
+  ],
+  "expected_artifacts": [
+    "workspace/strategies/bollinger_bands.py",
+    "workspace/results/wfa_live_btc_bollinger/report.json",
+    "workspace/results/wfa_live_btc_bollinger/trades.csv"
+  ],
+  "evaluation_criteria": {
+    "status_gate": "WFA backtest completes successfully with at least 5 complete train/test windows",
+    "metrics": [
+      "Total return (percentage)",
+      "Sharpe ratio",
+      "Max drawdown (percentage)",
+      "Win rate (percentage)",
+      "Number of trades",
+      "Comparison vs RSI strategy (sharpe, drawdown)"
+    ],
+    "min_evidence_score": 35
+  },
+  "fallback_if_blocked": [
+    "Strategy code error - debug and fix generate_signal implementation",
+    "Insufficient data for train/test windows - reduce train_size to 120, test_size to 24",
+    "WFA engine error - fallback to simpler single-train-test split"
+  ],
+  "notes": [
+    "Bollinger Bands is a volatility-based mean-reversion strategy, complementary to RSI momentum",
+    "Strategy uses period SMA as middle band, upper/lower bands at N standard deviations",
+    "Buy signal when price touches lower band, sell when touches upper band",
+    "This adds to the strategy library for future ensemble or selection experiments"
+  ]
+}
+</RF_JSON>

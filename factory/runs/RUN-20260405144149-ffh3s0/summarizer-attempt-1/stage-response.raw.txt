@@ -1,0 +1,58 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260405180000-01",
+  "backlog_item_id": "IDEA-923545-x3i",
+  "summary": "Tested expanded RSI bounds (20/80 vs 25/60) on BNB/USDT - WFA completed 57/57 windows with OOS Sharpe 1.4205 (+11.4% vs source 1.275), max DD improved to -7.89%. Hypothesis that extreme bounds outperform was NOT validated - optimizer consistently selected 25/60.",
+  "key_lessons": [
+    {
+      "lesson": "Extreme RSI bounds (20/80) did not outperform standard 25/60",
+      "specific_finding": "Optimizer explored 20/80 but selected 25/60 - same as source run. Hypothesis that 'trend toward extremes continues' was falsified.",
+      "result": {
+        "sharpe_oos": 1.4205,
+        "wfr": null,
+        "max_drawdown": -7.8934,
+        "trades": 443
+      }
+    },
+    {
+      "lesson": "BNB achieves best-ever EMA Trend Gate result in this run",
+      "specific_finding": "OOS Sharpe 1.4205 exceeds prior BNB runs: source (1.275), IDEA-923409-1zj (0.6636), and prior live run (0.432). However, this contradicts earlier finding that BNB was worst-performing asset.",
+      "result": {
+        "sharpe_oos": 1.4205,
+        "wfr": null,
+        "max_drawdown": -7.8934,
+        "trades": 443
+      }
+    },
+    {
+      "lesson": "Win rate consistently near 50% across BNB experiments",
+      "specific_finding": "49.44% win rate here vs 49.79% source - indicates limited edge per trade, strategy relies on risk/reward asymmetry rather than accuracy.",
+      "result": {
+        "sharpe_oos": 1.4205,
+        "wfr": null,
+        "max_drawdown": -7.8934,
+        "trades": 443
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Explore hold_bars optimization with more granular values around 108",
+      "rationale": "Prior runs found hold_bars=108 optimal; current run tested 144/168 but original optimal may still be unexplored",
+      "priority": "high"
+    },
+    {
+      "action": "Test different EMA period combinations (ema4h_period, ema1h_period)",
+      "rationale": "Current run fixed at 50/20 - systematic variation may reveal better regime filter combinations",
+      "priority": "medium"
+    },
+    {
+      "action": "Consider alternative signal types (volume, volatility indicators)",
+      "rationale": "RSI-only signals show consistent 50% win rate - adding volume/volatility filters may improve signal quality",
+      "priority": "medium"
+    }
+  ]
+}
+</RF_JSON>

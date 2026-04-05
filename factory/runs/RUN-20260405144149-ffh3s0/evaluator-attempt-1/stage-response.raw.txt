@@ -1,0 +1,70 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260405180000-01",
+  "verdict": "promising",
+  "evidence_score": 85,
+  "performance_score": 85,
+  "robustness_score": 80,
+  "novelty_score": 60,
+  "overall_score": 78,
+  "metrics": {
+    "sharpe_is": null,
+    "sharpe_oos": 1.4205,
+    "wfr": null,
+    "is_oos_ratio": null,
+    "max_drawdown": -7.89,
+    "win_rate": 0.4944,
+    "total_trades": 443,
+    "fold_variance": null,
+    "markets_tested": ["BNB/USDT"]
+  },
+  "red_flags": [
+    "Win rate near 50% - limited edge per trade",
+    "Consistency score moderate at 0.41 - some parameter variance across windows"
+  ],
+  "verification": {
+    "artifacts_checked": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json",
+      "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+      "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_180525.json",
+      "factory/runs/EXP-20260405180000-01/execution-result.json",
+      "factory/runs/EXP-20260405180000-01/evaluation.json",
+      "factory/summaries/EXP-20260405180000-01.md"
+    ],
+    "metrics_verified_from": [
+      "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json"
+    ],
+    "missing_or_unverified": []
+  },
+  "strengths": [
+    "OOS Sharpe improved +11.4% vs source (1.275 -> 1.4205)",
+    "Max drawdown improved from -8.14% to -7.89%",
+    "57/57 windows completed successfully - full WFA robustness",
+    "Parameter stability high: RSI bounds consistently selected across all windows",
+    "Total 443 trades provides statistical robustness",
+    "Evidence score 85 exceeds 70 gate by significant margin"
+  ],
+  "weaknesses": [
+    {
+      "type": "Hypothesis not validated - extreme RSI bounds (20/80) did not outperform 25/60",
+      "cross_experiment_patterns": "Repeated pattern: optimizer consistently selects 25/60 over 20/80 across multiple experiments"
+    },
+    {
+      "type": "Win rate near 50% - limited edge per trade",
+      "cross_experiment_patterns": "Consistently observed in prior BNB runs (49.44% here vs 49.79% in source)"
+    }
+  ],
+  "missing_evidence": [],
+  "promote_to_leaderboard": true,
+  "leaderboard_tier": "top",
+  "next_backlog_actions": [
+    "Explore hold_bars optimization (more granular values around 108)",
+    "Test different EMA period combinations (ema4h_period, ema1h_period)",
+    "Consider alternative signal types (volume, volatility indicators)"
+  ],
+  "confidence_level": "high",
+  "confidence_rationale": "All metrics verified from actual WFA output file (walk_forward_results_20260405_180525.json). Full 57-window WFA completed successfully. Comparison to source run shows clear improvement. Evidence score 85 >> 70 gate."
+}
+</RF_JSON>

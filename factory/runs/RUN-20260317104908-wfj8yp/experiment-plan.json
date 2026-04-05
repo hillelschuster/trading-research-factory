@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-20260317170000-01",
+  "status": "executed",
+  "commands_attempted": [
+    "python3 workspace/harness/wfa_minimal.py spread workspace/data/binance_btcusdt_1h_live.csv workspace/data/binance_ethusdt_1h_live.csv 168 48"
+  ],
+  "artifacts_created": [
+    "workspace/results/wfa_spread_btc_eth.json",
+    "workspace/results/spread_strategy_comparison.json"
+  ],
+  "artifacts_updated": [
+    "factory/experiments/EXP-20260317170000-01.plan.json",
+    "factory/backlog.json",
+    "workspace/harness/wfa_minimal.py"
+  ],
+  "workspace_changes": [
+    "Added cross-asset spread strategy to wfa_minimal.py",
+    "First cross-asset strategy in the factory"
+  ],
+  "metrics_observed": {
+    "spread_sharpe": 0.116,
+    "spread_return": 0.0102,
+    "spread_drawdown": -0.0142,
+    "spread_trades": 6
+  },
+  "blockers": [],
+  "notes": [
+    "First cross-asset strategy implemented",
+    "Spread achieved positive Sharpe (0.12) but underperformed best single-asset (SMA on SOL: 0.53)",
+    "Strategy: Long BTC when it outperforms ETH by threshold, exit when spread mean-reverts"
+  ]
+}

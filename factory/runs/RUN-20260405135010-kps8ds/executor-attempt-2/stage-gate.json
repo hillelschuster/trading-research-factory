@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260405135010-kps8ds",
+  "stage": "executor",
+  "attempt": 2,
+  "decision": "denied",
+  "validator": "stage_gate",
+  "evidence_paths": [
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-2/stage-error.json"
+  ],
+  "reason": "OpenCode executor session creation timed out after 15000ms.",
+  "recorded_at": "2026-04-05T15:36:26.635Z"
+}

@@ -1,0 +1,159 @@
+Loading data from workspace/data/binance_btcusdt_1h_live.csv...
+Loaded 500 rows
+Running WFA with Bollinger Bands, train_size=168, test_size=48...
+{
+  "windows": [
+    {
+      "train_start": "2026-02-23 16:00:00",
+      "train_end": "2026-03-02 15:00:00",
+      "test_start": "2026-03-02 16:00:00",
+      "test_end": "2026-03-04 15:00:00",
+      "params": {
+        "period": 14,
+        "std_dev": 2.0
+      },
+      "train": {
+        "total_return": 0.0683076856166962,
+        "sharpe": 1.8696040203127142,
+        "max_drawdown": -0.01937019357882197,
+        "win_rate": 0.6216216216216216,
+        "trades": 5
+      },
+      "test": {
+        "total_return": 0.010783200230435996,
+        "sharpe": 1.1920254304183855,
+        "max_drawdown": -0.012327920611099441,
+        "win_rate": 0.5714285714285714,
+        "trades": 1
+      }
+    },
+    {
+      "train_start": "2026-02-25 16:00:00",
+      "train_end": "2026-03-04 15:00:00",
+      "test_start": "2026-03-04 16:00:00",
+      "test_end": "2026-03-06 15:00:00",
+      "params": {
+        "period": 14,
+        "std_dev": 2.0
+      },
+      "train": {
+        "total_return": 0.06207581760128833,
+        "sharpe": 1.453818866054348,
+        "max_drawdown": -0.023526245071348484,
+        "win_rate": 0.6041666666666666,
+        "trades": 6
+      },
+      "test": {
+        "total_return": -0.028214918083806717,
+        "sharpe": -2.96237890316636,
+        "max_drawdown": -0.02956000313660523,
+        "win_rate": 0.42105263157894735,
+        "trades": 2
+      }
+    },
+    {
+      "train_start": "2026-02-27 16:00:00",
+      "train_end": "2026-03-06 15:00:00",
+      "test_start": "2026-03-06 16:00:00",
+      "test_end": "2026-03-08 15:00:00",
+      "params": {
+        "period": 14,
+        "std_dev": 2.0
+      },
+      "train": {
+        "total_return": 0.040213031190099224,
+        "sharpe": 0.966882809850692,
+        "max_drawdown": -0.03592290702493006,
+        "win_rate": 0.5476190476190477,
+        "trades": 6
+      },
+      "test": {
+        "total_return": 0.0011223394391062236,
+        "sharpe": 0.18650270029920044,
+        "max_drawdown": -0.013775281334558076,
+        "win_rate": 0.5714285714285714,
+        "trades": 2
+      }
+    },
+    {
+      "train_start": "2026-03-01 16:00:00",
+      "train_end": "2026-03-08 15:00:00",
+      "test_start": "2026-03-08 16:00:00",
+      "test_end": "2026-03-10 15:00:00",
+      "params": {
+        "period": 14,
+        "std_dev": 1.5
+      },
+      "train": {
+        "total_return": 0.004567977872378393,
+        "sharpe": 0.1430710435560791,
+        "max_drawdown": -0.04334923646741451,
+        "win_rate": 0.5223880597014925,
+        "trades": 7
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    {
+      "train_start": "2026-03-03 16:00:00",
+      "train_end": "2026-03-10 15:00:00",
+      "test_start": "2026-03-10 16:00:00",
+      "test_end": "2026-03-12 15:00:00",
+      "params": {
+        "period": 14,
+        "std_dev": 1.5
+      },
+      "train": {
+        "total_return": 0.006697748835208017,
+        "sharpe": 0.253495565087795,
+        "max_drawdown": -0.04334923646741429,
+        "win_rate": 0.5245901639344263,
+        "trades": 7
+      },
+      "test": {
+        "total_return": 0.025642052855014974,
+        "sharpe": 2.84497358624287,
+        "max_drawdown": -0.011896136063103246,
+        "win_rate": 0.7058823529411765,
+        "trades": 2
+      }
+    },
+    {
+      "train_start": "2026-03-05 16:00:00",
+      "train_end": "2026-03-12 15:00:00",
+      "test_start": "2026-03-12 16:00:00",
+      "test_end": "2026-03-14 15:00:00",
+      "params": {
+        "period": 20,
+        "std_dev": 1.5
+      },
+      "train": {
+        "total_return": 0.03710400517017276,
+        "sharpe": 1.6726342142898838,
+        "max_drawdown": -0.025057483506959022,
+        "win_rate": 0.5769230769230769,
+        "trades": 4
+      },
+      "test": {
+        "total_return": 0.0,
+        "sharpe": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades": 0
+      }
+    }
+  ],
+  "out_of_sample": {
+    "total_return": 0.0015554457401250794,
+    "sharpe": 0.21018713563234925,
+    "max_drawdown": -0.011259890190894331,
+    "win_rate": 0.3782986878962111,
+    "trades": 7,
+    "windows": 6
+  }
+}
