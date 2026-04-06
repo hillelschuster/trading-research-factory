@@ -1,0 +1,62 @@
+# EMA Trend Gate Strategy – WFA Configuration
+# Multi-Timeframe EMA Confluence with 4h Trend Gate on BTC/USDT
+# Strategy: Filter 1h RSI pullback entries with 4h EMA slope direction
+# EXP-20260331154332-55 | Testing cross-asset generalization from ETH to BTC
+
+walk_forward:
+  training_months: 3
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 100
+  min_bars_per_window: 600
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/ema_trend_gate_btc/results"
+
+data:
+  source_file: "data/binance_btcusdt_1h_deep.csv"
+  min_required_bars: 600
+
+strategy:
+  profile_key: "EMA_TREND_GATE"
+  parameter_ranges:
+    # PINNED: 4h EMA regime detection period
+    ema4h_period: [50]
+    # PINNED: 1h pullback entry EMA
+    ema1h_period: [20]
+    # PINNED: RSI lookback
+    rsi_period: [14]
+    # OPTIMIZED: Long entry RSI threshold
+    rsi_oversold: [35.0, 40.0, 45.0, 50.0]
+    # OPTIMIZED: Short entry RSI threshold
+    rsi_overbought: [50.0, 55.0, 60.0, 65.0]
+    # OPTIMIZED: Exit hold bars (1h bars)
+    hold_bars: [24, 48, 72, 96]
+    # PINNED: Stop-loss ATR multiplier
+    sl_atr_mult: [2.0]
+    # PINNED: Take-profit risk-reward ratio
+    tp_rr_mult: [2.0]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "stability"
+  stability_weight: 0.15
+  n_startup_trials: 10
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0006
+  slippage: 0.0002
+
+performance:
+  max_execution_time_seconds: 1800
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_ema_trend_gate_btc.log"

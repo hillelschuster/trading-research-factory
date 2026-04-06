@@ -1,0 +1,63 @@
+# EMA Trend Gate Strategy – WFA Configuration
+# Multi-Timeframe EMA Confluence with 4h Trend Gate on BNB/USDT
+# Strategy: Filter 1h RSI pullback entries with 4h EMA slope direction
+# EXP-20260405180000-01 | Extreme RSI bounds test (20/80) vs prior (25/60)
+# Goal: Test even looser RSI bounds to further exploit BNB volatility regime
+
+walk_forward:
+  training_months: 3
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 100
+  min_bars_per_window: 600
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/ema_trend_gate/results"
+
+data:
+  source_file: "data/binance_bnbusdt_1h_deep.csv"
+  min_required_bars: 600
+
+strategy:
+  profile_key: "EMA_TREND_GATE"
+  parameter_ranges:
+    # FIXED: 4h EMA regime detection period
+    ema4h_period: [50]
+    # FIXED: 1h pullback entry EMA
+    ema1h_period: [20]
+    # FIXED: RSI lookback
+    rsi_period: [14]
+    # OPTIMIZE: Extreme RSI bounds test (20/80) vs prior (25/60)
+    rsi_oversold: [20, 25]
+    # OPTIMIZE: Extreme RSI bounds test (20/80) vs prior (25/60)
+    rsi_overbought: [60, 70, 80]
+    # OPTIMIZE: Hold bars (144, 168) - from prior optimal
+    hold_bars: [144, 168]
+    # FIXED: Stop-loss ATR multiplier
+    sl_atr_mult: [2.0]
+    # FIXED: Take-profit risk-reward ratio
+    tp_rr_mult: [2.0]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives: []
+  stability_weight: 0.1
+  n_startup_trials: 10
+  sampling_strategy: "tpe"
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0006
+  slippage: 0.0002
+
+performance:
+  max_execution_time_seconds: 1800
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_ema_trend_gate.log"

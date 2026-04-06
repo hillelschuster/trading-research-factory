@@ -1,0 +1,335 @@
+asset_strategy_profiles:
+  BB_WIDTH_SQUEEZE:
+    description: BB Width Squeeze – Volatility expansion breakout on BTC 1h. BB Width
+      contraction precedes explosive directional moves.
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: strategy_bb_width_squeeze.json
+    symbol: BTCUSDT
+    timeframe: H1
+  BTC_LONDON_SWEEP:
+    description: BTC London Sweep & Fade - Asia session liquidity sweep mean reversion
+      on BTC
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: BTC_LONDON_SWEEP_Params
+    symbol: BTCUSDT
+    timeframe: H1
+  BTC_RESIDUAL_REVERSION:
+    description: BTC-Normalized Residual Mean Reversion on ETH - Extract BTC-neutral
+      residuals from ETH returns and trade mean reversion on z-score
+    enabled: true
+    instrument_details_key: ETHUSDT_BINANCE
+    strategy_params_key: strategy_btc_residual_reversion.json
+    symbol: ETHUSDT
+    timeframe: H1
+  EMA_TREND_GATE:
+    description: Multi-Timeframe EMA Confluence with 4h Trend Gate on BTC/USDT
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: strategy_ema_trend_gate.json
+    symbol: BTCUSDT
+    timeframe: H1
+  EMA_TREND_GATE_SOL:
+    description: Multi-Timeframe EMA Confluence with 4h Trend Gate on SOL/USDT. Test
+      volatility edge hypothesis.
+    enabled: true
+    instrument_details_key: SOLUSDT_BINANCE
+    strategy_params_key: strategy_ema_trend_gate_sol.json
+    symbol: SOLUSDT
+    timeframe: H1
+  ETH_SESSION_MOMENTUM:
+    description: ETH Session Momentum - EU→US continuation. Long when EU session return
+      exceeds threshold at US open (14:00 UTC). 24/7 crypto lacks MM overnight hedging,
+      so institutional momentum carries across sessions.
+    enabled: true
+    instrument_details_key: ETHUSDT_BINANCE
+    strategy_params_key: strategy_eth_session_momentum.json
+    symbol: ETHUSDT
+    timeframe: H1
+  EURUSD_LONDON_BREAKOUT:
+    description: London Breakout - Time-based Asia range breakout strategy (Strict
+      Fixes)
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_london_breakout.json
+    symbol: EURUSD
+    timeframe: M15
+  EURUSD_LONDON_SWEEP_FADE:
+    description: London Sweep & Fade - Mean reversion on false breakouts of Asian
+      range
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_london_sweep_fade.json
+    symbol: EURUSD
+    timeframe: M15
+  EURUSD_MeanReversion_M15:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_gbpusd_m15.json
+    symbol: EURUSD
+  EURUSD_RSI_H1_Baseline:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v1.json
+    symbol: EURUSD
+  EURUSD_RSI_H1_Test_A:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v1.json
+    symbol: EURUSD
+  EURUSD_RSI_H1_Variant:
+    description: Targeted RSI parameter sweep around baseline (2-5% annual, low DD).
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_targeted_sweep.json
+    symbol: EURUSD
+    timeframe: D1
+  EURUSD_RSI_M15:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v1.json
+    symbol: EURUSD
+  EURUSD_RSI_M15_Test_B:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v4_age24.json
+    symbol: EURUSD
+  EURUSD_RSI_OPTIMIZED_PHASE6:
+    description: Phase 6 Validated Optimal RSI Strategy - Daily Bars RSI(3) 20/80
+      (Sharpe 0.202, 2.25% returns)
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_optimized_phase6.json
+    symbol: EURUSD
+    timeframe: D1
+    validation_status: PASSED_ALL_CRITERIA
+  EURUSD_RSI_V3_TP20:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v3_tp20.json
+    symbol: EURUSD
+  EURUSD_RSI_V4_Age24:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_rsi_ranging_market_v4_age24.json
+    symbol: EURUSD
+  EURUSD_SMA_M15:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_sma_trending_market_v1.json
+    symbol: EURUSD
+  EURUSD_TrendFollowing_H1:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_sma_eurusd_h1.json
+    symbol: EURUSD
+  EURUSD_TrendFollowing_Test:
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_sma_test.json
+    symbol: EURUSD
+  GBPJPY_REVERSION:
+    description: GBPJPY Liquidity Vacuum - London session mean reversion with 2.5σ
+      extreme pierce
+    enabled: false
+    instrument_details_key: GBPJPY_FTMO
+    strategy_params_key: strategy_gbpjpy_reversion.json
+    symbol: GBPJPY
+    timeframe: M15
+  NY_PM_REVERSION:
+    description: NY PM Reversion - Mean reversion during NY PM session (17:00-21:00
+      UTC)
+    enabled: false
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_ny_pm_reversion.json
+    symbol: EURUSD
+    timeframe: M15
+  VOLATILITY_REGIME:
+    description: Volatility Contraction-Expansion Regime Strategy - ATR% contraction/expansion
+      on 4h, EMA trend filter, 1h entries on BTC/USDT
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: strategy_volatility_regime.json
+    symbol: BTCUSDT
+    timeframe: H1
+  VOL_ADAPTIVE_RSI:
+    description: Volatility-Adaptive RSI - Pure RSI pullback (no 4h regime filter)
+      with volatility-scaled stops on ETH/USDT 1h. Remove 4h EMA regime filter to
+      improve positive-window consistency.
+    enabled: true
+    instrument_details_key: ETHUSDT_BINANCE
+    strategy_params_key: strategy_vol_adaptive_rsi_eth.json
+    symbol: ETHUSDT
+    timeframe: H1
+  VOL_ADAPTIVE_TREND:
+    description: Volatility-Adaptive Trend Following - Supertrend with dynamic position
+      sizing based on realized volatility on BTC/USDT
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: strategy_vol_adaptive_trend.json
+    symbol: BTCUSDT
+    timeframe: H1
+  XAUUSD_GOLD_RUSH_PRO:
+    description: Gold Rush Pro – Thursday RSI mean-reversion with ATR stop and time
+      exit
+    enabled: true
+    instrument_details_key: XAUUSD_FTMO
+    strategy_params_key: strategy_gold_rush_pro.json
+    symbol: XAUUSD
+    timeframe: M15
+  XAUUSD_MeanReversion_M5:
+    enabled: false
+    instrument_details_key: XAUUSD_FTMO
+    strategy_params_key: MeanReversion_XAUUSD_M5_Params
+    symbol: XAUUSD
+  XAUUSD_TrendFollowing_H4:
+    description: Gold H4 SMA Crossover Trend Following with Trailing Stops
+    enabled: true
+    instrument_details_key: XAUUSD_FTMO
+    strategy_params_key: strategy_gold_trend_following.json
+    symbol: XAUUSD
+    timeframe: H4
+assets_to_trade:
+- EURUSD_LONDON_BREAKOUT
+bot_settings:
+  app_name: PropFirmAlgoBot
+  ftmo_server_timezone: Europe/Prague
+  main_loop_delay_seconds: 10
+  trading_mode: paper
+leverage_constraints:
+  margin_buffer_pct: 0.05
+  margin_check_enabled: true
+  max_leverage_ratio: 30
+logging:
+  backup_count: 7
+  directory: logs
+  file_name_prefix: trading_bot_text
+  json_log_file_name_prefix: trading_bot_structured
+  level: INFO
+  log_format: '%(asctime)s - %(app_name)s - [%(levelname)s] - %(name)s - %(module)s.%(funcName)s:%(lineno)d
+    - %(message)s'
+  max_bytes: 10485760
+  structured_logging: true
+operational_compliance:
+  enforce_weekend_closure: false
+  is_swing_account: true
+  market_close_blackout_period_hours: 4
+  max_order_modifications_per_minute_total: 10
+  max_orders_per_second: 20
+  max_total_orders_per_day: 1800
+  min_trade_duration_seconds: 61
+platform:
+  ctrader:
+    account_id_env_var: CTRADER_ACCOUNT_ID
+    client_id_env_var: CTRADER_CLIENT_ID
+    client_secret_env_var: CTRADER_CLIENT_SECRET
+    host_type: demo
+  mt5:
+    account_env_var: MT5_ACCOUNT
+    magic_number_default: 12345
+    password_env_var: MT5_PASSWORD
+    path: C:\Program Files\FTMO Global Markets MT5 Terminal\terminal64.exe
+    server_env_var: MT5_SERVER
+    slippage_default_points: 20
+    timeout_ms: 10000
+  name: MetaTrader5
+risk_management:
+  default_risk_per_trade_idea_pct: 0.01
+  global_daily_drawdown_limit_pct: 0.045
+  global_max_account_drawdown_pct: 0.09
+  max_concurrent_trades_per_strategy_type: 999
+  max_total_concurrent_trades: 999
+state_management:
+  persistence_file: state/bot_state.json
+  persistence_interval_seconds: 300
+strategy_definitions:
+  BB_WIDTH_SQUEEZE:
+    description: 'BB Width Squeeze – Volatility expansion breakout: BB Width contraction
+      (squeeze) precedes explosive moves; enter on bandwidth expansion with momentum
+      confirmation.'
+    strategy_class: LightweightBBWidthSqueeze
+    strategy_module: src.strategies.bb_width_squeeze
+  BTCResidualReversion:
+    description: BTC-Normalized Residual Mean Reversion on ETH - Extract BTC-neutral
+      residuals from ETH returns and trade mean reversion on z-score.
+    strategy_class: BTCResidualReversion
+    strategy_module: src.strategies.btc_residual_reversion
+  EMATrendGate:
+    description: Multi-Timeframe EMA Confluence with 4h Trend Gate on BTC/USDT.
+    strategy_class: LightweightEMATrendGate
+    strategy_module: src.strategies.ema_trend_gate
+  EMATrendGateSOL:
+    description: Multi-Timeframe EMA Confluence with 4h Trend Gate on SOL/USDT.
+    strategy_class: LightweightEMATrendGate
+    strategy_module: src.strategies.ema_trend_gate
+  ETHSessionMomentum:
+    description: ETH Session Momentum - EU→US continuation. Long when EU session return
+      exceeds threshold at US open (14:00 UTC). 24/7 crypto lacks MM overnight hedging,
+      so institutional momentum carries across sessions.
+    strategy_class: ETHSessionMomentum
+    strategy_module: src.strategies.eth_session_momentum
+  GBPJPYReversion_LiquidityVacuum:
+    description: GBPJPY Liquidity Vacuum - London session mean reversion with 2.5σ
+      extreme pierce and V-shaped rejection.
+    strategy_class: GBPJPYReversionStrategy
+    strategy_module: src.strategies.gbpjpy_reversion
+  GoldRushPro_DayOfWeek:
+    description: Gold Rush Pro – Day-of-week RSI mean-reversion (Thursday entry, ATR
+      stop, time exit).
+    strategy_class: LightweightGoldRushPro
+    strategy_module: src.strategies.gold_rush_pro
+  GoldTrendFollowing_EnhancedMomentum:
+    description: Gold H4 Enhanced Momentum Persistence with ADX and Chandelier Exit.
+    strategy_class: LightweightGoldTrendFollowing
+    strategy_module: src.strategies.gold_trend_following_vectorized
+  LondonBreakout_ORB:
+    description: London Breakout - ORB-aligned Asia range breakout for vectorized
+      WFA.
+    strategy_class: LondonBreakoutStrategy
+    strategy_module: src.strategies.london_breakout
+  LondonBreakout_PriceAction:
+    description: London Breakout - Time-based Asia range breakout using structural
+      price action.
+    strategy_class: LondonBreakoutStrategy
+    strategy_module: src.strategies.london_breakout
+  LondonSweepFade:
+    description: London Sweep & Fade - Mean reversion fading false breakouts of Asian
+      range during London open.
+    strategy_class: LondonSweepStrategy
+    strategy_module: src.strategies.london_sweep
+  MeanReversion_RSI_BB:
+    description: Mean Reversion strategy using RSI and Bollinger Bands.
+    strategy_class: MeanReversionRSI
+    strategy_module: src.strategies.mean_reversion_rsi
+  MeanReversion_RSI_Optimized:
+    description: Phase 6 Validated Optimal Mean Reversion strategy using RSI(3) with
+      20/80 thresholds on daily bars.
+    strategy_class: MeanReversionRSI
+    strategy_module: src.strategies.mean_reversion_rsi
+  NYPMReversion_MeanReversion:
+    description: NY PM Reversion - Mean reversion at Upper BB during NY PM session
+      with anchored VWAP TP.
+    strategy_class: NYPMReversionStrategy
+    strategy_module: src.strategies.ny_pm_reversion
+  TrendFollowing_SMA_Cross:
+    description: Trend Following strategy using SMA crossovers.
+    strategy_class: TrendFollowingSMA
+    strategy_module: src.strategies.trend_following_sma
+  VolAdaptiveRSI:
+    description: Volatility-Adaptive RSI - Pure RSI pullback (long when RSI < oversold,
+      short when RSI > overbought) with volatility-scaled stop-loss (SL% = ATR × mult
+      / close) on ETH/USDT 1h. No multi-timeframe filter — designed to improve positive-window
+      consistency over EMA Trend Gate.
+    strategy_class: LightweightVolAdaptiveRSI
+    strategy_module: src.strategies.vol_adaptive_rsi_eth
+  VolAdaptiveTrend:
+    description: Volatility-Adaptive Trend Following - Supertrend crossover with dynamic
+      position sizing based on realized volatility on BTC/USDT.
+    strategy_class: LightweightVolAdaptiveTrend
+    strategy_module: src.strategies.vol_adaptive_trend
+  VolatilityRegime:
+    description: Volatility Contraction-Expansion - ATR% contraction/expansion on
+      4h bars, filtered by EMA trend direction, 1h entries on BTC/USDT.
+    strategy_class: LightweightVolatilityRegime
+    strategy_module: src.strategies.volatility_regime

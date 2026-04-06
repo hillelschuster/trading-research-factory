@@ -1,0 +1,53 @@
+{
+    "strategy_params_key": "strategy_eth_session_momentum.json",
+    "description": "ETH Session Momentum: EU-to-US continuation. Long when EU session return exceeds momentum threshold at US session open (14:00 UTC). 24/7 crypto lacks MM overnight hedging, so institutional momentum carries across sessions.",
+    "strategy_definition_key": "ETHSessionMomentum",
+    "parameters": {
+        "timeframe": "1h",
+        "momentum_percentile": 85.0,
+        "min_momentum_pct": 0.3,
+        "eu_start_hour": 8,
+        "eu_end_hour": 15,
+        "entry_hour": 16,
+        "exit_hour": 21,
+        "atr_period": 14,
+        "sl_atr_mult": 2.0,
+        "tp_rr_mult": 1.5,
+        "use_short_side": false,
+        "min_short_momentum": -0.5,
+        "trailing_stop": false,
+        "ts_atr_mult": 1.5
+    },
+    "optimization_ranges": {
+        "momentum_percentile": {
+            "values": [50.0, 60.0, 70.0, 80.0]
+        },
+        "min_momentum_pct": {
+            "values": [0.1, 0.2, 0.3, 0.5]
+        },
+        "eu_start_hour": {
+            "values": [8]
+        },
+        "eu_end_hour": {
+            "values": [15]
+        },
+        "entry_hour": {
+            "values": [16]
+        },
+        "exit_hour": {
+            "values": [20, 21, 22]
+        },
+        "sl_atr_mult": {
+            "values": [1.5, 2.0, 2.5]
+        },
+        "tp_rr_mult": {
+            "values": [1.0, 1.5, 2.0]
+        },
+        "use_short_side": {
+            "values": [false]
+        },
+        "atr_period": {
+            "values": [14]
+        }
+    }
+}

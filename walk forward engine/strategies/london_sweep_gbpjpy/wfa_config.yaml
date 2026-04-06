@@ -1,0 +1,55 @@
+# London Sweep & Fade - GBPJPY WFA Configuration
+# Multi-asset test: Same strategy on GBPJPY
+# Note: GBPJPY pip values scaled (~10x vs EURUSD due to higher nominal value)
+
+walk_forward:
+  training_months: 6
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 30
+  output_directory: "strategies/london_sweep_gbpjpy/results"
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+
+data:
+  source_file: "data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv"
+  min_required_bars: 1000
+
+strategy:
+  profile_key: "GBPJPY_LONDON_SWEEP_FADE"
+  parameter_ranges:
+    sweep_pips:
+      type: categorical
+      values: [20.0, 30.0, 40.0, 50.0]
+    reentry_pips:
+      type: categorical
+      values: [0.0, 10.0, 20.0]
+    stop_buffer_pips:
+      type: categorical
+      values: [20.0, 30.0, 40.0]
+    tp_mode:
+      type: categorical
+      values: ["mid", "opposite"]
+    min_range_pips:
+      type: categorical
+      values: [80.0, 100.0, 120.0]
+    max_range_pips:
+      type: categorical
+      values: [250.0, 300.0, 350.0]
+    min_daily_atr:
+      type: categorical
+      values: [0, 300, 400, 500]
+
+backtest:
+  initial_balance: 100000
+  fees: 0.0001
+  slippage: 0.0001
+
+performance:
+  max_execution_time_seconds: 3600
+  skip_database_persistence: true
+
+logging:
+  log_file: "logs/wfa_london_sweep_gbpjpy.log"

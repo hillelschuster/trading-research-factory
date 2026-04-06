@@ -1,0 +1,45 @@
+# LONDON BREAKOUT FULL 22-YEAR WFA - 2003-2025
+# Validated Engine. Expanded Risk Search.
+
+walk_forward:
+  training_months: 6           
+  testing_months: 3            
+  step_months: 3               
+  n_parameter_trials: 50       # Increased for robustness over long history
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false      # Keep false to save disk space
+  output_directory: "results/london_breakout_full_22y"
+
+data:
+  source_file: "data/EURUSD_M15_2003_2025_COMBINED.csv" # Verified existence (33MB)
+  min_required_bars: 1000
+
+strategy:
+  profile_key: "EURUSD_LONDON_BREAKOUT"
+  parameter_ranges:
+    buffer_pips: [2, 3, 4, 5, 8]  # Expanded range
+    risk_reward_ratio: [1.5, 2.0, 2.5, 3.0] # Expanded as requested
+    max_range_pips: [20, 30, 40, 50]
+    min_range_pips: [5, 10, 15]
+    asia_start_hour: [0]
+    asia_end_hour: [7]
+    trade_start_minute: [5]
+    trade_end_hour: [10]
+    hard_exit_hour: [16]
+    one_trade_per_day: [true]
+
+optimization:
+  objective: "sharpe_ratio" # Or "total_return" / "sortino_ratio"
+
+logging:
+  level: "INFO"                # Reduce noise for long run
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_full_22y.log"
+
+performance:
+  max_execution_time_seconds: 7200 # 2 hours max (vectorized should be much faster)
+  memory_limit_mb: 4096            # Increase RAM limit
+  skip_database_persistence: true   # Keep DB skip for speed

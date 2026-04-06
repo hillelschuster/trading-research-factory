@@ -1,0 +1,47 @@
+{
+    "strategy_params_key": "strategy_gold_trend_following.json",
+    "description": "Enhanced Momentum Persistence with ADX and Chandelier Exit for Gold H4 - REFINED RANGES",
+    "strategy_definition_key": "GoldTrendFollowing_EnhancedMomentum",
+    "parameters": {
+        "timeframe": "H4",
+        "roc_period": 20,
+        "sma_period": 50,
+        "exit_roc_threshold": 3.0,
+        "adx_period": 14,
+        "adx_threshold": 20.0,
+        "chandelier_period": 22,
+        "chandelier_mult": 3.0
+    },
+    "optimization_ranges": {
+        "exit_roc_threshold": {
+            "values": [
+                2.5,
+                3.0,
+                3.5,
+                4.0
+            ]
+        },
+        "chandelier_mult": {
+            "values": [
+                2.5,
+                3.0,
+                3.5
+            ]
+        },
+        "adx_threshold": {
+            "values": [
+                18.0,
+                20.0,
+                22.0,
+                25.0
+            ]
+        },
+        "roc_period": {
+            "values": [
+                16,
+                20,
+                24
+            ]
+        }
+    }
+}

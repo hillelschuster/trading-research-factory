@@ -1,0 +1,34 @@
+{
+    "strategy_params_key": "strategy_gold_rush_pro.json",
+    "description": "Gold Rush Pro – Day-of-week RSI mean-reversion for XAUUSD (Thursday entry, ATR stop, time exit)",
+    "strategy_definition_key": "GoldRushPro_DayOfWeek",
+    "parameters": {
+        "timeframe": "M15",
+        "rsi_period": 14,
+        "rsi_threshold": 40.0,
+        "atr_period": 14,
+        "atr_sl_multiplier": 1.5,
+        "hold_days": 3,
+        "entry_day": 4
+    },
+    "optimization_ranges": {
+        "rsi_period": {
+            "values": [10, 14, 20]
+        },
+        "rsi_threshold": {
+            "values": [30.0, 35.0, 40.0, 45.0, 50.0]
+        },
+        "atr_period": {
+            "values": [10, 14, 20]
+        },
+        "atr_sl_multiplier": {
+            "values": [1.0, 1.5, 2.0, 2.5]
+        },
+        "hold_days": {
+            "values": [1, 2, 3, 5]
+        },
+        "entry_day": {
+            "values": [3, 4, 5]
+        }
+    }
+}

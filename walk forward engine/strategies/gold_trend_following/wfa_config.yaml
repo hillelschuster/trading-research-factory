@@ -1,0 +1,43 @@
+# GOLD TREND FOLLOWING H4 WFA
+# SMA Crossover with ATR-based Trailing Stops
+
+walk_forward:
+  training_months: 12
+  testing_months: 3
+  step_months: 3
+  n_parameter_trials: 80
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/gold_trend_following/results"
+
+data:
+  source_file: "data/XAUUSD_M15_2018-2025/XAUUSD_M15_2018_2025.csv"
+  min_required_bars: 1000
+
+strategy:
+  profile_key: "XAUUSD_TrendFollowing_H4"
+  parameter_ranges:
+    fast_sma_period: [5, 8, 10, 12]
+    slow_sma_period: [15, 21, 26, 34]
+    stop_loss_atr_multiplier: [1.0, 1.5, 2.0, 2.5]
+    atr_period: [10, 14, 20]
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0001
+  slippage: 0.0001
+
+optimization:
+  objective: "sharpe_ratio"
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_gold_trend.log"
+
+performance:
+  max_execution_time_seconds: 3600
+  skip_database_persistence: true

@@ -1,0 +1,56 @@
+# Volatility Regime Strategy – WFA Configuration
+# Multi-timeframe volatility contraction/expansion breakout
+# Test on BTC, ETH, SOL 1h data
+
+# Volatility Regime Strategy – WFA Configuration
+# Multi-timeframe volatility contraction/expansion breakout
+# EXP-20260321000000-01: Full 9-month BTCUSDT dataset (6481 candles)
+# Critical fix from prior failures: previous experiments used only 1000 candles
+
+walk_forward:
+  training_months: 3
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 100
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/volatility_regime/results"
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "return"
+    - "stability"
+  n_startup_trials: 10
+  stability_weight: 0.1
+
+data:
+  source_file: "data/binance_btcusdt_1h_deep.csv"
+  min_required_bars: 720
+
+strategy:
+  profile_key: "VOLATILITY_REGIME"
+  parameter_ranges:
+    atr_period: [10, 14, 20]
+    contraction_pct: [15.0, 20.0, 25.0, 30.0]
+    ema_fast: [10, 20, 30]
+    ema_slow: [40, 50, 60]
+    hold_bars: [12, 24, 36]
+    sl_atr_multiplier: [1.5, 2.0, 2.5]
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0006
+  slippage: 0.0002
+
+performance:
+  max_execution_time_seconds: 1800
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_volatility_regime.log"

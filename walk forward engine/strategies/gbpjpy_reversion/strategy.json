@@ -1,0 +1,98 @@
+{
+    "strategy_params_key": "GBPJPYReversion_Params",
+    "description": "GBPJPY Liquidity Vacuum - London session mean reversion with 2.5σ extreme pierce and V-shaped rejection",
+    "strategy_definition_key": "GBPJPYReversion_LiquidityVacuum",
+    "regime_metadata": {
+        "primary_regimes": [
+            "ranging",
+            "extreme_extension"
+        ],
+        "regime_confidence_indicators": [
+            "bollinger_pierce_extreme",
+            "wick_ratio_rejection",
+            "h1_rsi_kill_zone"
+        ],
+        "optimal_market_conditions": "London session (08:00-16:00 UK time) with extreme Bollinger Band pierces indicating liquidity vacuum",
+        "performance_attribution": "Mean reversion following V-shaped rejection at 2.5σ extreme pierces with H1 RSI confirmation"
+    },
+    "portfolio_integration": {
+        "max_correlation_with_trending_strategies": 0.3,
+        "max_correlation_with_volatility_strategies": 0.4,
+        "preferred_allocation_range": [
+            0.1,
+            0.3
+        ],
+        "risk_scaling_factor": 1.0
+    },
+    "parameters": {
+        "timeframe": "M15",
+        "bb_period": 20,
+        "bb_std_extreme": 2.5,
+        "wick_ratio_min": 1.75,
+        "min_body_atr_pct": 0.1,
+        "rsi_h1_period": 14,
+        "rsi_kill_low": 35,
+        "rsi_kill_high": 65,
+        "atr_period": 14,
+        "atr_stop_mult": 2.0,
+        "min_rr_ratio": 1.0,
+        "session_start_london": 8,
+        "session_end_london": 16
+    },
+    "optimization_ranges": {
+        "bb_std_extreme": {
+            "values": [
+                2.25,
+                2.5,
+                2.75
+            ]
+        },
+        "wick_ratio_min": {
+            "values": [
+                1.5,
+                1.75,
+                2.0
+            ]
+        },
+        "rsi_kill_low": {
+            "values": [
+                30,
+                35,
+                40
+            ]
+        },
+        "rsi_kill_high": {
+            "values": [
+                60,
+                65,
+                70
+            ]
+        },
+        "atr_stop_mult": {
+            "values": [
+                1.5,
+                2.0,
+                2.5
+            ]
+        },
+        "min_rr_ratio": {
+            "values": [
+                0.75,
+                1.0,
+                1.25
+            ]
+        }
+    },
+    "performance_expectations": {
+        "expected_trades_per_year": 100,
+        "expected_annual_return": 0.08,
+        "expected_win_rate": 0.55,
+        "expected_sharpe_ratio": 0.6,
+        "expected_max_drawdown": 0.05
+    },
+    "validation_status": {
+        "optimization_source": "Secondary Agent Audit (v2.2 fixes applied)",
+        "validation_status": "PENDING_SMOKE_TEST",
+        "notes": "Hardened implementation with H1 RSI mapping, RR gate alignment, session close edge-trigger. FTMO fees: 0.0003 per side."
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "strategy_params_key": "BTC_LONDON_SWEEP_Params",
+    "description": "London Sweep Fade - BTC Adapted with pip_size=1.0 (USDT points)",
+    "strategy_definition_key": "LondonSweepFade",
+    "parameters": {
+        "asia_start_hour": 0,
+        "asia_end_hour": 7,
+        "trade_start_minute": 5,
+        "trade_end_hour": 10,
+        "hard_exit_hour": 16,
+        "pip_size": 1.0,
+        "sweep_pips": 50.0,
+        "reentry_pips": 0.0,
+        "stop_buffer_pips": 20.0,
+        "tp_mode": "mid",
+        "max_range_pips": 200.0,
+        "min_range_pips": 20.0,
+        "min_daily_atr": 0.0,
+        "min_volume_pct": 0.0,
+        "min_gap_pct": 0.0,
+        "use_gap_filter": false,
+        "one_trade_per_day": true
+    },
+    "parameter_ranges": {
+        "pip_size": {
+            "values": [1.0]
+        },
+        "sweep_pips": {
+            "values": [20.0, 50.0, 80.0, 100.0]
+        },
+        "reentry_pips": {
+            "values": [0.0, 5.0, 10.0]
+        },
+        "stop_buffer_pips": {
+            "values": [10.0, 20.0, 30.0]
+        },
+        "tp_mode": {
+            "values": ["mid", "opposite"]
+        },
+        "min_range_pips": {
+            "values": [10.0, 20.0, 30.0]
+        },
+        "max_range_pips": {
+            "values": [100.0, 200.0, 300.0]
+        },
+        "min_daily_atr": {
+            "values": [0.0, 20.0, 50.0]
+        }
+    }
+}

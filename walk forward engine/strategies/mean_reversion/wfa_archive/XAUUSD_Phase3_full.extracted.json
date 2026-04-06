@@ -1,0 +1,526 @@
+{
+  "source_log": "XAUUSD_Phase3_full.log",
+  "extraction_timestamp": "2025-12-24T11:46:46.233643",
+  "schema_version": "2.0",
+  "extraction_method": "log_parsing",
+  "encoding_used": "utf-8",
+  "run_tainted": true,
+  "taint_reasons": [
+    "config_defaults_used",
+    "strategy_config_missing",
+    "symbol_settings_missing",
+    "initialization_error",
+    "strategy_param_file_missing",
+    "historical_data_invalid"
+  ],
+  "from_log": true,
+  "run_identity": {
+    "data_rows": 7980,
+    "run_date": "2025-12-20"
+  },
+  "per_window_results": [
+    {
+      "window_id": 1,
+      "return_pct": 0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 2,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 3,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 4,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 5,
+      "return_pct": -0.02,
+      "trades": 4
+    },
+    {
+      "window_id": 6,
+      "return_pct": 0.04,
+      "trades": 1
+    },
+    {
+      "window_id": 7,
+      "return_pct": 0.05,
+      "trades": 3
+    },
+    {
+      "window_id": 8,
+      "return_pct": -0.09,
+      "trades": 1
+    },
+    {
+      "window_id": 9,
+      "return_pct": -0.07,
+      "trades": 1
+    },
+    {
+      "window_id": 10,
+      "return_pct": -0.04,
+      "trades": 1
+    },
+    {
+      "window_id": 11,
+      "return_pct": -0.01,
+      "trades": 2
+    },
+    {
+      "window_id": 12,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 13,
+      "return_pct": -0.06,
+      "trades": 1
+    },
+    {
+      "window_id": 14,
+      "return_pct": -0.2,
+      "trades": 1
+    },
+    {
+      "window_id": 15,
+      "return_pct": -0.13,
+      "trades": 2
+    },
+    {
+      "window_id": 16,
+      "return_pct": -0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 17,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 18,
+      "return_pct": -0.02,
+      "trades": 4
+    },
+    {
+      "window_id": 19,
+      "return_pct": 0.04,
+      "trades": 1
+    },
+    {
+      "window_id": 20,
+      "return_pct": 0.08,
+      "trades": 2
+    },
+    {
+      "window_id": 21,
+      "return_pct": 0.02,
+      "trades": 7
+    },
+    {
+      "window_id": 22,
+      "return_pct": -0.56,
+      "trades": 3
+    },
+    {
+      "window_id": 23,
+      "return_pct": -0.51,
+      "trades": 1
+    },
+    {
+      "window_id": 24,
+      "return_pct": 0.01,
+      "trades": 4
+    },
+    {
+      "window_id": 25,
+      "return_pct": 0.17,
+      "trades": 3
+    },
+    {
+      "window_id": 26,
+      "return_pct": 0.04,
+      "trades": 1
+    },
+    {
+      "window_id": 27,
+      "return_pct": -0.03,
+      "trades": 3
+    },
+    {
+      "window_id": 28,
+      "return_pct": -0.25,
+      "trades": 6
+    },
+    {
+      "window_id": 29,
+      "return_pct": -0.35,
+      "trades": 2
+    },
+    {
+      "window_id": 30,
+      "return_pct": -0.2,
+      "trades": 2
+    },
+    {
+      "window_id": 31,
+      "return_pct": -0.19,
+      "trades": 3
+    },
+    {
+      "window_id": 32,
+      "return_pct": 0.03,
+      "trades": 1
+    },
+    {
+      "window_id": 33,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 34,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 35,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 36,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 37,
+      "return_pct": 0.23,
+      "trades": 2
+    },
+    {
+      "window_id": 38,
+      "return_pct": -0.33,
+      "trades": 2
+    },
+    {
+      "window_id": 39,
+      "return_pct": -0.55,
+      "trades": 4
+    },
+    {
+      "window_id": 40,
+      "return_pct": -0.18,
+      "trades": 3
+    },
+    {
+      "window_id": 41,
+      "return_pct": 0.18,
+      "trades": 3
+    },
+    {
+      "window_id": 42,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 43,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 44,
+      "return_pct": -0.48,
+      "trades": 6
+    },
+    {
+      "window_id": 45,
+      "return_pct": 0.0,
+      "trades": 1
+    },
+    {
+      "window_id": 46,
+      "return_pct": -0.24,
+      "trades": 4
+    },
+    {
+      "window_id": 47,
+      "return_pct": -0.07,
+      "trades": 5
+    },
+    {
+      "window_id": 48,
+      "return_pct": -0.07,
+      "trades": 2
+    },
+    {
+      "window_id": 49,
+      "return_pct": 0.1,
+      "trades": 4
+    },
+    {
+      "window_id": 50,
+      "return_pct": 0.16,
+      "trades": 5
+    },
+    {
+      "window_id": 51,
+      "return_pct": 0.14,
+      "trades": 2
+    },
+    {
+      "window_id": 52,
+      "return_pct": 0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 53,
+      "return_pct": -0.21,
+      "trades": 2
+    },
+    {
+      "window_id": 54,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 55,
+      "return_pct": -0.05,
+      "trades": 4
+    },
+    {
+      "window_id": 56,
+      "return_pct": -0.18,
+      "trades": 8
+    },
+    {
+      "window_id": 57,
+      "return_pct": 0.05,
+      "trades": 1
+    },
+    {
+      "window_id": 58,
+      "return_pct": 0.15,
+      "trades": 4
+    },
+    {
+      "window_id": 59,
+      "return_pct": 0.08,
+      "trades": 2
+    },
+    {
+      "window_id": 60,
+      "return_pct": 0.07,
+      "trades": 1
+    },
+    {
+      "window_id": 61,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 62,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 63,
+      "return_pct": 0.03,
+      "trades": 5
+    },
+    {
+      "window_id": 64,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 65,
+      "return_pct": 0.02,
+      "trades": 1
+    },
+    {
+      "window_id": 66,
+      "return_pct": -0.14,
+      "trades": 2
+    },
+    {
+      "window_id": 67,
+      "return_pct": -0.24,
+      "trades": 2
+    },
+    {
+      "window_id": 68,
+      "return_pct": -0.17,
+      "trades": 1
+    },
+    {
+      "window_id": 69,
+      "return_pct": 0.03,
+      "trades": 3
+    },
+    {
+      "window_id": 70,
+      "return_pct": -0.16,
+      "trades": 5
+    },
+    {
+      "window_id": 71,
+      "return_pct": -0.02,
+      "trades": 2
+    },
+    {
+      "window_id": 72,
+      "return_pct": -0.44,
+      "trades": 3
+    },
+    {
+      "window_id": 73,
+      "return_pct": -0.1,
+      "trades": 2
+    },
+    {
+      "window_id": 74,
+      "return_pct": 0.0,
+      "trades": 1
+    },
+    {
+      "window_id": 75,
+      "return_pct": -0.06,
+      "trades": 2
+    },
+    {
+      "window_id": 76,
+      "return_pct": 0.02,
+      "trades": 3
+    },
+    {
+      "window_id": 77,
+      "return_pct": 0.06,
+      "trades": 5
+    },
+    {
+      "window_id": 78,
+      "return_pct": 0.02,
+      "trades": 3
+    },
+    {
+      "window_id": 79,
+      "return_pct": 0.04,
+      "trades": 1
+    },
+    {
+      "window_id": 80,
+      "return_pct": -0.21,
+      "trades": 2
+    },
+    {
+      "window_id": 81,
+      "return_pct": -0.16,
+      "trades": 3
+    },
+    {
+      "window_id": 82,
+      "return_pct": -0.14,
+      "trades": 3
+    },
+    {
+      "window_id": 83,
+      "return_pct": -0.07,
+      "trades": 5
+    },
+    {
+      "window_id": 84,
+      "return_pct": -0.17,
+      "trades": 5
+    },
+    {
+      "window_id": 85,
+      "return_pct": -0.21,
+      "trades": 1
+    },
+    {
+      "window_id": 86,
+      "return_pct": -0.09,
+      "trades": 1
+    },
+    {
+      "window_id": 87,
+      "return_pct": 0.03,
+      "trades": 1
+    },
+    {
+      "window_id": 88,
+      "return_pct": -0.01,
+      "trades": 1
+    }
+  ],
+  "aggregate_results": {
+    "execution_time_seconds": 7200
+  },
+  "diagnostics": [
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v1.json for profile 'EURUSD_RSI_H1_Baseline'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v4_age24.json for profile 'EURUSD_RSI_M15_Test_B'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v1.json for profile 'EURUSD_RSI_M15'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_london_breakout.json for profile 'EURUSD_LONDON_BREAKOUT'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Historical data is empty or missing 'timestamp' column."
+    },
+    {
+      "level": "WARNING",
+      "message": "PaperTradingAdapter: Symbol-specific settings (point, lot_size) for EURUSD not found in config. Using defaults."
+    },
+    {
+      "level": "WARNING",
+      "message": "PYTHONHASHSEED set to 0 - restart may be required for full effect"
+    },
+    {
+      "level": "WARNING",
+      "message": "Error initializing from config: 'LightweightStrategy' object has no attribute 'config', using defaults"
+    },
+    {
+      "level": "ERROR",
+      "message": "Schema validation failed: Window 1 testing starts before previous window ended"
+    },
+    {
+      "level": "ERROR",
+      "message": "Walk-forward analysis failed: Window 1 testing starts before previous window ended"
+    },
+    {
+      "level": "ERROR",
+      "message": "ERROR: Window 1 testing starts before previous window ended"
+    },
+    {
+      "level": "ERROR",
+      "message": "FULL STACK TRACE:"
+    },
+    {
+      "level": "ERROR",
+      "message": "Traceback (most recent call last):"
+    },
+    {
+      "level": "ERROR",
+      "message": "TEST RUNNER FAILED (No Results)"
+    }
+  ],
+  "extraction_incomplete": false,
+  "comparable": false
+}

@@ -1,0 +1,33 @@
+{
+    "strategy_params_key": "strategy_btc_residual_reversion.json",
+    "description": "BTC-Normalized Residual Mean Reversion on ETH. Extract BTC-neutral residuals from ETH returns and trade mean reversion on z-score.",
+    "strategy_definition_key": "BTCResidualReversion",
+    "parameters": {
+        "lookback": 30,
+        "entry_threshold": 2.0,
+        "exit_threshold": 0.0,
+        "hold_bars": 12,
+        "sl_atr_mult": 2.0,
+        "tp_rr_mult": 2.0
+    },
+    "optimization_ranges": {
+        "lookback": {
+            "values": [20, 30, 40, 50, 60]
+        },
+        "entry_threshold": {
+            "values": [1.5, 2.0, 2.5, 3.0]
+        },
+        "exit_threshold": {
+            "values": [0.0, 0.25, 0.5]
+        },
+        "hold_bars": {
+            "values": [8, 12, 18, 24]
+        },
+        "sl_atr_mult": {
+            "values": [1.5, 2.0, 2.5]
+        },
+        "tp_rr_mult": {
+            "values": [1.0, 1.5, 2.0, 2.5]
+        }
+    }
+}

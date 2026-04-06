@@ -1,0 +1,93 @@
+{
+    "strategy_params_key": "NYPMReversion_Params",
+    "description": "NY PM Reversion - Mean reversion at Upper BB during NY PM session (17:00-21:00 UTC)",
+    "strategy_definition_key": "NYPMReversion_MeanReversion",
+    "regime_metadata": {
+        "primary_regimes": [
+            "ranging"
+        ],
+        "regime_confidence_indicators": [
+            "adx_low",
+            "bollinger_rejection",
+            "vwap_mean_reversion"
+        ],
+        "optimal_market_conditions": "Ranging market during NY PM session following London Fix institutional inventory unwinding",
+        "performance_attribution": "Post-London Fix mean reversion with anchored VWAP take-profit"
+    },
+    "portfolio_integration": {
+        "max_correlation_with_trending_strategies": 0.3,
+        "max_correlation_with_volatility_strategies": 0.5,
+        "preferred_allocation_range": [
+            0.2,
+            0.5
+        ],
+        "risk_scaling_factor": 1.0
+    },
+    "parameters": {
+        "timeframe": "M15",
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "rsi_period": 7,
+        "adx_period": 14,
+        "max_adx": 30.0,
+        "entry_offset_pips": -0.5,
+        "min_rsi": 25,
+        "max_rsi": 75,
+        "trade_start_hour": 17,
+        "trade_end_hour": 21,
+        "hard_exit_hour": 20,
+        "hard_exit_minute": 55,
+        "vwap_anchor_hour": 16,
+        "one_trade_per_day": true
+    },
+    "optimization_ranges": {
+        "bb_period": {
+            "values": [
+                15,
+                20,
+                25
+            ]
+        },
+        "bb_std": {
+            "values": [
+                1.5,
+                2.0,
+                2.5
+            ]
+        },
+        "rsi_period": {
+            "values": [
+                5,
+                7,
+                9
+            ]
+        },
+        "max_adx": {
+            "values": [
+                25,
+                30,
+                35
+            ]
+        },
+        "entry_offset_pips": {
+            "values": [
+                -1.0,
+                -0.5,
+                0.0,
+                0.5
+            ]
+        }
+    },
+    "performance_expectations": {
+        "expected_trades_per_year": 50,
+        "expected_annual_return": 0.05,
+        "expected_win_rate": 0.55,
+        "expected_sharpe_ratio": 0.5,
+        "expected_max_drawdown": 0.03
+    },
+    "validation_status": {
+        "optimization_source": "Secondary Agent Directive (NY PM Reversion Shield)",
+        "validation_status": "PENDING_WFA",
+        "notes": "NON-NEGOTIABLE: 1.2 pip cost, anchored VWAP with middle BB fallback, conservative limit fills"
+    }
+}

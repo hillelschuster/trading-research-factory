@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+.agent/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (archived logs should be reviewed before deletion)
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# WFA cache
+logs/
+artifacts/
+results/
+
+# Data files
+data/
+
+# Nested repo metadata / unrelated heavy subtrees
+.git/
+algorithmic_trading_pipeline/

@@ -1,0 +1,52 @@
+{
+  "strategy_params_key": "MeanReversion_Optimized_Phase6_Params",
+  "description": "Phase 6 Validated Optimal RSI Strategy - 80/20 Thresholds with D1 Optimization",
+  "strategy_definition_key": "MeanReversion_RSI_BB",
+  "regime_metadata": {
+    "primary_regimes": ["ranging"],
+    "regime_confidence_indicators": ["rsi_oscillation", "bollinger_band_compression"],
+    "optimal_market_conditions": "Sideways/consolidating markets with clear support and resistance levels",
+    "performance_attribution": "Optimized for ranging markets using extreme RSI levels (80/20) with extended position holding"
+  },
+  "portfolio_integration": {
+    "max_correlation_with_trending_strategies": 0.3,
+    "max_correlation_with_volatility_strategies": 0.5,
+    "preferred_allocation_range": [0.2, 0.7],
+    "risk_scaling_factor": 1.0
+  },
+  "parameters": {
+    "timeframe": "D1",
+    "rsi_period": 3,
+    "rsi_oversold": 20.0,
+    "rsi_overbought": 80.0,
+    "bollinger_period": 20,
+    "bollinger_std_dev": 2.05,
+    "stop_loss_atr_period": 14,
+    "stop_loss_atr_multiplier": 3.0,
+    "take_profit_atr_period": 14,
+    "take_profit_atr_multiplier": 6.0,
+    "max_position_age_bars": 480,
+    "trend_filter_ma_period": 200,
+    "use_trend_filter": false,
+    "use_bollinger_filter": false
+  },
+  "performance_expectations": {
+    "expected_trades_per_year": 75,
+    "expected_annual_return": 0.0225,
+    "expected_win_rate": 0.5225,
+    "expected_sharpe_ratio": 0.202,
+    "expected_max_drawdown": 0.0068
+  },
+  "validation_status": {
+    "optimization_source": "results/baselines/d1_walkforward_baseline_2025-07-20.json",
+    "validation_status": "PASSED_ALL_CRITERIA",
+    "sharpe_ratio": 0.202,
+    "total_return": 0.0225,
+    "final_balance": 202250.00,
+    "initial_balance": 200000.00,
+    "total_trades": 75,
+    "win_rate": 0.5225,
+    "profit_factor": 1.045,
+    "max_drawdown": 0.0068
+  }
+}

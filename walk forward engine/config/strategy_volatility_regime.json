@@ -1,0 +1,34 @@
+{
+    "strategy_params_key": "strategy_volatility_regime.json",
+    "description": "Volatility Contraction/Expansion – Multi-timeframe breakout strategy. Trade breakouts from low-vol periods, filtered by 4h trend direction.",
+    "strategy_definition_key": "VolatilityRegime",
+    "parameters": {
+        "timeframe": "1h",
+        "atr_period": 14,
+        "contraction_pct": 20.0,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "hold_bars": 24,
+        "sl_atr_multiplier": 2.0
+    },
+    "optimization_ranges": {
+        "atr_period": {
+            "values": [10, 14, 20]
+        },
+        "contraction_pct": {
+            "values": [15.0, 20.0, 25.0, 30.0]
+        },
+        "ema_fast": {
+            "values": [10, 20, 30]
+        },
+        "ema_slow": {
+            "values": [40, 50, 60]
+        },
+        "hold_bars": {
+            "values": [12, 24, 36]
+        },
+        "sl_atr_multiplier": {
+            "values": [1.5, 2.0, 2.5]
+        }
+    }
+}

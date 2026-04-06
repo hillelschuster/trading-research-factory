@@ -1,0 +1,85 @@
+# GBPJPY Liquidity Vacuum Reversion - WFA Configuration
+# Period: 2015-2025 (10 years)
+# Logic: London session mean reversion with 2.5σ extreme pierce
+
+walk_forward:
+  training_months: 6
+  testing_months: 3
+  step_months: 1
+  n_parameter_trials: 20
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: true
+  use_vectorized_backtest: true
+  output_directory: "strategies/gbpjpy_reversion/results/sweep"
+
+data:
+  source_file: "data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv"
+  min_required_bars: 5000
+
+strategy:
+  strategy_module: "src.strategies.gbpjpy_reversion"
+  strategy_class: "GBPJPYReversionStrategy"
+  profile_key: "GBPJPY_REVERSION"
+  
+  parameter_ranges:
+    # --- PHASE 1: STRUCTURE VALIDATION (FROZEN) ---
+    # These params are fixed to test structural validity first
+    # Expand only after structure is proven in smoke test
+    
+    bb_period: [20]
+    bb_std_extreme: [2.5]  # Extreme pierce, not 2.0
+    
+    # Wick geometry
+    wick_ratio_min: [1.75]  # V-shaped rejection
+    min_body_atr_pct: [0.1]  # Anti-doji guard
+    
+    # H1 RSI kill-zone
+    rsi_h1_period: [14]
+    rsi_kill_low: [35]
+    rsi_kill_high: [65]
+    
+    # ATR stop (Phase 1: no time-stop, using session close)
+    atr_period: [14]
+    atr_stop_mult: [2.0]
+    
+    # RR Gate
+    min_rr_ratio: [1.0]
+    
+    # Session (London local time, DST-aware)
+    session_start_london: [8]
+    session_end_london: [16]
+
+backtest:
+  initial_balance: 10000
+  # FTMO GBPJPY Cost Model (verified Dec 2024):
+  # - Commission: $3 per standard lot (100k units)
+  # - Spread: ~1.5 pips average (1 pip = 0.01 for JPY pairs)
+  # 
+  # Calculation for 1 lot at price ~198:
+  # - Notional: ~$12,500 USD
+  # - Commission: $3 / $12,500 = 0.00024 (0.024%)
+  # - Spread: 1.5 pips × 0.01 / 198 = 0.000076 (0.0076%)
+  # - Total per side: ~0.0003 (0.03%)
+  # 
+  # vectorbt applies fees PER ORDER (entry and exit separately)
+  # So round-trip cost = 2 × 0.0003 = 0.0006 = 0.06%
+  fees: 0.0003
+  slippage: 0.0001  # 0.01% conservative estimate
+  use_vectorized: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "strategies/gbpjpy_reversion/results/sweep/wfa.log"
+
+reporting:
+  generate_summary: true
+  generate_charts: true
+  export_results: true
+  result_formats: ["summary", "json", "csv"]
+  
+performance:
+  max_execution_time_seconds: 7200
+  memory_limit_mb: 4096

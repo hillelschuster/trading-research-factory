@@ -1,0 +1,62 @@
+{
+    "strategy_params_key": "strategy_london_breakout.json",
+    "description": "London Breakout - ORB-style Asia range breakout (Research-Aligned)",
+    "strategy_definition_key": "LondonBreakout_ORB",
+    "parameters": {
+        "asia_start_hour": 0,
+        "asia_end_hour": 7,
+        "trade_start_minute": 5,
+        "trade_end_hour": 10,
+        "hard_exit_hour": 16,
+        "buffer_pips": 5.0,
+        "risk_reward_ratio": 1.5,
+        "max_range_pips": 40.0,
+        "min_range_pips": 10.0,
+        "min_daily_atr": 0.0,
+        "one_trade_per_day": true,
+        "min_volume_pct": 0.0,
+        "min_gap_pct": 0.0,
+        "use_gap_filter": false
+    },
+    "parameter_ranges": {
+        "buffer_pips": {
+            "values": [
+                3,
+                5,
+                7
+            ]
+        },
+        "risk_reward_ratio": {
+            "values": [
+                1.5,
+                2.0
+            ]
+        },
+        "max_range_pips": {
+            "values": [
+                35,
+                40,
+                50
+            ]
+        },
+        "min_range_pips": {
+            "values": [
+                10,
+                15
+            ]
+        },
+        "min_volume_pct": {
+            "values": [
+                0.0
+            ]
+        },
+        "min_daily_atr": {
+            "values": [
+                0.0,
+                0.0055,
+                0.0065,
+                0.0075
+            ]
+        }
+    }
+}

@@ -1,0 +1,55 @@
+# London Sweep & Fade - WFA Configuration
+# Per README.md: this is the run config for the strategy workspace
+
+walk_forward:
+  training_months: 6
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 50
+  output_directory: "strategies/london_sweep_fade/results"
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+
+data:
+  source_file: "data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  min_required_bars: 1000
+
+strategy:
+  profile_key: "EURUSD_LONDON_SWEEP_FADE"
+  # Parameter ranges override - aligned with london_sweep.py generate_vectorized_signals()
+  parameter_ranges:
+    sweep_pips:
+      type: categorical
+      values: [2.0, 3.0, 4.0, 5.0]
+    reentry_pips:
+      type: categorical
+      values: [0.0, 1.0, 2.0]
+    stop_buffer_pips:
+      type: categorical
+      values: [2.0, 3.0, 4.0]
+    tp_mode:
+      type: categorical
+      values: ["mid", "opposite"]
+    min_range_pips:
+      type: categorical
+      values: [8.0, 10.0, 12.0]
+    max_range_pips:
+      type: categorical
+      values: [25.0, 30.0, 35.0]
+    min_daily_atr:
+      type: categorical
+      values: [0, 30, 40, 50]
+
+backtest:
+  initial_balance: 100000
+  fees: 0.0001
+  slippage: 0.0001
+
+performance:
+  max_execution_time_seconds: 7200
+  skip_database_persistence: true
+
+logging:
+  log_file: "logs/wfa_london_sweep_fade.log"

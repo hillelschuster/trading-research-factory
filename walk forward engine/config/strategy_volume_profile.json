@@ -1,0 +1,38 @@
+{
+    "strategy_params_key": "strategy_volume_profile.json",
+    "description": "Volume Profile / Order Flow strategy. Uses VWAP as dynamic S/R, volume spikes for confirmation, and cumulative volume delta for order flow direction.",
+    "strategy_definition_key": "VolumeProfile",
+    "parameters": {
+        "timeframe": "1h",
+        "vwap_period": 20,
+        "volume_ma_period": 20,
+        "volume_spike_mult": 2.0,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.0,
+        "use_cvd": true,
+        "cvd_lookback": 20
+    },
+    "optimization_ranges": {
+        "vwap_period": {
+            "values": [10, 20, 30, 50]
+        },
+        "volume_ma_period": {
+            "values": [10, 20, 30]
+        },
+        "volume_spike_mult": {
+            "values": [1.5, 2.0, 2.5, 3.0]
+        },
+        "hold_bars": {
+            "values": [8, 12, 16, 24]
+        },
+        "sl_atr_multiplier": {
+            "values": [1.5, 2.0, 2.5]
+        },
+        "use_cvd": {
+            "values": [true, false]
+        },
+        "cvd_lookback": {
+            "values": [10, 20, 30]
+        }
+    }
+}

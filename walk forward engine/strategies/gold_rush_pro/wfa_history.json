@@ -1,0 +1,221 @@
+{
+  "runs": [
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.17638342073763938,
+          "max": 18.0,
+          "mean": 15.0,
+          "min": 10.0,
+          "stability_score": 0.8236165792623606,
+          "std": 2.6457513110645907,
+          "type": "numerical"
+        },
+        "atr_sl_multiplier": {
+          "coefficient_of_variation": 0.30151134457776363,
+          "max": 2.0,
+          "mean": 1.375,
+          "min": 1.0,
+          "stability_score": 0.6984886554222364,
+          "std": 0.414578098794425,
+          "type": "numerical"
+        },
+        "entry_day": {
+          "coefficient_of_variation": 0.1453282279791733,
+          "max": 5.0,
+          "mean": 4.125,
+          "min": 3.0,
+          "stability_score": 0.8546717720208267,
+          "std": 0.5994789404140899,
+          "type": "numerical"
+        },
+        "hold_days": {
+          "coefficient_of_variation": 0.5493406483494501,
+          "max": 5.0,
+          "mean": 3.25,
+          "min": 1.0,
+          "stability_score": 0.45065935165054993,
+          "std": 1.7853571071357126,
+          "type": "numerical"
+        },
+        "rsi_period": {
+          "coefficient_of_variation": 0.15745916432444337,
+          "max": 14.0,
+          "mean": 11.0,
+          "min": 10.0,
+          "stability_score": 0.8425408356755566,
+          "std": 1.7320508075688772,
+          "type": "numerical"
+        },
+        "rsi_threshold": {
+          "coefficient_of_variation": 0.04441155916843276,
+          "max": 50.0,
+          "mean": 48.75,
+          "min": 45.0,
+          "stability_score": 0.9555884408315672,
+          "std": 2.165063509461097,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-03-17T15:18:42.150755+00:00",
+      "run_id": "20260317_172106",
+      "strategy_profile_key": "XAUUSD_GOLD_RUSH_PRO",
+      "summary": {
+        "execution_time_seconds": 144.37,
+        "max_drawdown_pct": -0.3105,
+        "profit_factor": 0.0,
+        "sharpe_ratio": 1.2247,
+        "successful_windows": 8,
+        "total_return_pct": 0.0385,
+        "total_trades": 1,
+        "total_windows": 8,
+        "win_rate": 1.0
+      },
+      "wfa_scheme": {
+        "n_trials": 30,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 6
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 14,
+            "atr_sl_multiplier": 1.0,
+            "entry_day": 4,
+            "hold_days": 5,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2020-08-01T23:00:00+00:00",
+          "test_start": "2020-07-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 18,
+            "atr_sl_multiplier": 1.0,
+            "entry_day": 5,
+            "hold_days": 5,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2020-09-01T23:00:00+00:00",
+          "test_start": "2020-08-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 14,
+            "atr_sl_multiplier": 1.5,
+            "entry_day": 3,
+            "hold_days": 4,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2020-10-01T23:00:00+00:00",
+          "test_start": "2020-09-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 2
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "atr_sl_multiplier": 1.0,
+            "entry_day": 5,
+            "hold_days": 4,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.3083,
+          "sharpe": 2.4923,
+          "test_end": "2020-11-01T23:00:00+00:00",
+          "test_start": "2020-10-01T23:00:00+00:00",
+          "trades": 1,
+          "win_rate": 1.0,
+          "window_id": 3
+        },
+        {
+          "best_params": {
+            "atr_period": 14,
+            "atr_sl_multiplier": 2.0,
+            "entry_day": 4,
+            "hold_days": 5,
+            "rsi_period": 14,
+            "rsi_threshold": 45.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2020-12-01T23:00:00+00:00",
+          "test_start": "2020-11-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 4
+        },
+        {
+          "best_params": {
+            "atr_period": 18,
+            "atr_sl_multiplier": 1.0,
+            "entry_day": 4,
+            "hold_days": 1,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2021-01-01T23:00:00+00:00",
+          "test_start": "2020-12-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 5
+        },
+        {
+          "best_params": {
+            "atr_period": 14,
+            "atr_sl_multiplier": 1.5,
+            "entry_day": 4,
+            "hold_days": 1,
+            "rsi_period": 14,
+            "rsi_threshold": 45.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2021-02-01T23:00:00+00:00",
+          "test_start": "2021-01-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 6
+        },
+        {
+          "best_params": {
+            "atr_period": 18,
+            "atr_sl_multiplier": 2.0,
+            "entry_day": 4,
+            "hold_days": 1,
+            "rsi_period": 10,
+            "rsi_threshold": 50.0
+          },
+          "return_pct": 0.0,
+          "sharpe": 0.0,
+          "test_end": "2021-03-01T23:00:00+00:00",
+          "test_start": "2021-02-01T23:00:00+00:00",
+          "trades": 0,
+          "win_rate": 0.0,
+          "window_id": 7
+        }
+      ]
+    }
+  ],
+  "strategy": "gold_rush_pro"
+}

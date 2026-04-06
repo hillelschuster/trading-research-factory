@@ -1,0 +1,147 @@
+{
+  "source_log": "XAUUSD_Diag_Relaxed.log",
+  "extraction_timestamp": "2025-12-24T11:46:40.630111",
+  "schema_version": "2.0",
+  "extraction_method": "log_parsing",
+  "encoding_used": "utf-8",
+  "run_tainted": true,
+  "taint_reasons": [
+    "config_defaults_used",
+    "strategy_config_missing",
+    "symbol_settings_missing",
+    "initialization_error",
+    "strategy_param_file_missing",
+    "historical_data_invalid"
+  ],
+  "from_log": true,
+  "run_identity": {
+    "data_rows": 8158,
+    "run_date": "2025-12-19"
+  },
+  "per_window_results": [
+    {
+      "window_id": 1,
+      "return_pct": 0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 2,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 3,
+      "return_pct": -0.09,
+      "trades": 2
+    },
+    {
+      "window_id": 4,
+      "return_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "window_id": 5,
+      "return_pct": -0.12,
+      "trades": 6
+    },
+    {
+      "window_id": 6,
+      "return_pct": -0.01,
+      "trades": 3
+    },
+    {
+      "window_id": 7,
+      "return_pct": 0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 8,
+      "return_pct": -0.09,
+      "trades": 2
+    },
+    {
+      "window_id": 9,
+      "return_pct": 0.01,
+      "trades": 1
+    },
+    {
+      "window_id": 10,
+      "return_pct": -0.11,
+      "trades": 4
+    },
+    {
+      "window_id": 11,
+      "return_pct": -0.12,
+      "trades": 2
+    },
+    {
+      "window_id": 12,
+      "return_pct": -0.06,
+      "trades": 2
+    },
+    {
+      "window_id": 13,
+      "return_pct": -0.03,
+      "trades": 1
+    },
+    {
+      "window_id": 14,
+      "return_pct": 0.02,
+      "trades": 1
+    },
+    {
+      "window_id": 15,
+      "return_pct": -0.03,
+      "trades": 4
+    },
+    {
+      "window_id": 16,
+      "return_pct": 0.06,
+      "trades": 3
+    },
+    {
+      "window_id": 17,
+      "return_pct": 0.05,
+      "trades": 3
+    }
+  ],
+  "aggregate_results": {
+    "execution_time_seconds": 7200
+  },
+  "diagnostics": [
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v1.json for profile 'EURUSD_RSI_H1_Baseline'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v4_age24.json for profile 'EURUSD_RSI_M15_Test_B'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_rsi_ranging_market_v1.json for profile 'EURUSD_RSI_M15'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Strategy parameter file not found: config\\strategy_london_breakout.json for profile 'EURUSD_LONDON_BREAKOUT'."
+    },
+    {
+      "level": "ERROR",
+      "message": "Historical data is empty or missing 'timestamp' column."
+    },
+    {
+      "level": "WARNING",
+      "message": "PaperTradingAdapter: Symbol-specific settings (point, lot_size) for EURUSD not found in config. Using defaults."
+    },
+    {
+      "level": "WARNING",
+      "message": "PYTHONHASHSEED set to 0 - restart may be required for full effect"
+    },
+    {
+      "level": "WARNING",
+      "message": "Error initializing from config: 'LightweightStrategy' object has no attribute 'config', using defaults"
+    }
+  ],
+  "extraction_incomplete": false,
+  "comparable": false
+}

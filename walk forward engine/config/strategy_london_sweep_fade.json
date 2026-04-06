@@ -1,0 +1,78 @@
+{
+    "strategy_params_key": "strategy_london_sweep_fade.json",
+    "description": "London Sweep Fade - Mean Reversion Strategy",
+    "strategy_definition_key": "LondonSweepFade",
+    "parameters": {
+        "asia_start_hour": 0,
+        "asia_end_hour": 7,
+        "trade_start_minute": 5,
+        "trade_end_hour": 10,
+        "hard_exit_hour": 16,
+        "sweep_pips": 3.0,
+        "reentry_pips": 0.0,
+        "stop_buffer_pips": 3.0,
+        "tp_mode": "mid",
+        "max_range_pips": 30.0,
+        "min_range_pips": 10.0,
+        "min_daily_atr": 0.0,
+        "min_volume_pct": 0.0,
+        "min_gap_pct": 0.0,
+        "use_gap_filter": false,
+        "one_trade_per_day": true
+    },
+    "parameter_ranges": {
+        "sweep_pips": {
+            "values": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
+        },
+        "reentry_pips": {
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "stop_buffer_pips": {
+            "values": [
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "tp_mode": {
+            "values": [
+                "mid",
+                "opposite"
+            ]
+        },
+        "min_range_pips": {
+            "values": [
+                8,
+                10,
+                12
+            ]
+        },
+        "max_range_pips": {
+            "values": [
+                25,
+                30,
+                35,
+                40
+            ]
+        },
+        "min_daily_atr": {
+            "values": [
+                0,
+                30,
+                40,
+                50
+            ]
+        }
+    }
+}

@@ -1,0 +1,58 @@
+# BTC Residual Reversion Strategy – WFA Configuration
+# BTC-Normalized Residual Mean Reversion on ETH/USDT
+# Strategy: Extract BTC-neutral residuals from ETH returns, trade mean reversion on z-score
+# EXP-20260323000000-01 | 6 params optimized × 100 trials on 5yr merged ETH+BTC data
+
+walk_forward:
+  training_months: 3
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 100
+  min_bars_per_window: 600
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/btc_residual_reversion/results"
+
+data:
+  source_file: "data/binance_ethusdt_1h_deep.csv"
+  min_required_bars: 600
+
+strategy:
+  profile_key: "BTC_RESIDUAL_REVERSION"
+  parameter_ranges:
+    # OPTIMIZED: Rolling lookback for beta/z-score
+    lookback: [20, 30, 40, 50, 60]
+    # OPTIMIZED: Z-score entry threshold
+    entry_threshold: [1.5, 2.0, 2.5, 3.0]
+    # OPTIMIZED: Z-score exit threshold
+    exit_threshold: [0.0, 0.25, 0.5]
+    # OPTIMIZED: Exit hold bars
+    hold_bars: [8, 12, 18, 24]
+    # PINNED: Stop-loss ATR multiplier
+    sl_atr_mult: [2.0]
+    # PINNED: Take-profit risk-reward ratio
+    tp_rr_mult: [2.0]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "stability"
+  stability_weight: 0.15
+  n_startup_trials: 10
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0006
+  slippage: 0.0002
+
+performance:
+  max_execution_time_seconds: 1800
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_btc_residual_reversion.log"

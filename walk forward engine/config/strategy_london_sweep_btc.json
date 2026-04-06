@@ -1,0 +1,78 @@
+{
+    "strategy_params_key": "strategy_london_sweep_btc.json",
+    "description": "London Sweep Fade - Crypto Adapted with Percentage-based Parameters",
+    "strategy_definition_key": "LondonSweepBTC",
+    "parameters": {
+        "asia_start_hour": 0,
+        "asia_end_hour": 7,
+        "trade_start_minute": 5,
+        "trade_end_hour": 10,
+        "hard_exit_hour": 16,
+        "sweep_pct": 0.1,
+        "reentry_pct": 0.0,
+        "stop_buffer_pct": 0.1,
+        "tp_mode": "mid",
+        "max_range_pct": 0.3,
+        "min_range_pct": 0.1,
+        "min_daily_atr_pct": 0.0,
+        "min_volume_pct": 0.0,
+        "min_gap_pct": 0.0,
+        "use_gap_filter": false,
+        "one_trade_per_day": true
+    },
+    "parameter_ranges": {
+        "sweep_pct": {
+            "values": [
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25
+            ]
+        },
+        "reentry_pct": {
+            "values": [
+                0.0,
+                0.05,
+                0.1
+            ]
+        },
+        "stop_buffer_pct": {
+            "values": [
+                0.05,
+                0.1,
+                0.15,
+                0.2
+            ]
+        },
+        "tp_mode": {
+            "values": [
+                "mid",
+                "opposite"
+            ]
+        },
+        "min_range_pct": {
+            "values": [
+                0.05,
+                0.1,
+                0.15
+            ]
+        },
+        "max_range_pct": {
+            "values": [
+                0.2,
+                0.3,
+                0.4,
+                0.5
+            ]
+        },
+        "min_daily_atr_pct": {
+            "values": [
+                0,
+                0.2,
+                0.3,
+                0.4
+            ]
+        }
+    }
+}

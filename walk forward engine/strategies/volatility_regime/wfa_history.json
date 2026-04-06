@@ -1,0 +1,291 @@
+{
+  "runs": [
+    {
+      "parameter_stability": {},
+      "run_date": "2026-03-20T21:38:06.085009+00:00",
+      "run_id": "20260320_233838",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 32.56,
+        "max_drawdown_pct": 0.0,
+        "profit_factor": 0.0,
+        "sharpe_ratio": 0.0,
+        "successful_windows": 0,
+        "total_return_pct": 0.0,
+        "total_trades": 0,
+        "total_windows": 0,
+        "win_rate": 0.0
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": []
+    },
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.0,
+          "max": 10.0,
+          "mean": 10.0,
+          "min": 10.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "contraction_pct": {
+          "coefficient_of_variation": 0.08838834764831845,
+          "max": 30.0,
+          "mean": 26.666666666666668,
+          "min": 25.0,
+          "stability_score": 0.9116116523516815,
+          "std": 2.3570226039551585,
+          "type": "numerical"
+        },
+        "ema_fast": {
+          "coefficient_of_variation": 0.40406101782088427,
+          "max": 30.0,
+          "mean": 23.333333333333332,
+          "min": 10.0,
+          "stability_score": 0.5959389821791157,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "ema_slow": {
+          "coefficient_of_variation": 0.17677669529663684,
+          "max": 60.0,
+          "mean": 53.333333333333336,
+          "min": 40.0,
+          "stability_score": 0.8232233047033631,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "hold_bars": {
+          "coefficient_of_variation": 0.565685424949238,
+          "max": 36.0,
+          "mean": 20.0,
+          "min": 12.0,
+          "stability_score": 0.434314575050762,
+          "std": 11.313708498984761,
+          "type": "numerical"
+        },
+        "sl_atr_multiplier": {
+          "coefficient_of_variation": 0.21757131728816848,
+          "max": 2.5,
+          "mean": 2.1666666666666665,
+          "min": 1.5,
+          "stability_score": 0.7824286827118315,
+          "std": 0.4714045207910317,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-04-05T16:04:28.001671+00:00",
+      "run_id": "20260405_190926",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 298.03,
+        "max_drawdown_pct": -9.5517,
+        "profit_factor": 0.4998,
+        "sharpe_ratio": -1.5832,
+        "successful_windows": 3,
+        "total_return_pct": -2.5051,
+        "total_trades": 22,
+        "total_windows": 3,
+        "win_rate": 0.4091
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 30.0,
+            "ema_fast": 10,
+            "ema_slow": 40,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": 0.2533,
+          "sharpe": 0.2619,
+          "test_end": "2021-07-22T09:00:00+00:00",
+          "test_start": "2021-06-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 1.5
+          },
+          "return_pct": 1.0489,
+          "sharpe": 0.8505,
+          "test_end": "2021-08-22T09:00:00+00:00",
+          "test_start": "2021-07-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 36,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": -8.8174,
+          "sharpe": -5.3011,
+          "test_end": "2021-09-22T09:00:00+00:00",
+          "test_start": "2021-08-22T09:00:00+00:00",
+          "trades": 6,
+          "win_rate": 0.1667,
+          "window_id": 2
+        }
+      ]
+    },
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.0,
+          "max": 10.0,
+          "mean": 10.0,
+          "min": 10.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "contraction_pct": {
+          "coefficient_of_variation": 0.0831890330807703,
+          "max": 30.0,
+          "mean": 28.333333333333332,
+          "min": 25.0,
+          "stability_score": 0.9168109669192297,
+          "std": 2.3570226039551585,
+          "type": "numerical"
+        },
+        "ema_fast": {
+          "coefficient_of_variation": 0.408248290463863,
+          "max": 30.0,
+          "mean": 20.0,
+          "min": 10.0,
+          "stability_score": 0.591751709536137,
+          "std": 8.16496580927726,
+          "type": "numerical"
+        },
+        "ema_slow": {
+          "coefficient_of_variation": 0.17677669529663684,
+          "max": 60.0,
+          "mean": 53.333333333333336,
+          "min": 40.0,
+          "stability_score": 0.8232233047033631,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "hold_bars": {
+          "coefficient_of_variation": 0.565685424949238,
+          "max": 36.0,
+          "mean": 20.0,
+          "min": 12.0,
+          "stability_score": 0.434314575050762,
+          "std": 11.313708498984761,
+          "type": "numerical"
+        },
+        "sl_atr_multiplier": {
+          "coefficient_of_variation": 0.21757131728816848,
+          "max": 2.5,
+          "mean": 2.1666666666666665,
+          "min": 1.5,
+          "stability_score": 0.7824286827118315,
+          "std": 0.4714045207910317,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-04-05T16:10:29.816148+00:00",
+      "run_id": "20260405_191636",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 366.79,
+        "max_drawdown_pct": -7.8692,
+        "profit_factor": 0.5017,
+        "sharpe_ratio": -1.9738,
+        "successful_windows": 3,
+        "total_return_pct": -2.3553,
+        "total_trades": 23,
+        "total_windows": 3,
+        "win_rate": 0.3043
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 30.0,
+            "ema_fast": 10,
+            "ema_slow": 40,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": 0.2533,
+          "sharpe": 0.2619,
+          "test_end": "2021-07-22T09:00:00+00:00",
+          "test_start": "2021-06-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 30.0,
+            "ema_fast": 20,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": -0.1979,
+          "sharpe": -0.093,
+          "test_end": "2021-08-22T09:00:00+00:00",
+          "test_start": "2021-07-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.25,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 36,
+            "sl_atr_multiplier": 1.5
+          },
+          "return_pct": -7.1212,
+          "sharpe": -5.5125,
+          "test_end": "2021-09-22T09:00:00+00:00",
+          "test_start": "2021-08-22T09:00:00+00:00",
+          "trades": 7,
+          "win_rate": 0.1429,
+          "window_id": 2
+        }
+      ]
+    }
+  ],
+  "strategy": "volatility_regime"
+}

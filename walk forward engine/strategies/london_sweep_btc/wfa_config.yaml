@@ -1,0 +1,57 @@
+# London Sweep & Fade - BTC WFA Configuration
+# BTC adaptation: pip_size=1.0 USDT (vs 0.0001 for forex)
+# Asia session logic works on hourly bars, adapted for crypto
+# NOTE: BTC Asia session ranges are TIGHT (50-200 pip) vs forex (10-50 pip),
+# so ranges were reduced significantly from forex defaults
+
+walk_forward:
+  training_months: 1
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 40
+  output_directory: "strategies/london_sweep_btc/results"
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+
+data:
+  source_file: "data/btcusdt_1h_1000.csv"
+  min_required_bars: 100
+
+strategy:
+  profile_key: "BTC_LONDON_SWEEP"
+  parameter_ranges:
+    pip_size:
+      type: categorical
+      values: [1.0]
+    sweep_pips:
+      type: categorical
+      values: [100.0, 200.0, 400.0, 600.0]
+    reentry_pips:
+      type: categorical
+      values: [0.0, 50.0, 100.0]
+    stop_buffer_pips:
+      type: categorical
+      values: [50.0, 100.0, 200.0]
+    tp_mode:
+      type: categorical
+      values: ["mid", "opposite"]
+    min_range_pips:
+      type: categorical
+      values: [200.0, 300.0, 500.0]
+    max_range_pips:
+      type: categorical
+      values: [2000.0, 4000.0, 6000.0]
+
+backtest:
+  initial_balance: 100000
+  fees: 0.001
+  slippage: 0.001
+
+performance:
+  max_execution_time_seconds: 7200
+  skip_database_persistence: true
+
+logging:
+  log_file: "logs/wfa_london_sweep_btc.log"
