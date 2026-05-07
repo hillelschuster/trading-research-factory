@@ -1,4 +1,5 @@
 import fs from "fs";
+import crypto from "crypto";
 import os from "os";
 import path from "path";
 import { BacklogStore } from "./backlog-store.mjs";
@@ -10,7 +11,7 @@ import { OpenCodeSdkTransport } from "./transport/opencode-sdk-transport.mjs";
 import { acquireOwnerLock, releaseOwnerLock } from "./runtime-lock.mjs";
 import { reconcileStartupState, RuntimeStateStore } from "./runtime-state.mjs";
 import { validateEvaluationResult, validateExecutionResult, validateSummaryResult } from "./validators.mjs";
-import { readJson, writeJsonAtomic } from "./fs-utils.mjs";
+import { appendLine, readJson, writeJsonAtomic } from "./fs-utils.mjs";
 
 const BAKEOFF_SCHEMA_VERSION = "transport_bakeoff_v1";
 const DEFAULT_ADAPTER = "sdk";
@@ -26,6 +27,8 @@ const VERIFICATION_PREFIX_PATTERNS = [
   /^fault-drills-/,
   /^state-migration-report-/
 ];
+const PARITY_DRIFT_DIMENSIONS = ["lifecycle", "timing", "fill", "cost", "trade_count", "drawdown", "rule_accounting"];
+const MT5_PROMOTION_CONTEXTS = new Set(["mt5_tester", "ftmo_forward", "deployable"]);
 
 function average(values) {
   const numbers = values.filter((value) => typeof value === "number" && Number.isFinite(value));
@@ -317,6 +320,283 @@ export function buildStageGateResult({ runId, stage, attempt, decision, validato
     evidence_paths: [...new Set((Array.isArray(evidencePaths) ? evidencePaths : []).filter((value) => typeof value === "string" && value.trim()))],
     reason,
     recorded_at: new Date().toISOString()
+  };
+}
+
+function finiteMetric(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function researchWfaEvidencePaths(executionResult, evidencePaths) {
+  const directPaths = Array.isArray(evidencePaths) ? evidencePaths : [];
+  const provenancePaths = Array.isArray(executionResult?.provenance?.result_artifacts) ? executionResult.provenance.result_artifacts : [];
+  const artifactPaths = Array.isArray(executionResult?.artifacts_created)
+    ? executionResult.artifacts_created.map((artifact) => typeof artifact === "string" ? artifact : artifact?.path).filter(Boolean)
+    : [];
+  return [...new Set([...directPaths, ...provenancePaths, ...artifactPaths].filter((value) => typeof value === "string" && value.trim()))];
+}
+
+export function buildResearchWfaPromotionGate({ runId, candidateId = null, attempt = 1, executionResult, evidencePaths = [] } = {}) {
+  const metrics = executionResult?.metrics_observed ?? executionResult?.worker_result?.metrics ?? {};
+  const effectiveCandidateId = candidateId ?? executionResult?.candidate_id ?? executionResult?.worker_result?.candidate_id ?? null;
+  const gateEvidencePaths = researchWfaEvidencePaths(executionResult, evidencePaths);
+  const base = {
+    runId: runId ?? executionResult?.worker_result?.run_id ?? executionResult?.experiment_id ?? "RUN-RESEARCH-WFA-PROMOTION-GATE",
+    stage: "research_promotion",
+    attempt,
+    validator: "research_wfa_promotion_gate",
+    evidencePaths: gateEvidencePaths
+  };
+
+  if (!executionResult || executionResult.status !== "executed" || executionResult.evidence_kind !== "research_wfa") {
+    return { ...buildStageGateResult({ ...base, decision: "denied", reason: "Research promotion requires executed research_wfa evidence." }), candidate_id: effectiveCandidateId, target_context: "research" };
+  }
+
+  const sharpeOos = finiteMetric(metrics.sharpe_oos ?? metrics.aggregate_sharpe);
+  const aggregateReturnPct = finiteMetric(metrics.aggregate_return_pct);
+  const profitFactor = finiteMetric(metrics.profit_factor);
+  const totalTrades = finiteMetric(metrics.total_trades);
+  const rejectionReasons = [];
+
+  if (sharpeOos !== null && sharpeOos <= 0) rejectionReasons.push(`non-positive OOS Sharpe (${sharpeOos})`);
+  if (aggregateReturnPct !== null && aggregateReturnPct <= 0) rejectionReasons.push(`non-positive aggregate return (${aggregateReturnPct}%)`);
+  if (profitFactor !== null && profitFactor < 1) rejectionReasons.push(`profit factor below 1 (${profitFactor})`);
+  if (totalTrades !== null && totalTrades <= 0) rejectionReasons.push("zero observed trades");
+
+  if (rejectionReasons.length > 0) {
+    return { ...buildStageGateResult({ ...base, decision: "denied", reason: `Research WFA promotion denied for ${effectiveCandidateId ?? "candidate"}: ${rejectionReasons.join("; ")}.` }), candidate_id: effectiveCandidateId, target_context: "research" };
+  }
+
+  return { ...buildStageGateResult({ ...base, decision: "allowed", reason: `Research WFA promotion gate did not find negative metrics for ${effectiveCandidateId ?? "candidate"}; downstream MT5/native gates are still required.` }), candidate_id: effectiveCandidateId, target_context: "research" };
+}
+
+function normalizedEvidenceKind(value) {
+  return typeof value === "string" && value.trim() ? value.trim() : null;
+}
+
+function normalizeDriftThreshold(threshold) {
+  if (!threshold || typeof threshold !== "object") {
+    return { value: null, empirical_source: null, metric: null, units: null };
+  }
+  return {
+    value: finiteMetric(threshold.value),
+    empirical_source: typeof threshold.empirical_source === "string" && threshold.empirical_source.trim() ? threshold.empirical_source : null,
+    metric: typeof threshold.metric === "string" && threshold.metric.trim() ? threshold.metric : null,
+    units: typeof threshold.units === "string" && threshold.units.trim() ? threshold.units : null
+  };
+}
+
+function normalizeDriftClassification(dimension, drift = {}, threshold = {}) {
+  const normalizedThreshold = normalizeDriftThreshold(threshold);
+  const observed = finiteMetric(drift.observed ?? drift.value);
+  const status = ["pass", "fail", "blocked"].includes(drift.status) ? drift.status : (
+    normalizedThreshold.value === null || normalizedThreshold.empirical_source === null ? "blocked" : (observed !== null && observed > normalizedThreshold.value ? "fail" : "pass")
+  );
+  return {
+    dimension,
+    status,
+    observed,
+    threshold: normalizedThreshold,
+    notes: Array.isArray(drift.notes) ? drift.notes.filter((note) => typeof note === "string" && note.trim()) : []
+  };
+}
+
+export function buildParityReport({ candidateId, runId, comparedArtifacts = [], driftThresholds = {}, driftObservations = {}, generatedAt = new Date().toISOString(), decision = null, notes = [] } = {}) {
+  const driftClassifications = PARITY_DRIFT_DIMENSIONS.map((dimension) => normalizeDriftClassification(dimension, driftObservations[dimension], driftThresholds[dimension]));
+  const blockedDimensions = driftClassifications.filter((item) => item.status === "blocked").map((item) => item.dimension);
+  const failedDimensions = driftClassifications.filter((item) => item.status === "fail").map((item) => item.dimension);
+  const effectiveDecision = decision ?? (blockedDimensions.length > 0 ? "blocked" : (failedDimensions.length > 0 ? "fail" : "pass"));
+
+  return {
+    schema_version: "parity_report_v1",
+    evidence_kind: "parity_report",
+    authority_layer: "control_plane",
+    candidate_id: candidateId ?? null,
+    run_id: runId ?? null,
+    generated_at: generatedAt,
+    decision: effectiveDecision,
+    compared_artifacts: normalizeStringArray(comparedArtifacts),
+    drift_classifications: driftClassifications,
+    failed_dimensions: failedDimensions,
+    blocked_dimensions: blockedDimensions,
+    notes: normalizeStringArray(notes)
+  };
+}
+
+export function writeParityReport(paths, report) {
+  const candidateId = report?.candidate_id ?? "uncandidate";
+  const runId = report?.run_id ?? stampNow();
+  const fullPath = path.join(paths.factory, "parity", "reports", candidateId, `${runId}.json`);
+  writeJsonAtomic(fullPath, report, paths);
+  return { path: fullPath, payload: report };
+}
+
+export function writeCandidatePromotionGate(paths, gate) {
+  const candidateId = gate?.candidate_id ?? "uncandidate";
+  const runId = gate?.run_id ?? stampNow();
+  const stage = String(gate?.stage ?? "promotion").replace(/[^A-Za-z0-9._-]+/g, "-");
+  const fullPath = path.join(paths.factory, "candidates", candidateId, "gates", `${stage}-${runId}.json`);
+  writeJsonAtomic(fullPath, gate, paths);
+  return { path: fullPath, payload: gate };
+}
+
+function repoRelative(paths, fullPath) {
+  return path.relative(paths.root, fullPath).replace(/\\/g, "/");
+}
+
+function sha256File(filePath) {
+  return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+}
+
+export function updateCandidateManifestWithGate(paths, gateWrite) {
+  const gate = gateWrite?.payload;
+  if (!gate?.candidate_id) return { path: null, updated: false, reason: "gate missing candidate_id" };
+  const fullPath = path.join(paths.factory, "candidates", gate.candidate_id, "manifest.json");
+  const manifest = readJson(fullPath, null);
+  if (!manifest || typeof manifest !== "object") return { path: null, updated: false, reason: "candidate manifest not found" };
+
+  const gatePath = repoRelative(paths, gateWrite.path);
+  const gateSha256 = sha256File(gateWrite.path);
+  const nextManifest = {
+    ...manifest,
+    status: gate.decision === "allowed" ? manifest.status : "promotion_denied",
+    promotion_status: `${gate.target_context ?? "promotion"}_${gate.decision}`,
+    latest_gate_decision: {
+      stage: gate.stage,
+      target_context: gate.target_context ?? null,
+      decision: gate.decision,
+      validator: gate.validator,
+      reason: gate.reason,
+      gate_path: gatePath,
+      gate_sha256: gateSha256,
+      recorded_at: gate.recorded_at
+    },
+    updated_at: gate.recorded_at
+  };
+
+  writeJsonAtomic(fullPath, nextManifest, paths);
+  return { path: repoRelative(paths, fullPath), updated: true, gate_path: gatePath, gate_sha256: gateSha256 };
+}
+
+export function buildFailedParityPatternRecord({ parityReport, gate = null, evidencePaths = [], recordedAt = new Date().toISOString() } = {}) {
+  const failedDimensions = normalizeStringArray(parityReport?.failed_dimensions ?? []);
+  const blockedDimensions = normalizeStringArray(parityReport?.blocked_dimensions ?? []);
+  return {
+    schema_version: "failed_parity_pattern_v1",
+    recorded_at: recordedAt,
+    candidate_id: parityReport?.candidate_id ?? gate?.candidate_id ?? null,
+    run_id: parityReport?.run_id ?? gate?.run_id ?? null,
+    failure_family: "parity_drift",
+    parity_decision: parityReport?.decision ?? null,
+    gate_decision: gate?.decision ?? null,
+    failed_dimensions: failedDimensions,
+    blocked_dimensions: blockedDimensions,
+    lesson: `Parity did not pass${failedDimensions.length ? `; failed dimensions: ${failedDimensions.join(", ")}` : ""}${blockedDimensions.length ? `; blocked dimensions: ${blockedDimensions.join(", ")}` : ""}.`,
+    evidence_paths: normalizeStringArray([
+      ...(Array.isArray(evidencePaths) ? evidencePaths : []),
+      ...(parityReport?.candidate_id && parityReport?.run_id ? [`factory/parity/reports/${parityReport.candidate_id}/${parityReport.run_id}.json`] : []),
+      ...(Array.isArray(gate?.evidence_paths) ? gate.evidence_paths : [])
+    ])
+  };
+}
+
+export function appendFailedParityPattern(paths, record) {
+  const fullPath = path.join(paths.factory, "memory", "failed-patterns.jsonl");
+  appendLine(fullPath, JSON.stringify(record), paths);
+  return { path: fullPath, payload: record };
+}
+
+export function recordCandidateExecutionPromotionGate(paths, { runId, executionResult, executionResultPath = null, parityReport = null, adapterName = null } = {}) {
+  const workerResult = executionResult?.worker_result ?? executionResult?.worker_result_envelope ?? null;
+  const candidateId = executionResult?.candidate_id ?? workerResult?.candidate_id ?? null;
+  if (!candidateId) return null;
+
+  const evidenceKind = executionResult?.evidence_kind ?? workerResult?.evidence_kind ?? "research_wfa";
+  const evidencePaths = normalizeStringArray([executionResultPath, ...evidencePathsFromResults([executionResult], [])]);
+  const gate = evidenceKind === "research_wfa"
+    ? buildResearchWfaPromotionGate({ runId, candidateId, executionResult, evidencePaths })
+    : buildCandidatePromotionGate({ runId, candidateId, targetContext: evidenceKind, adapterName, evidenceResults: [executionResult], parityReport, evidencePaths });
+  const gateWrite = writeCandidatePromotionGate(paths, gate);
+  const manifestUpdate = updateCandidateManifestWithGate(paths, gateWrite);
+  let failedParityMemory = null;
+  if (parityReport && gate.decision === "denied" && parityReport.decision !== "pass") {
+    const record = buildFailedParityPatternRecord({ parityReport, gate, evidencePaths: [repoRelative(paths, gateWrite.path)] });
+    const memoryWrite = appendFailedParityPattern(paths, record);
+    failedParityMemory = { path: repoRelative(paths, memoryWrite.path), record };
+  }
+
+  return {
+    gate,
+    gate_path: repoRelative(paths, gateWrite.path),
+    manifest_update: manifestUpdate,
+    failed_parity_memory: failedParityMemory
+  };
+}
+
+function evidenceKindsFromResults(evidenceResults) {
+  return new Set((Array.isArray(evidenceResults) ? evidenceResults : [])
+    .map((result) => normalizedEvidenceKind(result?.evidence_kind ?? result?.worker_result?.evidence_kind))
+    .filter(Boolean));
+}
+
+function evidencePathsFromResults(evidenceResults, extraEvidencePaths) {
+  const paths = [];
+  for (const result of Array.isArray(evidenceResults) ? evidenceResults : []) {
+    for (const artifact of Array.isArray(result?.artifacts_created) ? result.artifacts_created : []) paths.push(typeof artifact === "string" ? artifact : artifact?.path);
+    for (const artifact of Array.isArray(result?.worker_result?.artifacts) ? result.worker_result.artifacts : []) paths.push(typeof artifact === "string" ? artifact : artifact?.path);
+    for (const artifact of Array.isArray(result?.provenance?.result_artifacts) ? result.provenance.result_artifacts : []) paths.push(artifact);
+  }
+  return normalizeStringArray([...paths, ...(Array.isArray(extraEvidencePaths) ? extraEvidencePaths : [])]);
+}
+
+export function buildCandidatePromotionGate({ runId, candidateId = null, targetContext = "research", attempt = 1, adapterName = null, evidenceResults = [], parityReport = null, evidencePaths = [] } = {}) {
+  const evidenceKinds = evidenceKindsFromResults(evidenceResults);
+  const gateEvidencePaths = evidencePathsFromResults(evidenceResults, [
+    ...(parityReport?.run_id && parityReport?.candidate_id ? [`factory/parity/reports/${parityReport.candidate_id}/${parityReport.run_id}.json`] : []),
+    ...(Array.isArray(evidencePaths) ? evidencePaths : [])
+  ]);
+  const rejectionReasons = [];
+
+  if (MT5_PROMOTION_CONTEXTS.has(targetContext) && adapterName === "PaperTradingAdapter") {
+    rejectionReasons.push("PaperTradingAdapter output cannot satisfy MT5/FTMO promotion contexts");
+  }
+
+  if (MT5_PROMOTION_CONTEXTS.has(targetContext) && evidenceKinds.size > 0 && [...evidenceKinds].every((kind) => kind === "research_wfa")) {
+    rejectionReasons.push(`${targetContext} promotion cannot be satisfied by WFA-only evidence`);
+  }
+
+  if (targetContext === "mt5_tester" && !evidenceKinds.has("mt5_tester")) rejectionReasons.push("mt5_tester promotion requires mt5_tester evidence");
+  if (targetContext === "ftmo_forward" && !evidenceKinds.has("forward_report")) rejectionReasons.push("ftmo_forward promotion requires forward_report evidence");
+  if (targetContext === "deployable" && (!evidenceKinds.has("mt5_tester") || !evidenceKinds.has("ftmo_ledger") || !evidenceKinds.has("forward_report"))) {
+    rejectionReasons.push("deployable promotion requires mt5_tester, ftmo_ledger, and forward_report evidence");
+  }
+
+  if (["parity", "mt5_tester", "ftmo_forward", "deployable"].includes(targetContext)) {
+    if (!parityReport || parityReport.evidence_kind !== "parity_report") {
+      rejectionReasons.push("promotion context requires a structured parity_report");
+    } else {
+      if (parityReport.decision !== "pass") rejectionReasons.push(`parity_report decision is ${parityReport.decision}`);
+      const missingEmpiricalThresholds = (parityReport.drift_classifications ?? []).filter((item) => !item?.threshold?.empirical_source).map((item) => item.dimension);
+      if (missingEmpiricalThresholds.length > 0) rejectionReasons.push(`parity drift thresholds missing empirical sources: ${missingEmpiricalThresholds.join(", ")}`);
+    }
+  }
+
+  const decision = rejectionReasons.length > 0 ? "denied" : "allowed";
+  return {
+    ...buildStageGateResult({
+      runId: runId ?? "RUN-CANDIDATE-PROMOTION-GATE",
+      stage: `${targetContext}_promotion`,
+      attempt,
+      decision,
+      validator: "candidate_promotion_gate",
+      evidencePaths: gateEvidencePaths,
+      reason: decision === "denied" ? `Candidate promotion denied for ${candidateId ?? "candidate"}: ${rejectionReasons.join("; ")}.` : `Candidate promotion gate allowed ${candidateId ?? "candidate"} for ${targetContext}; downstream gates may still apply.`
+    }),
+    candidate_id: candidateId,
+    target_context: targetContext,
+    evidence_kinds: [...evidenceKinds].sort(),
+    parity_report_decision: parityReport?.decision ?? null
   };
 }
 

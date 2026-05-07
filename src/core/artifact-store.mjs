@@ -1,4 +1,5 @@
 import fs from "fs";
+import crypto from "crypto";
 import path from "path";
 import { appendLine, ensureDir, readJson, writeJsonAtomic, writeTextAtomic } from "./fs-utils.mjs";
 import { isSandboxRelativePath } from "./root-identity.mjs";
@@ -68,6 +69,33 @@ function normalizeLegacyHandoff(source, runState) {
     signal: handoff.signal ?? null,
     created_at: handoff.created_at ?? new Date().toISOString()
   };
+}
+
+function artifactPathFromRef(ref) {
+  if (typeof ref === "string") return ref.trim();
+  if (!ref || typeof ref !== "object") return null;
+  if (typeof ref.path === "string") return ref.path.trim();
+  if (typeof ref.output_path === "string") return ref.output_path.trim();
+  return null;
+}
+
+function normalizeArtifactPaths(refs) {
+  return [...new Set((Array.isArray(refs) ? refs : [])
+    .map(artifactPathFromRef)
+    .filter((value) => typeof value === "string" && value.trim()))];
+}
+
+function resolveRepoRelativePath(rootDir, repoRelativePath) {
+  if (typeof repoRelativePath !== "string" || !repoRelativePath.trim() || path.isAbsolute(repoRelativePath)) {
+    throw new Error(`Artifact path must be repo-relative: ${String(repoRelativePath)}`);
+  }
+  const root = path.resolve(rootDir);
+  const fullPath = path.resolve(root, repoRelativePath);
+  const relative = path.relative(root, fullPath);
+  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+    throw new Error(`Artifact path escapes repository root: ${repoRelativePath}`);
+  }
+  return fullPath;
 }
 
 export class ArtifactStore {
@@ -180,6 +208,43 @@ export class ArtifactStore {
   writeStageGate(runId, stage, attempt, data) {
     const full = path.join(this.stageAttemptDir(runId, stage, attempt), "stage-gate.json");
     writeJsonAtomic(full, data, this.paths);
+    return full;
+  }
+
+  hashRepoArtifact(repoRelativePath) {
+    const normalizedPath = repoRelativePath.trim().replace(/\\/g, "/");
+    const fullPath = resolveRepoRelativePath(this.paths.root, normalizedPath);
+    if (!fs.existsSync(fullPath)) {
+      throw new Error(`Cannot hash missing artifact: ${normalizedPath}`);
+    }
+    const stat = fs.statSync(fullPath);
+    return {
+      path: normalizedPath,
+      sha256: crypto.createHash("sha256").update(fs.readFileSync(fullPath)).digest("hex"),
+      size_bytes: stat.size,
+      modified_at: stat.mtime.toISOString()
+    };
+  }
+
+  buildRunArtifactManifest(runId, artifactRefs, metadata = {}) {
+    const artifactPaths = normalizeArtifactPaths(artifactRefs);
+    return {
+      schema_version: "artifact_manifest_v1",
+      run_id: runId,
+      evidence_kind: metadata.evidence_kind ?? null,
+      authority_layer: metadata.authority_layer ?? null,
+      worker: metadata.worker ?? null,
+      candidate_id: metadata.candidate_id ?? null,
+      created_at: new Date().toISOString(),
+      artifacts: artifactPaths.map((artifactPath) => this.hashRepoArtifact(artifactPath)),
+      source_hashes: Array.isArray(metadata.source_hashes) ? metadata.source_hashes : []
+    };
+  }
+
+  writeRunArtifactManifest(runId, artifactRefs, metadata = {}) {
+    const manifest = this.buildRunArtifactManifest(runId, artifactRefs, metadata);
+    const full = path.join(this.runDir(runId), "artifact_manifest.json");
+    writeJsonAtomic(full, manifest, this.paths);
     return full;
   }
 

@@ -158,11 +158,16 @@ function normalizeEvidenceEntry(entry) {
   if (!entry || typeof entry !== "object") return null;
   const verdict = normalizeVerdict(entry.verdict);
   const mode = normalizeMode(entry.mode);
+  const evidenceKind = asString(entry.evidence_kind) || (mode === "live" ? "research" : mode === "simulate" ? "simulation" : "unknown");
   const normalized = {
     schema_version: EVIDENCE_SCHEMA_VERSION,
     run_id: asString(entry.run_id),
     mode,
-    evidence_kind: mode === "live" ? "research" : mode === "simulate" ? "simulation" : "unknown",
+    evidence_kind: evidenceKind,
+    authority_layer: asString(entry.authority_layer),
+    candidate_id: asString(entry.candidate_id),
+    candidate_stage: asString(entry.candidate_stage),
+    deployment_mode: asString(entry.deployment_mode),
     promotable: false,
     backlog_item_id: asString(entry.backlog_item_id),
     experiment_id: asString(entry.experiment_id),
@@ -174,6 +179,10 @@ function normalizeEvidenceEntry(entry) {
     evidence_score: asNumber(entry.evidence_score),
     overall_score: asNumber(entry.overall_score),
     metrics: normalizeMetrics(entry.metrics),
+    observations: entry.observations && typeof entry.observations === "object" ? entry.observations : null,
+    artifact_manifest_path: asString(entry.artifact_manifest_path),
+    blocked_reason: asString(entry.blocked_reason),
+    source_hashes: Array.isArray(entry.source_hashes) ? entry.source_hashes : [],
     summary_path: asString(entry.summary_path),
     recorded_at: asString(entry.recorded_at ?? entry.ts ?? entry.timestamp),
     legacy_scores: {
@@ -198,7 +207,7 @@ function hasSufficientTradeCount(entry) {
 export function isStrictlyPromotableEvidence(entry) {
   if (!entry || typeof entry !== "object") return false;
   if (entry.mode !== "live") return false;
-  if (entry.evidence_kind !== "research") return false;
+  if (!["research", "research_wfa"].includes(entry.evidence_kind)) return false;
   if (!POSITIVE_VERDICTS.has(entry.verdict)) return false;
   if ((entry.evidence_score ?? 0) < STRICT_PROMOTION_MIN_EVIDENCE_SCORE) return false;
   if (!hasMeaningfulOosMetrics(entry)) return false;

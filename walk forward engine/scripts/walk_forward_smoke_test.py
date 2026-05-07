@@ -27,6 +27,20 @@ import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 
+
+def configure_text_streams():
+    """Prefer UTF-8 console output; fall back to escaped text instead of crashing."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure:
+            try:
+                reconfigure(encoding="utf-8", errors="backslashreplace")
+            except Exception:
+                pass
+
+
+configure_text_streams()
+
 # Set up basic logging for smoke test
 logging.basicConfig(
     level=logging.INFO,  # Changed to INFO for speed
@@ -451,8 +465,11 @@ if __name__ == "__main__":
         if results.successful_windows > 0 and results.aggregate_total_trades > 0:
             logger.info("TEST RUNNER COMPLETED SUCCESSFULLY")
             print_checkpoint("SMOKE TEST PASSED")
+            sys.exit(0)
         else:
             logger.error("TEST RUNNER FAILED")
+            sys.exit(1)
     else:
         logger.error("TEST RUNNER FAILED (No Results)")
+        sys.exit(1)
     logger.info("=" * 80)

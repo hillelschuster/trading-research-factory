@@ -205,7 +205,12 @@ export class BacklogStore {
         const next = normalizeItem({
           ...item,
           status: "infra_blocked",
-          quarantine_until: null
+          quarantine_until: null,
+          lease_owner: null,
+          lease_expires_at: null,
+          blocked_resume_run_id: item.current_run_id ?? item.blocked_resume_run_id ?? null,
+          current_run_id: null,
+          resume_from_stage: null
         });
         recovered.push(next);
         return next;

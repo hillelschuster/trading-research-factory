@@ -18,21 +18,28 @@ import { readLeaderboardEntries } from "./leaderboard-store.mjs";
 import { marketPolicyCapsule, readMarketPolicy } from "./market-policy.mjs";
 import { reconcileStartupState, RuntimeStateStore } from "./runtime-state.mjs";
 import { validatePlannerResult, validateExecutionResult, validateExecutionArtifacts, validateEvaluationResult, validateSummaryResult } from "./validators.mjs";
+import { compileWfaReadyPlan } from "./wfa-plan-compiler.mjs";
 import { appendLine, readJson, writeJsonAtomic } from "./fs-utils.mjs";
 import { assertLiveTransport, createLiveTransport } from "./transport/live-transport.mjs";
 import { acquireOwnerLock, appendRecoveryEvent, heartbeatOwnerLock, releaseOwnerLock } from "./runtime-lock.mjs";
-import { buildStageGateResult, pruneOperationalArtifacts, resolvePreferredLiveTransportAdapter, writeRolloutGate, writeVerificationManifest } from "./verification.mjs";
+import { buildStageGateResult, pruneOperationalArtifacts, recordCandidateExecutionPromotionGate, resolvePreferredLiveTransportAdapter, writeRolloutGate, writeVerificationManifest } from "./verification.mjs";
 
 function runId() {
   return `RUN-${new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14)}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 function evidenceEntry({ runId, mode, backlogItem, plan, executionResult, evaluation, summaryPath }) {
+  const workerResult = executionResult?.worker_result ?? executionResult?.worker_result_envelope ?? null;
   return {
     run_id: runId,
     mode,
     backlog_item_id: backlogItem.id,
     experiment_id: plan.experiment_id,
+    evidence_kind: executionResult?.evidence_kind ?? plan?.evidence_kind ?? "research_wfa",
+    authority_layer: executionResult?.authority_layer ?? workerResult?.authority_layer ?? plan?.authority_layer ?? null,
+    candidate_id: executionResult?.candidate_id ?? workerResult?.candidate_id ?? plan?.candidate_id ?? null,
+    candidate_stage: executionResult?.candidate_stage ?? plan?.candidate_stage ?? null,
+    deployment_mode: executionResult?.deployment_mode ?? plan?.deployment_mode ?? null,
     strategy_family: plan.strategy_type ?? null,
     market_family: plan.market_family ?? backlogItem.market_family ?? null,
     asset_scope: plan.instrument_scope ?? plan.instrument_selection_rule ?? backlogItem.instrument_scope ?? null,
@@ -40,10 +47,47 @@ function evidenceEntry({ runId, mode, backlogItem, plan, executionResult, evalua
     verdict: evaluation.verdict,
     evidence_score: evaluation.evidence_score,
     overall_score: evaluation.overall_score,
-    metrics: evaluation.metrics ?? executionResult.metrics_observed ?? null,
+    metrics: evaluation.metrics ?? executionResult.metrics_observed ?? workerResult?.metrics ?? null,
+    observations: executionResult?.observations ?? executionResult?.observations_observed ?? workerResult?.observations ?? null,
+    blocked_reason: executionResult?.blocked_reason ?? workerResult?.blocked_reason ?? null,
+    source_hashes: executionResult?.source_hashes ?? workerResult?.source_hashes ?? [],
+    artifact_manifest_path: executionResult?.artifact_manifest_path ?? null,
     summary_path: summaryPath,
     recorded_at: new Date().toISOString()
   };
+}
+
+function artifactPathFromRef(ref) {
+  if (typeof ref === "string") return ref.trim();
+  if (!ref || typeof ref !== "object") return null;
+  if (typeof ref.path === "string") return ref.path.trim();
+  if (typeof ref.output_path === "string") return ref.output_path.trim();
+  return null;
+}
+
+function artifactPathsFromRefs(refs) {
+  return (Array.isArray(refs) ? refs : [])
+    .map(artifactPathFromRef)
+    .filter((value) => typeof value === "string" && value.trim());
+}
+
+function executionCreatedArtifactPaths(executionResult) {
+  const workerResult = executionResult?.worker_result ?? executionResult?.worker_result_envelope ?? null;
+  return [...new Set([
+    ...artifactPathsFromRefs(executionResult?.artifacts_created),
+    ...artifactPathsFromRefs(executionResult?.artifacts),
+    ...artifactPathsFromRefs(workerResult?.artifacts),
+    ...artifactPathsFromRefs(executionResult?.provenance?.result_artifacts)
+  ])];
+}
+
+function executionEvidencePaths(executionResult) {
+  const workerResult = executionResult?.worker_result ?? executionResult?.worker_result_envelope ?? null;
+  return [...new Set([
+    ...executionCreatedArtifactPaths(executionResult),
+    ...artifactPathsFromRefs(executionResult?.source_hashes),
+    ...artifactPathsFromRefs(workerResult?.source_hashes)
+  ])];
 }
 
 function getFactoryStats(paths) {
@@ -1024,6 +1068,86 @@ export async function runFactory(config) {
         }
       }
 
+      if (!plan && STAGE_RANK[resumeFromStage] <= STAGE_RANK.planner) {
+        const compiledPlan = compileWfaReadyPlan({ backlogItem, rootDir: config.rootDir, runId: currentRunId });
+        if (compiledPlan.compiled) {
+          validatePlannerResult(compiledPlan.plan, { rootDir: config.rootDir });
+          const bypassPath = artifactStore.writeRunArtifact(currentRunId, "planner-bypass.json", {
+            schema_version: "planner_bypass_v1",
+            compiler: "deterministic_wfa_ready_compiler_v1",
+            reason: "explicit_research_wfa_route",
+            backlog_item_id: backlogItem.id,
+            experiment_id: compiledPlan.plan.experiment_id,
+            recorded_at: new Date().toISOString()
+          });
+          registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "planner_bypass", bypassPath);
+          const planPath = artifactStore.writeRunArtifact(currentRunId, "experiment-plan.json", compiledPlan.plan);
+          registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "experiment_plan", planPath);
+          const experimentPlanPath = artifactStore.writeExperimentPlan(compiledPlan.plan.experiment_id, compiledPlan.plan);
+          registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "experiment_plan_index", experimentPlanPath);
+          const gate = buildStageGateResult({
+            runId: currentRunId,
+            stage: "planner",
+            attempt: 0,
+            decision: "allowed",
+            validator: "deterministic_wfa_ready_compiler",
+            evidencePaths: [artifactStore.relativeToRoot(planPath), artifactStore.relativeToRoot(bypassPath)]
+          });
+          const stageGatePath = artifactStore.writeStageGate(currentRunId, "planner", 0, gate);
+          registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "planner_stage_gates", stageGatePath, { append: true });
+          const existingGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
+          existingGates.stages = [...(existingGates.stages || []), { ...gate, gate_path: artifactStore.relativeToRoot(stageGatePath) }];
+          existingGates.updated_at = new Date().toISOString();
+          artifactStore.writeGateResults(currentRunId, existingGates);
+          setRunStageStatus(artifactStore, currentRunId, fallbackRunState, "planner", "completed", {
+            attempt: 0,
+            compiler: "deterministic_wfa_ready_compiler_v1"
+          });
+          updateRunResumePoint(artifactStore, currentRunId, fallbackRunState, "executor");
+          artifactStore.updateRunState(currentRunId, (state) => {
+            state.last_completed_stage = "planner";
+            state.current_stage = null;
+            state.current_stage_attempt = null;
+            state.current_stage_session = null;
+            state.handoff_pending = false;
+            state.updated_at = new Date().toISOString();
+            return state;
+          }, fallbackRunState);
+          const pendingPlannerHandoff = artifactStore.readHandoff(currentRunId, null);
+          const runStateSnapshot = artifactStore.readRunState(currentRunId, fallbackRunState);
+          if (
+            pendingPlannerHandoff?.resume_from_stage === "planner" &&
+            pendingPlannerHandoff.consumed === false &&
+            pendingPlannerHandoff.resume_generation === runStateSnapshot?.resume_generation
+          ) {
+            const consumedPlannerHandoff = {
+              ...pendingPlannerHandoff,
+              consumed: true,
+              consumed_by: currentRunId,
+              consumed_at: new Date().toISOString(),
+              superseded_by: "deterministic_wfa_ready_compiler"
+            };
+            artifactStore.writeHandoff(currentRunId, consumedPlannerHandoff);
+            if (resumeCandidate?.handoff) {
+              resumeCandidate.handoff = consumedPlannerHandoff;
+            }
+          }
+          plan = compiledPlan.plan;
+          resumeFromStage = "executor";
+          activeStage = "executor";
+          logger.line("Planner bypassed by deterministic WFA-ready compiler", {
+            experiment_id: plan.experiment_id,
+            backlog_item_id: backlogItem.id,
+            wfa_config_path: plan.planner_bypass?.wfa_config_path
+          });
+        } else {
+          logger.line("Planner bypass unavailable", {
+            backlog_item_id: backlogItem.id,
+            reason: compiledPlan.reason
+          });
+        }
+      }
+
       let pendingHandoffNote = buildHandoffRetryNote(resumeCandidate?.handoff ?? null);
 
       const markHandoffConsumed = () => {
@@ -1358,7 +1482,7 @@ export async function runFactory(config) {
             registerArtifactPath(artifactStore, currentRunId, fallbackRunState, `${stage}_stage_validated`, validatedPath, { append: true });
             const gateEvidencePaths = [artifactStore.relativeToRoot(validatedPath)];
             if (stage === "executor") {
-              gateEvidencePaths.push(...(Array.isArray(parsed?.provenance?.result_artifacts) ? parsed.provenance.result_artifacts : []));
+              gateEvidencePaths.push(...executionEvidencePaths(parsed));
             }
             if (stage === "evaluator") {
               gateEvidencePaths.push(...(Array.isArray(parsed?.verification?.artifacts_checked) ? parsed.verification.artifacts_checked : []));
@@ -1459,6 +1583,32 @@ export async function runFactory(config) {
               registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "executor_response", responsePath);
               const executionPath = artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
               registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "execution_result", executionPath);
+              const workerResult = parsed?.worker_result ?? parsed?.worker_result_envelope ?? null;
+              const artifactManifestPath = artifactStore.writeRunArtifactManifest(currentRunId, executionCreatedArtifactPaths(parsed), {
+                evidence_kind: parsed?.evidence_kind ?? "research_wfa",
+                authority_layer: parsed?.authority_layer ?? workerResult?.authority_layer ?? null,
+                worker: workerResult?.worker ?? null,
+                candidate_id: parsed?.candidate_id ?? workerResult?.candidate_id ?? null,
+                source_hashes: parsed?.source_hashes ?? workerResult?.source_hashes ?? []
+              });
+              parsed.artifact_manifest_path = artifactStore.relativeToRoot(artifactManifestPath);
+              artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
+              registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "artifact_manifest", artifactManifestPath);
+              const candidateGate = recordCandidateExecutionPromotionGate(paths, {
+                runId: currentRunId,
+                executionResult: parsed,
+                executionResultPath: artifactStore.relativeToRoot(executionPath)
+              });
+              if (candidateGate?.gate_path) {
+                registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_promotion_gates", path.join(paths.root, candidateGate.gate_path), { append: true });
+                const candidateGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
+                candidateGates.stages = [...(candidateGates.stages || []), { ...candidateGate.gate, gate_path: candidateGate.gate_path }];
+                candidateGates.updated_at = new Date().toISOString();
+                artifactStore.writeGateResults(currentRunId, candidateGates);
+                if (candidateGate.manifest_update?.path) {
+                  registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_manifest_updates", path.join(paths.root, candidateGate.manifest_update.path), { append: true });
+                }
+              }
               executionResult = parsed;
               const after = artifactStore.snapshotWorkspaceHashes(paths.workspace);
               changedFiles = artifactStore.diffSnapshots(before, after);

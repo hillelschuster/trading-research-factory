@@ -2041,6 +2041,7 @@ class WalkForwardRunner:
         """
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            Path(self.config.output_directory).mkdir(parents=True, exist_ok=True)
 
             # Save main results as JSON with finite-value sanitization
             results_file = os.path.join(self.config.output_directory, f"walk_forward_results_{timestamp}.json")
@@ -2288,7 +2289,23 @@ class WalkForwardRunner:
         try:
             project_root = Path(__file__).parent.parent.parent
             strategies_dir = project_root / "strategies"
-            
+
+            output_dir = Path(self.config.output_directory)
+            if not output_dir.is_absolute():
+                output_dir = project_root / output_dir
+
+            try:
+                relative_output_dir = output_dir.resolve().relative_to(strategies_dir.resolve())
+                strategy_name = relative_output_dir.parts[0] if relative_output_dir.parts else None
+                if strategy_name:
+                    strategy_dir = strategies_dir / strategy_name
+                    if strategy_dir.exists() or output_dir.name == "results":
+                        strategy_dir.mkdir(parents=True, exist_ok=True)
+                        self.logger.info(f"Resolved strategy directory from output_directory: {strategy_dir}")
+                        return strategy_dir
+            except ValueError:
+                pass
+             
             if not strategies_dir.exists():
                 self.logger.warning(f"Strategies directory not found: {strategies_dir}")
                 return None

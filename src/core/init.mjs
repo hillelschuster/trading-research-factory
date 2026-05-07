@@ -13,6 +13,16 @@ export function initializeProject(rootDir) {
     path.join(paths.factory, "memory"),
     paths.runtime,
     paths.memoryQuarantine,
+    paths.artifacts,
+    paths.artifactManifests,
+    paths.mt5,
+    paths.mt5Environment,
+    paths.mt5Tester,
+    paths.mt5Native,
+    paths.mt5Bridge,
+    path.join(paths.mt5Bridge, "ingested"),
+    path.join(paths.mt5Bridge, "quarantine"),
+    path.join(paths.mt5Bridge, "scratch"),
     paths.runs,
     paths.experiments,
     paths.verification,
@@ -92,6 +102,7 @@ export function initializeProject(rootDir) {
   }, paths);
   if (!fs.existsSync(paths.recoveryLog)) writeTextAtomic(paths.recoveryLog, "", paths);
   if (!fs.existsSync(paths.marketPolicy)) writeJsonAtomic(paths.marketPolicy, DEFAULT_MARKET_POLICY, paths);
+  if (!fs.existsSync(paths.artifactIndex)) writeJsonAtomic(paths.artifactIndex, [], paths);
   if (!fs.existsSync(paths.evidenceIndex)) writeJsonAtomic(paths.evidenceIndex, [], paths);
   if (!fs.existsSync(paths.retrievalIndex)) writeJsonAtomic(paths.retrievalIndex, [], paths);
   if (!fs.existsSync(paths.lessons)) writeTextAtomic(paths.lessons, "", paths);

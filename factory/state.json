@@ -1,7 +1,7 @@
 {
   "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
-  "iteration": 158,
-  "last_run_id": "RUN-20260404091704-9063ea",
+  "iteration": 161,
+  "last_run_id": "RUN-20260505194725-nlq8sd",
   "run_started_at": null,
   "stage_started_at": null,
   "exit_reason": "run_failed",
@@ -12,7 +12,7 @@
   "active_agent_status": null,
   "last_agent_heartbeat_at": null,
   "last_status": "error",
-  "last_error": "OpenCode executor session creation timed out after 30000ms.",
+  "last_error": "planner transport request timed out waiting for response headers.",
   "mode_history": [
     {
       "ts": "2026-03-25T11:45:20Z",
@@ -476,6 +476,18 @@
     },
     {
       "ts": "2026-04-05T16:29:15.410Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-05T18:45:44.777Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-05T19:18:18.298Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-05T19:47:25.107Z",
       "mode": "live"
     }
   ]

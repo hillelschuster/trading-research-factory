@@ -1,16 +1,16 @@
 {
   "schema_version": "health_v1",
-  "updated_at": "2026-04-05T17:01:23.504Z",
+  "updated_at": "2026-05-05T20:03:53.439Z",
   "prompt_bytes_per_stage": {
     "planner": {
-      "count": 116,
-      "avg_bytes": 14326,
+      "count": 119,
+      "avg_bytes": 14352,
       "max_bytes": 31428,
-      "last_bytes": 12593
+      "last_bytes": 15424
     },
     "executor": {
-      "count": 196,
-      "avg_bytes": 11837,
+      "count": 202,
+      "avg_bytes": 11895,
       "max_bytes": 22887,
       "last_bytes": 11143
     },
@@ -40,20 +40,20 @@
     "rate_per_session_record": 0
   },
   "session_reuse_count": {
-    "total_session_records": 442,
+    "total_session_records": 451,
     "reused_session_records": 0
   },
   "transport_retry_recovery_rate": {
-    "transport_failures": 45,
+    "transport_failures": 46,
     "recovered_after_retry": 10,
-    "recovery_rate": 0.2222
+    "recovery_rate": 0.2174
   },
   "transport_failures": {
     "by_phase": {
       "unknown": 10,
       "request": 5,
-      "first_headers": 24,
-      "session_create": 6
+      "first_headers": 29,
+      "session_create": 2
     },
     "by_adapter": {
       "unknown": {
@@ -63,35 +63,35 @@
         "request": 3
       },
       "opencode_sdk": {
-        "first_headers": 24,
+        "first_headers": 29,
         "request": 2
       },
       "opencode_server_manager": {
-        "session_create": 6
+        "session_create": 2
       }
     }
   },
   "owner_lock_events": {
     "observer_only_starts": 0,
-    "owner_lock_takeovers": 5,
+    "owner_lock_takeovers": 6,
     "owner_lock_denials": 0
   },
   "operational_artifacts": {
-    "recovery_log_lines": 145,
-    "verification_files": 36
+    "recovery_log_lines": 151,
+    "verification_files": 37
   },
   "stranded_lease_count": 0,
   "cooldown_run_count": 0,
-  "quarantined_run_count": 7,
+  "quarantined_run_count": 2,
   "false_pass_prevention": {
-    "denied_stage_gates": 156,
+    "denied_stage_gates": 165,
     "denied_false_executed_claims": 6,
     "denied_generic_summaries": 0
   },
   "resumable_run_recovery_rate": {
-    "handoff_runs": 16,
+    "handoff_runs": 17,
     "recovered_runs": 8,
-    "recovery_rate": 0.5
+    "recovery_rate": 0.4706
   },
   "memory_validation_failure_count": {
     "repair_reports": 3,
@@ -111,13 +111,13 @@
     "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection": 1
   },
   "executor_completion_rate": {
-    "total_executor_stage_gates": 136,
+    "total_executor_stage_gates": 142,
     "allowed_executor_stage_gates": 20,
-    "completion_rate": 0.1471
+    "completion_rate": 0.1408
   },
   "evidence_yield": {
     "live_research_entries_total": 28,
-    "live_research_entries_last_24h": 4
+    "live_research_entries_last_24h": 0
   },
   "market_family_distribution_vs_policy": [
     {
@@ -137,9 +137,9 @@
     }
   ],
   "research_vs_infra_balance": {
-    "infra_blocked_like_items": 14,
+    "infra_blocked_like_items": 17,
     "research_bearing_live_runs": 28,
-    "blocked_to_research_ratio": 0.5
+    "blocked_to_research_ratio": 0.6071
   },
   "percent_of_plans_with_explicit_scope_justification": {
     "total_plans": 96,

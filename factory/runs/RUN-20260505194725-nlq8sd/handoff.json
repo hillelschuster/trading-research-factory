@@ -1,0 +1,37 @@
+{
+  "schema_version": "handoff_v2",
+  "resume_from_stage": "planner",
+  "resume_generation": 1,
+  "failure_class": "transport_failure",
+  "last_error": "planner transport request timed out waiting for response headers.",
+  "attempts_used": 3,
+  "safe_inputs": {
+    "backlog_item_id": "IDEA-783243-8vz",
+    "run_id": "RUN-20260505194725-nlq8sd",
+    "resume_from_stage": "planner",
+    "experiment_id": null
+  },
+  "produced_artifacts": [
+    "factory/runs/RUN-20260505194725-nlq8sd/run-state.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-heartbeat.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-input.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-2/stage-input.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3/stage-input.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-prompt.txt",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-2/stage-prompt.txt",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3/stage-prompt.txt",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1-session.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-2-session.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3-session.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-response.raw.txt",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-error.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-2/stage-error.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3/stage-error.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-gate.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-2/stage-gate.json",
+    "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3/stage-gate.json"
+  ],
+  "consumed": false,
+  "consumed_by": null,
+  "created_at": "2026-05-05T20:02:38.750Z"
+}

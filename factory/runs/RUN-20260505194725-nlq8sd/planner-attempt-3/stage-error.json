@@ -1,0 +1,329 @@
+{
+  "agent": "planner",
+  "attempt": 3,
+  "attempts": 3,
+  "failure_class": "transport_failure",
+  "transport_phase": "first_headers",
+  "retryable": true,
+  "timeout_bucket": "first_headers",
+  "transport_adapter": "opencode_sdk",
+  "server_fingerprint": "da49b046651abd66454cf60ed461aeaa4a620e6a626b02421d23a6998d8d6258",
+  "error": {
+    "name": "Error",
+    "message": "planner transport request timed out waiting for response headers.",
+    "stack": "Error: planner transport request timed out waiting for response headers.\n    at createTransportError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:8:42)\n    at normalizeAgentRequestError (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:33:14)\n    at OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:163:26)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1383:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:367:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1454:32)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
+    "failure_class": "transport_failure",
+    "retry_class": null,
+    "transport_phase": "first_headers",
+    "retryable": true,
+    "timeout_bucket": "first_headers",
+    "transport_adapter": "opencode_sdk",
+    "server_fingerprint": "da49b046651abd66454cf60ed461aeaa4a620e6a626b02421d23a6998d8d6258",
+    "cause": {
+      "name": "TypeError",
+      "message": "fetch failed",
+      "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:15363:13\n    at async fetch (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:81:28)\n    at async request (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/node_modules/@opencode-ai/sdk/dist/gen/client/client.gen.js:56:24)\n    at async OpenCodeSdkTransport.callAgent (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/transport/opencode-sdk-transport.mjs:149:11)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1383:30\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:367:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1454:32)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20"
+    }
+  },
+  "message": "planner transport request timed out waiting for response headers.",
+  "recorded_at": "2026-05-05T20:02:37.635Z",
+  "input_snapshot": {
+    "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
+    "backlogItem": {
+      "id": "IDEA-783243-8vz",
+      "title": "BNB EMA Trend Gate bounded hold-period robustness WFA",
+      "status": "ready",
+      "priority": 78,
+      "category": "strategy",
+      "objective": "Run a bounded WFA on BNBUSDT EMA Trend Gate to test whether hold_bars values around the prior 168-bar optimum are robust rather than overfit. Market: crypto. Instrument: BNBUSDT spot. Timeframe: 1h entries with 4h EMA regime filter. Data source: existing Binance CSV at walk forward engine/data/binance_bnbusdt_1h_deep.csv. Expected route: create or update a strategy-local WFA config under walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml using the existing EMA_TREND_GATE strategy and a narrow hold_bars grid such as 96/120/144/168/192 with fixed core parameters. Evidence boundary: research_wfa only; reject parameter-only optimism unless window stability and trade count support it.",
+      "source": "wfa_only_launch_curator",
+      "market_family": "crypto",
+      "instrument_scope": "BNBUSDT spot",
+      "timeframe": "1h entries with 4h regime filter",
+      "data_source": "binance_existing_csv",
+      "data_requirement": "walk forward engine/data/binance_bnbusdt_1h_deep.csv",
+      "expected_wfa_config_path": "walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml",
+      "expected_strategy_config_path": "walk forward engine/config/strategy_ema_trend_gate.json",
+      "expected_strategy_source_path": "walk forward engine/src/strategies/ema_trend_gate.py",
+      "evidence_kind": "research_wfa",
+      "authority_layer": "python_research",
+      "deployment_mode": "research_only",
+      "research_status": null,
+      "cooldown_until": null,
+      "quarantine_until": null,
+      "lease_owner": null,
+      "lease_expires_at": null,
+      "current_run_id": null,
+      "last_failure_class": null,
+      "resume_from_stage": null,
+      "last_verdict": null
+    },
+    "retrieval": {
+      "relevant_lessons": [
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+          "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -11.15,
+            "win_rate": null,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 837
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404080723-hm4238.md",
+            "factory/experiments/EXP-20260404080753-bnb.plan.json",
+            "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+            "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+            "factory/runs/RUN-20260404080723-hm4238/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "Cross-asset generalization partially confirmed but asset-specific tuning required",
+          "specific_finding": "Same parameters (EMA 50/20, RSI 14, 35/50 thresholds, 96 hold bars) produce widely varying results across assets. SOL and BTC thrive while BNB struggles, indicating exchange tokens need asset-specific parameter adjustment.",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -11.15,
+            "win_rate": null,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 837
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404080723-hm4238.md",
+            "factory/experiments/EXP-20260404080753-bnb.plan.json",
+            "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+            "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+            "factory/runs/RUN-20260404080723-hm4238/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "Marginal OOS Sharpe indicates strategy vulnerability for exchange tokens",
+          "specific_finding": "0.432 barely exceeds 0.4 threshold - strategy is borderline robust for BNB. The 4h EMA regime filter may not adequately capture exchange token-specific volatility patterns (utility demand cycles, burn events, staking rewards).",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -11.15,
+            "win_rate": null,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 837
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404080723-hm4238.md",
+            "factory/experiments/EXP-20260404080753-bnb.plan.json",
+            "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+            "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+            "factory/runs/RUN-20260404080723-hm4238/summary.json"
+          ]
+        },
+        {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260405200000-01",
+          "verdict": "failed",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime detection",
+          "strategy_family": "volatility",
+          "lesson": "ATR-based conviction filtering does NOT improve robustness vs EMA Trend Gate baseline - both achieve ~60-67% positive windows but negative aggregate Sharpe",
+          "specific_finding": "Window 2 (Aug-Sep 2021) had catastrophic failure: Sharpe -5.3, -8.82% return, -9.55% drawdown. Extreme instability across regimes indicates strategy fails in adverse volatility conditions.",
+          "metrics": {
+            "sharpe_is": 0.262,
+            "sharpe_oos": -1.583,
+            "wfr": 0.667,
+            "is_oos_ratio": null,
+            "max_drawdown": -9.55,
+            "win_rate": 0.409,
+            "total_trades": 22,
+            "fold_variance": null,
+            "markets_tested": [
+              "BTC/USDT"
+            ],
+            "extra_metrics": {
+              "positive_sharpe_windows_pct": 66.7,
+              "windows_completed": 3
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260405190426-98ced0.md",
+            "factory/runs/RUN-20260405190426-98ced0/execution-result.json",
+            "factory/runs/RUN-20260405190426-98ced0/evaluation.json"
+          ]
+        }
+      ],
+      "contradiction": {
+        "positive": {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "lesson": "BNB is the worst-performing asset in EMA Trend Gate series",
+          "specific_finding": "BNB achieved 0.432 OOS Sharpe vs SOL 1.373 (+218%), BTC 0.998 (+131%), ETH 0.489 (+13%). Exchange token utility-driven demand creates distinct volatility regime that reduces strategy effectiveness.",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -11.15,
+            "win_rate": null,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [],
+            "extra_metrics": {
+              "trades": 837
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260404080723-hm4238.md",
+            "factory/experiments/EXP-20260404080753-bnb.plan.json",
+            "factory/runs/RUN-20260404080723-hm4238/execution-result.json",
+            "factory/runs/RUN-20260404080723-hm4238/evaluation.json",
+            "factory/runs/RUN-20260404080723-hm4238/summary.json"
+          ]
+        },
+        "negative": {
+          "source_path": "factory/memory/lessons.jsonl",
+          "experiment_id": "EXP-20260405200000-01",
+          "verdict": "failed",
+          "mode": "live",
+          "market_family": "crypto",
+          "asset_scope": "BTC/USDT spot (binance_btcusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime detection",
+          "strategy_family": "volatility",
+          "lesson": "ATR-based conviction filtering does NOT improve robustness vs EMA Trend Gate baseline - both achieve ~60-67% positive windows but negative aggregate Sharpe",
+          "specific_finding": "Window 2 (Aug-Sep 2021) had catastrophic failure: Sharpe -5.3, -8.82% return, -9.55% drawdown. Extreme instability across regimes indicates strategy fails in adverse volatility conditions.",
+          "metrics": {
+            "sharpe_is": 0.262,
+            "sharpe_oos": -1.583,
+            "wfr": 0.667,
+            "is_oos_ratio": null,
+            "max_drawdown": -9.55,
+            "win_rate": 0.409,
+            "total_trades": 22,
+            "fold_variance": null,
+            "markets_tested": [
+              "BTC/USDT"
+            ],
+            "extra_metrics": {
+              "positive_sharpe_windows_pct": 66.7,
+              "windows_completed": 3
+            }
+          },
+          "related_artifact_paths": [
+            "factory/summaries/RUN-20260405190426-98ced0.md",
+            "factory/runs/RUN-20260405190426-98ced0/execution-result.json",
+            "factory/runs/RUN-20260405190426-98ced0/evaluation.json"
+          ]
+        }
+      },
+      "comparable_promoted_runs": [
+        {
+          "source_path": "factory/evidence/index.json",
+          "run_id": "RUN-20260404211002-hmi9jy",
+          "experiment_id": "EXP-20260405132700-01",
+          "verdict": "promising_with_caveats",
+          "evidence_score": 55,
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "metrics": {
+            "sharpe_is": null,
+            "sharpe_oos": 0.6636,
+            "wfr": null,
+            "is_oos_ratio": null,
+            "max_drawdown": -9.16,
+            "win_rate": 0.484,
+            "total_trades": 399,
+            "fold_variance": null,
+            "markets_tested": [
+              "BNB/USDT"
+            ],
+            "extra_metrics": {
+              "positive_sharpe_windows_pct": 61.1
+            }
+          },
+          "summary_path": "factory/summaries/RUN-20260404211002-hmi9jy.md",
+          "evidence_kind": "research",
+          "promotable": true
+        },
+        {
+          "source_path": "factory/evidence/index.json",
+          "run_id": "RUN-20260404080723-hm4238",
+          "experiment_id": "EXP-20260404080753-bnb",
+          "verdict": "promising_with_caveats",
+          "evidence_score": 55,
+          "market_family": "crypto",
+          "asset_scope": "BNB/USDT spot (binance_bnbusdt_1h_deep.csv)",
+          "timeframe": "1h with 4h regime filter",
+          "strategy_family": "multi_timeframe",
+          "metrics": {
+            "sharpe_is": 0.807,
+            "sharpe_oos": 0.432,
+            "wfr": null,
+            "is_oos_ratio": 1.87,
+            "max_drawdown": -11.15,
+            "win_rate": 0.4965,
+            "total_trades": 837,
+            "fold_variance": null,
+            "markets_tested": [
+              "BNB/USDT"
+            ],
+            "extra_metrics": {}
+          },
+          "summary_path": "factory/summaries/RUN-20260404080723-hm4238.md",
+          "evidence_kind": "research",
+          "promotable": true
+        }
+      ]
+    },
+    "retryNote": null
+  }
+}

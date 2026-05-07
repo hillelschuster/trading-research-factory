@@ -6,10 +6,15 @@ Convert raw trading ideas into **scored evidence**.
 The primary objective is to improve a **walk-forward strategy factory**. Every run should move the workspace toward stronger strategy code, cleaner experiment design, better evaluation, or better research memory.
 
 ## Hard boundary: repository scope
-- All filesystem work must remain strictly inside this repository folder.
-- Never create, read, edit, or reference files outside `/mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/`.
-- Web access (research, papers, docs, repos) is encouraged. Filesystem access is restricted to this repo only.
-- The `external_directory: deny` permission in `opencode.json` enforces this. Respect it.
+- Filesystem work should remain inside this repository except for these approved MT5 paths:
+  - `C:\Program Files\FTMO Global Markets MT5 Terminal\`
+  - `C:\Users\הלל\AppData\Roaming\MetaQuotes\Terminal\81A933A9AFC5DE3C23B15CAB19C63850\`
+  - `C:\Users\הלל\AppData\Roaming\MetaQuotes\Terminal\Common\Files\`
+- Agents may read, write, and copy only MT5 EA, preset, tester report, tester log, and `FILE_COMMON` evidence files in those paths.
+- Never read unrelated `AppData` or other user files.
+- Never persist passwords.
+- Web access (research, papers, docs, repos) is encouraged. Filesystem access is otherwise restricted to this repo plus the approved MT5 paths above.
+- The `external_directory: allow` permission in `opencode.json` enables this narrow exception. Respect the scope above.
 
 ## Non-negotiable rules
 - Never claim success without artifacts that actually exist on disk.

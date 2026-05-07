@@ -39,7 +39,7 @@
           "summarizer": "allow",
           "*": "deny"
         },
-        "external_directory": "deny",
+        "external_directory": "allow",
         "doom_loop": "deny"
       }
     },
@@ -56,7 +56,7 @@
           "summarizer": "allow",
           "*": "deny"
         },
-        "external_directory": "deny",
+        "external_directory": "allow",
         "doom_loop": "deny"
       }
     },
@@ -73,7 +73,7 @@
           "summarizer": "allow",
           "*": "deny"
         },
-        "external_directory": "deny",
+        "external_directory": "allow",
         "doom_loop": "deny",
         "bash": {
           "*": "allow"
@@ -95,7 +95,7 @@
           "summarizer": "allow",
           "*": "deny"
         },
-        "external_directory": "deny",
+        "external_directory": "allow",
         "doom_loop": "deny"
       }
     },
@@ -114,7 +114,7 @@
           "summarizer": "allow",
           "*": "deny"
         },
-        "external_directory": "deny",
+        "external_directory": "allow",
         "doom_loop": "deny"
       }
     }
