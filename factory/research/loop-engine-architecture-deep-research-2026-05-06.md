@@ -18,7 +18,7 @@ Direct answers to the core questions:
 10. 24/7 unattended operation should include discovery, source capture, hypothesis generation, deterministic WFA, evidence scoring, memory updates, and failure recovery. Human supervision should remain mandatory for new trusted data-source classes, deployment/risk changes, MT5/FTMO/live promotion, and irreversible evidence deletion.
 11. Use strong/frontier models for researcher, ideator, planner, and evaluator; use cheaper schema-reliable models for summarizer and JSON repair; use deterministic code for execution and gates.
 12. Launch requires reliability gates: durable queue/state, leases, heartbeats, poison quarantine, idempotent artifacts, circuit breakers, watchdog, restart recovery, provider fallback, strict schemas, and evidence validation.
-13. Minimal migration: keep the existing repo and OpenCode integration, add a brain interface, add deterministic WFA-ready plan compilation and deterministic WFA workers, then move live production away from `runner.callAgent` as the mandatory stage path.
+13. Minimal migration: keep the existing repo and OpenCode integration, finish deterministic WFA execution truth first, require worker-backed `research_wfa` evidence, then add the replaceable brain interface and move live production away from `runner.callAgent` as the mandatory stage path.
 
 # Bottom Line
 
@@ -36,6 +36,10 @@ Researchers may roam; evidence may not.
 
 The research brain can search, browse, inspect repos, read papers, follow leads, reject weak ideas, refine hypotheses, and return structured proposals. The research brain cannot mark WFA executed, invent metrics, mutate official state, promote strategies, or convert its own claims into evidence.
 
+2026-05-07 audit refinement:
+
+The immediate next safety step is not a larger research swarm, a direct-API migration, or deeper OpenCode hardening. The next safety step is a deterministic canonical WFA execution worker. The WFA-ready planner bypass removes unnecessary planner fragility for explicit routes, but execution truth is still incomplete until `research_wfa` evidence can only be produced by a worker that actually launches the canonical WFA command, captures stdout/stderr/exit status, hashes inputs/outputs, parses metrics, and emits a validated worker envelope. OpenCode can stay available for proposal, critique, and bounded debugging, but it should not be able to sit between WFA execution and official evidence truth.
+
 # Evidence Summary
 
 Strongest evidence:
@@ -47,6 +51,7 @@ Strongest evidence:
 | Repo executor yield | Executor completion rate is 20 allowed executor gates out of 142, 14.08 percent, at `factory/health.json:113-117`. | The current loop has low live execution throughput. More prompt polish alone is unlikely to satisfy unattended operation. |
 | Repo architecture | Live mode creates a live transport and every structured stage calls `runner.callAgent(...)`; `src/core/orchestrator.mjs:776-778`, `src/core/orchestrator.mjs:1383-1398`, and `src/core/orchestrator.mjs:1452-1588`. | OpenCode/LLM is in the critical path for planner, executor, evaluator, and summarizer. Planner failure blocks WFA. |
 | Repo JSON path | Current integration extracts `<RF_JSON>` from free text after the agent response, `src/core/orchestrator.mjs:1392-1398`. The SDK call body does not pass OpenCode's documented structured-output schema in `src/core/transport/opencode-sdk-transport.mjs:121-130`. | The repo is not using the strongest structured-output capability available even within OpenCode. |
+| WFA execution gap | `src/workers/research-wfa-envelope-worker.mjs` can officialize existing WFA artifacts, but records that execution was not run by that worker; `package.json` exposes `wfa:envelope`, not `wfa:run`. | The biggest remaining fake-completion risk is not planner JSON anymore; it is agent-adjacent execution truth for `research_wfa`. |
 | OpenCode official docs | OpenCode has `opencode serve`, SDK, OpenAPI server, sessions, agents, CLI `run`, `--attach`, and SDK structured output using a `StructuredOutput` tool with validation retries. Docs last updated May 6, 2026. | OpenCode is capable for programmatic control. The question is not capability, but production-runtime suitability and failure isolation. |
 | OpenCode upstream issues | Current/open issues and PRs include `opencode run` hanging after tool calls, MCP tool crashes in v1.14.39, API/free model timeout issues, and a session streaming race PR. | Upstream is active and serious, but session/tool/server behavior has enough churn that it should not be the factory's only durable runtime. |
 | Direct API docs | OpenAI Structured Outputs state schema adherence is guaranteed for supported models; JSON mode only guarantees valid JSON. Anthropic recommends simple composable workflows, direct APIs when possible, and code-controlled workflows for predictability. | Direct API calls are better suited for schema-bound stages and deterministic orchestration. |
@@ -68,8 +73,8 @@ Current stage flow:
 |---|---|---|
 | Backlog selection | JS orchestrator | Local deterministic selection from `factory/backlog.json`, market policy, evidence, lessons. Ready policy uses status `ready` and min ready depth 3 at `factory/market-policy.json:44-60`. |
 | Ideator | OpenCode agent in live mode | Spawned when ready backlog is below policy floor at `src/core/orchestrator.mjs:850-870`. Prompt says one backlog candidate only, `src/prompts/ideator.md:1-16`. |
-| Planner | OpenCode agent in live mode | Always required for fresh research runs; starts at planner and validates RF JSON at `src/core/orchestrator.mjs:1452-1480`. |
-| Executor | OpenCode agent in live mode | LLM executor is responsible for doing work and returning execution JSON; only after that do validators check artifacts at `src/core/orchestrator.mjs:1483-1537`. |
+| Planner | OpenCode agent in live mode, except deterministic WFA-ready bypass | Explicit WFA-ready routes can now be compiled by `src/core/wfa-plan-compiler.mjs`; ambiguous/non-ready work still routes through the planner agent and RF JSON validation. |
+| Executor | OpenCode agent in live mode for main loop WFA execution | LLM executor is still responsible for doing work and returning execution JSON; only after that do validators check artifacts. This remains the biggest unresolved evidence-authority gap. |
 | Evaluator | OpenCode agent in live mode | LLM returns evaluation JSON; deterministic validator checks shape and artifact references at `src/core/orchestrator.mjs:1543-1569`. |
 | Summarizer/memory | OpenCode agent plus deterministic state writes | LLM summary JSON is converted into summary, evidence index, and lessons by the orchestrator at `src/core/orchestrator.mjs:1573-1609`. |
 
@@ -95,11 +100,12 @@ The current ideation path is not spontaneous alpha discovery:
 - Ideator retrieval is local live lessons and promotable evidence only, `src/core/retrieval.mjs:152-163`.
 - There is no dedicated external-source `researcher` stage before ideation.
 
-WFA-ready backlog tasks are structured enough for deterministic bypass, but the current orchestrator does not implement that bypass:
+WFA-ready backlog tasks are structured enough for deterministic bypass, and the first narrow bypass slice now exists:
 
 - Ready tasks already contain exact data, strategy, and expected WFA config paths, for example `factory/backlog.json:995-1023`, `factory/backlog.json:2233-2260`, and `factory/backlog.json:2544-2571`.
-- Fresh runs still begin at planner. Executor cannot start without a persisted plan, `src/core/orchestrator.mjs:1452-1485`.
-- The recent failed canary backlog item already had `expected_wfa_config_path`, `expected_strategy_config_path`, and `expected_strategy_source_path`, but died at planner, `factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-3/stage-error.json:32-60`.
+- `src/core/wfa-plan-compiler.mjs` compiles explicit `research_wfa` items with existing canonical `walk forward engine/strategies/<name>/wfa_config.yaml` routes into deterministic plans.
+- `src/core/orchestrator.mjs` now writes `planner-bypass.json`, `experiment-plan.json`, and an attempt-0 planner gate for compiled routes before continuing to executor.
+- The bypass is useful but not sufficient: the recent failed canary had explicit route fields and died before WFA, but the next unresolved boundary is still the executor path, because the main loop does not yet have a deterministic WFA runner that owns process execution and metrics.
 
 Current launch readiness is blocked:
 
@@ -498,7 +504,7 @@ Scale: 1 poor, 5 strong. Higher migration score means easier migration. Higher c
 
 Decision from matrix:
 
-The highest-scoring target is deterministic orchestrator with replaceable agentic brain. The best migration posture is to first implement a direct-API agentic research backend for cognitive jobs and deterministic WFA workers, while preserving OpenCode as a development/backend option. Multi-brain should be delayed until after core reliability is proven.
+The highest-scoring target is deterministic orchestrator with replaceable agentic brain. The best migration posture is to finish deterministic WFA execution truth before expanding research-brain complexity: first a canonical WFA run worker, then schema-constrained model stages and brain abstraction, while preserving OpenCode as a development/backend option. Multi-brain and broad external discovery should be delayed until after core evidence reliability is proven.
 
 # Recommended Architecture
 
@@ -606,6 +612,8 @@ Required reliability and observability gates before launch:
 13. Watchdog process that scans stale heartbeats, expired leases, open circuits, runaway retries, and no-evidence-yield windows.
 14. Soak tests: 100 planner-like calls, 100 evaluator-like calls, 20 WFA-ready deterministic canaries, forced malformed JSON, forced provider timeout, worker kill, missing artifact, and stale lease recovery.
 15. Launch gate requiring sustained WFA evidence production, not only successful prompts.
+16. Executed `research_wfa` evidence must require a deterministic WFA worker envelope; agent-authored execution results without a worker envelope should fail closed.
+17. Adversarial fake-artifact tests must fail: plausible metrics without real provenance, mismatched hashes, stale output reuse, and fabricated summaries must all be rejected.
 
 # Minimal Migration Plan
 
@@ -615,7 +623,22 @@ Phase 0: Freeze the decision boundary.
 - Keep existing OpenCode prompts, agents, and transport for development/debugging.
 - Do not claim WFA-only production launch until deterministic WFA canaries pass through the new gates.
 
-Phase 1: Add schema and brain abstraction without removing OpenCode.
+Phase 1: Finish deterministic WFA execution truth.
+
+- Add `src/workers/research-wfa-run-worker.mjs` or equivalent deterministic worker.
+- Worker must accept a validated/compiled plan, resolve the canonical WFA config, launch the canonical `walk forward engine` command, capture stdout/stderr/exit status/start/end time, discover output artifacts, hash source/config/data/result artifacts, parse WFA metrics and completed windows, and emit `worker-result.json`, `execution-result.json`, and `artifact_manifest.json`.
+- Route `research_wfa` executor stages through this worker before allowing `status: "executed"`.
+- Change validation so executed `research_wfa` without a deterministic worker envelope fails closed.
+
+Phase 2: Harden the WFA-ready plan compiler and fake-completion tests.
+
+- Define `wfa_ready_backlog_item_v1` schema.
+- If a backlog item has explicit strategy source/config/WFA config/data paths, compile `experiment-plan.json` deterministically.
+- Use this bypass for current curated ready items, such as BNB canary and BTC volatility-regime tasks.
+- Keep LLM planner only for non-ready or ambiguous tasks.
+- Add adversarial tests for fake artifacts, stale output reuse, mismatched hashes, missing windows, and plausible metrics unsupported by worker provenance.
+
+Phase 3: Add schema and brain abstraction without removing OpenCode.
 
 - Define `ResearchBrain`/`CognitiveEngine` interface.
 - Add schema registry for ideator, planner, evaluator, summarizer, source claim, and hypothesis outputs.
@@ -623,19 +646,6 @@ Phase 1: Add schema and brain abstraction without removing OpenCode.
 - Add direct provider adapter for one strong provider first.
 - Add OpenCode SDK as a compatible backend only after it supports the same schema contract.
 - Persist raw brain calls with provider metadata and validation errors.
-
-Phase 2: Add deterministic WFA-ready plan compiler.
-
-- Define `wfa_ready_backlog_item_v1` schema.
-- If a backlog item has explicit strategy source/config/WFA config/data paths, compile `experiment-plan.json` deterministically.
-- Use this bypass for current curated ready items, such as BNB canary and BTC volatility-regime tasks.
-- Keep LLM planner only for non-ready or ambiguous tasks.
-
-Phase 3: Add deterministic full WFA executor worker.
-
-- Implement a worker that runs the canonical `walk forward engine` command, captures stdout/stderr, verifies output paths, parses metrics, records windows completed, hashes artifacts, and returns the worker result envelope.
-- Keep the current WFA envelope worker for officializing existing artifacts, but do not treat it as execution.
-- Make executor agent optional and no longer required for WFA-ready runs.
 
 Phase 4: Move official evaluator/gates deterministic-first.
 
@@ -666,6 +676,7 @@ Phase 7: Benchmark brain backends.
 # Open Questions
 
 - Which direct provider should be the first production `ResearchBrain` backend, given available API keys, cost limits, and desired web/search capability?
+- What exact WFA worker envelope fields should be mandatory before accepting `research_wfa` as `executed`: config hash, data hash, command, working directory, exit code, stdout/stderr paths, result artifacts, metric source paths, windows completed, and stale-output guard?
 - What default research-job budget is acceptable for unattended alpha discovery: max steps, max sources, max spend, max wall time, and max retry count?
 - Should the first agentic research backend be direct provider tool-loop code, a small LangGraph-style graph, or bounded OpenCode SDK jobs behind the same interface?
 - Should the near-term durable queue be custom SQLite/JSON state, BullMQ/Redis, or Temporal from the start?
