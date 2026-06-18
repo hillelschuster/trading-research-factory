@@ -1,0 +1,58 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "sha256": "dbf501cc4c23fee962211605be4e8d24fa31d40665030d840de8b926b965a2eb",
+    "size_bytes": 1454,
+    "modified_at": "2026-04-05T16:16:36.860Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_190926.json",
+    "sha256": "1801fe59b9d4cb751eeea21b0d1343abf0157cea548740bc6c6697c192258cdf",
+    "size_bytes": 1423,
+    "modified_at": "2026-04-05T16:09:26.318Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_191636.json",
+    "sha256": "67e908c1810698c14d8b0a8e04f863d4d7c8bf21fa5e789de166b1096340f365",
+    "size_bytes": 1404,
+    "modified_at": "2026-04-05T16:16:36.892Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260320_233838.json",
+    "sha256": "cbd0867e69ccdcf7f86849164f92520fa846b624465045ae726ac1fdd1491f5b",
+    "size_bytes": 1887,
+    "modified_at": "2026-03-20T21:38:38.679Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_190926.json",
+    "sha256": "bcd7432ace5aa8c45184d1fca9603df4a8478394e41a9ccb194a9a56b159a660",
+    "size_bytes": 7165,
+    "modified_at": "2026-04-05T16:09:26.062Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_191636.json",
+    "sha256": "d9e70969ab1144ef94718a5a9fb2076602b69a7035942a917d81672085d01049",
+    "size_bytes": 7150,
+    "modified_at": "2026-04-05T16:16:36.649Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260405_190926.csv",
+    "sha256": "35747727aec7c0fc0d26adba95f7e913163a415f53f4fa8e280a5bfda8ba27c0",
+    "size_bytes": 1042,
+    "modified_at": "2026-04-05T16:09:26.313Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260405_191636.csv",
+    "sha256": "975b42a70d6d53fc2d2a347e0f97d231867a43b1b7c497b28a4fcde4819631ed",
+    "size_bytes": 1044,
+    "modified_at": "2026-04-05T16:16:36.886Z"
+  }
+]

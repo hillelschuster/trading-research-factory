@@ -1,0 +1,118 @@
+2026-05-29 01:00:53,060 - HighSpeedSmokeTest - [INFO] - [01:00:53.060] === SMOKE TEST CHECKPOINT: IMPORTING MODULES ===
+2026-05-29 01:01:10,224 - HighSpeedSmokeTest - [INFO] - [01:01:10.224] === SMOKE TEST CHECKPOINT: MODULES IMPORTED SUCCESSFULLY ===
+2026-05-29 01:01:10,268 - HighSpeedSmokeTest - [INFO] - [01:01:10.268] === SMOKE TEST CHECKPOINT: LOADING APP CONFIG ===
+2026-05-29 01:01:10,268 - src.config_manager - [INFO] - Attempting to load main configuration from: config\main_config.yaml
+2026-05-29 01:01:10,418 - src.config_manager - [INFO] - Main configuration successfully parsed and validated.
+2026-05-29 01:01:10,418 - src.config_manager - [INFO] - Trading mode is 'paper', skipping live credential loading.
+2026-05-29 01:01:10,619 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_bb_width_squeeze.json' from 'config\strategy_bb_width_squeeze.json'.
+2026-05-29 01:01:10,646 - src.config_manager - [INFO] - Loaded strategy parameters for 'BTC_LONDON_SWEEP_Params' from 'config\BTC_LONDON_SWEEP_Params.json'.
+2026-05-29 01:01:10,671 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_btc_residual_reversion.json' from 'config\strategy_btc_residual_reversion.json'.
+2026-05-29 01:01:10,694 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_ema_trend_gate.json' from 'config\strategy_ema_trend_gate.json'.
+2026-05-29 01:01:10,717 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_ema_trend_gate_sol.json' from 'config\strategy_ema_trend_gate_sol.json'.
+2026-05-29 01:01:10,743 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_eth_session_momentum.json' from 'config\strategy_eth_session_momentum.json'.
+2026-05-29 01:01:10,766 - src.config_manager - [INFO] - ✅ Strategy params validated: LondonBreakout_ORB
+2026-05-29 01:01:10,766 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_london_breakout.json' from 'config\strategy_london_breakout.json'.
+2026-05-29 01:01:10,767 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_london_sweep_fade.json' from 'config\strategy_london_sweep_fade.json'.
+2026-05-29 01:01:10,783 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_volatility_regime.json' from 'config\strategy_volatility_regime.json'.
+2026-05-29 01:01:10,801 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_vol_adaptive_rsi_eth.json' from 'config\strategy_vol_adaptive_rsi_eth.json'.
+2026-05-29 01:01:10,829 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_vol_adaptive_trend.json' from 'config\strategy_vol_adaptive_trend.json'.
+2026-05-29 01:01:10,852 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_gold_rush_pro.json' from 'config\strategy_gold_rush_pro.json'.
+2026-05-29 01:01:10,881 - src.config_manager - [INFO] - Loaded strategy parameters for 'strategy_gold_trend_following.json' from 'config\strategy_gold_trend_following.json'.
+2026-05-29 01:01:10,905 - src.config_manager - [INFO] - Loaded instrument details from 'config\instruments.json'.
+2026-05-29 01:01:10,934 - src.config_manager - [INFO] - Validated enabled strategy profile 'BB_WIDTH_SQUEEZE'.
+2026-05-29 01:01:10,973 - src.config_manager - [INFO] - Validated enabled strategy profile 'BTC_LONDON_SWEEP'.
+2026-05-29 01:01:11,001 - src.config_manager - [INFO] - Validated enabled strategy profile 'BTC_RESIDUAL_REVERSION'.
+2026-05-29 01:01:11,034 - src.config_manager - [INFO] - Validated enabled strategy profile 'EMA_TREND_GATE'.
+2026-05-29 01:01:11,034 - src.config_manager - [INFO] - Validated enabled strategy profile 'EMA_TREND_GATE_SOL'.
+2026-05-29 01:01:11,062 - src.config_manager - [INFO] - Validated enabled strategy profile 'ETH_SESSION_MOMENTUM'.
+2026-05-29 01:01:11,062 - src.config_manager - [INFO] - Validated enabled strategy profile 'EURUSD_LONDON_BREAKOUT'.
+2026-05-29 01:01:11,063 - src.config_manager - [INFO] - Validated enabled strategy profile 'EURUSD_LONDON_SWEEP_FADE'.
+2026-05-29 01:01:11,093 - src.config_manager - [INFO] - Validated enabled strategy profile 'VOLATILITY_REGIME'.
+2026-05-29 01:01:11,128 - src.config_manager - [INFO] - Validated enabled strategy profile 'VOL_ADAPTIVE_RSI'.
+2026-05-29 01:01:11,162 - src.config_manager - [INFO] - Validated enabled strategy profile 'VOL_ADAPTIVE_TREND'.
+2026-05-29 01:01:11,191 - src.config_manager - [INFO] - Validated enabled strategy profile 'XAUUSD_GOLD_RUSH_PRO'.
+2026-05-29 01:01:11,215 - src.config_manager - [INFO] - Validated enabled strategy profile 'XAUUSD_TrendFollowing_H4'.
+2026-05-29 01:01:11,217 - src.config_manager - [INFO] - Configuration loading and processing complete.
+2026-05-29 01:01:11,217 - HighSpeedSmokeTest - [INFO] - [01:01:11.217] === SMOKE TEST CHECKPOINT: APP CONFIG LOADED ===
+2026-05-29 01:01:11,217 - HighSpeedSmokeTest - [INFO] - [01:01:11.217] === SMOKE TEST CHECKPOINT: LOADING CONFIGURATION ===
+2026-05-29 01:01:11,234 - HighSpeedSmokeTest - [INFO] - ✅ Loaded configuration from C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\strategies\london_sweep_gbpjpy\wfa_config.yaml
+2026-05-29 01:01:11,234 - HighSpeedSmokeTest - [INFO] - [01:01:11.234] === SMOKE TEST CHECKPOINT: CONFIGURATION LOADED (EXTERNAL) ===
+2026-05-29 01:01:11,239 - HighSpeedSmokeTest - [INFO] - 📝 Logging to file: logs/wfa_london_sweep_gbpjpy.log
+2026-05-29 01:01:11,240 - HighSpeedSmokeTest - [INFO] - [01:01:11.240] === SMOKE TEST CHECKPOINT: CREATING WALK-FORWARD CONFIG ===
+2026-05-29 01:01:11,241 - HighSpeedSmokeTest - [INFO] - 🎛️ Using EXTERNAL parameter_ranges from YAML config: ['sweep_pips', 'reentry_pips', 'stop_buffer_pips', 'tp_mode', 'min_range_pips', 'max_range_pips', 'min_daily_atr']
+2026-05-29 01:01:11,241 - HighSpeedSmokeTest - [INFO] - 💰 Using YAML fees: 0.0001 (0.0100% per trade)
+2026-05-29 01:01:11,242 - HighSpeedSmokeTest - [INFO] - 📉 Using YAML slippage: 0.0001 (0.0100% per trade)
+2026-05-29 01:01:11,242 - HighSpeedSmokeTest - [INFO] - DB persistence skip for this run: True
+2026-05-29 01:01:11,243 - HighSpeedSmokeTest - [INFO] - [01:01:11.243] === SMOKE TEST CHECKPOINT: WALK-FORWARD CONFIG CREATED ===
+2026-05-29 01:01:11,243 - HighSpeedSmokeTest - [INFO] - Config: 6M training, 1M testing, 30 trials
+2026-05-29 01:01:11,243 - HighSpeedSmokeTest - [INFO] - Data source: data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv
+2026-05-29 01:01:11,243 - HighSpeedSmokeTest - [INFO] - Target execution time: 3600s
+2026-05-29 01:01:11,244 - HighSpeedSmokeTest - [INFO] - Configuration type: external
+2026-05-29 01:01:11,244 - HighSpeedSmokeTest - [INFO] - [01:01:11.244] === SMOKE TEST CHECKPOINT: INITIALIZING PLATFORM ADAPTER ===
+2026-05-29 01:01:11,255 - HighSpeedSmokeTest - [INFO] - [01:01:11.254] === SMOKE TEST CHECKPOINT: PLATFORM ADAPTER INITIALIZED ===
+2026-05-29 01:01:11,255 - HighSpeedSmokeTest - [INFO] - [01:01:11.255] === SMOKE TEST CHECKPOINT: INITIALIZING MARKET DATA MANAGER ===
+2026-05-29 01:01:11,257 - src.data_handler.processors - [INFO] - Added DataCleaningProcessor to pipeline
+2026-05-29 01:01:11,258 - src.data_handler.processors - [INFO] - Added IndicatorProcessor to pipeline
+2026-05-29 01:01:11,260 - src.data_handler.market_data_manager - [WARNING] - Asset validation disabled - validation components not available
+2026-05-29 01:01:11,261 - src.data_handler.market_data_manager - [INFO] - Initialized MarketDataManager
+2026-05-29 01:01:11,261 - HighSpeedSmokeTest - [INFO] - [01:01:11.261] === SMOKE TEST CHECKPOINT: MARKET DATA MANAGER INITIALIZED ===
+2026-05-29 01:01:11,308 - HighSpeedSmokeTest - [INFO] - [01:01:11.308] === SMOKE TEST CHECKPOINT: INITIALIZING WALK-FORWARD RUNNER ===
+2026-05-29 01:01:11,309 - SmokeTest.WalkForwardRunner - [INFO] - WalkForwardRunner initialized with 6M training, 1M testing windows
+2026-05-29 01:01:11,309 - SmokeTest.WalkForwardRunner - [INFO] - ============================================================
+2026-05-29 01:01:11,309 - SmokeTest.WalkForwardRunner - [INFO] - 📊 TRANSACTION COST CONFIGURATION
+2026-05-29 01:01:11,309 - SmokeTest.WalkForwardRunner - [INFO] -   Fees:     0.000100 (0.0100% per trade)
+2026-05-29 01:01:11,310 - SmokeTest.WalkForwardRunner - [INFO] -   Slippage: 0.000100 (0.0100% per trade)
+2026-05-29 01:01:11,310 - SmokeTest.WalkForwardRunner - [INFO] -   Source:   YAML config
+2026-05-29 01:01:11,310 - SmokeTest.WalkForwardRunner - [INFO] - ============================================================
+2026-05-29 01:01:11,310 - HighSpeedSmokeTest - [INFO] - [01:01:11.310] === SMOKE TEST CHECKPOINT: WALK-FORWARD RUNNER INITIALIZED ===
+2026-05-29 01:01:11,347 - HighSpeedSmokeTest - [INFO] - [01:01:11.347] === SMOKE TEST CHECKPOINT: LOADING AND VALIDATING DATA ===
+2026-05-29 01:01:11,348 - HighSpeedSmokeTest - [INFO] - [01:01:11.347] === SMOKE TEST CHECKPOINT: STARTING WALK-FORWARD EXECUTION ===
+2026-05-29 01:01:11,349 - HighSpeedSmokeTest - [INFO] - 🗂️  Using dataset: data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv
+2026-05-29 01:01:11,350 - HighSpeedSmokeTest - [INFO] - [01:01:11.350] === SMOKE TEST CHECKPOINT: RUNNER.RUN_WALK_FORWARD_ANALYSIS() CALLED ===
+2026-05-29 01:01:11,399 - SmokeTest.WalkForwardRunner - [INFO] - === Starting Walk-Forward Analysis ===
+2026-05-29 01:01:11,399 - DeterministicExecutionManager - [INFO] - Generated unique WFA run seed: 223766678
+2026-05-29 01:01:11,400 - DeterministicExecutionManager - [INFO] - DeterministicExecutionManager initialized - Run ID: 3e02612e, Master seed: 223766678
+2026-05-29 01:01:11,400 - DeterministicExecutionManager - [INFO] - 🔒 Initializing deterministic execution environment
+2026-05-29 01:01:11,403 - DeterministicExecutionManager - [WARNING] - PYTHONHASHSEED set to 0 - restart may be required for full effect
+2026-05-29 01:01:11,403 - DeterministicExecutionManager - [INFO] - ✅ Deterministic execution environment initialized
+2026-05-29 01:01:11,403 - SmokeTest.WalkForwardRunner - [INFO] - 🎛️ ParameterGridGenerator initialized with EXTERNAL OVERRIDE parameters
+2026-05-29 01:02:03,094 - SmokeTest.WalkForwardRunner - [INFO] - VectorizedBacktestEngine initialized (vectorbt-powered)
+2026-05-29 01:02:03,094 - SmokeTest.WalkForwardRunner - [INFO] - 🚀 VectorizedBacktestEngine initialized
+2026-05-29 01:02:03,095 - SmokeTest.WalkForwardRunner - [ERROR] - Operation 'component_init' failed in WalkForwardRunner: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+Traceback (most recent call last):
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\error_handling.py", line 217, in error_context
+    yield
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\walk_forward\walk_forward_runner.py", line 1319, in _initialize_components
+    components = resolve_strategy_profile_components(
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\config_manager.py", line 285, in resolve_strategy_profile_components
+    raise KeyError(f"Strategy profile '{profile_key}' not found")
+KeyError: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+2026-05-29 01:02:03,218 - SmokeTest.WalkForwardRunner - [ERROR] - Walk-forward analysis failed: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+Traceback (most recent call last):
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\walk_forward\walk_forward_runner.py", line 525, in run_walk_forward_analysis
+    self._initialize_components()
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\walk_forward\walk_forward_runner.py", line 1319, in _initialize_components
+    components = resolve_strategy_profile_components(
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\config_manager.py", line 285, in resolve_strategy_profile_components
+    raise KeyError(f"Strategy profile '{profile_key}' not found")
+KeyError: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+2026-05-29 01:02:03,219 - HighSpeedSmokeTest - [INFO] - [01:02:03.219] === SMOKE TEST CHECKPOINT: EXECUTION ERROR CAUGHT ===
+2026-05-29 01:02:03,219 - HighSpeedSmokeTest - [ERROR] - ERROR: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+2026-05-29 01:02:03,220 - HighSpeedSmokeTest - [ERROR] - FULL STACK TRACE:
+2026-05-29 01:02:03,222 - HighSpeedSmokeTest - [ERROR] - Traceback (most recent call last):
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\scripts\walk_forward_smoke_test.py", line 329, in main
+    results = runner.run_walk_forward_analysis(
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\scripts\walk_forward_smoke_test.py", line 314, in monitored_run_walk_forward
+    return original_run_walk_forward(*args, **kwargs)
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\walk_forward\walk_forward_runner.py", line 525, in run_walk_forward_analysis
+    self._initialize_components()
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\walk_forward\walk_forward_runner.py", line 1319, in _initialize_components
+    components = resolve_strategy_profile_components(
+  File "C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\src\config_manager.py", line 285, in resolve_strategy_profile_components
+    raise KeyError(f"Strategy profile '{profile_key}' not found")
+KeyError: "Strategy profile 'GBPJPY_LONDON_SWEEP_FADE' not found"
+
+2026-05-29 01:02:03,578 - HighSpeedSmokeTest - [INFO] - [01:02:03.578] === SMOKE TEST CHECKPOINT: CLEANUP AND GARBAGE COLLECTION ===
+2026-05-29 01:02:03,938 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-29 01:02:03,938 - HighSpeedSmokeTest - [INFO] - End time: 2026-05-29 01:02:03.938276
+2026-05-29 01:02:03,939 - HighSpeedSmokeTest - [ERROR] - TEST RUNNER FAILED (No Results)

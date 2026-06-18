@@ -8,6 +8,6 @@
   "evidence_paths": [
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-2/stage-error.json"
   ],
-  "reason": "OpenCode executor session creation timed out after 15000ms.",
-  "recorded_at": "2026-04-05T15:36:26.635Z"
+  "reason": "executor transport request timed out waiting for response headers.",
+  "recorded_at": "2026-05-05T19:28:31.789Z"
 }

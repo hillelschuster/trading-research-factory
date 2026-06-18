@@ -1,0 +1,14 @@
+{
+  "source_id": "SRC-LIVE-CANARY-001",
+  "url": "https://academy.ftmo.com/lesson/how-to-spot-breakouts-and-fakeouts/",
+  "title": "How to spot breakouts and fakeouts | FTMO Academy",
+  "source_class": "web",
+  "captured_at": "2026-05-23T12:49:42.591Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "content_sha256": "c430d9d6760c2415023ab529336b1969c5847aba30f3a6ded33beb3983d12ba4"
+}

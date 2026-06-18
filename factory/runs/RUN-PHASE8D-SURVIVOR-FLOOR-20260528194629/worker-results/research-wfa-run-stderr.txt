@@ -1,0 +1,786 @@
+2026-05-28 22:46:38,140 - HighSpeedSmokeTest - [INFO] - 🚀 HIGH-SPEED SMOKE TEST STARTING
+2026-05-28 22:46:38,140 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-28 22:46:38,141 - HighSpeedSmokeTest - [INFO] - CONFIGURABLE WALK-FORWARD ANALYSIS TEST RUNNER
+2026-05-28 22:46:38,141 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-28 22:46:38,141 - HighSpeedSmokeTest - [INFO] - Start time: 2026-05-28 22:46:38.141906
+2026-05-28 22:46:38,141 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-28 22:46:38,222 - HighSpeedSmokeTest - [INFO] - [22:46:38.222] === SMOKE TEST CHECKPOINT: CONFIGURABLE TEST RUNNER INITIALIZATION ===
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\samplers\_tpe\sampler.py:319: ExperimentalWarning: ``multivariate`` option is an experimental feature. The interface can change in the future.
+  warnings.warn(
+[I 2026-05-28 22:47:59,723] A new study created in memory with name: no-name-2ee4a580-d19e-4a5e-ab9d-60f37babaa26
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:17,988] Trial 0 finished with value: -0.08440256731349954 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 0 with value: -0.08440256731349954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:18,044] Trial 3 finished with value: 0.956651050990061 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:18,074] Trial 6 finished with value: 0.7245038922952175 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:18,086] Trial 2 finished with value: 0.04726084262922113 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:18,126] Trial 1 finished with value: -1.8081899827839725 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:18,172] Trial 7 finished with value: -0.9406783935455666 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:18,179] Trial 5 finished with value: -0.6116197374951629 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:18,190] Trial 4 finished with value: -1.2491256435047138 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:20,426] Trial 9 finished with value: -1.7613051606572783 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:20,886] Trial 12 finished with value: -0.9890593473605974 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:20,942] Trial 10 finished with value: -1.0613190017783187 and parameters: {'atr_period': 18, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:21,051] Trial 13 finished with value: -0.9509112048301732 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:21,211] Trial 11 finished with value: -0.4368960285004879 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:21,225] Trial 15 finished with value: -0.9380533208558924 and parameters: {'atr_period': 18, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:21,595] Trial 14 finished with value: -0.1399539565716186 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 0.956651050990061.
+[I 2026-05-28 22:48:21,599] Trial 8 finished with value: -1.1169259145983694 and parameters: {'atr_period': 18, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:23,818] Trial 16 finished with value: -0.720369920674473 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,009] Trial 21 finished with value: 0.956651050990061 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,312] Trial 20 finished with value: 0.956651050990061 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,468] Trial 18 finished with value: 0.8815212662290985 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,567] Trial 19 finished with value: 0.956651050990061 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 0.956651050990061.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,710] Trial 17 finished with value: 1.894802049403513 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 17 with value: 1.894802049403513.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:24,921] Trial 22 finished with value: 0.8815212662290985 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 17 with value: 1.894802049403513.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:25,161] Trial 23 finished with value: 0.956651050990061 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 17 with value: 1.894802049403513.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:28,007] Trial 24 finished with value: 0.38885986199034345 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 17 with value: 1.894802049403513.
+[I 2026-05-28 22:48:28,009] Trial 25 finished with value: 0.45003046593817214 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 17 with value: 1.894802049403513.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:28,173] Trial 26 finished with value: 0.13087166765756786 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 17 with value: 1.894802049403513.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:28,451] Trial 27 finished with value: 2.0487154708055746 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:28,483] Trial 29 finished with value: 0.46496995511289463 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 27 with value: 2.0487154708055746.
+[I 2026-05-28 22:48:28,665] Trial 28 finished with value: 0.2459332410435862 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 27 with value: 2.0487154708055746.
+[I 2026-05-28 22:48:29,219] Trial 30 finished with value: 1.1148926768072414 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:29,505] Trial 31 finished with value: 1.894802049403513 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:32,199] Trial 32 finished with value: 1.229891291456343 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:32,587] Trial 34 finished with value: 1.2166885045916396 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 27 with value: 2.0487154708055746.
+[I 2026-05-28 22:48:32,609] Trial 33 finished with value: 1.229891291456343 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:32,894] Trial 36 finished with value: 1.1148926768072414 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 27 with value: 2.0487154708055746.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:33,007] Trial 37 finished with value: 2.079486737917317 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+[I 2026-05-28 22:48:33,071] Trial 35 finished with value: 1.1148926768072414 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 37 with value: 2.079486737917317.
+[I 2026-05-28 22:48:33,792] Trial 38 finished with value: 1.1148926768072414 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:34,049] Trial 39 finished with value: 0.9967921722734798 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:36,684] Trial 40 finished with value: 1.229891291456343 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:36,956] Trial 41 finished with value: 0.7341721938867763 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 37 with value: 2.079486737917317.
+[I 2026-05-28 22:48:36,997] Trial 42 finished with value: 0.7709808710368277 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:37,223] Trial 45 finished with value: 2.079486737917317 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:37,449] Trial 43 finished with value: 1.0727762532299414 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:37,769] Trial 44 finished with value: 0.7709808710368277 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:38,394] Trial 46 finished with value: 0.7709808710368277 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+[I 2026-05-28 22:48:38,407] Trial 47 finished with value: 0.7709808710368277 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:41,046] Trial 48 finished with value: 2.079486737917317 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:41,403] Trial 50 finished with value: 1.2706824129311862 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:41,578] Trial 49 finished with value: 2.0031803941662125 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:41,637] Trial 52 finished with value: 1.2706824129311862 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 37 with value: 2.079486737917317.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:41,807] Trial 51 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+[I 2026-05-28 22:48:42,431] Trial 53 finished with value: 1.2706824129311862 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:43,064] Trial 55 finished with value: 2.0031803941662125 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+[I 2026-05-28 22:48:43,070] Trial 54 finished with value: 0.6081863278436815 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 51 with value: 2.715701850347141.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:45,433] Trial 57 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+[I 2026-05-28 22:48:45,463] Trial 56 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:45,714] Trial 59 finished with value: 2.0031803941662125 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:45,838] Trial 58 finished with value: 1.4747967990533037 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+[I 2026-05-28 22:48:46,202] Trial 60 finished with value: 2.0031803941662125 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 51 with value: 2.715701850347141.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:46,477] Trial 61 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:47,000] Trial 63 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:47,109] Trial 62 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:48,872] Trial 66 finished with value: 2.241413926388748 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:49,080] Trial 65 finished with value: 0.8727624094644983 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:49,189] Trial 64 finished with value: 2.241413926388748 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:49,435] Trial 67 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:49,734] Trial 68 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:50,063] Trial 69 finished with value: 0.2592047951905955 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:50,283] Trial 70 finished with value: 0.2592047951905955 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:50,457] Trial 71 finished with value: 0.2592047951905955 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:51,538] Trial 72 finished with value: 2.2146744470737176 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:51,720] Trial 74 finished with value: 0.8142315056286187 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:51,824] Trial 73 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:52,072] Trial 75 finished with value: 2.715701850347141 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:52,392] Trial 76 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:52,612] Trial 77 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:52,848] Trial 78 finished with value: 0.5077720494030818 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:53,066] Trial 79 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:54,216] Trial 80 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:54,328] Trial 82 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:54,367] Trial 81 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:54,635] Trial 83 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:54,928] Trial 84 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:55,159] Trial 85 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:55,501] Trial 87 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:55,646] Trial 86 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:56,704] Trial 88 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:56,957] Trial 90 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:57,133] Trial 91 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:48:57,204] Trial 89 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:57,537] Trial 92 finished with value: 2.7789598543797482 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:57,747] Trial 93 finished with value: 1.9218022624133249 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,058] Trial 95 finished with value: -3.5687491407475576 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,090] Trial 94 finished with value: 1.9218022624133249 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,615] Trial 97 finished with value: 1.9218022624133249 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,888] Trial 96 finished with value: 1.9218022624133249 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,928] Trial 98 finished with value: -0.44768627217868817 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 61 with value: 2.7789598543797482.
+[I 2026-05-28 22:48:58,935] Trial 99 finished with value: 1.1682516364963016 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 61 with value: 2.7789598543797482.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\samplers\_tpe\sampler.py:319: ExperimentalWarning: ``multivariate`` option is an experimental feature. The interface can change in the future.
+  warnings.warn(
+[I 2026-05-28 22:48:59,320] A new study created in memory with name: no-name-016527ba-075d-4e92-8698-878a835e0ab9
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,009] Trial 0 finished with value: -2.9498527123120324 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 0 with value: -2.9498527123120324.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,128] Trial 1 finished with value: -3.1779358552806065 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 0 with value: -2.9498527123120324.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,293] Trial 4 finished with value: -1.9923701686020134 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 4 with value: -1.9923701686020134.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,388] Trial 3 finished with value: 1.3008580828164762 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,653] Trial 5 finished with value: -0.7700524713208156 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:01,827] Trial 6 finished with value: 0.1276006467412298 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:02,054] Trial 2 finished with value: -1.9694407140137984 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:02,081] Trial 7 finished with value: -2.461162483680206 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:04,566] Trial 9 finished with value: -1.8242985257357098 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+[I 2026-05-28 22:49:04,572] Trial 10 finished with value: 0.5396458177048052 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:04,610] Trial 8 finished with value: 0.2706343587483244 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+[I 2026-05-28 22:49:04,815] Trial 11 finished with value: -0.2760011154092602 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:05,184] Trial 12 finished with value: -0.15136791007343162 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:05,282] Trial 13 finished with value: -0.7186408697937691 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:05,326] Trial 14 finished with value: -0.6463389572960716 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+[I 2026-05-28 22:49:05,497] Trial 15 finished with value: -1.8002638093808194 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:07,877] Trial 16 finished with value: -0.1023330719118842 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:07,906] Trial 19 finished with value: 0.7464158181969013 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+[I 2026-05-28 22:49:08,036] Trial 17 finished with value: 0.3135831972121903 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 3 with value: 1.3008580828164762.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:08,176] Trial 18 finished with value: 0.5263339839224503 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 3 with value: 1.3008580828164762.
+[I 2026-05-28 22:49:08,189] Trial 21 finished with value: 1.3382239678797399 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 21 with value: 1.3382239678797399.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:08,358] Trial 20 finished with value: 1.3008580828164762 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 21 with value: 1.3382239678797399.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:08,622] Trial 22 finished with value: 1.3382239678797399 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 21 with value: 1.3382239678797399.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:08,661] Trial 23 finished with value: 2.478759924140566 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:10,815] Trial 29 finished with value: 0.6541562605897879 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:10,826] Trial 26 finished with value: 0.5862710318024797 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:10,880] Trial 24 finished with value: 0.5263339839224503 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:11,007] Trial 28 finished with value: 1.8560920765893174 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:11,059] Trial 25 finished with value: -1.7761642685016736 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:11,148] Trial 27 finished with value: 0.6541562605897879 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:11,564] Trial 31 finished with value: -1.499443447310494 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:11,653] Trial 30 finished with value: -1.499443447310494 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:13,343] Trial 32 finished with value: -1.6906915854749305 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:14,282] Trial 35 finished with value: 1.9588094221011307 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:14,369] Trial 33 finished with value: 0.5468344172970792 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:14,429] Trial 34 finished with value: 1.6845019155124064 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:14,678] Trial 37 finished with value: 1.7264760154389716 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:14,731] Trial 36 finished with value: -0.016793176428802573 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:15,058] Trial 38 finished with value: 0.9258410573213074 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:15,331] Trial 39 finished with value: 1.7264760154389716 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:16,999] Trial 40 finished with value: 0.9258410573213074 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:17,518] Trial 42 finished with value: 1.9588094221011307 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:17,625] Trial 43 finished with value: 1.9588094221011307 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:17,877] Trial 46 finished with value: 1.9588094221011307 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:17,880] Trial 45 finished with value: 1.7264760154389716 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:17,882] Trial 44 finished with value: 1.9588094221011307 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:17,888] Trial 41 finished with value: -0.010476789665888536 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:18,415] Trial 47 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:20,208] Trial 48 finished with value: 1.9992826307092109 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:20,423] Trial 49 finished with value: 1.9992826307092109 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:20,426] Trial 50 finished with value: 0.6736210716876166 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:20,648] Trial 51 finished with value: 1.9412334048119293 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:21,003] Trial 52 finished with value: 0.6736210716876166 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:21,154] Trial 54 finished with value: 0.6736210716876166 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:21,177] Trial 53 finished with value: 1.9412334048119293 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:21,560] Trial 55 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:23,543] Trial 58 finished with value: 1.8766954212860596 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:23,627] Trial 59 finished with value: 1.9992826307092109 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:23,876] Trial 56 finished with value: 1.998095334887418 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:23,882] Trial 57 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:24,080] Trial 61 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:24,419] Trial 60 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:24,448] Trial 62 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+[I 2026-05-28 22:49:24,925] Trial 63 finished with value: 1.246889636917029 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:27,561] Trial 65 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:28,182] Trial 64 finished with value: 1.9685578971982252 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:28,606] Trial 66 finished with value: 0.8697696436412992 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 23 with value: 2.478759924140566.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:28,649] Trial 67 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:28,862] Trial 68 finished with value: 0.8697696436412992 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+[I 2026-05-28 22:49:29,228] Trial 69 finished with value: 1.998095334887418 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:29,369] Trial 70 finished with value: -0.1727218467375881 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:29,746] Trial 71 finished with value: 1.998095334887418 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:31,633] Trial 72 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:32,108] Trial 74 finished with value: 0.21071494120525883 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:32,161] Trial 73 finished with value: -0.1727218467375881 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:32,290] Trial 75 finished with value: 0.010892371897832187 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+[I 2026-05-28 22:49:32,565] Trial 76 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:32,892] Trial 77 finished with value: 1.9913306579286032 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:33,028] Trial 78 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:33,294] Trial 79 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:35,385] Trial 80 finished with value: 0.010892371897832187 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:35,506] Trial 81 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 67 with value: 2.7251534735109817.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:35,956] Trial 82 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:36,008] Trial 83 finished with value: 0.4750135244916282 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+[I 2026-05-28 22:49:36,364] Trial 84 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:36,634] Trial 85 finished with value: 0.4750135244916282 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:37,012] Trial 86 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:37,145] Trial 87 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:39,161] Trial 88 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:39,435] Trial 89 finished with value: 2.7251534735109817 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:39,643] Trial 90 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+[I 2026-05-28 22:49:39,646] Trial 91 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:39,947] Trial 92 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+[I 2026-05-28 22:49:40,273] Trial 93 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 82 with value: 2.9318661997492406.
+[I 2026-05-28 22:49:40,459] Trial 94 finished with value: 3.422381239753134 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+[I 2026-05-28 22:49:40,563] Trial 95 finished with value: 3.422381239753134 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+[I 2026-05-28 22:49:41,851] Trial 96 finished with value: 3.422381239753134 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+[I 2026-05-28 22:49:41,983] Trial 97 finished with value: 3.422381239753134 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+[I 2026-05-28 22:49:42,092] Trial 98 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+[I 2026-05-28 22:49:42,125] Trial 99 finished with value: 2.9318661997492406 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 94 with value: 3.422381239753134.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\samplers\_tpe\sampler.py:319: ExperimentalWarning: ``multivariate`` option is an experimental feature. The interface can change in the future.
+  warnings.warn(
+[I 2026-05-28 22:49:42,591] A new study created in memory with name: no-name-d4cb486c-750c-4503-a400-63fde49c3f3b
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:44,945] Trial 1 finished with value: -0.1576103607823749 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 1 with value: -0.1576103607823749.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:45,618] Trial 6 finished with value: 1.0036119145682862 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 6 with value: 1.0036119145682862.
+[I 2026-05-28 22:49:45,634] Trial 2 finished with value: 1.9758411694248046 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:45,682] Trial 4 finished with value: 1.3378735679010063 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:45,732] Trial 0 finished with value: -1.139046294446153 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 2 with value: 1.9758411694248046.
+[I 2026-05-28 22:49:45,831] Trial 3 finished with value: -0.29137976707055085 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:45,930] Trial 5 finished with value: 0.2261203357875447 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 40, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:46,084] Trial 7 finished with value: 0.42195518122167364 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 10, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:47,782] Trial 12 finished with value: 0.42856404117372693 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:48,023] Trial 8 finished with value: -0.048148325964996644 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:48,290] Trial 9 finished with value: 1.0111006612629125 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:48,362] Trial 13 finished with value: 0.06201367627217997 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:48,882] Trial 11 finished with value: 1.1326085167322557 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:48,918] Trial 14 finished with value: 0.2060939237960517 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 40, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 2 with value: 1.9758411694248046.
+[I 2026-05-28 22:49:48,980] Trial 10 finished with value: -0.34946199394562916 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 10, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:49,307] Trial 15 finished with value: -0.12788213547114075 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:50,802] Trial 16 finished with value: 1.2831737381677804 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:51,007] Trial 17 finished with value: 1.326212313390468 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:51,284] Trial 18 finished with value: 1.3378735679010063 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:51,613] Trial 19 finished with value: 1.3378735679010063 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 2 with value: 1.9758411694248046.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:51,836] Trial 21 finished with value: 2.071160638350954 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 21 with value: 2.071160638350954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:51,912] Trial 22 finished with value: 2.071160638350954 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 21 with value: 2.071160638350954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:52,306] Trial 20 finished with value: 1.3378735679010063 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 21 with value: 2.071160638350954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:52,363] Trial 23 finished with value: 1.4572156649092802 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 21 with value: 2.071160638350954.
+[I 2026-05-28 22:49:54,291] Trial 24 finished with value: -0.5859376755112741 and parameters: {'atr_period': 18, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 21 with value: 2.071160638350954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:54,350] Trial 25 finished with value: 1.3378735679010063 and parameters: {'atr_period': 14, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 21 with value: 2.071160638350954.
+[I 2026-05-28 22:49:54,860] Trial 26 finished with value: -0.16502625081135833 and parameters: {'atr_period': 18, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 21 with value: 2.071160638350954.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:55,052] Trial 27 finished with value: 2.1651219181497288 and parameters: {'atr_period': 18, 'contraction_pct': 20.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 27 with value: 2.1651219181497288.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:55,199] Trial 28 finished with value: 2.5689443849361946 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:55,394] Trial 29 finished with value: 0.9864788101176604 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:55,807] Trial 30 finished with value: 0.9122298485181161 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:55,845] Trial 31 finished with value: 0.9122298485181161 and parameters: {'atr_period': 18, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.0}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:57,609] Trial 32 finished with value: 0.9864788101176604 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:57,664] Trial 34 finished with value: 0.9864788101176604 and parameters: {'atr_period': 14, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+[I 2026-05-28 22:49:58,200] Trial 33 finished with value: 2.5689443849361946 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:58,390] Trial 36 finished with value: 2.5586112551297253 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 28 with value: 2.5689443849361946.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:58,417] Trial 35 finished with value: 2.7108644242493187 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 35 with value: 2.7108644242493187.
+[I 2026-05-28 22:49:58,487] Trial 37 finished with value: 1.3063258468799404 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 35 with value: 2.7108644242493187.
+[I 2026-05-28 22:49:58,818] Trial 39 finished with value: 1.5891422809813573 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 35 with value: 2.7108644242493187.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:49:59,136] Trial 38 finished with value: 2.5689443849361946 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 35 with value: 2.7108644242493187.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:00,792] Trial 40 finished with value: 1.3063258468799404 and parameters: {'atr_period': 18, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 1.5}. Best is trial 35 with value: 2.7108644242493187.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:01,085] Trial 41 finished with value: 2.84298320885396 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:01,606] Trial 45 finished with value: 2.094251610621062 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:01,686] Trial 42 finished with value: 2.84298320885396 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:01,870] Trial 44 finished with value: 2.5586112551297253 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+[I 2026-05-28 22:50:01,896] Trial 43 finished with value: 2.5586112551297253 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:02,324] Trial 46 finished with value: 2.5586112551297253 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 41 with value: 2.84298320885396.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:02,720] Trial 47 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:04,543] Trial 48 finished with value: 2.5586112551297253 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 12, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:04,766] Trial 49 finished with value: 2.7108644242493187 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:05,019] Trial 50 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:05,334] Trial 52 finished with value: 2.7108644242493187 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:05,472] Trial 51 finished with value: 2.7108644242493187 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:05,584] Trial 53 finished with value: 1.7607154847656008 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:05,771] Trial 54 finished with value: 2.1528906589612804 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:06,112] Trial 55 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:08,164] Trial 56 finished with value: 1.9202134358310508 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:08,518] Trial 57 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:08,647] Trial 58 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:09,145] Trial 60 finished with value: 2.47962256277342 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:09,356] Trial 59 finished with value: 1.9202134358310508 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:09,534] Trial 62 finished with value: 2.47962256277342 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:09,722] Trial 61 finished with value: 1.6899525018305057 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:10,054] Trial 63 finished with value: 1.9202134358310508 and parameters: {'atr_period': 10, 'contraction_pct': 30.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:11,989] Trial 64 finished with value: 1.1244663945639275 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:12,225] Trial 65 finished with value: 1.8864900702881469 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:12,698] Trial 68 finished with value: 2.6730492838514204 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:12,763] Trial 66 finished with value: 1.3028521021393782 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:12,932] Trial 67 finished with value: 1.8864900702881469 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:13,051] Trial 69 finished with value: 1.8864900702881469 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:13,185] Trial 70 finished with value: 2.0565470462349684 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:13,565] Trial 71 finished with value: 2.0565470462349684 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:15,706] Trial 72 finished with value: 1.3028521021393782 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:15,869] Trial 73 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:16,151] Trial 74 finished with value: 1.3028521021393782 and parameters: {'atr_period': 14, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:16,534] Trial 75 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:16,866] Trial 76 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:16,867] Trial 77 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:16,899] Trial 78 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:17,274] Trial 79 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:19,098] Trial 80 finished with value: 2.396168501293904 and parameters: {'atr_period': 10, 'contraction_pct': 20.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:19,364] Trial 81 finished with value: 1.877147630685916 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:19,682] Trial 82 finished with value: 1.3552650227848473 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:20,098] Trial 83 finished with value: 1.8838584843586708 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:20,548] Trial 85 finished with value: 0.6640062944914814 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:20,601] Trial 86 finished with value: 2.8332466429914462 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:20,706] Trial 84 finished with value: 1.3552650227848473 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:20,943] Trial 87 finished with value: 1.877147630685916 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 20, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:22,927] Trial 88 finished with value: 1.8838584843586708 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:22,929] Trial 89 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:23,288] Trial 90 finished with value: 2.84298320885396 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:23,730] Trial 91 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+C:\Users\הלל\Desktop\algo projects\trading-research-factory\walk forward engine\.venv\lib\site-packages\optuna\distributions.py:700: UserWarning: The distribution is specified by [10, 20] and step=4, but the range is not divisible by `step`. It will be replaced by [10, 18].
+  warnings.warn(
+[I 2026-05-28 22:50:23,907] Trial 92 finished with value: 2.0884437179934094 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:23,997] Trial 93 finished with value: 1.6890356549034904 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:24,221] Trial 94 finished with value: 1.6890356549034904 and parameters: {'atr_period': 10, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:24,273] Trial 95 finished with value: 2.0884437179934094 and parameters: {'atr_period': 14, 'contraction_pct': 15.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 24, 'sl_atr_multiplier': 2.0}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:25,509] Trial 97 finished with value: 2.3706430031991736 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:25,664] Trial 96 finished with value: 2.9757029705703073 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 60, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:25,751] Trial 98 finished with value: 2.3706430031991736 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.
+[I 2026-05-28 22:50:25,899] Trial 99 finished with value: 2.3706430031991736 and parameters: {'atr_period': 10, 'contraction_pct': 25.0, 'ema_fast': 30, 'ema_slow': 50, 'hold_bars': 36, 'sl_atr_multiplier': 1.5}. Best is trial 47 with value: 2.9757029705703073.

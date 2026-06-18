@@ -1,0 +1,110 @@
+{
+  "job_id": "JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504",
+  "run_id": "RUN-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504",
+  "candidate_id": null,
+  "worker": "ftmo_ledger",
+  "evidence_kind": "ftmo_ledger",
+  "authority_layer": "control_plane",
+  "schema_version": "ftmo_ledger_worker_result_v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "artifact_type": "ftmo_ledger_summary",
+      "path": "factory/mt5/ftmo/JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504/ftmo-ledger-summary.json",
+      "sha256": "1c155a2d56066e3d9acf5e625e687a26241fc0a55257e11f0891778596a71aae",
+      "size_bytes": 2798,
+      "modified_at": "2026-05-04T08:22:46.020Z"
+    },
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/mt5/ftmo/JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504/request.json",
+      "sha256": "5eb6eedf462e69d19db353cda984a6a3f11b9530d216141db39836d6b7775d60",
+      "size_bytes": 549,
+      "modified_at": "2026-05-04T08:22:45.841Z"
+    },
+    {
+      "artifact_type": "ftmo_rule_set",
+      "path": "factory/mt5/ftmo/rules/ftmo-1-step-trading-objectives-2026-04-22.json",
+      "sha256": "1b296c4c2a066489cfe436ccf4440f47cd7b7a294d65d77aa3ebdb52bfd8277e",
+      "size_bytes": 2077,
+      "modified_at": "2026-05-03T20:58:15.965Z"
+    },
+    {
+      "artifact_type": "ftmo_ledger_input",
+      "path": "factory/mt5/ftmo/inputs/mt5-tester-lifecycle-r6-ledger-input.json",
+      "sha256": "4b517940f66250ffe8b7b959ee0e8490e313d034e441b6c4fc77ac00642a2b74",
+      "size_bytes": 3005,
+      "modified_at": "2026-05-04T08:20:41.544Z"
+    }
+  ],
+  "metrics": {},
+  "observations": {
+    "rule_set": {
+      "ftmo_target": "1-step",
+      "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_1-step_v1",
+      "source_date": "2026-04-22",
+      "reset_timezone": "Europe/Prague",
+      "source_url": "https://ftmo.com/en/trading-objectives/"
+    },
+    "account": {
+      "currency": "USD",
+      "starting_balance": 10000
+    },
+    "ledger_summary": {
+      "max_loss_model": "end_of_day_trailing",
+      "daily_loss_limit": 300,
+      "max_loss_limit": 1000,
+      "max_loss_limit_level": 9000,
+      "trailing_high_watermark_balance": 10000,
+      "days": [
+        {
+          "date": "2026-04-29",
+          "start_balance": 10000,
+          "start_equity": 10000,
+          "min_equity": 9999.51,
+          "closing_balance": 9999.51,
+          "daily_loss_limit_level": 9700,
+          "max_loss_limit_level": 9000,
+          "daily_loss": 0.4899999999997817,
+          "breached": false,
+          "daily_breached": false,
+          "max_loss_breached": false
+        }
+      ],
+      "max_loss": 0.4899999999997817,
+      "breached": false,
+      "breach_reasons": [],
+      "final_equity": 9999.51,
+      "timeline_sha256": "e1de11840b2eae550b2a6ed8300cb9195636ebf5b60f64af5948c3399f5f2db5"
+    },
+    "proof_scope": "ledger_mechanics_only",
+    "forward_demo_survival_claim": false,
+    "fixture_ledger": false,
+    "input_hashes": {
+      "rule_set_sha256": "688dfa14a6ad95f3beb89a55bc405dca0248ff9dd08b3318eb9a1b257aa575c0",
+      "ledger_sha256": "e26b74b2e925f21dd4f12e4e0d7e4df2fd401881fa8a4b9dc248d6c6d11fdbe5"
+    }
+  },
+  "observed_at": "2026-05-04T08:22:45.803Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/ftmo-ledger-worker.mjs",
+      "sha256": "2efbfec0028e0ef87bf9480c969eee423508d12b4b0076c60e8973b7916be6b1",
+      "size_bytes": 13945,
+      "modified_at": "2026-05-03T20:57:36.272Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

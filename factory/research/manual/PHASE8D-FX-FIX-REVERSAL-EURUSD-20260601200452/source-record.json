@@ -1,0 +1,57 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "source_type": "web_captured_source_plus_repo_implementation",
+  "trust_tier": "high_research_trust",
+  "url_or_path_or_doi": "https://www.fsb.org/2014/09/r_140930/",
+  "accessed_at": "2026-06-01T20:04:52.667Z",
+  "content_hash_or_unavailable_reason": "1a051f7ef604315ebc24cbf42bd35628ff6784a3f86e626bf4074266b2bdee65",
+  "claims_extracted": [
+    "The FSB report identifies the WMR 4pm London fix as a pre-eminent FX benchmark.",
+    "The report states that concerns about benchmark integrity were linked to incentives around the structure of trading near benchmark fixings.",
+    "The report covers execution of fix trades and behaviour around major FX benchmarks, primarily the WMR 4pm London fix.",
+    "The repo implementation maps this mechanism to an EURUSD M15 benchmark-fixing-window screen without claiming MT5 data equivalence or profitability."
+  ],
+  "limitations": [
+    "The source supports benchmark-fixing flow concentration, not a specific profitable EURUSD trading rule.",
+    "The WMR fix is London-time based; this screen approximates DST with UTC hour choices rather than official calendar-aware fix timestamps.",
+    "The screen uses OHLCV and tick-volume proxies only; it does not observe actual fix orders or dealer inventory.",
+    "The current CSV is research data and does not prove FTMO terminal history equivalence."
+  ],
+  "disconfirming_relevance": [
+    "Post-reform benchmark execution practices may have reduced predictable fix-window price pressure.",
+    "Execution flow can be anticipatory, hedged, or absorbed before M15 bars show a stable signal.",
+    "Benchmark effects can be unstable, crowd-sensitive, and vulnerable to transaction costs."
+  ],
+  "artifact": {
+    "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/source-excerpt.md",
+    "sha256": "1a051f7ef604315ebc24cbf42bd35628ff6784a3f86e626bf4074266b2bdee65",
+    "artifact_type": "research_source_excerpt"
+  },
+  "provider_provenance": {
+    "mode": "manual_phase8d_packet_from_live_webfetch_and_repo_strategy",
+    "live_research": true,
+    "deterministic_capture": true,
+    "source_url": "https://www.fsb.org/2014/09/r_140930/",
+    "strategy_source": {
+      "path": "walk forward engine/src/strategies/fx_fix_reversal_eurusd.py",
+      "sha256": "2ace1ee7be916b118bc89cae0d35c127b89d9298cbb7f2692b67fb8b2902185e"
+    },
+    "strategy_config": {
+      "path": "walk forward engine/config/strategy_fx_fix_reversal_eurusd.json",
+      "sha256": "0172477eb4e86e4c134ba9eb5529e57104cba2c66125e715c41186ce31bb7218"
+    },
+    "wfa_config": {
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+      "sha256": "f43b100a84cc12fdb2be3064664fb6e92c184091f1154d4acb102a5e578f144f"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

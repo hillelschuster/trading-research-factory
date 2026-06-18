@@ -1,0 +1,17 @@
+{
+  "schema_version": "mt5_snapshot_request_v1",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "snapshot_mode": "symbol",
+  "symbol": "EURUSD",
+  "timeframe": "H1",
+  "bars": 5000,
+  "universe_scope": null,
+  "universe_filter": null,
+  "login": 1513441249,
+  "server": "FTMO-Demo",
+  "password_env_var": null,
+  "password_env_provided": false,
+  "terminal_path_provided": true,
+  "terminal_path": "provided_not_persisted"
+}

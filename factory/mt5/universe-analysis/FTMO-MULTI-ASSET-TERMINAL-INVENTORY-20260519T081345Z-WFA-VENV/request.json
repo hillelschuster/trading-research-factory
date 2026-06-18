@@ -1,0 +1,6 @@
+{
+  "schema_version": "phase8a_mt5_terminal_inventory_request_v1",
+  "inventory_id": "FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV",
+  "universe_snapshot_path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+  "output_dir": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV"
+}

@@ -1,0 +1,235 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_v1",
+  "evidence_kind": "phase8a_mt5_artifact_registration",
+  "registration_id": "PHASE8A-MT5-MULTI-ASSET-HISTORY-20260519T081345Z-WFA-VENV",
+  "observed_at": "2026-05-19T20:02:31.296Z",
+  "authority_layer": "control_plane",
+  "official_evidence_index_mutated": false,
+  "registration_scope": "phase8a_mt5_readiness_artifacts_only",
+  "status_summary": {
+    "total": 8,
+    "ready": 8,
+    "blocked": 0,
+    "by_status": {
+      "ready": 2,
+      "succeeded": 6
+    },
+    "by_evidence_kind": {
+      "phase8a_mt5_terminal_inventory": 1,
+      "mt5_snapshot": 6,
+      "broker_history_export_manifest": 1
+    }
+  },
+  "artifacts": [
+    {
+      "artifact_type": "phase8a_mt5_terminal_inventory",
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce",
+      "size_bytes": 252062,
+      "modified_at": "2026-05-19T19:55:55.608Z",
+      "evidence_kind": "phase8a_mt5_terminal_inventory",
+      "summary": {
+        "status": "ready",
+        "job_id": null,
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": "FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV",
+        "diagnostic_id": null,
+        "counts": {
+          "total_symbols": 167,
+          "by_terminal_path_group": {
+            "Agriculture": 7,
+            "Cash CFD": 5,
+            "Cash II CFD": 10,
+            "Cash III CFD": 1,
+            "Commodities": 2,
+            "Crypto I CFD": 11,
+            "Crypto II CFD": 20,
+            "Custom": 1,
+            "Equities I CFD": 45,
+            "Equities II CFD": 13,
+            "Exotics": 15,
+            "Forex": 28,
+            "Metals CFD": 9
+          },
+          "by_terminal_asset_class": {
+            "agriculture_cfd": 7,
+            "index_cfd": 14,
+            "energy_commodity_cfd": 4,
+            "crypto_cfd": 31,
+            "other": 1,
+            "stock_cfd": 58,
+            "fx": 43,
+            "metal_cfd": 9
+          },
+          "by_asset_class_hint": {
+            "fx_like": 45,
+            "index_like": 13,
+            "crypto_like": 36,
+            "energy_like": 4,
+            "metal_like": 10,
+            "stock_like": 58,
+            "unknown": 1
+          },
+          "visible_true": 13,
+          "select_true": 25
+        },
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "ready"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-EURUSD-H1/snapshot.json",
+      "sha256": "bf31e4b8e16b085d635c68f613a83b18b701dab1355e36ab440ca56ca9736a05",
+      "size_bytes": 3823,
+      "modified_at": "2026-05-19T19:56:50.739Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-EURUSD-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-US100-H1/snapshot.json",
+      "sha256": "59ac0dd01e113ae2f50a04da0bc59e6f0990a84e7514521ed3353a2ebc643e0a",
+      "size_bytes": 3827,
+      "modified_at": "2026-05-19T19:57:41.317Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-US100-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/snapshot.json",
+      "sha256": "159fce635f68b06c634f43c11aa985b9913b0b38a64d28149615d50a7edb6ab1",
+      "size_bytes": 3815,
+      "modified_at": "2026-05-19T19:58:08.821Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1/snapshot.json",
+      "sha256": "787816feede8b4f45847c594d69436aed025bfd8c357b45a54a945eb807f4afd",
+      "size_bytes": 3846,
+      "modified_at": "2026-05-19T19:58:54.424Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-AAPL-H1/snapshot.json",
+      "sha256": "4a96eead0ef837adfd4239bf82d1f3e1f08da079e7a97766158c541f59066d6c",
+      "size_bytes": 3787,
+      "modified_at": "2026-05-19T19:59:31.054Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-AAPL-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "mt5_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-BTCUSD-H1/snapshot.json",
+      "sha256": "25d01499b207649251a812e7113befe7e75f88e8b08284529b57ef4df3835435",
+      "size_bytes": 3814,
+      "modified_at": "2026-05-19T20:00:04.356Z",
+      "evidence_kind": "mt5_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-BTCUSD-H1",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    },
+    {
+      "artifact_type": "broker_history_export_manifest",
+      "path": "factory/mt5/history-availability/MT5-HISTORY-AVAILABILITY-PRIORITY-20260519T081345Z-WFA-VENV/manifest.json",
+      "sha256": "997750d31c87269409b5f34ae9e73621878b3c878cda9d30a8534b3b01cba2d6",
+      "size_bytes": 17126,
+      "modified_at": "2026-05-19T20:01:22.445Z",
+      "evidence_kind": "broker_history_export_manifest",
+      "summary": {
+        "status": "ready",
+        "job_id": null,
+        "classification_id": null,
+        "manifest_id": "MT5-HISTORY-AVAILABILITY-PRIORITY-20260519T081345Z-WFA-VENV",
+        "equivalence_id": null,
+        "inventory_id": null,
+        "diagnostic_id": null,
+        "counts": {
+          "total": 6,
+          "available": 6,
+          "blocked": 0
+        },
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "ready"
+    }
+  ]
+}

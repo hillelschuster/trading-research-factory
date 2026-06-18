@@ -1,0 +1,578 @@
+{
+  "metrics": {
+    "sharpe_is": -10,
+    "sharpe_oos": 0,
+    "in_sample_return_pct": 0,
+    "total_trades": 0,
+    "max_drawdown": 0,
+    "profit_factor": 0,
+    "win_rate": 0,
+    "aggregate_return_pct": 0,
+    "total_windows": 17,
+    "successful_windows": 17,
+    "failed_windows": 0
+  },
+  "per_window_metrics": [
+    {
+      "window_id": 0,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 0,
+        "min_range_pips": 80,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 50,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 1,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 0,
+        "min_range_pips": 100,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 30,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 2,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 100,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 30,
+        "sweep_pips": 20,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 3,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 80,
+        "reentry_pips": 10,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 40,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 4,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 0,
+        "min_range_pips": 120,
+        "reentry_pips": 10,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 40,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 5,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 250,
+        "min_daily_atr": 300,
+        "min_range_pips": 120,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 20,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 6,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 250,
+        "min_daily_atr": 300,
+        "min_range_pips": 120,
+        "reentry_pips": 10,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 40,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 7,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 120,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 40,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 8,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 80,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 30,
+        "sweep_pips": 40,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 9,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 100,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 30,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 10,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 0,
+        "min_range_pips": 100,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 30,
+        "sweep_pips": 40,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 11,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 300,
+        "min_range_pips": 80,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 50,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 12,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 0,
+        "min_range_pips": 100,
+        "reentry_pips": 10,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 30,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 13,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 250,
+        "min_daily_atr": 0,
+        "min_range_pips": 120,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 40,
+        "sweep_pips": 30,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 14,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 250,
+        "min_daily_atr": 0,
+        "min_range_pips": 80,
+        "reentry_pips": 10,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 50,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 15,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 300,
+        "min_daily_atr": 300,
+        "min_range_pips": 100,
+        "reentry_pips": 20,
+        "stop_buffer_pips": 20,
+        "sweep_pips": 50,
+        "tp_mode": "mid"
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 16,
+      "success": true,
+      "total_return_pct": 0,
+      "in_sample_return_pct": 0,
+      "total_trades": 0,
+      "sharpe_ratio": 0,
+      "max_drawdown_pct": 0,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "max_range_pips": 350,
+        "min_daily_atr": 300,
+        "min_range_pips": 80,
+        "reentry_pips": 0,
+        "stop_buffer_pips": 30,
+        "sweep_pips": 20,
+        "tp_mode": "opposite"
+      },
+      "best_parameters_malformed": false
+    }
+  ],
+  "metrics_artifact": {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+    "sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+    "size_bytes": 25491,
+    "modified_at": "2026-05-28T22:54:22.007Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+      "family_id": "london_sweep_gbpjpy",
+      "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  "assumptions": {
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 30,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 3600,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+          "source_sha256": "21f2d0956cca075fd56a20b3b80e3cb700824c8d5127f6c0502c051723768740",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-05-28T22:52:12.070335+00:00",
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-05-28T22:54:21.925886+00:00",
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 129.855551,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    }
+  },
+  "optional_wfa_artifacts": {
+    "trade_ledger": {
+      "available": false,
+      "artifact_type": "wfa_trade_ledger",
+      "artifacts": [],
+      "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+    },
+    "equity_curve": {
+      "available": false,
+      "artifact_type": "wfa_equity_curve",
+      "artifacts": [],
+      "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+    },
+    "optimizer_trials": {
+      "available": false,
+      "artifact_type": "wfa_optimizer_trials",
+      "artifacts": [],
+      "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+    }
+  },
+  "metric_readiness": {
+    "sharpe_is": {
+      "status": "available",
+      "value": -10,
+      "source": {
+        "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+        "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+        "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+      }
+    },
+    "sharpe_oos": {
+      "status": "available",
+      "value": 0,
+      "source": {
+        "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+        "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+        "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+      }
+    },
+    "wfe": {
+      "status": "blocked_missing_inputs",
+      "value": null,
+      "missing_inputs": [
+        "nonzero aggregate in-sample return"
+      ],
+      "missing_because": "WFE not computed because accepted WFA metrics are missing nonzero aggregate in-sample return."
+    },
+    "wfr": {
+      "status": "computed_artifact_backed",
+      "value": 1,
+      "inputs": {
+        "successful_windows": {
+          "available": true,
+          "value": 17,
+          "source": {
+            "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+            "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+            "source_field": "successful_windows"
+          }
+        },
+        "total_windows": {
+          "available": true,
+          "value": 17,
+          "source": {
+            "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+            "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+            "source_field": "total_windows"
+          }
+        }
+      }
+    }
+  },
+  "parameter_stability": {
+    "status": "parameter_instability_flagged",
+    "source": {
+      "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+      "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+      "source_field": "window_results[].best_parameters"
+    },
+    "windows_with_parameters": 17,
+    "total_reported_windows": 17,
+    "unique_parameter_sets": 17,
+    "changed_window_count": 16,
+    "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+  },
+  "optimization_truth": {
+    "status": "not_emitted",
+    "source": {
+      "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+      "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+      "source_field": "optimization_truth"
+    },
+    "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+  },
+  "warmup_diagnostics": {
+    "status": "not_emitted",
+    "source": {
+      "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+      "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+      "source_field": "warmup_diagnostics"
+    },
+    "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+  }
+}

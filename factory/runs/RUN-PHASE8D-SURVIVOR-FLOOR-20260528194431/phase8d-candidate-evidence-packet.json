@@ -1,0 +1,114 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "backlog_item_id": "IDEA-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+  "family_id": "volatility_regime",
+  "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "blocked",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": false,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-SURVIVOR-FLOOR-CANARY-20260528194431/hypothesis-packet.json",
+      "sha256": "f2a8a1e5a3f7c26c0cd2af44461dbd845c66a13a2527dba261608180a9734cb6"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431.json",
+      "sha256": "d7651c0faf08ab47c740a160e088287b9b49e1c85293084ebabae07b694a9fc8"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431.json",
+      "sha256": "d7651c0faf08ab47c740a160e088287b9b49e1c85293084ebabae07b694a9fc8",
+      "content_hash": "6b978346fe18215cfdd07fd4aaab0987e0f12cae43496dacf44798c678c8a6b2"
+    }
+  },
+  "source_quality_gate": {
+    "status": "not_applicable_manual_packet"
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution"
+  },
+  "data_identity": {
+    "status": "unknown",
+    "known": false,
+    "artifact": null
+  },
+  "wfa_metrics": {
+    "status": "worker_executed_artifact_backed",
+    "windows": 0,
+    "trades": null,
+    "return_proxy_pct": null,
+    "positive_oos_window_ratio": null,
+    "wfr": null
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "completed_oos_windows",
+      "total_trades",
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431/execution-result.json",
+      "sha256": "e91405132bb70e9aabac5f8995813e6f20b02cc657cc5375d6b91257f63a92f8"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431/worker-results/parsed-wfa-metrics.json",
+      "sha256": "8f8586757ddf38ac5c3a8099dce1ee18b507506b5ebcfed611419bb142ba9a8a"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431.json",
+      "sha256": "d7651c0faf08ab47c740a160e088287b9b49e1c85293084ebabae07b694a9fc8"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-SURVIVOR-FLOOR-CANARY-20260528194431/hypothesis-packet.json",
+      "sha256": "f2a8a1e5a3f7c26c0cd2af44461dbd845c66a13a2527dba261608180a9734cb6"
+    }
+  ],
+  "recorded_at": "2026-05-28T19:44:31.751Z"
+}

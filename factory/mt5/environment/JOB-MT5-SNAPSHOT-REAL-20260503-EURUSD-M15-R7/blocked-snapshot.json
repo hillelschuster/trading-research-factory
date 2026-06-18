@@ -1,0 +1,56 @@
+{
+  "schema_version": "mt5_environment_snapshot_v1",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "status": "blocked",
+  "observed_at": "2026-05-03T17:45:04.561Z",
+  "request": {
+    "schema_version": "mt5_snapshot_request_v1",
+    "evidence_kind": "mt5_snapshot",
+    "authority_layer": "mt5_terminal",
+    "symbol": "EURUSD",
+    "timeframe": "M15",
+    "bars": 256,
+    "login": 1513202082,
+    "server": "FTMO-Demo",
+    "terminal_path_provided": true,
+    "terminal_path": "provided_not_persisted"
+  },
+  "observations": {},
+  "blocked_reason": "MetaTrader5 initialize failed: -6 Terminal: Authorization failed",
+  "diagnostics": {
+    "error_code": "mt5_initialize_failed",
+    "message": "MetaTrader5 initialize failed: -6 Terminal: Authorization failed",
+    "command": "mt5_snapshot_probe.py",
+    "python_command": "python.exe",
+    "python_command_was_absolute": false,
+    "terminal_path_provided_to_probe": true,
+    "terminal_path_inferred_executable": false,
+    "probe_path_style": "windows",
+    "probe_path_conversion_error": null,
+    "exit_status": 2,
+    "signal": null,
+    "stdout_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260503-EURUSD-M15-R7/probe.stdout.txt",
+    "stderr_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260503-EURUSD-M15-R7/probe.stderr.txt",
+    "mt5_error_code": -6,
+    "mt5_error_message": "Terminal: Authorization failed",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python_version": "3.10.11"
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "968c45a0485ddc0b2309b0185bec3e63aad4fd85bdc2e19125e26baa3044e157",
+      "size_bytes": 12426,
+      "modified_at": "2026-05-03T17:43:31.210Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "a1c54e6a2e8be7a8eba6de9910085751d8a693c4f762b27f6e978ac2fcba8d36",
+      "size_bytes": 7645,
+      "modified_at": "2026-05-03T17:43:58.458Z"
+    }
+  ]
+}

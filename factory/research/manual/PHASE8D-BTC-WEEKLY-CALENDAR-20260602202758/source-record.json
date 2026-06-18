@@ -1,0 +1,69 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "source_type": "web_captured_doi_metadata_plus_repo_implementation",
+  "trust_tier": "medium_implementation_trust",
+  "url_or_path_or_doi": "https://api.crossref.org/works/10.1016%2Fj.frl.2018.11.012 ; https://doi.org/10.1016/j.frl.2018.11.012",
+  "accessed_at": "2026-06-02T20:27:58.611Z",
+  "content_hash_or_unavailable_reason": "01330b5bd8aee262b665f8c630e1ee2b9e728614f09dbf8a1c9adb8b8b3ec02d",
+  "claims_extracted": [
+    "Crossref metadata supports existence of peer-reviewed literature specifically on day-of-week effects in the cryptocurrency market.",
+    "The DOI metadata and references support a bounded BTC weekly calendar-anomaly screen, but not this exact H1 MACD-filtered execution rule.",
+    "The repo implementation maps the mechanism to BTC H1 bars with a weekly entry day, previous daily MACD filter, ATR stop, and bounded hold.",
+    "BTCUSD appears in FTMO terminal inventory evidence, while Binance-to-MT5 data equivalence is explicitly unverified."
+  ],
+  "limitations": [
+    "The source does not prove a profitable BTC H1 calendar strategy.",
+    "The DOI metadata available here does not expose the full article body or exact tested assets/windows.",
+    "The candidate uses Binance proxy data and does not verify FTMO BTCUSD historical equivalence.",
+    "Day-of-week effects are well-known, may be crowded, and can decay after publication."
+  ],
+  "disconfirming_relevance": [
+    "Calendar anomalies can disappear after discovery or publication.",
+    "A day-of-week effect may be asset-, venue-, sample-, or regime-specific and may not transfer to 2021-2026 BTCUSD CFD proxy behavior.",
+    "Weekly entries can under-sample volatile regimes and be sensitive to optimizer day selection.",
+    "Weekend liquidity, crypto CFD basis, and fees/slippage can erase any apparent edge."
+  ],
+  "artifact": {
+    "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/source-excerpt.md",
+    "sha256": "01330b5bd8aee262b665f8c630e1ee2b9e728614f09dbf8a1c9adb8b8b3ec02d",
+    "artifact_type": "research_source_excerpt"
+  },
+  "provider_provenance": {
+    "mode": "manual_phase8d_packet_from_live_crossref_webfetch_and_repo_strategy",
+    "live_research": true,
+    "deterministic_capture": true,
+    "source_urls": [
+      "https://api.crossref.org/works/10.1016%2Fj.frl.2018.11.012",
+      "https://doi.org/10.1016/j.frl.2018.11.012"
+    ],
+    "strategy_source": {
+      "path": "walk forward engine/src/strategies/btc_weekly_calendar_phase8d.py",
+      "sha256": "6dd8ed0b74bb7a87bd6ecc11ab679ea3a45d5eadcb3b619d84983c4b5e0049d1"
+    },
+    "base_strategy_source": {
+      "path": "walk forward engine/src/strategies/crypto_day_of_week.py",
+      "sha256": "4da0af67f186fd2364fc58e9f48c150b450c5adb001a68579cf9b74de3365b39"
+    },
+    "strategy_config": {
+      "path": "walk forward engine/config/strategy_btc_weekly_calendar_phase8d.json",
+      "sha256": "74fe08a36ad3325150edfc204281395c75c43c8023493583caab87c7c2df5aad"
+    },
+    "wfa_config": {
+      "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/wfa_config.yaml",
+      "sha256": "ccba02de39b7436013c43a095bcf1ab4a015b5328e8e1b601de90ddb58a9eb75"
+    },
+    "data_input": {
+      "path": "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/analysis.json",
+    "sha256": "3898329c034550734722464234e0f063d5a5d1708ce436e1edcb3321f6cfe37a",
+    "size_bytes": 2913,
+    "modified_at": "2026-05-31T13:42:06.219Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "job_id": "JOB-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+      "family_id": "vol_adaptive_trend_btc",
+      "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/parameter_stability_20260531_164206.json",
+    "sha256": "818381dafabcbbc9e75d0f2cb555e92a2a54a8091164689e026ecda02580bc3f",
+    "size_bytes": 1495,
+    "modified_at": "2026-05-31T13:42:06.237Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "job_id": "JOB-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+      "family_id": "vol_adaptive_trend_btc",
+      "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+    "sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6",
+    "size_bytes": 79825,
+    "modified_at": "2026-05-31T13:42:06.108Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "job_id": "JOB-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+      "family_id": "vol_adaptive_trend_btc",
+      "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_summary_20260531_164206.csv",
+    "sha256": "c3a28fc24be6bc06fb4ddf906a6a0f36562f8b72b28223ee5a68f9d8e039ce7c",
+    "size_bytes": 17273,
+    "modified_at": "2026-05-31T13:42:06.237Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "job_id": "JOB-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+      "family_id": "vol_adaptive_trend_btc",
+      "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

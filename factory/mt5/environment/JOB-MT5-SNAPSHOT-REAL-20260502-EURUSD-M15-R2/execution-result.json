@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2",
+  "status": "blocked",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "observed_at": "2026-05-02T18:27:49.961Z",
+  "artifacts_created": [
+    {
+      "artifact_type": "blocked_environment_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/blocked-snapshot.json",
+      "sha256": "14a873469a8342e1c6fcea961aef147221963ee44c028d6c993297787d1aa703",
+      "size_bytes": 1849,
+      "modified_at": "2026-05-02T18:27:51.272Z"
+    },
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/request.json",
+      "sha256": "8b0a4c512096bd20e6959ba3bd709fad09514735eae2afbdec11369e555a900d",
+      "size_bytes": 240,
+      "modified_at": "2026-05-02T18:27:50.324Z"
+    },
+    {
+      "artifact_type": "probe_stdout",
+      "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stdout.txt",
+      "sha256": "2fd7d1b4cc13a91f0515837100d8b6ba4ccdd8a27abf7034cfd38c97a82b9b9e",
+      "size_bytes": 391,
+      "modified_at": "2026-05-02T18:27:51.196Z"
+    },
+    {
+      "artifact_type": "probe_stderr",
+      "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "modified_at": "2026-05-02T18:27:51.232Z"
+    }
+  ],
+  "metrics_observed": {},
+  "observations": {},
+  "blocked_reason": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'",
+  "blockers": [
+    "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'"
+  ],
+  "errors": [
+    {
+      "command": "mt5_snapshot_worker",
+      "message": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'"
+    }
+  ],
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "81625d67f64aa9573d7b672a5a13292e543ded4962246ee7b1000c412dd7d6f4",
+      "size_bytes": 11685,
+      "modified_at": "2026-05-02T18:27:13.862Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "a90fab3e3e82689239db3ce9334e2158e06259d939c4e4c160d8da97680dc666",
+      "size_bytes": 7280,
+      "modified_at": "2026-04-30T20:35:20.434Z"
+    }
+  ],
+  "worker_result": {
+    "job_id": "JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2",
+    "run_id": "RUN-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2",
+    "candidate_id": null,
+    "worker": "mt5_snapshot",
+    "evidence_kind": "mt5_snapshot",
+    "authority_layer": "mt5_terminal",
+    "schema_version": "mt5_snapshot_worker_result_v1",
+    "status": "blocked",
+    "artifacts": [
+      {
+        "artifact_type": "blocked_environment_snapshot",
+        "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/blocked-snapshot.json",
+        "sha256": "14a873469a8342e1c6fcea961aef147221963ee44c028d6c993297787d1aa703",
+        "size_bytes": 1849,
+        "modified_at": "2026-05-02T18:27:51.272Z"
+      },
+      {
+        "artifact_type": "worker_request",
+        "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/request.json",
+        "sha256": "8b0a4c512096bd20e6959ba3bd709fad09514735eae2afbdec11369e555a900d",
+        "size_bytes": 240,
+        "modified_at": "2026-05-02T18:27:50.324Z"
+      },
+      {
+        "artifact_type": "probe_stdout",
+        "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stdout.txt",
+        "sha256": "2fd7d1b4cc13a91f0515837100d8b6ba4ccdd8a27abf7034cfd38c97a82b9b9e",
+        "size_bytes": 391,
+        "modified_at": "2026-05-02T18:27:51.196Z"
+      },
+      {
+        "artifact_type": "probe_stderr",
+        "path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "modified_at": "2026-05-02T18:27:51.232Z"
+      }
+    ],
+    "metrics": {},
+    "observations": {},
+    "observed_at": "2026-05-02T18:27:49.961Z",
+    "blocked_reason": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'",
+    "source_hashes": [
+      {
+        "artifact_type": "worker_source",
+        "path": "src/workers/mt5-snapshot-worker.mjs",
+        "sha256": "81625d67f64aa9573d7b672a5a13292e543ded4962246ee7b1000c412dd7d6f4",
+        "size_bytes": 11685,
+        "modified_at": "2026-05-02T18:27:13.862Z"
+      },
+      {
+        "artifact_type": "worker_source",
+        "path": "walk forward engine/src/mt5_snapshot_probe.py",
+        "sha256": "a90fab3e3e82689239db3ce9334e2158e06259d939c4e4c160d8da97680dc666",
+        "size_bytes": 7280,
+        "modified_at": "2026-04-30T20:35:20.434Z"
+      }
+    ],
+    "diagnostics": {
+      "error_code": "metatrader5_import_failed",
+      "message": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'",
+      "command": "mt5_snapshot_probe.py",
+      "python_command": "python.exe",
+      "python_command_was_absolute": false,
+      "probe_path_style": "windows",
+      "probe_path_conversion_error": null,
+      "exit_status": 2,
+      "signal": null,
+      "stdout_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stdout.txt",
+      "stderr_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260502-EURUSD-M15-R2/probe.stderr.txt",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "python_version": "3.10.11"
+    },
+    "environment": {
+      "node_version": "v24.0.2",
+      "platform": "linux",
+      "arch": "x64",
+      "python_command": "python.exe",
+      "python_command_was_absolute": false
+    }
+  }
+}

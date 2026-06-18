@@ -1,0 +1,78 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "registered_at": "2026-06-01T14:20:40.527Z",
+  "registered_before_run_id": "RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/hypothesis-packet.json",
+    "sha256": "e812d72cfcd13487c43c13cd156283f6cfe74d8fad134602eaf7436563cb9f5c",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/source-record.json",
+      "sha256": "2e4ef8f0b3832ca0126e7e63aac1ea3d1e755e60a503095cc44d0e6218e9117b",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register EURUSD M15 month-end rebalancing-flow screening before WFA execution.",
+  "instrument_scope": "EURUSD M15 FTMO/MT5-relevant research screen using historical EURUSD M15 OHLCV CSV; MT5 instrument equivalence remains unverified.",
+  "timeframe_candidate": "M15 month-end and first-trading-day rebalancing-flow screen",
+  "strategy_family": "month_end_rebalance_eurusd",
+  "expected_trade_frequency": "Medium but calendar-constrained; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "data_sources": [
+    "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+    "FTMO terminal universe snapshot lists EURUSD, but MT5 data equivalence is not assumed."
+  ],
+  "cost_assumptions": "Use only month_end_rebalance_eurusd WFA config costs: fees 0.0001 and slippage 0.0001, no hidden overrides.",
+  "wfa_design": {
+    "config_path": "walk forward engine/strategies/month_end_rebalance_eurusd/wfa_config.yaml",
+    "window_policy": "Use the pre-registered 6m training / 3m testing / 3m step M15 WFA scheme encoded in the canonical Phase 8D config.",
+    "optimizer_policy": "Use the pre-registered 12-trial route and count this attempt in the denominator.",
+    "config_validation": {
+      "valid": true,
+      "feasibility": {
+        "data_source_file": "data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+        "first_timestamp": "2003-05-06T00:00:00.000Z",
+        "last_timestamp": "2025-06-24T16:45:00.000Z",
+        "training_months": 6,
+        "testing_months": 3,
+        "purge_gap_bars": 0,
+        "min_required_bars": 1000,
+        "first_training_bars": 9876,
+        "first_validation_bars_after_purge": 4980
+      },
+      "expected_output_root": "walk forward engine/strategies/month_end_rebalance_eurusd/results"
+    }
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA fails any active Phase 8D gate on completed OOS windows, trade count, return proxy, OOS Sharpe/profit factor where applicable, concentration, drawdown-to-return, or consistency route.",
+    "Reject any Phase 8E, MT5/MQL5, tester parity, or deployment implication unless a separate survivor exists with MT5 equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, costs, parameter ranges, data source, or WFA config as a new denominator-tracked attempt."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "e1d4c1382a6b5a44d813f65e47c659de7892d2b985e49d3e64d773d3af1b3728"
+}

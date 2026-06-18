@@ -1,0 +1,175 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+  "backlog_item_id": "IDEA-PHASE8D-GOLD-TREND-20260528221445",
+  "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+  "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+  "family_id": "gold_trend_following_xauusd",
+  "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/gold_trend_following/wfa_config.yaml",
+      "sha256": "8e7e43087135042ee446c3b01ef50ca936810fbddfdc8248229ac92339fdca7d",
+      "size_bytes": 1027,
+      "modified_at": "2025-12-24T14:26:41.738Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/gold_trend_following_vectorized.py",
+      "sha256": "8dd4038875f39c4e8f60781781b35afc18285662e784db756b889530345e439c",
+      "size_bytes": 9483,
+      "modified_at": "2025-12-24T18:18:00.332Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_gold_trend_following.json",
+      "sha256": "687bc7d5ee0db372cd103066123252273033aa2cf0536432fd458b5a10c0f219",
+      "size_bytes": 1189,
+      "modified_at": "2025-12-24T20:11:21.455Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/XAUUSD_M15_2018-2025/XAUUSD_M15_2018_2025.csv",
+      "sha256": "dfd7660192b199887c078bde0bb746d11e4c7d07d30232e4444b25552e7dca66",
+      "size_bytes": 9883661,
+      "modified_at": "2025-12-19T07:02:45.064Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GOLD-TREND-20260528221445/registrations/research-wfa-RUN-PHASE8D-GOLD-TREND-20260528221445.json",
+      "sha256": "658059b16a608079354e28ade3de5e34e5bec043ad500ab9202e2eae9570ba70",
+      "size_bytes": 3240,
+      "modified_at": "2026-05-28T22:14:45.178Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-GOLD-TREND-20260528221445/hypothesis-packet.json",
+      "sha256": "b6e94c6c56e0d869733ad2162fb93cde0ce8eb16db1e3ee8c5375dc01771598d"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GOLD-TREND-20260528221445/registrations/research-wfa-RUN-PHASE8D-GOLD-TREND-20260528221445.json",
+      "sha256": "658059b16a608079354e28ade3de5e34e5bec043ad500ab9202e2eae9570ba70",
+      "content_hash": "7b9adb54c4c9273b4bac0a77aa732a25700d4a95392c0a1ee6fc43890c4c248e"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-GOLD-TREND-20260528221445/source-record.json",
+      "sha256": "d4390caf172f68d66eb5f6dd5421ab86f42588b6d18a17443b3c9b5f9fe21f17",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution"
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "XAUUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "known_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/XAUUSD_M15_2018-2025/XAUUSD_M15_2018_2025.csv",
+      "sha256": "dfd7660192b199887c078bde0bb746d11e4c7d07d30232e4444b25552e7dca66",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_executed_artifact_backed",
+    "windows": 28,
+    "trades": 4393,
+    "return_proxy_pct": -2.8070537269107554,
+    "positive_oos_window_ratio": 0.107143,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-GOLD-TREND-20260528221445/execution-result.json",
+      "sha256": "d3003870944db735beb81791a61ef9f6c60bf33d716b7cf8be4a62f4e6f1bab5"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-GOLD-TREND-20260528221445/worker-results/parsed-wfa-metrics.json",
+      "sha256": "2dab826452944830515b98a3911c105eae29e267afdd1be04a9f1ab2918c5759"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GOLD-TREND-20260528221445/registrations/research-wfa-RUN-PHASE8D-GOLD-TREND-20260528221445.json",
+      "sha256": "658059b16a608079354e28ade3de5e34e5bec043ad500ab9202e2eae9570ba70"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-GOLD-TREND-20260528221445/hypothesis-packet.json",
+      "sha256": "b6e94c6c56e0d869733ad2162fb93cde0ce8eb16db1e3ee8c5375dc01771598d",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-GOLD-TREND-20260528221445/source-record.json",
+      "sha256": "d4390caf172f68d66eb5f6dd5421ab86f42588b6d18a17443b3c9b5f9fe21f17"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+      "sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf"
+    }
+  ],
+  "recorded_at": "2026-05-28T22:14:45.157Z"
+}

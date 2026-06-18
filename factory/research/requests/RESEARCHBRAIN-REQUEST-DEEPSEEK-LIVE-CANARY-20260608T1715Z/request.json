@@ -1,0 +1,32 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z",
+  "generated_at": "2026-06-08T17:15:00Z",
+  "research_question": "Find one public source for a falsifiable FTMO/MT5-relevant market microstructure or session-liquidity mechanism suitable only for later deterministic validation.",
+  "market_scope": "multi_asset_ftmo_mt5",
+  "mt5_instrument_scope": "Any real FTMO/MT5 tradable symbol class is allowed, but prediction markets are out of scope.",
+  "prior_failed_patterns": [],
+  "prior_lessons": [
+    "Stage-0 may only produce source-backed hypotheses, not profitability, WFA, MT5, promotion, or deployment claims.",
+    "Avoid manual Phase 8D roulette and parameter-only variants of failed strategies."
+  ],
+  "max_sources": 2,
+  "max_hypotheses": 1,
+  "novelty_required": true,
+  "source_family_allowlist": [
+    "official_docs",
+    "broker_docs",
+    "mql5_sources",
+    "academic_or_research_web",
+    "github_artifact",
+    "youtube_timestamped_transcript"
+  ],
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false
+}

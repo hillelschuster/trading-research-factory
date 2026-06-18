@@ -23,6 +23,14 @@ asset_strategy_profiles:
     strategy_params_key: strategy_btc_residual_reversion.json
     symbol: ETHUSDT
     timeframe: H1
+  BTC_WEEKLY_CALENDAR_PHASE8D:
+    description: Phase 8D BTCUSD-equivalent weekly day-of-week calendar anomaly screen
+      with daily MACD state filter.
+    enabled: true
+    instrument_details_key: BTCUSDT_BINANCE
+    strategy_params_key: strategy_btc_weekly_calendar_phase8d.json
+    symbol: BTCUSDT
+    timeframe: H1
   EMA_TREND_GATE:
     description: Multi-Timeframe EMA Confluence with 4h Trend Gate on BTC/USDT
     enabled: true
@@ -45,6 +53,14 @@ asset_strategy_profiles:
     enabled: true
     instrument_details_key: ETHUSDT_BINANCE
     strategy_params_key: strategy_eth_session_momentum.json
+    symbol: ETHUSDT
+    timeframe: H1
+  ETH_BTC_RESIDUAL_PHASE8D:
+    description: Phase 8D ETH/BTC rolling-beta residual mean-reversion screen on ETH
+      with BTC context columns.
+    enabled: true
+    instrument_details_key: ETHUSDT_BINANCE
+    strategy_params_key: strategy_eth_btc_residual_phase8d.json
     symbol: ETHUSDT
     timeframe: H1
   EURUSD_LONDON_BREAKOUT:
@@ -132,9 +148,17 @@ asset_strategy_profiles:
   GBPJPY_REVERSION:
     description: GBPJPY Liquidity Vacuum - London session mean reversion with 2.5σ
       extreme pierce
-    enabled: false
+    enabled: true
     instrument_details_key: GBPJPY_FTMO
     strategy_params_key: strategy_gbpjpy_reversion.json
+    symbol: GBPJPY
+    timeframe: M15
+  GBPJPY_LONDON_SWEEP_FADE:
+    description: GBPJPY London Sweep & Fade - Mean reversion on false breakouts of
+      Asian range
+    enabled: true
+    instrument_details_key: GBPJPY_FTMO
+    strategy_params_key: strategy_london_sweep_fade.json
     symbol: GBPJPY
     timeframe: M15
   NY_PM_REVERSION:
@@ -143,6 +167,35 @@ asset_strategy_profiles:
     enabled: false
     instrument_details_key: EURUSD_FTMO
     strategy_params_key: strategy_ny_pm_reversion.json
+    symbol: EURUSD
+    timeframe: M15
+  ORDER_FLOW_IMBALANCE_EURUSD:
+    description: EURUSD M15 signed tick-volume imbalance continuation screen with volatility
+      and liquidity filters.
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_order_flow_imbalance_eurusd.json
+    symbol: EURUSD
+    timeframe: M15
+  MONTH_END_REBALANCE_EURUSD:
+    description: EURUSD M15 month-end rebalancing-flow continuation/fade screen.
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_month_end_rebalance_eurusd.json
+    symbol: EURUSD
+    timeframe: M15
+  FX_FIX_REVERSAL_EURUSD:
+    description: EURUSD M15 WMR London 4pm FX benchmark-fixing flow continuation/fade screen.
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_fx_fix_reversal_eurusd.json
+    symbol: EURUSD
+    timeframe: M15
+  NFP_MACRO_EURUSD:
+    description: EURUSD M15 U.S. Employment Situation/NFP macro-announcement continuation/fade screen.
+    enabled: true
+    instrument_details_key: EURUSD_FTMO
+    strategy_params_key: strategy_nfp_macro_eurusd.json
     symbol: EURUSD
     timeframe: M15
   VOLATILITY_REGIME:
@@ -255,6 +308,10 @@ strategy_definitions:
       residuals from ETH returns and trade mean reversion on z-score.
     strategy_class: BTCResidualReversion
     strategy_module: src.strategies.btc_residual_reversion
+  BTCWeeklyCalendarPhase8D:
+    description: Phase 8D BTC weekly day-of-week calendar anomaly screen.
+    strategy_class: LightweightBTCWeeklyCalendarPhase8D
+    strategy_module: src.strategies.btc_weekly_calendar_phase8d
   EMATrendGate:
     description: Multi-Timeframe EMA Confluence with 4h Trend Gate on BTC/USDT.
     strategy_class: LightweightEMATrendGate
@@ -269,6 +326,10 @@ strategy_definitions:
       so institutional momentum carries across sessions.
     strategy_class: ETHSessionMomentum
     strategy_module: src.strategies.eth_session_momentum
+  ETHBTCResidualPhase8D:
+    description: Phase 8D ETH/BTC residual mean-reversion screen.
+    strategy_class: LightweightEthBtcResidualPhase8D
+    strategy_module: src.strategies.eth_btc_residual_phase8d
   GBPJPYReversion_LiquidityVacuum:
     description: GBPJPY Liquidity Vacuum - London session mean reversion with 2.5σ
       extreme pierce and V-shaped rejection.
@@ -298,6 +359,18 @@ strategy_definitions:
       range during London open.
     strategy_class: LondonSweepStrategy
     strategy_module: src.strategies.london_sweep
+  MonthEndRebalanceEURUSD:
+    description: EURUSD M15 month-end and first-trading-day rebalancing-flow screen.
+    strategy_class: LightweightMonthEndRebalanceEURUSD
+    strategy_module: src.strategies.month_end_rebalance_eurusd
+  FxFixReversalEURUSD:
+    description: EURUSD M15 WMR London 4pm FX benchmark-fixing flow screen.
+    strategy_class: LightweightFxFixReversalEURUSD
+    strategy_module: src.strategies.fx_fix_reversal_eurusd
+  NfpMacroEURUSD:
+    description: EURUSD M15 U.S. Employment Situation/NFP macro-announcement screen.
+    strategy_class: LightweightNfpMacroEURUSD
+    strategy_module: src.strategies.nfp_macro_eurusd
   MeanReversion_RSI_BB:
     description: Mean Reversion strategy using RSI and Bollinger Bands.
     strategy_class: MeanReversionRSI
@@ -312,6 +385,11 @@ strategy_definitions:
       with anchored VWAP TP.
     strategy_class: NYPMReversionStrategy
     strategy_module: src.strategies.ny_pm_reversion
+  OrderFlowImbalanceEURUSD:
+    description: EURUSD M15 signed tick-volume imbalance continuation using signed volume,
+      volatility regime, and bounded time exits.
+    strategy_class: LightweightOrderFlowImbalanceEURUSD
+    strategy_module: src.strategies.order_flow_imbalance_eurusd
   TrendFollowing_SMA_Cross:
     description: Trend Following strategy using SMA crossovers.
     strategy_class: TrendFollowingSMA

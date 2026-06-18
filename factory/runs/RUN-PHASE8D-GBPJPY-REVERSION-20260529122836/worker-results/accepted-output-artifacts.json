@@ -1,0 +1,47 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+    "sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+    "size_bytes": 2832,
+    "modified_at": "2026-05-29T12:28:46.966Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_152846.json",
+    "sha256": "6fea9e5d23dcd843106fb74387114ab67268a2486ef2a24a479f3952deb72031",
+    "size_bytes": 2153,
+    "modified_at": "2026-05-29T12:28:46.873Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+    "sha256": "86e0644a9b67709ef431bea540c4c8cd610bc3fb65a999a19105897ef5e5f00a",
+    "size_bytes": 10782,
+    "modified_at": "2026-05-29T12:28:47.262Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

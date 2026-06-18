@@ -1,0 +1,90 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-06-11T20:00:07.139Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "deepseek",
+  "llm_model": "deepseek-v4-flash",
+  "live_llm": true,
+  "estimated_cost_usd": 0.000012,
+  "max_cost_usd": 0.25,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_research_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000003
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000004
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000005
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000006
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_research_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000007
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000008
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000009
+    },
+    {
+      "event": "tool_call",
+      "tool": "check_duplicate_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00001
+    },
+    {
+      "event": "tool_call",
+      "tool": "check_failed_pattern_similarity",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000011
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000012
+    }
+  ],
+  "failure": "ResearchBrain agent produced no accepted hypothesis packet"
+}

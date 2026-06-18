@@ -1,0 +1,345 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/analysis.json",
+    "sha256": "95db8df2574aa7aba60414ed989f5c53a6e2427f86021682abd63c7b80340885",
+    "size_bytes": 1478,
+    "modified_at": "2025-12-24T20:13:25.033Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/parameter_stability_20251224_162913.json",
+    "sha256": "0a03e04134d30420b124223eaa81038b662e0c4f0e4ae33f87f7479e78efea8a",
+    "size_bytes": 970,
+    "modified_at": "2025-12-24T14:29:13.460Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/parameter_stability_20251224_163928.json",
+    "sha256": "4f071be08913770ee962c0a840cbc94406685ca30e6677c70c0b24f519b37208",
+    "size_bytes": 985,
+    "modified_at": "2025-12-24T14:39:28.609Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/parameter_stability_20251224_213909.json",
+    "sha256": "d69c57b5d253290b02f53892e23b32a835abe3f8a9c8b0f767700978f794c1bf",
+    "size_bytes": 1435,
+    "modified_at": "2025-12-24T19:39:09.136Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/parameter_stability_20251224_221324.json",
+    "sha256": "b6ac4653b6e95346d4384a1b1f8d3c5ca428e9b661ab9db830e3da55409a7c2a",
+    "size_bytes": 945,
+    "modified_at": "2025-12-24T20:13:25.054Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_162913.json",
+    "sha256": "fff1641bcd154f4172343d44933fe43c577c458ca46a6cc7a75562f0b89b3065",
+    "size_bytes": 15533,
+    "modified_at": "2025-12-24T14:29:13.379Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_163928.json",
+    "sha256": "7e3d990aa990202f48299b86295cc6814d1800e852cc9a28813aa3512ba17e9d",
+    "size_bytes": 16562,
+    "modified_at": "2025-12-24T14:39:28.417Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_165722.json",
+    "sha256": "4123e2d4485919fede014cf4c5e5c80d6ffb442585ccc3dbf7322cf30748a6d2",
+    "size_bytes": 12249,
+    "modified_at": "2025-12-24T14:57:22.627Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_165930.json",
+    "sha256": "fd77f07f369383d3afd857da55bf4d24f8483d5f30cc284f1fc5b24ff7c44e32",
+    "size_bytes": 13676,
+    "modified_at": "2025-12-24T14:59:30.822Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_190459.json",
+    "sha256": "2b95a0ce404ae0bfc4b09655bcf51b3e0c233af36e4e16ca5173337d643c86f3",
+    "size_bytes": 13457,
+    "modified_at": "2025-12-24T17:04:59.585Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_190939.json",
+    "sha256": "1b1de71bcc61e64482c3900ad4775b2560b6804c67e595a5e30374cd8b2bd9db",
+    "size_bytes": 13412,
+    "modified_at": "2025-12-24T17:09:39.054Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_191916.json",
+    "sha256": "30af33da907968f3771441d1a11a75f4a7675ba6f0de8620fc4d50fc544fb321",
+    "size_bytes": 13136,
+    "modified_at": "2025-12-24T17:19:16.082Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_192050.json",
+    "sha256": "0849ff6b0815c8e64901a0d0cc2118b0221d9ae89397d8072847203f121c3580",
+    "size_bytes": 13466,
+    "modified_at": "2025-12-24T17:20:50.213Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_194429.json",
+    "sha256": "45a54f6b90e474e56b18a2f63937db78e314e9506fdd62b9039010c28686afc8",
+    "size_bytes": 13649,
+    "modified_at": "2025-12-24T17:44:29.564Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_195039.json",
+    "sha256": "d0f248b8b6c90734ce0a55632e6c30d83f9b237ecbdbaf53ad9005dcacbda03c",
+    "size_bytes": 13707,
+    "modified_at": "2025-12-24T17:50:39.095Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_195157.json",
+    "sha256": "cf08ee011cec06fc48050cf9e99fbc5e0831febb286be46642c2ffdc3db8f802",
+    "size_bytes": 13708,
+    "modified_at": "2025-12-24T17:51:57.202Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_195432.json",
+    "sha256": "3df178759fcf595f795cb29266f49f73400c423561bf9bc5918b52be64539902",
+    "size_bytes": 12247,
+    "modified_at": "2025-12-24T17:54:32.025Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_195531.json",
+    "sha256": "0a23d6163019f2555beca80e614d8522ffca105eb3246eb5e96080b6027e0d64",
+    "size_bytes": 12971,
+    "modified_at": "2025-12-24T17:55:31.601Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_200946.json",
+    "sha256": "90fc94102ffe7490ed689529fe483e837dd57ce3c797da2039f650cb6abe6be1",
+    "size_bytes": 13618,
+    "modified_at": "2025-12-24T18:09:46.758Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_201619.json",
+    "sha256": "31aeb432df703b02a944feee537134734557df5c6ed3fdb1fa5f898f1f375ba6",
+    "size_bytes": 13271,
+    "modified_at": "2025-12-24T18:16:19.991Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_201915.json",
+    "sha256": "f52b22110d33ae9abb683ed40005298dae2f12493286d94599adad8c8d6f6594",
+    "size_bytes": 13616,
+    "modified_at": "2025-12-24T18:19:15.908Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_202756.json",
+    "sha256": "dba47ca2366c2f494dac90285ec10b08caa29e511a7eed94e5061e872fe05da1",
+    "size_bytes": 13601,
+    "modified_at": "2025-12-24T18:27:56.376Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_203734.json",
+    "sha256": "6be36952861d3b1bcc7b76a3b4687cd7cf7bf5476026bcd7e5735eca0368da9b",
+    "size_bytes": 13605,
+    "modified_at": "2025-12-24T18:37:34.185Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_210954.json",
+    "sha256": "e884a41659e1efd5424c8f1cdeca9b00e8e9c76f15712555b9a69d1e9bed9b76",
+    "size_bytes": 15951,
+    "modified_at": "2025-12-24T19:09:54.507Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_212958.json",
+    "sha256": "0e5b329bf54600097e7456f27a2122287a23a6fe811b09eb9df7623a24a6b6ec",
+    "size_bytes": 15958,
+    "modified_at": "2025-12-24T19:29:58.609Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_213909.json",
+    "sha256": "3b2e2de9c38c551e024de40a9a23c9af862d027961eb783870af2d3812bf5991",
+    "size_bytes": 20630,
+    "modified_at": "2025-12-24T19:39:09.035Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20251224_221324.json",
+    "sha256": "148a5f423a854b4b41da69be484ac59fa754ef846cd155af763b891872ddf03c",
+    "size_bytes": 19126,
+    "modified_at": "2025-12-24T20:13:24.968Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_162913.csv",
+    "sha256": "6d0909c84d2ebf84057bc7eb4fc8a663143b253fd4e0205d63a3d603d9ed950f",
+    "size_bytes": 3529,
+    "modified_at": "2025-12-24T14:29:13.451Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_163928.csv",
+    "sha256": "3f7f59a1da75a53db8022cbdc726a7bf8b197a0c529a19aede9ab798bd422e0a",
+    "size_bytes": 3618,
+    "modified_at": "2025-12-24T14:39:28.605Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_165722.csv",
+    "sha256": "3de5af9528063af006bb5f1db4bef30463739b031e4ec3df74f159ca608bb080",
+    "size_bytes": 3093,
+    "modified_at": "2025-12-24T14:57:22.713Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_165930.csv",
+    "sha256": "113bc468e5a495c05893bcf0466d7f6e8d620c9c69217321654bf1e8dff961ed",
+    "size_bytes": 3159,
+    "modified_at": "2025-12-24T14:59:30.897Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_190459.csv",
+    "sha256": "01c80ab78d8f4d30045ecbb72e23ed164d3724e5058dbb8b6bc1027625951a20",
+    "size_bytes": 3149,
+    "modified_at": "2025-12-24T17:04:59.716Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_190939.csv",
+    "sha256": "a5022fce146eb5a6dcf6d664e97fd50275ff4d189a167134c182b2dd864b96fc",
+    "size_bytes": 3153,
+    "modified_at": "2025-12-24T17:09:39.142Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_191916.csv",
+    "sha256": "944cad260dc9862e1a1b9e7cdc0b8bc25f3b0f8a77136f6cedab55d1989ba992",
+    "size_bytes": 3139,
+    "modified_at": "2025-12-24T17:19:16.161Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_192050.csv",
+    "sha256": "8fcf224d4909332ca90b1cf00d8aad9ed5422d59e95b0e6789aa49f5635d4a1b",
+    "size_bytes": 3148,
+    "modified_at": "2025-12-24T17:20:50.313Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_194429.csv",
+    "sha256": "e11e872a864b9cab03bb48dc43d17496cdc8ad4b45d95d2a79c7f0c9535c50e1",
+    "size_bytes": 3155,
+    "modified_at": "2025-12-24T17:44:29.620Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_195039.csv",
+    "sha256": "d478e9b512110eef87a2b61bc1b8b0bcbd19c0a8258f5bd1fd5488ebaa3200cc",
+    "size_bytes": 3162,
+    "modified_at": "2025-12-24T17:50:39.153Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_195157.csv",
+    "sha256": "e1d3d9ce3491f7f04cf4c9f7fce848ec3371a37e5954ff1aa7cba7b0de634bd2",
+    "size_bytes": 3161,
+    "modified_at": "2025-12-24T17:51:57.275Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_195432.csv",
+    "sha256": "ca2b09195115c45a621a92ce67317457176646408fce15a3eb04299b15d669d7",
+    "size_bytes": 3093,
+    "modified_at": "2025-12-24T17:54:32.085Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_195531.csv",
+    "sha256": "ee59db191c42bc5f6412f992f86fc3f512eb0c7652529a4c1175e11aee3d2e6a",
+    "size_bytes": 3124,
+    "modified_at": "2025-12-24T17:55:31.695Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_200946.csv",
+    "sha256": "249a9f2ddc5fd3ef088c078a84d3fad90deef8c8cd45c848f124f82e6a3402bd",
+    "size_bytes": 3158,
+    "modified_at": "2025-12-24T18:09:46.911Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_201619.csv",
+    "sha256": "0b048cc01fd7e8245b81d375a00c3575f064d06fcd82f43f7d4e43a566e4f151",
+    "size_bytes": 3132,
+    "modified_at": "2025-12-24T18:16:20.143Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_201915.csv",
+    "sha256": "a7465de211f28e7b7e5acc4a67f8fc3941bec64e49a7c19259faf4cf43702688",
+    "size_bytes": 3154,
+    "modified_at": "2025-12-24T18:19:16.276Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_202756.csv",
+    "sha256": "4629ab9c992be9ac94049fba364a7587db69755468e24cfbde54970ee31bf2d1",
+    "size_bytes": 3150,
+    "modified_at": "2025-12-24T18:27:56.457Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_203734.csv",
+    "sha256": "9c5a8d20b98fea230f3897bdea02df8458f85401ad6eb0d95a59c65e6cb6e270",
+    "size_bytes": 3151,
+    "modified_at": "2025-12-24T18:37:34.322Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_210954.csv",
+    "sha256": "564d99733bd4bf11213f27a5fb82caf4b1475c432c5f007e04b36c5b0910f740",
+    "size_bytes": 3150,
+    "modified_at": "2025-12-24T19:09:54.568Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_212958.csv",
+    "sha256": "feed76a583fb230c6b397ab9004ee949be0366e0fd4fc5a9f194481cef321f6d",
+    "size_bytes": 3150,
+    "modified_at": "2025-12-24T19:29:58.668Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_213909.csv",
+    "sha256": "b1e43209ff91858d1fd88aa254e360091ca3e03e94e7dd8cf89b0f58b11293fb",
+    "size_bytes": 4056,
+    "modified_at": "2025-12-24T19:39:09.132Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20251224_221324.csv",
+    "sha256": "f779f9f93944796f672b2511f2d0864c62c6f3caafdfeb2eb9c2d67b43bfdfee",
+    "size_bytes": 3927,
+    "modified_at": "2025-12-24T20:13:25.052Z"
+  }
+]

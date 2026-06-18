@@ -1,0 +1,310 @@
+{
+  "schema_version": "phase8d_exit_readiness_report_v1",
+  "phase": "8D",
+  "generated_at": "2026-05-28T19:54:36.087Z",
+  "status": "ready_to_close",
+  "summary": {
+    "criteria_total": 16,
+    "criteria_met": 16,
+    "criteria_pending": 0,
+    "criteria_deferred": 0
+  },
+  "criteria": [
+    {
+      "id": "stale_prediction_market_scope_removed",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/constants.mjs",
+        "factory/state.json",
+        "factory/market-policy.json",
+        "src/core/market-policy.mjs",
+        "src/core/prompt-builders.mjs"
+      ],
+      "pending": [
+        "Remove stale prediction-market/Polymarket scope from active Phase 8D control-plane goal and policy surfaces."
+      ],
+      "rationale": "Prevents normal agents from reintroducing non-MT5 ideas as Phase 8D screening inputs."
+    },
+    {
+      "id": "legacy_ready_wfa_routes_blocked_for_phase8d",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/wfa-plan-compiler.mjs",
+        "src/core/orchestrator.mjs"
+      ],
+      "pending": [
+        "Legacy ready WFA backlog items must be rejected for Phase 8D unless converted through a hash-backed hypothesis packet and research_wfa_preregistration_v1."
+      ],
+      "rationale": "Prevents historical queue state from becoming Phase 8D WFA roulette."
+    },
+    {
+      "id": "survivor_floor_constants_shared",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/wfa-survivor-floors.mjs",
+        "src/core/validators.mjs",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "Evaluator validation and research-promotion gate diagnostics must use one shared Phase 8D survivor-floor source."
+      ],
+      "rationale": "Prevents silent drift between positive-label validation and gate reporting."
+    },
+    {
+      "id": "deterministic_blocked_at_start_artifacts",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/orchestrator.mjs",
+        "src/core/wfa-plan-compiler.mjs",
+        "src/core/researchbrain-artifacts.mjs"
+      ],
+      "pending": [
+        "Compiler/source-quality/pre-registration rejections must write terminal blocked run artifacts instead of falling through to LLM planner/executor paths."
+      ],
+      "rationale": "Required for deterministic Phase 8D gate-validation evidence."
+    },
+    {
+      "id": "targetable_screening_execution",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/orchestrator.mjs"
+      ],
+      "pending": [
+        "Add a specific backlog/candidate selector so Phase 8D can run one intended screening item without queue roulette."
+      ],
+      "rationale": "Required before running bounded 1-3 item screening."
+    },
+    {
+      "id": "phase8d_exit_readiness_reporter_exists",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/phase8d-exit-readiness.mjs",
+        "scripts/run-phase8d-exit-readiness.mjs",
+        "tests/phase8d-exit-readiness.test.mjs",
+        "package.json"
+      ],
+      "pending": [
+        "Reporter, CLI, npm script, and focused tests must exist and initially report not_ready_to_close until screening-gate criteria are met."
+      ],
+      "rationale": "Provides deterministic closeout accounting for Phase 8D."
+    },
+    {
+      "id": "screening_cycle_completed",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/"
+      ],
+      "pending": [
+        "At least one non-legacy Phase 8D screening cycle must reach terminal run state with disk-backed artifacts."
+      ],
+      "rationale": "Phase 8D is not closeable until the actual bounded pipeline has run or blocked deterministically."
+    },
+    {
+      "id": "preregistration_gate_verified",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-blocked-at-start.json",
+        "factory/runs/*/execution-result.json"
+      ],
+      "pending": [
+        "A Phase 8D/screening WFA intent without a valid research_wfa_preregistration_v1 must be blocked before WFA launch with exact diagnostics."
+      ],
+      "rationale": "Verifies that pre-registration is a hard launch gate, not an advisory prompt instruction."
+    },
+    {
+      "id": "source_quality_gate_verified",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-blocked-at-start.json"
+      ],
+      "pending": [
+        "A source-quality-blocked ResearchBrain packet or direct-WFA laundering attempt must be blocked before becoming executable WFA evidence."
+      ],
+      "rationale": "Verifies Stage-0 packets cannot bypass source-quality constraints."
+    },
+    {
+      "id": "survivor_floor_enforcement_verified",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-candidate-evidence-packet.json",
+        "factory/runs/*/evaluation.json"
+      ],
+      "pending": [
+        "At least one below-floor screening result must remain below promising/passed/success labels."
+      ],
+      "rationale": "Verifies the Phase 8D survivor floors are enforced on actual screening evidence, not only encoded as constants."
+    },
+    {
+      "id": "denominator_tracking_exists",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-candidate-evidence-packet.json",
+        "factory/runs/*/phase8d-blocked-at-start.json"
+      ],
+      "pending": [
+        "At least two Phase 8D attempts with candidate, lineage, family, run, and attempt IDs must be represented in denominator artifacts or gate diagnostics."
+      ],
+      "rationale": "Preserves the denominator for blocked, failed, inconclusive, repaired, mutated, rerun, manual, LLM-generated, and optimizer attempts."
+    },
+    {
+      "id": "candidate_evidence_packets_exist",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-candidate-evidence-packet.json"
+      ],
+      "pending": [
+        "Every completed Phase 8D screening attempt must cite denominator context, source/preregistration hashes where applicable, advisory diagnostics, or exact blocked reasons by artifact path/hash."
+      ],
+      "rationale": "Keeps completed screening attempts auditable even when zero candidates survive."
+    },
+    {
+      "id": "advisory_stats_boundary_preserved",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-candidate-evidence-packet.json",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "DSR/PBO/CPCV/White must be reported or explicitly blocked with missing inputs and must not be promotion/rejection authority."
+      ],
+      "rationale": "Preserves the Phase 7C/8C reporting-only statistical boundary during screening."
+    },
+    {
+      "id": "no_phase8e_leak",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "factory/runs/"
+      ],
+      "pending": [
+        "No Phase 8D artifact may claim MT5 Strategy Tester parity, MQL5 readiness, deployment readiness, or Phase 8E authorization."
+      ],
+      "rationale": "Phase 8E remains blocked without a survivor, verified MT5 equivalence, and explicit operator authorization."
+    },
+    {
+      "id": "no_post_hoc_winner_selection",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/runs/*/phase8d-candidate-evidence-packet.json"
+      ],
+      "pending": [
+        "Every completed screening attempt must have a pre-run hypothesis packet and denominator membership rather than post-hoc historical leaderboard selection."
+      ],
+      "rationale": "Prevents WFA roulette and historical-best family laundering."
+    },
+    {
+      "id": "phase8d_closeout_artifact_exists",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/verification/phase8d-exit-readiness-20260528T195436Z.json"
+      ],
+      "pending": [],
+      "rationale": "Records Phase 8D closeout accounting as a disk-backed verification artifact."
+    }
+  ],
+  "diagnostics": {
+    "stale_scope_surfaces": {
+      "factory_goal_constant": true,
+      "state_goal": true,
+      "market_policy": true,
+      "market_policy_default": true,
+      "prompt_goal_capsule": true
+    },
+    "phase8d_screening_attempts": [
+      {
+        "run_id": "RUN-20260528184735-xx0k9r",
+        "status": "blocked",
+        "reason": "missing_research_wfa_preregistration",
+        "terminal": true,
+        "wfa_launched": false,
+        "verified_hypothesis_packet": true,
+        "verified_preregistration": false,
+        "has_all_attempt_ids": true,
+        "denominator_tracked": true,
+        "candidate_evidence_valid": true,
+        "advisory_stats_reporting_only": true,
+        "below_floor_non_positive": false,
+        "phase8e_leak": false
+      },
+      {
+        "run_id": "RUN-20260528185420-4ec6n9",
+        "status": "blocked",
+        "reason": "researchbrain_source_quality_gate_not_wfa_ready",
+        "terminal": true,
+        "wfa_launched": false,
+        "verified_hypothesis_packet": true,
+        "verified_preregistration": false,
+        "has_all_attempt_ids": true,
+        "denominator_tracked": true,
+        "candidate_evidence_valid": true,
+        "advisory_stats_reporting_only": true,
+        "below_floor_non_positive": false,
+        "phase8e_leak": false
+      },
+      {
+        "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+        "status": "blocked",
+        "reason": null,
+        "terminal": true,
+        "wfa_launched": false,
+        "verified_hypothesis_packet": true,
+        "verified_preregistration": true,
+        "has_all_attempt_ids": true,
+        "denominator_tracked": true,
+        "candidate_evidence_valid": true,
+        "advisory_stats_reporting_only": true,
+        "below_floor_non_positive": true,
+        "phase8e_leak": false
+      },
+      {
+        "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+        "status": "executed",
+        "reason": null,
+        "terminal": true,
+        "wfa_launched": true,
+        "verified_hypothesis_packet": true,
+        "verified_preregistration": true,
+        "has_all_attempt_ids": true,
+        "denominator_tracked": true,
+        "candidate_evidence_valid": true,
+        "advisory_stats_reporting_only": true,
+        "below_floor_non_positive": true,
+        "phase8e_leak": false
+      }
+    ],
+    "phase8d_closeout_artifacts": [
+      "factory/verification/phase8d-exit-readiness-20260528T131354Z.json",
+      "factory/verification/phase8d-exit-readiness-20260528T131624Z.json",
+      "factory/verification/phase8d-exit-readiness-20260528T131949Z.json",
+      "factory/verification/phase8d-exit-readiness-20260528T190416Z.json",
+      "factory/verification/phase8d-exit-readiness-20260528T190605Z.json",
+      "factory/verification/phase8d-exit-readiness-20260528T195145Z.json"
+    ]
+  },
+  "closure_assessment": "Phase 8D can close as bounded screening-pipeline validation. Zero survivors remain acceptable if gate-integrity criteria are met.",
+  "authority": {
+    "phase8d_screening_started": true,
+    "phase8d_survivor_exists": false,
+    "zero_survivor_closeout_allowed": true,
+    "phase8e_tester_parity_started": false,
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "strategy_edge_claimed": false
+  }
+}

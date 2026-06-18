@@ -1,0 +1,225 @@
+{
+  "schema_version": "phase8a_exit_readiness_report_v1",
+  "phase": "8A",
+  "generated_at": "2026-05-19T20:34:58.745Z",
+  "status": "ready_to_close",
+  "summary": {
+    "criteria_total": 8,
+    "criteria_met": 8,
+    "criteria_pending": 0,
+    "criteria_deferred": 0
+  },
+  "criteria": [
+    {
+      "id": "real_ftmo_universe_snapshot",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json"
+      ],
+      "pending": [
+        "A succeeded disk-backed FTMO MT5 universe snapshot with symbols, account/server/company context, and symbol counts is required."
+      ],
+      "details": {
+        "symbol_count_total": 167,
+        "server": "FTMO-Demo",
+        "company": "FTMO Global Markets Ltd",
+        "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+      }
+    },
+    {
+      "id": "crypto_cfd_terminal_inventory",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/universe-analysis/FTMO-UNIVERSE-SUMMARY-20260519T081345Z-WFA-VENV/summary.json",
+        "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json"
+      ],
+      "pending": [
+        "Crypto CFDs must be listed by terminal path/spec evidence, or explicit absence must be recorded."
+      ],
+      "details": {
+        "crypto_cfd_count": 31,
+        "heuristic_crypto_like_false_positives": 5
+      }
+    },
+    {
+      "id": "multi_asset_terminal_scope",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json"
+      ],
+      "pending": [
+        "Phase 8A must remain multi-asset, not crypto-only."
+      ],
+      "details": {
+        "by_terminal_asset_class": {
+          "agriculture_cfd": 7,
+          "index_cfd": 14,
+          "energy_commodity_cfd": 4,
+          "crypto_cfd": 31,
+          "other": 1,
+          "stock_cfd": 58,
+          "fx": 43,
+          "metal_cfd": 9
+        }
+      }
+    },
+    {
+      "id": "priority_broker_history_availability",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/history-availability/MT5-HISTORY-AVAILABILITY-PRIORITY-20260519T081345Z-WFA-VENV/manifest.json"
+      ],
+      "pending": [
+        "Priority cross-asset MT5 history availability manifest is required."
+      ],
+      "details": {
+        "available": 6,
+        "blocked": 0,
+        "symbols": [
+          "EURUSD",
+          "US100.cash",
+          "XAUUSD",
+          "USOIL.cash",
+          "AAPL",
+          "BTCUSD"
+        ]
+      }
+    },
+    {
+      "id": "data_expansion_roadmap_filtered_by_mt5_relevance",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/data-relevance/DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z/classification.json"
+      ],
+      "pending": [
+        "Current repo research data must be classified against the real MT5 universe and must not be treated as MT5-bound without equivalence evidence."
+      ],
+      "details": {
+        "counts": {
+          "total": 7,
+          "mt5_verified": 0,
+          "mt5_proxy": 0,
+          "non_mt5_research_only": 7
+        }
+      }
+    },
+    {
+      "id": "no_mt5_bound_candidate_without_equivalence",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/mt5-instrument-equivalence.mjs",
+        "tests/data-readiness.test.mjs"
+      ],
+      "pending": [
+        "No current dataset may advance as MT5-bound unless terminal-backed mt5_instrument_equivalence evidence exists."
+      ],
+      "details": {
+        "current_repo_mt5_verified": 0,
+        "current_repo_mt5_proxy": 0
+      }
+    },
+    {
+      "id": "non_authoritative_artifact_registration",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5/artifact-registration/PHASE8A-MT5-MULTI-ASSET-HISTORY-20260519T081345Z-WFA-VENV/registration.json"
+      ],
+      "pending": [
+        "Phase 8A closeout evidence should be registered as non-authoritative inventory without mutating official factory evidence/state."
+      ],
+      "details": {
+        "status_summary": {
+          "total": 8,
+          "ready": 8,
+          "blocked": 0,
+          "by_status": {
+            "ready": 2,
+            "succeeded": 6
+          },
+          "by_evidence_kind": {
+            "phase8a_mt5_terminal_inventory": 1,
+            "mt5_snapshot": 6,
+            "broker_history_export_manifest": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "phase8b_plus_boundary_not_started",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/mt5-artifact-registration.mjs",
+        "package.json"
+      ],
+      "pending": [
+        "Phase 8A closeout must not start ResearchBrain, WFA hardening, screening, tester parity, or deployment work."
+      ],
+      "details": {
+        "researchbrain_started": false
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_type": "mt5_tradable_universe_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea",
+      "size_bytes": 629189,
+      "modified_at": "2026-05-19T08:47:17.405Z"
+    },
+    {
+      "artifact_type": "phase8a_ftmo_universe_summary",
+      "path": "factory/mt5/universe-analysis/FTMO-UNIVERSE-SUMMARY-20260519T081345Z-WFA-VENV/summary.json",
+      "sha256": "1943465fbaff6a6e4accdb1c724300306c2ed116488d298e0ed3c7b076744567",
+      "size_bytes": 55307,
+      "modified_at": "2026-05-19T09:05:21.257Z"
+    },
+    {
+      "artifact_type": "phase8a_mt5_terminal_inventory",
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce",
+      "size_bytes": 252062,
+      "modified_at": "2026-05-19T19:55:55.608Z"
+    },
+    {
+      "artifact_type": "data_relevance_classification",
+      "path": "factory/mt5/data-relevance/DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z/classification.json",
+      "sha256": "2bf1f1cbd4056643793a34057cad21d9182585ea23b1ce1149486a26cf0a425d",
+      "size_bytes": 4769,
+      "modified_at": "2026-05-19T09:07:03.020Z"
+    },
+    {
+      "artifact_type": "broker_history_export_manifest",
+      "path": "factory/mt5/history-availability/MT5-HISTORY-AVAILABILITY-PRIORITY-20260519T081345Z-WFA-VENV/manifest.json",
+      "sha256": "997750d31c87269409b5f34ae9e73621878b3c878cda9d30a8534b3b01cba2d6",
+      "size_bytes": 17126,
+      "modified_at": "2026-05-19T20:01:22.445Z"
+    },
+    {
+      "artifact_type": "phase8a_mt5_artifact_registration",
+      "path": "factory/mt5/artifact-registration/PHASE8A-MT5-MULTI-ASSET-HISTORY-20260519T081345Z-WFA-VENV/registration.json",
+      "sha256": "c5f41eb79c426e6daa82164d25430750fa50b0e13cc57d224730c3816cfb53d4",
+      "size_bytes": 8003,
+      "modified_at": "2026-05-19T20:02:31.444Z"
+    }
+  ],
+  "authority": {
+    "official_evidence_index_mutated": false,
+    "phase8b_researchbrain_started": false,
+    "phase8c_wfa_hardening_started": false,
+    "phase8d_screening_started": false,
+    "phase8e_tester_parity_started": false,
+    "mt5_bound_candidate_advanced_without_equivalence": false
+  },
+  "closeout_verdict": "Phase 8A exit criteria are satisfied by disk-backed MT5/FTMO universe, terminal inventory, current-data relevance, broker-history availability, and non-authoritative registration artifacts."
+}

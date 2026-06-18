@@ -3,13 +3,19 @@
   "backlog_item_id": "IDEA-783521-c70",
   "owner_id": "live-owner-25021-mnltiyio-7tgs7s",
   "run_instance_id": "RUN-20260405135010-kps8ds",
-  "resume_generation": 5,
+  "resume_generation": 6,
   "current_stage": "executor",
-  "current_stage_attempt": 10,
-  "current_stage_session": null,
+  "current_stage_attempt": 13,
+  "current_stage_session": {
+    "stage": "executor",
+    "attempt": 13,
+    "session_id": "ses_20662dbaaffeoBOb0bt3mp9Mb3",
+    "session_url": "http://127.0.0.1:4096/ee3dc5fdacb91b7cf49d960690927ac8faf6fb52/session/ses_20662dbaaffeoBOb0bt3mp9Mb3",
+    "recorded_at": "2026-05-05T19:28:38.844Z"
+  },
   "last_completed_stage": "planner",
   "observer_opened_at": null,
-  "poison_streak_count": 3,
+  "poison_streak_count": 4,
   "poison_stage": "executor",
   "poison_failure_class": "transport_failure",
   "stage_status": {
@@ -20,7 +26,7 @@
     },
     "executor": {
       "status": "failed",
-      "updated_at": "2026-04-05T15:36:47.960Z",
+      "updated_at": "2026-05-05T19:33:42.759Z",
       "attempt": 3,
       "failure_class": "transport_failure"
     },
@@ -36,10 +42,10 @@
   "failure_class": "transport_failure",
   "resume_from_stage": "executor",
   "handoff_pending": true,
-  "last_error": "OpenCode executor session creation timed out after 15000ms.",
+  "last_error": "executor transport request timed out waiting for response headers.",
   "attempt_counts": {
     "planner": 2,
-    "executor": 10,
+    "executor": 13,
     "evaluator": 0,
     "summarizer": 0
   },
@@ -86,7 +92,10 @@
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-7/stage-input.json",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-8/stage-input.json",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-9/stage-input.json",
-      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-input.json"
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-input.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11/stage-input.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12/stage-input.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13/stage-input.json"
     ],
     "executor_stage_prompts": [
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1/stage-prompt.txt",
@@ -98,7 +107,10 @@
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-7/stage-prompt.txt",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-8/stage-prompt.txt",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-9/stage-prompt.txt",
-      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-prompt.txt"
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-prompt.txt",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11/stage-prompt.txt",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12/stage-prompt.txt",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13/stage-prompt.txt"
     ],
     "executor_sessions": [
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1-session.json",
@@ -107,7 +119,10 @@
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-4-session.json",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-5-session.json",
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-6-session.json",
-      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-7-session.json"
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-7-session.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11-session.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12-session.json",
+      "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13-session.json"
     ],
     "executor_stage_errors": [
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1/stage-error.json",
@@ -120,5 +135,5 @@
       "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-3/stage-gate.json"
     ]
   },
-  "updated_at": "2026-04-05T15:36:49.250Z"
+  "updated_at": "2026-05-05T19:33:43.883Z"
 }

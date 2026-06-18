@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/nfp_macro_eurusd/results/analysis.json",
+    "sha256": "448cd6f447373a0ee0761e2ae01a8ab0800cec147f29643411f0806154d2b26b",
+    "size_bytes": 2899,
+    "modified_at": "2026-06-01T21:21:22.102Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/nfp_macro_eurusd/results/parameter_stability_20260602_002121.json",
+    "sha256": "2da1ad6c8fe4bce6af9ab7763155c55dea4281567c92cff0870221a2bdaaa536",
+    "size_bytes": 3019,
+    "modified_at": "2026-06-01T21:21:22.130Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+    "sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4",
+    "size_bytes": 142413,
+    "modified_at": "2026-06-01T21:21:21.999Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_summary_20260602_002121.csv",
+    "sha256": "7d3bba6353da50063c200074ec752fda09fa9c968bab5e0eb63549d65da0d735",
+    "size_bytes": 30322,
+    "modified_at": "2026-06-01T21:21:22.124Z"
+  }
+]

@@ -1,0 +1,135 @@
+{
+  "schema_version": "candidate_manifest_v1",
+  "candidate_id": "CAND-EURUSD-M15-LONDON-BREAKOUT-001",
+  "created_at": "2026-05-04T08:45:00.000Z",
+  "phase": "phase_6_first_fixture_and_minimal_candidate_manifest",
+  "status": "manifest_created_not_promoted",
+  "promotion_status": "not_requested_not_allowed",
+  "candidate_scope": {
+    "market": "forex",
+    "symbol": "EURUSD",
+    "timeframe": "M15",
+    "strategy_family": "london_breakout",
+    "strategy_source_path": "walk forward engine/src/strategies/london_breakout.py",
+    "strategy_source_sha256": "6c104d45958eef197da77c579520858a217ed265821c27aa47d52f9deb43da4e",
+    "strategy_params_path": "walk forward engine/config/strategy_london_breakout.json",
+    "strategy_params_sha256": "2affc329d736a5903863846fd364bda70ce1dad457438f024529f035feb537b7"
+  },
+  "fixture_selection_rationale": [
+    "EURUSD M15 is the only symbol/timeframe currently supported by the real MT5/FTMO evidence chain: Phase 2 snapshot, Phase 4 Strategy Tester lifecycle, and Phase 5 tester-derived FTMO ledger input.",
+    "London Breakout is a structural session/range breakout fixture, not a simple RSI-only candidate.",
+    "This manifest creates an identity anchor only; it does not claim profitability, parity, native deployability, or FTMO survival."
+  ],
+  "canonical_research_route": {
+    "wfa_config_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+    "wfa_config_sha256": "73bb9bb245af334323a4a6b158e4a2f7c594b3b493eece8523c541b5ee678294",
+    "canonical_command": "cd \"walk forward engine\" && .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/london_breakout_eurusd/wfa_config.yaml",
+    "route_status": "executed_research_wfa_negative",
+    "required_data_path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+    "required_data_present_on_disk": true,
+    "data_validation_path": "factory/candidates/CAND-EURUSD-M15-LONDON-BREAKOUT-001/data-validation.json",
+    "data_validation_sha256": "58578bcbb1f96e83e7d41d86ff403e82491a20e3d30f576d39a4a729efb23a14",
+    "wfa_execution_result_path": "factory/runs/JOB-RESEARCH-WFA-CAND-EURUSD-M15-LONDON-BREAKOUT-001-20260504/execution-result.json",
+    "wfa_execution_result_sha256": "859ed36a1e73b3d381965bebda1f83a4504b72bf9251f9990b2ebef373fc1a3c",
+    "research_promotion_gate_path": "factory/candidates/CAND-EURUSD-M15-LONDON-BREAKOUT-001/research-promotion-gate.json",
+    "research_promotion_gate_sha256": "1376f32c72608bf6577b668eb3328758bd0ad300162a756e8d73cf3dd6cdaacb",
+    "research_promotion_gate_decision": "denied",
+    "wfa_history_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_history.json",
+    "wfa_history_sha256": "1482f641a945fdeadba0bfae1a15135a22b5b4a50486f3fbd4659cd9d47ae7b7",
+    "wfa_summary": {
+      "windows_completed": 87,
+      "n_parameter_trials": 10,
+      "aggregate_return_pct": -0.077,
+      "sharpe_oos": -0.4048,
+      "total_trades": 912,
+      "max_drawdown": -0.013757,
+      "profit_factor": 0.8753,
+      "verdict": "negative_research_evidence_do_not_promote"
+    },
+    "known_engine_issue": "The WFA runner also appended this run to strategies/gold_rush_pro_eurusd/wfa_history.json despite the EURUSD_LONDON_BREAKOUT profile; the history was copied into the correct candidate folder and the misplaced append should be treated as an engine bookkeeping defect."
+  },
+  "deployment_mode_assumption": {
+    "mode": "mode_b_safe_hybrid",
+    "meaning": "Python research route may discover and document candidate behavior; native MQL5 and MT5 tester evidence remain required before any deployment/promotion claim.",
+    "native_mql5_candidate_exists": false,
+    "mt5_parity_exists": false,
+    "promotion_allowed": false
+  },
+  "model_specification": {
+    "signal_model": "Build the Asian session range from 00:00-07:00 UTC; trade breakouts after 07:05 UTC when price breaks above/below the range by buffer_pips and the range passes min/max pip filters.",
+    "order_model": "One trade per day, directional breakout entry, configured as research signal logic only until a native MT5 implementation is explicitly created and tested.",
+    "exit_model": "Take-profit by risk_reward_ratio, stop/risk from London Breakout strategy implementation, and hard exit at 16:00 UTC.",
+    "sizing_model": "Research WFA config uses initial_balance=10000 with backtest fees/slippage placeholders; no FTMO position sizing approval is claimed.",
+    "session_model": "Asia range 00:00-07:00 UTC, entry window 07:05-10:00 UTC, hard exit 16:00 UTC. MT5 broker/server-time parity remains unverified."
+  },
+  "parameter_freeze": {
+    "source": "walk forward engine/config/strategy_london_breakout.json",
+    "parameters": {
+      "asia_start_hour": 0,
+      "asia_end_hour": 7,
+      "trade_start_minute": 5,
+      "trade_end_hour": 10,
+      "hard_exit_hour": 16,
+      "buffer_pips": 5.0,
+      "risk_reward_ratio": 1.5,
+      "max_range_pips": 40.0,
+      "min_range_pips": 10.0,
+      "min_daily_atr": 0.0,
+      "one_trade_per_day": true,
+      "min_volume_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "use_gap_filter": false
+    }
+  },
+  "parity_classification": {
+    "existing_script_path": "walk forward engine/scripts/parity_test.py",
+    "existing_script_sha256": "828cb96ee654e8421d1e59678e7ce0382765a3e135bf36bc92079de86bd73c6d",
+    "classification": "signal_generation_parity_only",
+    "not_sufficient_for": [
+      "MT5 fill parity",
+      "cost parity",
+      "lifecycle parity",
+      "FTMO rule-accounting parity",
+      "promotion"
+    ],
+    "reason": "The script compares vectorized signal generation and event-driven indicator columns on local CSV data; it does not execute MT5 orders or reconcile tester deals."
+  },
+  "evidence_references": [
+    {
+      "phase": "phase_2_mt5_environment_snapshot",
+      "artifact_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260503-EURUSD-M15-PW1/snapshot.json",
+      "sha256": "5ae8ba84e47e12d15a7838e8b1b7886166b555dee5222cf7912860468eb110df",
+      "relevance": "Terminal/account/symbol/data identity for EURUSD M15 on FTMO demo terminal."
+    },
+    {
+      "phase": "phase_4_mt5_tester_lifecycle",
+      "artifact_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/execution-result.json",
+      "sha256": "b6083e1095baa8a4a4b76fcad39e17754aea47d6b2e91b105db1dc6997000b53",
+      "relevance": "Real MT5 Strategy Tester lifecycle proof for market order, pending order, and hard exit mechanics."
+    },
+    {
+      "phase": "phase_5_ftmo_ledger_2_step",
+      "artifact_path": "factory/mt5/ftmo/JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-2STEP-20260504/execution-result.json",
+      "sha256": "ca6bd33b3809755e70351949407afc82e69ce862f357cf213a22b66a265e65bb",
+      "relevance": "Non-fixture tester-derived deal rows accepted by 2-Step FTMO ledger mechanics."
+    },
+    {
+      "phase": "phase_5_ftmo_ledger_1_step",
+      "artifact_path": "factory/mt5/ftmo/JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504/execution-result.json",
+      "sha256": "45cae9025b77c3c1717152903e3c3429e1585ad12c6e234ebce6d4d7cb27892b",
+      "relevance": "Non-fixture tester-derived deal rows accepted by 1-Step trailing FTMO ledger mechanics."
+    }
+  ],
+  "explicit_non_claims": [
+    "The WFA result is negative and does not justify promotion.",
+    "No MT5 parity result exists for this candidate.",
+    "No native MQL5 candidate exists for this strategy.",
+    "No FTMO forward/demo survival claim is made.",
+    "No profitability or leaderboard promotion claim is made."
+  ],
+  "next_blockers_before_scoring_or_promotion": [
+    "Treat this candidate as rejected or research-negative unless a new pre-registered rationale justifies another test.",
+    "Fix the WFA history bookkeeping defect before relying on strategy-local wfa_history.json for promotion gates.",
+    "Do not create native/parity/MT5 candidate work from this WFA result."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z",
+  "generated_at": "2026-05-23T12:45:00.000Z",
+  "research_question": "Run a minimal live Stage-0 canary: use deterministic search_web to find one source about an FTMO/MT5-relevant, falsifiable trading mechanism; capture exactly one discovered URL with capture_url_source using source_id SRC-LIVE-CANARY-001 and source_class web; call search_research_memory, check_duplicate_memory, and check_failed_pattern_similarity; then record exactly one hypothesis_packet_v1-compatible hypothesis citing SRC-LIVE-CANARY-001. Do not claim profitability, WFA, MT5 execution, MQL5 parity, promotion, Sharpe, returns, account access, or live trading.",
+  "market_scope": "multi_asset_ftmo_mt5",
+  "mt5_instrument_scope": {
+    "source": "phase8a_ftmo_mt5_tradable_universe",
+    "allowed_scope": "Any broker-supported FTMO/MT5 symbol with enough data and plausible mechanism; not crypto-only; prediction markets excluded.",
+    "mt5_verified_requires": "terminal-backed mt5_instrument_equivalence before any external/current data becomes MT5-bound"
+  },
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "prior_failed_patterns": [],
+  "prior_lessons": [
+    "For live tool mode, capture_url_source must include source_id, url, and source_class; the URL must be one returned by search_web in the same run.",
+    "record_hypothesis must cite captured source id SRC-LIVE-CANARY-001 and must include source_claims only as Stage-0 source-backed mechanism claims, not MT5 verification or profitability claims."
+  ],
+  "prior_hypothesis_packets": [],
+  "prior_source_records": [],
+  "source_family_allowlist": [
+    "high_operational_trust",
+    "high_research_trust",
+    "medium_implementation_trust",
+    "low_signal_trust"
+  ],
+  "max_sources": 2,
+  "max_hypotheses": 1,
+  "novelty_required": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "post_phase7c_next_scope_note_v1",
+  "generated_at": "2026-05-16T17:35:00.000Z",
+  "status": "blocked_pending_explicit_scope",
+  "basis": {
+    "spec": "factory/mt5-ftmo-strategy-factory-spec.md",
+    "phase7a_status": "closed",
+    "phase7b_status": "closed_as_scoped_prerequisite_infrastructure",
+    "phase7c_status": "closed_as_advisory_consumer_scope",
+    "immediate_next_work_items": "1-18 checked",
+    "next_numbered_phase": "Phase 8 - Native MQL5 Path For Mode B"
+  },
+  "operator_boundary": {
+    "mt5_mql5_ftmo_live_deployment_allowed": false,
+    "sqlite_authority_expansion_allowed": false,
+    "broad_source_warehouse_allowed": false,
+    "hard_statistical_promotion_gates_allowed": false,
+    "statistical_input_producers_allowed_without_explicit_scope": false
+  },
+  "decision": {
+    "can_start_phase8": false,
+    "can_infer_new_non_mt5_subsystem": false,
+    "required_next_input": "explicit operator authorization for Phase 8 or a new narrow non-MT5 spec scope"
+  },
+  "allowed_while_blocked": [
+    "specification clarification",
+    "readiness notes",
+    "explicitly requested narrow maintenance that preserves current authority boundaries"
+  ],
+  "blocked_scopes": [
+    "native MQL5 implementation",
+    "MT5 strategy parity expansion",
+    "FTMO forward/demo/live/deployment",
+    "broad SQLite orchestration authority",
+    "broad source warehouse",
+    "deterministic PBO/CPCV/White input producers",
+    "hard DSR/PBO/CPCV/White promotion gates"
+  ]
+}

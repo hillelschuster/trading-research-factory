@@ -1,0 +1,8 @@
+{
+  "schema_version": "mt5_tester_log_digest_v1",
+  "status": "blocked",
+  "observed_at": "2026-04-30T21:18:19.238Z",
+  "lines_examined": 0,
+  "errors": [],
+  "blocked_reason": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker."
+}

@@ -1,0 +1,76 @@
+{
+  "job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260502-EURUSD-M15",
+  "run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260502-EURUSD-M15",
+  "candidate_id": null,
+  "worker": "mt5_tester_lifecycle",
+  "evidence_kind": "mt5_tester",
+  "authority_layer": "mt5_tester",
+  "schema_version": "mt5_tester_lifecycle_worker_result_v1",
+  "status": "blocked",
+  "artifacts": [
+    {
+      "artifact_type": "blocked_mt5_tester_summary",
+      "path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260502-EURUSD-M15/blocked-mt5-tester-summary.json",
+      "sha256": "3321164c1d75e9267390b79df183cf38d6841ad1c9d8b013e7ad9b8f9b055e07",
+      "size_bytes": 2344,
+      "modified_at": "2026-05-02T18:35:14.171Z"
+    },
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260502-EURUSD-M15/request.json",
+      "sha256": "650da4174bf8c8f9a5b175bde221488fe05ef1f379f20efaa426d8d800f284e2",
+      "size_bytes": 533,
+      "modified_at": "2026-05-02T18:35:14.002Z"
+    },
+    {
+      "artifact_type": "log_digest",
+      "path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260502-EURUSD-M15/log-digest.json",
+      "sha256": "e035f8f23b4fed819346762b3616dbf43be77b68b0e6023fc1d02033cb3c5fbe",
+      "size_bytes": 328,
+      "modified_at": "2026-05-02T18:35:14.406Z"
+    }
+  ],
+  "metrics": {},
+  "observations": {
+    "limitations": {
+      "mt5_tester_executed": false,
+      "reason": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker."
+    }
+  },
+  "observed_at": "2026-05-02T18:35:13.978Z",
+  "blocked_reason": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker.",
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-tester-lifecycle-worker.mjs",
+      "sha256": "b48151f53698d141385e1fee53d6aa0ef86e0856c4d257e4c0e47f2115207aec",
+      "size_bytes": 10342,
+      "modified_at": "2026-04-30T21:16:09.266Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/experts/TrfTesterLifecycleBench.mq5",
+      "sha256": "871f9605f446727f947a898fc7a43ab2464adebe68f0cf1ede6060fa32d7ba4e",
+      "size_bytes": 1133,
+      "modified_at": "2026-04-30T21:16:09.328Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/include/TrfFileCommonBridge.mqh",
+      "sha256": "3e46cc4e03a5303e94004831ddc2029c0283c6b9c358669b2701840b72d807e6",
+      "size_bytes": 798,
+      "modified_at": "2026-04-30T20:57:43.094Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": "tester_output_missing",
+    "message": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker.",
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

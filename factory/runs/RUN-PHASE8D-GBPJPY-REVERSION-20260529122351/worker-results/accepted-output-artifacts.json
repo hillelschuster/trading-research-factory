@@ -1,0 +1,17 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+    "sha256": "5bb4b222e53bb8b77d911df4c7f5d8a6e026611b983619207eeeae746baab1b6",
+    "size_bytes": 9091,
+    "modified_at": "2026-05-29T12:25:17.252Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122351",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122351-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

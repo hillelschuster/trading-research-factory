@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/analysis.json",
+    "sha256": "9c2a110270a6ac23bdf3afc073b328dfecbdeac3ad52e7e640d14bb8906352f6",
+    "size_bytes": 2944,
+    "modified_at": "2026-06-01T12:59:26.170Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/parameter_stability_20260601_155925.json",
+    "sha256": "582f0d40732bd510b3b855f4b51d5da32d8c44d519a06c52692703a6195077ee",
+    "size_bytes": 3258,
+    "modified_at": "2026-06-01T12:59:26.246Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+    "sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+    "size_bytes": 144714,
+    "modified_at": "2026-06-01T12:59:25.985Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_summary_20260601_155925.csv",
+    "sha256": "88c0a65755d30c2391d658514515807feb1349c22bfc9fbb2d09b46ccef2a8cb",
+    "size_bytes": 29142,
+    "modified_at": "2026-06-01T12:59:26.242Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

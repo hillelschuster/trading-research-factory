@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/analysis.json",
+    "sha256": "3378c664612020ab8000e25735bed44d4e2b4bd453e3e2b9fe0308af4face4c5",
+    "size_bytes": 2863,
+    "modified_at": "2026-05-28T22:54:22.146Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/parameter_stability_20260529_015421.json",
+    "sha256": "f2abeb8e3939d991b8ed273f19fa64fbb30c9397ffc6d54cecd84df0ad9b0ee3",
+    "size_bytes": 1704,
+    "modified_at": "2026-05-28T22:54:22.190Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+    "sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+    "size_bytes": 25491,
+    "modified_at": "2026-05-28T22:54:22.007Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_summary_20260529_015421.csv",
+    "sha256": "974b1bc736239b23b8c64f6655bb56467ce8de68ca0c0eac8852efd8f073a9ed",
+    "size_bytes": 5808,
+    "modified_at": "2026-05-28T22:54:22.187Z"
+  }
+]

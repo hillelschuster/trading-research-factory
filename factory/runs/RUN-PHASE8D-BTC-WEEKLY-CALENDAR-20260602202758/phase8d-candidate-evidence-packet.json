@@ -1,0 +1,345 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "backlog_item_id": "IDEA-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "candidate_id": "CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-WEEKLY-CALENDAR",
+  "family_id": "btc_weekly_calendar_phase8d",
+  "attempt_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/wfa_config.yaml",
+      "sha256": "ccba02de39b7436013c43a095bcf1ab4a015b5328e8e1b601de90ddb58a9eb75",
+      "size_bytes": 1266,
+      "modified_at": "2026-06-02T20:16:13.687Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/btc_weekly_calendar_phase8d.py",
+      "sha256": "6dd8ed0b74bb7a87bd6ecc11ab679ea3a45d5eadcb3b619d84983c4b5e0049d1",
+      "size_bytes": 1321,
+      "modified_at": "2026-06-02T20:16:13.421Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_btc_weekly_calendar_phase8d.json",
+      "sha256": "74fe08a36ad3325150edfc204281395c75c43c8023493583caab87c7c2df5aad",
+      "size_bytes": 987,
+      "modified_at": "2026-06-02T20:16:13.523Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:40:36.016Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/registrations/research-wfa-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.json",
+      "sha256": "9fb754607f1681ac833e2b64de1932439a784e65988166725d5f9467341763c7",
+      "size_bytes": 4050,
+      "modified_at": "2026-06-02T20:27:58.341Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/hypothesis-packet.json",
+      "sha256": "eb7e536c14ba38c1789f86d8072cc598c94ae9295aaddcaf400f46ca2b7bb762"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/registrations/research-wfa-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.json",
+      "sha256": "9fb754607f1681ac833e2b64de1932439a784e65988166725d5f9467341763c7",
+      "content_hash": "11468b0fd5b5fed291b123b50fbf17f26766517d551168ea4cff8358feb071a8"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_external_calendar_research_plus_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/source-record.json",
+      "sha256": "7cbc2828e564e6e87a21f512e188006970b38ce12a9e9408a1a6809d6f6f46e6",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "BTCUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 57,
+    "trades": 12,
+    "return_proxy_pct": -0.046742349123647525,
+    "sharpe_oos": -0.2369846339001491,
+    "profit_factor": 0.6456865995974739,
+    "positive_oos_window_ratio": 0.087719,
+    "wfr": 1
+  },
+  "consistency_ladder_advisory": {
+    "status": "tiered_consistency_policy_enabled",
+    "clean_consistency_floor": 0.7,
+    "tier": "C4",
+    "label": "pathologically_concentrated",
+    "positive_oos_window_ratio": 0.0877,
+    "tier_source": "per_window_returns",
+    "tier_thresholds": [
+      {
+        "tier": "C1",
+        "label": "clean_consistency",
+        "minInclusive": 0.7,
+        "maxExclusive": null
+      },
+      {
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "minInclusive": 0.5,
+        "maxExclusive": 0.7
+      },
+      {
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "minInclusive": 0.3,
+        "maxExclusive": 0.5
+      },
+      {
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "minInclusive": null,
+        "maxExclusive": 0.3
+      }
+    ],
+    "return_concentration": {
+      "status": "computed_artifact_backed",
+      "positive_window_count": 5,
+      "total_positive_return_pct": 4.855339,
+      "largest_positive_window_return_pct": 3.130158,
+      "second_largest_positive_window_return_pct": 1.643665,
+      "single_window_share": 0.644684,
+      "top_two_window_share": 0.983211
+    },
+    "drawdown_to_return_ratio": {
+      "status": "undefined_non_positive_return_proxy",
+      "aggregate_return_pct": -0.046742,
+      "absolute_max_drawdown_pct": 3.13825,
+      "value": null
+    },
+    "low_window_count_warning": {
+      "flagged": false,
+      "completed_windows": 57,
+      "threshold_windows": 15,
+      "ratio_warning_below": 0.65,
+      "status": "not_flagged"
+    },
+    "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+  },
+  "promotion_gate": {
+    "schema_version": "stage_gate_v1",
+    "run_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+    "stage": "research_promotion",
+    "attempt": 1,
+    "decision": "denied",
+    "validator": "research_wfa_promotion_gate",
+    "evidence_paths": [
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/parsed-wfa-metrics.json",
+      "factory/candidates/CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/registrations/research-wfa-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.json",
+      "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/hypothesis-packet.json",
+      "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/walk_forward_results_20260602_233704.json",
+      "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/analysis.json",
+      "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/parameter_stability_20260602_233704.json",
+      "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/walk_forward_summary_20260602_233704.csv",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/research-wfa-run-request.json",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/research-wfa-run-stdout.txt",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/research-wfa-run-stderr.txt",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/pre-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/post-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/accepted-output-artifacts.json",
+      "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/trial-attempts.jsonl"
+    ],
+    "reason": "Research WFA promotion denied for CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758: non-positive OOS Sharpe (-0.2369846339001491); aggregate return proxy below Phase 8D floor (-0.046742349123647525% < 5%); profit factor below 1 (0.6456865995974739); trade count below Phase 8D floor (12 < 200); no valid pre-run low_frequency_registration_v1 exception (missing low_frequency_registration_v1 artifact reference); Phase 8D consistency route denied: positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.0877. Advisory DSR/PBO/CPCV/White statistics are not hard promotion authority in Phase 8C.",
+    "recorded_at": "2026-06-02T20:37:16.822Z",
+    "candidate_id": "CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+    "target_context": "research",
+    "statistical_test_authority": {
+      "dsr": "advisory_only_not_a_promotion_gate",
+      "pbo": "advisory_only_not_a_promotion_gate",
+      "cpcv": "advisory_only_not_a_promotion_gate",
+      "white_reality_check": "advisory_only_not_a_promotion_gate",
+      "hard_gate_enabled": false,
+      "note": "Phase 8C DSR/PBO/CPCV/White outputs may report or block missing inputs, but they do not authorize research promotion without a separate promotion-policy amendment."
+    },
+    "consistency_promotion_policy": {
+      "passed": false,
+      "route": null,
+      "tier": "C4",
+      "failures": [
+        "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.0877"
+      ],
+      "policy": {
+        "status": "enabled_conditional_multi_metric_gate",
+        "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+        "routes": {
+          "C1": {
+            "label": "clean_consistency_route",
+            "minPositiveWindowRatio": 0.7,
+            "requiresAdditionalDiagnostics": false
+          },
+          "C2": {
+            "label": "moderate_consistency_compensated_route",
+            "minPositiveWindowRatio": 0.5,
+            "minReturnPct": 5,
+            "minSharpeOos": 0.35,
+            "minProfitFactor": 1.15,
+            "minOosWindows": 15,
+            "maxSingleWindowConcentration": 0.6,
+            "maxTopTwoWindowConcentration": 0.85,
+            "maxDrawdownToReturnRatio": 3
+          },
+          "C3": {
+            "label": "lumpy_payoff_compensated_route",
+            "minPositiveWindowRatio": 0.3,
+            "minReturnPct": 10,
+            "minSharpeOos": 0.75,
+            "minProfitFactor": 1.35,
+            "minOosWindows": 20,
+            "maxSingleWindowConcentration": 0.45,
+            "maxTopTwoWindowConcentration": 0.7,
+            "maxDrawdownToReturnRatio": 2
+          }
+        }
+      }
+    }
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "total_trades",
+      "return_proxy_pct",
+      "consistency_promotion_route"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/execution-result.json",
+      "sha256": "746c2b24aabc9faf9d41b884e98c4f57a6249fd65f6d6561d8a35a225b6edc28"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/worker-results/parsed-wfa-metrics.json",
+      "sha256": "2c72058464f54a5bc55e680b8111e6e3a22dd456029150761da0f035033ab5a3"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/registrations/research-wfa-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.json",
+      "sha256": "9fb754607f1681ac833e2b64de1932439a784e65988166725d5f9467341763c7"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/hypothesis-packet.json",
+      "sha256": "eb7e536c14ba38c1789f86d8072cc598c94ae9295aaddcaf400f46ca2b7bb762",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/source-record.json",
+      "sha256": "7cbc2828e564e6e87a21f512e188006970b38ce12a9e9408a1a6809d6f6f46e6"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/source-excerpt.md",
+      "sha256": "01330b5bd8aee262b665f8c630e1ee2b9e728614f09dbf8a1c9adb8b8b3ec02d",
+      "artifact_type": "research_source_excerpt"
+    },
+    {
+      "path": "walk forward engine/src/strategies/btc_weekly_calendar_phase8d.py",
+      "sha256": "6dd8ed0b74bb7a87bd6ecc11ab679ea3a45d5eadcb3b619d84983c4b5e0049d1"
+    },
+    {
+      "path": "walk forward engine/src/strategies/crypto_day_of_week.py",
+      "sha256": "4da0af67f186fd2364fc58e9f48c150b450c5adb001a68579cf9b74de3365b39"
+    },
+    {
+      "path": "walk forward engine/config/strategy_btc_weekly_calendar_phase8d.json",
+      "sha256": "74fe08a36ad3325150edfc204281395c75c43c8023493583caab87c7c2df5aad"
+    },
+    {
+      "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/wfa_config.yaml",
+      "sha256": "ccba02de39b7436013c43a095bcf1ab4a015b5328e8e1b601de90ddb58a9eb75"
+    },
+    {
+      "path": "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/walk_forward_results_20260602_233704.json",
+      "sha256": "184ef1e8a79d3f034f92f51b7c0a832e60cf92e538d6c07f4bfc15a33042f0ad"
+    }
+  ],
+  "recorded_at": "2026-06-02T20:27:58.611Z"
+}

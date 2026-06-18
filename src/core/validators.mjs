@@ -1,27 +1,38 @@
 import fs from "fs";
 import crypto from "crypto";
 import path from "path";
+import { validateLowFrequencyTradeFloorException } from "./low-frequency-registration.mjs";
 import { isStrictlyPromotableEvidence } from "./memory-index.mjs";
+import { STAGE0_RESEARCH_DISCOVERY_EVIDENCE_KIND, validateResearchBrainPlannerProvenance } from "./researchbrain-artifacts.mjs";
+import { evaluatePhase8DConsistencyPromotionRoute, PHASE8D_SURVIVOR_FLOORS } from "./wfa-survivor-floors.mjs";
 
 const EVIDENCE_KINDS = new Set([
   "research_wfa",
   "mt5_snapshot",
+  "mt5_tradable_universe_snapshot",
   "mt5_bridge_smoke",
   "data_identity",
+  "data_relevance_classification",
   "mql_build",
   "mt5_tester",
   "parity_report",
   "ftmo_ledger",
   "forward_report",
-  "promotion_gate"
+  "promotion_gate",
+  STAGE0_RESEARCH_DISCOVERY_EVIDENCE_KIND
 ]);
 
 const WORKER_RESULT_STATUSES = new Set(["succeeded", "failed", "blocked", "inconclusive"]);
 const SHA256_PATTERN = /^[a-f0-9]{64}$/i;
 const MT5_SNAPSHOT_REQUIRED_OBSERVATIONS = ["terminal", "account", "symbol", "data_identity"];
+const MT5_UNIVERSE_REQUIRED_OBSERVATIONS = ["terminal", "account", "universe"];
 const MT5_BRIDGE_REJECTION_TESTS = ["wrong_run", "stale_message", "corrupted_payload", "partial_write"];
 const MT5_TESTER_LIFECYCLE_SCENARIOS = ["market_order", "pending_order", "exit_order"];
 const PARITY_DRIFT_DIMENSIONS = ["lifecycle", "timing", "fill", "cost", "trade_count", "drawdown", "rule_accounting"];
+const STRATEGY_POSITIVE_VERDICTS = new Set(["promising", "promising_with_caveats", "passed", "success"]);
+const PROMISING_MIN_WINDOWS = PHASE8D_SURVIVOR_FLOORS.minOosWindows;
+const PROMISING_MIN_TRADES = PHASE8D_SURVIVOR_FLOORS.minTrades;
+const PROMISING_MIN_RETURN_PCT = PHASE8D_SURVIVOR_FLOORS.minReturnPct;
 
 function hasMeaningfulText(value, minLength = 8) {
   return typeof value === "string" && value.trim().length >= minLength;
@@ -64,6 +75,115 @@ function hasMeaningfulEvaluationMetrics(metrics) {
   return Object.values(metrics).some((value) => typeof value === "number" && Number.isFinite(value));
 }
 
+function numericMetric(metrics, keys) {
+  const sources = [metrics, metrics?.extra_metrics].filter((value) => value && typeof value === "object");
+  for (const source of sources) {
+    for (const key of keys) {
+      const value = source[key];
+      if (typeof value === "number" && Number.isFinite(value)) return value;
+    }
+  }
+  return null;
+}
+
+function normalizeRatio(value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) return null;
+  return value > 1 ? value / 100 : value;
+}
+
+function consistencyDiagnosticsFromEvaluation(evaluation, metrics) {
+  const diagnostic = metrics?.consistency_ladder_advisory
+    ?? evaluation?.consistency_ladder_advisory
+    ?? evaluation?.verification?.consistency_ladder_advisory
+    ?? evaluation?.verification?.consistency_promotion_policy
+    ?? null;
+  if (diagnostic && typeof diagnostic === "object") return diagnostic;
+  return {
+    single_window_share: numericMetric(metrics, ["single_window_concentration", "return_concentration_single_window_share"]),
+    top_two_window_share: numericMetric(metrics, ["top_two_window_concentration", "return_concentration_top_two_window_share"]),
+    drawdown_to_return_ratio: numericMetric(metrics, ["drawdown_to_return_ratio", "max_drawdown_to_return_ratio"])
+  };
+}
+
+function lowFrequencyRegistrationRefFromEvaluation(evaluation) {
+  const verification = evaluation?.verification && typeof evaluation.verification === "object" ? evaluation.verification : {};
+  return verification.low_frequency_registration ?? verification.low_frequency_registration_artifact ?? verification.low_frequency_registration_ref ?? null;
+}
+
+function lowFrequencyExceptionContext(evaluation, context = {}) {
+  return {
+    rootDir: context.rootDir ?? null,
+    expectedCandidateId: context.candidateId ?? evaluation?.candidate_id ?? evaluation?.verification?.candidate_id ?? null,
+    expectedRunId: context.runId ?? evaluation?.run_id ?? evaluation?.verification?.run_id ?? null,
+    resultsKnownAt: context.resultsKnownAt ?? evaluation?.results_known_at ?? evaluation?.verification?.results_known_at ?? null
+  };
+}
+
+function validateLowFrequencyTradeFloorForEvaluation(evaluation, totalTrades, context = {}) {
+  const ref = lowFrequencyRegistrationRefFromEvaluation(evaluation);
+  if (!ref) return { applied: false, reason: "missing low_frequency_registration_v1 artifact reference" };
+  try {
+    const result = validateLowFrequencyTradeFloorException(ref, {
+      ...lowFrequencyExceptionContext(evaluation, context),
+      observedTrades: totalTrades
+    });
+    return { applied: true, minimumTradeFloor: result.minimum_trade_floor, artifactPath: result.artifact.path };
+  } catch (error) {
+    return { applied: false, reason: error instanceof Error ? error.message : String(error) };
+  }
+}
+
+function strategyQualityFailures(evaluation, context = {}) {
+  const metrics = evaluation?.metrics && typeof evaluation.metrics === "object" ? evaluation.metrics : {};
+  const totalTrades = numericMetric(metrics, ["total_trades", "trades", "aggregate_total_trades"]);
+  const windows = numericMetric(metrics, ["windows_completed", "successful_windows", "completed_windows", "total_windows", "oos_windows", "per_window_metrics_count"]);
+  const annualizedReturnPct = numericMetric(metrics, ["annualized_return_pct", "annual_return_pct", "cagr_pct"]);
+  const aggregateReturnPct = numericMetric(metrics, ["aggregate_return_pct", "total_return_pct", "return_pct"]);
+  const positiveWindowRatio = normalizeRatio(numericMetric(metrics, ["positive_oos_windows_pct", "positive_return_windows_pct", "positive_sharpe_windows_pct", "positive_windows_pct", "wfr"]));
+  const failures = [];
+
+  if (windows === null) failures.push("missing completed OOS window count");
+  else if (windows < PROMISING_MIN_WINDOWS) failures.push(`only ${windows} completed OOS windows; need at least ${PROMISING_MIN_WINDOWS}`);
+
+  if (totalTrades === null) failures.push("missing total trade count");
+  else if (totalTrades < PROMISING_MIN_TRADES) {
+    const exception = validateLowFrequencyTradeFloorForEvaluation(evaluation, totalTrades, context);
+    if (!exception.applied) {
+      failures.push(`only ${totalTrades} trades; need at least ${PROMISING_MIN_TRADES} unless a valid pre-run low_frequency_registration_v1 artifact adjusts only the trade-count floor (${exception.reason})`);
+    }
+  }
+
+  if (annualizedReturnPct !== null) {
+    if (annualizedReturnPct < PROMISING_MIN_RETURN_PCT) failures.push(`annualized return ${annualizedReturnPct}% is below ${PROMISING_MIN_RETURN_PCT}%`);
+  } else if (aggregateReturnPct !== null) {
+    if (aggregateReturnPct < PROMISING_MIN_RETURN_PCT) failures.push(`aggregate return ${aggregateReturnPct}% is below ${PROMISING_MIN_RETURN_PCT}% non-annualized proxy`);
+  } else {
+    failures.push("missing annualized_return_pct or aggregate_return_pct");
+  }
+
+  if (positiveWindowRatio === null) {
+    failures.push("missing positive OOS window ratio");
+  }
+
+  const consistencyRoute = evaluatePhase8DConsistencyPromotionRoute({
+    positiveWindowRatio,
+    sharpeOos: numericMetric(metrics, ["sharpe_oos", "aggregate_sharpe"]),
+    returnPct: annualizedReturnPct ?? aggregateReturnPct,
+    profitFactor: numericMetric(metrics, ["profit_factor"]),
+    completedWindows: windows,
+    diagnostics: consistencyDiagnosticsFromEvaluation(evaluation, metrics)
+  });
+  if (!consistencyRoute.passed) failures.push(`Phase 8D consistency route denied: ${consistencyRoute.failures.join("; ")}`);
+
+  return failures;
+}
+
+function isResearchStrategyEvaluation(evaluation, evidenceKind) {
+  if (["research", "research_wfa"].includes(evidenceKind)) return true;
+  const metrics = evaluation?.metrics && typeof evaluation.metrics === "object" ? evaluation.metrics : {};
+  return ["sharpe_oos", "aggregate_sharpe", "total_trades", "trades", "wfr"].some((key) => key in metrics);
+}
+
 function hasPlaceholderToken(value) {
   return typeof value === "string" && /(?:^|[-_/])(NN|YYYY|MM|DD|HH|TODO|TBD|TIMESTAMP|DATE|TIME)(?:$|[-_/])|<[^>]+>/i.test(value.trim());
 }
@@ -97,9 +217,12 @@ function normalizeEvidenceKind(value) {
 
 const WFA_METRIC_ALIASES = {
   sharpe_oos: ["sharpe_oos", "aggregate_sharpe", "aggregate_sharpe_ratio"],
-  total_trades: ["total_trades", "aggregate_total_trades"],
+  total_trades: ["total_trades", "trades", "aggregate_total_trades"],
+  windows_completed: ["windows_completed", "successful_windows", "completed_windows", "total_windows", "oos_windows", "per_window_metrics_count"],
   max_drawdown: ["max_drawdown", "max_drawdown_pct", "aggregate_max_drawdown", "aggregate_max_drawdown_pct"],
+  annualized_return_pct: ["annualized_return_pct", "annual_return_pct", "cagr_pct"],
   aggregate_return_pct: ["aggregate_return_pct", "total_return_pct", "return_pct"],
+  positive_oos_windows_pct: ["positive_oos_windows_pct", "positive_return_windows_pct", "positive_sharpe_windows_pct", "positive_windows_pct", "wfr"],
   profit_factor: ["profit_factor", "aggregate_profit_factor"]
 };
 
@@ -131,16 +254,50 @@ function nearlyEqual(left, right) {
 }
 
 function metricVerifiedByArtifacts(rootDir, metrics, artifactPaths) {
-  const merged = new Map();
-  for (const artifactPath of artifactPaths) {
-    for (const [key, value] of readJsonMetricFields(rootDir, artifactPath).entries()) merged.set(key, value);
-  }
+  const merged = artifactMetricFields(rootDir, artifactPaths);
   for (const [metricKey, metricValue] of Object.entries(metrics ?? {})) {
     if (typeof metricValue !== "number" || !Number.isFinite(metricValue)) continue;
     const aliases = WFA_METRIC_ALIASES[metricKey] ?? [metricKey];
     if (aliases.some((alias) => merged.has(alias) && nearlyEqual(merged.get(alias), metricValue))) return true;
   }
   return false;
+}
+
+function artifactMetricFields(rootDir, artifactPaths) {
+  const merged = new Map();
+  for (const artifactPath of artifactPaths) {
+    for (const [key, value] of readJsonMetricFields(rootDir, artifactPath).entries()) merged.set(key, value);
+  }
+  return merged;
+}
+
+function metricValueVerifiedByFields(fields, metrics, metricKey) {
+  const aliases = WFA_METRIC_ALIASES[metricKey] ?? [metricKey];
+  const metricValue = numericMetric(metrics, aliases);
+  if (metricValue === null) return false;
+  return aliases.some((alias) => fields.has(alias) && nearlyEqual(fields.get(alias), metricValue));
+}
+
+function positiveWfaArtifactBackingFailures(evaluation, rootDir, metricsVerifiedFrom) {
+  if (!rootDir) return [];
+  const metrics = evaluation?.metrics && typeof evaluation.metrics === "object" ? evaluation.metrics : {};
+  const fields = artifactMetricFields(rootDir, metricsVerifiedFrom);
+  const failures = [];
+
+  if (!metricValueVerifiedByFields(fields, metrics, "windows_completed")) {
+    failures.push("windows_completed not backed by cited metric artifacts");
+  }
+  if (!metricValueVerifiedByFields(fields, metrics, "total_trades")) {
+    failures.push("total_trades not backed by cited metric artifacts");
+  }
+  if (!metricValueVerifiedByFields(fields, metrics, "annualized_return_pct") && !metricValueVerifiedByFields(fields, metrics, "aggregate_return_pct")) {
+    failures.push("return metric not backed by cited metric artifacts");
+  }
+  if (!metricValueVerifiedByFields(fields, metrics, "positive_oos_windows_pct")) {
+    failures.push("positive OOS window ratio not backed by cited metric artifacts");
+  }
+
+  return failures;
 }
 
 function workerResultFrom(executionResult) {
@@ -161,11 +318,120 @@ function normalizeArtifactRefs(refs) {
       const artifactPath = artifactPathFromRef(ref);
       if (!artifactPath) return null;
       return {
+        artifact_type: ref && typeof ref === "object" && typeof ref.artifact_type === "string" ? ref.artifact_type.trim() : null,
         path: artifactPath,
-        sha256: ref && typeof ref === "object" && typeof ref.sha256 === "string" ? ref.sha256.trim() : null
+        sha256: ref && typeof ref === "object" && typeof ref.sha256 === "string" ? ref.sha256.trim() : null,
+        modified_at: ref && typeof ref === "object" && typeof ref.modified_at === "string" ? ref.modified_at.trim() : null,
+        request_identity: ref && typeof ref === "object" && ref.request_identity && typeof ref.request_identity === "object" ? ref.request_identity : null
       };
     })
     .filter(Boolean);
+}
+
+function identitiesMatch(expected, actual, fields) {
+  return fields.every((field) => (expected?.[field] ?? null) === (actual?.[field] ?? null));
+}
+
+function validateResearchWfaOutputIdentity(workerResult, observations, artifactRecords) {
+  const expectedIdentity = observations.request_identity ?? workerResult.observations?.request_identity ?? null;
+  const requiredFields = ["run_id", "job_id", "candidate_id", "lineage_id", "family_id", "attempt_id"];
+  if (!expectedIdentity || typeof expectedIdentity !== "object") {
+    throw new Error("research_wfa executed result requires request identity binding for accepted output artifacts.");
+  }
+  const workerIdentity = {
+    run_id: workerResult.run_id ?? null,
+    job_id: workerResult.job_id ?? null,
+    candidate_id: workerResult.candidate_id ?? null,
+    lineage_id: workerResult.lineage_id ?? null,
+    family_id: workerResult.family_id ?? null,
+    attempt_id: workerResult.attempt_id ?? null
+  };
+  if (!identitiesMatch(expectedIdentity, workerIdentity, requiredFields)) {
+    throw new Error("research_wfa request identity must match worker result run/job/candidate/lineage/family/attempt identity.");
+  }
+  const outputArtifacts = artifactRecords.filter((record) => record.artifact_type === "wfa_result_artifact");
+  if (outputArtifacts.length === 0) {
+    throw new Error("research_wfa executed result requires accepted WFA output artifacts.");
+  }
+  for (const artifact of outputArtifacts) {
+    if (!identitiesMatch(expectedIdentity, artifact.request_identity, requiredFields)) {
+      throw new Error(`research_wfa accepted output artifact has mismatched request identity: ${artifact.path}.`);
+    }
+  }
+}
+
+function validateResearchWfaOutputFreshness(observations, artifactRecords) {
+  const startedMs = Date.parse(observations.worker_start_time ?? "");
+  if (!Number.isFinite(startedMs)) {
+    throw new Error("research_wfa executed result requires worker_start_time for stale-output validation.");
+  }
+  const guard = observations.stale_output_guard;
+  if (!guard || guard.passed !== true) {
+    throw new Error("research_wfa executed result requires a passing stale-output guard.");
+  }
+  const stale = artifactRecords
+    .filter((record) => record.artifact_type === "wfa_result_artifact")
+    .filter((record) => Date.parse(record.modified_at ?? "") + 1000 < startedMs)
+    .map((record) => record.path);
+  if (stale.length > 0) {
+    throw new Error(`research_wfa accepted stale output artifacts: ${stale.join(", ")}`);
+  }
+}
+
+function validateAssumptionGroup(observations, groupKey) {
+  const group = observations?.[groupKey];
+  if (!group || typeof group !== "object" || typeof group.available !== "boolean") {
+    throw new Error(`research_wfa executed result requires ${groupKey} with artifact-backed availability diagnostics.`);
+  }
+  if (group.available !== true) {
+    if (!hasMeaningfulText(group.missing_because, 8)) {
+      throw new Error(`research_wfa ${groupKey} must explain missing_because when unavailable.`);
+    }
+    return;
+  }
+  if (!hasNonEmptyObject(group.values)) {
+    throw new Error(`research_wfa ${groupKey} marked available without values.`);
+  }
+  for (const [key, record] of Object.entries(group.values)) {
+    if (!record || typeof record !== "object") {
+      throw new Error(`research_wfa ${groupKey}.${key} must be an artifact-backed record.`);
+    }
+    if (!hasPathLikeValue(record.source_path) || !SHA256_PATTERN.test(String(record.source_sha256 || "")) || !hasMeaningfulText(record.source_field, 1)) {
+      throw new Error(`research_wfa ${groupKey}.${key} must include source_path, source_sha256, and source_field.`);
+    }
+  }
+}
+
+function validateOptionalWfaArtifactDiagnostics(observations) {
+  const groups = observations?.optional_wfa_artifacts;
+  const expected = {
+    trade_ledger: "wfa_trade_ledger",
+    equity_curve: "wfa_equity_curve",
+    optimizer_trials: "wfa_optimizer_trials"
+  };
+  if (!groups || typeof groups !== "object") {
+    throw new Error("research_wfa executed result requires optional_wfa_artifacts availability diagnostics.");
+  }
+  for (const [key, artifactType] of Object.entries(expected)) {
+    const group = groups[key];
+    if (!group || typeof group !== "object" || typeof group.available !== "boolean") {
+      throw new Error(`research_wfa optional_wfa_artifacts.${key} requires artifact-backed availability diagnostics.`);
+    }
+    if (group.available !== true) {
+      if (!hasMeaningfulText(group.missing_because, 8)) {
+        throw new Error(`research_wfa optional_wfa_artifacts.${key} must explain missing_because when unavailable.`);
+      }
+      continue;
+    }
+    if (!Array.isArray(group.artifacts) || group.artifacts.length === 0) {
+      throw new Error(`research_wfa optional_wfa_artifacts.${key} marked available without artifacts.`);
+    }
+    for (const artifact of group.artifacts) {
+      if (artifact?.artifact_type !== artifactType || !hasPathLikeValue(artifact.path) || !SHA256_PATTERN.test(String(artifact.sha256 || ""))) {
+        throw new Error(`research_wfa optional_wfa_artifacts.${key} artifacts must include ${artifactType}, path, and sha256.`);
+      }
+    }
+  }
 }
 
 function executionArtifactRecords(executionResult) {
@@ -195,6 +461,10 @@ function observationsFrom(executionResult) {
     ?? executionResult?.observations_observed
     ?? workerResult?.observations
     ?? null;
+}
+
+function hasArtifactType(records, artifactType) {
+  return records.some((record) => record?.artifact_type === artifactType && hasPathLikeValue(record.path));
 }
 
 function resolveRepoRelativePath(rootDir, relativePath) {
@@ -259,7 +529,7 @@ function isGenericSummaryText(value) {
   return GENERIC_SUMMARY_PATTERNS.some((pattern) => pattern.test(value));
 }
 
-export function validatePlannerResult(plan, { rootDir } = {}) {
+export function validatePlannerResult(plan, { rootDir, backlogItem = null } = {}) {
   if (!plan || typeof plan !== "object") {
     throw new Error("Planner returned an empty or invalid result object.");
   }
@@ -376,6 +646,8 @@ export function validatePlannerResult(plan, { rootDir } = {}) {
   if (!hasMeaningfulEvaluationMetrics(plan.evaluation_criteria.metrics)) {
     throw new Error("Planner result evaluation criteria must include meaningful numeric metrics.");
   }
+
+  validateResearchBrainPlannerProvenance(plan, { rootDir, backlogItem, requireExisting: Boolean(rootDir) });
 }
 
 export function validateExecutionResult(executionResult) {
@@ -388,6 +660,11 @@ export function validateExecutionResult(executionResult) {
   }
   if (!hasMeaningfulText(executionResult.status, 3)) {
     throw new Error("Executor result missing status.");
+  }
+
+  const evidenceKind = normalizeEvidenceKind(executionResult.evidence_kind);
+  if (evidenceKind === STAGE0_RESEARCH_DISCOVERY_EVIDENCE_KIND) {
+    throw new Error("Stage-0 ResearchBrain discovery artifacts are not executable evidence and cannot bypass deterministic WFA/MT5 workers.");
   }
 
   const terminalStatuses = new Set(["blocked", "failed", "partial", "inconclusive"]);
@@ -419,7 +696,6 @@ export function validateExecutionResult(executionResult) {
     throw new Error(`Executor returned unsupported status '${executionResult.status}'.`);
   }
 
-  const evidenceKind = normalizeEvidenceKind(executionResult.evidence_kind);
   const artifacts = executionArtifactRecords(executionResult);
   if (artifacts.length === 0) {
     throw new Error("Executor reported 'executed' without any artifacts_created.");
@@ -427,6 +703,11 @@ export function validateExecutionResult(executionResult) {
 
   if (evidenceKind === "mt5_snapshot") {
     validateMt5SnapshotExecutionResult(executionResult);
+    return;
+  }
+
+  if (evidenceKind === "mt5_tradable_universe_snapshot") {
+    validateMt5TradableUniverseExecutionResult(executionResult);
     return;
   }
 
@@ -450,15 +731,23 @@ export function validateExecutionResult(executionResult) {
   }
 
   const workerResult = workerResultFrom(executionResult);
-  if (workerResult) {
-    validateWorkerResultEnvelope(workerResult, { requireSucceeded: true, evidenceKind: "research_wfa" });
-    if (executionResult.candidate_id !== null && executionResult.candidate_id !== undefined && executionResult.candidate_id !== workerResult.candidate_id) {
-      throw new Error("research_wfa execution candidate_id must match worker_result candidate_id.");
-    }
-    const authorityLayer = executionResult.authority_layer ?? workerResult.authority_layer;
-    if (authorityLayer !== "python_research") {
-      throw new Error("research_wfa worker evidence must declare authority_layer 'python_research'.");
-    }
+  if (!workerResult) {
+    throw new Error("research_wfa executed result requires a worker-launched worker_result envelope.");
+  }
+  validateWorkerResultEnvelope(workerResult, { requireSucceeded: true, evidenceKind: "research_wfa" });
+  if (workerResult.worker !== "research_wfa_run" || workerResult.schema_version !== "research_wfa_run_worker_v1") {
+    throw new Error("research_wfa executed result requires the Phase 7A research_wfa_run worker schema.");
+  }
+  if (executionResult.candidate_id !== null && executionResult.candidate_id !== undefined && executionResult.candidate_id !== workerResult.candidate_id) {
+    throw new Error("research_wfa execution candidate_id must match worker_result candidate_id.");
+  }
+  const authorityLayer = executionResult.authority_layer ?? workerResult.authority_layer;
+  if (authorityLayer !== "python_research") {
+    throw new Error("research_wfa worker evidence must declare authority_layer 'python_research'.");
+  }
+  const observations = observationsFrom(executionResult) ?? {};
+  if (observations.execution_was_run_by_this_worker !== true || workerResult.observations?.execution_was_run_by_this_worker !== true) {
+    throw new Error("research_wfa executed result requires execution_was_run_by_this_worker: true.");
   }
 
   const metrics = executionResult.metrics_observed || {};
@@ -467,6 +756,35 @@ export function validateExecutionResult(executionResult) {
   if (!hasObservedMetric) {
     throw new Error("Executor reported 'executed' without any observed WFA metrics.");
   }
+  if (!hasMeaningfulNumericMetric(metrics.total_trades) || metrics.total_trades < 1) {
+    throw new Error("research_wfa executed result requires nonzero artifact-backed trades.");
+  }
+
+  const artifactRecords = executionArtifactRecords(executionResult);
+  for (const artifactType of ["stdout", "stderr", "parsed_wfa_metrics"]) {
+    if (!hasArtifactType(artifactRecords, artifactType)) {
+      throw new Error(`research_wfa executed result requires ${artifactType} artifact evidence.`);
+    }
+  }
+  const sourceRecords = sourceHashRecords(executionResult);
+  for (const artifactType of ["wfa_config", "strategy_source", "strategy_config"]) {
+    if (!hasArtifactType(sourceRecords, artifactType)) {
+      throw new Error(`research_wfa executed result requires ${artifactType} input hash evidence.`);
+    }
+  }
+  if (!hasArtifactType(sourceRecords, "data_input") && !hasArtifactType(sourceRecords, "data_manifest")) {
+    throw new Error("research_wfa executed result requires data input or data manifest hash evidence.");
+  }
+  if (!hasMeaningfulNumericMetric(observations.per_window_metrics_count) || observations.per_window_metrics_count < 1) {
+    throw new Error("research_wfa executed result requires artifact-backed per-window metrics.");
+  }
+  validateAssumptionGroup(observations, "cost_assumptions");
+  validateAssumptionGroup(observations, "timing_assumptions");
+  validateOptionalWfaArtifactDiagnostics(observations);
+  validateWfaMetricReadiness(observations);
+  validateWfaOutputRootTruth(observations, artifactRecords);
+  validateResearchWfaOutputIdentity(workerResult, observations, artifactRecords);
+  validateResearchWfaOutputFreshness(observations, artifactRecords);
 
   const provenance = executionResult.provenance;
   if (!provenance || typeof provenance !== "object") {
@@ -611,6 +929,115 @@ function validateMt5SnapshotExecutionResult(executionResult) {
   }
 }
 
+function validateMt5TradableUniverseExecutionResult(executionResult) {
+  const workerResult = workerResultFrom(executionResult);
+  if (!workerResult) {
+    throw new Error("mt5_tradable_universe_snapshot executed result requires a worker_result envelope.");
+  }
+
+  validateWorkerResultEnvelope(workerResult, { requireSucceeded: true, evidenceKind: "mt5_tradable_universe_snapshot" });
+
+  const authorityLayer = executionResult.authority_layer ?? workerResult.authority_layer;
+  if (authorityLayer !== "mt5_terminal") {
+    throw new Error("mt5_tradable_universe_snapshot evidence must declare authority_layer 'mt5_terminal'.");
+  }
+
+  if (!hasMeaningfulText(executionResult.observed_at ?? workerResult.observed_at, 10)) {
+    throw new Error("mt5_tradable_universe_snapshot evidence must include observed_at timestamp.");
+  }
+
+  const observations = observationsFrom(executionResult);
+  if (!hasNonEmptyObject(observations)) {
+    throw new Error("mt5_tradable_universe_snapshot evidence must include terminal/account/universe observations.");
+  }
+  const missing = MT5_UNIVERSE_REQUIRED_OBSERVATIONS.filter((field) => !hasNonEmptyObject(observations[field]));
+  if (missing.length > 0) {
+    throw new Error(`mt5_tradable_universe_snapshot observations missing required fields: ${missing.join(", ")}`);
+  }
+
+  const universe = observations.universe;
+  if (universe.symbol_count_total !== universe.symbols?.length || !Number.isInteger(universe.symbol_count_total) || universe.symbol_count_total < 1) {
+    throw new Error("mt5_tradable_universe_snapshot universe must include nonzero symbol_count_total matching symbols[].");
+  }
+  if (!Number.isInteger(universe.symbol_count_crypto_like) || universe.symbol_count_crypto_like < 0 || universe.symbol_count_crypto_like > universe.symbol_count_total) {
+    throw new Error("mt5_tradable_universe_snapshot universe must include valid symbol_count_crypto_like.");
+  }
+  if (!hasNonEmptyObject(universe.symbol_count_by_asset_class_guess)) {
+    throw new Error("mt5_tradable_universe_snapshot universe must include symbol_count_by_asset_class_guess.");
+  }
+  if (!hasNonEmptyArray(universe.symbols)) {
+    throw new Error("mt5_tradable_universe_snapshot universe must include symbols[].");
+  }
+  for (const symbol of universe.symbols) {
+    if (!hasMeaningfulText(symbol?.name, 1)) {
+      throw new Error("mt5_tradable_universe_snapshot symbols[] entries require exact terminal name.");
+    }
+    if (!hasNonEmptyObject(symbol.asset_class_hints) || !hasMeaningfulText(symbol.asset_class_hints.asset_class_guess, 2)) {
+      throw new Error("mt5_tradable_universe_snapshot symbols[] entries require heuristic asset_class_hints.");
+    }
+  }
+
+  const scope = universe.universe_scope;
+  if (!hasNonEmptyObject(scope) || typeof scope.filter_used !== "boolean") {
+    throw new Error("mt5_tradable_universe_snapshot must record explicit universe scope/filter usage.");
+  }
+  if (scope.filter_used === false && !/no filter used/i.test(String(scope.filter_description || ""))) {
+    throw new Error("mt5_tradable_universe_snapshot must explicitly record 'no filter used' when unfiltered.");
+  }
+  if (scope.filter_used === true && !hasMeaningfulText(scope.filter_pattern, 1)) {
+    throw new Error("mt5_tradable_universe_snapshot filtered snapshots require filter_pattern.");
+  }
+
+  const snapshotHash = observations.snapshot_sha256 ?? observations.snapshot_hash ?? workerResult.artifacts?.[0]?.sha256;
+  if (!SHA256_PATTERN.test(String(snapshotHash || ""))) {
+    throw new Error("mt5_tradable_universe_snapshot evidence must include a snapshot sha256.");
+  }
+}
+
+function validateWfaMetricReadiness(observations) {
+  const diagnostics = observations?.metric_readiness;
+  if (!diagnostics || typeof diagnostics !== "object") {
+    throw new Error("research_wfa executed result requires WFA metric_readiness diagnostics for WFE/WFR inputs.");
+  }
+  for (const key of ["wfe", "wfr"]) {
+    const item = diagnostics[key];
+    if (!item || typeof item !== "object") {
+      throw new Error(`research_wfa metric_readiness.${key} is required.`);
+    }
+    if (item.status === "blocked_missing_inputs") {
+      if (!Array.isArray(item.missing_inputs) || item.missing_inputs.length === 0 || !hasMeaningfulText(item.missing_because, 8)) {
+        throw new Error(`research_wfa metric_readiness.${key} must report exact missing inputs when blocked.`);
+      }
+      if (item.value !== null && item.value !== undefined) {
+        throw new Error(`research_wfa metric_readiness.${key} must not invent a value when inputs are missing.`);
+      }
+      continue;
+    }
+    if (item.status !== "computed_artifact_backed" || !hasMeaningfulNumericMetric(item.value)) {
+      throw new Error(`research_wfa metric_readiness.${key} must be computed_artifact_backed or blocked_missing_inputs.`);
+    }
+    const inputs = item.inputs && typeof item.inputs === "object" ? Object.values(item.inputs) : [];
+    if (inputs.length === 0 || inputs.some((input) => !input?.available || !input?.source || !hasPathLikeValue(input.source.source_path) || !SHA256_PATTERN.test(String(input.source.source_sha256 || "")))) {
+      throw new Error(`research_wfa metric_readiness.${key} computed values must preserve artifact path/hash inputs.`);
+    }
+  }
+}
+
+function validateWfaOutputRootTruth(observations, artifactRecords) {
+  const truth = observations?.output_root_truth;
+  if (!truth || typeof truth !== "object" || truth.matched !== true || !hasPathLikeValue(truth.expected_output_root) || truth.expected_output_root !== truth.config_output_root) {
+    throw new Error("research_wfa executed result requires output_root_truth proving expected_output_root matches the WFA config output_directory.");
+  }
+  const root = String(truth.expected_output_root).replace(/\\/g, "/").replace(/\/+$/, "");
+  const outside = artifactRecords
+    .filter((record) => record.artifact_type === "wfa_result_artifact")
+    .map((record) => record.path)
+    .filter((artifactPath) => !(artifactPath === root || String(artifactPath).startsWith(`${root}/`)));
+  if (outside.length > 0) {
+    throw new Error(`research_wfa accepted output artifacts outside expected_output_root: ${outside.join(", ")}`);
+  }
+}
+
 function validateMt5BridgeSmokeExecutionResult(executionResult) {
   const workerResult = workerResultFrom(executionResult);
   if (!workerResult) {
@@ -750,6 +1177,22 @@ export function validateExecutionArtifacts(rootDir, executionResult) {
     return;
   }
 
+  const observations = observationsFrom(executionResult) ?? {};
+  if (workerResultFrom(executionResult)) validateWfaOutputRootTruth(observations, artifactRecords);
+  const workerStartMs = Date.parse(observations.worker_start_time ?? "");
+  if (Number.isFinite(workerStartMs)) {
+    const staleDiskArtifacts = artifactRecords
+      .filter((record) => record.artifact_type === "wfa_result_artifact")
+      .filter((record) => {
+        const fullPath = resolveRepoRelativePath(rootDir, record.path);
+        return fs.existsSync(fullPath) && fs.statSync(fullPath).mtimeMs + 1000 < workerStartMs;
+      })
+      .map((record) => record.path);
+    if (staleDiskArtifacts.length > 0) {
+      throw new Error(`research_wfa accepted output artifacts predate worker start on disk: ${staleDiskArtifacts.join(", ")}`);
+    }
+  }
+
   const resultArtifacts = artifactPaths.filter((artifactPath) => /(?:^|[\/])results(?:[\/]|$)|walk_forward_results|walk-forward-results|wfa-results/i.test(artifactPath));
   if (resultArtifacts.length === 0 && provenanceArtifacts.length === 0) {
     throw new Error("Executor reported 'executed' without any WFA result artifacts.");
@@ -759,7 +1202,7 @@ export function validateExecutionArtifacts(rootDir, executionResult) {
   }
 }
 
-export function validateEvaluationResult(evaluation, { mode, rootDir } = {}) {
+export function validateEvaluationResult(evaluation, { mode, rootDir, evidenceKind = null, candidateId = null, runId = null, resultsKnownAt = null } = {}) {
   if (!evaluation || typeof evaluation !== "object") {
     throw new Error("Evaluator returned an empty or invalid result object.");
   }
@@ -792,6 +1235,13 @@ export function validateEvaluationResult(evaluation, { mode, rootDir } = {}) {
     throw new Error("Evaluator must cite exact metric verification sources when metrics are claimed.");
   }
 
+  if (STRATEGY_POSITIVE_VERDICTS.has(String(evaluation.verdict).toLowerCase()) && isResearchStrategyEvaluation(evaluation, evidenceKind)) {
+    const failures = strategyQualityFailures(evaluation, { rootDir, candidateId, runId, resultsKnownAt });
+    if (failures.length > 0) {
+      throw new Error(`Evaluator cannot label weak research evidence '${evaluation.verdict}': ${failures.join("; ")}. Operational canary acceptance is separate from strategy-quality evidence.`);
+    }
+  }
+
   if (rootDir) {
     const missingArtifacts = artifactsChecked.filter((artifactPath) => !fs.existsSync(path.join(rootDir, artifactPath)));
     if (missingArtifacts.length > 0) {
@@ -800,6 +1250,13 @@ export function validateEvaluationResult(evaluation, { mode, rootDir } = {}) {
     const missingMetricSources = metricsVerifiedFrom.filter((artifactPath) => !fs.existsSync(path.join(rootDir, artifactPath)));
     if (missingMetricSources.length > 0) {
       throw new Error(`Evaluator metrics verification references missing artifacts: ${missingMetricSources.join(", ")}`);
+    }
+
+    if (STRATEGY_POSITIVE_VERDICTS.has(String(evaluation.verdict).toLowerCase()) && evidenceKind === "research_wfa") {
+      const artifactFailures = positiveWfaArtifactBackingFailures(evaluation, rootDir, metricsVerifiedFrom);
+      if (artifactFailures.length > 0) {
+        throw new Error(`Evaluator cannot label research_wfa evidence '${evaluation.verdict}' without artifact-backed promotion metrics: ${artifactFailures.join("; ")}.`);
+      }
     }
   }
 

@@ -1,0 +1,16 @@
+{
+  "schema_version": "research_wfa_envelope_request_v1",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "run_id": "RUN-RESEARCH-WFA-CAND-EURUSD-M15-LONDON-BREAKOUT-001-20260504",
+  "job_id": "JOB-RESEARCH-WFA-CAND-EURUSD-M15-LONDON-BREAKOUT-001-20260504",
+  "config_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+  "result_artifacts": [
+    "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260504_140355.json",
+    "walk forward engine/strategies/london_breakout_eurusd/results/analysis.json",
+    "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_summary_20260504_140355.csv",
+    "walk forward engine/strategies/london_breakout_eurusd/results/parameter_stability_20260504_140355.json"
+  ],
+  "windows_completed": 87,
+  "source_execution_result_path": null
+}

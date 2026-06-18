@@ -1,0 +1,121 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "sha256": "2206262f801bd6dfee6eb1ab049131f92e44d318c3a7b25fb342d4782600a823",
+    "size_bytes": 2902,
+    "modified_at": "2026-05-28T19:50:26.431Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_190926.json",
+    "sha256": "1801fe59b9d4cb751eeea21b0d1343abf0157cea548740bc6c6697c192258cdf",
+    "size_bytes": 1423,
+    "modified_at": "2026-04-05T16:09:26.318Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260405_191636.json",
+    "sha256": "67e908c1810698c14d8b0a8e04f863d4d7c8bf21fa5e789de166b1096340f365",
+    "size_bytes": 1404,
+    "modified_at": "2026-04-05T16:16:36.892Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+    "sha256": "358ade2fbfe8c1cc4b6cbe0f2419a4e281fbd05d1fe85a682e34b4329e906c90",
+    "size_bytes": 1346,
+    "modified_at": "2026-05-13T11:35:45.936Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260514_080540.json",
+    "sha256": "7647d76f83e90e65eac812779992046c34d469cde41bbbdc5d0be2fd8303e813",
+    "size_bytes": 1365,
+    "modified_at": "2026-05-14T05:05:40.533Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260528_225026.json",
+    "sha256": "1801fe59b9d4cb751eeea21b0d1343abf0157cea548740bc6c6697c192258cdf",
+    "size_bytes": 1423,
+    "modified_at": "2026-05-28T19:50:26.456Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260320_233838.json",
+    "sha256": "cbd0867e69ccdcf7f86849164f92520fa846b624465045ae726ac1fdd1491f5b",
+    "size_bytes": 1887,
+    "modified_at": "2026-03-20T21:38:38.679Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_190926.json",
+    "sha256": "bcd7432ace5aa8c45184d1fca9603df4a8478394e41a9ccb194a9a56b159a660",
+    "size_bytes": 7165,
+    "modified_at": "2026-04-05T16:09:26.062Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260405_191636.json",
+    "sha256": "d9e70969ab1144ef94718a5a9fb2076602b69a7035942a917d81672085d01049",
+    "size_bytes": 7150,
+    "modified_at": "2026-04-05T16:16:36.649Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+    "sha256": "91f38fba3f7d86f8beab10647b89d22a974facaef5b36c67f938f6aad4a0f180",
+    "size_bytes": 7086,
+    "modified_at": "2026-05-13T11:35:45.833Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260514_080540.json",
+    "sha256": "d256b194e5207b308aab3d9f44fffab5d458ac67a1ed3c298b815bff074f931b",
+    "size_bytes": 7108,
+    "modified_at": "2026-05-14T05:05:40.422Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+    "sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+    "size_bytes": 7821,
+    "modified_at": "2026-05-28T19:50:26.321Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260405_190926.csv",
+    "sha256": "35747727aec7c0fc0d26adba95f7e913163a415f53f4fa8e280a5bfda8ba27c0",
+    "size_bytes": 1042,
+    "modified_at": "2026-04-05T16:09:26.313Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260405_191636.csv",
+    "sha256": "975b42a70d6d53fc2d2a347e0f97d231867a43b1b7c497b28a4fcde4819631ed",
+    "size_bytes": 1044,
+    "modified_at": "2026-04-05T16:16:36.886Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260513_143545.csv",
+    "sha256": "eebba7d685b24b2036c4d1bd6583f646f55207115cc749d3a76c6cef4b2b49a5",
+    "size_bytes": 1041,
+    "modified_at": "2026-05-13T11:35:45.933Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260514_080540.csv",
+    "sha256": "efbe5100f14684cf5ac473df75afc37a1e9ea1b9a29f6b44d92496edfea824ce",
+    "size_bytes": 1040,
+    "modified_at": "2026-05-14T05:05:40.533Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260528_225026.csv",
+    "sha256": "e3c8b7ea18575b8c296c7bd26df547710c34707a53c5ec38f0a31e3a72880c67",
+    "size_bytes": 1209,
+    "modified_at": "2026-05-28T19:50:26.452Z"
+  }
+]

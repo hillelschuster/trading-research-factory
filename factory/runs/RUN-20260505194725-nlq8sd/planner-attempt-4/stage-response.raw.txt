@@ -1,0 +1,98 @@
+
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-20260513104006-bnb-hold-robust",
+  "title": "BNB EMA Trend Gate bounded hold-period robustness WFA",
+  "backlog_item_id": "IDEA-783243-8vz",
+  "objective": "Run bounded WFA on BNBUSDT EMA Trend Gate to test whether hold_bars values around the prior 168-bar optimum are robust rather than overfit",
+  "hypothesis": "The 168-bar hold_bars optimum from EXP-20260405132700-01 (0.6636 OOS Sharpe) is not overfit - adjacent values 144 and 192 will produce similar Sharpe and WFR, confirming robustness. If Sharpe drops significantly at adjacent values, the 168-bar result is likely overfit.",
+  "strategy_rationale": "This bounded hold-period test is the correct next step after the discovery run identified 168 as optimal. Testing adjacent values validates whether the optimum is robust or a statistical artifact. The narrow 96/120/144/168/192 grid tests parameter stability without re-optimizing other parameters.",
+  "strategy_type": "multi_timeframe",
+  "market_family": "crypto",
+  "instrument_scope": "BNBUSDT spot",
+  "instrument_selection_rule": null,
+  "timeframe": "1h entries with 4h EMA regime filter",
+  "priority": 78,
+  "dataset_requirements": [
+    "BNB/USDT 1h OHLCV data from Binance with sufficient depth for multi-year WFA",
+    "Must include 2020-2024 period for proper walk-forward windows"
+  ],
+  "historical_depth_requirement": {
+    "target": "Multi-year (2020-2024), ~35k+ 1h bars",
+    "justification": "Crypto markets benefit from maximum history; the prior BNB run used full dataset and achieved meaningful WFA. Multi-year span captures 2021 bull run, 2022 bear market, 2023-2024 recovery - essential for robustness testing."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance",
+      "public_archive"
+    ],
+    "primary_source_family": "binance",
+    "selection_reason": "Binance is the canonical source for BNB/USDT spot data; existing CSV in workspace/data/ is pre-validated and was used successfully in prior BNB runs."
+  },
+  "scope_selection_rationale": "BNB is the worst-performing asset in the EMA Trend Gate series (0.432-0.663 OOS Sharpe vs SOL 1.373, BTC 0.998). Testing hold-period robustness on the worst performer is the highest-value test - if BNB shows robust hold_bars behavior, it suggests the strategy generalizes. If it fails, we learn BNB needs asset-specific tuning or should be excluded.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "Data file exists at workspace/data/binance_bnbusdt_1h_deep.csv - was used in prior BNB experiments (EXP-20260404080753-bnb, EXP-20260405132700-01)",
+    "acquisition_method": "existing_fetcher",
+    "sources": [],
+    "commands": [],
+    "expected_outputs": []
+  },
+  "inputs": [
+    "Strategy code: walk forward engine/src/strategies/ema_trend_gate.py",
+    "Prior result: EXP-20260405132700-01 achieved 0.6636 OOS Sharpe with hold_bars=168, rsi_oversold=25, rsi_overbought=60",
+    "Lesson: BNB is worst performer in EMA Trend Gate series but still achieved marginal positive Sharpe"
+  ],
+  "implementation_steps": [
+    "1. Create strategy config: walk forward engine/config/strategy_ema_trend_gate_bnb_hold_sensitivity.json with fixed params (ema4h=50, ema1h=20, rsi=14, rsi_oversold=25, rsi_overbought=60, hold_bars=None for grid, sl_atr=2.0, tp_rr=2.0)",
+    "2. Create WFA config: walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml with hold_bars grid [96, 120, 144, 168, 192]",
+    "3. Execute WFA via deterministic worker: walk forward engine/scripts/walk_forward_smoke_test.py with --config strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml",
+    "4. Parse results: Extract OOS Sharpe, WFR, trade count for each hold_bars value",
+    "5. Evaluate robustness: Compare Sharpe across hold_bars values - robust if adjacent values (144, 192) within 20% of 168"
+  ],
+  "commands": [
+    "cd \"walk forward engine\" && .venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/results/window_*/metrics.json",
+    "walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/results/aggregate_metrics.json",
+    "factory/runs/<run_id>/execution-result.json",
+    "factory/runs/<run_id>/evaluation.json"
+  ],
+  "advanced_wfa_config": {
+    "n_parameter_trials": 5,
+    "sampling_strategy": "grid",
+    "backtest.fees": 0.0006,
+    "backtest.slippage": 0.0002,
+    "training_months": 3,
+    "testing_months": 1,
+    "step_months": 1,
+    "primary_objective": "sharpe",
+    "secondary_objectives": ["stability"],
+    "stability_weight": 0.1
+  },
+  "evaluation_criteria": {
+    "status_gate": "WFA must complete with valid OOS metrics for all 5 hold_bars values; trade count >= 30 per parameter value for statistical significance",
+    "metrics": {
+      "min_sharpe_oos": 0.4,
+      "min_wfr": 0.5,
+      "max_drawdown_pct": 35,
+      "min_trades_per_param": 30,
+      "robustness_threshold": "Adjacent hold_bars values (144, 192) achieve >= 80% of 168-bar Sharpe"
+    },
+    "min_evidence_score": 55
+  },
+  "fallback_if_blocked": [
+    "If data file is stale or missing, download fresh from Binance public API and save to workspace/data/binance_bnbusdt_1h_deep.csv",
+    "If WFA engine fails to run, fall back to single-parameter grid search using workspace/harness/wfa_minimal.py with manual hold_bars loop"
+  ],
+  "notes": [
+    "This is a bounded robustness test - not a full re-optimization. All parameters except hold_bars are fixed to the discovered optimal values.",
+    "Grid sampling strategy (5 trials) is intentional - we are testing robustness, not searching for new optimum.",
+    "Evidence boundary: research_wfa only. Do not claim MT5/FTMO promotability from this bounded test.",
+    "If 168-bar remains best with adjacent values significantly worse, the result is overfit. If adjacent values are comparable, 168 is robust."
+  ]
+}
+</RF_JSON>

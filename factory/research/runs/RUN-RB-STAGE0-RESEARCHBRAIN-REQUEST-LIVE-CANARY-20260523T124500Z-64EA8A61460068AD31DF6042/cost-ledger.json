@@ -1,0 +1,12 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-06-07T21:38:26.779Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "deepseek-v4-pro",
+  "live_llm": true,
+  "estimated_cost_usd": 0,
+  "max_cost_usd": 0.25,
+  "events": [],
+  "failure": "OpenAI-compatible ResearchBrain LLM adapter HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"GoUsageLimitError\",\"message\":\"Monthly usage limit reached. Resets in 10hr 21min. To continue using this model now, enable usage from your available balance: https://opencode.ai/workspace/wrk_01KQAV2820HHVVZFD18YRX4AGM/go\"},\"metadata\":{\"workspace\":\"wrk_01KQAV2820HHVVZFD18YRX4AGM\",\"limitName\":\"monthly\"}}"
+}

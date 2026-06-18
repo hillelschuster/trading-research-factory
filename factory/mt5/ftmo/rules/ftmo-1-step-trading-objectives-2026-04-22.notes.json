@@ -1,0 +1,20 @@
+{
+  "schema_version": "ftmo_rule_notes_v1",
+  "created_at": "2026-05-02T11:55:00.000Z",
+  "ftmo_target": "1-step",
+  "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_1-step_notes_v1",
+  "source_date": "2026-04-22",
+  "source_url": "https://ftmo.com/en/trading-objectives/",
+  "source_quality": "primary_official_ftmo_page",
+  "source_claims_extracted": {
+    "profit_target_percent": 0.10,
+    "maximum_daily_loss_percent_of_initial_simulated_capital": 0.03,
+    "maximum_loss_percent_of_initial_simulated_capital": 0.10,
+    "maximum_loss_model": "end_of_day_trailing",
+    "best_day_rule_max_share_of_positive_days_profit": 0.50,
+    "daily_reset_window": "00:00:00 to 23:59:59 CE(S)T"
+  },
+  "not_worker_primary_rule_set_reason": "The current minimal ledger worker models static max loss. 1-Step uses an end-of-day trailing max-loss model, so it is preserved as source notes until trailing-limit support is added.",
+  "proof_scope": "source_notes_only",
+  "forward_demo_survival_claim": false
+}

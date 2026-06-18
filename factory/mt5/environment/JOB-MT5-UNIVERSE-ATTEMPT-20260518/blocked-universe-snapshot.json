@@ -1,0 +1,65 @@
+{
+  "schema_version": "mt5_tradable_universe_snapshot_v1",
+  "evidence_kind": "mt5_tradable_universe_snapshot",
+  "authority_layer": "mt5_terminal",
+  "job_id": "JOB-MT5-UNIVERSE-ATTEMPT-20260518",
+  "status": "blocked",
+  "observed_at": "2026-05-18T13:16:30.736Z",
+  "request": {
+    "schema_version": "mt5_tradable_universe_snapshot_request_v1",
+    "evidence_kind": "mt5_tradable_universe_snapshot",
+    "authority_layer": "mt5_terminal",
+    "snapshot_mode": "universe",
+    "symbol": null,
+    "timeframe": null,
+    "bars": null,
+    "universe_scope": "all_symbols",
+    "universe_filter": {
+      "scope": "all_symbols",
+      "filter_used": false,
+      "filter_pattern": null,
+      "filter_description": "no filter used"
+    },
+    "login": null,
+    "server": null,
+    "password_env_var": null,
+    "password_env_provided": false,
+    "terminal_path_provided": true,
+    "terminal_path": "provided_not_persisted"
+  },
+  "observations": {},
+  "blocked_reason": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'",
+  "diagnostics": {
+    "error_code": "metatrader5_import_failed",
+    "message": "MetaTrader5 import failed: ModuleNotFoundError: No module named 'MetaTrader5'",
+    "command": "mt5_snapshot_probe.py",
+    "python_command": "python3",
+    "python_command_was_absolute": false,
+    "terminal_path_provided_to_probe": true,
+    "terminal_path_inferred_executable": true,
+    "probe_path_style": "native",
+    "probe_path_conversion_error": null,
+    "exit_status": 2,
+    "signal": null,
+    "stdout_path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260518/probe.stdout.txt",
+    "stderr_path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260518/probe.stderr.txt",
+    "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_version": "3.12.3"
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "89cf94298f1417c548aa6ca81e2c915c3e100ae21e4bab2a6e7e1a5e8c2a6fc7",
+      "size_bytes": 15269,
+      "modified_at": "2026-05-18T12:30:50.793Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "fecca4ec2151c75e95c747ebf3d6b7c3f6fefcf05846a4c29fcf112585cb5de2",
+      "size_bytes": 17544,
+      "modified_at": "2026-05-18T13:10:22.723Z"
+    }
+  ]
+}

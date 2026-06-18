@@ -1,0 +1,48 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "job_id": "JOB-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "candidate_id": "CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-WEEKLY-CALENDAR",
+  "family_id": "btc_weekly_calendar_phase8d",
+  "attempt_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/btc_weekly_calendar_phase8d.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_btc_weekly_calendar_phase8d.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/registrations/research-wfa-RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.json",
+    "sha256": "9fb754607f1681ac833e2b64de1932439a784e65988166725d5f9467341763c7"
+  },
+  "expected_output_root": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results",
+  "timeout_ms": 3600000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ],
+  "max_buffer_bytes": 100663296
+}

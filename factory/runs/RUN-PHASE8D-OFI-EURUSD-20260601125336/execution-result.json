@@ -1,0 +1,928 @@
+{
+  "experiment_id": "EXP-PHASE8D-OFI-EURUSD-20260601125336",
+  "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "observed_at": "2026-06-01T12:59:28.912Z",
+  "artifacts_created": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-request.json",
+      "sha256": "6d29bb9843032a18535d6d2e0599d9d5d118dfa6c0f91b7e3dd3269451306a3e",
+      "size_bytes": 1847,
+      "modified_at": "2026-06-01T12:53:46.198Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "be2f1ab3b212fbffeb01f0489b7816b771ff32895df0f12ef04a2cd52a59bf97",
+      "size_bytes": 10710958,
+      "modified_at": "2026-06-01T12:59:28.692Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "1ad41a808e410f120106765c451f71fc2c6a7c2ec933358b13c864a942386fb3",
+      "size_bytes": 922067,
+      "modified_at": "2026-06-01T12:59:28.747Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/pre-run-output-snapshot.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3,
+      "modified_at": "2026-06-01T12:59:28.769Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/post-run-output-snapshot.json",
+      "sha256": "d41ec2877f49a5b70fc9c94dffb2093a2e65337a3d8ed0901d39ccebff2e9b8d",
+      "size_bytes": 1296,
+      "modified_at": "2026-06-01T12:59:28.809Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/accepted-output-artifacts.json",
+      "sha256": "62c213dc64dc13ccac801c4f63d78674e2401373f0b1e3ff7279eb4e645e022a",
+      "size_bytes": 2872,
+      "modified_at": "2026-06-01T12:59:28.838Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json",
+      "sha256": "d18deac0898ed6a594e8c8a388e1540c46225efeaeebe8e063c682e71e6409e2",
+      "size_bytes": 80103,
+      "modified_at": "2026-06-01T12:59:28.876Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/analysis.json",
+      "sha256": "9c2a110270a6ac23bdf3afc073b328dfecbdeac3ad52e7e640d14bb8906352f6",
+      "size_bytes": 2944,
+      "modified_at": "2026-06-01T12:59:26.170Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+        "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+        "family_id": "order_flow_imbalance_eurusd",
+        "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/parameter_stability_20260601_155925.json",
+      "sha256": "582f0d40732bd510b3b855f4b51d5da32d8c44d519a06c52692703a6195077ee",
+      "size_bytes": 3258,
+      "modified_at": "2026-06-01T12:59:26.246Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+        "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+        "family_id": "order_flow_imbalance_eurusd",
+        "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+      "sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+      "size_bytes": 144714,
+      "modified_at": "2026-06-01T12:59:25.985Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+        "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+        "family_id": "order_flow_imbalance_eurusd",
+        "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_summary_20260601_155925.csv",
+      "sha256": "88c0a65755d30c2391d658514515807feb1349c22bfc9fbb2d09b46ccef2a8cb",
+      "size_bytes": 29142,
+      "modified_at": "2026-06-01T12:59:26.242Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+        "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+        "family_id": "order_flow_imbalance_eurusd",
+        "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/trial-attempts.jsonl",
+      "sha256": "9a9718a50525a096187215ae06c460e7d7137414021b8291ab862ddf46e313cf",
+      "size_bytes": 4675,
+      "modified_at": "2026-06-01T12:59:29.211Z"
+    }
+  ],
+  "metrics_observed": {
+    "sharpe_is": -1.3826301893162787,
+    "sharpe_oos": -1.7714376537952325,
+    "in_sample_return_pct": -0.5441928023102875,
+    "total_trades": 2881,
+    "max_drawdown": -2.4546215805176135,
+    "profit_factor": 0.6160685952981811,
+    "win_rate": 0.35022561610551894,
+    "aggregate_return_pct": -0.49764837478359614,
+    "total_windows": 87,
+    "successful_windows": 87,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+    "canonical_wfa_config_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-06-01T12:53:46.189Z",
+    "worker_end_time": "2026-06-01T12:59:28.912Z",
+    "duration_ms": 342723,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+    "per_window_metrics_count": 87,
+    "expected_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+      "config_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+      "canonical_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": -1.3826301893162787,
+        "source": {
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": -1.7714376537952325,
+        "source": {
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.914471,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.5441928023102875,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.49764837478359614,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "parameter_instability_flagged",
+      "source": {
+        "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+        "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 87,
+      "total_reported_windows": 87,
+      "unique_parameter_sets": 87,
+      "changed_window_count": 86,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+        "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+        "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 12,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 3600,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+          "source_sha256": "510623203f3a44bc7f8291bb8d13bfe387687523fc30aa3663703d7ed0374a5e",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-06-01T12:54:08.395550+00:00",
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-06-01T12:59:25.854556+00:00",
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 317.459006,
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-OFI-EURUSD-20260601125336/registrations/research-wfa-RUN-PHASE8D-OFI-EURUSD-20260601125336.json",
+      "sha256": "4a4f3df53995ae0d74f257d51a24fe2fff61afef73e41b71165a35ef9a47c9cc"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null,
+    "phase8d_screening_attempt": true,
+    "hypothesis_packet_path": "factory/research/manual/PHASE8D-OFI-EURUSD-20260601125336/hypothesis-packet.json",
+    "research_wfa_preregistration_path": "factory/candidates/CAND-PHASE8D-OFI-EURUSD-20260601125336/registrations/research-wfa-RUN-PHASE8D-OFI-EURUSD-20260601125336.json"
+  },
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+      "sha256": "510623203f3a44bc7f8291bb8d13bfe387687523fc30aa3663703d7ed0374a5e",
+      "size_bytes": 1477,
+      "modified_at": "2026-06-01T12:46:25.740Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/order_flow_imbalance_eurusd.py",
+      "sha256": "f0e5877204f6b3cfeb2c91cb14a35268125d4e66b2d121a7eca150f4da74bf1a",
+      "size_bytes": 8638,
+      "modified_at": "2026-06-01T12:46:25.639Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_order_flow_imbalance_eurusd.json",
+      "sha256": "216f22cefdaeffff31725bd6b0f480e4e75f68db7a4f52e031435ced05cc8b28",
+      "size_bytes": 1446,
+      "modified_at": "2026-06-01T12:46:25.664Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-OFI-EURUSD-20260601125336/registrations/research-wfa-RUN-PHASE8D-OFI-EURUSD-20260601125336.json",
+      "sha256": "4a4f3df53995ae0d74f257d51a24fe2fff61afef73e41b71165a35ef9a47c9cc",
+      "size_bytes": 4005,
+      "modified_at": "2026-06-01T12:53:42.701Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-OFI-EURUSD-20260601125336/hypothesis-packet.json",
+      "sha256": "acf40352a570f31d8a71e8b28e2d364b46c047648b7be417db26503ab86716cf"
+    }
+  ],
+  "worker_result": {
+    "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+    "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+    "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+    "worker": "research_wfa_run",
+    "evidence_kind": "research_wfa",
+    "authority_layer": "python_research",
+    "schema_version": "research_wfa_run_worker_v1",
+    "status": "succeeded",
+    "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+    "family_id": "order_flow_imbalance_eurusd",
+    "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1",
+    "attempt_type": "worker_launched_wfa",
+    "artifacts": [
+      {
+        "artifact_type": "worker_request",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-request.json",
+        "sha256": "6d29bb9843032a18535d6d2e0599d9d5d118dfa6c0f91b7e3dd3269451306a3e",
+        "size_bytes": 1847,
+        "modified_at": "2026-06-01T12:53:46.198Z"
+      },
+      {
+        "artifact_type": "stdout",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+        "sha256": "be2f1ab3b212fbffeb01f0489b7816b771ff32895df0f12ef04a2cd52a59bf97",
+        "size_bytes": 10710958,
+        "modified_at": "2026-06-01T12:59:28.692Z"
+      },
+      {
+        "artifact_type": "stderr",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt",
+        "sha256": "1ad41a808e410f120106765c451f71fc2c6a7c2ec933358b13c864a942386fb3",
+        "size_bytes": 922067,
+        "modified_at": "2026-06-01T12:59:28.747Z"
+      },
+      {
+        "artifact_type": "pre_run_output_snapshot",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/pre-run-output-snapshot.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "size_bytes": 3,
+        "modified_at": "2026-06-01T12:59:28.769Z"
+      },
+      {
+        "artifact_type": "post_run_output_snapshot",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/post-run-output-snapshot.json",
+        "sha256": "d41ec2877f49a5b70fc9c94dffb2093a2e65337a3d8ed0901d39ccebff2e9b8d",
+        "size_bytes": 1296,
+        "modified_at": "2026-06-01T12:59:28.809Z"
+      },
+      {
+        "artifact_type": "accepted_output_manifest",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/accepted-output-artifacts.json",
+        "sha256": "62c213dc64dc13ccac801c4f63d78674e2401373f0b1e3ff7279eb4e645e022a",
+        "size_bytes": 2872,
+        "modified_at": "2026-06-01T12:59:28.838Z"
+      },
+      {
+        "artifact_type": "parsed_wfa_metrics",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json",
+        "sha256": "d18deac0898ed6a594e8c8a388e1540c46225efeaeebe8e063c682e71e6409e2",
+        "size_bytes": 80103,
+        "modified_at": "2026-06-01T12:59:28.876Z"
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/analysis.json",
+        "sha256": "9c2a110270a6ac23bdf3afc073b328dfecbdeac3ad52e7e640d14bb8906352f6",
+        "size_bytes": 2944,
+        "modified_at": "2026-06-01T12:59:26.170Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+          "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+          "family_id": "order_flow_imbalance_eurusd",
+          "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/parameter_stability_20260601_155925.json",
+        "sha256": "582f0d40732bd510b3b855f4b51d5da32d8c44d519a06c52692703a6195077ee",
+        "size_bytes": 3258,
+        "modified_at": "2026-06-01T12:59:26.246Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+          "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+          "family_id": "order_flow_imbalance_eurusd",
+          "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+        "sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+        "size_bytes": 144714,
+        "modified_at": "2026-06-01T12:59:25.985Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+          "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+          "family_id": "order_flow_imbalance_eurusd",
+          "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_summary_20260601_155925.csv",
+        "sha256": "88c0a65755d30c2391d658514515807feb1349c22bfc9fbb2d09b46ccef2a8cb",
+        "size_bytes": 29142,
+        "modified_at": "2026-06-01T12:59:26.242Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+          "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+          "family_id": "order_flow_imbalance_eurusd",
+          "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "trial_attempt_record",
+        "path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/trial-attempts.jsonl",
+        "sha256": "9a9718a50525a096187215ae06c460e7d7137414021b8291ab862ddf46e313cf",
+        "size_bytes": 4675,
+        "modified_at": "2026-06-01T12:59:29.211Z"
+      }
+    ],
+    "metrics": {
+      "sharpe_is": -1.3826301893162787,
+      "sharpe_oos": -1.7714376537952325,
+      "in_sample_return_pct": -0.5441928023102875,
+      "total_trades": 2881,
+      "max_drawdown": -2.4546215805176135,
+      "profit_factor": 0.6160685952981811,
+      "win_rate": 0.35022561610551894,
+      "aggregate_return_pct": -0.49764837478359614,
+      "total_windows": 87,
+      "successful_windows": 87,
+      "failed_windows": 0
+    },
+    "observations": {
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "canonical_wfa_config_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+      "execution_was_run_by_this_worker": true,
+      "worker_start_time": "2026-06-01T12:53:46.189Z",
+      "worker_end_time": "2026-06-01T12:59:28.912Z",
+      "duration_ms": 342723,
+      "timed_out": false,
+      "exit_code": 0,
+      "signal": null,
+      "stdout_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+      "stderr_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt",
+      "accepted_output_count": 4,
+      "metrics_artifact_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+      "per_window_metrics_count": 87,
+      "expected_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+      "output_root_truth": {
+        "matched": true,
+        "expected_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+        "config_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+        "canonical_output_root": "walk forward engine/strategies/order_flow_imbalance_eurusd/results",
+        "errors": []
+      },
+      "metric_readiness": {
+        "sharpe_is": {
+          "status": "available",
+          "value": -1.3826301893162787,
+          "source": {
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+          }
+        },
+        "sharpe_oos": {
+          "status": "available",
+          "value": -1.7714376537952325,
+          "source": {
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+          }
+        },
+        "wfe": {
+          "status": "computed_artifact_backed",
+          "value": -0.914471,
+          "inputs": {
+            "in_sample_return_pct": {
+              "available": true,
+              "value": -0.5441928023102875,
+              "source": {
+                "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+                "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+                "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+              }
+            },
+            "aggregate_return_pct": {
+              "available": true,
+              "value": -0.49764837478359614,
+              "source": {
+                "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+                "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+                "source_field": "aggregate_return_pct|total_return_pct"
+              }
+            }
+          }
+        },
+        "wfr": {
+          "status": "computed_artifact_backed",
+          "value": 1,
+          "inputs": {
+            "successful_windows": {
+              "available": true,
+              "value": 87,
+              "source": {
+                "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+                "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+                "source_field": "successful_windows"
+              }
+            },
+            "total_windows": {
+              "available": true,
+              "value": 87,
+              "source": {
+                "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+                "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+                "source_field": "total_windows"
+              }
+            }
+          }
+        }
+      },
+      "parameter_stability": {
+        "status": "parameter_instability_flagged",
+        "source": {
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "window_results[].best_parameters"
+        },
+        "windows_with_parameters": 87,
+        "total_reported_windows": 87,
+        "unique_parameter_sets": 87,
+        "changed_window_count": 86,
+        "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+      },
+      "cost_assumptions": {
+        "available": true,
+        "values": {
+          "fees": {
+            "value": 0.0001,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.fees"
+          },
+          "slippage": {
+            "value": 0.0001,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.slippage"
+          }
+        },
+        "missing_because": null
+      },
+      "optimization_truth": {
+        "status": "not_emitted",
+        "source": {
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "optimization_truth"
+        },
+        "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+      },
+      "warmup_diagnostics": {
+        "status": "not_emitted",
+        "source": {
+          "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+          "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+          "source_field": "warmup_diagnostics"
+        },
+        "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+      },
+      "timing_assumptions": {
+        "available": true,
+        "values": {
+          "training_months": {
+            "value": 6,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.training_months"
+          },
+          "testing_months": {
+            "value": 3,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.testing_months"
+          },
+          "step_months": {
+            "value": 3,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.step_months"
+          },
+          "n_parameter_trials": {
+            "value": 12,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.n_parameter_trials"
+          },
+          "use_vectorized_backtest": {
+            "value": true,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.use_vectorized_backtest"
+          },
+          "performance_mode": {
+            "value": true,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "config.performance_mode"
+          },
+          "max_execution_time_seconds": {
+            "value": 3600,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+            "source_sha256": "510623203f3a44bc7f8291bb8d13bfe387687523fc30aa3663703d7ed0374a5e",
+            "source_field": "performance.max_execution_time_seconds"
+          },
+          "execution_start_time": {
+            "value": "2026-06-01T12:54:08.395550+00:00",
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "execution_start_time"
+          },
+          "execution_end_time": {
+            "value": "2026-06-01T12:59:25.854556+00:00",
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "execution_end_time"
+          },
+          "total_execution_time_seconds": {
+            "value": 317.459006,
+            "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+            "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+            "source_field": "total_execution_time_seconds"
+          }
+        },
+        "missing_because": null
+      },
+      "optional_wfa_artifacts": {
+        "trade_ledger": {
+          "available": false,
+          "artifact_type": "wfa_trade_ledger",
+          "artifacts": [],
+          "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+        },
+        "equity_curve": {
+          "available": false,
+          "artifact_type": "wfa_equity_curve",
+          "artifacts": [],
+          "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+        },
+        "optimizer_trials": {
+          "available": false,
+          "artifact_type": "wfa_optimizer_trials",
+          "artifacts": [],
+          "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+        }
+      },
+      "research_wfa_preregistration": {
+        "artifact_type": "research_wfa_preregistration",
+        "path": "factory/candidates/CAND-PHASE8D-OFI-EURUSD-20260601125336/registrations/research-wfa-RUN-PHASE8D-OFI-EURUSD-20260601125336.json",
+        "sha256": "4a4f3df53995ae0d74f257d51a24fe2fff61afef73e41b71165a35ef9a47c9cc"
+      },
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+        "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+        "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+        "family_id": "order_flow_imbalance_eurusd",
+        "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+      },
+      "stale_output_guard": {
+        "passed": true,
+        "checked_count": 4,
+        "stale_paths": []
+      },
+      "zero_trade_policy": null
+    },
+    "observed_at": "2026-06-01T12:59:28.912Z",
+    "blocked_reason": null,
+    "source_hashes": [
+      {
+        "artifact_type": "worker_source",
+        "path": "src/workers/research-wfa-run-worker.mjs",
+        "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+        "size_bytes": 48034,
+        "modified_at": "2026-05-24T14:58:00.609Z"
+      },
+      {
+        "artifact_type": "wfa_config",
+        "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+        "sha256": "510623203f3a44bc7f8291bb8d13bfe387687523fc30aa3663703d7ed0374a5e",
+        "size_bytes": 1477,
+        "modified_at": "2026-06-01T12:46:25.740Z"
+      },
+      {
+        "artifact_type": "strategy_source",
+        "path": "walk forward engine/src/strategies/order_flow_imbalance_eurusd.py",
+        "sha256": "f0e5877204f6b3cfeb2c91cb14a35268125d4e66b2d121a7eca150f4da74bf1a",
+        "size_bytes": 8638,
+        "modified_at": "2026-06-01T12:46:25.639Z"
+      },
+      {
+        "artifact_type": "strategy_config",
+        "path": "walk forward engine/config/strategy_order_flow_imbalance_eurusd.json",
+        "sha256": "216f22cefdaeffff31725bd6b0f480e4e75f68db7a4f52e031435ced05cc8b28",
+        "size_bytes": 1446,
+        "modified_at": "2026-06-01T12:46:25.664Z"
+      },
+      {
+        "artifact_type": "data_input",
+        "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+        "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+        "size_bytes": 33688140,
+        "modified_at": "2025-12-16T10:20:11.520Z"
+      },
+      {
+        "artifact_type": "research_wfa_preregistration",
+        "path": "factory/candidates/CAND-PHASE8D-OFI-EURUSD-20260601125336/registrations/research-wfa-RUN-PHASE8D-OFI-EURUSD-20260601125336.json",
+        "sha256": "4a4f3df53995ae0d74f257d51a24fe2fff61afef73e41b71165a35ef9a47c9cc",
+        "size_bytes": 4005,
+        "modified_at": "2026-06-01T12:53:42.701Z"
+      }
+    ],
+    "diagnostics": {
+      "error_code": null,
+      "message": null,
+      "stdout_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+      "stderr_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt"
+    },
+    "environment": {
+      "node_version": "v24.0.2",
+      "platform": "linux",
+      "arch": "x64"
+    }
+  },
+  "status": "executed",
+  "provenance": {
+    "engine": "walk_forward_engine",
+    "command": ".venv/Scripts/python.exe scripts/walk_forward_smoke_test.py --config strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+    "working_directory": "walk forward engine",
+    "python_executable": ".venv/Scripts/python.exe",
+    "config_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+    "result_artifacts": [
+      "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+      "walk forward engine/strategies/order_flow_imbalance_eurusd/results/analysis.json",
+      "walk forward engine/strategies/order_flow_imbalance_eurusd/results/parameter_stability_20260601_155925.json",
+      "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_summary_20260601_155925.csv",
+      "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json"
+    ],
+    "parsed_metrics_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json",
+    "per_window_metrics_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json",
+    "windows_completed": 87,
+    "windows_failed": 0,
+    "total_trades": 2881,
+    "started_at": "2026-06-01T12:53:46.189Z",
+    "ended_at": "2026-06-01T12:59:28.912Z",
+    "duration_ms": 342723,
+    "timeout_ms": 3600000,
+    "timed_out": false,
+    "exit_code": 0,
+    "stdout_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/research-wfa-run-stderr.txt",
+    "pre_run_snapshot_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/pre-run-output-snapshot.json",
+    "accepted_outputs_path": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/accepted-output-artifacts.json",
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "job_id": "JOB-RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "lineage_id": "LINEAGE-PHASE8D-OFI-EURUSD",
+      "family_id": "order_flow_imbalance_eurusd",
+      "attempt_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336-EXECUTOR-ATTEMPT-1"
+    }
+  }
+}

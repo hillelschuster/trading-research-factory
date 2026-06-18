@@ -1,0 +1,270 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-06-17T20:18:12.538Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "deepseek",
+  "llm_model": "deepseek-v4-flash",
+  "live_llm": true,
+  "estimated_cost_usd": 0.000041,
+  "max_cost_usd": 0.25,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_research_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000003
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000004
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000005
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000006
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000007
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000008
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000009
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000011
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000012
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000013
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000014
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000015
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000016
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000017
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000018
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000019
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00002
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000021
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000022
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000023
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000024
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000025
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000026
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000027
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000028
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000029
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00003
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000031
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000032
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000033
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000034
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000035
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000036
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000037
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000038
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000039
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00004
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000041
+    }
+  ],
+  "failure": "ResearchBrain tool call budget exceeded: 30"
+}

@@ -1,0 +1,448 @@
+{
+  "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "succeeded",
+  "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+  "family_id": "fx_fix_reversal_eurusd",
+  "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-request.json",
+      "sha256": "1c34ec888edba4dc7d22e23ae544fa16681d5a5256a72fb2f3bcd238ca80931f",
+      "size_bytes": 1918,
+      "modified_at": "2026-06-01T20:05:01.433Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "2f9ca6394738c6c74ad495874d75db7e3892683f86b8382b48b7e9b0f24403cf",
+      "size_bytes": 10665151,
+      "modified_at": "2026-06-01T20:08:50.446Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "e038320b3dce482605db358eeb436acf4a2eccaa4d173354c779b219e392ce39",
+      "size_bytes": 1328525,
+      "modified_at": "2026-06-01T20:08:50.494Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/pre-run-output-snapshot.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3,
+      "modified_at": "2026-06-01T20:08:50.542Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/post-run-output-snapshot.json",
+      "sha256": "f72939446d531e7d0bd07715b420c42d90f53498bdbdae25ff82accea129df57",
+      "size_bytes": 1276,
+      "modified_at": "2026-06-01T20:08:50.575Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/accepted-output-artifacts.json",
+      "sha256": "15670ba9330f263f379e64e75b95cde480b5f535a2d77a78b45714dd1cd13a8e",
+      "size_bytes": 3072,
+      "modified_at": "2026-06-01T20:08:50.603Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/parsed-wfa-metrics.json",
+      "sha256": "b8c1f75215d1f927aaeb6967b636316746a0d82977ea4500a7ed8c83f6ce342e",
+      "size_bytes": 86954,
+      "modified_at": "2026-06-01T20:08:50.635Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/analysis.json",
+      "sha256": "f99b027a92f0186c7a4537d9a6a35a2ce2ba1cc5f1d9edf9547002441d8f94fb",
+      "size_bytes": 2926,
+      "modified_at": "2026-06-01T20:08:48.376Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+        "family_id": "fx_fix_reversal_eurusd",
+        "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/parameter_stability_20260601_230848.json",
+      "sha256": "b2607da2808b346e7ad0cef66327eda0b06c429ed8e696458605fb2d5d75d2de",
+      "size_bytes": 3535,
+      "modified_at": "2026-06-01T20:08:48.400Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+        "family_id": "fx_fix_reversal_eurusd",
+        "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+      "sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+      "size_bytes": 152300,
+      "modified_at": "2026-06-01T20:08:48.259Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+        "family_id": "fx_fix_reversal_eurusd",
+        "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_summary_20260601_230848.csv",
+      "sha256": "1b5e129016df355a4d461c81fdbdb298c4d5459686698d6e7d14e5b243fac58b",
+      "size_bytes": 30573,
+      "modified_at": "2026-06-01T20:08:48.400Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+        "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+        "family_id": "fx_fix_reversal_eurusd",
+        "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/trial-attempts.jsonl",
+      "sha256": "4b1aacc83bb43e09476652adfd01d728db19677055cf49d74567ff9879c47400",
+      "size_bytes": 4827,
+      "modified_at": "2026-06-01T20:08:50.884Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_is": -2.7807250111107287,
+    "sharpe_oos": -3.81405628273434,
+    "in_sample_return_pct": -0.9070426516315501,
+    "total_trades": 3451,
+    "max_drawdown": -1.7195453798320166,
+    "profit_factor": 0.4559520614107392,
+    "win_rate": 0.35670820052158797,
+    "aggregate_return_pct": -0.6831799131586901,
+    "total_windows": 87,
+    "successful_windows": 87,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+    "canonical_wfa_config_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-06-01T20:05:01.035Z",
+    "worker_end_time": "2026-06-01T20:08:50.580Z",
+    "duration_ms": 229545,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+    "per_window_metrics_count": 87,
+    "expected_output_root": "walk forward engine/strategies/fx_fix_reversal_eurusd/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/fx_fix_reversal_eurusd/results",
+      "config_output_root": "walk forward engine/strategies/fx_fix_reversal_eurusd/results",
+      "canonical_output_root": "walk forward engine/strategies/fx_fix_reversal_eurusd/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": -2.7807250111107287,
+        "source": {
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": -3.81405628273434,
+        "source": {
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.753195,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.9070426516315501,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.6831799131586901,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "parameter_instability_flagged",
+      "source": {
+        "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+        "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 87,
+      "total_reported_windows": 87,
+      "unique_parameter_sets": 87,
+      "changed_window_count": 86,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+        "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+        "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 12,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 3600,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+          "source_sha256": "f43b100a84cc12fdb2be3064664fb6e92c184091f1154d4acb102a5e578f144f",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-06-01T20:05:21.361875+00:00",
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-06-01T20:08:48.177226+00:00",
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 206.815351,
+          "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+          "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+      "family_id": "fx_fix_reversal_eurusd",
+      "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-06-01T20:08:50.580Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+      "sha256": "f43b100a84cc12fdb2be3064664fb6e92c184091f1154d4acb102a5e578f144f",
+      "size_bytes": 1539,
+      "modified_at": "2026-06-01T19:55:57.420Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/fx_fix_reversal_eurusd.py",
+      "sha256": "2ace1ee7be916b118bc89cae0d35c127b89d9298cbb7f2692b67fb8b2902185e",
+      "size_bytes": 8646,
+      "modified_at": "2026-06-01T19:55:57.082Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_fx_fix_reversal_eurusd.json",
+      "sha256": "0172477eb4e86e4c134ba9eb5529e57104cba2c66125e715c41186ce31bb7218",
+      "size_bytes": 1573,
+      "modified_at": "2026-06-01T19:55:57.160Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406",
+      "size_bytes": 4109,
+      "modified_at": "2026-06-01T20:04:58.105Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

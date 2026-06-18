@@ -247,6 +247,8 @@ def main():
             optimization_seed=wf_settings.get('optimization_seed', None),
             min_bars_per_window=data_settings.get('min_required_bars', 100),
             use_vectorized_backtest=wf_settings.get('use_vectorized_backtest', False),
+            purge_gap_bars=wf_settings.get('purge_gap_bars', 0),
+            indicator_warmup_bars=wf_settings.get('indicator_warmup_bars', 0),
             # NEW: Pass YAML parameter_ranges as override
             parameter_ranges_override=param_ranges_override,
             # NEW: Pass transaction costs from YAML (None means use defaults with warning)

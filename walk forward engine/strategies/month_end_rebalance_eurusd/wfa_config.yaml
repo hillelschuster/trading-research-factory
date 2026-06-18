@@ -1,0 +1,59 @@
+# Phase 8D screening route: EURUSD M15 month-end rebalancing-flow seasonality.
+
+walk_forward:
+  training_months: 6
+  testing_months: 3
+  step_months: 3
+  n_parameter_trials: 12
+  min_bars_per_window: 1000
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/month_end_rebalance_eurusd/results"
+
+data:
+  source_file: "data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  min_required_bars: 1000
+  timezone: "UTC"
+
+strategy:
+  profile_key: "MONTH_END_REBALANCE_EURUSD"
+  parameter_ranges:
+    momentum_lookback: [4, 8, 12, 16]
+    momentum_threshold: [0.00015, 0.00025, 0.0004, 0.0006]
+    volume_lookback: [48, 96, 192]
+    volume_ratio_min: [0.7, 0.9, 1.1]
+    atr_period: [10, 14, 20]
+    vol_lookback: [48, 96, 192]
+    vol_ratio_min: [0.6, 0.8, 1.0]
+    max_hold_bars: [4, 8, 12, 16]
+    sl_atr_mult: [1.0, 1.5, 2.0]
+    tp_atr_mult: [1.5, 2.0, 3.0]
+    start_hour: [12, 13, 14]
+    end_hour: [19, 21, 22]
+    direction_mode: ["continuation", "fade"]
+    include_first_day: [true, false]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "stability"
+    - "return"
+  stability_weight: 0.15
+  n_startup_trials: 6
+
+backtest:
+  initial_balance: 10000.0
+  fees: 0.0001
+  slippage: 0.0001
+
+performance:
+  max_execution_time_seconds: 3600
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_month_end_rebalance_eurusd.log"

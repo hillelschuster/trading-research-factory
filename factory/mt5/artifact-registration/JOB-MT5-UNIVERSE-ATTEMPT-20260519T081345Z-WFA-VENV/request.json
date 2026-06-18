@@ -1,0 +1,8 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_request_v1",
+  "registration_id": "PHASE8A-MT5-ARTIFACT-REGISTRATION-20260519T081345Z-WFA-VENV-SUCCEEDED-UNIVERSE",
+  "output_dir": "factory/mt5/artifact-registration/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV",
+  "artifact_paths": [
+    "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json"
+  ]
+}

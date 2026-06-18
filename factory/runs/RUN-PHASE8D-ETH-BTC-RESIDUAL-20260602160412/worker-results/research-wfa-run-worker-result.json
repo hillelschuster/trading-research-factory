@@ -1,0 +1,448 @@
+{
+  "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "succeeded",
+  "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+  "family_id": "eth_btc_residual_phase8d",
+  "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-request.json",
+      "sha256": "4baf13d658ae9af08e06df416e53bcf1c66cda601328f57786ba0e9e39cf5279",
+      "size_bytes": 1856,
+      "modified_at": "2026-06-02T16:04:15.237Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "bd380682d06657e37c2903666088b60a3a3958cd1ce869cbb3a332d76f4bf0fd",
+      "size_bytes": 1711223,
+      "modified_at": "2026-06-02T16:22:46.665Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "8b509afe3ffe6be8e6e6651571de0660d3579b38774f7b21b629e664f738aac8",
+      "size_bytes": 399591,
+      "modified_at": "2026-06-02T16:22:46.714Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/pre-run-output-snapshot.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3,
+      "modified_at": "2026-06-02T16:22:46.751Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/post-run-output-snapshot.json",
+      "sha256": "5d519800eb214ce207a5f030e10edd9edd63861a214bc642a0042914a32cb0f9",
+      "size_bytes": 1283,
+      "modified_at": "2026-06-02T16:22:46.788Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/accepted-output-artifacts.json",
+      "sha256": "0a086789095bfca0dadb56782858d4b5ad54afb12e360f9b8ad477f5fefa8bb7",
+      "size_bytes": 2967,
+      "modified_at": "2026-06-02T16:22:46.825Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/parsed-wfa-metrics.json",
+      "sha256": "a62de33f23961b5f106cd418f12611db3ca95929d4e04b27618e6a00ef54aca7",
+      "size_bytes": 43605,
+      "modified_at": "2026-06-02T16:22:46.869Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/analysis.json",
+      "sha256": "f2a389922e92198d8a99bbe4c71d17d39bebb79b22815acb148f74b0b73a97db",
+      "size_bytes": 2932,
+      "modified_at": "2026-06-02T16:22:43.535Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+        "family_id": "eth_btc_residual_phase8d",
+        "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/parameter_stability_20260602_192243.json",
+      "sha256": "f6bb0e58f8d245d14d0e9d0020c290f45e4288c90fdf63b9a6220b69c9c11085",
+      "size_bytes": 1472,
+      "modified_at": "2026-06-02T16:22:43.600Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+        "family_id": "eth_btc_residual_phase8d",
+        "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+      "sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+      "size_bytes": 81404,
+      "modified_at": "2026-06-02T16:22:43.316Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+        "family_id": "eth_btc_residual_phase8d",
+        "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_summary_20260602_192243.csv",
+      "sha256": "89a8c623d544544837dac9632caf7c666d5edf9eefefa7b2445adbe8e381d3bf",
+      "size_bytes": 17399,
+      "modified_at": "2026-06-02T16:22:43.594Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+        "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+        "family_id": "eth_btc_residual_phase8d",
+        "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/trial-attempts.jsonl",
+      "sha256": "733dff29e71a96295f7f805cf7b66dd72a4fe04aacd4f3d0652d8a46c6778533",
+      "size_bytes": 4721,
+      "modified_at": "2026-06-02T16:22:47.075Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_is": 0.4069316147607252,
+    "sharpe_oos": -1.3240707834957792,
+    "in_sample_return_pct": 1.4566701834691387,
+    "total_trades": 919,
+    "max_drawdown": -8.894927697513374,
+    "profit_factor": 0.7244491750213435,
+    "win_rate": 0.43743199129488575,
+    "aggregate_return_pct": -0.9621596271451213,
+    "total_windows": 57,
+    "successful_windows": 57,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+    "canonical_wfa_config_path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-06-02T16:04:16.404Z",
+    "worker_end_time": "2026-06-02T16:22:48.628Z",
+    "duration_ms": 1112224,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+    "per_window_metrics_count": 57,
+    "expected_output_root": "walk forward engine/strategies/eth_btc_residual_phase8d/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/eth_btc_residual_phase8d/results",
+      "config_output_root": "walk forward engine/strategies/eth_btc_residual_phase8d/results",
+      "canonical_output_root": "walk forward engine/strategies/eth_btc_residual_phase8d/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": 0.4069316147607252,
+        "source": {
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": -1.3240707834957792,
+        "source": {
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.66052,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 1.4566701834691387,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.9621596271451213,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "parameter_instability_flagged",
+      "source": {
+        "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+        "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 57,
+      "total_reported_windows": 57,
+      "unique_parameter_sets": 57,
+      "changed_window_count": 56,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0006,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0002,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+        "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+        "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 25,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 3600,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+          "source_sha256": "004b21211a67068eb7bbc8a14e65c8dfc3cbecbbfc8ef5da4c34f52e067fef40",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-06-02T16:04:34.094580+00:00",
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-06-02T16:22:43.171277+00:00",
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 1089.076697,
+          "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+          "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+      "family_id": "eth_btc_residual_phase8d",
+      "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-06-02T16:22:48.628Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+      "sha256": "004b21211a67068eb7bbc8a14e65c8dfc3cbecbbfc8ef5da4c34f52e067fef40",
+      "size_bytes": 1204,
+      "modified_at": "2026-06-02T15:51:19.066Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/eth_btc_residual_phase8d.py",
+      "sha256": "6b385203f6f1570926df8cfb32dc6071a9b3135f93b93d162ddf9fcfea6fcc9e",
+      "size_bytes": 1294,
+      "modified_at": "2026-06-02T15:51:18.983Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_eth_btc_residual_phase8d.json",
+      "sha256": "e2e05d926121af6948b58eabdaa2fead05132fe650296ed7f16ac49939692da8",
+      "size_bytes": 852,
+      "modified_at": "2026-06-02T15:51:19.002Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/phase8d_eth_btc_residual_1h.csv",
+      "sha256": "f88e7a632ccf1d5383efb79e68e7b4d2613ec8ce21c650d78c8b70aa02f7427d",
+      "size_bytes": 4779873,
+      "modified_at": "2026-06-02T15:50:10.725Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091",
+      "size_bytes": 4121,
+      "modified_at": "2026-06-02T16:04:13.285Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

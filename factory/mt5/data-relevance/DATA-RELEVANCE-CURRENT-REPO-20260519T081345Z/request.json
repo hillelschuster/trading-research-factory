@@ -1,0 +1,7 @@
+{
+  "schema_version": "data_relevance_classification_request_v1",
+  "classification_id": "DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z",
+  "universe_snapshot_path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+  "research_instruments_path": "factory/mt5/data-relevance/CURRENT-REPO-RESEARCH-INSTRUMENTS-20260519T081345Z/research-instruments.json",
+  "output_dir": "factory/mt5/data-relevance/DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z"
+}

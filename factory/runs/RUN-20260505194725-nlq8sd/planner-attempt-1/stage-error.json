@@ -2,7 +2,7 @@
   "agent": "planner",
   "attempt": 1,
   "attempts": 3,
-  "failure_class": "stage_output_failure",
+  "failure_class": "orchestrator_bug",
   "transport_phase": null,
   "retryable": null,
   "timeout_bucket": null,
@@ -10,8 +10,8 @@
   "server_fingerprint": null,
   "error": {
     "name": "Error",
-    "message": "Structured RF JSON block not found.",
-    "stack": "Error: Structured RF JSON block not found.\n    at extractRfJson (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/parse.mjs:3:21)\n    at file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1395:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:367:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1454:32)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
+    "message": "Planner result expected artifacts must not contain placeholder tokens.",
+    "stack": "Error: Planner result expected artifacts must not contain placeholder tokens.\n    at validatePlannerResult (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/validators.mjs:350:11)\n    at validate (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1694:15)\n    at file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1540:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async callWithRetry (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:430:14)\n    at async runFactory (file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/core/orchestrator.mjs:1682:32)\n    at async file:///mnt/c/Users/%D7%94%D7%9C%D7%9C/Desktop/algo%20projects/trading-research-factory/src/cli.mjs:91:20",
     "failure_class": null,
     "retry_class": null,
     "transport_phase": null,
@@ -21,14 +21,14 @@
     "server_fingerprint": null,
     "cause": null
   },
-  "message": "Structured RF JSON block not found.",
-  "recorded_at": "2026-05-05T19:52:19.692Z",
+  "message": "Planner result expected artifacts must not contain placeholder tokens.",
+  "recorded_at": "2026-05-13T10:40:57.744Z",
   "input_snapshot": {
     "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
     "backlogItem": {
       "id": "IDEA-783243-8vz",
       "title": "BNB EMA Trend Gate bounded hold-period robustness WFA",
-      "status": "ready",
+      "status": "infra_blocked",
       "priority": 78,
       "category": "strategy",
       "objective": "Run a bounded WFA on BNBUSDT EMA Trend Gate to test whether hold_bars values around the prior 168-bar optimum are robust rather than overfit. Market: crypto. Instrument: BNBUSDT spot. Timeframe: 1h entries with 4h EMA regime filter. Data source: existing Binance CSV at walk forward engine/data/binance_bnbusdt_1h_deep.csv. Expected route: create or update a strategy-local WFA config under walk forward engine/strategies/ema_trend_gate_bnb_hold_sensitivity/wfa_config.yaml using the existing EMA_TREND_GATE strategy and a narrow hold_bars grid such as 96/120/144/168/192 with fixed core parameters. Evidence boundary: research_wfa only; reject parameter-only optimism unless window stability and trade count support it.",
@@ -49,10 +49,12 @@
       "quarantine_until": null,
       "lease_owner": null,
       "lease_expires_at": null,
-      "current_run_id": null,
-      "last_failure_class": null,
-      "resume_from_stage": null,
-      "last_verdict": null
+      "current_run_id": "RUN-20260505194725-nlq8sd",
+      "last_failure_class": "transport_failure",
+      "resume_from_stage": "planner",
+      "last_verdict": null,
+      "started_at": "2026-05-05T19:47:30.253Z",
+      "last_error": "planner transport request timed out waiting for response headers."
     },
     "retrieval": {
       "relevant_lessons": [

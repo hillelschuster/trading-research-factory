@@ -1,0 +1,54 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "source_id": "SRC-LIVE-CANARY-001",
+  "source_type": "web_captured_source",
+  "trust_tier": "low_signal_trust",
+  "url_or_path_or_doi": "https://forexmt4indicators.com/bollinger-band-mean-reversal-forex-trading-strategy/",
+  "accessed_at": "2026-05-23T12:57:02.348Z",
+  "content_hash_or_unavailable_reason": "1190489943c87562cce40390aafd5ac792d1d6295781957f4a33f058f0148d6a",
+  "claims_extracted": [
+    "Bollinger Band mean reversion entry requires price touching upper/lower band",
+    "Stochastic oscillator above 80 (sell) or below 20 (buy) confirms overextension",
+    "Bearish/bullish reversal candlestick pattern provides entry timing",
+    "Stop loss placed on fractal above/below entry candle",
+    "Exit triggered when Stochastic solid line crosses dashed line",
+    "Strategy works best in ranging market conditions, not trending"
+  ],
+  "limitations": [
+    "Source is a free indicator website, not peer-reviewed research",
+    "No out-of-sample performance data or statistical significance tests",
+    "Strategy may fail in strongly trending markets",
+    "No FTMO-specific execution or contract-spec verification",
+    "MQL5 equivalence not verified"
+  ],
+  "disconfirming_relevance": [
+    "Ranging-condition dependency means strategy likely fails during trend regimes",
+    "No tick-data or spread/slippage modeling included",
+    "Fractal-based stop loss may be vulnerable to noise in low timeframes"
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T133000Z/sources/SRC-LIVE-CANARY-001.md",
+    "sha256": "1190489943c87562cce40390aafd5ac792d1d6295781957f4a33f058f0148d6a"
+  },
+  "source_fetch": {
+    "mode": "repo_local_file_capture",
+    "artifact": {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T133000Z/tool-captures/url/SRC-LIVE-CANARY-001/content.md",
+      "sha256": "1190489943c87562cce40390aafd5ac792d1d6295781957f4a33f058f0148d6a"
+    },
+    "live_fetch": false
+  },
+  "request_id": "RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z",
+  "provider_provenance": {
+    "tool": "capture_url_source",
+    "source_class": "web",
+    "live_research": true,
+    "deterministic_capture": true,
+    "adapter": {
+      "provider": "brave_search_api_capture",
+      "live_fetch": true,
+      "provider_native_search_enabled": false
+    }
+  }
+}

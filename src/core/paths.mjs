@@ -46,7 +46,6 @@ export function buildPaths(rootRef) {
     experiments: path.join(factory, "experiments"),
     summaries: path.join(factory, "summaries"),
     workspaceResults: path.join(workspace, "results"),
-    strategyDigest: path.join(factory, "strategy_digest.md"),
     iterationDigest: path.join(factory, "iteration_digest.txt")
   };
 }

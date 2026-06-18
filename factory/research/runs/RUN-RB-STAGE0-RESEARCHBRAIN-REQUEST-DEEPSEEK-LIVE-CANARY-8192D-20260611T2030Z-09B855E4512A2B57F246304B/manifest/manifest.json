@@ -1,0 +1,70 @@
+{
+  "schema_version": "researchbrain_stage0_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "manifest_id": "MANIFEST-RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B",
+  "generated_at": "2026-06-11T20:29:07.328Z",
+  "status": "ready",
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "artifact_counts": {
+    "research_source_record": 1,
+    "hypothesis_packet": 1,
+    "research_digest": 1,
+    "research_ideation_manifest": 1
+  },
+  "artifacts": [
+    {
+      "artifact_type": "research_source_record",
+      "schema_version": "research_source_record_v1",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/source-records/SRC-LIVE-8192D-001.json",
+      "sha256": "7bfb9581fe3cb76828c782436ee1c0fd29c96a561649162755ee131f71375295",
+      "size_bytes": 2758,
+      "modified_at": "2026-06-11T20:31:53.119Z",
+      "source_id": "SRC-LIVE-8192D-001",
+      "hypothesis_id": null,
+      "digest_id": null,
+      "research_run_id": null
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "schema_version": "hypothesis_packet_v1",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "120803bb261b31131efeed4b98927213973bb8127c38c5aac056fd8219a14204",
+      "size_bytes": 4960,
+      "modified_at": "2026-06-11T20:31:53.232Z",
+      "source_id": null,
+      "hypothesis_id": "HYP-STAGE0-LIVE-CANARY-001",
+      "digest_id": null,
+      "research_run_id": null
+    },
+    {
+      "artifact_type": "research_digest",
+      "schema_version": "research_digest_v1",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/digest.json",
+      "sha256": "e3213c8bd708b95ce4ba439edc9632493194cb35f93d5a4d4c8ed4b9d89f6ba2",
+      "size_bytes": 2021,
+      "modified_at": "2026-06-11T20:31:53.344Z",
+      "source_id": null,
+      "hypothesis_id": null,
+      "digest_id": "DIGEST-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z",
+      "research_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B"
+    },
+    {
+      "artifact_type": "research_ideation_manifest",
+      "schema_version": "research_ideation_manifest_v1",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/ideation-manifest.json",
+      "sha256": "2b246b4501f609782e6a52f610e34d34b8116acd8fda5d908b09ea886d2eafda",
+      "size_bytes": 4525,
+      "modified_at": "2026-06-11T20:31:53.458Z",
+      "source_id": null,
+      "hypothesis_id": null,
+      "digest_id": null,
+      "research_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B"
+    }
+  ]
+}

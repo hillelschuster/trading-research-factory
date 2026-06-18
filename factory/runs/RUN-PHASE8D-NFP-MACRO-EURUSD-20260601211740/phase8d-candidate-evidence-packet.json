@@ -1,0 +1,338 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+  "backlog_item_id": "IDEA-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+  "candidate_id": "CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+  "lineage_id": "LINEAGE-PHASE8D-NFP-MACRO-EURUSD",
+  "family_id": "nfp_macro_eurusd",
+  "attempt_id": "RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/nfp_macro_eurusd/wfa_config.yaml",
+      "sha256": "8cc2b2064f31a0562cc4d992daf112f307028434b4c8c520dbbb6f01d2bd8a96",
+      "size_bytes": 1503,
+      "modified_at": "2026-06-01T21:13:02.004Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/nfp_macro_eurusd.py",
+      "sha256": "376d87606ad8dc5379296d01cb167a68d129621f287374739731b0281152ccd7",
+      "size_bytes": 8756,
+      "modified_at": "2026-06-01T21:13:01.961Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_nfp_macro_eurusd.json",
+      "sha256": "cde654d69ac78a7886eaf391d525aa4a319796c28afa64b8cfe60cab36770f36",
+      "size_bytes": 1456,
+      "modified_at": "2026-06-01T21:13:01.981Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740/registrations/research-wfa-RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740.json",
+      "sha256": "a504c708ebc19a9508187d9db0845c0b109a0b42f0f777572f9511fc1de16199",
+      "size_bytes": 4158,
+      "modified_at": "2026-06-01T21:17:45.436Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/hypothesis-packet.json",
+      "sha256": "d8842e537a28ac067f3a7a03278167e81b1416276ad17feab8f069cfa9470cd0"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740/registrations/research-wfa-RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740.json",
+      "sha256": "a504c708ebc19a9508187d9db0845c0b109a0b42f0f777572f9511fc1de16199",
+      "content_hash": "ff601d6eeed4d14b676d6a24a4b79d847bcb98039bd421284b7f27a9ea7c5825"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_high_external_macro_research_plus_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/source-record.json",
+      "sha256": "bc9d0d026b909d741a52de5669e7b1603871938b2680a8a97ed7a349a70fe88f",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "EURUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 87,
+    "trades": 180,
+    "return_proxy_pct": -0.024528230422465113,
+    "sharpe_oos": -0.39146049829446616,
+    "profit_factor": 0.71953963263764,
+    "positive_oos_window_ratio": 0.37931,
+    "wfr": 1
+  },
+  "consistency_ladder_advisory": {
+    "status": "tiered_consistency_policy_enabled",
+    "clean_consistency_floor": 0.7,
+    "tier": "C3",
+    "label": "lumpy_payoff",
+    "positive_oos_window_ratio": 0.3793,
+    "tier_source": "per_window_returns",
+    "tier_thresholds": [
+      {
+        "tier": "C1",
+        "label": "clean_consistency",
+        "minInclusive": 0.7,
+        "maxExclusive": null
+      },
+      {
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "minInclusive": 0.5,
+        "maxExclusive": 0.7
+      },
+      {
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "minInclusive": 0.3,
+        "maxExclusive": 0.5
+      },
+      {
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "minInclusive": null,
+        "maxExclusive": 0.3
+      }
+    ],
+    "return_concentration": {
+      "status": "computed_artifact_backed",
+      "positive_window_count": 33,
+      "total_positive_return_pct": 3.046055,
+      "largest_positive_window_return_pct": 0.312778,
+      "second_largest_positive_window_return_pct": 0.221231,
+      "single_window_share": 0.102683,
+      "top_two_window_share": 0.175312
+    },
+    "drawdown_to_return_ratio": {
+      "status": "undefined_non_positive_return_proxy",
+      "aggregate_return_pct": -0.024528,
+      "absolute_max_drawdown_pct": 0.415516,
+      "value": null
+    },
+    "low_window_count_warning": {
+      "flagged": false,
+      "completed_windows": 87,
+      "threshold_windows": 15,
+      "ratio_warning_below": 0.65,
+      "status": "not_flagged"
+    },
+    "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+  },
+  "promotion_gate": {
+    "schema_version": "stage_gate_v1",
+    "run_id": "RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+    "stage": "research_promotion",
+    "attempt": 1,
+    "decision": "denied",
+    "validator": "research_wfa_promotion_gate",
+    "evidence_paths": [
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/parsed-wfa-metrics.json",
+      "factory/candidates/CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740/registrations/research-wfa-RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740.json",
+      "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/hypothesis-packet.json",
+      "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+      "walk forward engine/strategies/nfp_macro_eurusd/results/analysis.json",
+      "walk forward engine/strategies/nfp_macro_eurusd/results/parameter_stability_20260602_002121.json",
+      "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_summary_20260602_002121.csv",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/research-wfa-run-request.json",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/research-wfa-run-stdout.txt",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/research-wfa-run-stderr.txt",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/pre-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/post-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/accepted-output-artifacts.json",
+      "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/trial-attempts.jsonl"
+    ],
+    "reason": "Research WFA promotion denied for CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740: non-positive OOS Sharpe (-0.39146049829446616); aggregate return proxy below Phase 8D floor (-0.024528230422465113% < 5%); profit factor below 1 (0.71953963263764); trade count below Phase 8D floor (180 < 200); no valid pre-run low_frequency_registration_v1 exception (missing low_frequency_registration_v1 artifact reference); Phase 8D consistency route denied: C3 route requires return >= 10% (-0.024528230422465113% observed); C3 route requires OOS Sharpe >= 0.75 (-0.39146049829446616 observed); C3 route requires profit factor >= 1.35 (0.71953963263764 observed); C3 route requires artifact-backed drawdown-to-return ratio. Advisory DSR/PBO/CPCV/White statistics are not hard promotion authority in Phase 8C.",
+    "recorded_at": "2026-06-01T21:21:25.344Z",
+    "candidate_id": "CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+    "target_context": "research",
+    "statistical_test_authority": {
+      "dsr": "advisory_only_not_a_promotion_gate",
+      "pbo": "advisory_only_not_a_promotion_gate",
+      "cpcv": "advisory_only_not_a_promotion_gate",
+      "white_reality_check": "advisory_only_not_a_promotion_gate",
+      "hard_gate_enabled": false,
+      "note": "Phase 8C DSR/PBO/CPCV/White outputs may report or block missing inputs, but they do not authorize research promotion without a separate promotion-policy amendment."
+    },
+    "consistency_promotion_policy": {
+      "passed": false,
+      "route": null,
+      "tier": "C3",
+      "failures": [
+        "C3 route requires return >= 10% (-0.024528230422465113% observed)",
+        "C3 route requires OOS Sharpe >= 0.75 (-0.39146049829446616 observed)",
+        "C3 route requires profit factor >= 1.35 (0.71953963263764 observed)",
+        "C3 route requires artifact-backed drawdown-to-return ratio"
+      ],
+      "observed": {
+        "positive_window_ratio": 0.3793,
+        "return_pct": -0.024528230422465113,
+        "sharpe_oos": -0.39146049829446616,
+        "profit_factor": 0.71953963263764,
+        "completed_windows": 87,
+        "single_window_concentration": 0.102683,
+        "top_two_window_concentration": 0.175312,
+        "drawdown_to_return_ratio": null
+      },
+      "policy": {
+        "status": "enabled_conditional_multi_metric_gate",
+        "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+        "routes": {
+          "C1": {
+            "label": "clean_consistency_route",
+            "minPositiveWindowRatio": 0.7,
+            "requiresAdditionalDiagnostics": false
+          },
+          "C2": {
+            "label": "moderate_consistency_compensated_route",
+            "minPositiveWindowRatio": 0.5,
+            "minReturnPct": 5,
+            "minSharpeOos": 0.35,
+            "minProfitFactor": 1.15,
+            "minOosWindows": 15,
+            "maxSingleWindowConcentration": 0.6,
+            "maxTopTwoWindowConcentration": 0.85,
+            "maxDrawdownToReturnRatio": 3
+          },
+          "C3": {
+            "label": "lumpy_payoff_compensated_route",
+            "minPositiveWindowRatio": 0.3,
+            "minReturnPct": 10,
+            "minSharpeOos": 0.75,
+            "minProfitFactor": 1.35,
+            "minOosWindows": 20,
+            "maxSingleWindowConcentration": 0.45,
+            "maxTopTwoWindowConcentration": 0.7,
+            "maxDrawdownToReturnRatio": 2
+          }
+        }
+      }
+    }
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "total_trades",
+      "return_proxy_pct",
+      "consistency_promotion_route"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/execution-result.json",
+      "sha256": "776133f778dd8595f384271742f5e103db51ea7940603f3054668d3b32a36076"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/parsed-wfa-metrics.json",
+      "sha256": "fa1b5c8100d66011b674b6f368f5446bbaeaddcbc273e964044180bfbab24d35"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740/registrations/research-wfa-RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740.json",
+      "sha256": "a504c708ebc19a9508187d9db0845c0b109a0b42f0f777572f9511fc1de16199"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/hypothesis-packet.json",
+      "sha256": "d8842e537a28ac067f3a7a03278167e81b1416276ad17feab8f069cfa9470cd0",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/source-record.json",
+      "sha256": "bc9d0d026b909d741a52de5669e7b1603871938b2680a8a97ed7a349a70fe88f"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/source-excerpt.md",
+      "sha256": "6f09df1e7c0faf9d30ae60848a5aab2ee6067013848ebc0e22cfac938f1be569",
+      "artifact_type": "research_source_excerpt"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+      "sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4"
+    }
+  ],
+  "recorded_at": "2026-06-01T21:17:40.210Z"
+}

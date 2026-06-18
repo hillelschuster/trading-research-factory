@@ -1,10 +1,10 @@
 {
   "status": "idle",
-  "run_id": "RUN-20260404091704-9063ea",
-  "agent": "executor",
-  "attempt": 21,
-  "session_id": "ses_2a1809423ffeCdy82htwWDh345",
-  "session_url": "http://127.0.0.1:4096/global/session/ses_2a1809423ffeCdy82htwWDh345",
-  "updated_at": "2026-04-05T16:46:05.373Z",
-  "ended_at": "2026-04-05T16:46:05.043Z"
+  "run_id": "RUN-20260528185420-4ec6n9",
+  "agent": "planner",
+  "attempt": 1,
+  "session_id": "ses_1ded7a494ffeRcImS0tsSNTh3p",
+  "session_url": "http://127.0.0.1:4096/ee3dc5fdacb91b7cf49d960690927ac8faf6fb52/session/ses_1ded7a494ffeRcImS0tsSNTh3p",
+  "updated_at": "2026-05-28T18:54:26.961Z",
+  "ended_at": "2026-05-28T18:54:26.942Z"
 }

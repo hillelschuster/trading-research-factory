@@ -1,8 +1,16 @@
 import fs from "fs";
+import crypto from "crypto";
 import path from "path";
 import { appendLine, ensureDir, readJson, writeJsonAtomic, writeTextAtomic } from "./fs-utils.mjs";
 import { writeLeaderboardEntries } from "./leaderboard-store.mjs";
 import { sanitizeRetrievalArtifactPaths } from "./retrieval-artifacts.mjs";
+import {
+  HYPOTHESIS_PACKET_SCHEMA_VERSION,
+  RESEARCH_DIGEST_SCHEMA_VERSION,
+  RESEARCH_IDEATION_MANIFEST_SCHEMA_VERSION,
+  RESEARCH_SOURCE_RECORD_SCHEMA_VERSION,
+  validateResearchBrainArtifact
+} from "./researchbrain-artifacts.mjs";
 
 const LESSON_SCHEMA_VERSION = "lesson_v1";
 const EVIDENCE_SCHEMA_VERSION = "evidence_v1";
@@ -11,7 +19,9 @@ const LEADERBOARD_SCHEMA_VERSION = "leaderboard_v1";
 const POSITIVE_VERDICTS = new Set(["promising", "promising_with_caveats", "passed", "success"]);
 const NEGATIVE_VERDICTS = new Set(["blocked", "failed", "inconclusive", "partial", "rejected"]);
 const STRICT_PROMOTION_MIN_EVIDENCE_SCORE = 50;
-const STRICT_PROMOTION_MIN_TRADES = 20;
+const STRICT_PROMOTION_MIN_TRADES = 50;
+const STRICT_PROMOTION_MIN_WINDOWS = 5;
+const STRICT_PROMOTION_MIN_RETURN_PCT = 5;
 
 function asString(value) {
   return typeof value === "string" && value.trim() ? value.trim() : null;
@@ -72,6 +82,9 @@ function normalizeMetrics(metrics) {
     max_drawdown: asNumber(source.max_drawdown),
     win_rate: asNumber(source.win_rate),
     total_trades: asNumber(source.total_trades ?? source.trades),
+    annualized_return_pct: asNumber(source.annualized_return_pct ?? source.annual_return_pct ?? source.cagr_pct),
+    aggregate_return_pct: asNumber(source.aggregate_return_pct ?? source.total_return_pct ?? source.return_pct),
+    windows_completed: asNumber(source.windows_completed ?? source.successful_windows ?? source.completed_windows ?? source.total_windows ?? source.oos_windows),
     fold_variance: asNumber(source.fold_variance),
     markets_tested: uniqueStrings(asArray(source.markets_tested))
   };
@@ -106,6 +119,14 @@ function compactText(text, maxLength = 220) {
   const value = String(text ?? "").replace(/\s+/g, " ").trim();
   if (value.length <= maxLength) return value;
   return `${value.slice(0, maxLength - 3)}...`;
+}
+
+function repoRelative(rootDir, fullPath) {
+  return path.relative(rootDir, fullPath).replace(/\\/g, "/");
+}
+
+function fileSha256(fullPath) {
+  return crypto.createHash("sha256").update(fs.readFileSync(fullPath)).digest("hex");
 }
 
 function parseJsonFragments(text) {
@@ -152,6 +173,273 @@ function parseJsonFragments(text) {
   }
 
   return fragments;
+}
+
+function researchJsonPaths(rootDir) {
+  const researchRoot = path.join(rootDir, "factory", "research");
+  if (!fs.existsSync(researchRoot)) return [];
+  const paths = [];
+  const stack = [researchRoot];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const fullPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        stack.push(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith(".json")) {
+        paths.push(fullPath);
+      }
+    }
+  }
+  return paths.sort();
+}
+
+function summaryMarkdownPaths(rootDir) {
+  const summaryRoot = path.join(rootDir, "factory", "summaries");
+  if (!fs.existsSync(summaryRoot)) return [];
+  return fs.readdirSync(summaryRoot, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+    .map((entry) => path.join(summaryRoot, entry.name))
+    .sort();
+}
+
+function artifactRefPaths(refs) {
+  return sanitizeArtifactPaths(asArray(refs).map((ref) => asString(ref?.path)).filter(Boolean));
+}
+
+function phase8AConstraintPaths(constraints) {
+  if (!constraints || typeof constraints !== "object") return [];
+  return artifactRefPaths([constraints.universe_snapshot, constraints.terminal_inventory].filter(Boolean));
+}
+
+function researchSourceRecordEntry(artifact, sourcePath, artifactHash) {
+  return {
+    schema_version: RETRIEVAL_SCHEMA_VERSION,
+    retrieval_id: `research_source_record:${artifact.source_id}`,
+    source_type: "research_source_record",
+    source_path: sourcePath,
+    artifact_sha256: artifactHash,
+    recorded_at: artifact.accessed_at,
+    stage_targets: ["ideator", "planner"],
+    related_artifact_paths: sanitizeArtifactPaths([sourcePath, artifact.artifact?.path].filter(Boolean)),
+    retrieval_text: compactText([
+      artifact.source_id,
+      artifact.source_type,
+      artifact.trust_tier,
+      asArray(artifact.claims_extracted).join(" "),
+      asArray(artifact.limitations).join(" "),
+      asArray(artifact.disconfirming_relevance).join(" ")
+    ].filter(Boolean).join(" | "), 400),
+    snippet: {
+      source_id: artifact.source_id,
+      source_type: artifact.source_type,
+      trust_tier: artifact.trust_tier,
+      claims_extracted: asArray(artifact.claims_extracted).slice(0, 3),
+      limitations: asArray(artifact.limitations).slice(0, 3),
+      disconfirming_relevance: asArray(artifact.disconfirming_relevance).slice(0, 3),
+      artifact_path: sourcePath,
+      artifact_sha256: artifactHash
+    }
+  };
+}
+
+function researchHypothesisPacketEntry(artifact, sourcePath, artifactHash) {
+  const relatedPaths = sanitizeArtifactPaths([
+    sourcePath,
+    ...artifactRefPaths(artifact.source_records),
+    ...phase8AConstraintPaths(artifact.phase8a_universe_constraints)
+  ]);
+  return {
+    schema_version: RETRIEVAL_SCHEMA_VERSION,
+    retrieval_id: `research_hypothesis_packet:${artifact.hypothesis_id}`,
+    source_type: "research_hypothesis_packet",
+    source_path: sourcePath,
+    artifact_sha256: artifactHash,
+    mode: "stage_0_discovery",
+    strategy_family: artifact.strategy_family ?? null,
+    asset_scope: artifact.instrument_scope ?? null,
+    timeframe: artifact.timeframe_candidate ?? null,
+    stage_targets: ["ideator", "planner"],
+    related_artifact_paths: relatedPaths,
+    retrieval_text: compactText([
+      artifact.hypothesis_id,
+      artifact.strategy_family,
+      artifact.instrument_scope,
+      artifact.timeframe_candidate,
+      artifact.mechanism,
+      artifact.falsifiable_prediction,
+      artifact.novelty_reason,
+      asArray(artifact.expected_failure_modes).join(" "),
+      asArray(artifact.disconfirming_evidence).join(" ")
+    ].filter(Boolean).join(" | "), 500),
+    snippet: {
+      hypothesis_id: artifact.hypothesis_id,
+      mechanism: compactText(artifact.mechanism, 240),
+      falsifiable_prediction: compactText(artifact.falsifiable_prediction, 240),
+      strategy_family: artifact.strategy_family ?? null,
+      instrument_scope: artifact.instrument_scope ?? null,
+      timeframe_candidate: artifact.timeframe_candidate ?? null,
+      source_records: asArray(artifact.source_records).map((record) => ({ source_id: record?.source_id ?? null, path: record?.path ?? null, sha256: record?.sha256 ?? null })),
+      phase8a_universe_constraints: artifact.phase8a_universe_constraints ?? null,
+      artifact_path: sourcePath,
+      artifact_sha256: artifactHash
+    }
+  };
+}
+
+function researchDigestEntry(artifact, sourcePath, artifactHash) {
+  return {
+    schema_version: RETRIEVAL_SCHEMA_VERSION,
+    retrieval_id: `research_digest:${artifact.digest_id}`,
+    source_type: "research_digest",
+    source_path: sourcePath,
+    artifact_sha256: artifactHash,
+    recorded_at: artifact.generated_at,
+    mode: "stage_0_discovery",
+    stage_targets: ["ideator", "planner"],
+    related_artifact_paths: sanitizeArtifactPaths([
+      sourcePath,
+      ...artifactRefPaths(artifact.source_records),
+      ...artifactRefPaths(artifact.hypothesis_packets),
+      ...phase8AConstraintPaths(artifact.phase8a_universe_constraints)
+    ]),
+    retrieval_text: compactText([
+      artifact.digest_id,
+      artifact.research_run_id,
+      asArray(artifact.key_findings).join(" "),
+      asArray(artifact.limitations).join(" ")
+    ].filter(Boolean).join(" | "), 500),
+    snippet: {
+      digest_id: artifact.digest_id,
+      research_run_id: artifact.research_run_id,
+      key_findings: asArray(artifact.key_findings).slice(0, 4),
+      limitations: asArray(artifact.limitations).slice(0, 4),
+      artifact_path: sourcePath,
+      artifact_sha256: artifactHash
+    }
+  };
+}
+
+function researchIdeationManifestEntry(artifact, sourcePath, artifactHash) {
+  const rejectedText = asArray(artifact.hypotheses_rejected).map((item) => compactText([
+    item?.rejection_id,
+    item?.hypothesis_id,
+    item?.idea,
+    item?.reason,
+    JSON.stringify(item?.memory_basis ?? item?.matches ?? null)
+  ].filter(Boolean).join(" | "), 220));
+  const duplicateText = asArray(artifact.duplicates_detected).map((item) => compactText([
+    item?.reason,
+    item?.hypothesis_id,
+    item?.duplicate_of,
+    JSON.stringify(item?.matches ?? null)
+  ].filter(Boolean).join(" | "), 220));
+  return {
+    schema_version: RETRIEVAL_SCHEMA_VERSION,
+    retrieval_id: `research_ideation_manifest:${artifact.research_run_id}`,
+    source_type: "research_ideation_manifest",
+    source_path: sourcePath,
+    artifact_sha256: artifactHash,
+    mode: "stage_0_discovery",
+    stage_targets: ["ideator", "planner"],
+    related_artifact_paths: sanitizeArtifactPaths([
+      sourcePath,
+      ...artifactRefPaths(artifact.artifact_paths),
+      ...phase8AConstraintPaths(artifact.phase8a_universe_constraints)
+    ]),
+    retrieval_text: compactText([
+      artifact.research_run_id,
+      asArray(artifact.hypotheses_accepted).map((item) => item?.hypothesis_id).join(" "),
+      rejectedText.join(" "),
+      duplicateText.join(" "),
+      JSON.stringify(artifact.budget_used ?? {})
+    ].filter(Boolean).join(" | "), 700),
+    snippet: {
+      research_run_id: artifact.research_run_id,
+      hypotheses_accepted: asArray(artifact.hypotheses_accepted).slice(0, 5),
+      hypotheses_rejected_count: asArray(artifact.hypotheses_rejected).length,
+      hypotheses_rejected: asArray(artifact.hypotheses_rejected).slice(0, 5).map((item) => ({
+        rejection_id: item?.rejection_id ?? null,
+        hypothesis_id: item?.hypothesis_id ?? null,
+        idea: compactText(item?.idea, 160),
+        reason: compactText(item?.reason, 220)
+      })),
+      duplicates_detected_count: asArray(artifact.duplicates_detected).length,
+      duplicates_detected: asArray(artifact.duplicates_detected).slice(0, 5),
+      budget_used: artifact.budget_used ?? null,
+      artifact_path: sourcePath,
+      artifact_sha256: artifactHash
+    }
+  };
+}
+
+function researchBrainRetrievalEntry(artifact, sourcePath, artifactHash) {
+  if (artifact.schema_version === RESEARCH_SOURCE_RECORD_SCHEMA_VERSION) return researchSourceRecordEntry(artifact, sourcePath, artifactHash);
+  if (artifact.schema_version === HYPOTHESIS_PACKET_SCHEMA_VERSION) return researchHypothesisPacketEntry(artifact, sourcePath, artifactHash);
+  if (artifact.schema_version === RESEARCH_DIGEST_SCHEMA_VERSION) return researchDigestEntry(artifact, sourcePath, artifactHash);
+  if (artifact.schema_version === RESEARCH_IDEATION_MANIFEST_SCHEMA_VERSION) return researchIdeationManifestEntry(artifact, sourcePath, artifactHash);
+  return null;
+}
+
+function phase8DFailedSummaryEntry(fullPath, rootDir) {
+  const text = fs.readFileSync(fullPath, "utf8");
+  const lower = text.toLowerCase();
+  const fileName = path.basename(fullPath);
+  if (!fileName.startsWith("RUN-PHASE8D-") && !lower.includes("phase 8d") && !lower.includes("phase8d")) return null;
+  if (!/(non-survivor|gate denied|denied|failed|blocked|negative|zero survivors|phase8e false|phase 8e remains blocked)/i.test(text)) return null;
+  const sourcePath = repoRelative(rootDir, fullPath);
+  const artifactHash = fileSha256(fullPath);
+  const stat = fs.statSync(fullPath);
+  const runId = fileName.replace(/\.md$/i, "");
+  const compact = compactText(text.replace(/^#+\s*/gm, ""), 900);
+  return {
+    schema_version: RETRIEVAL_SCHEMA_VERSION,
+    retrieval_id: `phase8d_failed_summary:${runId}`,
+    source_type: "phase8d_failed_summary",
+    source_path: sourcePath,
+    artifact_sha256: artifactHash,
+    recorded_at: stat.mtime.toISOString(),
+    mode: "live",
+    verdict: "failed",
+    stage_targets: ["ideator", "planner"],
+    related_artifact_paths: sanitizeArtifactPaths([sourcePath]),
+    retrieval_text: compact,
+    snippet: {
+      run_id: runId,
+      summary_path: sourcePath,
+      failure_memory: compactText(text, 400),
+      phase8e_blocked: /phase\s*8e.*blocked|phase8e false/i.test(text),
+      artifact_sha256: artifactHash
+    }
+  };
+}
+
+export function buildResearchBrainRetrievalEntries(rootDir) {
+  const entries = [];
+  for (const fullPath of researchJsonPaths(rootDir)) {
+    const artifact = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+    try {
+      validateResearchBrainArtifact(artifact, { rootDir, requireExisting: true });
+    } catch (error) {
+      if ([
+        RESEARCH_SOURCE_RECORD_SCHEMA_VERSION,
+        HYPOTHESIS_PACKET_SCHEMA_VERSION,
+        RESEARCH_DIGEST_SCHEMA_VERSION,
+        RESEARCH_IDEATION_MANIFEST_SCHEMA_VERSION
+      ].includes(artifact?.schema_version)) {
+        throw error;
+      }
+      continue;
+    }
+    const sourcePath = repoRelative(rootDir, fullPath);
+    const entry = researchBrainRetrievalEntry(artifact, sourcePath, fileSha256(fullPath));
+    if (entry) entries.push(entry);
+  }
+  for (const fullPath of summaryMarkdownPaths(rootDir)) {
+    const entry = phase8DFailedSummaryEntry(fullPath, rootDir);
+    if (entry) entries.push(entry);
+  }
+  return entries.sort((a, b) => String(a.retrieval_id).localeCompare(String(b.retrieval_id)));
 }
 
 function normalizeEvidenceEntry(entry) {
@@ -204,6 +492,25 @@ function hasSufficientTradeCount(entry) {
   return typeof trades === "number" && Number.isFinite(trades) && trades >= STRICT_PROMOTION_MIN_TRADES;
 }
 
+function metricFromBaseOrExtra(metrics, key) {
+  const value = metrics?.[key];
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  const extra = metrics?.extra_metrics?.[key];
+  return typeof extra === "number" && Number.isFinite(extra) ? extra : null;
+}
+
+function hasSufficientWindowCount(entry) {
+  const windows = metricFromBaseOrExtra(entry?.metrics, "windows_completed");
+  return typeof windows === "number" && Number.isFinite(windows) && windows >= STRICT_PROMOTION_MIN_WINDOWS;
+}
+
+function hasSufficientReturn(entry) {
+  const annualized = metricFromBaseOrExtra(entry?.metrics, "annualized_return_pct");
+  if (annualized !== null) return annualized >= STRICT_PROMOTION_MIN_RETURN_PCT;
+  const aggregate = metricFromBaseOrExtra(entry?.metrics, "aggregate_return_pct");
+  return aggregate !== null && aggregate >= STRICT_PROMOTION_MIN_RETURN_PCT;
+}
+
 export function isStrictlyPromotableEvidence(entry) {
   if (!entry || typeof entry !== "object") return false;
   if (entry.mode !== "live") return false;
@@ -212,6 +519,8 @@ export function isStrictlyPromotableEvidence(entry) {
   if ((entry.evidence_score ?? 0) < STRICT_PROMOTION_MIN_EVIDENCE_SCORE) return false;
   if (!hasMeaningfulOosMetrics(entry)) return false;
   if (!hasSufficientTradeCount(entry)) return false;
+  if (!hasSufficientWindowCount(entry)) return false;
+  if (!hasSufficientReturn(entry)) return false;
   return true;
 }
 
@@ -337,7 +646,7 @@ function normalizeLessonRecord(record, index, evidenceByRunId) {
   });
 }
 
-function buildRetrievalIndex(lessons, evidence) {
+function buildRetrievalIndex(lessons, evidence, researchBrainEntries = []) {
   const lessonEntries = lessons.map((entry) => ({
     schema_version: RETRIEVAL_SCHEMA_VERSION,
     retrieval_id: `lesson:${entry.lesson_id}`,
@@ -408,7 +717,7 @@ function buildRetrievalIndex(lessons, evidence) {
     }
   }));
 
-  return [...lessonEntries, ...evidenceEntries]
+  return [...lessonEntries, ...evidenceEntries, ...researchBrainEntries]
     .sort((a, b) => Date.parse(b.recorded_at || 0) - Date.parse(a.recorded_at || 0));
 }
 
@@ -508,13 +817,15 @@ export function rebuildNormalizedMemory(paths) {
   const canonicalLessonText = normalizedLessons.map((entry) => JSON.stringify(entry)).join("\n");
   writeTextAtomic(paths.lessons, canonicalLessonText ? `${canonicalLessonText}\n` : "", paths);
 
-  const retrievalIndex = buildRetrievalIndex(normalizedLessons, normalizedEvidence);
+  const researchBrainEntries = buildResearchBrainRetrievalEntries(paths.root);
+  const retrievalIndex = buildRetrievalIndex(normalizedLessons, normalizedEvidence, researchBrainEntries);
   writeJsonAtomic(paths.retrievalIndex, retrievalIndex, paths);
 
   const repairReport = {
     repaired_at: new Date().toISOString(),
     lessons_written: normalizedLessons.length,
     evidence_entries_written: normalizedEvidence.length,
+    researchbrain_entries_written: researchBrainEntries.length,
     retrieval_entries_written: retrievalIndex.length,
     bad_fragments: badFragments.length,
     legacy_records_normalized: legacyRecordsNormalized

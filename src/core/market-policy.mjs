@@ -2,27 +2,51 @@ import { readJson } from "./fs-utils.mjs";
 
 export const DEFAULT_MARKET_POLICY = {
   schema_version: "market_policy_v1",
-  updated_at: "1970-01-01T00:00:00.000Z",
+  updated_at: "2026-05-28T00:00:00.000Z",
   market_family_priorities: [
-    { market_family: "crypto", priority: 1 },
-    { market_family: "prediction_markets", priority: 2 },
-    { market_family: "forex", priority: 3 }
+    { market_family: "mt5_verified", priority: 1 },
+    { market_family: "forex", priority: 2 },
+    { market_family: "indices", priority: 3 },
+    { market_family: "metals", priority: 4 },
+    { market_family: "commodities", priority: 5 },
+    { market_family: "equities", priority: 6 },
+    { market_family: "crypto", priority: 7 }
   ],
   allowed_source_families: {
-    crypto: ["binance", "public_archive"],
-    prediction_markets: ["polymarket_public"],
-    forex: ["dukascopy"]
+    mt5_verified: ["ftmo_mt5_terminal", "mt5_history_snapshot"],
+    forex: ["ftmo_mt5_terminal", "dukascopy"],
+    indices: ["ftmo_mt5_terminal", "public_ohlcv_archive"],
+    metals: ["ftmo_mt5_terminal", "public_ohlcv_archive"],
+    commodities: ["ftmo_mt5_terminal", "public_ohlcv_archive"],
+    equities: ["ftmo_mt5_terminal", "public_ohlcv_archive"],
+    crypto: ["ftmo_mt5_terminal", "binance", "public_archive"]
   },
   default_history_rules_by_market_family: {
+    mt5_verified: {
+      expectation: "longest clean broker-mapped MT5 history realistically available",
+      short_window_requires_explicit_justification: true
+    },
     crypto: {
       expectation: "multi-year when realistically available",
       short_window_requires_explicit_justification: true
     },
-    prediction_markets: {
-      expectation: "as much event-history as realistically available",
+    forex: {
+      expectation: "longest clean liquid-history realistically available",
       short_window_requires_explicit_justification: true
     },
-    forex: {
+    indices: {
+      expectation: "longest clean liquid-history realistically available",
+      short_window_requires_explicit_justification: true
+    },
+    metals: {
+      expectation: "longest clean liquid-history realistically available",
+      short_window_requires_explicit_justification: true
+    },
+    commodities: {
+      expectation: "longest clean liquid-history realistically available",
+      short_window_requires_explicit_justification: true
+    },
+    equities: {
       expectation: "longest clean liquid-history realistically available",
       short_window_requires_explicit_justification: true
     }

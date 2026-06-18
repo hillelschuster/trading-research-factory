@@ -1,0 +1,41 @@
+{
+  "schema_version": "ftmo_rule_set_v1",
+  "created_at": "2026-05-02T11:55:00.000Z",
+  "ftmo_target": "2-step",
+  "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_2-step_v1",
+  "source_date": "2026-04-22",
+  "source_url": "https://ftmo.com/en/trading-objectives/",
+  "source_quality": "primary_official_ftmo_page",
+  "source_claims_extracted": {
+    "page_title": "Trading Objectives | FTMO.com",
+    "page_modified": "2026-04-22T14:13:09+00:00",
+    "account_type": "FTMO Challenge: 2-Step",
+    "profit_target_challenge_percent": 0.10,
+    "profit_target_verification_percent": 0.05,
+    "maximum_daily_loss_percent_of_initial_simulated_capital": 0.05,
+    "maximum_loss_percent_of_initial_simulated_capital": 0.10,
+    "maximum_loss_model": "static",
+    "minimum_trading_days": 4,
+    "daily_reset_window": "00:00:00 to 23:59:59 CE(S)T"
+  },
+  "reset_timezone": "Europe/Prague",
+  "daily_loss_limit": {
+    "type": "percent_of_starting_balance",
+    "value": 0.05,
+    "calculation_basis": "balance recorded at 00:00 CE(S)T minus 5% of Initial Simulated Capital; first day uses Initial Simulated Capital"
+  },
+  "max_loss_limit": {
+    "type": "percent_of_starting_balance",
+    "value": 0.10,
+    "calculation_basis": "static limit: Initial Simulated Capital minus 10% of Initial Simulated Capital"
+  },
+  "include_floating_pnl": true,
+  "include_commission_swap": true,
+  "proof_scope": "ledger_mechanics_only",
+  "forward_demo_survival_claim": false,
+  "limitations": [
+    "This artifact is a compact extraction from the official FTMO Trading Objectives page, not a legal contract.",
+    "Use only for deterministic ledger mechanics until reconciled against actual FTMO account MetriX/ledger exports.",
+    "Does not certify strategy deployability or forward/demo survival."
+  ]
+}

@@ -1,38 +1,38 @@
 {
   "schema_version": "health_v1",
-  "updated_at": "2026-05-05T20:03:53.439Z",
+  "updated_at": "2026-05-28T18:54:37.618Z",
   "prompt_bytes_per_stage": {
     "planner": {
-      "count": 119,
-      "avg_bytes": 14352,
+      "count": 121,
+      "avg_bytes": 14384,
       "max_bytes": 31428,
-      "last_bytes": 15424
+      "last_bytes": 15440
     },
     "executor": {
-      "count": 202,
-      "avg_bytes": 11895,
+      "count": 209,
+      "avg_bytes": 11840,
       "max_bytes": 22887,
-      "last_bytes": 11143
+      "last_bytes": 95
     },
     "evaluator": {
-      "count": 72,
-      "avg_bytes": 5163,
-      "max_bytes": 12959,
-      "last_bytes": 11345
+      "count": 74,
+      "avg_bytes": 5612,
+      "max_bytes": 21874,
+      "last_bytes": 21874
     },
     "summarizer": {
-      "count": 69,
-      "avg_bytes": 8450,
-      "max_bytes": 13249,
-      "last_bytes": 12802
+      "count": 70,
+      "avg_bytes": 8684,
+      "max_bytes": 24833,
+      "last_bytes": 24833
     }
   },
   "prompt_budget_breaches": {
     "ideator": 0,
     "planner": 0,
     "executor": 0,
-    "evaluator": 3,
-    "summarizer": 0
+    "evaluator": 5,
+    "summarizer": 1
   },
   "compaction_frequency": {
     "proxy_basis": "fresh_session_reuse_rate",
@@ -40,19 +40,19 @@
     "rate_per_session_record": 0
   },
   "session_reuse_count": {
-    "total_session_records": 451,
+    "total_session_records": 462,
     "reused_session_records": 0
   },
   "transport_retry_recovery_rate": {
-    "transport_failures": 46,
-    "recovered_after_retry": 10,
-    "recovery_rate": 0.2174
+    "transport_failures": 50,
+    "recovered_after_retry": 12,
+    "recovery_rate": 0.24
   },
   "transport_failures": {
     "by_phase": {
       "unknown": 10,
       "request": 5,
-      "first_headers": 29,
+      "first_headers": 33,
       "session_create": 2
     },
     "by_adapter": {
@@ -63,7 +63,7 @@
         "request": 3
       },
       "opencode_sdk": {
-        "first_headers": 29,
+        "first_headers": 33,
         "request": 2
       },
       "opencode_server_manager": {
@@ -77,14 +77,14 @@
     "owner_lock_denials": 0
   },
   "operational_artifacts": {
-    "recovery_log_lines": 151,
-    "verification_files": 37
+    "recovery_log_lines": 158,
+    "verification_files": 46
   },
   "stranded_lease_count": 0,
   "cooldown_run_count": 0,
-  "quarantined_run_count": 2,
+  "quarantined_run_count": 0,
   "false_pass_prevention": {
-    "denied_stage_gates": 165,
+    "denied_stage_gates": 175,
     "denied_false_executed_claims": 6,
     "denied_generic_summaries": 0
   },
@@ -108,12 +108,13 @@
     "crypto|BNB/USDT spot (binance_bnbusdt_1h_deep.csv)|1h with 4h regime filter": 2,
     "crypto|BNB/USDT spot|1h with 4h regime filter": 2,
     "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection for volatility contraction/expansion": 1,
-    "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection": 1
+    "crypto|BTC/USDT spot (binance_btcusdt_1h_deep.csv)|1h with 4h regime detection": 1,
+    "crypto|BTCUSDT spot|1h": 1
   },
   "executor_completion_rate": {
-    "total_executor_stage_gates": 142,
-    "allowed_executor_stage_gates": 20,
-    "completion_rate": 0.1408
+    "total_executor_stage_gates": 149,
+    "allowed_executor_stage_gates": 21,
+    "completion_rate": 0.1409
   },
   "evidence_yield": {
     "live_research_entries_total": 28,
@@ -121,19 +122,39 @@
   },
   "market_family_distribution_vs_policy": [
     {
-      "market_family": "crypto",
+      "market_family": "mt5_verified",
       "priority": 1,
-      "live_research_entries": 11
-    },
-    {
-      "market_family": "prediction_markets",
-      "priority": 2,
       "live_research_entries": 0
     },
     {
       "market_family": "forex",
+      "priority": 2,
+      "live_research_entries": 0
+    },
+    {
+      "market_family": "indices",
       "priority": 3,
       "live_research_entries": 0
+    },
+    {
+      "market_family": "metals",
+      "priority": 4,
+      "live_research_entries": 0
+    },
+    {
+      "market_family": "commodities",
+      "priority": 5,
+      "live_research_entries": 0
+    },
+    {
+      "market_family": "equities",
+      "priority": 6,
+      "live_research_entries": 0
+    },
+    {
+      "market_family": "crypto",
+      "priority": 7,
+      "live_research_entries": 11
     }
   ],
   "research_vs_infra_balance": {
@@ -142,9 +163,9 @@
     "blocked_to_research_ratio": 0.6071
   },
   "percent_of_plans_with_explicit_scope_justification": {
-    "total_plans": 96,
-    "plans_with_explicit_scope_justification": 60,
-    "percent": 0.625
+    "total_plans": 98,
+    "plans_with_explicit_scope_justification": 62,
+    "percent": 0.6327
   },
   "latest_transport_bakeoff": {
     "artifact_path": "factory/verification/transport-bakeoff-20260402140907184.json",

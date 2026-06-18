@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "sha256": "4852f70d7bae46636c73ba95300a4bf9821597aa9220c5440961d7e6129f3413",
+    "size_bytes": 1454,
+    "modified_at": "2026-05-14T05:05:40.517Z",
+    "request_identity": {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "job_id": "JOB-RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "lineage_id": "LINEAGE-VOLATILITY-REGIME-PHASE7A-CLI-20260514",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-20260514050018-cli-wfa-canary-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260514_080540.json",
+    "sha256": "7647d76f83e90e65eac812779992046c34d469cde41bbbdc5d0be2fd8303e813",
+    "size_bytes": 1365,
+    "modified_at": "2026-05-14T05:05:40.533Z",
+    "request_identity": {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "job_id": "JOB-RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "lineage_id": "LINEAGE-VOLATILITY-REGIME-PHASE7A-CLI-20260514",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-20260514050018-cli-wfa-canary-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260514_080540.json",
+    "sha256": "d256b194e5207b308aab3d9f44fffab5d458ac67a1ed3c298b815bff074f931b",
+    "size_bytes": 7108,
+    "modified_at": "2026-05-14T05:05:40.422Z",
+    "request_identity": {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "job_id": "JOB-RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "lineage_id": "LINEAGE-VOLATILITY-REGIME-PHASE7A-CLI-20260514",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-20260514050018-cli-wfa-canary-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260514_080540.csv",
+    "sha256": "efbe5100f14684cf5ac473df75afc37a1e9ea1b9a29f6b44d92496edfea824ce",
+    "size_bytes": 1040,
+    "modified_at": "2026-05-14T05:05:40.533Z",
+    "request_identity": {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "job_id": "JOB-RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "lineage_id": "LINEAGE-VOLATILITY-REGIME-PHASE7A-CLI-20260514",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-20260514050018-cli-wfa-canary-ATTEMPT-1"
+    }
+  }
+]

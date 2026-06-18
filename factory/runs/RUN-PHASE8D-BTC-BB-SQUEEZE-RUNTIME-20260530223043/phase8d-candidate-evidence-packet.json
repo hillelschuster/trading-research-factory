@@ -1,0 +1,185 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "backlog_item_id": "IDEA-PHASE8D-BTC-BB-SQUEEZE-20260530223043",
+  "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+  "family_id": "btc_bb_width_squeeze",
+  "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+      "sha256": "dfba422e0fb3f2eaf594342e13319122547600ee88c5090536c5acc0da37c2ad",
+      "size_bytes": 1399,
+      "modified_at": "2026-05-30T22:29:48.074Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/bb_width_squeeze.py",
+      "sha256": "3ece98e39f67e78690797aeb936c782ebceb7739c7dc279d5d8695dc60639b5f",
+      "size_bytes": 11208,
+      "modified_at": "2026-03-20T08:29:00.461Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_bb_width_squeeze.json",
+      "sha256": "68d51b6e754eaa27f6c8d85b5d5ee2444e2dbff822e3ef9dc01f11294ea5fb41",
+      "size_bytes": 915,
+      "modified_at": "2026-03-21T15:00:44.596Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7",
+      "size_bytes": 3851,
+      "modified_at": "2026-05-30T22:30:44.134Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/hypothesis-packet.json",
+      "sha256": "c52b07b0a11a4bfabfaf3f1ae306a2549a3fee116b0b5cbf5db5527b60055e57"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7",
+      "content_hash": "ab575df1bb2ad1467e0213bbd6e88cbddc238a449b97a8e346c73eaccc60c6a2"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/source-record.json",
+      "sha256": "2cf8ff81f2bb6f8312cb6c60aec9637f53c0719962ce9e7db1e90bf5dc6192a9",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "repair_rationale": "Pre-result mechanical runtime repair: original Phase 8D BTC BB squeeze attempt RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722 timed out after 1800000ms with accepted_output_count=0 and no artifact-backed WFA metrics, so this new denominator attempt keeps the same hypothesis/source/data/costs but uses a Phase 8D-specific 25-trial WFA config to complete within the worker budget.",
+    "prior_attempt_counted": "RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "BTCUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "proxy_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 57,
+    "trades": 1101,
+    "return_proxy_pct": 0.09117433540026997,
+    "positive_oos_window_ratio": 0.45614,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/execution-result.json",
+      "sha256": "ae1007979d5f786ed49812afef05dd003f6082160163a3a2eadec97d201b7069"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/parsed-wfa-metrics.json",
+      "sha256": "a7bb3419df9789c74e4e134d039cdf4e87a6bde10d5ef2112505c41a8a123ae2"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/hypothesis-packet.json",
+      "sha256": "c52b07b0a11a4bfabfaf3f1ae306a2549a3fee116b0b5cbf5db5527b60055e57",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/source-record.json",
+      "sha256": "2cf8ff81f2bb6f8312cb6c60aec9637f53c0719962ce9e7db1e90bf5dc6192a9"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+      "sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64"
+    }
+  ],
+  "recorded_at": "2026-05-30T22:30:43.840Z"
+}

@@ -1,0 +1,371 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "backlog_item_id": "IDEA-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+  "family_id": "eth_btc_residual_phase8d",
+  "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+      "sha256": "004b21211a67068eb7bbc8a14e65c8dfc3cbecbbfc8ef5da4c34f52e067fef40",
+      "size_bytes": 1204,
+      "modified_at": "2026-06-02T15:51:19.066Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/eth_btc_residual_phase8d.py",
+      "sha256": "6b385203f6f1570926df8cfb32dc6071a9b3135f93b93d162ddf9fcfea6fcc9e",
+      "size_bytes": 1294,
+      "modified_at": "2026-06-02T15:51:18.983Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_eth_btc_residual_phase8d.json",
+      "sha256": "e2e05d926121af6948b58eabdaa2fead05132fe650296ed7f16ac49939692da8",
+      "size_bytes": 852,
+      "modified_at": "2026-06-02T15:51:19.002Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/phase8d_eth_btc_residual_1h.csv",
+      "sha256": "f88e7a632ccf1d5383efb79e68e7b4d2613ec8ce21c650d78c8b70aa02f7427d",
+      "size_bytes": 4779873,
+      "modified_at": "2026-06-02T15:50:10.725Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091",
+      "size_bytes": 4121,
+      "modified_at": "2026-06-02T16:04:13.285Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/hypothesis-packet.json",
+      "sha256": "867fb74f974783814b5ce16c5ccdd109ce270a26e916c74c0fd970f558c30b66"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091",
+      "content_hash": "47c1fa2dd9391682debaa3e941203c1fe477a8737a2bdd7a72baf0be897b3664"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_external_crypto_research_plus_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/source-record.json",
+      "sha256": "2ae9db62c078a4949140b2490455bdb3c6e624c48964ff5c751191b793fb0b8f",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "ETHUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/phase8d_eth_btc_residual_1h.csv",
+      "sha256": "f88e7a632ccf1d5383efb79e68e7b4d2613ec8ce21c650d78c8b70aa02f7427d",
+      "artifact_type": "data_input"
+    },
+    "raw_merged_input": {
+      "path": "walk forward engine/data/binance_eth_btc_merged_1h.csv",
+      "sha256": "1f04a867a4cafd2b398c4e6e27aa9859770cf38f7d03838a1540266d0e6bb57c",
+      "artifact_type": "raw_merged_data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 57,
+    "trades": 919,
+    "return_proxy_pct": -0.9621596271451213,
+    "sharpe_oos": -1.3240707834957792,
+    "profit_factor": 0.7244491750213435,
+    "positive_oos_window_ratio": 0.333333,
+    "wfr": 1
+  },
+  "consistency_ladder_advisory": {
+    "status": "tiered_consistency_policy_enabled",
+    "clean_consistency_floor": 0.7,
+    "tier": "C3",
+    "label": "lumpy_payoff",
+    "positive_oos_window_ratio": 0.3333,
+    "tier_source": "per_window_returns",
+    "tier_thresholds": [
+      {
+        "tier": "C1",
+        "label": "clean_consistency",
+        "minInclusive": 0.7,
+        "maxExclusive": null
+      },
+      {
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "minInclusive": 0.5,
+        "maxExclusive": 0.7
+      },
+      {
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "minInclusive": 0.3,
+        "maxExclusive": 0.5
+      },
+      {
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "minInclusive": null,
+        "maxExclusive": 0.3
+      }
+    ],
+    "return_concentration": {
+      "status": "computed_artifact_backed",
+      "positive_window_count": 19,
+      "total_positive_return_pct": 30.470032,
+      "largest_positive_window_return_pct": 7.296677,
+      "second_largest_positive_window_return_pct": 2.794091,
+      "single_window_share": 0.239471,
+      "top_two_window_share": 0.33117
+    },
+    "drawdown_to_return_ratio": {
+      "status": "undefined_non_positive_return_proxy",
+      "aggregate_return_pct": -0.96216,
+      "absolute_max_drawdown_pct": 8.894928,
+      "value": null
+    },
+    "low_window_count_warning": {
+      "flagged": false,
+      "completed_windows": 57,
+      "threshold_windows": 15,
+      "ratio_warning_below": 0.65,
+      "status": "not_flagged"
+    },
+    "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+  },
+  "promotion_gate": {
+    "schema_version": "stage_gate_v1",
+    "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+    "stage": "research_promotion",
+    "attempt": 1,
+    "decision": "denied",
+    "validator": "research_wfa_promotion_gate",
+    "evidence_paths": [
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/parsed-wfa-metrics.json",
+      "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/hypothesis-packet.json",
+      "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+      "walk forward engine/strategies/eth_btc_residual_phase8d/results/analysis.json",
+      "walk forward engine/strategies/eth_btc_residual_phase8d/results/parameter_stability_20260602_192243.json",
+      "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_summary_20260602_192243.csv",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-request.json",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stdout.txt",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/research-wfa-run-stderr.txt",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/pre-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/post-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/accepted-output-artifacts.json",
+      "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/trial-attempts.jsonl"
+    ],
+    "reason": "Research WFA promotion denied for CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412: non-positive OOS Sharpe (-1.3240707834957792); aggregate return proxy below Phase 8D floor (-0.9621596271451213% < 5%); profit factor below 1 (0.7244491750213435); Phase 8D consistency route denied: C3 route requires return >= 10% (-0.9621596271451213% observed); C3 route requires OOS Sharpe >= 0.75 (-1.3240707834957792 observed); C3 route requires profit factor >= 1.35 (0.7244491750213435 observed); C3 route requires artifact-backed drawdown-to-return ratio. Advisory DSR/PBO/CPCV/White statistics are not hard promotion authority in Phase 8C.",
+    "recorded_at": "2026-06-02T16:22:50.586Z",
+    "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+    "target_context": "research",
+    "statistical_test_authority": {
+      "dsr": "advisory_only_not_a_promotion_gate",
+      "pbo": "advisory_only_not_a_promotion_gate",
+      "cpcv": "advisory_only_not_a_promotion_gate",
+      "white_reality_check": "advisory_only_not_a_promotion_gate",
+      "hard_gate_enabled": false,
+      "note": "Phase 8C DSR/PBO/CPCV/White outputs may report or block missing inputs, but they do not authorize research promotion without a separate promotion-policy amendment."
+    },
+    "consistency_promotion_policy": {
+      "passed": false,
+      "route": null,
+      "tier": "C3",
+      "failures": [
+        "C3 route requires return >= 10% (-0.9621596271451213% observed)",
+        "C3 route requires OOS Sharpe >= 0.75 (-1.3240707834957792 observed)",
+        "C3 route requires profit factor >= 1.35 (0.7244491750213435 observed)",
+        "C3 route requires artifact-backed drawdown-to-return ratio"
+      ],
+      "observed": {
+        "positive_window_ratio": 0.3333,
+        "return_pct": -0.9621596271451213,
+        "sharpe_oos": -1.3240707834957792,
+        "profit_factor": 0.7244491750213435,
+        "completed_windows": 57,
+        "single_window_concentration": 0.239471,
+        "top_two_window_concentration": 0.33117,
+        "drawdown_to_return_ratio": null
+      },
+      "policy": {
+        "status": "enabled_conditional_multi_metric_gate",
+        "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+        "routes": {
+          "C1": {
+            "label": "clean_consistency_route",
+            "minPositiveWindowRatio": 0.7,
+            "requiresAdditionalDiagnostics": false
+          },
+          "C2": {
+            "label": "moderate_consistency_compensated_route",
+            "minPositiveWindowRatio": 0.5,
+            "minReturnPct": 5,
+            "minSharpeOos": 0.35,
+            "minProfitFactor": 1.15,
+            "minOosWindows": 15,
+            "maxSingleWindowConcentration": 0.6,
+            "maxTopTwoWindowConcentration": 0.85,
+            "maxDrawdownToReturnRatio": 3
+          },
+          "C3": {
+            "label": "lumpy_payoff_compensated_route",
+            "minPositiveWindowRatio": 0.3,
+            "minReturnPct": 10,
+            "minSharpeOos": 0.75,
+            "minProfitFactor": 1.35,
+            "minOosWindows": 20,
+            "maxSingleWindowConcentration": 0.45,
+            "maxTopTwoWindowConcentration": 0.7,
+            "maxDrawdownToReturnRatio": 2
+          }
+        }
+      }
+    }
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "consistency_promotion_route"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/execution-result.json",
+      "sha256": "6294a863d10f0f46b912f10d874999256d5e81c40a7ff925eedc9ecca2b45cf1"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/parsed-wfa-metrics.json",
+      "sha256": "a62de33f23961b5f106cd418f12611db3ca95929d4e04b27618e6a00ef54aca7"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+      "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/hypothesis-packet.json",
+      "sha256": "867fb74f974783814b5ce16c5ccdd109ce270a26e916c74c0fd970f558c30b66",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/source-record.json",
+      "sha256": "2ae9db62c078a4949140b2490455bdb3c6e624c48964ff5c751191b793fb0b8f"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/source-excerpt.md",
+      "sha256": "2a0f1fbeabc7dea8b9048ec618ccf707722397f7732a1a41999068a8f223161e",
+      "artifact_type": "research_source_excerpt"
+    },
+    {
+      "path": "walk forward engine/src/strategies/eth_btc_residual_phase8d.py",
+      "sha256": "6b385203f6f1570926df8cfb32dc6071a9b3135f93b93d162ddf9fcfea6fcc9e"
+    },
+    {
+      "path": "walk forward engine/src/strategies/btc_residual_reversion.py",
+      "sha256": "5a6862ca49b06ddc6dbd2f75ab5fcdb4e3db26ec7fb743b5cf862574ab20fb6a"
+    },
+    {
+      "path": "walk forward engine/config/strategy_eth_btc_residual_phase8d.json",
+      "sha256": "e2e05d926121af6948b58eabdaa2fead05132fe650296ed7f16ac49939692da8"
+    },
+    {
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+      "sha256": "004b21211a67068eb7bbc8a14e65c8dfc3cbecbbfc8ef5da4c34f52e067fef40"
+    },
+    {
+      "path": "walk forward engine/data/phase8d_eth_btc_residual_1h.csv",
+      "sha256": "f88e7a632ccf1d5383efb79e68e7b4d2613ec8ce21c650d78c8b70aa02f7427d"
+    },
+    {
+      "path": "walk forward engine/data/binance_eth_btc_merged_1h.csv",
+      "sha256": "1f04a867a4cafd2b398c4e6e27aa9859770cf38f7d03838a1540266d0e6bb57c"
+    },
+    {
+      "path": "factory/runs/RUN-20260323205900-x9v92n/experiment-plan.json",
+      "sha256": "43096f0c67279095a45beeae2402f06b76fcfeb135f8b1b2ffb512702d6b436a",
+      "artifact_type": "prior_related_blocked_plan"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+      "sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12"
+    }
+  ],
+  "recorded_at": "2026-06-02T16:04:12.349Z"
+}

@@ -1,0 +1,14 @@
+{
+  "source_id": "SRC-LIVE-CANARY-001",
+  "url": "https://forexmt4indicators.com/bollinger-band-mean-reversal-forex-trading-strategy/",
+  "title": "Bollinger Band Mean Reversal Forex Trading Strategy - ForexMT4Indicators.com",
+  "source_class": "web",
+  "captured_at": "2026-05-23T12:57:02.348Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "content_sha256": "1190489943c87562cce40390aafd5ac792d1d6295781957f4a33f058f0148d6a"
+}

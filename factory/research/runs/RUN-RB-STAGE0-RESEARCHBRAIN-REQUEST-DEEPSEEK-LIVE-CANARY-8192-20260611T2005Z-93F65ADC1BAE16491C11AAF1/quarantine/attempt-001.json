@@ -1,0 +1,21 @@
+{
+  "schema_version": "researchbrain_stage0_quarantine_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "quarantined_at": "2026-06-11T20:15:46.905Z",
+  "attempt_number": 1,
+  "reason": "accepted provider output rejected during artifact writing: hypothesis_packet_v1 validation failed: phase8a_universe_constraints is required",
+  "failure_class": "schema_or_validation_failure",
+  "retryable": false,
+  "retry_attempts": [],
+  "raw_provider_output": {
+    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1/attempts/attempt-001/provider-output.raw.json",
+    "sha256": "9d11e8d8c406fc5bfa2c9ddd6e3799a084fce4313044e6ff6353a61391a8d37d"
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

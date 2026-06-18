@@ -1,0 +1,65 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529130325",
+  "registered_at": "2026-05-29T13:03:25.810Z",
+  "registered_before_run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529130325",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/hypothesis-packet.json",
+    "sha256": "ed61f4ca57196d49bfd059fb42818c4cb0d77ff01d68f5e71a2a5fad869ec692",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/source-record.json",
+      "sha256": "4af69d36a99651f94cf7462c078b3be73eb19ead52877de56e56878ccbbb1e8a",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register GBPJPY liquidity-vacuum reversion screening before WFA execution.",
+  "instrument_scope": "GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven.",
+  "timeframe_candidate": "M15 intraday with completed-H1 RSI context",
+  "strategy_family": "gbpjpy_reversion",
+  "expected_trade_frequency": "Medium frequency; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "data_sources": [
+    "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+    "FTMO terminal universe snapshot lists GBPJPY, but MT5 data equivalence is not assumed."
+  ],
+  "cost_assumptions": "Use only gbpjpy_reversion WFA config costs: fees 0.0003 and slippage 0.0001, no hidden overrides.",
+  "wfa_design": {
+    "config_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+    "window_policy": "Use the canonical 6m training / 3m testing / 1m step WFA scheme encoded in the config with data.min_required_bars mechanically repaired to 2000 before this run.",
+    "repair_rationale": "Pre-run mechanical feasibility repair: data.min_required_bars was reduced from 5000 to 2000 because the first 6-month GBPJPY M15 training split has 2500 bars and the first 3-month validation split has 3724 bars; no performance result was used.",
+    "performance_result_used_for_repair": false,
+    "optimizer_policy": "Use the existing fixed structural parameter route with 20 trial budget and count this attempt in the denominator."
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if real WFA fails any Phase 8D survivor floor on completed OOS windows, total trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment or Phase 8E implication unless a separate survivor exists with MT5 instrument equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, cost, parameter space, or WFA config as a new denominator-tracked attempt."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "95d49f436777665d1f43dd1d689ee21b69351d5270295ccfab924d8a405afac9"
+}

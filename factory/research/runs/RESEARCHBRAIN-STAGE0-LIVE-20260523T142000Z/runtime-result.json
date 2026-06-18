@@ -1,0 +1,88 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z",
+  "generated_at": "2026-05-23T13:10:57.004Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z/request.json",
+    "sha256": "8a46e46b9cde56b47177669bdfb44a891015f8cbd1a7f635f912003beb38624b"
+  },
+  "budget": {
+    "max_attempts": 1,
+    "max_provider_calls": 1,
+    "provider_calls_used": 1,
+    "timeout_ms": 120000,
+    "max_output_bytes": 512000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "reason": "provider timed out after 120000ms",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/quarantine/attempt-001.json",
+        "sha256": "6425d2f837919c3df11afb3996251ecb06f025d800cf564c84e4623b681e28a8"
+      }
+    }
+  ],
+  "blockers": [
+    "provider_call_budget_exhausted"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/quarantine/attempt-001.json",
+      "sha256": "6425d2f837919c3df11afb3996251ecb06f025d800cf564c84e4623b681e28a8"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/agent-transcript.jsonl",
+      "sha256": "835074b2640ea08429a036cc15f2b9b532f85aecf69876e12c53cd762814f6c7"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/tool-ledger.json",
+      "sha256": "d0d4232a5e9205baf1be05d22a93743f929f677c9133ca96c88f20004feee214"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/cost-ledger.json",
+      "sha256": "ee99db767e01a6dd5e03b3c84cb9e816a058bc646730408d24ba005ea040c58b"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/working-notes.md",
+      "sha256": "8e92617d7f067f5f6af5d7fef9b9aa859f55635cd747fba8f9eaec60e621a2ce"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/tool-captures/url/SRC-LIVE-CANARY-001/content.md",
+      "sha256": "a1f68a1905ef5f563c40c39be13cd88f66155d786c444912ed46809bde3905a0",
+      "source_id": "SRC-LIVE-CANARY-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T142000Z/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json",
+      "sha256": "e0b965804edc1c7481dbb2506551a2ba93c7da1101da9d2fddf237cca5f306cc",
+      "source_id": "SRC-LIVE-CANARY-001"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

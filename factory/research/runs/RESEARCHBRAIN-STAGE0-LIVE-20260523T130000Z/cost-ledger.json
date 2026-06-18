@@ -1,0 +1,26 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-05-23T12:46:08.446Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "deepseek-v4-pro",
+  "live_llm": true,
+  "estimated_cost_usd": 0.000002,
+  "max_cost_usd": 0.001,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "deepseek-v4-pro",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    }
+  ],
+  "failure": "Unexpected end of JSON input"
+}

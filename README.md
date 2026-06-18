@@ -1,8 +1,8 @@
 # Autonomous Trading Research Factory
 
-This repo is an OpenCode-driven research factory for discovering robust trading strategies through real walk-forward analysis.
+This repo is a deterministic worker-first research factory for discovering robust trading strategies through real walk-forward analysis. OpenCode is supervised tooling and an optional bounded cognitive backend, not the evidence authority.
 
-The active loop is:
+The current high-level reasoning loop is:
 
 `ideator -> planner -> executor -> evaluator -> summarizer`
 
@@ -23,9 +23,9 @@ Use this to validate loop mechanics and artifact flow without provider credentia
 npm run simulate -- --cycles 1 --interval-ms 1
 ```
 
-### Live mode
+### Current OpenCode-backed live mode
 
-Use this when OpenCode is configured with working provider credentials.
+Use this when OpenCode is configured with working provider credentials. This is the current supervised/model-backed loop surface, not the future official execution authority for new `research_wfa` evidence.
 
 Pass `--root` as the literal repo root. Equivalent Windows aliases are normalized to the canonical WSL-visible repo path only when they resolve to the same repo.
 
@@ -93,6 +93,8 @@ cd "walk forward engine"
 
 From WSL, this Windows venv path is the canonical launcher when available.
 
+After the Phase 7A worker is implemented, new official `research_wfa` `executed` evidence must go through `npm run wfa:run`, not manual command output alone.
+
 ## Layout
 
 - `src/` - orchestrator, runners, validators, prompts, control-plane helpers
@@ -114,5 +116,5 @@ From WSL, this Windows venv path is the canonical launcher when available.
 ## Operating Rules
 
 - Missing artifacts never count as success.
-- `executed` only means a real WFA run produced real output artifacts.
+- For `research_wfa`, new `executed` claims require a deterministic worker-launched real WFA run with verified artifacts; other evidence kinds use their own worker-accepted artifact requirements.
 - Historical evidence should be preserved, but active runtime truth should stay singular and explicit.

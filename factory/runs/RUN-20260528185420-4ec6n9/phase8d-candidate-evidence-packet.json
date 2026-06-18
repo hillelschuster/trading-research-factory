@@ -1,0 +1,123 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-20260528185420-4ec6n9",
+  "backlog_item_id": "IDEA-PHASE8D-SOURCE-QUALITY-GATE-20260528",
+  "candidate_id": "CAND-PHASE8D-SOURCE-QUALITY-GATE-20260528",
+  "lineage_id": "LINEAGE-PHASE8D-SOURCE-QUALITY-GATE",
+  "family_id": "FAMILY-PHASE8D-GATE-CANARIES",
+  "attempt_id": "RUN-20260528185420-4ec6n9:phase8d-blocked-at-start",
+  "terminal_state": "blocked",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": false,
+  "deterministic_worker_evidence_required": false,
+  "source_hashes": [
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "a4412b1b91f24e024eda6aa51a0e9e085693e426864fb5d7bbc846f103c11af5"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/source-records/SRC-LIVE-CANARY-001.json",
+      "sha256": "197b227b9b290cc3ce8fd06a5ae4ee2300fa79f6901a4fbd4e53ccb14f90f4d5"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "not_applicable",
+    "reason": "researchbrain_source_quality_gate_not_wfa_ready",
+    "blocked_reason": "ResearchBrain source-quality gate blocked direct Phase 8D WFA route: single_low_signal_trust_source_requires_more_research"
+  },
+  "source_quality_gate": {
+    "applies": true,
+    "direct_wfa_ready_allowed": false,
+    "required_status": "requires_more_research",
+    "reasons": [
+      "single_low_signal_trust_source_requires_more_research"
+    ],
+    "source_count": 1,
+    "trust_tiers": [
+      "low_signal_trust"
+    ],
+    "memory_gate": {
+      "direct_wfa_blocked": false,
+      "reasons": [],
+      "duplicate_match_count": 0,
+      "rejection_match_count": 0,
+      "failed_pattern_match_count": 0,
+      "memory_similarity_blocked": false
+    },
+    "ideation_manifest_gate": {
+      "direct_wfa_blocked": false,
+      "reasons": [],
+      "manifest_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/ideation-manifest.json",
+      "manifest_status": "validated",
+      "accepted_match_count": 1,
+      "packet_artifact_listed": true,
+      "missing_source_artifact_count": 0,
+      "duplicate_match_count": 0,
+      "rejection_match_count": 0,
+      "blocker_count": 0
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "denominator_artifact_status": "gate_diagnostic",
+    "attempt_source": "phase8d_pre_wfa_screening_gate"
+  },
+  "data_identity": {
+    "status": "not_applicable_before_wfa_launch",
+    "known": false
+  },
+  "wfa_metrics": {
+    "status": "not_applicable_before_wfa_launch",
+    "windows": null,
+    "trades": null,
+    "return_proxy_pct": null,
+    "positive_oos_window_ratio": null,
+    "wfr": null
+  },
+  "survivor_floor_enforcement": {
+    "status": "not_applicable_before_wfa_launch",
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_not_applicable_before_wfa_launch",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [
+    "ResearchBrain source-quality gate blocked direct Phase 8D WFA route: single_low_signal_trust_source_requires_more_research"
+  ],
+  "cited_artifacts": [
+    {
+      "artifact_type": "phase8d_blocked_at_start",
+      "path": "factory/runs/RUN-20260528185420-4ec6n9/phase8d-blocked-at-start.json",
+      "sha256": "77ac848a6274a845df0c9b0a845627257767eb98d9708d99f3156d99fd3bbf00"
+    },
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-20260528185420-4ec6n9/execution-result.json",
+      "sha256": "68fdadfb2fb631c662f7d3defa7e22b16d088f167b042802f9e55f62615ac3ac"
+    }
+  ],
+  "recorded_at": "2026-05-28T18:54:25.640Z"
+}

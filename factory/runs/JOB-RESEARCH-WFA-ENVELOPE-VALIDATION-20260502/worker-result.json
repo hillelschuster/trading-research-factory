@@ -1,0 +1,53 @@
+{
+  "job_id": "JOB-RESEARCH-WFA-ENVELOPE-VALIDATION-20260502",
+  "run_id": "RUN-RESEARCH-WFA-ENVELOPE-VALIDATION-20260502",
+  "candidate_id": null,
+  "worker": "research_wfa_envelope",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_worker_result_v1",
+  "status": "blocked",
+  "artifacts": [
+    {
+      "artifact_type": "blocked_research_wfa_envelope_summary",
+      "path": "factory/runs/JOB-RESEARCH-WFA-ENVELOPE-VALIDATION-20260502/blocked-research-wfa-envelope-summary.json",
+      "sha256": "ee810f645d387ed33bd010e010872b9ae4846123d0bbf070f9bde2d0c3e24d2c",
+      "size_bytes": 1001,
+      "modified_at": "2026-05-02T16:14:15.912Z"
+    },
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/JOB-RESEARCH-WFA-ENVELOPE-VALIDATION-20260502/research-wfa-envelope-request.json",
+      "sha256": "de28e4b5bbdb58bf63cdaf25a7afda63956fe1df2c6437c0e3646bdd6e9cd9cf",
+      "size_bytes": 334,
+      "modified_at": "2026-05-02T16:14:15.782Z"
+    }
+  ],
+  "metrics": {},
+  "observations": {
+    "envelope_scope": "blocked",
+    "reason": "Research WFA envelope inputs failed validation: canonical config path missing or invalid; result_artifacts missing; observed WFA metrics missing; windows_completed must be >= 1."
+  },
+  "observed_at": "2026-05-02T16:14:17.420Z",
+  "blocked_reason": "Research WFA envelope inputs failed validation: canonical config path missing or invalid; result_artifacts missing; observed WFA metrics missing; windows_completed must be >= 1.",
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-envelope-worker.mjs",
+      "sha256": "74fc9c217fe4d4f55a5cfa997ccc12702e5036ab2336c80abd24c7bcbfe95aec",
+      "size_bytes": 8682,
+      "modified_at": "2026-05-02T16:05:19.867Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": "research_wfa_envelope_blocked",
+    "message": "Research WFA envelope inputs failed validation: canonical config path missing or invalid; result_artifacts missing; observed WFA metrics missing; windows_completed must be >= 1.",
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

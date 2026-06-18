@@ -1,0 +1,39 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-GBPJPY-REVERSION-20260529122836",
+  "source_type": "repo_strategy_source_config_data_and_mt5_universe_evidence",
+  "trust_tier": "medium_implementation_trust",
+  "url_or_path_or_doi": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+  "accessed_at": "2026-05-29T12:28:36.640Z",
+  "content_hash_or_unavailable_reason": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a",
+  "claims_extracted": [
+    "The strategy implements GBPJPY London-session mean reversion after a 2.5 sigma Bollinger pierce with V-shaped wick rejection.",
+    "The implementation maps H1 RSI from completed hourly candles and shifts entries to the next M15 bar to reduce look-ahead risk.",
+    "GBPJPY is present in the FTMO terminal universe snapshot as a Forex symbol, making the hypothesis MT5/FTMO-relevant but not terminal-equivalent yet."
+  ],
+  "limitations": [
+    "Source support is repo-local implementation/config/data plus terminal-universe evidence, not independent external alpha research.",
+    "The GBPJPY research CSV is not proven equivalent to MT5 terminal history; classify as mt5_relevant_unverified.",
+    "The WFA route uses fixed structural parameters, so this screens mechanism validity rather than a broad optimizer search."
+  ],
+  "disconfirming_relevance": [
+    "Extreme Bollinger pierces can become trend continuation instead of mean reversion during strong JPY-cross moves.",
+    "Session-time conversion, spread spikes, and JPY pip scaling can materially change future MT5 parity.",
+    "A structurally plausible setup still fails if WFA return, trade count, or OOS consistency floors are not met."
+  ],
+  "artifact": {
+    "path": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+    "sha256": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a"
+  },
+  "provider_provenance": {
+    "mode": "repo_local_strategy_source_plus_terminal_universe_snapshot",
+    "live_research": false,
+    "deterministic_capture": true
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false
+}

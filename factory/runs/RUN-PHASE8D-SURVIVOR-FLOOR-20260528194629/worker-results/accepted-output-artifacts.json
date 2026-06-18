@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "sha256": "2206262f801bd6dfee6eb1ab049131f92e44d318c3a7b25fb342d4782600a823",
+    "size_bytes": 2902,
+    "modified_at": "2026-05-28T19:50:26.431Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260528_225026.json",
+    "sha256": "1801fe59b9d4cb751eeea21b0d1343abf0157cea548740bc6c6697c192258cdf",
+    "size_bytes": 1423,
+    "modified_at": "2026-05-28T19:50:26.456Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+    "sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+    "size_bytes": 7821,
+    "modified_at": "2026-05-28T19:50:26.321Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260528_225026.csv",
+    "sha256": "e3c8b7ea18575b8c296c7bd26df547710c34707a53c5ec38f0a31e3a72880c67",
+    "size_bytes": 1209,
+    "modified_at": "2026-05-28T19:50:26.452Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

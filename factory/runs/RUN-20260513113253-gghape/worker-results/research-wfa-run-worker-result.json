@@ -1,0 +1,174 @@
+{
+  "job_id": "JOB-RUN-20260513113253-gghape",
+  "run_id": "RUN-20260513113253-gghape",
+  "candidate_id": null,
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-request.json",
+      "sha256": "3a3e822be69d25d699045dc1177317b54e9762d091fdb2e4ace637ddc863c925",
+      "size_bytes": 1304,
+      "modified_at": "2026-05-13T11:32:56.134Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "e5d1bd5e5a81f132e75965e82443b8acbe6ddb7846e43e81c4e345230049b550",
+      "size_bytes": 132994,
+      "modified_at": "2026-05-13T11:35:47.431Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "d4e4e230d0aa1539ac1926ee6d6df64e9c625bb85652304fb26b374213ddf1c3",
+      "size_bytes": 150541,
+      "modified_at": "2026-05-13T11:35:47.457Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/pre-run-output-snapshot.json",
+      "sha256": "cdd8864dcd75bb2995d01426e0878135a472275018173adb2ee82838657a7325",
+      "size_bytes": 2531,
+      "modified_at": "2026-05-13T11:35:47.474Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/post-run-output-snapshot.json",
+      "sha256": "38b3def3a22c33e5db18d89598ad1a2baab570428e5194474bfad587624e6a0e",
+      "size_bytes": 3489,
+      "modified_at": "2026-05-13T11:35:47.490Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/accepted-output-artifacts.json",
+      "sha256": "b4ec4853897b73b1084a591865190ee294f4faf617d987fc3e0c010a67d2745c",
+      "size_bytes": 1253,
+      "modified_at": "2026-05-13T11:35:47.508Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-20260513113253-gghape/worker-results/parsed-wfa-metrics.json",
+      "sha256": "4458ac5906746437637beeda7d1aa4cbdf89de8c3d41410f7e018b3fa7f40e45",
+      "size_bytes": 1928,
+      "modified_at": "2026-05-13T11:35:47.535Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+      "sha256": "e3cf0dba5c53e6dd4595039ca78e83bde591559380529134549507ff52c5872d",
+      "size_bytes": 1450,
+      "modified_at": "2026-05-13T11:35:45.926Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+      "sha256": "358ade2fbfe8c1cc4b6cbe0f2419a4e281fbd05d1fe85a682e34b4329e906c90",
+      "size_bytes": 1346,
+      "modified_at": "2026-05-13T11:35:45.936Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+      "sha256": "91f38fba3f7d86f8beab10647b89d22a974facaef5b36c67f938f6aad4a0f180",
+      "size_bytes": 7086,
+      "modified_at": "2026-05-13T11:35:45.833Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260513_143545.csv",
+      "sha256": "eebba7d685b24b2036c4d1bd6583f646f55207115cc749d3a76c6cef4b2b49a5",
+      "size_bytes": 1041,
+      "modified_at": "2026-05-13T11:35:45.933Z"
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-20260513113253-gghape/trial-attempts.jsonl",
+      "sha256": "28c88053dc01f10791510a85fe39e9bc6ee2c305f5de5c56f68e59741b253023",
+      "size_bytes": 4041,
+      "modified_at": "2026-05-13T11:35:47.641Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_oos": 1.5232824968937009,
+    "total_trades": 20,
+    "max_drawdown": -3.5081816633755083,
+    "profit_factor": 1.7208868566043953,
+    "win_rate": 0.55,
+    "aggregate_return_pct": 1.4111595609530923,
+    "total_windows": 3,
+    "successful_windows": 3,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": null,
+    "canonical_wfa_config_path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-05-13T11:32:56.461Z",
+    "worker_end_time": "2026-05-13T11:35:47.662Z",
+    "duration_ms": 171201,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+    "per_window_metrics_count": 3,
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-05-13T11:35:47.662Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "946b9dc736a520232b5cbf148c503d9a897898185591521f55b9108bb1ca10ce",
+      "size_bytes": 22953,
+      "modified_at": "2026-05-13T05:30:25.054Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+      "sha256": "532fb710bc686673db6f7b64d3c76744114a87b932aff7df82a4c9de9425c51e",
+      "size_bytes": 1447,
+      "modified_at": "2026-04-05T16:04:19.926Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/volatility_regime.py",
+      "sha256": "0ae89d2e05dadb33c664885856dcae56e35b9110b0cfc96bb4ce5683f5709e0a",
+      "size_bytes": 11716,
+      "modified_at": "2026-03-17T14:31:05.896Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_volatility_regime.json",
+      "sha256": "b319f696391fd38c2b2dbd7c9d72fbae45f2cccf720e742f6caf00c94ebfe309",
+      "size_bytes": 976,
+      "modified_at": "2026-03-17T14:31:13.586Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

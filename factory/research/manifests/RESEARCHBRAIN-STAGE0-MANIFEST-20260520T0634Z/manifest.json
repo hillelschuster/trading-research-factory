@@ -1,0 +1,16 @@
+{
+  "schema_version": "researchbrain_stage0_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "manifest_id": "RESEARCHBRAIN-STAGE0-MANIFEST-20260520T0634Z",
+  "generated_at": "2026-05-20T06:34:00.000Z",
+  "status": "blocked_no_source_backed_hypothesis_packet",
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "artifact_counts": {},
+  "artifacts": []
+}

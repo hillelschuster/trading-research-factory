@@ -1,0 +1,47 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_v1",
+  "evidence_kind": "phase8a_mt5_artifact_registration",
+  "registration_id": "PHASE8A-MT5-ARTIFACT-REGISTRATION-DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z",
+  "observed_at": "2026-05-19T09:08:12.863Z",
+  "authority_layer": "control_plane",
+  "official_evidence_index_mutated": false,
+  "registration_scope": "phase8a_mt5_readiness_artifacts_only",
+  "status_summary": {
+    "total": 1,
+    "ready": 1,
+    "blocked": 0,
+    "by_status": {
+      "ready": 1
+    },
+    "by_evidence_kind": {
+      "data_relevance_classification": 1
+    }
+  },
+  "artifacts": [
+    {
+      "artifact_type": "data_relevance_classification",
+      "path": "factory/mt5/data-relevance/DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z/classification.json",
+      "sha256": "2bf1f1cbd4056643793a34057cad21d9182585ea23b1ce1149486a26cf0a425d",
+      "size_bytes": 4769,
+      "modified_at": "2026-05-19T09:07:03.020Z",
+      "evidence_kind": "data_relevance_classification",
+      "summary": {
+        "status": "ready",
+        "job_id": null,
+        "classification_id": "DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z",
+        "manifest_id": null,
+        "equivalence_id": null,
+        "diagnostic_id": null,
+        "counts": {
+          "total": 7,
+          "mt5_verified": 0,
+          "mt5_proxy": 0,
+          "non_mt5_research_only": 7
+        },
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "ready"
+    }
+  ]
+}

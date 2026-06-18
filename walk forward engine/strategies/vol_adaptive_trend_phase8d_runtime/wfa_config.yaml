@@ -1,0 +1,52 @@
+# Phase 8D runtime-feasibility config for VOL_ADAPTIVE_TREND.
+# Preserves the original strategy, data, parameter space, and costs while reducing
+# trials before results are known to avoid repeating prior BTC H1 150-trial timeouts.
+
+walk_forward:
+  training_months: 3
+  testing_months: 1
+  step_months: 1
+  n_parameter_trials: 25
+  min_bars_per_window: 600
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/vol_adaptive_trend_phase8d_runtime/results"
+
+data:
+  source_file: "data/binance_btcusdt_1h_deep.csv"
+  min_required_bars: 600
+
+strategy:
+  profile_key: "VOL_ADAPTIVE_TREND"
+  parameter_ranges:
+    atr_period: [7, 10, 14, 20]
+    st_multiplier: [2.0, 2.5, 3.0, 3.5, 4.0]
+    vol_atr_period: [14, 20, 30, 50]
+    vol_scale_min: [0.2, 0.25, 0.3]
+    vol_scale_max: [1.5, 2.0, 2.5]
+    trail_mult: [1.5, 2.0, 2.5, 3.0]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "stability"
+    - "return"
+  stability_weight: 0.15
+  n_startup_trials: 10
+
+backtest:
+  initial_balance: 100000.0
+  fees: 0.0006
+  slippage: 0.0002
+
+performance:
+  max_execution_time_seconds: 1800
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_vol_adaptive_trend_phase8d_runtime.log"

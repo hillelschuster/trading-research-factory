@@ -1,0 +1,68 @@
+{
+  "hypothesis_id": "HYP-STAGE0-FIXTURE-001",
+  "mechanism": "Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism.",
+  "falsifiable_prediction": "If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture makes no such claim.",
+  "market_structure_assumption": "The idea is constrained to broker-supported FTMO MT5 symbols from the Phase 8A universe.",
+  "instrument_scope": "Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets.",
+  "timeframe_candidate": "M15-H1 candidate only, to be selected later by deterministic planning.",
+  "strategy_family": "volatility_contraction_liquidity_pressure_fixture",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "MT5 terminal OHLCV plus spread/swap/spec evidence before any MT5-bound claim.",
+  "expected_holding_period": "Intraday to multi-session; fixture estimate only before WFA.",
+  "expected_trade_frequency": "Unknown until deterministic planning and data checks; no profitability label assigned.",
+  "expected_failure_modes": [
+    "Spread and swap costs overwhelm any apparent continuation.",
+    "Effect is isolated to a post-hoc subset and fails across assets."
+  ],
+  "invalidation_criteria": [
+    "No source-backed deterministic pre-registration exists later.",
+    "No OOS consistency after later WFA and cost controls."
+  ],
+  "implementation_shape": "Rule-based signal generator candidate shape for later planning only; no code or WFA is executed here.",
+  "execution_sensitivity": "Sensitive to spread, swap, session boundaries, contract specs, and bar construction.",
+  "mt5_ftmo_concerns": "Requires terminal-backed symbol specs and later FTMO rule accounting before any promotion path.",
+  "prior_related_lessons": [
+    "For live tool mode, capture_url_source must include source_id, url, and source_class; the URL must be one returned by search_web in the same run.",
+    "record_hypothesis must cite captured source id SRC-LIVE-CANARY-001 and must include source_claims only as Stage-0 source-backed mechanism claims, not MT5 verification or profitability claims.",
+    "Use timeframe_candidate 'M15-H1 candidate' and include at least one prior_failed_patterns_checked item such as 'No blocking failed-pattern match returned by check_failed_pattern_similarity'.",
+    "In invalidation_criteria, avoid Sharpe, returns, win-rate, profit-factor, positive expectancy, or any metric that sounds like a profitability or promotion claim."
+  ],
+  "prior_failed_patterns_checked": [
+    "Historical simple indicator variants are treated as stale overfit-prone patterns."
+  ],
+  "novelty_reason": "Fixture exercises source-backed Stage-0 packet wiring under Phase 8A universe constraints.",
+  "disconfirming_evidence": [
+    "Fixture provenance means no real external evidence has been collected."
+  ],
+  "proposed_experiment_shape": "Stage-0 discovery artifact only; any later experiment must be separately planned and deterministic.",
+  "cited_source_ids": [
+    "SRC-FIXTURE-STAGE0-001"
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "29dfa59ae57e192c01c6ff5012bfa424644a9fab5e100af2a57a810eebf93768"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "38b97f1fbe654835e7ec74dc589e286ac23e60d6dad88674cfadd336a56e9d12"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "job_id": "JOB-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+  "family_id": "vol_adaptive_trend_btc",
+  "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/vol_adaptive_trend.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_vol_adaptive_trend.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/registrations/research-wfa-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727.json",
+    "sha256": "0319ba301436a272ae63db47c8420bb4f35816de1f16ebda8d45072f979ec5d6"
+  },
+  "expected_output_root": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results",
+  "timeout_ms": 1800000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ],
+  "max_buffer_bytes": 100663296
+}

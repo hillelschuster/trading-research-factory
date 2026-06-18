@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_breakout_eurusd/results/analysis.json",
+    "sha256": "2eefe183beef79c76c9fe0755e6ec6118adcf945ead067cdb63fa76986efc9a9",
+    "size_bytes": 2922,
+    "modified_at": "2026-05-28T20:16:24.439Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+      "family_id": "london_breakout_eurusd",
+      "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_breakout_eurusd/results/parameter_stability_20260528_231624.json",
+    "sha256": "4cbf3b22063460fa8f337d00a7d4d37d6a10f7dae861cf5e77f83538b56e72ce",
+    "size_bytes": 2157,
+    "modified_at": "2026-05-28T20:16:24.494Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+      "family_id": "london_breakout_eurusd",
+      "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+    "sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6",
+    "size_bytes": 132252,
+    "modified_at": "2026-05-28T20:16:24.154Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+      "family_id": "london_breakout_eurusd",
+      "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_summary_20260528_231624.csv",
+    "sha256": "1a2e7659e4cb2fc0cb626f103082f2a32931b2962763dca9c2acbad11d8b00e0",
+    "size_bytes": 24561,
+    "modified_at": "2026-05-28T20:16:24.488Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+      "family_id": "london_breakout_eurusd",
+      "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

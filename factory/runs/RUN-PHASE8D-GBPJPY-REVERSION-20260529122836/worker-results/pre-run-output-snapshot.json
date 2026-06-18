@@ -1,0 +1,37 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/parameter_stability_20251221_162647.json",
+    "sha256": "8d29075e7336f822d5f71ac0af86642df8191e1c81d35bfbebee16c57c014b11",
+    "size_bytes": 2368,
+    "modified_at": "2025-12-21T14:26:47.347Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/walk_forward_results_20251221_162647.json",
+    "sha256": "fde866ec15269281abc953d032d446053dbdd73d3f8de15b55cfbab368336463",
+    "size_bytes": 52202,
+    "modified_at": "2025-12-21T14:26:47.339Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/walk_forward_summary_20251221_162647.csv",
+    "sha256": "5bc91870073cf8e3cde977757ee7d3bd941e4806e2fe74e6c921a921e8817164",
+    "size_bytes": 12734,
+    "modified_at": "2025-12-21T14:26:47.347Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/wfa_smoke.log",
+    "sha256": "a8a92880c2b35f28348d30ad5b9f192418a5a35726c8a1b6c7cc9520cc2d4ba0",
+    "size_bytes": 4085132,
+    "modified_at": "2025-12-21T14:26:47.727Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+    "sha256": "5bb4b222e53bb8b77d911df4c7f5d8a6e026611b983619207eeeae746baab1b6",
+    "size_bytes": 9091,
+    "modified_at": "2026-05-29T12:25:17.252Z"
+  }
+]

@@ -1,0 +1,176 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "backlog_item_id": "IDEA-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+  "family_id": "london_sweep_gbpjpy",
+  "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "failed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": false,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+      "sha256": "21f2d0956cca075fd56a20b3b80e3cb700824c8d5127f6c0502c051723768740",
+      "size_bytes": 1366,
+      "modified_at": "2026-03-17T14:55:56.345Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/london_sweep.py",
+      "sha256": "f743cae5d8b8f891de4528f555332a1b714908a7837345f5e859a78e0b6d08fb",
+      "size_bytes": 23821,
+      "modified_at": "2026-03-18T15:54:05.817Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_london_sweep_fade.json",
+      "sha256": "01426e8a54380ff504674031fe0ad98f402398ee96bac64d4ecc58f22e8aa89d",
+      "size_bytes": 1819,
+      "modified_at": "2026-01-09T06:35:56.053Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "size_bytes": 12747848,
+      "modified_at": "2025-12-19T07:10:07.755Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203.json",
+      "sha256": "a347166a7ce66edf9c5529d67c76543e1370488f1d7c0ca6ea5704ec6c92e125",
+      "size_bytes": 3218,
+      "modified_at": "2026-05-28T22:52:03.328Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/hypothesis-packet.json",
+      "sha256": "c06eb6024026374f44f3f092c37f0424991bf1675373c50b577eebe9d53c046f"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203.json",
+      "sha256": "a347166a7ce66edf9c5529d67c76543e1370488f1d7c0ca6ea5704ec6c92e125",
+      "content_hash": "68feae5de7ba55e69b1d061313044ee4768f7bd89a07bfc1afd02f85accfa27c"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/source-record.json",
+      "sha256": "1458adcefe74eb230eb9d1ac7a56454a63c038f19e63f9f5218181a6d9fc22c6",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution"
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "GBPJPY",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "known_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_executed_artifact_backed",
+    "windows": 17,
+    "trades": 0,
+    "return_proxy_pct": 0,
+    "positive_oos_window_ratio": 0,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "total_trades",
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/execution-result.json",
+      "sha256": "1b4ac45c7e4d4426841733772d880f48c99a893e8446c3d252b92d7218386f6a"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/parsed-wfa-metrics.json",
+      "sha256": "3d2cf677068ad02a4d22686f7df0de90f1556fe252b1a6442304f17d4cf903e8"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203.json",
+      "sha256": "a347166a7ce66edf9c5529d67c76543e1370488f1d7c0ca6ea5704ec6c92e125"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/hypothesis-packet.json",
+      "sha256": "c06eb6024026374f44f3f092c37f0424991bf1675373c50b577eebe9d53c046f",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/source-record.json",
+      "sha256": "1458adcefe74eb230eb9d1ac7a56454a63c038f19e63f9f5218181a6d9fc22c6"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+      "sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9"
+    }
+  ],
+  "recorded_at": "2026-05-28T22:52:03.169Z"
+}

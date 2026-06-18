@@ -1,0 +1,108 @@
+{
+  "schema_version": "data_relevance_classification_v1",
+  "evidence_kind": "data_relevance_classification",
+  "classification_id": "DATA-RELEVANCE-CURRENT-REPO-20260519T081345Z",
+  "observed_at": "2026-05-19T09:07:03.481Z",
+  "universe_snapshot": {
+    "artifact_type": "mt5_tradable_universe_snapshot",
+    "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+    "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+  },
+  "research_instruments_source": {
+    "mode": "repo_relative_json",
+    "path": "factory/mt5/data-relevance/CURRENT-REPO-RESEARCH-INSTRUMENTS-20260519T081345Z/research-instruments.json",
+    "sha256": "875edda034c0863793439390cc9561d78830183bfe1974c5000b32b694918356"
+  },
+  "counts": {
+    "total": 7,
+    "mt5_verified": 0,
+    "mt5_proxy": 0,
+    "non_mt5_research_only": 7
+  },
+  "rows": [
+    {
+      "instrument_id": "DATA-BINANCE-BTCUSDT-1H-REPO-CURRENT",
+      "source_family": "binance_repo_csv",
+      "source_symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-BINANCE-ETHUSDT-1H-REPO-CURRENT",
+      "source_family": "binance_repo_csv",
+      "source_symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-BINANCE-SOLUSDT-1H-REPO-CURRENT",
+      "source_family": "binance_repo_csv",
+      "source_symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-BINANCE-BNBUSDT-1H-REPO-CURRENT",
+      "source_family": "binance_repo_csv",
+      "source_symbol": "BNBUSDT",
+      "timeframe": "1h",
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-BINANCE-ETHBTC-MERGED-1H-REPO-CURRENT",
+      "source_family": "binance_repo_csv",
+      "source_symbol": "ETHBTC",
+      "timeframe": "1h",
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-POLYMARKET-REPO-CURRENT",
+      "source_family": "polymarket_prediction_market",
+      "source_symbol": "POLYMARKET",
+      "timeframe": null,
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    },
+    {
+      "instrument_id": "DATA-DEMO-OHLCV-REPO-CURRENT",
+      "source_family": "demo_fixture_csv",
+      "source_symbol": "DEMO_OHLCV",
+      "timeframe": null,
+      "requested_mt5_symbol": null,
+      "classification": "non_mt5_research_only",
+      "mt5_symbol": null,
+      "mapping_basis": "no_terminal_symbol_match_in_snapshot",
+      "reason": "No matching MT5 terminal symbol exists in the supplied universe snapshot; this data cannot advance as MT5-bound evidence without later equivalence proof.",
+      "symbol_spec": null
+    }
+  ]
+}

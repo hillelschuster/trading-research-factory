@@ -1,0 +1,47 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+  "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+  "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122351",
+  "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+  "family_id": "gbpjpy_reversion",
+  "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122351-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-GBPJPY-REVERSION-20260529122351",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/gbpjpy_reversion.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_gbpjpy_reversion.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122351/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122351.json",
+    "sha256": "6fe0be55abcc9ad3d825c155a66821e9e1c67e8818d95b8af78b9c941c8939e6"
+  },
+  "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+  "timeout_ms": 7200000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ]
+}

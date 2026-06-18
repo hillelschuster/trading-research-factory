@@ -1,0 +1,31 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-06-07T21:38:26.779Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "deepseek-v4-pro",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "search_official_docs",
+    "search_mql5_sources",
+    "search_broker_docs",
+    "search_youtube",
+    "search_arxiv",
+    "search_semantic_scholar",
+    "search_github_code",
+    "capture_url_source",
+    "capture_github_artifact",
+    "inspect_youtube_video",
+    "read_repo_artifact",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_rejection",
+    "record_hypothesis"
+  ],
+  "tool_calls": [],
+  "captured_artifacts": [],
+  "failure": "OpenAI-compatible ResearchBrain LLM adapter HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"GoUsageLimitError\",\"message\":\"Monthly usage limit reached. Resets in 10hr 21min. To continue using this model now, enable usage from your available balance: https://opencode.ai/workspace/wrk_01KQAV2820HHVVZFD18YRX4AGM/go\"},\"metadata\":{\"workspace\":\"wrk_01KQAV2820HHVVZFD18YRX4AGM\",\"limitName\":\"monthly\"}}"
+}

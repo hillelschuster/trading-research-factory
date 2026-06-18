@@ -118,6 +118,8 @@ class WalkForwardConfig:
     output_directory: str = "results/walk_forward"
     save_detailed_results: bool = True
     save_window_data: bool = False
+    purge_gap_bars: int = 0
+    indicator_warmup_bars: int = 0
     
     # Parameter override from external config (takes precedence over strategy JSON)
     parameter_ranges_override: Optional[Dict[str, Any]] = None
@@ -147,6 +149,8 @@ class WindowResult:
         profit_factor: Ratio of gross profit to gross loss.
         max_drawdown_pct: Maximum drawdown percentage during testing.
         sharpe_ratio: Risk-adjusted return metric.
+        in_sample_sharpe: Best training-window objective Sharpe from optimization.
+        in_sample_return_pct: Selected-parameter return from a training-slice backtest.
         testing_time_seconds: Time spent on backtesting in seconds.
         success: Whether the window processing completed successfully.
         error_message: Error description if processing failed.
@@ -182,6 +186,10 @@ class WindowResult:
     loss_count: int = 0  # Number of losing trades
     avg_trade_win_pct: float = 0.0  # Average winning trade as percent of capital base
     avg_trade_loss_pct: float = 0.0  # Average losing trade as percent of capital base
+    in_sample_sharpe: Optional[float] = None
+    in_sample_return_pct: Optional[float] = None
+    purge_gap_bars: int = 0
+    purged_validation_bars: int = 0
     error_message: Optional[str] = None
 
 
@@ -208,6 +216,8 @@ class WalkForwardResults:
         aggregate_win_rate: Overall win rate across all windows.
         aggregate_profit_factor: Overall profit factor across all windows.
         aggregate_total_trades: Total number of trades across all windows.
+        aggregate_in_sample_sharpe: Mean artifact-backed training-window Sharpe where emitted.
+        aggregate_in_sample_return_pct: Mean selected-parameter training-window return where emitted.
         parameter_stability: Analysis of parameter consistency across windows.
         best_window_return: Highest return achieved in any single window.
         worst_window_return: Lowest return achieved in any single window.
@@ -248,6 +258,8 @@ class WalkForwardResults:
     worst_window_return: float
     return_volatility: float
     consistency_score: float
+    aggregate_in_sample_sharpe: Optional[float] = None
+    aggregate_in_sample_return_pct: Optional[float] = None
 
 
 class WalkForwardRunner:
@@ -307,6 +319,7 @@ class WalkForwardRunner:
         self.window_results: List[WindowResult] = []
         self.execution_start_time: Optional[datetime] = None
         self.execution_id: Optional[str] = None  # Database execution ID
+        self._optimization_metrics_by_window: Dict[int, Dict[str, float]] = {}
 
         # Deterministic execution manager
         self.deterministic_manager: Optional[DeterministicExecutionManager] = None
@@ -504,6 +517,7 @@ class WalkForwardRunner:
             RuntimeError: If analysis execution fails.
         """
         self.execution_start_time = datetime.now(timezone.utc)
+        self._optimization_metrics_by_window = {}
         self.logger.info("=== Starting Walk-Forward Analysis ===")
 
         try:
@@ -713,6 +727,9 @@ class WalkForwardRunner:
                 runtime_guards=runtime_guards
             )
             optimization_time = time.time() - optimization_start
+            optimization_metrics = self._optimization_metrics_by_window.get(window_id, {})
+            in_sample_sharpe = optimization_metrics.get('in_sample_sharpe')
+            in_sample_return_pct = optimization_metrics.get('in_sample_return_pct')
             # Strict-mode per-window hashing of actual slices
             try:
                 from src.utils.stable_io import is_strict_mode, stable_csv_write
@@ -776,6 +793,10 @@ class WalkForwardRunner:
                 loss_count=testing_results.get('loss_count', 0),
                 avg_trade_win_pct=testing_results.get('avg_trade_win_pct', 0.0),
                 avg_trade_loss_pct=testing_results.get('avg_trade_loss_pct', 0.0),
+                in_sample_sharpe=float(in_sample_sharpe) if isinstance(in_sample_sharpe, (int, float)) and np.isfinite(in_sample_sharpe) else None,
+                in_sample_return_pct=float(in_sample_return_pct) if isinstance(in_sample_return_pct, (int, float)) and np.isfinite(in_sample_return_pct) else None,
+                purge_gap_bars=getattr(window, 'purge_gap_bars', 0),
+                purged_validation_bars=getattr(window, 'purged_validation_bars', 0),
                 success=True
             )
 
@@ -901,6 +922,16 @@ class WalkForwardRunner:
                 )
 
                 if study.best_trial and study.best_value > -9999.0:
+                    selected_training_metrics = self._calculate_selected_training_metrics(
+                        training_data,
+                        study.best_params,
+                        runtime_guards=runtime_guards,
+                    )
+                    if window_id is not None and np.isfinite(study.best_value):
+                        self._optimization_metrics_by_window[window_id] = {
+                            'in_sample_sharpe': float(study.best_value),
+                            **selected_training_metrics,
+                        }
                     self.logger.info(f"Optimization complete. Best trial score: {study.best_value:.4f}")
                     return study.best_params
                 else:
@@ -921,6 +952,43 @@ class WalkForwardRunner:
         # Fallback if error_context doesn't reraise
         self.logger.warning("Falling back to default parameters due to optimization error.")
         return self.parameter_generator._get_default_parameters()
+
+    def _calculate_selected_training_metrics(
+        self,
+        training_data: TimeSeriesData,
+        parameters: StrategyParameters,
+        runtime_guards: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, float]:
+        """Backtest selected parameters on the training slice for artifact-backed IS metrics."""
+        try:
+            training_results = self._test_parameters_on_testing_data(
+                training_data.copy(),
+                parameters,
+                runtime_guards=runtime_guards,
+            )
+        except Exception as e:
+            self.logger.warning(f"Selected-parameter training backtest failed; IS return unavailable: {e}")
+            return {}
+
+        if training_results.get('backtest_success') is not True:
+            self.logger.warning("Selected-parameter training backtest did not report success; IS return unavailable")
+            return {}
+
+        in_sample_return_pct = training_results.get('total_return_pct')
+        if not isinstance(in_sample_return_pct, (int, float)) or not np.isfinite(in_sample_return_pct):
+            self.logger.warning("Selected-parameter training backtest did not emit finite total_return_pct; IS return unavailable")
+            return {}
+
+        return {'in_sample_return_pct': float(in_sample_return_pct)}
+
+    def _aggregate_in_sample_sharpe(self, successful_results: List[WindowResult]) -> Optional[float]:
+        values = [r.in_sample_sharpe for r in successful_results if isinstance(r.in_sample_sharpe, (int, float)) and np.isfinite(r.in_sample_sharpe)]
+        return float(np.mean(values)) if values else None
+
+    def _aggregate_in_sample_return(self, successful_results: List[WindowResult]) -> Optional[float]:
+        values = [r.in_sample_return_pct for r in successful_results if isinstance(r.in_sample_return_pct, (int, float)) and np.isfinite(r.in_sample_return_pct)]
+        return float(np.mean(values)) if values else None
+
 
     def _convert_config_ranges_to_generator_format(self, config_ranges: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -1101,6 +1169,7 @@ class WalkForwardRunner:
                     
                     self.logger.info(f"Vectorized test complete: Return={result.total_return_pct:.2f}%, Trades={result.total_trades}")
                     return {
+                        'backtest_success': True,
                         'final_balance': result.final_balance,
                         'total_return_pct': result.total_return_pct,
                         'total_trades': result.total_trades,
@@ -1130,6 +1199,7 @@ class WalkForwardRunner:
         except Exception as e:
             self.logger.error(f"Testing failed: {e}", exc_info=True)
             return {
+                'backtest_success': False,
                 'final_balance': self.config.initial_balance,
                 'total_return_pct': 0.0,
                 'total_trades': 0,
@@ -1263,7 +1333,8 @@ class WalkForwardRunner:
                     optimization_months=self.config.training_months,
                     validation_months=self.config.testing_months,
                     step_months=self.config.step_months,
-                    min_bars_per_window=self.config.min_bars_per_window
+                    min_bars_per_window=self.config.min_bars_per_window,
+                    purge_gap_bars=self.config.purge_gap_bars
                 ),
                 data_integrity_manager=self.data_integrity_manager,
                 logger=self.logger
@@ -1895,7 +1966,9 @@ class WalkForwardRunner:
                 best_window_return=0.0,
                 worst_window_return=0.0,
                 return_volatility=0.0,
-                consistency_score=0.0
+                consistency_score=0.0,
+                aggregate_in_sample_sharpe=None,
+                aggregate_in_sample_return_pct=None
             )
 
         # Calculate aggregate metrics
@@ -1932,6 +2005,8 @@ class WalkForwardRunner:
 
         # Calculate parameter stability
         parameter_stability = self._analyze_parameter_stability(successful_results)
+        aggregate_in_sample_sharpe = self._aggregate_in_sample_sharpe(successful_results)
+        aggregate_in_sample_return = self._aggregate_in_sample_return(successful_results)
 
         # Calculate consistency metrics
         best_return = np.max(returns) if returns else 0.0
@@ -1966,7 +2041,9 @@ class WalkForwardRunner:
             best_window_return=float(best_return),
             worst_window_return=float(worst_return),
             return_volatility=float(return_volatility),
-            consistency_score=float(consistency_score)
+            consistency_score=float(consistency_score),
+            aggregate_in_sample_sharpe=aggregate_in_sample_sharpe,
+            aggregate_in_sample_return_pct=aggregate_in_sample_return
         )
 
     def _analyze_parameter_stability(self, successful_results: List[WindowResult]) -> Dict[str, Dict[str, Any]]:
@@ -2080,6 +2157,10 @@ class WalkForwardRunner:
                         'profit_factor': window_result.profit_factor,
                         'max_drawdown_pct': window_result.max_drawdown_pct,
                         'sharpe_ratio': window_result.sharpe_ratio,
+                        'in_sample_sharpe': window_result.in_sample_sharpe,
+                        'in_sample_return_pct': window_result.in_sample_return_pct,
+                        'purge_gap_bars': window_result.purge_gap_bars,
+                        'purged_validation_bars': window_result.purged_validation_bars,
                         'optimization_time_s': window_result.optimization_time_seconds,
                         'testing_time_s': window_result.testing_time_seconds
                     }
@@ -2227,13 +2308,42 @@ class WalkForwardRunner:
                 "training_months": self.config.training_months,
                 "testing_months": self.config.testing_months,
                 "step_months": self.config.step_months,
-                "n_trials": self.config.n_parameter_trials
+                "n_trials": self.config.n_parameter_trials,
+                "purge_gap_bars": self.config.purge_gap_bars
             },
-            
+
+            "warmup_diagnostics": {
+                "indicator_warmup_bars": self.config.indicator_warmup_bars,
+                "status": "diagnostic_only",
+                "applied_to_window_boundaries": False,
+                "missing_because": "indicator_warmup_bars is recorded for explicit leakage review only; normal WFA does not infer or apply generic strategy indicator warmup beyond configured purge_gap_bars."
+            },
+
+            "optimization_truth": {
+                "active_parameter_optimizer": "direct_optuna_tpe_study",
+                "active_selection_objective": "training_slice_sharpe_from__evaluate_parameter_combination",
+                "multi_objective_optimizer_active": False,
+                "transaction_cost_modeler_active": False,
+                "cost_stress_tester_active": False,
+                "active_cost_inputs": {
+                    "fees": self._get_fees(),
+                    "slippage": self._get_slippage(),
+                    "source": "WalkForwardConfig fields loaded from WFA YAML/backtest config or runner defaults"
+                },
+                "disconnected_modules": [
+                    "src/walk_forward/multi_objective_optimizer.py",
+                    "src/walk_forward/transaction_cost_modeler.py",
+                    "src/walk_forward/cost_stress_tester.py"
+                ],
+                "missing_because": "Normal WFA selection currently uses direct Optuna plus vectorized backtest fees/slippage; multi-objective optimization, TransactionCostModeler, and CostStressTester are not wired into selected-parameter optimization or accepted WFA metric computation."
+            },
+             
             "metrics": {
                 # Core metrics
                 "aggregate_return_pct": round(results.aggregate_return_pct, 4),
                 "aggregate_sharpe": round(results.aggregate_sharpe_ratio, 4),
+                "aggregate_in_sample_sharpe": round(results.aggregate_in_sample_sharpe, 4) if results.aggregate_in_sample_sharpe is not None else None,
+                "aggregate_in_sample_return_pct": round(results.aggregate_in_sample_return_pct, 4) if results.aggregate_in_sample_return_pct is not None else None,
                 "max_drawdown_pct": round(results.aggregate_max_drawdown_pct, 4),
                 "total_windows": results.total_windows,
                 "successful_windows": results.successful_windows,
@@ -2413,6 +2523,8 @@ class WalkForwardRunner:
                         "trades": wr.total_trades,
                         "win_rate": round(wr.win_rate, 4),
                         "sharpe": round(wr.sharpe_ratio, 4),
+                        "in_sample_sharpe": round(wr.in_sample_sharpe, 4) if wr.in_sample_sharpe is not None else None,
+                        "in_sample_return_pct": round(wr.in_sample_return_pct, 4) if wr.in_sample_return_pct is not None else None,
                         "best_params": wr.best_parameters
                     }
                     for wr in successful_results

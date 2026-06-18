@@ -1,0 +1,40 @@
+{
+  "schema_version": "ftmo_ledger_summary_v1",
+  "evidence_kind": "ftmo_ledger",
+  "authority_layer": "control_plane",
+  "status": "blocked",
+  "observed_at": "2026-05-02T11:42:56.605Z",
+  "request": {
+    "schema_version": "ftmo_ledger_request_v1",
+    "evidence_kind": "ftmo_ledger",
+    "authority_layer": "control_plane",
+    "run_id": "RUN-FTMO-LEDGER-VALIDATION-20260430",
+    "job_id": "JOB-FTMO-LEDGER-VALIDATION-20260430",
+    "rule_set_path": null,
+    "ledger_path": null,
+    "boundary": "No FTMO defaults are embedded; rule-set and ledger inputs must be explicit repo-contained artifacts."
+  },
+  "observations": {
+    "proof_scope": "ledger_mechanics_only",
+    "forward_demo_survival_claim": false,
+    "limitations": {
+      "reason": "FTMO ledger inputs failed validation: rule set missing; ledger input missing."
+    }
+  },
+  "blocked_reason": "FTMO ledger inputs failed validation: rule set missing; ledger input missing.",
+  "diagnostics": {
+    "error_code": "input_validation_failed",
+    "message": "FTMO ledger inputs failed validation: rule set missing; ledger input missing.",
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/ftmo-ledger-worker.mjs",
+      "sha256": "0a4c6525ffae1a7e36457ca837e4c7b970a40c6cd47f4bab0e1b796c8a8804ed",
+      "size_bytes": 12263,
+      "modified_at": "2026-05-02T11:38:57.446Z"
+    }
+  ]
+}

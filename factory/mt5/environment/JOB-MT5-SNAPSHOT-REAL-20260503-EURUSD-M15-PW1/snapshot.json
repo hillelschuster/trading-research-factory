@@ -1,0 +1,116 @@
+{
+  "schema_version": "mt5_environment_snapshot_v1",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "status": "succeeded",
+  "observed_at": "2026-05-03T18:56:48.694Z",
+  "request": {
+    "schema_version": "mt5_snapshot_request_v1",
+    "evidence_kind": "mt5_snapshot",
+    "authority_layer": "mt5_terminal",
+    "symbol": "EURUSD",
+    "timeframe": "M15",
+    "bars": 256,
+    "login": 1513283634,
+    "server": "FTMO-Demo",
+    "password_env_var": "TRF_MT5_PASSWORD",
+    "password_env_provided": true,
+    "terminal_path_provided": true,
+    "terminal_path": "provided_not_persisted"
+  },
+  "observations": {
+    "account": {
+      "currency": "USD",
+      "leverage": 30,
+      "login": 1513283634,
+      "margin_mode": 2,
+      "server": "FTMO-Demo",
+      "trade_allowed": true,
+      "trade_expert": true,
+      "trade_mode": 0
+    },
+    "data_identity": {
+      "bars_sha256": "03c16b1c96b2721a5b6957ea4bdf23e94b07408d99332cddc2b24eabd9e1a2ad",
+      "coverage_end_utc": "2026-05-01T23:45:00+00:00",
+      "coverage_start_utc": "2026-04-29T08:00:00+00:00",
+      "provider": "MetaTrader5 terminal",
+      "quote_basis": "broker_terminal_bid_ohlc",
+      "requested_bars": 256,
+      "returned_bars": 256,
+      "server": "FTMO-Demo",
+      "source_type": "mt5_terminal_rates",
+      "symbol": "EURUSD",
+      "timeframe": "M15",
+      "timezone_basis": "mt5_epoch_seconds_interpreted_as_utc_for_identity_only"
+    },
+    "symbol": {
+      "currency_base": "EUR",
+      "currency_margin": "EUR",
+      "currency_profit": "USD",
+      "description": "Euro vs United States Dollar",
+      "digits": 5,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "name": "EURUSD",
+      "point": 0.00001,
+      "session_buy_orders": 0,
+      "session_deals": 0,
+      "session_sell_orders": 0,
+      "spread": 12,
+      "spread_float": true,
+      "swap_long": -10.63,
+      "swap_mode": 1,
+      "swap_short": 0.21,
+      "trade_contract_size": 100000,
+      "trade_mode": 4,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 1,
+      "volume_max": 50,
+      "volume_min": 0.01,
+      "volume_step": 0.01
+    },
+    "terminal": {
+      "build": 5833,
+      "community_account": true,
+      "company": "FTMO Global Markets Ltd",
+      "connected": true,
+      "dlls_allowed": false,
+      "language": "English",
+      "maxbars": 100000,
+      "name": "FTMO Global Markets MT5 Terminal",
+      "trade_allowed": true
+    }
+  },
+  "blocked_reason": null,
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "command": "mt5_snapshot_probe.py",
+    "python_command": "python.exe",
+    "python_command_was_absolute": false,
+    "terminal_path_provided_to_probe": true,
+    "terminal_path_inferred_executable": false,
+    "probe_path_style": "windows",
+    "probe_path_conversion_error": null,
+    "exit_status": 0,
+    "signal": null,
+    "stdout_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260503-EURUSD-M15-PW1/probe.stdout.txt",
+    "stderr_path": "factory/mt5/environment/JOB-MT5-SNAPSHOT-REAL-20260503-EURUSD-M15-PW1/probe.stderr.txt"
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "32f616a793f408062cebed26484338481717707de103f55ecaaf82cb75c18268",
+      "size_bytes": 12665,
+      "modified_at": "2026-05-03T18:53:44.330Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "48ab940273d5b3e4775852d2df03baeb3208ce4e5dd40cc2dae2de7cda12fa2a",
+      "size_bytes": 10439,
+      "modified_at": "2026-05-03T18:53:44.346Z"
+    }
+  ]
+}

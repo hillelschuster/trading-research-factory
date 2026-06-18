@@ -1,0 +1,26 @@
+{
+    "strategy_params_key": "strategy_btc_weekly_calendar_phase8d.json",
+    "description": "Phase 8D BTCUSD-equivalent weekly day-of-week calendar anomaly screen with daily MACD state filter.",
+    "strategy_definition_key": "BTCWeeklyCalendarPhase8D",
+    "parameters": {
+        "timeframe": "H1",
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "macd_threshold": 0.0,
+        "atr_period": 14,
+        "atr_sl_multiplier": 2.0,
+        "hold_hours": 24,
+        "entry_day": 4
+    },
+    "optimization_ranges": {
+        "macd_fast": { "values": [8, 12, 16] },
+        "macd_slow": { "values": [20, 26, 32] },
+        "macd_signal": { "values": [7, 9, 11] },
+        "macd_threshold": { "values": [-0.5, 0.0, 0.5] },
+        "atr_period": { "values": [10, 14, 20] },
+        "atr_sl_multiplier": { "values": [1.5, 2.0, 2.5] },
+        "hold_hours": { "values": [12, 24, 36, 48] },
+        "entry_day": { "values": [1, 2, 3, 4, 5, 6, 7] }
+    }
+}

@@ -1,0 +1,7 @@
+2026-05-29 15:24:01,607 - HighSpeedSmokeTest - [INFO] - 🚀 HIGH-SPEED SMOKE TEST STARTING
+2026-05-29 15:24:01,614 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-29 15:24:01,615 - HighSpeedSmokeTest - [INFO] - CONFIGURABLE WALK-FORWARD ANALYSIS TEST RUNNER
+2026-05-29 15:24:01,619 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-29 15:24:01,621 - HighSpeedSmokeTest - [INFO] - Start time: 2026-05-29 15:24:01.620753
+2026-05-29 15:24:01,626 - HighSpeedSmokeTest - [INFO] - ================================================================================
+2026-05-29 15:24:01,739 - HighSpeedSmokeTest - [INFO] - [15:24:01.739] === SMOKE TEST CHECKPOINT: CONFIGURABLE TEST RUNNER INITIALIZATION ===

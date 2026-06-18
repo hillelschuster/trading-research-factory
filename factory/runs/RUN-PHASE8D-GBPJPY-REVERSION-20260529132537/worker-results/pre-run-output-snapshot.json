@@ -1,0 +1,51 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+    "sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+    "size_bytes": 2832,
+    "modified_at": "2026-05-29T12:28:46.966Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/parameter_stability_20251221_162647.json",
+    "sha256": "8d29075e7336f822d5f71ac0af86642df8191e1c81d35bfbebee16c57c014b11",
+    "size_bytes": 2368,
+    "modified_at": "2025-12-21T14:26:47.347Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/walk_forward_results_20251221_162647.json",
+    "sha256": "fde866ec15269281abc953d032d446053dbdd73d3f8de15b55cfbab368336463",
+    "size_bytes": 52202,
+    "modified_at": "2025-12-21T14:26:47.339Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/walk_forward_summary_20251221_162647.csv",
+    "sha256": "5bc91870073cf8e3cde977757ee7d3bd941e4806e2fe74e6c921a921e8817164",
+    "size_bytes": 12734,
+    "modified_at": "2025-12-21T14:26:47.347Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/smoke/wfa_smoke.log",
+    "sha256": "a8a92880c2b35f28348d30ad5b9f192418a5a35726c8a1b6c7cc9520cc2d4ba0",
+    "size_bytes": 4085132,
+    "modified_at": "2025-12-21T14:26:47.727Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_152846.json",
+    "sha256": "6fea9e5d23dcd843106fb74387114ab67268a2486ef2a24a479f3952deb72031",
+    "size_bytes": 2153,
+    "modified_at": "2026-05-29T12:28:46.873Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+    "sha256": "3e12cedea3101d9eeb00ff775b2a3cdf59b0c684cf72278017ad4d247c2512d8",
+    "size_bytes": 20128652,
+    "modified_at": "2026-05-29T13:15:12.921Z"
+  }
+]

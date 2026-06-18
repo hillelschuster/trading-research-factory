@@ -1,0 +1,62 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "registered_at": "2026-05-28T20:10:36.917Z",
+  "registered_before_run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/hypothesis-packet.json",
+    "sha256": "b2b4e53120ebfa146247c515842845a394223261967607d3f39050a985438db0",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/source-record.json",
+      "sha256": "d3998efe70ddf95960340a65f52cb2ee358c71d379d311ec757e0e96ae7ceae7",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register EURUSD London open Asian-range breakout screening before WFA execution.",
+  "instrument_scope": "EURUSD M15, FTMO/MT5-relevant FX major, research-only until MT5 equivalence is proven.",
+  "timeframe_candidate": "M15 intraday",
+  "strategy_family": "london_breakout_eurusd",
+  "expected_trade_frequency": "Medium frequency, approximately constrained to at most one trade per active trading day.",
+  "data_sources": [
+    "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+    "MT5 equivalence not assumed; Phase 8A universe evidence only constrains relevance."
+  ],
+  "cost_assumptions": "Use only london_breakout_eurusd WFA config costs: fees 0.0001 and slippage 0.0001, no hidden overrides.",
+  "wfa_design": {
+    "config_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+    "window_policy": "Use the canonical 6m/3m/3m WFA scheme already encoded in the config.",
+    "optimizer_policy": "Use the existing 10-trial route and count this attempt in the denominator."
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA run fails any Phase 8D survivor floor on windows, trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment implication unless separate MT5 instrument equivalence and Phase 8E authorization exist."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "96f526c3a2f17a27f0aa9d56f4a9ca460d39b2877dd1f44436f3cd78000fc20b"
+}

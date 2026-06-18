@@ -1,0 +1,65 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "mechanism": "EURUSD may exhibit exploitable directional expansion when the London open breaks the Asian session range, because European liquidity can reprice overnight consolidation. This hypothesis is tested through an existing deterministic London-breakout WFA route, not through post-hoc leaderboard selection.",
+  "falsifiable_prediction": "A valid London breakout candidate should clear the Phase 8D survivor floors across long EURUSD M15 OOS windows after the configured costs; otherwise it must remain non-survivor research evidence.",
+  "market_structure_assumption": "EURUSD is a liquid FTMO/MT5-relevant FX major, and London-session liquidity can interact with the prior Asian range. The data route remains mt5_relevant_unverified until terminal-derived equivalence is independently proven.",
+  "instrument_scope": "EURUSD M15, FTMO/MT5-relevant FX major, research-only until MT5 equivalence is proven.",
+  "timeframe_candidate": "M15 intraday",
+  "strategy_family": "london_breakout_eurusd",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "Long EURUSD M15 OHLCV research history, strategy/config hashes, and later terminal-derived equivalence before any MT5-bound claim.",
+  "expected_holding_period": "Intraday London session, with hard same-day exit.",
+  "expected_trade_frequency": "Medium frequency, approximately constrained to at most one trade per active trading day.",
+  "expected_failure_modes": [
+    "Breakouts may be false continuation signals and revert inside the range after costs.",
+    "Long-sample EURUSD structure may not support a stable positive OOS edge.",
+    "Broker timezone, spread spikes, DST, and session definitions can break MT5 parity."
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA run fails any Phase 8D survivor floor on windows, trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment implication unless separate MT5 instrument equivalence and Phase 8E authorization exist."
+  ],
+  "implementation_shape": "Use the existing london_breakout_eurusd WFA config with the repo LondonBreakoutStrategy source and no parameter edits after preregistration.",
+  "execution_sensitivity": "Sensitive to session timestamp alignment, spread/slippage assumptions, Asian range filters, and day-boundary definitions.",
+  "mt5_ftmo_concerns": "MT5 Strategy Tester parity is not assumed; symbol contract specs, broker timezone, spread model, and terminal history equivalence remain separate future gates.",
+  "prior_related_lessons": [
+    "Phase 8D screens pre-registered hypotheses and must not advance historical leaderboard families post hoc.",
+    "A route can be MT5-relevant but still non-deployable without terminal-backed equivalence."
+  ],
+  "prior_failed_patterns_checked": [
+    "This screening explicitly counts the attempt in the denominator and accepts rejection if the long-sample WFA evidence is weak."
+  ],
+  "novelty_reason": "This is the first production Phase 8D candidate screening pass on a liquid FX major after pipeline validation, using a pre-registered London breakout mechanism and deterministic WFA artifacts.",
+  "disconfirming_evidence": [
+    "The source record is implementation-derived and not independent external research.",
+    "Existing historical route evidence suggested the family may be weak, so the attempt is expected to be objective screening rather than survivor hunting."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan, run the canonical worker on london_breakout_eurusd, emit candidate evidence packet and summary, then evaluate survivor floors without positive labels unless all floors clear.",
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/source-record.json",
+      "sha256": "d3998efe70ddf95960340a65f52cb2ee358c71d379d311ec757e0e96ae7ceae7"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "b9fde788f47b4303fde6d24fbd3f612f8e9660c016982ac123c5a38455d7d680"
+}

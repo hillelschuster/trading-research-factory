@@ -1,0 +1,217 @@
+{
+  "schema_version": "phase8c_exit_readiness_report_v1",
+  "phase": "8C",
+  "generated_at": "2026-05-27T09:49:47.085Z",
+  "status": "ready_to_close",
+  "summary": {
+    "criteria_total": 14,
+    "criteria_met": 10,
+    "criteria_pending": 0,
+    "criteria_deferred": 4
+  },
+  "criteria": [
+    {
+      "id": "canonical_wfa_config_and_output_root_truth",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/wfa-config-contract.mjs",
+        "src/workers/research-wfa-run-worker.mjs",
+        "tests/wfa-config-output-truth.test.mjs"
+      ],
+      "pending": [
+        "Canonical WFA config fields and expected output root must fail before worker launch/evidence acceptance."
+      ],
+      "rationale": "Prevents stale or wrong-root WFA outputs from becoming evidence."
+    },
+    {
+      "id": "artifact_backed_wfe_wfr_inputs",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/workers/research-wfa-run-worker.mjs",
+        "src/core/verification.mjs",
+        "tests/wfa-metric-readiness.test.mjs"
+      ],
+      "pending": [
+        "WFE/WFR must compute only from accepted metrics artifacts and otherwise report blocked inputs."
+      ],
+      "rationale": "Needed for Phase 8D evidence quality; no invented robustness metrics."
+    },
+    {
+      "id": "purge_gap_and_warmup_boundary_truth",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/wfa-config-contract.mjs",
+        "src/workers/research-wfa-run-worker.mjs",
+        "src/core/verification.mjs",
+        "tests/wfa-config-output-truth.test.mjs"
+      ],
+      "pending": [
+        "Purge-gap support and diagnostic-only warmup handling must be explicit."
+      ],
+      "rationale": "Reduces leakage risk while avoiding fake generic indicator-warmup protection."
+    },
+    {
+      "id": "optimizer_cost_truth_and_provenance_reporting",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/workers/research-wfa-run-worker.mjs",
+        "src/core/verification.mjs",
+        "tests/verification.test.mjs"
+      ],
+      "pending": [
+        "Disconnected optimizer/cost modules must not imply active evidence."
+      ],
+      "rationale": "Current Phase 8D safety need is truthful fail-loud reporting, not wiring unused modules."
+    },
+    {
+      "id": "positive_label_survivor_floor_enforcement",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/verification.mjs",
+        "src/core/validators.mjs",
+        "tests/phase8c-survivor-floors.test.mjs"
+      ],
+      "pending": [
+        "Positive WFA labels must fail below 8 windows, 200 trades unless valid low-frequency registration, 5% return proxy, and 70% positive windows."
+      ],
+      "rationale": "This is the core gate that prevents weak Phase 8D screening results from being labeled survivors."
+    },
+    {
+      "id": "pre_registered_phase8d_wfa_launch_gate",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/research-wfa-preregistration.mjs",
+        "src/core/wfa-plan-compiler.mjs",
+        "src/workers/research-wfa-run-worker.mjs",
+        "tests/research-wfa-preregistration.test.mjs"
+      ],
+      "pending": [
+        "Explicit Phase 8D/screening WFA intent must require hash-backed pre-run research-WFA pre-registration before launch."
+      ],
+      "rationale": "Required to prevent WFA roulette before candidate screening."
+    },
+    {
+      "id": "advisory_statistics_reporting_only_boundary",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/verification.mjs",
+        "tests/verification.test.mjs"
+      ],
+      "pending": [
+        "DSR/PBO/CPCV/White must report or block exact inputs but remain non-authoritative."
+      ],
+      "rationale": "Avoids false confidence from advisory stats while preserving diagnostics for serious candidates."
+    },
+    {
+      "id": "researchbrain_direct_wfa_source_quality_gate",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/researchbrain-artifacts.mjs",
+        "tests/researchbrain-artifacts.test.mjs",
+        "tests/factory.test.mjs"
+      ],
+      "pending": [
+        "Source-quality-blocked Stage-0 packets must not reach direct WFA routes through hidden config/command metadata."
+      ],
+      "rationale": "Prevents ResearchBrain packet/source laundering into executable WFA evidence."
+    },
+    {
+      "id": "bounded_remediation_not_spam",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/orchestrator.mjs",
+        "tests/factory.test.mjs"
+      ],
+      "pending": [
+        "Repeated artifact-backed failures may create bounded remediation items without recursive/generic spam."
+      ],
+      "rationale": "Supports learning from failures without turning Phase 8C into endless backlog generation."
+    },
+    {
+      "id": "survivor_floors_prompt_guardrails",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/prompt-builders.mjs",
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "tests/factory.test.mjs"
+      ],
+      "pending": [
+        "Role prompts/spec must state survivor floors are validation gates, not optimization targets."
+      ],
+      "rationale": "Prevents agents from tuning toward floor thresholds after seeing results."
+    },
+    {
+      "id": "physical_optimizer_cost_module_removal_or_wiring",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "Physical deletion/quarantine or full wiring of disconnected optimizer/cost modules is deferred unless evidence shows current fail-loud truth diagnostics can be bypassed."
+      ],
+      "rationale": "Not required for Phase 8D safety now because current accepted WFA evidence records the active direct-Optuna path and flags disconnected modules as inactive."
+    },
+    {
+      "id": "generic_indicator_warmup_inference",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/workers/research-wfa-run-worker.mjs"
+      ],
+      "pending": [
+        "Strategy-specific indicator warmup inference is deferred; Phase 8C only requires explicit purge-gap behavior and fail-loud diagnostic-only warmup truth."
+      ],
+      "rationale": "Generic inference would be speculative and could create false leakage confidence."
+    },
+    {
+      "id": "hard_statistical_promotion_or_input_producers",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "Hard DSR/PBO/CPCV/White promotion gates and deterministic statistical input producers remain separate future work."
+      ],
+      "rationale": "Phase 8D can screen with advisory/reporting stats; making them hard gates now would overstate their authority."
+    },
+    {
+      "id": "cost_stress_or_multi_objective_wiring",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "Wiring cost-stress, transaction-cost modeler, or multi-objective optimizer into accepted WFA metrics is deferred until a concrete candidate/evidence need exists."
+      ],
+      "rationale": "Reporting-only provenance is enough to prevent false claims before Phase 8D screening."
+    }
+  ],
+  "closure_assessment": "Phase 8C can close as WFA/evidence-safety hardening. Remaining deferred items are optional or later-phase work, not Phase 8D safety blockers.",
+  "authority": {
+    "phase8b_closed": true,
+    "phase8c_closes_with_this_report": true,
+    "phase8d_screening_started": false,
+    "phase8e_tester_parity_started": false,
+    "researchbrain_packets_executable_evidence": false,
+    "hard_statistical_promotion_enabled": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "strategy_edge_claimed": false
+  }
+}

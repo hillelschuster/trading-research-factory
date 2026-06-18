@@ -1,0 +1,727 @@
+{
+  "schema_version": "researchbrain_stage0_supervisor_run_report_v1",
+  "generated_at": "2026-06-07T21:38:28.573Z",
+  "report_metadata": {
+    "report_type": "supervisor_run",
+    "artifact_path": "factory/verification/researchbrain-stage0-supervisor-runs/researchbrain-stage0-supervisor-run-attention-20260607T213825Z.json",
+    "path_scope": "repo_relative",
+    "schema_stable": true,
+    "sha256_recorded_by_writer": true,
+    "diagnostic_only": true
+  },
+  "authority": {
+    "non_authoritative_operational_report": true,
+    "official_state_mutated": false,
+    "official_evidence_index_mutated": false,
+    "official_backlog_mutated": false,
+    "official_leaderboard_mutated": false,
+    "profitability_labels_created": false,
+    "deterministic_workers_bypassed": false,
+    "wfa_executed": false,
+    "mt5_executed": false,
+    "phase8e_started": false
+  },
+  "supervisor_result": {
+    "schema_version": "researchbrain_stage0_supervisor_run_result_v1",
+    "generated_at": "2026-06-07T21:38:25.120Z",
+    "status": "attention",
+    "stop_reason": "attention",
+    "next_action": "inspect_operational_blocker",
+    "recommendation": {
+      "status": "action_required",
+      "next_action": "inspect_operational_blocker",
+      "reason": "actionable_stage0_attention",
+      "summary": "Supervisor detected Stage-0 operational attention that should be inspected before continuing unattended cycles.",
+      "attention_reasons": [
+        "unseeded_valid_request_artifacts"
+      ],
+      "diagnostic_only": true
+    },
+    "max_cycles": 1,
+    "stop_on_attention": true,
+    "aggregate": {
+      "cycles_run": 1,
+      "status_counts": {
+        "attention": 1
+      },
+      "attention_class_counts": {
+        "none": 0,
+        "drainable": 0,
+        "actionable": 1
+      },
+      "loop_stop_reasons": {
+        "max_jobs_reached": 1
+      },
+      "readiness_attention_reasons": {
+        "unseeded_valid_request_artifacts": 1
+      },
+      "actionable_diagnostics_reasons": {},
+      "totals": {
+        "seeded": 1,
+        "already_seeded": 0,
+        "jobs_processed": 1,
+        "lease_reclaims": 0,
+        "stage0_ready_jobs": 0,
+        "terminal_jobs": 1,
+        "outbox_events_processed": 1,
+        "projected_terminal_events": 1,
+        "cycles_with_progress": 1
+      },
+      "final_operational_snapshot": {
+        "status": "attention",
+        "attention_reasons": [
+          "unseeded_valid_request_artifacts"
+        ],
+        "attention_classification": {
+          "status": "actionable",
+          "next_action": "inspect_operational_blocker",
+          "reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "drainable_reasons": [],
+          "actionable_reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "actionable_diagnostics_reasons": []
+        },
+        "actionable_diagnostics_reasons": [],
+        "jobs": {
+          "total": 2,
+          "queued": 0,
+          "ready": 0,
+          "claimed": 0,
+          "stale_claimed": 0,
+          "claimable_stale_or_ready": 0,
+          "blocked": 1,
+          "poisoned": 0,
+          "stage0_ready": 1
+        },
+        "outbox": {
+          "total": 2,
+          "pending": 0,
+          "processed": 2,
+          "other": 0
+        },
+        "requests": {
+          "seeded": 2,
+          "invalid": 0,
+          "unseeded_valid": 1,
+          "changed_seeded_sha": 0,
+          "seeded_output_collisions": 0
+        },
+        "terminal_failures": {
+          "status": "expected_terminal_failures_only",
+          "total": 1,
+          "unreconciled": 0
+        },
+        "projection_recovery": {
+          "checked_processed_without_matching_projection_files": 0,
+          "orphan_projection_files": 0,
+          "unidentified_projection_files": 0
+        },
+        "runtime_consistency": {
+          "status": "ok",
+          "checked_final_jobs": 2,
+          "inconsistent_final_jobs": 0,
+          "truncated": false,
+          "issue_counts_by_reason": {}
+        }
+      },
+      "final_readiness_summary": {
+        "schema_version": "researchbrain_stage0_ops_readiness_report_v1",
+        "generated_at": "2026-06-07T21:38:27.365Z",
+        "status": "attention",
+        "attention_reasons": [
+          "unseeded_valid_request_artifacts"
+        ],
+        "attention_classification": {
+          "status": "actionable",
+          "next_action": "inspect_operational_blocker",
+          "reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "drainable_reasons": [],
+          "actionable_reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "actionable_diagnostics_reasons": []
+        },
+        "actionable_diagnostics_reasons": [],
+        "diagnostics": {
+          "jobs": {
+            "total": 2,
+            "queued": 0,
+            "ready": 0,
+            "claimed": 0,
+            "stale_claimed": 0,
+            "claimable_stale_or_ready": 0,
+            "blocked": 1,
+            "poisoned": 0,
+            "stage0_ready": 1
+          },
+          "outbox": {
+            "total": 2,
+            "pending": 0,
+            "processed": 2,
+            "other": 0
+          },
+          "projections": {
+            "total_files": 2,
+            "latest_checked": 2,
+            "latest_parse_errors": 0
+          }
+        },
+        "terminal_failure_reconciliation_status": "expected_terminal_failures_only",
+        "terminal_failures_total": 1,
+        "terminal_failures_unreconciled": 0,
+        "projection_recovery": {
+          "checked_processed_without_matching_projection_files": 0,
+          "orphan_projection_files": 0,
+          "unidentified_projection_files": 0
+        },
+        "runtime_consistency": {
+          "status": "ok",
+          "checked_final_jobs": 2,
+          "inconsistent_final_jobs": 0,
+          "truncated": false,
+          "issue_counts_by_reason": {}
+        },
+        "requests": {
+          "seeded": 2,
+          "invalid": 0,
+          "unseeded_valid": 1,
+          "changed_seeded_sha": 0,
+          "seeded_output_collisions": 0
+        },
+        "authority": {
+          "non_authoritative_operational_report": true,
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        }
+      }
+    },
+    "failure": null,
+    "failure_artifact": null,
+    "run_report_artifact": null,
+    "cycles": [
+      {
+        "cycle_number": 1,
+        "schema_version": "researchbrain_stage0_supervisor_result_v1",
+        "generated_at": "2026-06-07T21:38:25.120Z",
+        "status": "attention",
+        "next_action": "inspect_operational_blocker",
+        "recommendation": {
+          "status": "action_required",
+          "next_action": "inspect_operational_blocker",
+          "reason": "actionable_stage0_attention",
+          "summary": "Supervisor detected Stage-0 operational attention that should be inspected before continuing unattended cycles.",
+          "attention_reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "diagnostic_only": true
+        },
+        "supervisor_health": {
+          "status": "blocked",
+          "alert_level": "warning",
+          "reason": "actionable_stage0_attention",
+          "safe_to_run_another_bounded_cycle": false,
+          "operator_inspection_required": true,
+          "failed_stage": null,
+          "diagnostic_only": true
+        },
+        "operational_summary": {
+          "status": "attention",
+          "next_action": "inspect_operational_blocker",
+          "recommendation_status": "action_required",
+          "progress_made": true,
+          "jobs_processed": 1,
+          "stage0_ready_jobs": 0,
+          "terminal_jobs": 1,
+          "outbox_events_processed": 1,
+          "projected_terminal_events": 1,
+          "remaining_claimable_jobs": 0,
+          "pending_outbox_events": 0,
+          "readiness_status": "attention",
+          "attention_status": "actionable",
+          "attention_reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "terminal_failures_unreconciled": 0,
+          "runtime_consistency_status": "ok",
+          "diagnostic_only": true
+        },
+        "cycle_summary": {
+          "seed_status": "seeded",
+          "loop_status": "blocked_or_empty",
+          "jobs_processed": 1,
+          "ready_jobs": 0,
+          "terminal_jobs": 1,
+          "terminal_job_summaries": [
+            {
+              "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+              "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+              "status": "blocked",
+              "failure_class": "schema_or_validation_failure",
+              "retryable": false,
+              "error_message": "no_valid_provider_output",
+              "request_artifact": {
+                "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z/request.json",
+                "sha256": "63df80daaf110c6a1da26ba30a207671f005536ec4fb479f1a5fa7e78b44b75b"
+              }
+            }
+          ],
+          "outbox_status": "processed",
+          "outbox_events_processed": 1,
+          "projected_terminal_events": 1,
+          "diagnostics_attention_reasons": [
+            "blocked_jobs"
+          ],
+          "actionable_diagnostics_reasons": []
+        },
+        "readiness_summary": {
+          "schema_version": "researchbrain_stage0_ops_readiness_report_v1",
+          "generated_at": "2026-06-07T21:38:27.365Z",
+          "status": "attention",
+          "attention_reasons": [
+            "unseeded_valid_request_artifacts"
+          ],
+          "attention_classification": {
+            "status": "actionable",
+            "next_action": "inspect_operational_blocker",
+            "reasons": [
+              "unseeded_valid_request_artifacts"
+            ],
+            "drainable_reasons": [],
+            "actionable_reasons": [
+              "unseeded_valid_request_artifacts"
+            ],
+            "actionable_diagnostics_reasons": []
+          },
+          "actionable_diagnostics_reasons": [],
+          "diagnostics": {
+            "jobs": {
+              "total": 2,
+              "queued": 0,
+              "ready": 0,
+              "claimed": 0,
+              "stale_claimed": 0,
+              "claimable_stale_or_ready": 0,
+              "blocked": 1,
+              "poisoned": 0,
+              "stage0_ready": 1
+            },
+            "outbox": {
+              "total": 2,
+              "pending": 0,
+              "processed": 2,
+              "other": 0
+            },
+            "projections": {
+              "total_files": 2,
+              "latest_checked": 2,
+              "latest_parse_errors": 0
+            }
+          },
+          "terminal_failure_reconciliation_status": "expected_terminal_failures_only",
+          "terminal_failures_total": 1,
+          "terminal_failures_unreconciled": 0,
+          "projection_recovery": {
+            "checked_processed_without_matching_projection_files": 0,
+            "orphan_projection_files": 0,
+            "unidentified_projection_files": 0
+          },
+          "runtime_consistency": {
+            "status": "ok",
+            "checked_final_jobs": 2,
+            "inconsistent_final_jobs": 0,
+            "truncated": false,
+            "issue_counts_by_reason": {}
+          },
+          "requests": {
+            "seeded": 2,
+            "invalid": 0,
+            "unseeded_valid": 1,
+            "changed_seeded_sha": 0,
+            "seeded_output_collisions": 0
+          },
+          "authority": {
+            "non_authoritative_operational_report": true,
+            "official_state_mutated": false,
+            "official_evidence_index_mutated": false,
+            "official_backlog_mutated": false,
+            "official_leaderboard_mutated": false,
+            "profitability_labels_created": false,
+            "deterministic_workers_bypassed": false,
+            "wfa_executed": false,
+            "mt5_executed": false,
+            "phase8e_started": false
+          }
+        },
+        "seed": {
+          "schema_version": "researchbrain_stage0_job_seed_result_v1",
+          "generated_at": "2026-06-07T21:38:25.253Z",
+          "status": "seeded",
+          "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+          "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+          "job_type": "researchbrain_stage0",
+          "job_status": "queued",
+          "priority": 0,
+          "request_artifact": {
+            "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z/request.json",
+            "sha256": "63df80daaf110c6a1da26ba30a207671f005536ec4fb479f1a5fa7e78b44b75b",
+            "request_id": "RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z"
+          },
+          "output_dir": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        },
+        "loop": {
+          "schema_version": "researchbrain_stage0_loop_result_v1",
+          "generated_at": "2026-06-07T21:38:27.162Z",
+          "owner_id": "researchbrain-stage0-supervisor-loop-cli-18080-cycle-1",
+          "job_type": "researchbrain_stage0",
+          "status": "blocked_or_empty",
+          "stop_reason": "max_jobs_reached",
+          "max_jobs": 1,
+          "jobs_processed": 1,
+          "lease_reclaims": 0,
+          "jobs": [
+            {
+              "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+              "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+              "ledger_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+              "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+              "status": "blocked",
+              "runtime_status": "blocked",
+              "result_artifact": {
+                "artifact_type": "researchbrain_stage0_runtime_result",
+                "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/runtime-result.json",
+                "sha256": "50a9c115cf0c99b1309c28f751b55a99fd1bd50a9d9a9f1623ccb3c1fc019627"
+              },
+              "quarantine_paths": [
+                {
+                  "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-001.json",
+                  "sha256": "9ea6b26f114cbefc3ec421112e576bb83034faf781a781e342064603b7a222bc"
+                },
+                {
+                  "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-002.json",
+                  "sha256": "e870f0f8e17463381f797c6f40ea39013a832a476287f9eccf07973dae3b8bf0"
+                }
+              ],
+              "artifacts_recorded": 7,
+              "claim": {
+                "reclaimed_stale_lease": false,
+                "prior_owner_id": null,
+                "prior_fencing_token": null,
+                "prior_claimed_at": null,
+                "prior_heartbeat_at": null,
+                "prior_expires_at": null,
+                "new_fencing_token": 1
+              },
+              "blockers": [
+                "no_valid_provider_output"
+              ],
+              "failure_summary": {
+                "failure_class": "schema_or_validation_failure",
+                "retryable": false,
+                "error_message": "no_valid_provider_output",
+                "final_terminal_state": "transient_retryable_failure",
+                "request_artifact": {
+                  "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z/request.json",
+                  "sha256": "63df80daaf110c6a1da26ba30a207671f005536ec4fb479f1a5fa7e78b44b75b"
+                },
+                "runtime_result_artifact": {
+                  "artifact_type": "researchbrain_stage0_runtime_result",
+                  "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/runtime-result.json",
+                  "sha256": "50a9c115cf0c99b1309c28f751b55a99fd1bd50a9d9a9f1623ccb3c1fc019627"
+                },
+                "quarantine_paths": [
+                  {
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-001.json",
+                    "sha256": "9ea6b26f114cbefc3ec421112e576bb83034faf781a781e342064603b7a222bc"
+                  },
+                  {
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-002.json",
+                    "sha256": "e870f0f8e17463381f797c6f40ea39013a832a476287f9eccf07973dae3b8bf0"
+                  }
+                ],
+                "blockers": [
+                  "no_valid_provider_output"
+                ]
+              }
+            }
+          ],
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false
+        },
+        "outbox": {
+          "schema_version": "researchbrain_stage0_outbox_consumer_result_v1",
+          "generated_at": "2026-06-07T21:38:27.274Z",
+          "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-18080-cycle-1",
+          "event_type": "researchbrain.stage0_job_finished",
+          "status": "processed",
+          "events_processed": 1,
+          "processed": [
+            {
+              "event_id": "EVT-RB-STAGE0-020ec62fde587e97618f5c9f6ecb1120",
+              "processed": true,
+              "already_processed": false,
+              "projection_artifact": {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-020ec62fde587e97618f5c9f6ecb1120.json",
+                "sha256": "038d21e8454d3d710343ff45994b5debe88b0e2fb7055d94981f9660eaaf62f2",
+                "size_bytes": 7829
+              },
+              "projected_status": "blocked"
+            }
+          ],
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "wfa_executed": false,
+          "mt5_executed": false
+        },
+        "diagnostics": {
+          "schema_version": "researchbrain_stage0_diagnostics_v1",
+          "generated_at": "2026-06-07T21:38:27.287Z",
+          "job_type": "researchbrain_stage0",
+          "event_type": "researchbrain.stage0_job_finished",
+          "status": "attention",
+          "attention_reasons": [
+            "blocked_jobs"
+          ],
+          "ledger": {
+            "schema_version": "phase7b_runtime_ledger_v1",
+            "sqlite_version": "3.49.1",
+            "journal_mode": "delete",
+            "wal_enabled": false,
+            "wal_reason": "disabled_on_drvfs_or_mounted_path",
+            "busy_timeout_ms": 5000,
+            "db_path": "/mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/factory/runtime/factory.sqlite",
+            "db_exists": true,
+            "db_filesystem_location": "mounted_path"
+          },
+          "jobs": {
+            "total": 2,
+            "queued": 0,
+            "ready": 0,
+            "claimed": 0,
+            "stale_claimed": 0,
+            "claimed_without_lease": 0,
+            "claimable_stale_or_ready": 0,
+            "blocked": 1,
+            "poisoned": 0,
+            "stage0_ready": 1,
+            "other": 0
+          },
+          "stale_claims": [],
+          "attempts": {
+            "by_status": {
+              "total": 2,
+              "blocked": 1,
+              "stage0_ready": 1
+            },
+            "latest": [
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T21:38:25.326Z",
+                "finished_at": "2026-06-07T21:38:26.976Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "attempt_number": 1,
+                "status": "stage0_ready",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T15:46:11.051Z",
+                "finished_at": "2026-06-07T15:46:11.633Z"
+              }
+            ],
+            "latest_failures": [
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T21:38:25.326Z",
+                "finished_at": "2026-06-07T21:38:26.976Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "transient_retryable_failure",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z/request.json",
+                    "sha256": "63df80daaf110c6a1da26ba30a207671f005536ec4fb479f1a5fa7e78b44b75b"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/runtime-result.json",
+                    "sha256": "50a9c115cf0c99b1309c28f751b55a99fd1bd50a9d9a9f1623ccb3c1fc019627"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-001.json",
+                      "sha256": "9ea6b26f114cbefc3ec421112e576bb83034faf781a781e342064603b7a222bc"
+                    },
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-002.json",
+                      "sha256": "e870f0f8e17463381f797c6f40ea39013a832a476287f9eccf07973dae3b8bf0"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              }
+            ]
+          },
+          "outbox": {
+            "by_status": {
+              "pending": 0,
+              "processed": 2,
+              "other": 0,
+              "total": 2
+            },
+            "oldest_pending": []
+          },
+          "projections": {
+            "output_dir": "factory/runtime/projections/researchbrain-stage0",
+            "total_files": 2,
+            "latest": [
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-020ec62fde587e97618f5c9f6ecb1120.json",
+                "sha256": "038d21e8454d3d710343ff45994b5debe88b0e2fb7055d94981f9660eaaf62f2",
+                "size_bytes": 7829,
+                "modified_at": "2026-06-07T21:38:26.941Z",
+                "event_id": "EVT-RB-STAGE0-020ec62fde587e97618f5c9f6ecb1120",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+                "parse_error": false
+              },
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-46ed556f7343502712c84e10b5ce3ee7.json",
+                "sha256": "1be7abba953627ceddf3f273cc520812c0ad60fad88eeb94ad5d5021a59cd07c",
+                "size_bytes": 4716,
+                "modified_at": "2026-06-07T15:46:11.942Z",
+                "event_id": "EVT-RB-STAGE0-46ed556f7343502712c84e10b5ce3ee7",
+                "projected_status": "stage0_ready",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D-ATTEMPT-1",
+                "parse_error": false
+              }
+            ]
+          },
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        },
+        "official_state_mutated": false,
+        "official_evidence_index_mutated": false,
+        "official_backlog_mutated": false,
+        "official_leaderboard_mutated": false,
+        "profitability_labels_created": false,
+        "deterministic_workers_bypassed": false,
+        "wfa_executed": false,
+        "mt5_executed": false,
+        "phase8e_started": false
+      }
+    ],
+    "official_state_mutated": false,
+    "official_evidence_index_mutated": false,
+    "official_backlog_mutated": false,
+    "official_leaderboard_mutated": false,
+    "profitability_labels_created": false,
+    "deterministic_workers_bypassed": false,
+    "wfa_executed": false,
+    "mt5_executed": false,
+    "phase8e_started": false,
+    "report_artifact_summary": {
+      "requested": {
+        "run_report": true,
+        "failure_report": false
+      },
+      "written": {
+        "run_report": false,
+        "failure_report": false
+      },
+      "all_requested_reports_written": false,
+      "all_written_reports_verified": true,
+      "artifacts": {
+        "run_report": null,
+        "failure_report": null
+      },
+      "diagnostic_only": true
+    },
+    "operational_summary": {
+      "status": "attention",
+      "stop_reason": "attention",
+      "next_action": "inspect_operational_blocker",
+      "recommendation_status": "action_required",
+      "cycles_run": 1,
+      "cycles_with_progress": 1,
+      "jobs_processed": 1,
+      "stage0_ready_jobs": 0,
+      "terminal_jobs": 1,
+      "outbox_events_processed": 1,
+      "projected_terminal_events": 1,
+      "remaining_claimable_jobs": 0,
+      "pending_outbox_events": 0,
+      "final_readiness_status": "attention",
+      "attention_status": "actionable",
+      "attention_reasons": [
+        "unseeded_valid_request_artifacts"
+      ],
+      "failed_stage": null,
+      "report_artifacts_all_verified": true,
+      "diagnostic_only": true
+    },
+    "supervisor_health": {
+      "status": "blocked",
+      "alert_level": "warning",
+      "reason": "actionable_stage0_attention",
+      "safe_to_run_another_bounded_cycle": false,
+      "operator_inspection_required": true,
+      "failed_stage": null,
+      "diagnostic_only": true
+    }
+  }
+}

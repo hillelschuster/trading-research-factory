@@ -1,0 +1,15 @@
+{
+  "schema_version": "researchbrain_stage0_quarantine_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "quarantined_at": "2026-05-23T12:38:35.391Z",
+  "attempt_number": 1,
+  "reason": "capture_url_source requires source_id",
+  "raw_provider_output": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

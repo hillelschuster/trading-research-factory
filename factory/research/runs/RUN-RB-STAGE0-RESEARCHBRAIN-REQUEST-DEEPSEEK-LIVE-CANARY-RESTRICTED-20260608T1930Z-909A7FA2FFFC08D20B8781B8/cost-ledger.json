@@ -1,0 +1,45 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-06-08T19:29:02.252Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "deepseek",
+  "llm_model": "deepseek-v4-flash",
+  "live_llm": true,
+  "estimated_cost_usd": 0.000005,
+  "max_cost_usd": 0.25,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_research_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000003
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000004
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000005
+    }
+  ],
+  "failure": "Brave source capture exceeded maxCaptureBytes 120000: 323525"
+}

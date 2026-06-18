@@ -1,0 +1,38 @@
+{
+    "strategy_params_key": "strategy_month_end_rebalance_eurusd.json",
+    "description": "EURUSD M15 month-end and first-trading-day rebalancing-flow continuation/fade screen.",
+    "strategy_definition_key": "MonthEndRebalanceEURUSD",
+    "parameters": {
+        "timeframe": "M15",
+        "momentum_lookback": 8,
+        "momentum_threshold": 0.00025,
+        "volume_lookback": 96,
+        "volume_ratio_min": 0.9,
+        "atr_period": 14,
+        "vol_lookback": 96,
+        "vol_ratio_min": 0.7,
+        "max_hold_bars": 8,
+        "sl_atr_mult": 1.5,
+        "tp_atr_mult": 2.0,
+        "start_hour": 13,
+        "end_hour": 21,
+        "direction_mode": "continuation",
+        "include_first_day": true
+    },
+    "optimization_ranges": {
+        "momentum_lookback": { "values": [4, 8, 12, 16] },
+        "momentum_threshold": { "values": [0.00015, 0.00025, 0.0004, 0.0006] },
+        "volume_lookback": { "values": [48, 96, 192] },
+        "volume_ratio_min": { "values": [0.7, 0.9, 1.1] },
+        "atr_period": { "values": [10, 14, 20] },
+        "vol_lookback": { "values": [48, 96, 192] },
+        "vol_ratio_min": { "values": [0.6, 0.8, 1.0] },
+        "max_hold_bars": { "values": [4, 8, 12, 16] },
+        "sl_atr_mult": { "values": [1.0, 1.5, 2.0] },
+        "tp_atr_mult": { "values": [1.5, 2.0, 3.0] },
+        "start_hour": { "values": [12, 13, 14] },
+        "end_hour": { "values": [19, 21, 22] },
+        "direction_mode": { "values": ["continuation", "fade"] },
+        "include_first_day": { "values": [true, false] }
+    }
+}

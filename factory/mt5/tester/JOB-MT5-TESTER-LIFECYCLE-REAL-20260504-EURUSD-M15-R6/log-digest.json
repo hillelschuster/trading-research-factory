@@ -1,0 +1,8 @@
+{
+  "schema_version": "mt5_tester_log_digest_v1",
+  "status": "succeeded",
+  "observed_at": "2026-05-04T07:41:03.999Z",
+  "lines_examined": 5,
+  "errors": [],
+  "blocked_reason": null
+}

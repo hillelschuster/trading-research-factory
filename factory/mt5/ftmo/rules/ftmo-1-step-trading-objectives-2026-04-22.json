@@ -1,0 +1,42 @@
+{
+  "schema_version": "ftmo_rule_set_v1",
+  "created_at": "2026-05-03T21:00:00.000Z",
+  "ftmo_target": "1-step",
+  "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_1-step_v1",
+  "source_date": "2026-04-22",
+  "source_url": "https://ftmo.com/en/trading-objectives/",
+  "source_quality": "primary_official_ftmo_page",
+  "source_claims_extracted": {
+    "page_title": "Trading Objectives | FTMO.com",
+    "page_modified": "2026-04-22T14:13:09+00:00",
+    "account_type": "FTMO Challenge: 1-Step",
+    "profit_target_percent": 0.10,
+    "maximum_daily_loss_percent_of_initial_simulated_capital": 0.03,
+    "maximum_loss_percent_of_initial_simulated_capital": 0.10,
+    "maximum_loss_model": "end_of_day_trailing",
+    "best_day_rule_max_share_of_positive_days_profit": 0.50,
+    "daily_reset_window": "00:00:00 to 23:59:59 CE(S)T"
+  },
+  "reset_timezone": "Europe/Prague",
+  "daily_loss_limit": {
+    "type": "percent_of_starting_balance",
+    "value": 0.03,
+    "calculation_basis": "balance recorded at 00:00 CE(S)T minus 3% of Initial Simulated Capital; first day uses Initial Simulated Capital"
+  },
+  "max_loss_limit": {
+    "type": "percent_of_starting_balance",
+    "value": 0.10,
+    "model": "end_of_day_trailing",
+    "calculation_basis": "end-of-day trailing limit: highest account balance achieved at 00:00 CE(S)T of any preceding trading day, or Initial Simulated Capital if higher, minus 10% of Initial Simulated Capital; limit can increase but not decrease"
+  },
+  "include_floating_pnl": true,
+  "include_commission_swap": true,
+  "proof_scope": "ledger_mechanics_only",
+  "forward_demo_survival_claim": false,
+  "limitations": [
+    "This artifact is a compact extraction from the official FTMO Trading Objectives page, not a legal contract.",
+    "Use only for deterministic ledger mechanics until reconciled against actual FTMO account MetriX/ledger exports.",
+    "Best Day Rule is recorded as a source claim but not enforced by the minimal ledger worker yet.",
+    "Does not certify strategy deployability or forward/demo survival."
+  ]
+}

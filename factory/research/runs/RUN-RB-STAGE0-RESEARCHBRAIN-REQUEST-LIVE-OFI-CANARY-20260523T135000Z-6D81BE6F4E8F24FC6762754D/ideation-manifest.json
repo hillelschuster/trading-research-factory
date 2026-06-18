@@ -1,0 +1,64 @@
+{
+  "schema_version": "research_ideation_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "research_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+  "memory_checked": {
+    "checked": true,
+    "basis": "request prior lessons and prior artifact refs were supplied to provider seam"
+  },
+  "sources_considered": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "trust_tier": "low_signal_trust",
+      "source_type": "fixture_test_double_source"
+    }
+  ],
+  "hypotheses_accepted": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/hypotheses/HYP-STAGE0-FIXTURE-001.json",
+      "sha256": "fb57ad54a1cceea2fb43da54dda78e285964dd01bcd14bb6c781cf8f97836e0e",
+      "status": "accepted_stage0_only"
+    }
+  ],
+  "hypotheses_rejected": [],
+  "duplicates_detected": [],
+  "budget_used": {
+    "max_sources": 2,
+    "sources_used": 1,
+    "max_hypotheses": 1,
+    "hypotheses_used": 1,
+    "provider_mode": "fixture_test_double"
+  },
+  "operator_relevant_blockers": [],
+  "artifact_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "29dfa59ae57e192c01c6ff5012bfa424644a9fab5e100af2a57a810eebf93768"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/hypotheses/HYP-STAGE0-FIXTURE-001.json",
+      "sha256": "fb57ad54a1cceea2fb43da54dda78e285964dd01bcd14bb6c781cf8f97836e0e"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/digest.json",
+      "sha256": "967b030415f1bacc282d33b79b931c6a9c638479d706194904e2708d7b929f94"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

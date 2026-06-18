@@ -8,6 +8,6 @@
   "evidence_paths": [
     "factory/runs/RUN-20260505194725-nlq8sd/planner-attempt-1/stage-error.json"
   ],
-  "reason": "Structured RF JSON block not found.",
-  "recorded_at": "2026-05-05T19:52:19.877Z"
+  "reason": "Planner result expected artifacts must not contain placeholder tokens.",
+  "recorded_at": "2026-05-13T10:40:57.851Z"
 }

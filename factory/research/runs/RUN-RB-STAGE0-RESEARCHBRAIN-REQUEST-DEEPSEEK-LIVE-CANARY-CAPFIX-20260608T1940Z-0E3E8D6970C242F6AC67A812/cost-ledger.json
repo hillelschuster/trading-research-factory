@@ -1,0 +1,39 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-06-08T20:04:36.737Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "deepseek",
+  "llm_model": "deepseek-v4-flash",
+  "live_llm": true,
+  "estimated_cost_usd": 0.000004,
+  "max_cost_usd": 0.25,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_research_memory",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000003
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "deepseek",
+      "llm_model": "deepseek-v4-flash",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000004
+    }
+  ],
+  "failure": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo"
+}

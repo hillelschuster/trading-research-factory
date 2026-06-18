@@ -1,0 +1,59 @@
+{
+  "run_id": "RUN-20260528185420-4ec6n9",
+  "backlog_item_id": "IDEA-PHASE8D-SOURCE-QUALITY-GATE-20260528",
+  "owner_id": null,
+  "run_instance_id": "RUN-20260528185420-4ec6n9",
+  "resume_generation": 0,
+  "current_stage": null,
+  "current_stage_attempt": null,
+  "current_stage_session": null,
+  "last_completed_stage": null,
+  "observer_opened_at": null,
+  "poison_streak_count": 0,
+  "poison_stage": null,
+  "poison_failure_class": null,
+  "stage_status": {
+    "planner": {
+      "status": "blocked",
+      "updated_at": "2026-05-28T18:54:26.483Z",
+      "attempt": 0,
+      "compiler": "deterministic_wfa_ready_compiler_v1"
+    },
+    "executor": {
+      "status": "skipped",
+      "updated_at": "2026-05-28T18:54:26.549Z",
+      "reason": "phase8d_blocked_before_wfa_launch"
+    },
+    "evaluator": {
+      "status": "skipped",
+      "updated_at": "2026-05-28T18:54:26.612Z",
+      "reason": "phase8d_blocked_before_wfa_launch"
+    },
+    "summarizer": {
+      "status": "skipped",
+      "updated_at": "2026-05-28T18:54:26.671Z",
+      "reason": "phase8d_blocked_before_wfa_launch"
+    }
+  },
+  "failure_class": "phase8d_blocked_at_start",
+  "resume_from_stage": null,
+  "attempt_counts": {
+    "planner": 0,
+    "executor": 0,
+    "evaluator": 0,
+    "summarizer": 0
+  },
+  "artifact_paths": {
+    "run_state": "factory/runs/RUN-20260528185420-4ec6n9/run-state.json",
+    "phase8d_blocked_at_start": "factory/runs/RUN-20260528185420-4ec6n9/phase8d-blocked-at-start.json",
+    "execution_result": "factory/runs/RUN-20260528185420-4ec6n9/execution-result.json",
+    "phase8d_candidate_evidence_packet": "factory/runs/RUN-20260528185420-4ec6n9/phase8d-candidate-evidence-packet.json",
+    "planner_stage_gates": [
+      "factory/runs/RUN-20260528185420-4ec6n9/planner-attempt-0/stage-gate.json"
+    ],
+    "artifact_manifest": "factory/runs/RUN-20260528185420-4ec6n9/artifact_manifest.json"
+  },
+  "handoff_pending": false,
+  "last_error": "ResearchBrain source-quality gate blocked direct Phase 8D WFA route: single_low_signal_trust_source_requires_more_research",
+  "updated_at": "2026-05-28T18:54:25.640Z"
+}

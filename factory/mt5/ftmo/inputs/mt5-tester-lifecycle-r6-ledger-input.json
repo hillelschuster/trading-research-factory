@@ -1,0 +1,92 @@
+{
+  "schema_version": "ftmo_ledger_input_v1",
+  "created_at": "2026-05-04T08:00:00.000Z",
+  "fixture_ledger": false,
+  "source_kind": "mt5_strategy_tester_report",
+  "proof_scope": "ledger_mechanics_only",
+  "forward_demo_survival_claim": false,
+  "source_job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+  "account": {
+    "currency": "USD",
+    "starting_balance": 10000
+  },
+  "events": [
+    {
+      "timestamp": "2026-04-29T00:05:00.000Z",
+      "realized_pnl": 0,
+      "floating_pnl": 0,
+      "commission": -0.03,
+      "swap": 0,
+      "source": {
+        "report": "mt5_strategy_tester_html",
+        "deal": 2,
+        "order": 2,
+        "symbol": "EURUSD",
+        "type": "buy",
+        "direction": "in",
+        "volume": 0.01,
+        "price": 1.17153,
+        "balance_after": 9999.97,
+        "comment": "trf_market_open"
+      }
+    },
+    {
+      "timestamp": "2026-04-29T00:05:59.000Z",
+      "realized_pnl": -0.43,
+      "floating_pnl": 0,
+      "commission": -0.03,
+      "swap": 0,
+      "source": {
+        "report": "mt5_strategy_tester_html",
+        "deal": 3,
+        "order": 3,
+        "symbol": "EURUSD",
+        "type": "sell",
+        "direction": "out",
+        "volume": 0.01,
+        "price": 1.1711,
+        "balance_after": 9999.51,
+        "comment": null
+      }
+    }
+  ],
+  "source_artifacts": {
+    "mt5_report_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6.htm",
+    "mt5_report_sha256": "f856add47295acb64892209d82143ecf586b7fe3254e741c5d16a68274253dd9",
+    "lifecycle_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/lifecycle_1.json",
+    "lifecycle_sha256": "4d254aba83384a16a878a2945ebaaaf61c2a6cb38dd83795ad6ec4b01de1bfbe",
+    "lifecycle_run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+    "lifecycle_summary": {
+      "market_order": {
+        "observed": true,
+        "opened": true,
+        "closed": true,
+        "open_retcode": 10009,
+        "close_retcode": 10009
+      },
+      "pending_order": {
+        "observed": true,
+        "placed": true,
+        "cancelled": true,
+        "triggered": false,
+        "place_retcode": 10009,
+        "remove_retcode": 10009
+      },
+      "exit_order": {
+        "observed": true,
+        "sl_or_tp_seen": false,
+        "hard_exit_seen": true,
+        "retcode": 10009
+      }
+    }
+  },
+  "extraction_notes": {
+    "initial_balance_deal": {
+      "time": "2026.04.29 00:00:00",
+      "deal": "1",
+      "balance": 10000
+    },
+    "timestamp_interpretation": "MT5 report timestamps are terminal report timestamps. They are encoded with a Z suffix only to make the deterministic ledger worker parse them; no independent timezone certification is claimed.",
+    "floating_pnl": "Closed-deal report rows do not provide intratrade floating equity. Events therefore carry floating_pnl=0 and this remains ledger-mechanics evidence, not FTMO forward/demo survival evidence."
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+  "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+  "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "succeeded",
+  "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+  "family_id": "gbpjpy_reversion",
+  "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-request.json",
+      "sha256": "90ea5ae33c2366529085477972b70ad736d7471e65f3bdf8456548a334a24d6f",
+      "size_bytes": 1830,
+      "modified_at": "2026-05-29T13:25:39.169Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "c4753fb8b4cc0ff56badb0ac5931557f99fc3b1409fb064ad4fbf889e2673550",
+      "size_bytes": 26189740,
+      "modified_at": "2026-05-29T13:36:41.983Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "b8266906b9a4c5e394160caba0761efe7a7cd9e9ee0cb06bdbc148a636538e82",
+      "size_bytes": 1067695,
+      "modified_at": "2026-05-29T13:36:42.023Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/pre-run-output-snapshot.json",
+      "sha256": "54f8e493a8c9455d6b519143d5f4cdec1f4f2ce6429c6e1144384ee5bde2cb21",
+      "size_bytes": 2177,
+      "modified_at": "2026-05-29T13:36:42.047Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/post-run-output-snapshot.json",
+      "sha256": "221aa5568081ac4c95599ddf4dd0f97284ce2c80091811bf37677b91e41aa28b",
+      "size_bytes": 3135,
+      "modified_at": "2026-05-29T13:36:42.073Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/accepted-output-artifacts.json",
+      "sha256": "248d8cba1e53f3eeec6873330d7da2d970a7a43d93921b899a8590a13740e409",
+      "size_bytes": 3606,
+      "modified_at": "2026-05-29T13:36:42.096Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/parsed-wfa-metrics.json",
+      "sha256": "b84f118e7d65eed546549647d4d6bb4806d38055d9abd3c67ec7b9722af0e968",
+      "size_bytes": 106540,
+      "modified_at": "2026-05-29T13:36:42.129Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+      "sha256": "bdd79701bc03f5b6f3e87f7b099e0a1e15ce172c60027bd9a318fd8b95185cf5",
+      "size_bytes": 2905,
+      "modified_at": "2026-05-29T13:36:38.489Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/parameter_stability_20260529_163638.json",
+      "sha256": "a5ec503d44b709afe26804598b48175e84ac8edf27f31244c5de5653cb61ef82",
+      "size_bytes": 2300,
+      "modified_at": "2026-05-29T13:36:38.523Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+      "sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+      "size_bytes": 197281,
+      "modified_at": "2026-05-29T13:36:38.401Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_summary_20260529_163638.csv",
+      "sha256": "1fac3d624c47e1c4a6ed67739b67b9c360ab2ba03ee957e32a81bef297ca962f",
+      "size_bytes": 41181,
+      "modified_at": "2026-05-29T13:36:38.520Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+      "sha256": "65cf5499465db085483e1c7a00484e8813c3d0370accec96ea098b8755288d00",
+      "size_bytes": 26183999,
+      "modified_at": "2026-05-29T13:36:38.946Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/trial-attempts.jsonl",
+      "sha256": "3c0e557fcfb9cf04113b5890d0ecd72a420f5f61dd9b1e11e6689d16b6a3b8eb",
+      "size_bytes": 4863,
+      "modified_at": "2026-05-29T13:36:42.556Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_is": -2.3114614262737723,
+    "sharpe_oos": -1.32449906938113,
+    "in_sample_return_pct": -0.3367473718067379,
+    "total_trades": 586,
+    "max_drawdown": -1.0634160301058153,
+    "profit_factor": 0.3992786772850108,
+    "win_rate": 0.3583617747440273,
+    "aggregate_return_pct": -0.17134851868752796,
+    "total_windows": 125,
+    "successful_windows": 125,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+    "canonical_wfa_config_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-05-29T13:25:40.580Z",
+    "worker_end_time": "2026-05-29T13:36:42.602Z",
+    "duration_ms": 662022,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 5,
+    "metrics_artifact_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+    "per_window_metrics_count": 125,
+    "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "config_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "canonical_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": -2.3114614262737723,
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": -1.32449906938113,
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.508834,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.3367473718067379,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.17134851868752796,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 125,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 125,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "stable_reported_parameters",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+        "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 125,
+      "total_reported_windows": 125,
+      "unique_parameter_sets": 1,
+      "changed_window_count": 0,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0003,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+        "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+        "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 20,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 7200,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "4763291a1b49663c8e87cafc80c6cc70385a173593e7da30321f916f4e311e07",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-05-29T13:25:48.516385+00:00",
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-05-29T13:36:38.330286+00:00",
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 649.813901,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+          "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529132537/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537.json",
+      "sha256": "2d2e1da94f15bbddc4ad763e71eaa6b4f7e4a5e48511fc9020820a42797f8f65"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 5,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-05-29T13:36:42.602Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+      "sha256": "4763291a1b49663c8e87cafc80c6cc70385a173593e7da30321f916f4e311e07",
+      "size_bytes": 2460,
+      "modified_at": "2026-05-29T13:00:43.481Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+      "sha256": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a",
+      "size_bytes": 23657,
+      "modified_at": "2025-12-21T13:50:41.716Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_gbpjpy_reversion.json",
+      "sha256": "a6e4ec1a405332f1bec4283081549ebfaa9b5749ccf82b6e6cdf23d9e4078e5b",
+      "size_bytes": 1265,
+      "modified_at": "2026-05-29T12:19:59.052Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "size_bytes": 12747848,
+      "modified_at": "2025-12-19T07:10:07.755Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529132537/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529132537.json",
+      "sha256": "2d2e1da94f15bbddc4ad763e71eaa6b4f7e4a5e48511fc9020820a42797f8f65",
+      "size_bytes": 3909,
+      "modified_at": "2026-05-29T13:25:36.526Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-LIVE-CANARY-002",
+  "url": "https://www.goatfundedtrader.com/blog/forex-trading-day",
+  "title": "Forex Trading Days Explained",
+  "source_class": "web",
+  "captured_at": "2026-06-11T19:37:35.084Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-06-11T19:38:13.341Z",
+      "completed_at": "2026-06-11T19:38:13.876Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "1587cd510f0c012bbe2d4a7792bcca53c6ba7612a5b0e531a43f2c40ba284ae6"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "ftmo_ledger_request_v1",
+  "evidence_kind": "ftmo_ledger",
+  "authority_layer": "control_plane",
+  "run_id": "RUN-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504",
+  "job_id": "JOB-FTMO-LEDGER-TESTER-LIFECYCLE-R6-1STEP-20260504",
+  "rule_set_path": "factory/mt5/ftmo/rules/ftmo-1-step-trading-objectives-2026-04-22.json",
+  "ledger_path": "factory/mt5/ftmo/inputs/mt5-tester-lifecycle-r6-ledger-input.json",
+  "boundary": "No FTMO defaults are embedded; rule-set and ledger inputs must be explicit repo-contained artifacts."
+}

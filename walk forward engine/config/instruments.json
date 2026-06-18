@@ -31,6 +31,22 @@
     ],
     "trade_allowed": true
   },
+  "GBPJPY_FTMO": {
+    "platform_symbol": "GBPJPY",
+    "description": "Great Britain Pound vs Japanese Yen",
+    "pip_value_in_account_currency_per_lot": 6.286342920006287,
+    "point_value_in_account_currency_per_lot": 0.6286342920006287,
+    "digits": 3,
+    "min_volume_lots": 0.01,
+    "max_volume_lots": 50.0,
+    "volume_step_lots": 0.01,
+    "contract_size": 100000,
+    "news_target_currencies": [
+      "GBP",
+      "JPY"
+    ],
+    "trade_allowed": true
+  },
   "XAUUSD_FTMO": {
     "platform_symbol": "XAUUSD",
     "description": "Gold vs US Dollar",

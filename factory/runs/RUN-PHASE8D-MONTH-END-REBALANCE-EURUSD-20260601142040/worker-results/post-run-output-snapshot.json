@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/analysis.json",
+    "sha256": "d348b1b60cab6ab0015a996dc16ecedd8c1321a82e5d26b27d677b005941f5a3",
+    "size_bytes": 2937,
+    "modified_at": "2026-06-01T14:29:14.576Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/parameter_stability_20260601_172914.json",
+    "sha256": "b1e049d8bed8883d554139efec66db495cb2e200cb4f6020a5734a5524ee5be7",
+    "size_bytes": 3398,
+    "modified_at": "2026-06-01T14:29:14.618Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+    "sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6",
+    "size_bytes": 149267,
+    "modified_at": "2026-06-01T14:29:14.458Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_summary_20260601_172914.csv",
+    "sha256": "7627e8e8a589f885320e4b87c3c3fe0df8f845268644eb8b5910e8dd038dad8e",
+    "size_bytes": 30636,
+    "modified_at": "2026-06-01T14:29:14.614Z"
+  }
+]

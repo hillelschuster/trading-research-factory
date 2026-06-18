@@ -1,0 +1,207 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-05-23T12:38:35.258Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "deepseek-v4-pro",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "capture_url_source",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_hypothesis"
+  ],
+  "tool_calls": [
+    {
+      "index": 1,
+      "tool": "search_research_memory",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:49.992Z",
+      "ended_at": "2026-05-23T12:37:50.355Z",
+      "input": {
+        "query": "FTMO MT5 trading mechanism hypothesis"
+      },
+      "output": {
+        "query": "FTMO MT5 trading mechanism hypothesis",
+        "results": [
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-FIXTURE-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 3,
+            "text": "HYP-STAGE0-FIXTURE-001 | volatility_contraction_liquidity_pressure_fixture | Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets. | M15-H1 candidate only, to be selected later by deterministic planning. | Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism. | If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture make...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/hypotheses/HYP-STAGE0-FIXTURE-001.json"
+          },
+          {
+            "retrieval_id": "research_source_record:SRC-FIXTURE-STAGE0-001",
+            "source_type": "research_source_record",
+            "score": 1,
+            "text": "SRC-FIXTURE-STAGE0-001 | fixture_test_double_source | low_signal_trust | Mechanism-first hypotheses should be falsifiable before any deterministic WFA is launched. | Fixture source; not live web, paper, terminal, or broker evidence. | A mechanism can be plausible yet fail after spread, swap, session, and OOS controls.",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/source-records/SRC-FIXTURE-STAGE0-001.json"
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "tool": "check_duplicate_memory",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:50.355Z",
+      "ended_at": "2026-05-23T12:37:50.587Z",
+      "input": {
+        "hypothesis_text": "FTMO MT5 multi-asset trading mechanism"
+      },
+      "output": {
+        "duplicate": false,
+        "matches": []
+      }
+    },
+    {
+      "index": 3,
+      "tool": "check_failed_pattern_similarity",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:50.587Z",
+      "ended_at": "2026-05-23T12:37:50.806Z",
+      "input": {
+        "pattern_text": "FTMO MT5 multi-asset trading mechanism"
+      },
+      "output": {
+        "blocked": false,
+        "reason": null,
+        "matches": []
+      }
+    },
+    {
+      "index": 4,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:58.096Z",
+      "ended_at": "2026-05-23T12:37:59.078Z",
+      "input": {
+        "query": "FTMO MT5 trading strategy mechanism falsifiable volatility breakout momentum mean-reversion multi-asset"
+      },
+      "output": {
+        "query": "FTMO MT5 trading strategy mechanism falsifiable volatility breakout momentum mean-reversion multi-asset",
+        "provider": "brave_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.mql5.com/en/market/product/130357",
+            "title": "F T M O Range Breakout Pro MT5 | Buy Trading Robot (Expert Advisor) for MetaTrader 5",
+            "snippet": "How the EA works (simple explanation) Trades on M5 timeframe Uses H1 timeframe to analyze global market context Analyzes 2 or 3 timeframes simultaneously On each timeframe: Checks price position relative to one or two Moving Averages Evaluates MA angle and distance between price and MA Entry logic is based on trend + volatility conditions , not on random signals The full algorithm is illustrated in the screenshots. Recommended usage Symbol: EURUSD Timeframe: M5 Trading style: Intraday ... Oxi – Mean Reversion DCA Riser (MT5 Expert Advisor) Oxi is a fully automated MetaTrader 5 Expert Advisor that combines advanced Mean Reversion logic with strategic Dollar-Cost Averaging (DCA) to help you grow your account steadily.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://ftmo.com/en/mean-reversion-divergence-setup-strategy/",
+            "title": "Mean Reversion + Divergence Setup Strategy | FTMO",
+            "snippet": "The trading strategy we will describe today <strong>focuses on trading against short-term extremes in the market, using the concept of mean reversion combined with divergence between price and indicators</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://ftmo.com/en/blog/mean-reversion-divergence-setup-strategy/",
+            "title": "Mean Reversion + Divergence Setup Strategy | FTMO.com",
+            "snippet": "The trading strategy we will describe today <strong>focuses on trading against short-term extremes in the market, using the concept of mean reversion combined with divergence between price and indicators</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://pipmaster.fr/en/validation-ftmo-automatique-mythe-ou-realite-avec-un-ea-mt5/",
+            "title": "Automatic FTMO Validation: Myth or Reality With an MT5 EA? - Pipmaster France",
+            "snippet": "Rather than looking for a magic software, it is more realistic to develop or adapt your own EA in order to comply with FTMO rules. Here are a few ideas: Develop a unique strategy. Design an algorithm that reflects your own trading logic (trend, breakout, mean reversion, etc.).",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.udemy.com/course/high-winrate-forex-course-trading-strategies/",
+            "title": "Funded FTMO : Top 5 High Winrate Forex Trading Strategies | Udemy",
+            "snippet": "London Open Volatility Breakout – capture momentum when liquidity floods the market. Price Action + EMA Trend Filter – align with institutional order flow for high-probability entries. Hybrid Strategy (Breakout + Retest + Trend Confirmation) – maximize accuracy while minimizing false breakouts. Smart Money Concepts (SMC) – liquidity pools, Fair Value Gaps (FVG), and institutional candle formations applied to FTMO challenges.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "tool": "search_research_memory",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:59.078Z",
+      "ended_at": "2026-05-23T12:37:59.294Z",
+      "input": {
+        "query": "FTMO MT5 multi-asset trading mechanism falsifiable hypothesis stage0"
+      },
+      "output": {
+        "query": "FTMO MT5 multi-asset trading mechanism falsifiable hypothesis stage0",
+        "results": [
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-FIXTURE-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-STAGE0-FIXTURE-001 | volatility_contraction_liquidity_pressure_fixture | Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets. | M15-H1 candidate only, to be selected later by deterministic planning. | Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism. | If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture make...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/hypotheses/HYP-STAGE0-FIXTURE-001.json"
+          },
+          {
+            "retrieval_id": "research_source_record:SRC-FIXTURE-STAGE0-001",
+            "source_type": "research_source_record",
+            "score": 3,
+            "text": "SRC-FIXTURE-STAGE0-001 | fixture_test_double_source | low_signal_trust | Mechanism-first hypotheses should be falsifiable before any deterministic WFA is launched. | Fixture source; not live web, paper, terminal, or broker evidence. | A mechanism can be plausible yet fail after spread, swap, session, and OOS controls.",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/source-records/SRC-FIXTURE-STAGE0-001.json"
+          },
+          {
+            "retrieval_id": "research_digest:DIGEST-RESEARCHBRAIN-REQUEST-20260520T0718Z",
+            "source_type": "research_digest",
+            "score": 1,
+            "text": "DIGEST-RESEARCHBRAIN-REQUEST-20260520T0718Z | RESEARCHBRAIN-STAGE0-FIXTURE-RESEARCHBRAIN-REQUEST-20260520T0718Z-001 | Fixture source supports only runtime plumbing validation, not an edge claim. | Fixture/test-double output is not live research and cannot close Phase 8B alone.",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/digest.json"
+          },
+          {
+            "retrieval_id": "research_ideation_manifest:RESEARCHBRAIN-STAGE0-FIXTURE-RESEARCHBRAIN-REQUEST-20260520T0718Z-001",
+            "source_type": "research_ideation_manifest",
+            "score": 1,
+            "text": "RESEARCHBRAIN-STAGE0-FIXTURE-RESEARCHBRAIN-REQUEST-20260520T0718Z-001 | {\"max_sources\":8,\"sources_used\":1,\"max_hypotheses\":3,\"hypotheses_used\":1,\"provider_mode\":\"fixture_test_double\"}",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/ideation-manifest.json"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "tool": "check_duplicate_memory",
+      "status": "ok",
+      "started_at": "2026-05-23T12:37:59.294Z",
+      "ended_at": "2026-05-23T12:37:59.497Z",
+      "input": {
+        "hypothesis_text": "FTMO MT5 multi-asset falsifiable trading mechanism volatility compression liquidity pressure"
+      },
+      "output": {
+        "duplicate": false,
+        "matches": []
+      }
+    },
+    {
+      "index": 7,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-05-23T12:38:35.258Z",
+      "ended_at": "2026-05-23T12:38:35.258Z",
+      "input": {
+        "url": "https://ftmo.com/en/mean-reversion-divergence-setup-strategy/",
+        "source_family": "high_research_trust",
+        "title": "FTMO Mean Reversion + Divergence Setup Strategy"
+      },
+      "reason": "capture_url_source requires source_id"
+    }
+  ],
+  "captured_artifacts": [],
+  "failure": "capture_url_source requires source_id"
+}

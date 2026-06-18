@@ -1,0 +1,99 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
+  "generated_at": "2026-06-08T19:17:09.209Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z/request.json",
+    "sha256": "f3d9ea9e8c20d9113e7100023702c45b3db0e631721c5e0f4f8a11ed9b91f970"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 4,
+    "provider_calls_used": 1,
+    "timeout_ms": 180000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-06-08T19:17:09.218Z",
+      "completed_at": "2026-06-08T19:17:23.188Z",
+      "reason": "Brave source adapter currently supports search_web only, got search_arxiv",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
+        "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-06-08T19:17:09.218Z",
+          "completed_at": "2026-06-08T19:17:23.150Z",
+          "error_class": "Error",
+          "error_message": "Brave source adapter currently supports search_web only, got search_arxiv",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
+      "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/agent-transcript.jsonl",
+      "sha256": "78ef6293310fff7b31789c9c4b3a44dbefa8269e810b1681ef92cafc5defbc78"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/tool-ledger.json",
+      "sha256": "85742b903285066a964454c1581cb02bc36ab9b8e8bdc3a6962a6b763b19e35d"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/cost-ledger.json",
+      "sha256": "0a0b1f54d6fc989b7e333ea37de7f57ed4d578d270477bdf14238856c45cf677"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/working-notes.md",
+      "sha256": "c045db0125b590d87856d610571815a3d7b8a0b095fe2476cf7b4a98cdd952ba"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "artifact_manifest_v1",
+  "run_id": "RUN-20260528184735-xx0k9r",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "worker": "deterministic_wfa_ready_compiler_v1",
+  "candidate_id": "CAND-PHASE8D-PREREG-GATE-20260528",
+  "created_at": "2026-05-28T18:47:40.040Z",
+  "artifacts": [
+    {
+      "path": "factory/runs/RUN-20260528184735-xx0k9r/phase8d-blocked-at-start.json",
+      "sha256": "206222681c73c96efe011f610a0114ba81e0496c29f459455f908e501f98e102",
+      "size_bytes": 1064,
+      "modified_at": "2026-05-28T18:47:39.232Z"
+    },
+    {
+      "path": "factory/runs/RUN-20260528184735-xx0k9r/execution-result.json",
+      "sha256": "6fbfce9235dfc79777faeacd72b8410f9d0dfd3ad9ef7196d44f8aee8aec6d13",
+      "size_bytes": 1222,
+      "modified_at": "2026-05-28T18:47:39.395Z"
+    },
+    {
+      "path": "factory/runs/RUN-20260528184735-xx0k9r/phase8d-candidate-evidence-packet.json",
+      "sha256": "6d1aa45efc18e6a978cc7454f700fa46651a27fd336bb62697ea62b1329486ba",
+      "size_bytes": 3099,
+      "modified_at": "2026-05-28T18:47:39.542Z"
+    },
+    {
+      "path": "factory/runs/RUN-20260528184735-xx0k9r/planner-attempt-0/stage-gate.json",
+      "sha256": "b1764f0302cf8c7d2805051eadd7c788c643319776d51a1be20b3a1c4c449ace",
+      "size_bytes": 545,
+      "modified_at": "2026-05-28T18:47:39.787Z"
+    }
+  ],
+  "source_hashes": [
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "a4412b1b91f24e024eda6aa51a0e9e085693e426864fb5d7bbc846f103c11af5"
+    }
+  ]
+}

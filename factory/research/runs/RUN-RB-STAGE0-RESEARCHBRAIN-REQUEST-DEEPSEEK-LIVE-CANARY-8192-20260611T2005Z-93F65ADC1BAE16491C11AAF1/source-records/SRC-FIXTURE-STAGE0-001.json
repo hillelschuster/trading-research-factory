@@ -1,0 +1,33 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "source_id": "SRC-FIXTURE-STAGE0-001",
+  "source_type": "fixture_test_double_source",
+  "trust_tier": "low_signal_trust",
+  "url_or_path_or_doi": "fixture://researchbrain-stage0-runtime",
+  "accessed_at": "2026-06-11T20:15:46.688Z",
+  "content_hash_or_unavailable_reason": "36137fd3f112b5954d78c7faacf000b09f81588e48769ad21d107c92ae83ddc3",
+  "claims_extracted": [
+    "Mechanism-first hypotheses should be falsifiable before any deterministic WFA is launched."
+  ],
+  "limitations": [
+    "Fixture source; not live web, paper, terminal, or broker evidence."
+  ],
+  "disconfirming_relevance": [
+    "A mechanism can be plausible yet fail after spread, swap, session, and OOS controls."
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1/sources/SRC-FIXTURE-STAGE0-001.md",
+    "sha256": "36137fd3f112b5954d78c7faacf000b09f81588e48769ad21d107c92ae83ddc3"
+  },
+  "source_fetch": {
+    "mode": "inline_provider_capture",
+    "content_hash": "2344cf78d9075a6028805064a59454561e7fbb115c0c38ae2a16b80b1443e42c",
+    "live_fetch": false
+  },
+  "request_id": "RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z",
+  "provider_provenance": {
+    "mode": "fixture_test_double",
+    "live_research": false
+  }
+}

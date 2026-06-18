@@ -1,0 +1,121 @@
+{
+  "experiment_id": "EXP-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "title": "Phase 8D BTC BB-width squeeze screening",
+  "backlog_item_id": "IDEA-PHASE8D-BTC-BB-SQUEEZE-20260530223043",
+  "objective": "Screen a pre-registered BTCUSD-equivalent volatility-contraction breakout hypothesis through deterministic WFA.",
+  "hypothesis": "The explicit btc_bb_squeeze_phase8d_runtime WFA route can be evaluated as research_wfa evidence only if the canonical engine produces verified artifacts and out-of-sample metrics.",
+  "strategy_rationale": "Production Phase 8D screening only; no Phase 8E implication without survivor plus MT5 equivalence and operator authorization.",
+  "strategy_type": "btc_bb_squeeze_phase8d_runtime",
+  "market_family": "crypto_cfd_proxy",
+  "instrument_scope": "BTCUSD-equivalent 1h crypto CFD hypothesis using Binance BTCUSDT proxy research data; FTMO/MT5-listed by terminal universe evidence, research-only until MT5 data equivalence is proven.",
+  "timeframe": "H1 volatility contraction breakout",
+  "priority": 93,
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+  "family_id": "btc_bb_width_squeeze",
+  "deployment_mode": "research_only",
+  "dataset_requirements": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "data_manifest_paths": [],
+  "data_readiness_manifests": [],
+  "historical_depth_requirement": {
+    "target": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+    "justification": "The backlog item already defines a concrete WFA route; deterministic planning should not block on an LLM when execution gates will verify data and artifacts."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "existing_wfa_route"
+    ],
+    "primary_source_family": "existing_wfa_route",
+    "selection_reason": "Backlog item supplied an explicit canonical WFA config route and research-only evidence boundary."
+  },
+  "scope_selection_rationale": "Screen a pre-registered BTCUSD-equivalent volatility-contraction breakout hypothesis through deterministic WFA.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "The deterministic compiler only records the explicit route; executor and validators must verify data availability before evidence can be accepted.",
+    "acquisition_method": "existing_wfa_route",
+    "sources": [
+      "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": [
+      "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+    ]
+  },
+  "inputs": [
+    "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "walk forward engine/config/strategy_bb_width_squeeze.json",
+    "walk forward engine/src/strategies/bb_width_squeeze.py",
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "implementation_steps": [
+    "Inspect walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml and referenced strategy/data inputs before execution.",
+    "Run the canonical WFA command from the walk forward engine directory: .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "Collect WFA output artifacts, metrics, completed-window count, stdout/stderr, and an artifact manifest.",
+    "Mark the run blocked or inconclusive if any required artifact or metric is missing."
+  ],
+  "commands": [
+    ".venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/execution-result.json",
+    "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/artifact_manifest.json",
+    "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/gate-results.json",
+    "factory/summaries/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.md"
+  ],
+  "advanced_wfa_config": {
+    "config_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "expected_output_root": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results",
+    "planner_bypass": "deterministic_wfa_ready_compiler",
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7"
+    }
+  },
+  "evaluation_criteria": {
+    "status_gate": "Only accept executed research_wfa evidence when canonical WFA artifacts, observed metrics, and at least one completed walk-forward window are verified.",
+    "metrics": {
+      "min_wfa_windows": 1,
+      "min_trades": 1,
+      "min_evidence_score": 50
+    },
+    "strategy_quality_gate": "Do not label a strategy promising merely because the worker canary executed. Promising research evidence generally requires at least 5 completed OOS windows, 50 trades, 5%+ annualized return or a strong aggregate-return proxy, and mostly consistent positive OOS windows.",
+    "min_evidence_score": 50
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/hypothesis-packet.json",
+      "sha256": "c52b07b0a11a4bfabfaf3f1ae306a2549a3fee116b0b5cbf5db5527b60055e57"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7"
+    }
+  ],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+    "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7"
+  },
+  "fallback_if_blocked": [
+    "If config or data is missing, mark blocked with exact missing path.",
+    "If WFA exits nonzero or produces no trades/windows, mark inconclusive or blocked with captured logs.",
+    "If artifacts cannot be verified from disk, do not claim executed evidence."
+  ],
+  "notes": [
+    "Compiled deterministically from a WFA-ready backlog item; no LLM planner authority was used.",
+    "This plan is a proposal route only; execution, metrics, evidence, gates, and state remain deterministic/artifact-bound."
+  ],
+  "planner_bypass": {
+    "compiler": "deterministic_wfa_ready_compiler_v1",
+    "reason": "explicit_research_wfa_route",
+    "wfa_config_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "compiled_at": "2026-05-30T22:30:44.265Z"
+  }
+}

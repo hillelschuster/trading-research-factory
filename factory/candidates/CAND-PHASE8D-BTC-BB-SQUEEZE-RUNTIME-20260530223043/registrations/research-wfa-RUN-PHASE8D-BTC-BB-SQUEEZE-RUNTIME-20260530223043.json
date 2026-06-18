@@ -1,0 +1,65 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "registered_at": "2026-05-30T22:30:43.840Z",
+  "registered_before_run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/hypothesis-packet.json",
+    "sha256": "c52b07b0a11a4bfabfaf3f1ae306a2549a3fee116b0b5cbf5db5527b60055e57",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/source-record.json",
+      "sha256": "2cf8ff81f2bb6f8312cb6c60aec9637f53c0719962ce9e7db1e90bf5dc6192a9",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register BTCUSD-equivalent BB-width squeeze volatility breakout screening before WFA execution.",
+  "instrument_scope": "BTCUSD-equivalent 1h crypto CFD hypothesis using Binance BTCUSDT proxy research data; FTMO/MT5-listed by terminal universe evidence, research-only until MT5 data equivalence is proven.",
+  "timeframe_candidate": "H1 volatility contraction breakout",
+  "strategy_family": "btc_bb_width_squeeze",
+  "expected_trade_frequency": "Medium-to-high frequency; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "data_sources": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+    "FTMO terminal universe snapshot lists BTCUSD, but MT5 data equivalence is not assumed."
+  ],
+  "cost_assumptions": "Use only bb_width_squeeze WFA config costs: fees 0.0006 and slippage 0.0002, no hidden overrides.",
+  "wfa_design": {
+    "config_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "window_policy": "Use the canonical 3m training / 1m testing / 1m step WFA scheme encoded in the Phase 8D runtime-feasibility config.",
+    "optimizer_policy": "Use the preregistered 25-trial runtime-feasibility route and count this repaired attempt in the denominator.",
+    "repair_rationale": "Pre-result mechanical runtime repair: original Phase 8D BTC BB squeeze attempt RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722 timed out after 1800000ms with accepted_output_count=0 and no artifact-backed WFA metrics, so this new denominator attempt keeps the same hypothesis/source/data/costs but uses a Phase 8D-specific 25-trial WFA config to complete within the worker budget.",
+    "performance_result_used_for_repair": false
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if real WFA fails any Phase 8D survivor floor on completed OOS windows, total trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment or Phase 8E implication unless a separate survivor exists with MT5 instrument equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, cost, parameter space, data source, or WFA config as a new denominator-tracked attempt."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "ab575df1bb2ad1467e0213bbd6e88cbddc238a449b97a8e346c73eaccc60c6a2"
+}

@@ -1,0 +1,72 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "mechanism": "BTCUSD-equivalent crypto CFDs may exhibit persistent directional runs after Supertrend regime flips, while realized-volatility adaptation can reduce exposure pressure during turbulent regimes. This screens the pre-existing VOL_ADAPTIVE_TREND route once, without selecting it from historical leaderboard results.",
+  "falsifiable_prediction": "A valid BTC volatility-adaptive trend candidate should clear all Phase 8D survivor floors on long 1h OOS WFA evidence after configured costs; otherwise it must be recorded as a non-survivor.",
+  "market_structure_assumption": "BTCUSD is listed in the FTMO/MT5 terminal universe as a crypto CFD, but this route uses Binance BTCUSDT proxy research data until separate terminal-derived equivalence is proven.",
+  "instrument_scope": "BTCUSD-equivalent 1h crypto CFD hypothesis using Binance BTCUSDT proxy research data; FTMO/MT5-listed by terminal universe evidence, research-only until MT5 data equivalence is proven.",
+  "timeframe_candidate": "H1 volatility-adaptive trend following",
+  "strategy_family": "vol_adaptive_trend_btc",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "Binance BTCUSDT 1h research OHLCV history, VOL_ADAPTIVE_TREND strategy/config hashes, and later terminal-derived BTCUSD equivalence before any MT5-bound claim.",
+  "expected_holding_period": "Intraday to multi-day, governed by Supertrend reversal and ATR-derived stop behavior.",
+  "expected_trade_frequency": "Medium frequency; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "expected_failure_modes": [
+    "Supertrend can overtrade in choppy BTC regimes and lose after costs.",
+    "Volatility adaptation may reduce exposure during exactly the periods where trend payoff is concentrated.",
+    "Proxy Binance BTCUSDT behavior may not transfer to FTMO BTCUSD CFD execution."
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if real WFA fails any Phase 8D survivor floor on completed OOS windows, total trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment or Phase 8E implication unless a separate survivor exists with MT5 instrument equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, cost, parameter space, data source, or WFA config as a new denominator-tracked attempt."
+  ],
+  "implementation_shape": "Use the Phase 8D runtime-feasibility VOL_ADAPTIVE_TREND WFA config with LightweightVolAdaptiveTrend and strategy_vol_adaptive_trend config; do not alter parameters after preregistration.",
+  "execution_sensitivity": "Sensitive to ATR period, Supertrend multiplier, hourly candle source, crypto weekend liquidity, slippage, fees, and proxy-to-FTMO BTCUSD symbol differences.",
+  "mt5_ftmo_concerns": "The FTMO terminal universe contains BTCUSD, but the research CSV is Binance BTCUSDT proxy data; Phase 8E remains blocked regardless of Phase 8D metrics.",
+  "prior_related_lessons": [
+    "Phase 8D screens pre-registered hypotheses and counts weak or failed attempts in the denominator.",
+    "MT5 relevance is not the same as MT5 Strategy Tester parity or deployment readiness.",
+    "Prior Phase 8D candidates failed survivor floors, so this materially distinct trend-following route must be judged only by its own preregistered WFA evidence."
+  ],
+  "prior_failed_patterns_checked": [
+    "This attempt is not a GBPJPY sweep or reversion mutation and does not tune prior GBPJPY failures.",
+    "This attempt is not EURUSD London breakout, XAUUSD trend, or BTC BB-width squeeze.",
+    "This attempt is not a simple RSI strategy and does not register a low-frequency exception.",
+    "This attempt is not advanced because of historical leaderboard rank; it is a one-shot mechanism screen with denominator membership.",
+    "Pre-result mechanical runtime-feasibility repair: the canonical VOL_ADAPTIVE_TREND route uses 150 trials on BTC H1, and the immediately prior BTC H1 Phase 8D 150-trial screening route timed out after 1800000ms before accepted WFA outputs. This attempt preserves the hypothesis, strategy source, parameter space, data source, and costs but uses a Phase 8D-specific 25-trial config before any performance result is known."
+  ],
+  "novelty_reason": "Materially distinct Phase 8D candidate: BTC crypto CFD volatility-adaptive Supertrend route on H1 data, separate from EURUSD London breakout, XAUUSD trend following, GBPJPY sweep/reversion, and BTC BB-width squeeze families.",
+  "disconfirming_evidence": [
+    "The supporting source record is implementation-derived rather than independent external research.",
+    "Current data is proxy crypto exchange data, not MT5 terminal-equivalent history."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan, run the canonical worker on VOL_ADAPTIVE_TREND, emit a candidate evidence packet and summary, then evaluate survivor floors with no positive labels unless all floors clear.",
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/source-record.json",
+      "sha256": "f80809f049094fd6a0d36393df59025bdec2eb5efb05eb15f6598eefb0203dbe"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    },
+    "terminal_symbol_evidence": "BTCUSD appears in the FTMO terminal universe snapshot/inventory, but data equivalence is not verified."
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "5eac4aeb639f84631eabff5925e5d073fa3df78abbcd9b597d735a31da850853"
+}

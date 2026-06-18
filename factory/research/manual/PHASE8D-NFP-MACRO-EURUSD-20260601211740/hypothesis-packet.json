@@ -1,0 +1,90 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+  "mechanism": "Scheduled U.S. Employment Situation/NFP releases can create high-frequency foreign-exchange price-discovery jumps. EURUSD M15 may show a short-horizon continuation or fade footprint after the first release-reaction bar, conditioned on pre-event range and observed release-bar activity.",
+  "falsifiable_prediction": "A pre-registered EURUSD M15 NFP macro-announcement candidate should clear the active Phase 8D research WFA promotion gate after configured costs; otherwise it remains denominator-counted non-survivor evidence.",
+  "market_structure_assumption": "EURUSD is a liquid FTMO/MT5 symbol, and scheduled U.S. labor-market news can concentrate macro price discovery, but this Phase 8D screen does not assume exact historical release calendar reconstruction, surprise data, terminal-history equivalence, or executable edge.",
+  "instrument_scope": "EURUSD M15 FTMO/MT5-relevant research screen using historical EURUSD M15 OHLCV CSV; MT5 instrument equivalence remains unverified.",
+  "timeframe_candidate": "M15 U.S. Employment Situation/NFP macro-announcement continuation/fade screen",
+  "strategy_family": "nfp_macro_eurusd",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "EURUSD M15 OHLCV bars with timestamps, source-backed Employment Situation release timing and macro-news FX mechanism, strategy/config hashes, and later MT5 terminal equivalence before any Phase 8E path.",
+  "expected_holding_period": "Intraday, typically 30 minutes to 3 hours via bounded M15 exits and ATR-derived stops/targets.",
+  "expected_trade_frequency": "Medium-low but above the default floor over long history; roughly one possible first-Friday event per month, no low-frequency exception is registered and the default 200-trade floor applies.",
+  "expected_failure_modes": [
+    "The macro-news jump is too fast for M15 OHLCV entry after costs and spread widening.",
+    "First-Friday and DST approximations miss true historical release timestamps.",
+    "Direction depends on actual surprise sign, consensus, revisions, and risk regime that are not observed in OHLCV.",
+    "The signal becomes a generic first-Friday calendar artifact with poor OOS consistency."
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA fails any active Phase 8D gate on completed OOS windows, trade count, return proxy, OOS Sharpe/profit factor where applicable, concentration, drawdown-to-return, or consistency route.",
+    "Reject any Phase 8E, MT5/MQL5, tester parity, or deployment implication unless a separate survivor exists with MT5 equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, costs, parameter ranges, data source, release-date approximation, release-hour handling, or WFA config as a new denominator-tracked attempt."
+  ],
+  "implementation_shape": "Use walk forward engine/src/strategies/nfp_macro_eurusd.py with the canonical nfp_macro_eurusd WFA config and deterministic WFA worker.",
+  "execution_sensitivity": "Sensitive to Employment Situation release calendar approximation, U.S. DST conversion, M15 bar timestamp convention, spread/slippage assumptions, release-reaction delay, surprise-sign omission, ATR stop/target sizing, and terminal-history equivalence.",
+  "mt5_ftmo_concerns": "EURUSD is present in FTMO terminal evidence, but this screening does not prove MT5 Strategy Tester parity or data equivalence.",
+  "prior_related_lessons": [
+    "Phase 8D screens pre-registered hypotheses and counts weak or failed attempts in the denominator.",
+    "The active survivor gate is flexible but compensation requires strong return, Sharpe, profit factor, concentration, drawdown-to-return, and window diagnostics.",
+    "A clean denied run is acceptable denominator evidence; do not force survivors or tune failed hypotheses."
+  ],
+  "prior_failed_patterns_checked": [
+    "Not a London breakout, London sweep, or GBPJPY reversion mutation.",
+    "Not XAUUSD trend-following, BTC BB-width squeeze, BTC volatility-adaptive Supertrend, EURUSD signed tick-volume OFI, EURUSD month-end rebalancing-flow, or EURUSD WMR FX benchmark-fixing flow.",
+    "Not a simple RSI strategy and no low-frequency exception is registered.",
+    "Uses independent BLS/NBER macro-announcement sources rather than selecting a historical WFA winner."
+  ],
+  "novelty_reason": "First Phase 8D screen of a source-backed U.S. Employment Situation/NFP macro-announcement mechanism on EURUSD M15 using first reaction-bar continuation/fade, pre-event range, release-bar volume proxy, and bounded post-release risk controls.",
+  "disconfirming_evidence": [
+    "The NBER paper supports macro-news FX price discovery generally, not this exact M15 rule.",
+    "The BLS source supports official release timing, not a trading edge.",
+    "Current data is not separately proven equivalent to FTMO terminal EURUSD history."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan, run the canonical worker on nfp_macro_eurusd, emit candidate evidence and summary, then evaluate the shared flexible consistency route without positive labels unless all gates pass.",
+  "cited_source_ids": [
+    "SRC-PHASE8D-NFP-MACRO-EURUSD-20260601211740"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_release_timing",
+      "citation_source_id": "SRC-PHASE8D-NFP-MACRO-EURUSD-20260601211740"
+    },
+    {
+      "claim_class": "source_backed_macro_news_fx_mechanism",
+      "citation_source_id": "SRC-PHASE8D-NFP-MACRO-EURUSD-20260601211740"
+    },
+    {
+      "claim_class": "implementation_mapping",
+      "citation_source_id": "SRC-PHASE8D-NFP-MACRO-EURUSD-20260601211740"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+      "path": "factory/research/manual/PHASE8D-NFP-MACRO-EURUSD-20260601211740/source-record.json",
+      "sha256": "bc9d0d026b909d741a52de5669e7b1603871938b2680a8a97ed7a349a70fe88f"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    },
+    "terminal_symbol_evidence": "EURUSD appears in FTMO terminal universe evidence; data equivalence is not verified in this Phase 8D screen."
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "15d23aed81d256ef8135a6dbf42ae0a695dbc4dd5067f63da7a7e3d38f1667d6"
+}

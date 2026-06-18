@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/analysis.json",
+    "sha256": "f2a389922e92198d8a99bbe4c71d17d39bebb79b22815acb148f74b0b73a97db",
+    "size_bytes": 2932,
+    "modified_at": "2026-06-02T16:22:43.535Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/parameter_stability_20260602_192243.json",
+    "sha256": "f6bb0e58f8d245d14d0e9d0020c290f45e4288c90fdf63b9a6220b69c9c11085",
+    "size_bytes": 1472,
+    "modified_at": "2026-06-02T16:22:43.600Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+    "sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+    "size_bytes": 81404,
+    "modified_at": "2026-06-02T16:22:43.316Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_summary_20260602_192243.csv",
+    "sha256": "89a8c623d544544837dac9632caf7c666d5edf9eefefa7b2445adbe8e381d3bf",
+    "size_bytes": 17399,
+    "modified_at": "2026-06-02T16:22:43.594Z"
+  }
+]

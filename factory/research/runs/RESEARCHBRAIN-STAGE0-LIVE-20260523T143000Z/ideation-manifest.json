@@ -1,0 +1,79 @@
+{
+  "schema_version": "research_ideation_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "research_run_id": "RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z",
+  "memory_checked": {
+    "checked": true,
+    "required_tool_calls": {
+      "search_research_memory": true,
+      "check_duplicate_memory": true,
+      "check_failed_pattern_similarity": true
+    },
+    "basis": "ResearchBrain required memory, duplicate, and failed-pattern tools were called before accepting a hypothesis."
+  },
+  "sources_considered": [
+    {
+      "source_id": "SRC-LIVE-CANARY-001",
+      "trust_tier": "low_signal_trust",
+      "source_type": "web_captured_source"
+    }
+  ],
+  "hypotheses_accepted": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "a4412b1b91f24e024eda6aa51a0e9e085693e426864fb5d7bbc846f103c11af5",
+      "status": "accepted_stage0_only"
+    }
+  ],
+  "hypotheses_rejected": [],
+  "duplicates_detected": [
+    {
+      "reason": "memory_overlap",
+      "matches": [
+        {
+          "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-FIXTURE-001",
+          "score": 6
+        }
+      ]
+    }
+  ],
+  "budget_used": {
+    "max_sources": 2,
+    "sources_used": 1,
+    "max_hypotheses": 1,
+    "hypotheses_used": 1,
+    "provider_mode": "live_llm_agent:openai_compatible"
+  },
+  "operator_relevant_blockers": [],
+  "artifact_paths": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/source-records/SRC-LIVE-CANARY-001.json",
+      "sha256": "197b227b9b290cc3ce8fd06a5ae4ee2300fa79f6901a4fbd4e53ccb14f90f4d5"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "a4412b1b91f24e024eda6aa51a0e9e085693e426864fb5d7bbc846f103c11af5"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/digest.json",
+      "sha256": "a42380a95785f899c211d6555068c776336b6d25d29a169a5c51faf0f89341f6"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

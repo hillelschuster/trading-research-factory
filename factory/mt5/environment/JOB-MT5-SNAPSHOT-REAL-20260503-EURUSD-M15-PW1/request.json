@@ -1,0 +1,14 @@
+{
+  "schema_version": "mt5_snapshot_request_v1",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "symbol": "EURUSD",
+  "timeframe": "M15",
+  "bars": 256,
+  "login": 1513283634,
+  "server": "FTMO-Demo",
+  "password_env_var": "TRF_MT5_PASSWORD",
+  "password_env_provided": true,
+  "terminal_path_provided": true,
+  "terminal_path": "provided_not_persisted"
+}

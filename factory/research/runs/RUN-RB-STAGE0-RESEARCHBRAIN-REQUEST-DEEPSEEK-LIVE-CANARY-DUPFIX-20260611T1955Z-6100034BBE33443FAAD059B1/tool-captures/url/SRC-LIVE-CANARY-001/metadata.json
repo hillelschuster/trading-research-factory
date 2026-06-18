@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-LIVE-CANARY-001",
+  "url": "https://ftmo.com/en/blog/why-traders-favour-the-us-trading-session/",
+  "title": "Why Traders Favour the US Trading Session | FTMO.com",
+  "source_class": "web",
+  "captured_at": "2026-06-11T19:58:14.420Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-06-11T19:58:33.350Z",
+      "completed_at": "2026-06-11T19:58:40.555Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "7806592be5f41f6019db410d29e27f8b9bfc140b8cf2a6fd6455c4469ed3befa"
+}

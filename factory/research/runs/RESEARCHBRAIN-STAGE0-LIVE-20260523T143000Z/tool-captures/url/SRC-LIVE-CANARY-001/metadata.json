@@ -1,0 +1,14 @@
+{
+  "source_id": "SRC-LIVE-CANARY-001",
+  "url": "https://www.federalreserve.gov/econres/notes/feds-notes/order-flow-imbalances-and-amplification-of-price-movements-evidence-from-u-s-treasury-markets-20251103.html",
+  "title": "The Fed - Order Flow Imbalances and Amplification of Price Movements: Evidence from U.S. Treasury Markets",
+  "source_class": "web",
+  "captured_at": "2026-05-23T13:14:14.873Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "content_sha256": "89232ceb2dc247534ac4166eb8ab0e12c1827e8c4cdcbd0d86416ecbe3c2a71a"
+}

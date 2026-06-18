@@ -1,0 +1,105 @@
+{
+  "schema_version": "phase7b_exit_readiness_report_v1",
+  "phase": "7B",
+  "generated_at": "2026-05-15T16:47:11.602Z",
+  "status": "ready_to_close",
+  "summary": {
+    "criteria_total": 8,
+    "criteria_met": 6,
+    "criteria_pending": 0,
+    "criteria_deferred": 2
+  },
+  "criteria": [
+    {
+      "id": "runtime_sqlite_mirror",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/runtime-ledger.mjs",
+        "factory/runtime/factory.sqlite"
+      ],
+      "pending": []
+    },
+    {
+      "id": "binance_usdm_funding_refresh_request",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/workers/binance-usdm-funding-data-readiness-worker.mjs",
+        "scripts/run-binance-usdm-funding-refresh-request.mjs",
+        "package.json"
+      ],
+      "pending": []
+    },
+    {
+      "id": "wfa_data_readiness_manifest_consumption",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/wfa-plan-compiler.mjs",
+        "tests/wfa-data-manifest-consumption.test.mjs"
+      ],
+      "pending": []
+    },
+    {
+      "id": "advisory_research_wfa_gate_report",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/verification.mjs",
+        "tests/verification.test.mjs"
+      ],
+      "pending": []
+    },
+    {
+      "id": "search_denominator_source_slices",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/verification.mjs",
+        "tests/verification.test.mjs"
+      ],
+      "pending": []
+    },
+    {
+      "id": "advisory_dsr_statistical_test",
+      "status": "met",
+      "met": true,
+      "evidence": [
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "Phase 7B requires explicit-input advisory DSR only; PBO/CPCV/White are Phase 7C"
+      ]
+    },
+    {
+      "id": "phase7c_statistical_validation",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "factory/mt5-ftmo-strategy-factory-spec.md",
+        "src/core/verification.mjs"
+      ],
+      "pending": [
+        "PBO/CPCV/White and hard statistical promotion authority are explicitly deferred to Phase 7C"
+      ]
+    },
+    {
+      "id": "broad_sqlite_authority_migration",
+      "status": "deferred",
+      "met": false,
+      "evidence": [
+        "src/core/runtime-ledger.mjs"
+      ],
+      "pending": [
+        "Explicitly deferred beyond Phase 7B; SQLite remains a mirror/projection support layer, not orchestration authority"
+      ]
+    }
+  ],
+  "statistical_tests": {
+    "dsr": "advisory_available_explicit_inputs_only",
+    "pbo": "disabled",
+    "cpcv": "disabled",
+    "white_reality_check": "disabled"
+  }
+}

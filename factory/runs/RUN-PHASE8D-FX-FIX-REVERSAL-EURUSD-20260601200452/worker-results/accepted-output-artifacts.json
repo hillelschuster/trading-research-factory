@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/analysis.json",
+    "sha256": "f99b027a92f0186c7a4537d9a6a35a2ce2ba1cc5f1d9edf9547002441d8f94fb",
+    "size_bytes": 2926,
+    "modified_at": "2026-06-01T20:08:48.376Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+      "family_id": "fx_fix_reversal_eurusd",
+      "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/parameter_stability_20260601_230848.json",
+    "sha256": "b2607da2808b346e7ad0cef66327eda0b06c429ed8e696458605fb2d5d75d2de",
+    "size_bytes": 3535,
+    "modified_at": "2026-06-01T20:08:48.400Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+      "family_id": "fx_fix_reversal_eurusd",
+      "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+    "sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+    "size_bytes": 152300,
+    "modified_at": "2026-06-01T20:08:48.259Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+      "family_id": "fx_fix_reversal_eurusd",
+      "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_summary_20260601_230848.csv",
+    "sha256": "1b5e129016df355a4d461c81fdbdb298c4d5459686698d6e7d14e5b243fac58b",
+    "size_bytes": 30573,
+    "modified_at": "2026-06-01T20:08:48.400Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+      "family_id": "fx_fix_reversal_eurusd",
+      "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

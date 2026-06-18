@@ -1,0 +1,120 @@
+{
+  "schema_version": "mt5_environment_snapshot_v1",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1",
+  "status": "succeeded",
+  "observed_at": "2026-05-19T19:58:47.265Z",
+  "request": {
+    "schema_version": "mt5_snapshot_request_v1",
+    "evidence_kind": "mt5_snapshot",
+    "authority_layer": "mt5_terminal",
+    "snapshot_mode": "symbol",
+    "symbol": "USOIL.cash",
+    "timeframe": "H1",
+    "bars": 5000,
+    "universe_scope": null,
+    "universe_filter": null,
+    "login": 1513441249,
+    "server": "FTMO-Demo",
+    "password_env_var": null,
+    "password_env_provided": false,
+    "terminal_path_provided": true,
+    "terminal_path": "provided_not_persisted"
+  },
+  "observations": {
+    "account": {
+      "currency": "USD",
+      "leverage": 30,
+      "login": 1513441249,
+      "margin_mode": 2,
+      "server": "FTMO-Demo",
+      "trade_allowed": true,
+      "trade_expert": true,
+      "trade_mode": 0
+    },
+    "data_identity": {
+      "bars_sha256": "1f53c9fbf55210fd1f409808ca4a3746d76fdab310cb58e901f5aa690ebede13",
+      "coverage_end_utc": "2026-05-19T22:00:00+00:00",
+      "coverage_start_utc": "2025-07-14T16:00:00+00:00",
+      "provider": "MetaTrader5 terminal",
+      "quote_basis": "broker_terminal_bid_ohlc",
+      "requested_bars": 5000,
+      "returned_bars": 5000,
+      "server": "FTMO-Demo",
+      "source_type": "mt5_terminal_rates",
+      "symbol": "USOIL.cash",
+      "timeframe": "H1",
+      "timezone_basis": "mt5_epoch_seconds_interpreted_as_utc_for_identity_only"
+    },
+    "symbol": {
+      "currency_base": "USD",
+      "currency_margin": "USD",
+      "currency_profit": "USD",
+      "description": "West Texas Intermediate Crude Oil, Spot CFD",
+      "digits": 3,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "name": "USOIL.cash",
+      "point": 0.001,
+      "session_buy_orders": 0,
+      "session_deals": 0,
+      "session_sell_orders": 0,
+      "spread": 0,
+      "spread_float": true,
+      "swap_long": 36.37,
+      "swap_mode": 1,
+      "swap_short": -168.94,
+      "trade_contract_size": 100,
+      "trade_mode": 4,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 0.1,
+      "volume_max": 1000,
+      "volume_min": 0.01,
+      "volume_step": 0.01
+    },
+    "terminal": {
+      "build": 5833,
+      "community_account": true,
+      "company": "FTMO Global Markets Ltd",
+      "connected": true,
+      "dlls_allowed": false,
+      "language": "English",
+      "maxbars": 100000,
+      "name": "FTMO Global Markets MT5 Terminal",
+      "trade_allowed": true
+    }
+  },
+  "blocked_reason": null,
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "command": "mt5_snapshot_probe.py",
+    "python_command": "python.exe",
+    "python_command_was_absolute": false,
+    "terminal_path_provided_to_probe": true,
+    "terminal_path_inferred_executable": false,
+    "probe_path_style": "windows",
+    "probe_path_conversion_error": null,
+    "exit_status": 0,
+    "signal": null,
+    "stdout_path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1/probe.stdout.txt",
+    "stderr_path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1/probe.stderr.txt"
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "89cf94298f1417c548aa6ca81e2c915c3e100ae21e4bab2a6e7e1a5e8c2a6fc7",
+      "size_bytes": 15269,
+      "modified_at": "2026-05-18T12:30:50.793Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "fecca4ec2151c75e95c747ebf3d6b7c3f6fefcf05846a4c29fcf112585cb5de2",
+      "size_bytes": 17544,
+      "modified_at": "2026-05-18T13:10:22.723Z"
+    }
+  ]
+}

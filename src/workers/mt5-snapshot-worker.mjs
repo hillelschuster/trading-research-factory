@@ -7,9 +7,11 @@ import { ensureDir, writeJsonAtomic, writeTextAtomic } from "../core/fs-utils.mj
 
 const WORKER_NAME = "mt5_snapshot";
 const EVIDENCE_KIND = "mt5_snapshot";
+const UNIVERSE_EVIDENCE_KIND = "mt5_tradable_universe_snapshot";
 const AUTHORITY_LAYER = "mt5_terminal";
 const WORKER_SCHEMA_VERSION = "mt5_snapshot_worker_result_v1";
 const SNAPSHOT_SCHEMA_VERSION = "mt5_environment_snapshot_v1";
+const UNIVERSE_SNAPSHOT_SCHEMA_VERSION = "mt5_tradable_universe_snapshot_v1";
 const PROBE_RELATIVE_PATH = "walk forward engine/src/mt5_snapshot_probe.py";
 const WORKER_RELATIVE_PATH = "src/workers/mt5-snapshot-worker.mjs";
 
@@ -54,8 +56,17 @@ function defaultRunId(observedAt) {
   return `RUN-MT5-SNAPSHOT-${observedAt.replace(/[-:.TZ]/g, "").slice(0, 14)}`;
 }
 
-function defaultJobId({ observedAt, symbol, timeframe }) {
+function normalizeSnapshotMode(value) {
+  return value === "universe" ? "universe" : "symbol";
+}
+
+function evidenceKindForMode(snapshotMode) {
+  return snapshotMode === "universe" ? UNIVERSE_EVIDENCE_KIND : EVIDENCE_KIND;
+}
+
+function defaultJobId({ observedAt, symbol, timeframe, snapshotMode, universeScope }) {
   const stamp = observedAt.replace(/[-:.TZ]/g, "").slice(0, 14);
+  if (snapshotMode === "universe") return `JOB-MT5-UNIVERSE-${stamp}-${sanitizeIdPart(universeScope)}`;
   return `JOB-MT5-SNAPSHOT-${stamp}-${sanitizeIdPart(symbol)}-${sanitizeIdPart(timeframe)}`;
 }
 
@@ -90,14 +101,29 @@ function convertWslPathToWindows(fullPath) {
   };
 }
 
-function buildRequest({ symbol, timeframe, bars, terminalPath, login, server, passwordEnvProvided }) {
+function buildUniverseFilter({ universeScope, universeFilterPattern }) {
+  const pattern = typeof universeFilterPattern === "string" && universeFilterPattern.trim()
+    ? universeFilterPattern.trim()
+    : null;
   return {
-    schema_version: "mt5_snapshot_request_v1",
-    evidence_kind: EVIDENCE_KIND,
+    scope: universeScope ?? null,
+    filter_used: Boolean(pattern),
+    filter_pattern: pattern,
+    filter_description: pattern ? `MetaTrader5 symbols_get group filter: ${pattern}` : "no filter used"
+  };
+}
+
+function buildRequest({ evidenceKind, snapshotMode, symbol, timeframe, bars, terminalPath, login, server, passwordEnvProvided, universeScope, universeFilterPattern }) {
+  return {
+    schema_version: snapshotMode === "universe" ? "mt5_tradable_universe_snapshot_request_v1" : "mt5_snapshot_request_v1",
+    evidence_kind: evidenceKind,
     authority_layer: AUTHORITY_LAYER,
+    snapshot_mode: snapshotMode,
     symbol: symbol ?? null,
     timeframe: timeframe ?? null,
     bars: bars ?? null,
+    universe_scope: snapshotMode === "universe" ? universeScope ?? null : null,
+    universe_filter: snapshotMode === "universe" ? buildUniverseFilter({ universeScope, universeFilterPattern }) : null,
     login: Number.isInteger(login) ? login : null,
     server: server ?? null,
     password_env_var: passwordEnvProvided ? "TRF_MT5_PASSWORD" : null,
@@ -117,12 +143,12 @@ function terminalPathForProbe(terminalPath) {
   return value;
 }
 
-function buildExecutionResult({ workerResult, observedAt, experimentId, artifacts, blockedReason }) {
+function buildExecutionResult({ workerResult, observedAt, experimentId, artifacts, blockedReason, evidenceKind }) {
   if (workerResult.status === "succeeded") {
     return {
       experiment_id: experimentId,
       status: "executed",
-      evidence_kind: EVIDENCE_KIND,
+      evidence_kind: evidenceKind,
       authority_layer: AUTHORITY_LAYER,
       observed_at: observedAt,
       artifacts_created: artifacts,
@@ -137,7 +163,7 @@ function buildExecutionResult({ workerResult, observedAt, experimentId, artifact
   return {
     experiment_id: experimentId,
     status: "blocked",
-    evidence_kind: EVIDENCE_KIND,
+    evidence_kind: evidenceKind,
     authority_layer: AUTHORITY_LAYER,
     observed_at: observedAt,
     artifacts_created: artifacts,
@@ -162,13 +188,18 @@ export function runMt5SnapshotWorker({
   login = null,
   server = null,
   terminalPath = null,
+  snapshotMode = "symbol",
+  universeScope = null,
+  universeFilterPattern = null,
   pythonCommand = process.platform === "win32" ? "python" : "python3",
   observedAt = new Date().toISOString(),
   probeResultOverride = null
 } = {}) {
   const paths = buildPaths(rootDir ?? process.cwd());
+  const effectiveSnapshotMode = normalizeSnapshotMode(snapshotMode);
+  const evidenceKind = evidenceKindForMode(effectiveSnapshotMode);
   const effectiveRunId = runId ?? defaultRunId(observedAt);
-  const effectiveJobId = jobId ?? defaultJobId({ observedAt, symbol, timeframe });
+  const effectiveJobId = jobId ?? defaultJobId({ observedAt, symbol, timeframe, snapshotMode: effectiveSnapshotMode, universeScope });
   const environmentDir = path.join(paths.mt5Environment, effectiveJobId);
   ensureDir(environmentDir, paths);
 
@@ -177,7 +208,7 @@ export function runMt5SnapshotWorker({
     sourceHash(paths, PROBE_RELATIVE_PATH)
   ].filter(Boolean);
   const passwordEnvProvided = Boolean(process.env.TRF_MT5_PASSWORD);
-  const request = buildRequest({ symbol, timeframe, bars, terminalPath, login, server, passwordEnvProvided });
+  const request = buildRequest({ evidenceKind, snapshotMode: effectiveSnapshotMode, symbol, timeframe, bars, terminalPath, login, server, passwordEnvProvided, universeScope, universeFilterPattern });
   const probeRequest = { ...request, terminal_path: terminalPathForProbe(terminalPath) };
   const requestPath = path.join(environmentDir, "request.json");
   writeJsonAtomic(requestPath, request, paths);
@@ -205,12 +236,16 @@ export function runMt5SnapshotWorker({
   };
 
   const missingInputs = [];
-  if (!symbol || typeof symbol !== "string" || !symbol.trim()) missingInputs.push("symbol");
-  if (!timeframe || typeof timeframe !== "string" || !timeframe.trim()) missingInputs.push("timeframe");
-  if (bars !== null && bars !== undefined && (!Number.isInteger(bars) || bars < 1)) missingInputs.push("bars_positive_integer");
+  if (effectiveSnapshotMode === "universe") {
+    if (!universeScope || typeof universeScope !== "string" || !universeScope.trim()) missingInputs.push("universe_scope");
+  } else {
+    if (!symbol || typeof symbol !== "string" || !symbol.trim()) missingInputs.push("symbol");
+    if (!timeframe || typeof timeframe !== "string" || !timeframe.trim()) missingInputs.push("timeframe");
+    if (bars !== null && bars !== undefined && (!Number.isInteger(bars) || bars < 1)) missingInputs.push("bars_positive_integer");
+  }
 
   if (missingInputs.length > 0) {
-    blockedReason = `MT5 snapshot requires explicit input fields: ${missingInputs.join(", ")}.`;
+    blockedReason = `MT5 ${effectiveSnapshotMode === "universe" ? "tradable universe" : "snapshot"} requires explicit input fields: ${missingInputs.join(", ")}.`;
     diagnostics = {
       ...diagnostics,
       error_code: "missing_required_input",
@@ -286,10 +321,13 @@ export function runMt5SnapshotWorker({
   const baseObservations = status === "succeeded" && probeResult?.observations && typeof probeResult.observations === "object"
     ? probeResult.observations
     : {};
+  const universe = baseObservations.universe && typeof baseObservations.universe === "object" ? baseObservations.universe : {};
   const snapshot = {
-    schema_version: SNAPSHOT_SCHEMA_VERSION,
-    evidence_kind: EVIDENCE_KIND,
+    ...(effectiveSnapshotMode === "universe" ? universe : {}),
+    schema_version: effectiveSnapshotMode === "universe" ? UNIVERSE_SNAPSHOT_SCHEMA_VERSION : SNAPSHOT_SCHEMA_VERSION,
+    evidence_kind: evidenceKind,
     authority_layer: AUTHORITY_LAYER,
+    job_id: effectiveJobId,
     status,
     observed_at: observedAt,
     request,
@@ -298,9 +336,18 @@ export function runMt5SnapshotWorker({
     diagnostics,
     source_hashes: sourceHashes
   };
-  const snapshotPath = path.join(environmentDir, status === "succeeded" ? "snapshot.json" : "blocked-snapshot.json");
+  const snapshotFileName = effectiveSnapshotMode === "universe"
+    ? (status === "succeeded" ? "universe-snapshot.json" : "blocked-universe-snapshot.json")
+    : (status === "succeeded" ? "snapshot.json" : "blocked-snapshot.json");
+  const snapshotPath = path.join(environmentDir, snapshotFileName);
   writeJsonAtomic(snapshotPath, snapshot, paths);
-  const snapshotRecord = artifactRecord(paths, snapshotPath, status === "succeeded" ? "environment_identity" : "blocked_environment_snapshot");
+  const snapshotRecord = artifactRecord(
+    paths,
+    snapshotPath,
+    effectiveSnapshotMode === "universe"
+      ? (status === "succeeded" ? "mt5_tradable_universe_snapshot" : "blocked_mt5_tradable_universe_snapshot")
+      : (status === "succeeded" ? "environment_identity" : "blocked_environment_snapshot")
+  );
 
   const observations = status === "succeeded"
     ? { ...baseObservations, snapshot_sha256: snapshotRecord.sha256 }
@@ -317,7 +364,7 @@ export function runMt5SnapshotWorker({
     run_id: effectiveRunId,
     candidate_id: null,
     worker: WORKER_NAME,
-    evidence_kind: EVIDENCE_KIND,
+    evidence_kind: evidenceKind,
     authority_layer: AUTHORITY_LAYER,
     schema_version: WORKER_SCHEMA_VERSION,
     status,
@@ -345,7 +392,8 @@ export function runMt5SnapshotWorker({
     observedAt,
     experimentId,
     artifacts: workerResult.artifacts,
-    blockedReason
+    blockedReason,
+    evidenceKind
   });
   const executionResultPath = path.join(environmentDir, "execution-result.json");
   writeJsonAtomic(executionResultPath, executionResult, paths);

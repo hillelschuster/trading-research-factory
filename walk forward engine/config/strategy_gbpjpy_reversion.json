@@ -1,0 +1,33 @@
+{
+    "strategy_params_key": "strategy_gbpjpy_reversion.json",
+    "description": "GBPJPY Liquidity Vacuum Reversion - London-session mean reversion after 2.5 sigma Bollinger pierce with V-shaped rejection and H1 RSI filter",
+    "strategy_definition_key": "GBPJPYReversion_LiquidityVacuum",
+    "parameters": {
+        "session_start_london": 8,
+        "session_end_london": 16,
+        "bb_period": 20,
+        "bb_std_extreme": 2.5,
+        "wick_ratio_min": 1.75,
+        "min_body_atr_pct": 0.1,
+        "rsi_h1_period": 14,
+        "rsi_kill_low": 35,
+        "rsi_kill_high": 65,
+        "atr_period": 14,
+        "atr_stop_mult": 2.0,
+        "min_rr_ratio": 1.0
+    },
+    "parameter_ranges": {
+        "bb_period": { "values": [20] },
+        "bb_std_extreme": { "values": [2.5] },
+        "wick_ratio_min": { "values": [1.75] },
+        "min_body_atr_pct": { "values": [0.1] },
+        "rsi_h1_period": { "values": [14] },
+        "rsi_kill_low": { "values": [35] },
+        "rsi_kill_high": { "values": [65] },
+        "atr_period": { "values": [14] },
+        "atr_stop_mult": { "values": [2.0] },
+        "min_rr_ratio": { "values": [1.0] },
+        "session_start_london": { "values": [8] },
+        "session_end_london": { "values": [16] }
+    }
+}

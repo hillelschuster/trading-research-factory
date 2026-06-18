@@ -55,6 +55,7 @@ export function loadRuntimeConfig(argv, cwd = process.cwd()) {
   const observerHost = process.env.RESEARCH_FACTORY_OBSERVER_HOST || "127.0.0.1";
   const observerPort = Number(process.env.RESEARCH_FACTORY_OBSERVER_PORT ?? 4310);
   const observerBaseUrl = `http://${observerHost}:${observerPort}`;
+  const screeningBacklogItemId = args["screening-backlog-id"] ?? args["backlog-id"] ?? process.env.RESEARCH_FACTORY_SCREENING_BACKLOG_ID ?? null;
   const liveTransportTimeouts = {
     bootMs: Number(process.env.RESEARCH_FACTORY_TRANSPORT_BOOT_TIMEOUT_MS ?? 20000),
     probeMs: Number(process.env.RESEARCH_FACTORY_TRANSPORT_PROBE_TIMEOUT_MS ?? 10000),
@@ -82,7 +83,7 @@ export function loadRuntimeConfig(argv, cwd = process.cwd()) {
       summarizer: Number(process.env.RESEARCH_FACTORY_PROMPT_BUDGET_SUMMARIZER ?? DEFAULT_STAGE_PROMPT_BUDGETS.summarizer)
     }
   };
-  return { mode, cycles, intervalMs, maxRetries, agentTimeoutMs, openBrowser, rootDir, rootIdentity, model, livePluginPolicy, liveTransportAdapter, observerHost, observerPort, observerBaseUrl, liveTransportTimeouts, poisonedRunPolicy, promptBudgetPolicy, command: args._[0] ?? "run" };
+  return { mode, cycles, intervalMs, maxRetries, agentTimeoutMs, openBrowser, rootDir, rootIdentity, model, livePluginPolicy, liveTransportAdapter, observerHost, observerPort, observerBaseUrl, liveTransportTimeouts, poisonedRunPolicy, promptBudgetPolicy, screeningBacklogItemId, command: args._[0] ?? "run" };
 }
 
 export function parseModelString(modelString) {

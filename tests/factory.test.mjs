@@ -9,7 +9,7 @@ import { OpenCodeRunner, buildServerConfigForTests } from "../src/core/runner-op
 import { initializeProject } from "../src/core/init.mjs";
 import { buildPaths } from "../src/core/paths.mjs";
 import { BacklogStore } from "../src/core/backlog-store.mjs";
-import { runFactory } from "../src/core/orchestrator.mjs";
+import { buildRepeatedFailureRemediationActions, runFactory } from "../src/core/orchestrator.mjs";
 import { readLeaderboardEntries } from "../src/core/leaderboard-store.mjs";
 import { rebuildNormalizedMemory } from "../src/core/memory-index.mjs";
 import { rebuildHealthMetrics } from "../src/core/health.mjs";
@@ -206,6 +206,61 @@ test("live server config disables all plugins by default", () => {
 test("runtime config uses longer default session creation timeout", () => {
   const config = loadRuntimeConfig([], process.cwd());
   assert.equal(config.liveTransportTimeouts.sessionCreateMs, 30000);
+});
+
+test("runtime config supports targetable Phase 8D screening backlog selection", () => {
+  const config = loadRuntimeConfig(["run", "--screening-backlog-id", "IDEA-PHASE8D-TARGET"], process.cwd());
+  assert.equal(config.screeningBacklogItemId, "IDEA-PHASE8D-TARGET");
+});
+
+test("Phase 8D blocked-at-start compiler gates write terminal artifacts without LLM fallback", async () => {
+  const rootDir = createTempRepoRoot();
+  const paths = initializeProject(rootDir);
+  const backlogStore = new BacklogStore(paths);
+  backlogStore.append([{
+    id: "IDEA-PHASE8D-LEGACY-WFA",
+    title: "Legacy WFA route must not become Phase 8D screening",
+    objective: "Prove Phase 8D blocks legacy ready WFA routes before planner fallback.",
+    status: "ready",
+    priority: 100,
+    evidence_kind: "research_wfa",
+    candidate_stage: "Phase 8D screening",
+    candidate_id: "CAND-PHASE8D-LEGACY-WFA",
+    expected_wfa_config_path: "walk forward engine/strategies/legacy/wfa_config.yaml"
+  }]);
+
+  const result = await runFactory({
+    mode: "simulate",
+    cycles: 1,
+    intervalMs: 1,
+    maxRetries: 1,
+    rootDir,
+    observerBaseUrl: "http://127.0.0.1:0",
+    screeningBacklogItemId: "IDEA-PHASE8D-LEGACY-WFA"
+  });
+
+  const item = new BacklogStore(paths).read().find((entry) => entry.id === "IDEA-PHASE8D-LEGACY-WFA");
+  const runId = result.state.last_run_id;
+  const blockedPath = path.join(paths.runs, runId, "phase8d-blocked-at-start.json");
+  const executionPath = path.join(paths.runs, runId, "execution-result.json");
+  const candidateEvidencePath = path.join(paths.runs, runId, "phase8d-candidate-evidence-packet.json");
+  const runState = JSON.parse(fs.readFileSync(path.join(paths.runs, runId, "run-state.json"), "utf8"));
+  const execution = JSON.parse(fs.readFileSync(executionPath, "utf8"));
+  const candidateEvidence = JSON.parse(fs.readFileSync(candidateEvidencePath, "utf8"));
+
+  assert.equal(result.cycles_executed, 1);
+  assert.equal(item.status, "research_blocked");
+  assert.equal(fs.existsSync(blockedPath), true);
+  assert.equal(fs.existsSync(candidateEvidencePath), true);
+  assert.equal(execution.status, "blocked");
+  assert.equal(execution.observations.phase8d_blocked_at_start, true);
+  assert.equal(execution.observations.llm_planner_fallback_allowed, false);
+  assert.equal(candidateEvidence.schema_version, "phase8d_candidate_evidence_packet_v1");
+  assert.equal(candidateEvidence.denominator_context.attempt_is_denominator_member, true);
+  assert.equal(candidateEvidence.advisory_statistics.promotion_authority, false);
+  assert.equal(candidateEvidence.phase8e_boundary.phase8e_authorized, false);
+  assert.equal(runState.stage_status.planner.status, "blocked");
+  assert.equal(runState.stage_status.executor.status, "skipped");
 });
 
 test("simulate ideator avoids fixed asset and timeframe narrowing", async () => {
@@ -552,7 +607,7 @@ test("runFactory compiles explicit WFA-ready backlog items without calling plann
   fs.mkdirSync(path.dirname(strategyConfigPath), { recursive: true });
   fs.mkdirSync(path.dirname(strategySourcePath), { recursive: true });
   fs.mkdirSync(path.dirname(dataPath), { recursive: true });
-  fs.writeFileSync(wfaConfigPath, "strategy: deterministic_route\n", "utf8");
+  fs.writeFileSync(wfaConfigPath, "walk_forward:\n  training_months: 3\n  testing_months: 1\n  step_months: 1\n  n_parameter_trials: 5\n  output_directory: strategies/deterministic_route/results\ndata:\n  source_file: data/deterministic_route.csv\nstrategy:\n  profile_key: DETERMINISTIC_ROUTE\nperformance:\n  max_execution_time_seconds: 60\n", "utf8");
   fs.writeFileSync(strategyConfigPath, "{}\n", "utf8");
   fs.writeFileSync(strategySourcePath, "class DeterministicRoute:\n    pass\n", "utf8");
   fs.writeFileSync(dataPath, "timestamp,open,high,low,close,volume\n", "utf8");
@@ -599,6 +654,8 @@ test("runFactory compiles explicit WFA-ready backlog items without calling plann
   assert.equal(fs.existsSync(path.join(runDir, "planner-attempt-1")), false);
   assert.equal(fs.existsSync(path.join(runDir, "planner-attempt-0", "stage-gate.json")), true);
   assert.equal(plan.planner_bypass.compiler, "deterministic_wfa_ready_compiler_v1");
+  assert.equal(plan.lineage_id, "LINEAGE-IDEA-WFA-READY-BYPASS");
+  assert.equal(plan.family_id, "FAMILY-DETERMINISTIC-ROUTE");
   assert.equal(plan.commands[0].includes("walk_forward_smoke_test.py --config strategies/deterministic_route/wfa_config.yaml"), true);
   assert.equal(bypass.compiler, "deterministic_wfa_ready_compiler_v1");
   assert.equal(plannerGate.validator, "deterministic_wfa_ready_compiler");
@@ -1003,7 +1060,7 @@ test("retry and handoff notes are consumed only by the resumed stage", async () 
         fs.writeFileSync(resultPath, JSON.stringify({ sharpe_oos: 0.5, total_trades: 40, max_drawdown: -10 }, null, 2) + "\n", "utf8");
         const body = {
           experiment_id: "EXP-HANDOFF-SCOPE-001",
-          status: "executed",
+          status: "partial",
           commands_attempted: ["run wfa"],
           commands_completed: ["run wfa"],
           artifacts_created: ["workspace/results/handoff-scope/report.json"],
@@ -1020,8 +1077,8 @@ test("retry and handoff notes are consumed only by the resumed stage", async () 
             windows_completed: 5
           },
           variants_tested: [],
-          blockers: [],
-          errors: [],
+          blockers: ["Synthetic transport fixture does not produce Phase 7A worker-launched WFA evidence."],
+          errors: [{ command: "synthetic_executor_fixture", message: "No research_wfa_run worker was launched in this prompt-scoping test." }],
           notes: []
         };
         return { text: `<RF_JSON>\n${JSON.stringify(body, null, 2)}\n</RF_JSON>`, raw: body, sessionId, sessionUrl };
@@ -1204,6 +1261,115 @@ test("startup reconciliation prefers the most advanced safe resumable run determ
   assert.equal(result.cycles_executed, 1);
   assert.notEqual(resumedB.status, "infra_blocked");
   assert.equal(resumedA.status, "infra_blocked");
+});
+
+test("higher-priority ready work preempts an infra-blocked resume", async () => {
+  const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
+  initializeProject(rootDir);
+  const paths = buildPaths(rootDir);
+  const backlogStore = new BacklogStore(paths);
+  const runId = "RUN-STALE-RESUME-001";
+
+  backlogStore.append([
+    {
+      id: "IDEA-STALE-RESUME-001",
+      title: "Stale infra-blocked resume",
+      objective: "Should not starve higher-priority ready work",
+      priority: 70,
+      status: "infra_blocked",
+      current_run_id: runId,
+      last_failure_class: "transport_failure",
+      resume_from_stage: "executor"
+    },
+    {
+      id: "IDEA-HIGH-PRIORITY-READY-001",
+      title: "High-priority ready canary",
+      objective: "Ready work should run before stale lower-priority infra-blocked resume",
+      priority: 95,
+      status: "ready",
+      category: "strategy",
+      market_family: "crypto",
+      instrument_scope: "BNBUSDT spot",
+      timeframe: "1h"
+    }
+  ]);
+
+  const runDir = path.join(paths.runs, runId);
+  fs.mkdirSync(runDir, { recursive: true });
+  fs.writeFileSync(path.join(runDir, "run-state.json"), JSON.stringify({
+    run_id: runId,
+    backlog_item_id: "IDEA-STALE-RESUME-001",
+    resume_generation: 1,
+    current_stage: "executor",
+    last_completed_stage: "planner",
+    stage_status: {
+      planner: { status: "completed", updated_at: "2026-03-24T00:00:00.000Z" },
+      executor: { status: "failed", updated_at: "2026-03-24T00:00:00.000Z", attempt: 1, failure_class: "transport_failure" },
+      evaluator: { status: "pending", updated_at: null },
+      summarizer: { status: "pending", updated_at: null }
+    },
+    failure_class: "transport_failure",
+    resume_from_stage: "executor",
+    attempt_counts: { planner: 1, executor: 1, evaluator: 0, summarizer: 0 },
+    artifact_paths: {},
+    handoff_pending: true,
+    updated_at: "2026-03-24T00:00:00.000Z"
+  }, null, 2));
+  fs.writeFileSync(path.join(runDir, "handoff.json"), JSON.stringify({
+    schema_version: "handoff_v2",
+    resume_from_stage: "executor",
+    resume_generation: 1,
+    failure_class: "transport_failure",
+    last_error: "executor timed out",
+    attempts_used: 1,
+    safe_inputs: { run_id: runId, backlog_item_id: "IDEA-STALE-RESUME-001" },
+    produced_artifacts: [],
+    consumed: false
+  }, null, 2));
+  fs.writeFileSync(path.join(runDir, "experiment-plan.json"), JSON.stringify({
+    experiment_id: "EXP-STALE-RESUME-001",
+    title: "Stale resume plan",
+    backlog_item_id: "IDEA-STALE-RESUME-001",
+    objective: "Synthetic stale resume fixture.",
+    hypothesis: "Ready work can preempt stale resumes.",
+    strategy_rationale: "Synthetic fixture.",
+    strategy_type: "momentum",
+    market_family: "crypto",
+    instrument_scope: "BTC/USDT spot",
+    timeframe: "1h",
+    priority: 70,
+    dataset_requirements: ["workspace/data/demo_ohlcv.csv"],
+    historical_depth_requirement: { target: "Demo", justification: "Synthetic fixture." },
+    source_plan: { allowed_source_families: ["existing_fetcher"], primary_source_family: "existing_fetcher", selection_reason: "Synthetic fixture." },
+    scope_selection_rationale: "Synthetic fixture.",
+    data_acquisition: { status: "present", reason: "Synthetic fixture.", acquisition_method: "existing_fetcher", sources: [], commands: [], expected_outputs: ["workspace/data/demo_ohlcv.csv"] },
+    inputs: [],
+    implementation_steps: [],
+    commands: [],
+    expected_artifacts: [`factory/runs/${runId}/execution-result.json`],
+    advanced_wfa_config: {},
+    evaluation_criteria: { status_gate: "Synthetic gate", metrics: { min_trades: 1 }, min_evidence_score: 0 },
+    fallback_if_blocked: [],
+    notes: []
+  }, null, 2));
+
+  const result = await runFactory({
+    rootDir,
+    mode: "simulate",
+    cycles: 1,
+    intervalMs: 1,
+    maxRetries: 3,
+    agentTimeoutMs: 0,
+    openBrowser: false
+  });
+
+  const updatedBacklog = backlogStore.read();
+  const staleResume = updatedBacklog.find((item) => item.id === "IDEA-STALE-RESUME-001");
+  const readyCanary = updatedBacklog.find((item) => item.id === "IDEA-HIGH-PRIORITY-READY-001");
+
+  assert.equal(result.cycles_executed, 1);
+  assert.equal(staleResume.status, "infra_blocked");
+  assert.notEqual(readyCanary.status, "ready");
 });
 
 test("runFactory fails live stage attempts that reuse a prior session id", async () => {
@@ -1928,6 +2094,7 @@ test("memory rebuild normalizes malformed lessons and evidence into retrieval in
   assert.equal(normalizedEvidence[0].candidate_id, "CAND-MEMORY-001");
   assert.equal(normalizedEvidence[0].authority_layer, "python_research");
   assert.equal(normalizedEvidence[0].artifact_manifest_path, "factory/runs/RUN-LIVE-1/artifact_manifest.json");
+  assert.equal(normalizedEvidence[0].promotable, false);
   assert.equal(normalizedEvidence[1].evidence_kind, "simulation");
   assert.equal(retrievalIndex.length >= 6, true);
   assert.equal(quarantineFiles.some((name) => name.startsWith("repair-report-")), true);
@@ -2176,7 +2343,7 @@ test("memory rebuild purges simulate and inconclusive leaderboard pollution", ()
       verdict: "passed",
       evidence_score: 70,
       overall_score: 65,
-      metrics: { sharpe_oos: 0.9, total_trades: 64, max_drawdown: -10 },
+      metrics: { sharpe_oos: 0.9, annualized_return_pct: 7.2, total_trades: 64, windows_completed: 6, max_drawdown: -10 },
       summary_path: "factory/summaries/RUN-LIVE-PROMO.md",
       recorded_at: "2026-03-24T10:00:00.000Z"
     },
@@ -2236,7 +2403,7 @@ test("runFactory startup and append keep leaderboard free of simulate pollution"
       verdict: "passed",
       evidence_score: 75,
       overall_score: 70,
-      metrics: { sharpe_oos: 1.1, total_trades: 88, max_drawdown: -12 },
+      metrics: { sharpe_oos: 1.1, annualized_return_pct: 8.4, total_trades: 88, windows_completed: 7, max_drawdown: -12 },
       summary_path: "factory/summaries/RUN-LIVE-KEEP.md",
       recorded_at: "2026-03-24T09:00:00.000Z"
     }
@@ -2275,7 +2442,7 @@ test("initializeProject seeds operator-visible market policy", () => {
   assert.equal(marketPolicy.schema_version, "market_policy_v1");
   assert.deepEqual(
     marketPolicy.market_family_priorities.map((entry) => entry.market_family),
-    ["crypto", "prediction_markets", "forex"]
+    ["mt5_verified", "forex", "indices", "metals", "commodities", "equities", "crypto"]
   );
 });
 
@@ -2336,6 +2503,11 @@ test("evaluator prompt requires artifact-path-only verification sources", () => 
   assert.match(prompt, /metrics_verified_from/);
   assert.match(prompt, /Do not append metric names, JSON keys, line numbers, or values/i);
   assert.match(prompt, /repo-relative artifact paths that currently exist on disk/i);
+  assert.match(prompt, /operational canary accepted/i);
+  assert.match(prompt, /low-return, low-window, low-trade/i);
+  assert.match(prompt, /validation gates, not optimization targets/i);
+  assert.match(prompt, /low_frequency_registration_v1/i);
+  assert.match(prompt, />= 200 minimum/i);
 });
 
 test("executor prompt emphasizes action-first execution discipline", () => {
@@ -2381,6 +2553,34 @@ test("executor prompt includes compact spec policy capsule for mt5_snapshot", ()
   assert.match(prompt, /factory\/mt5\//);
   assert.match(prompt, /factory\/artifacts\//);
   assert.match(prompt, /Do not invent WFA metrics/i);
+  assert.match(prompt, /coding_work_invariant/);
+  assert.match(prompt, /Context7 current docs/i);
+  assert.match(prompt, /resolve-library-id/);
+  assert.match(prompt, /query-docs/);
+  assert.doesNotMatch(prompt, /## 1\. Document Status/);
+});
+
+test("executor prompt includes compact spec policy capsule for mt5_tradable_universe_snapshot", () => {
+  const prompt = executorPrompt({
+    goal: "Enumerate MT5 tradable universe evidence",
+    plan: {
+      experiment_id: "EXP-MT5-UNIVERSE-1",
+      title: "MT5 tradable universe schema proof",
+      objective: "Represent MT5 universe evidence without fake WFA metrics.",
+      evidence_kind: "mt5_tradable_universe_snapshot",
+      authority_layer: "mt5_terminal",
+      expected_artifacts: ["factory/mt5/environment/universe-snapshot.json"],
+      inputs: []
+    },
+    state: { iteration: 1 },
+    retrieval: null
+  });
+
+  assert.match(prompt, /## Spec Policy Capsule/);
+  assert.match(prompt, /"evidence_kind":\s*"mt5_tradable_universe_snapshot"/);
+  assert.match(prompt, /exact symbol names\/specs/i);
+  assert.match(prompt, /explicit filter or no-filter/i);
+  assert.match(prompt, /do not persist passwords/i);
   assert.doesNotMatch(prompt, /## 1\. Document Status/);
 });
 
@@ -2448,7 +2648,7 @@ test("evaluator follow-up actions append only live-eligible backlog items", asyn
         fs.writeFileSync(artifact, JSON.stringify({ sharpe_oos: 0.7, total_trades: 40, max_drawdown: -10 }, null, 2) + "\n", "utf8");
         const body = {
           experiment_id: "EXP-ACTION-FILTER-001",
-          status: "executed",
+          status: "partial",
           commands_attempted: ["run wfa"],
           commands_completed: ["run wfa"],
           artifacts_created: ["workspace/results/append-filter/report.json"],
@@ -2465,8 +2665,8 @@ test("evaluator follow-up actions append only live-eligible backlog items", asyn
             windows_completed: 5
           },
           variants_tested: [],
-          blockers: [],
-          errors: [],
+          blockers: ["Synthetic transport fixture does not produce Phase 7A worker-launched WFA evidence."],
+          errors: [{ command: "synthetic_executor_fixture", message: "No research_wfa_run worker was launched in this follow-up filtering test." }],
           notes: []
         };
         return { text: `<RF_JSON>\n${JSON.stringify(body, null, 2)}\n</RF_JSON>`, raw: body };
@@ -2474,7 +2674,7 @@ test("evaluator follow-up actions append only live-eligible backlog items", asyn
       if (agent === "evaluator") {
         const body = {
           experiment_id: "EXP-ACTION-FILTER-001",
-          verdict: "promising",
+          verdict: "inconclusive",
           evidence_score: 75,
           performance_score: 70,
           robustness_score: 70,
@@ -2493,7 +2693,7 @@ test("evaluator follow-up actions append only live-eligible backlog items", asyn
             "Verify WFR calculation is possible from window results if needed for future evaluations"
           ],
           confidence_level: "medium",
-          confidence_rationale: "Synthetic append filter test."
+          confidence_rationale: "Synthetic append filter test remains below strategy-quality floors."
         };
         return { text: `<RF_JSON>\n${JSON.stringify(body, null, 2)}\n</RF_JSON>`, raw: body };
       }
@@ -2527,6 +2727,89 @@ test("evaluator follow-up actions append only live-eligible backlog items", asyn
   const titles = backlogStore.read().map((item) => item.title);
   assert.equal(titles.includes("Test discovered parameters on additional BNB data to verify robustness"), true);
   assert.equal(titles.includes("Verify WFR calculation is possible from window results if needed for future evaluations"), false);
+});
+
+test("repeated artifact-backed failures produce one bounded remediation action", () => {
+  const backlogItem = {
+    id: "IDEA-REPEATED-FAILURE-001",
+    title: "Repeated WFA failure seed",
+    objective: "Repeated artifact-backed WFA failures should create bounded remediation only.",
+    priority: 80,
+    category: "strategy",
+    market_family: "crypto",
+    instrument_scope: "BTCUSD",
+    timeframe: "H1"
+  };
+  const factoryStats = {
+    lessons: [
+      { mode: "live", verdict: "inconclusive", market_family: "crypto", asset_scope: "BTCUSD", timeframe: "H1", summary_path: "factory/summaries/RUN-OLD-1.md", artifact_paths: ["factory/runs/RUN-OLD-1/execution-result.json"] },
+      { mode: "live", verdict: "blocked", market_family: "crypto", asset_scope: "BTCUSD", timeframe: "H1", summary_path: "factory/summaries/RUN-OLD-2.md", artifact_paths: ["factory/runs/RUN-OLD-2/execution-result.json"] }
+    ]
+  };
+  const actions = buildRepeatedFailureRemediationActions({
+    factoryStats,
+    backlogItem,
+    currentRunId: "RUN-REMEDIATION-CURRENT",
+    executionResult: { artifacts_created: ["factory/runs/RUN-REMEDIATION-CURRENT/execution-result.json"] },
+    evaluation: { verdict: "inconclusive", verification: { artifacts_checked: ["factory/runs/RUN-REMEDIATION-CURRENT/execution-result.json"] } }
+  });
+
+  assert.equal(actions.length, 1);
+  assert.equal(actions[0].category, "remediation");
+  assert.equal(actions[0].status, "ready");
+  assert.equal(actions[0].repeated_failure_count, 3);
+  assert.equal(actions[0].remediation_key, "remediate:crypto:BTCUSD:H1:strategy");
+
+  assert.deepEqual(buildRepeatedFailureRemediationActions({
+    factoryStats,
+    backlogItem,
+    currentRunId: "RUN-NO-ARTIFACTS",
+    executionResult: {},
+    evaluation: { verdict: "inconclusive", verification: { artifacts_checked: [] } }
+  }), []);
+});
+
+test("repeated failure remediation avoids cascades and generic unknown-scope spam", () => {
+  const factoryStats = {
+    lessons: [
+      { mode: "live", verdict: "failed", market_family: "unknown", asset_scope: "unknown", timeframe: "H1", summary_path: "factory/summaries/RUN-OLD-1.md" },
+      { mode: "live", verdict: "blocked", market_family: "unknown", asset_scope: "unknown", timeframe: "M15", artifact_paths: ["factory/runs/RUN-OLD-2/execution-result.json"] },
+      { mode: "live", verdict: "inconclusive", market_family: "crypto", asset_scope: "ETHUSD", timeframe: "H1", summary_path: "factory/summaries/RUN-OLD-3.md" }
+    ]
+  };
+  const evidence = {
+    executionResult: { artifacts_created: ["factory/runs/RUN-CURRENT/execution-result.json"] },
+    evaluation: { verdict: "failed", verification: { artifacts_checked: ["factory/runs/RUN-CURRENT/execution-result.json"] } }
+  };
+
+  assert.deepEqual(buildRepeatedFailureRemediationActions({
+    factoryStats,
+    currentRunId: "RUN-CURRENT",
+    backlogItem: {
+      id: "IDEA-UNKNOWN-SCOPE",
+      title: "Generic unknown-scope failure",
+      category: "strategy",
+      market_family: "unknown",
+      instrument_scope: "unknown",
+      timeframe: "H1"
+    },
+    ...evidence
+  }), []);
+
+  assert.deepEqual(buildRepeatedFailureRemediationActions({
+    factoryStats,
+    currentRunId: "RUN-CURRENT",
+    backlogItem: {
+      id: "IDEA-REMEDIATION-CASCADE",
+      title: "Existing remediation item",
+      category: "remediation",
+      remediation_key: "remediate:crypto:ETHUSD:H1:strategy",
+      market_family: "crypto",
+      instrument_scope: "ETHUSD",
+      timeframe: "H1"
+    },
+    ...evidence
+  }), []);
 });
 
 test("live backlog selection skips meta-analysis follow-up items", async () => {
@@ -2603,7 +2886,7 @@ test("live backlog selection skips meta-analysis follow-up items", async () => {
         fs.writeFileSync(artifact, JSON.stringify({ sharpe_oos: 0.6, total_trades: 30, max_drawdown: -9 }, null, 2) + "\n", "utf8");
         const body = {
           experiment_id: "EXP-SELECTION-FILTER-001",
-          status: "executed",
+          status: "partial",
           commands_attempted: ["run wfa"],
           commands_completed: ["run wfa"],
           artifacts_created: ["workspace/results/selection-filter/report.json"],
@@ -2620,8 +2903,8 @@ test("live backlog selection skips meta-analysis follow-up items", async () => {
             windows_completed: 3
           },
           variants_tested: [],
-          blockers: [],
-          errors: [],
+          blockers: ["Synthetic transport fixture does not produce Phase 7A worker-launched WFA evidence."],
+          errors: [{ command: "synthetic_executor_fixture", message: "No research_wfa_run worker was launched in this backlog selection test." }],
           notes: []
         };
         return { text: `<RF_JSON>\n${JSON.stringify(body, null, 2)}\n</RF_JSON>`, raw: body };
@@ -2760,7 +3043,60 @@ test("evaluator validator blocks weak promotion attempts", () => {
       confidence_level: "medium",
       confidence_rationale: "The evaluator should not promote weak evidence."
     }, { mode: "live" }),
-    /promotion/i
+    /promotion|weak research evidence/i
+  );
+});
+
+test("evaluator validator blocks promising labels for weak WFA samples", () => {
+  assert.throws(
+    () => validateEvaluationResult({
+      verdict: "promising",
+      evidence_score: 75,
+      overall_score: 55,
+      metrics: {
+        sharpe_oos: 1.52,
+        aggregate_return_pct: 1.4112,
+        total_trades: 20,
+        windows_completed: 3,
+        positive_sharpe_windows_pct: 0.667
+      },
+      red_flags: ["low_return", "small_oos_sample"],
+      verification: {
+        artifacts_checked: ["walk forward engine/strategies/demo/results/walk_forward_results.json"],
+        metrics_verified_from: ["walk forward engine/strategies/demo/results/walk_forward_results.json"]
+      },
+      missing_evidence: [],
+      promote_to_leaderboard: false,
+      confidence_level: "medium",
+      confidence_rationale: "High Sharpe is not enough on a tiny low-return WFA sample."
+    }, { mode: "live", evidenceKind: "research_wfa" }),
+    /weak research evidence|Operational canary acceptance is separate/i
+  );
+});
+
+test("evaluator validator allows promising labels with sufficient WFA quality", () => {
+  assert.doesNotThrow(
+    () => validateEvaluationResult({
+      verdict: "promising",
+      evidence_score: 80,
+      overall_score: 70,
+      metrics: {
+        sharpe_oos: 1.1,
+        annualized_return_pct: 8.5,
+        total_trades: 220,
+        windows_completed: 8,
+        positive_sharpe_windows_pct: 0.75
+      },
+      red_flags: [],
+      verification: {
+        artifacts_checked: ["walk forward engine/strategies/demo/results/walk_forward_results.json"],
+        metrics_verified_from: ["walk forward engine/strategies/demo/results/walk_forward_results.json"]
+      },
+      missing_evidence: [],
+      promote_to_leaderboard: false,
+      confidence_level: "medium",
+      confidence_rationale: "Return, trades, windows, and window consistency clear minimum floors."
+    }, { mode: "live", evidenceKind: "research_wfa" })
   );
 });
 
@@ -2837,8 +3173,36 @@ test("live run writes candidate promotion gate after candidate execution", async
   const paths = buildPaths(rootDir);
   const candidateId = "CAND-LIVE-GATE-001";
   const candidateDir = path.join(paths.factory, "candidates", candidateId);
-  fs.mkdirSync(path.join(rootDir, "walk forward engine", "strategies", "demo", "results"), { recursive: true });
-  fs.writeFileSync(path.join(rootDir, "walk forward engine", "strategies", "demo", "wfa_config.yaml"), "demo: true\n", "utf8");
+  const wfaRoot = path.join(rootDir, "walk forward engine");
+  fs.mkdirSync(path.join(wfaRoot, "scripts"), { recursive: true });
+  fs.mkdirSync(path.join(wfaRoot, "strategies", "demo", "results"), { recursive: true });
+  fs.mkdirSync(path.join(wfaRoot, "src", "strategies"), { recursive: true });
+  fs.mkdirSync(path.join(wfaRoot, "config"), { recursive: true });
+  fs.mkdirSync(path.join(wfaRoot, "data"), { recursive: true });
+  fs.writeFileSync(path.join(wfaRoot, "strategies", "demo", "wfa_config.yaml"), "walk_forward:\n  training_months: 3\n  testing_months: 1\n  step_months: 1\n  n_parameter_trials: 5\n  output_directory: strategies/demo/results\ndata:\n  source_file: data/demo.csv\nstrategy:\n  profile_key: DEMO\nperformance:\n  max_execution_time_seconds: 5\n", "utf8");
+  fs.writeFileSync(path.join(wfaRoot, "src", "strategies", "demo.py"), "class DemoStrategy:\n    pass\n", "utf8");
+  fs.writeFileSync(path.join(wfaRoot, "config", "strategy_demo.json"), "{\"profile_key\":\"DEMO\"}\n", "utf8");
+  fs.writeFileSync(path.join(wfaRoot, "data", "demo.csv"), "timestamp,open,high,low,close,volume\n2026-01-01,1,1,1,1,1\n", "utf8");
+  fs.writeFileSync(path.join(wfaRoot, "scripts", "walk_forward_smoke_test.py"), `const fs = require('fs');
+const path = require('path');
+const out = path.join(process.cwd(), 'strategies', 'demo', 'results');
+fs.mkdirSync(out, { recursive: true });
+const result = {
+  successful_windows: 2,
+  total_windows: 2,
+  aggregate_sharpe_ratio: -0.2,
+  aggregate_total_trades: 20,
+  aggregate_max_drawdown_pct: -0.05,
+  aggregate_profit_factor: 0.9,
+  aggregate_return_pct: -0.1,
+  window_results: [
+    { window_id: 0, success: true, total_return_pct: -0.05, total_trades: 10, sharpe_ratio: -0.1, max_drawdown_pct: -0.03, best_parameters: { lookback: 10 } },
+    { window_id: 1, success: true, total_return_pct: -0.05, total_trades: 10, sharpe_ratio: -0.3, max_drawdown_pct: -0.05, best_parameters: { lookback: 10 } }
+  ]
+};
+fs.writeFileSync(path.join(out, 'walk_forward_results_20260513_000000.json'), JSON.stringify(result, null, 2) + '\\n');
+fs.writeFileSync(path.join(out, 'analysis.json'), JSON.stringify({ metrics: { aggregate_sharpe: -0.2, total_trades: 20, max_drawdown_pct: -0.05, successful_windows: 2, failed_windows: 0 } }, null, 2) + '\\n');
+`, "utf8");
   fs.mkdirSync(candidateDir, { recursive: true });
   fs.writeFileSync(path.join(candidateDir, "manifest.json"), JSON.stringify({
     schema_version: "candidate_manifest_v1",
@@ -2856,14 +3220,23 @@ test("live run writes candidate promotion gate after candidate execution", async
     category: "strategy",
     market_family: "crypto",
     instrument_scope: "BTC/USDT",
-    timeframe: "1h"
+    timeframe: "1h",
+    candidate_id: candidateId,
+    evidence_kind: "research_wfa",
+    authority_layer: "python_research",
+    data_requirement: "walk forward engine/data/demo.csv",
+    expected_wfa_config_path: "walk forward engine/strategies/demo/wfa_config.yaml",
+    expected_strategy_config_path: "walk forward engine/config/strategy_demo.json",
+    expected_strategy_source_path: "walk forward engine/src/strategies/demo.py"
   }]);
 
+  const agentCalls = [];
   const transport = {
     init: async () => ({}),
     createSession: async ({ agent, attempt } = {}) => ({ sessionId: `${agent}-${attempt}`, sessionUrl: `http://localhost/session/${agent}-${attempt}` }),
     getStatus: () => ({ transport_adapter: "test_transport", serverFingerprint: "fp-candidate-gate" }),
     callAgent: async (agent, promptText, options = {}) => {
+      agentCalls.push(agent);
       await options.onSessionCreated?.({ sessionId: `${agent}-${options.attempt || 1}`, sessionUrl: `http://localhost/session/${agent}-${options.attempt || 1}` });
       if (agent === "planner") {
         const body = {
@@ -2960,6 +3333,8 @@ test("live run writes candidate promotion gate after candidate execution", async
     close: async () => {}
   };
 
+  const previousWfaPython = process.env.RESEARCH_FACTORY_WFA_PYTHON;
+  process.env.RESEARCH_FACTORY_WFA_PYTHON = process.execPath;
   await runFactory({
     rootDir,
     mode: "live",
@@ -2974,14 +3349,29 @@ test("live run writes candidate promotion gate after candidate execution", async
     liveTransportTimeouts: { totalRequestMs: 0 },
     liveTransport: transport
   });
+  if (previousWfaPython === undefined) delete process.env.RESEARCH_FACTORY_WFA_PYTHON;
+  else process.env.RESEARCH_FACTORY_WFA_PYTHON = previousWfaPython;
 
   const manifest = JSON.parse(fs.readFileSync(path.join(candidateDir, "manifest.json"), "utf8"));
-  const gateResults = JSON.parse(fs.readFileSync(path.join(paths.runs, fs.readdirSync(paths.runs).find((entry) => entry.startsWith("RUN-")), "gate-results.json"), "utf8"));
+  const runId = fs.readdirSync(paths.runs).find((entry) => entry.startsWith("RUN-"));
+  const runDir = path.join(paths.runs, runId);
+  const gateResults = JSON.parse(fs.readFileSync(path.join(runDir, "gate-results.json"), "utf8"));
+  const executorInput = JSON.parse(fs.readFileSync(path.join(runDir, "executor-attempt-1", "stage-input.json"), "utf8"));
+  const executorValidated = JSON.parse(fs.readFileSync(path.join(runDir, "executor-attempt-1", "stage-validated.json"), "utf8"));
 
   assert.equal(manifest.status, "promotion_denied");
   assert.equal(manifest.promotion_status, "research_denied");
   assert.equal(fs.existsSync(path.join(rootDir, manifest.latest_gate_decision.gate_path)), true);
+  assert.equal(agentCalls.includes("planner"), false);
+  assert.equal(agentCalls.includes("executor"), false);
+  assert.equal(agentCalls.includes("evaluator"), true);
+  assert.equal(agentCalls.includes("summarizer"), true);
+  assert.equal(fs.existsSync(path.join(runDir, "planner-attempt-1")), false);
+  assert.equal(executorInput.execution_authority, "deterministic_research_wfa_run_worker");
+  assert.equal(executorValidated.worker_result.worker, "research_wfa_run");
+  assert.equal(executorValidated.worker_result.observations.execution_was_run_by_this_worker, true);
   assert.equal(gateResults.stages.some((item) => item.stage === "research_promotion" && item.decision === "denied" && item.candidate_id === candidateId), true);
+  assert.equal(gateResults.stages.some((item) => item.stage === "executor" && item.validator === "deterministic_research_wfa_run_worker"), true);
 });
 
 test("derived artifact rebuild is idempotent except for timestamps", async () => {
@@ -3050,12 +3440,12 @@ test("strict prompt budgets fail oversized stage prompts", async () => {
   assert.equal(result.state.last_status, "error");
 });
 
-test("inactive prompt doctrine files are archived out of active prompt surface", () => {
+test("inactive prompt doctrine files are absent from active and archived prompt surfaces", () => {
   const repoRoot = path.resolve(process.cwd());
   assert.equal(fs.existsSync(path.join(repoRoot, "src/prompts/shared-context.md")), false);
   assert.equal(fs.existsSync(path.join(repoRoot, "src/prompts/shared-guidance.md")), false);
-  assert.equal(fs.existsSync(path.join(repoRoot, "docs/archive/prompts/shared-context.md")), true);
-  assert.equal(fs.existsSync(path.join(repoRoot, "docs/archive/prompts/shared-guidance.md")), true);
+  assert.equal(fs.existsSync(path.join(repoRoot, "docs/archive/prompts/shared-context.md")), false);
+  assert.equal(fs.existsSync(path.join(repoRoot, "docs/archive/prompts/shared-guidance.md")), false);
 });
 
 test("runtime prompt stack is frozen to one shared invariants file plus role prompts", () => {
@@ -3072,6 +3462,8 @@ test("runtime prompt stack is frozen to one shared invariants file plus role pro
   assert.match(invariants, /evidence-kind-appropriate output/i);
   assert.match(invariants, /For `research_wfa`/);
   assert.match(invariants, /compact spec-policy capsules/i);
+  assert.match(invariants, /Context7/i);
+  assert.match(invariants, /Before coding work/i);
   assert.doesNotMatch(invariants, /`executed` means a real WFA run produced real output artifacts/i);
 });
 

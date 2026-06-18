@@ -1,0 +1,1928 @@
+{
+  "schema_version": "phase8a_ftmo_universe_summary_v1",
+  "evidence_kind": "phase8a_ftmo_universe_summary",
+  "summary_id": "FTMO-UNIVERSE-SUMMARY-20260519T081345Z-WFA-VENV",
+  "observed_at": "2026-05-19T09:05:20.841Z",
+  "authority_layer": "derived_from_mt5_terminal_snapshot",
+  "official_evidence_index_mutated": false,
+  "source_universe_snapshot": {
+    "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+    "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea",
+    "job_id": "JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV",
+    "observed_at": "2026-05-19T08:47:16.661Z",
+    "status": "succeeded"
+  },
+  "terminal": {
+    "name": "FTMO Global Markets MT5 Terminal",
+    "build": 5833,
+    "company": "FTMO Global Markets Ltd",
+    "server": "FTMO-Demo"
+  },
+  "counts": {
+    "total_symbols": 167,
+    "by_terminal_path_group": {
+      "Forex": 28,
+      "Exotics": 15,
+      "Cash CFD": 5,
+      "Cash II CFD": 10,
+      "Metals CFD": 9,
+      "Equities I CFD": 45,
+      "Equities II CFD": 13,
+      "Agriculture": 7,
+      "Commodities": 2,
+      "Cash III CFD": 1,
+      "Crypto I CFD": 11,
+      "Crypto II CFD": 20,
+      "Custom": 1
+    },
+    "by_asset_class_hint": {
+      "fx_like": 45,
+      "crypto_like": 36,
+      "unknown": 1,
+      "index_like": 13,
+      "energy_like": 4,
+      "metal_like": 10,
+      "stock_like": 58
+    },
+    "crypto_cfd_by_terminal_path": 31,
+    "heuristic_crypto_like_false_positives": 5
+  },
+  "crypto_cfds_terminal_path_verified": [
+    {
+      "name": "ADAUSD",
+      "path": "Crypto I CFD\\ADAUSD",
+      "description": "Cardano vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "ada"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "BTCUSD",
+      "path": "Crypto I CFD\\BTCUSD",
+      "description": "Bitcoin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 0.01,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 0.01,
+      "spread": 100,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2,
+      "visible": true,
+      "select": true,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "btc"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "DASHUSD",
+      "path": "Crypto I CFD\\DASHUSD",
+      "description": "Dash vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 10,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "DOTUSD",
+      "path": "Crypto I CFD\\DOTUSD",
+      "description": "Polkadot vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 3,
+      "point": 0.001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.001,
+      "tick_value": 10,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "ETHUSD",
+      "path": "Crypto I CFD\\ETHUSD",
+      "description": "Ethereum vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 0.1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 0.1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "eth"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "LTCUSD",
+      "path": "Crypto I CFD\\LTCUSD",
+      "description": "Litecoin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "ltc"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "XRPUSD",
+      "path": "Crypto I CFD\\XRPUSD",
+      "description": "Ripple vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 0.1,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 0.1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "xrp"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "BCHUSD",
+      "path": "Crypto I CFD\\BCHUSD",
+      "description": "BitCoin Cash vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "SOLUSD",
+      "path": "Crypto I CFD\\SOLUSD",
+      "description": "Solana vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "sol"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "AVAUSD",
+      "path": "Crypto I CFD\\AVAUSD",
+      "description": "Avalanche vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 10,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "ETCUSD",
+      "path": "Crypto I CFD\\ETCUSD",
+      "description": "Ethereum Classic vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 3,
+      "point": 0.001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.001,
+      "tick_value": 1,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "eth"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "DOGEUSD",
+      "path": "Crypto II CFD\\DOGEUSD",
+      "description": "Dogecoin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 1,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "doge"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "NEOUSD",
+      "path": "Crypto II CFD\\NEOUSD",
+      "description": "Neo vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 10,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "XMRUSD",
+      "path": "Crypto II CFD\\XMRUSD",
+      "description": "Monero vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "BNBUSD",
+      "path": "Crypto II CFD\\BNBUSD",
+      "description": "Binance Coin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "SANUSD",
+      "path": "Crypto II CFD\\SANUSD",
+      "description": "The Sandbox vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "LNKUSD",
+      "path": "Crypto II CFD\\LNKUSD",
+      "description": "Chainlink vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 3,
+      "point": 0.001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.001,
+      "tick_value": 1,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "NERUSD",
+      "path": "Crypto II CFD\\NERUSD",
+      "description": "NEAR protocol vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 3,
+      "point": 0.001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.001,
+      "tick_value": 10,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "ALGUSD",
+      "path": "Crypto II CFD\\ALGUSD",
+      "description": "Algorand vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "ICPUSD",
+      "path": "Crypto II CFD\\ICPUSD",
+      "description": "Internet Computer vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 3,
+      "point": 0.001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.001,
+      "tick_value": 10,
+      "trade_tick_size": 0.001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "AAVUSD",
+      "path": "Crypto II CFD\\AAVUSD",
+      "description": "AAVE vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "BARUSD",
+      "path": "Crypto II CFD\\BARUSD",
+      "description": "Hedera vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 1,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "GALUSD",
+      "path": "Crypto II CFD\\GALUSD",
+      "description": "GALA vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 10,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "GRTUSD",
+      "path": "Crypto II CFD\\GRTUSD",
+      "description": "The Graph vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 10,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "IMXUSD",
+      "path": "Crypto II CFD\\IMXUSD",
+      "description": "Immutable X vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "MANUSD",
+      "path": "Crypto II CFD\\MANUSD",
+      "description": "Decentraland vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "VECUSD",
+      "path": "Crypto II CFD\\VECUSD",
+      "description": "VeChain vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 5,
+      "point": 0.00001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1000000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.00001,
+      "tick_value": 10,
+      "trade_tick_size": 0.00001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2000000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "XLMUSD",
+      "path": "Crypto II CFD\\XLMUSD",
+      "description": "Stellar Lumens vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "UNIUSD",
+      "path": "Crypto II CFD\\UNIUSD",
+      "description": "Uniswap vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 0.9999999999999999,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 0.9999999999999999,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "FETUSD",
+      "path": "Crypto II CFD\\FETUSD",
+      "description": "Fetch.AI vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "XTZUSD",
+      "path": "Crypto II CFD\\XTZUSD",
+      "description": "Tezos vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 4,
+      "point": 0.0001,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100000,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.0001,
+      "tick_value": 10,
+      "trade_tick_size": 0.0001,
+      "trade_tick_value": 10,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200000,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    }
+  ],
+  "heuristic_crypto_like_false_positives": [
+    {
+      "name": "USDCHF",
+      "path": "Forex\\USDCHF",
+      "description": "US Dollar vs Swiss Franc",
+      "matched_hints": {
+        "crypto_like": [
+          "usdc"
+        ],
+        "fx_like": [
+          "USD",
+          "CHF"
+        ]
+      }
+    },
+    {
+      "name": "USDCAD",
+      "path": "Forex\\USDCAD",
+      "description": "US Dollar vs Canadian Dollar",
+      "matched_hints": {
+        "crypto_like": [
+          "usdc"
+        ],
+        "fx_like": [
+          "USD",
+          "CAD"
+        ]
+      }
+    },
+    {
+      "name": "USDCZK",
+      "path": "Exotics\\USDCZK",
+      "description": "US Dollar vs Czech Republic Koruna",
+      "matched_hints": {
+        "crypto_like": [
+          "usdc"
+        ],
+        "fx_like": [
+          "USD",
+          "CZK"
+        ]
+      }
+    },
+    {
+      "name": "USDCNH",
+      "path": "Exotics\\USDCNH",
+      "description": "US Dollar vs Chinese Yuan",
+      "matched_hints": {
+        "crypto_like": [
+          "usdc"
+        ],
+        "fx_like": [
+          "USD",
+          "CNH"
+        ]
+      }
+    },
+    {
+      "name": "N25.cash",
+      "path": "Cash II CFD\\N25.cash",
+      "description": "Netherlands 25 Index, Spot CFD",
+      "matched_hints": {
+        "crypto_like": [
+          "eth"
+        ],
+        "fx_like": [
+          "EUR",
+          "EUR"
+        ],
+        "index_like": [
+          "index"
+        ]
+      }
+    }
+  ],
+  "current_repo_crypto_research_sources": [
+    {
+      "source_family": "binance_exchange_csv",
+      "source_symbol": "BTCUSDT",
+      "current_status": "exchange_or_research_source_only_until_mt5_instrument_equivalence_exists",
+      "direct_terminal_symbol_match": false
+    },
+    {
+      "source_family": "binance_exchange_csv",
+      "source_symbol": "ETHUSDT",
+      "current_status": "exchange_or_research_source_only_until_mt5_instrument_equivalence_exists",
+      "direct_terminal_symbol_match": false
+    },
+    {
+      "source_family": "binance_exchange_csv",
+      "source_symbol": "SOLUSDT",
+      "current_status": "exchange_or_research_source_only_until_mt5_instrument_equivalence_exists",
+      "direct_terminal_symbol_match": false
+    },
+    {
+      "source_family": "binance_exchange_csv",
+      "source_symbol": "BNBUSDT",
+      "current_status": "exchange_or_research_source_only_until_mt5_instrument_equivalence_exists",
+      "direct_terminal_symbol_match": false
+    },
+    {
+      "source_family": "binance_exchange_csv",
+      "source_symbol": "ETHBTC",
+      "current_status": "exchange_or_research_source_only_until_mt5_instrument_equivalence_exists",
+      "direct_terminal_symbol_match": false
+    }
+  ],
+  "likely_mt5_terminal_targets_for_current_crypto_research": [
+    {
+      "name": "BTCUSD",
+      "path": "Crypto I CFD\\BTCUSD",
+      "description": "Bitcoin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 1,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 0.01,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 0.01,
+      "spread": 100,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 2,
+      "visible": true,
+      "select": true,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "btc"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "ETHUSD",
+      "path": "Crypto I CFD\\ETHUSD",
+      "description": "Ethereum vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 10,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 0.1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 0.1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 20,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "eth"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "SOLUSD",
+      "path": "Crypto I CFD\\SOLUSD",
+      "description": "Solana vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 5,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto",
+            "sol"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    },
+    {
+      "name": "BNBUSD",
+      "path": "Crypto II CFD\\BNBUSD",
+      "description": "Binance Coin vs US Dollar, Spot CFD",
+      "currency_base": "USD",
+      "currency_profit": "USD",
+      "currency_margin": "USD",
+      "digits": 2,
+      "point": 0.01,
+      "trade_mode": 4,
+      "trade_calc_mode": 4,
+      "trade_contract_size": 100,
+      "volume_min": 0.01,
+      "volume_max": 1,
+      "volume_step": 0.01,
+      "volume_limit": 0,
+      "tick_size": 0.01,
+      "tick_value": 1,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "spread": 0,
+      "spread_float": true,
+      "swap_mode": 5,
+      "swap_long": -30,
+      "swap_short": -30,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "margin_hedged": 200,
+      "visible": false,
+      "select": false,
+      "asset_class_hints": {
+        "asset_class_guess": "crypto_like",
+        "basis": "heuristic_terminal_metadata_keyword_match",
+        "classification_is_tradability_proof": false,
+        "is_crypto_like": true,
+        "matched_hints": {
+          "crypto_like": [
+            "crypto"
+          ],
+          "fx_like": [
+            "USD",
+            "USD"
+          ]
+        }
+      },
+      "history_availability": {
+        "blocked_reason": "Phase 8A initial universe slice enumerates symbols/specs only; per-symbol history probing is deferred.",
+        "status": "not_probed_first_slice"
+      }
+    }
+  ],
+  "roadmap_constraints": [
+    "Use terminal path group Crypto I/II CFD for available crypto CFD inventory; do not rely on keyword crypto_like alone.",
+    "Treat Binance USDT/spot or USD-M symbols as discovery/proxy until mt5_instrument_equivalence records quote/session/cost/contract differences.",
+    "Current repo Binance 1h datasets do not become MT5-bound evidence by name similarity to BTCUSD/ETHUSD/SOLUSD/BNBUSD.",
+    "Prediction-market/Polymarket data is out of current MT5/FTMO/MQL5 scope."
+  ]
+}

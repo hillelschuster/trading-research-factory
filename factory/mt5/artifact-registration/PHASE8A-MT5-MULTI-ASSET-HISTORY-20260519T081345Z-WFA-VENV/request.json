@@ -1,0 +1,15 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_request_v1",
+  "registration_id": "PHASE8A-MT5-MULTI-ASSET-HISTORY-20260519T081345Z-WFA-VENV",
+  "artifact_paths": [
+    "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-EURUSD-H1/snapshot.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-US100-H1/snapshot.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/snapshot.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-USOIL-H1/snapshot.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-AAPL-H1/snapshot.json",
+    "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-BTCUSD-H1/snapshot.json",
+    "factory/mt5/history-availability/MT5-HISTORY-AVAILABILITY-PRIORITY-20260519T081345Z-WFA-VENV/manifest.json"
+  ],
+  "output_dir": "factory/mt5/artifact-registration/PHASE8A-MT5-MULTI-ASSET-HISTORY-20260519T081345Z-WFA-VENV"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+  "family_id": "volatility_regime",
+  "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/volatility_regime.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_volatility_regime.json"
+  ],
+  "data_paths": [],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431.json",
+    "sha256": "d7651c0faf08ab47c740a160e088287b9b49e1c85293084ebabae07b694a9fc8"
+  },
+  "expected_output_root": "walk forward engine/strategies/volatility_regime/results",
+  "timeout_ms": 1800000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ]
+}

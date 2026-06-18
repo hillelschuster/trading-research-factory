@@ -1,0 +1,49 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-MT5-SESSION-REGIME-STAGE0-20260612T1306Z",
+  "generated_at": "2026-06-12T13:06:00Z",
+  "research_question": "Investigate source-backed session and regime effects across broker-supported MT5 FX, indices, metals, and crypto CFDs, focusing on opening and closing session liquidity transitions, volatility compression or expansion, and falsifiable Stage-0 hypotheses only.",
+  "market_scope": "multi_asset_ftmo_mt5_session_regime_effects_stage0_only",
+  "mt5_instrument_scope": {
+    "source": "phase8a_ftmo_mt5_tradable_universe",
+    "allowed_scope": "Any broker-supported FTMO/MT5 symbol with enough data and plausible mechanism; not crypto-only; prediction markets excluded.",
+    "mt5_verified_requires": "terminal-backed mt5_instrument_equivalence before any external/current data becomes MT5-bound"
+  },
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "prior_failed_patterns": [
+    "Manual Phase 8D roulette stopped after zero survivors; avoid simple calendar or threshold reuse unless sources supply genuinely new mechanism constraints.",
+    "No prediction-market or non-MT5-only research themes."
+  ],
+  "prior_lessons": [
+    "Treat external sources as discovery/proxy until MT5 instrument equivalence is verified.",
+    "ResearchBrain may suggest falsifiable mechanisms but deterministic workers own execution and evidence."
+  ],
+  "prior_hypothesis_packets": [],
+  "prior_source_records": [],
+  "source_family_allowlist": [
+    "high_operational_trust",
+    "high_research_trust",
+    "medium_implementation_trust",
+    "low_signal_trust"
+  ],
+  "max_sources": 6,
+  "max_hypotheses": 2,
+  "novelty_required": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false
+}

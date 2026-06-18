@@ -1,0 +1,49 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z",
+  "generated_at": "2026-06-12T13:07:00Z",
+  "research_question": "Discover authoritative broker, venue, or market-structure sources useful for mapping broker-supported CFD instruments to underlying session calendars, liquidity windows, contract specifications, and risk constraints for later MT5-equivalence checks; Stage-0 discovery only.",
+  "market_scope": "ftmo_mt5_cfd_source_mapping_stage0_only",
+  "mt5_instrument_scope": {
+    "source": "phase8a_ftmo_mt5_tradable_universe",
+    "allowed_scope": "Any broker-supported FTMO/MT5 symbol with enough data and plausible mechanism; not crypto-only; prediction markets excluded.",
+    "mt5_verified_requires": "terminal-backed mt5_instrument_equivalence before any external/current data becomes MT5-bound"
+  },
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "prior_failed_patterns": [
+    "Do not use prediction markets or non-deployable instruments.",
+    "Do not treat name-similar external datasets as MT5-bound without explicit instrument-equivalence evidence."
+  ],
+  "prior_lessons": [
+    "Phase 8A verified broad FTMO MT5 tradable universe; source discovery should be multi-asset, not crypto-only.",
+    "No WFA, MT5 terminal access, Phase 8E, trading, deployment, or promotion from Stage-0 requests."
+  ],
+  "prior_hypothesis_packets": [],
+  "prior_source_records": [],
+  "source_family_allowlist": [
+    "high_operational_trust",
+    "high_research_trust",
+    "medium_implementation_trust",
+    "low_signal_trust"
+  ],
+  "max_sources": 6,
+  "max_hypotheses": 2,
+  "novelty_required": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false
+}

@@ -1,0 +1,448 @@
+{
+  "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "succeeded",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+  "family_id": "btc_bb_width_squeeze",
+  "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-request.json",
+      "sha256": "af84727a21cf7d27bb455049aa0b11bd96d7742d48cdb63ff07ee8be3aa18073",
+      "size_bytes": 1884,
+      "modified_at": "2026-05-30T22:30:44.480Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "245a9b699cbca8f82f3d3f768cff1850074b850a58560fc7bfe050310cf483f4",
+      "size_bytes": 1634428,
+      "modified_at": "2026-05-30T22:53:31.493Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "0a82d14bf91217718543a9cd043d96ae7a10603211d403146e58c159199079df",
+      "size_bytes": 817397,
+      "modified_at": "2026-05-30T22:53:31.509Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/pre-run-output-snapshot.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3,
+      "modified_at": "2026-05-30T22:53:31.528Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/post-run-output-snapshot.json",
+      "sha256": "36338877f6816e752561436eda433a43a62c0ac8109416dc843e6fc8a816a945",
+      "size_bytes": 1307,
+      "modified_at": "2026-05-30T22:53:31.541Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/accepted-output-artifacts.json",
+      "sha256": "3fbe5d79eda682e8d5c26155b6408f0cc9429307ae5977971aee029693b42304",
+      "size_bytes": 3063,
+      "modified_at": "2026-05-30T22:53:31.546Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/parsed-wfa-metrics.json",
+      "sha256": "a7bb3419df9789c74e4e134d039cdf4e87a6bde10d5ef2112505c41a8a123ae2",
+      "size_bytes": 46368,
+      "modified_at": "2026-05-30T22:53:31.564Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/analysis.json",
+      "sha256": "c5a1ed3fcfac6c2b4d607080000edf004dc96b6fc04c2ed2ae6598bf74b1b0b3",
+      "size_bytes": 2912,
+      "modified_at": "2026-05-30T22:53:30.149Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+        "family_id": "btc_bb_width_squeeze",
+        "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/parameter_stability_20260531_015329.json",
+      "sha256": "2c347e228455f3dca7d86773bb17ef627feca4443de2908d30d53fdb150dcb39",
+      "size_bytes": 1968,
+      "modified_at": "2026-05-30T22:53:30.188Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+        "family_id": "btc_bb_width_squeeze",
+        "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+      "sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+      "size_bytes": 84881,
+      "modified_at": "2026-05-30T22:53:30.022Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+        "family_id": "btc_bb_width_squeeze",
+        "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_summary_20260531_015329.csv",
+      "sha256": "6948343960734409de6147276967265b016b6ddbb94616bdbd9f0fb186d99998",
+      "size_bytes": 17256,
+      "modified_at": "2026-05-30T22:53:30.182Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+        "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+        "family_id": "btc_bb_width_squeeze",
+        "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/trial-attempts.jsonl",
+      "sha256": "97760c97496837bd4e4a460e9d964039dec5b95ebad791801c606633b0a29f6f",
+      "size_bytes": 4816,
+      "modified_at": "2026-05-30T22:53:31.635Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_is": 2.3851777322040526,
+    "sharpe_oos": 0.07455792527986792,
+    "in_sample_return_pct": 13.558503990705088,
+    "total_trades": 1101,
+    "max_drawdown": -14.24188254791654,
+    "profit_factor": 1.0128102355434685,
+    "win_rate": 0.36966394187102636,
+    "aggregate_return_pct": 0.09117433540026997,
+    "total_windows": 57,
+    "successful_windows": 57,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+    "canonical_wfa_config_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-05-30T22:30:44.284Z",
+    "worker_end_time": "2026-05-30T22:53:31.522Z",
+    "duration_ms": 1367238,
+    "timed_out": false,
+    "exit_code": 0,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+    "per_window_metrics_count": 57,
+    "expected_output_root": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results",
+      "config_output_root": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results",
+      "canonical_output_root": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": 2.3851777322040526,
+        "source": {
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": 0.07455792527986792,
+        "source": {
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": 0.006725,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 13.558503990705088,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": 0.09117433540026997,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "parameter_instability_flagged",
+      "source": {
+        "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+        "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 57,
+      "total_reported_windows": 57,
+      "unique_parameter_sets": 57,
+      "changed_window_count": 56,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0006,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0002,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+        "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+        "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 25,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 1800,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+          "source_sha256": "dfba422e0fb3f2eaf594342e13319122547600ee88c5090536c5acc0da37c2ad",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-05-30T22:30:47.446846+00:00",
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-05-30T22:53:29.949744+00:00",
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 1362.502898,
+          "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+          "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+      "family_id": "btc_bb_width_squeeze",
+      "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-05-30T22:53:31.522Z",
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/wfa_config.yaml",
+      "sha256": "dfba422e0fb3f2eaf594342e13319122547600ee88c5090536c5acc0da37c2ad",
+      "size_bytes": 1399,
+      "modified_at": "2026-05-30T22:29:48.074Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/bb_width_squeeze.py",
+      "sha256": "3ece98e39f67e78690797aeb936c782ebceb7739c7dc279d5d8695dc60639b5f",
+      "size_bytes": 11208,
+      "modified_at": "2026-03-20T08:29:00.461Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_bb_width_squeeze.json",
+      "sha256": "68d51b6e754eaa27f6c8d85b5d5ee2444e2dbff822e3ef9dc01f11294ea5fb41",
+      "size_bytes": 915,
+      "modified_at": "2026-03-21T15:00:44.596Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043.json",
+      "sha256": "74e73121801299bce3bb6dc7e15ab09e7be86739dbd438a0fb9f3926d8abfaa7",
+      "size_bytes": 3851,
+      "modified_at": "2026-05-30T22:30:44.134Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

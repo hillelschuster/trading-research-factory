@@ -1,0 +1,18 @@
+{
+  "schema_version": "researchbrain_stage0_quarantine_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "quarantined_at": "2026-05-23T12:58:41.710Z",
+  "attempt_number": 1,
+  "reason": "accepted provider output rejected during artifact writing: hypothesis_packet_v1 validation failed: timeframe_candidate is required; prior_failed_patterns_checked must be a non-empty array",
+  "raw_provider_output": {
+    "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T133000Z/attempts/attempt-001/provider-output.raw.json",
+    "sha256": "3d6a9e06150fc5fed96da387faf5273b06ac3c41ec460464976157cbeb0aa982"
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

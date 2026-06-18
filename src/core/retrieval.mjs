@@ -101,6 +101,35 @@ function evidenceSnippet(entry) {
   };
 }
 
+function researchHypothesisSnippet(entry) {
+  return {
+    source_path: entry?.source_path ?? null,
+    artifact_sha256: entry?.artifact_sha256 ?? null,
+    hypothesis_id: entry?.snippet?.hypothesis_id ?? null,
+    mechanism: compactText(entry?.snippet?.mechanism || entry?.retrieval_text, 220),
+    falsifiable_prediction: compactText(entry?.snippet?.falsifiable_prediction, 220),
+    strategy_family: entry?.snippet?.strategy_family ?? entry?.strategy_family ?? null,
+    instrument_scope: entry?.snippet?.instrument_scope ?? entry?.asset_scope ?? null,
+    timeframe_candidate: entry?.snippet?.timeframe_candidate ?? entry?.timeframe ?? null,
+    source_records: safeArray(entry?.snippet?.source_records).slice(0, 5),
+    phase8a_universe_constraints: entry?.snippet?.phase8a_universe_constraints ?? null,
+    related_artifact_paths: sanitizeRetrievalArtifactPaths(safeArray(entry?.related_artifact_paths))
+  };
+}
+
+function researchSourceSnippet(entry) {
+  return {
+    source_path: entry?.source_path ?? null,
+    artifact_sha256: entry?.artifact_sha256 ?? null,
+    source_id: entry?.snippet?.source_id ?? null,
+    source_type: entry?.snippet?.source_type ?? null,
+    trust_tier: entry?.snippet?.trust_tier ?? null,
+    claims_extracted: safeArray(entry?.snippet?.claims_extracted).slice(0, 3),
+    limitations: safeArray(entry?.snippet?.limitations).slice(0, 3),
+    disconfirming_relevance: safeArray(entry?.snippet?.disconfirming_relevance).slice(0, 3)
+  };
+}
+
 function numericEvidenceQuality(entry) {
   return typeof entry?.evidence_score === "number" ? entry.evidence_score / 20 : 0;
 }
@@ -155,11 +184,17 @@ export function buildIdeatorRetrieval(factoryStats) {
   const liveEvidence = getRetrievalEntries(factoryStats, { sourceType: "evidence", liveOnly: true })
     .filter((entry) => entry?.snippet?.promotable)
     .sort((a, b) => (b.evidence_score ?? 0) - (a.evidence_score ?? 0));
+  const hypothesisPackets = getRetrievalEntries(factoryStats, { sourceType: "research_hypothesis_packet" })
+    .filter((entry) => safeArray(entry?.stage_targets).includes("ideator"));
+  const sourceRecords = getRetrievalEntries(factoryStats, { sourceType: "research_source_record" })
+    .filter((entry) => safeArray(entry?.stage_targets).includes("ideator"));
 
   return {
     recent_live_lessons: liveLessons.slice(0, 3).map(lessonSnippet),
     blocker_patterns: liveLessons.filter((entry) => NEGATIVE_VERDICTS.has(entry?.verdict)).slice(0, 2).map(lessonSnippet),
-    comparable_promoted_runs: liveEvidence.slice(0, 2).map(evidenceSnippet)
+    comparable_promoted_runs: liveEvidence.slice(0, 2).map(evidenceSnippet),
+    stage0_hypothesis_packets: hypothesisPackets.slice(0, 3).map(researchHypothesisSnippet),
+    stage0_source_records: sourceRecords.slice(0, 3).map(researchSourceSnippet)
   };
 }
 
@@ -183,10 +218,12 @@ export function buildPlannerRetrieval(factoryStats, backlogItem) {
 
   const lessonEntries = getRetrievalEntries(factoryStats, { sourceType: "lesson", liveOnly: true });
   const evidenceEntries = getRetrievalEntries(factoryStats, { sourceType: "evidence", liveOnly: true }).filter((entry) => entry?.snippet?.promotable);
+  const hypothesisEntries = getRetrievalEntries(factoryStats, { sourceType: "research_hypothesis_packet" });
 
   const scoredLessons = scoreEntries(lessonEntries, query, { stage: "planner" });
   const relevantLessons = scoredLessons.slice(0, 4).map((item) => lessonSnippet(item.entry));
   const comparableRuns = scoreEntries(evidenceEntries, query, { stage: "planner" }).slice(0, 2).map((item) => evidenceSnippet(item.entry));
+  const relevantHypotheses = scoreEntries(hypothesisEntries, query, { stage: "planner" }).slice(0, 3).map((item) => researchHypothesisSnippet(item.entry));
   const positive = scoredLessons.find((item) => POSITIVE_VERDICTS.has(item.entry?.verdict));
   const negative = scoreEntries(lessonEntries, query, {
     stage: "planner",
@@ -196,7 +233,8 @@ export function buildPlannerRetrieval(factoryStats, backlogItem) {
   return {
     relevant_lessons: relevantLessons,
     contradiction: positive && negative ? { positive: lessonSnippet(positive.entry), negative: lessonSnippet(negative.entry) } : null,
-    comparable_promoted_runs: comparableRuns
+    comparable_promoted_runs: comparableRuns,
+    stage0_hypothesis_packets: relevantHypotheses
   };
 }
 

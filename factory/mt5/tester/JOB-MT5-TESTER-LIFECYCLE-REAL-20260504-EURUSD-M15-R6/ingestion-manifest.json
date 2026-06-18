@@ -1,0 +1,61 @@
+{
+  "schema_version": "mt5_tester_ingestion_manifest_v1",
+  "job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+  "run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+  "source_boundary": "Approved MT5 terminal install, terminal data directory, and Terminal\\Common\\Files only.",
+  "deployed_to": {
+    "expert": "C:\\Users\\הלל\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\TRF\\TrfTesterLifecycleBench.ex5",
+    "tester_set": "C:\\Users\\הלל\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Profiles\\Tester\\TrfTesterLifecycleBench.set"
+  },
+  "strategy_tester_command": {
+    "executable": "C:\\Program Files\\FTMO Global Markets MT5 Terminal\\terminal64.exe",
+    "config": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/tester.ini"
+  },
+  "artifacts": [
+    {
+      "artifact_type": "file_common_lifecycle_json",
+      "source_path": "C:\\Users\\הלל\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\trf_tester\\RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6\\lifecycle_1.json",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/lifecycle_1.json",
+      "sha256": "4d254aba83384a16a878a2945ebaaaf61c2a6cb38dd83795ad6ec4b01de1bfbe",
+      "size_bytes": 1647
+    },
+    {
+      "artifact_type": "tester_html_report",
+      "source_path": "C:\\Users\\הלל\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\trf_lifecycle_20260504_r6.htm",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6.htm",
+      "sha256": "f856add47295acb64892209d82143ecf586b7fe3254e741c5d16a68274253dd9",
+      "size_bytes": 27582
+    },
+    {
+      "artifact_type": "tester_chart_png",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6.png",
+      "sha256": "8823c0014a6f6819cfea0bf027464ca23206c27d36883d157cbd6c620914356e",
+      "size_bytes": 9021
+    },
+    {
+      "artifact_type": "tester_hst_png",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6-hst.png",
+      "sha256": "86abe16b1f3c2b9f3418609af6beefc3cc2f20d5491f758ec8971d4a36f0badc",
+      "size_bytes": 19501
+    },
+    {
+      "artifact_type": "tester_holding_png",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6-holding.png",
+      "sha256": "4a6c55e5b199a281acba30549e47116933bae456a4027a14aff9db8e4b8658a0",
+      "size_bytes": 11437
+    },
+    {
+      "artifact_type": "tester_mfemae_png",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/trf_lifecycle_20260504_r6-mfemae.png",
+      "sha256": "eeac86cb9efc2cb8d085909403041c89bcac700a9a5d165890276eae350b3c8e",
+      "size_bytes": 22216
+    },
+    {
+      "artifact_type": "tester_log",
+      "source_path": "C:\\Users\\הלל\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\Tester\\logs\\20260504.log",
+      "repo_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/tester-20260504.log",
+      "sha256": "ed336114a23dee4eb3c245ba561309a604b0c892eea4869f902f3cb6c21cae77",
+      "size_bytes": 31700
+    }
+  ]
+}

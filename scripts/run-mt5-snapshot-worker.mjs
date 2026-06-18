@@ -25,13 +25,16 @@ const result = runMt5SnapshotWorker({
   symbol: valueAfter(args, "--symbol"),
   timeframe: valueAfter(args, "--timeframe"),
   bars: integerAfter(args, "--bars"),
+  snapshotMode: valueAfter(args, "--snapshot-mode") ?? "symbol",
+  universeScope: valueAfter(args, "--universe-scope"),
+  universeFilterPattern: valueAfter(args, "--universe-filter-pattern"),
   login: integerAfter(args, "--login"),
   server: valueAfter(args, "--server"),
   terminalPath: valueAfter(args, "--terminal-path"),
   pythonCommand: valueAfter(args, "--python") ?? (process.platform === "win32" ? "python" : "python3")
 });
 
-validateWorkerResultEnvelope(result.worker_result, { requireSucceeded: false, evidenceKind: "mt5_snapshot" });
+validateWorkerResultEnvelope(result.worker_result, { requireSucceeded: false, evidenceKind: result.evidence_kind });
 validateExecutionResult(result);
 validateExecutionArtifacts(rootDir, result);
 console.log(JSON.stringify(result, null, 2));

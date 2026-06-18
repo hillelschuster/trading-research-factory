@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "sha256": "e3cf0dba5c53e6dd4595039ca78e83bde591559380529134549507ff52c5872d",
+    "size_bytes": 1450,
+    "modified_at": "2026-05-13T11:35:45.926Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+    "sha256": "358ade2fbfe8c1cc4b6cbe0f2419a4e281fbd05d1fe85a682e34b4329e906c90",
+    "size_bytes": 1346,
+    "modified_at": "2026-05-13T11:35:45.936Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+    "sha256": "91f38fba3f7d86f8beab10647b89d22a974facaef5b36c67f938f6aad4a0f180",
+    "size_bytes": 7086,
+    "modified_at": "2026-05-13T11:35:45.833Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260513_143545.csv",
+    "sha256": "eebba7d685b24b2036c4d1bd6583f646f55207115cc749d3a76c6cef4b2b49a5",
+    "size_bytes": 1041,
+    "modified_at": "2026-05-13T11:35:45.933Z"
+  }
+]

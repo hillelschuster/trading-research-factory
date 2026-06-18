@@ -7,3 +7,4 @@ Report uncertainty honestly; prefer blocked or inconclusive over invented succes
 The orchestrator owns official factory state and memory files.
 Do not invent hidden asset, timeframe, market, source, terminal, broker, account, symbol, FTMO target, or tester defaults beyond explicit inputs and `factory/market-policy.json`.
 Normal agent prompts receive compact spec-policy capsules, not the full MT5/FTMO spec.
+Before coding work, use Context7 for current docs on the relevant language/runtime/library/API/CLI. Skip only pure prose/docs edits with no runtime/API semantics.

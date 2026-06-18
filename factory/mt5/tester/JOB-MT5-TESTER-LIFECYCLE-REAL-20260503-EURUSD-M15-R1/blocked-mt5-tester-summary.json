@@ -1,0 +1,59 @@
+{
+  "schema_version": "mt5_tester_lifecycle_summary_v1",
+  "evidence_kind": "mt5_tester",
+  "authority_layer": "mt5_tester",
+  "status": "blocked",
+  "observed_at": "2026-05-03T20:50:07.995Z",
+  "request": {
+    "schema_version": "mt5_tester_lifecycle_request_v1",
+    "evidence_kind": "mt5_tester",
+    "authority_layer": "mt5_tester",
+    "run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260503-EURUSD-M15-R1",
+    "job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260503-EURUSD-M15-R1",
+    "symbol": "EURUSD",
+    "timeframe": "M15",
+    "tester_output_path": null,
+    "required_scenarios": [
+      "market_order",
+      "pending_order",
+      "exit_order"
+    ],
+    "boundary": "Only repo-contained tester output artifacts are read. External terminal paths are not inspected."
+  },
+  "observations": {
+    "limitations": {
+      "mt5_tester_executed": false,
+      "reason": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker."
+    }
+  },
+  "blocked_reason": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker.",
+  "diagnostics": {
+    "error_code": "tester_output_missing",
+    "message": "MT5 tester lifecycle output is missing. Provide a repo-contained tester output artifact; external terminal paths are not inspected by this worker.",
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-tester-lifecycle-worker.mjs",
+      "sha256": "8e79a4d7d6438935fc475551e7fa11eee2f68ea455fc9ee0c077328cc39ff7f5",
+      "size_bytes": 11248,
+      "modified_at": "2026-05-03T20:49:35.262Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/experts/TrfTesterLifecycleBench.mq5",
+      "sha256": "61a406d8fbffe447c5c0afc808a3558a7777568820e413723982f04ac3230fcb",
+      "size_bytes": 8853,
+      "modified_at": "2026-05-03T20:26:33.819Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/include/TrfFileCommonBridge.mqh",
+      "sha256": "3e46cc4e03a5303e94004831ddc2029c0283c6b9c358669b2701840b72d807e6",
+      "size_bytes": 798,
+      "modified_at": "2026-04-30T20:57:43.094Z"
+    }
+  ]
+}

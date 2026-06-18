@@ -1,0 +1,28 @@
+{
+  "schema_version": "mt5_python_environment_diagnostic_request_v1",
+  "diagnostic_id": "MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260519T080431Z-WFA-VENV",
+  "output_dir": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260519T080431Z-WFA-VENV",
+  "python_commands": [
+    {
+      "label": "wfa-windows-venv-python",
+      "command": "walk forward engine/.venv/Scripts/python.exe",
+      "args": []
+    },
+    {
+      "label": "python3",
+      "command": "python3",
+      "args": []
+    },
+    {
+      "label": "python.exe-path",
+      "command": "python.exe",
+      "args": []
+    },
+    {
+      "label": "py.exe-3",
+      "command": "py.exe",
+      "args": ["-3"]
+    }
+  ],
+  "timeout_ms": 15000
+}

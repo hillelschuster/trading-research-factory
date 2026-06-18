@@ -1,0 +1,42 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_v1",
+  "evidence_kind": "phase8a_mt5_artifact_registration",
+  "registration_id": "PHASE8A-MT5-ARTIFACT-REGISTRATION-20260519T080431Z-WFA-VENV-UNIVERSE",
+  "observed_at": "2026-05-19T08:09:28.211Z",
+  "authority_layer": "control_plane",
+  "official_evidence_index_mutated": false,
+  "registration_scope": "phase8a_mt5_readiness_artifacts_only",
+  "status_summary": {
+    "total": 1,
+    "ready": 0,
+    "blocked": 1,
+    "by_status": {
+      "blocked": 1
+    },
+    "by_evidence_kind": {
+      "mt5_tradable_universe_snapshot": 1
+    }
+  },
+  "artifacts": [
+    {
+      "artifact_type": "mt5_tradable_universe_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T080431Z-WFA-VENV/blocked-universe-snapshot.json",
+      "sha256": "efa17dbf686ada10c5d45a96bea4d5dc5ce5a89ade13e28db084d2da94b3d88b",
+      "size_bytes": 2698,
+      "modified_at": "2026-05-19T08:08:37.548Z",
+      "evidence_kind": "mt5_tradable_universe_snapshot",
+      "summary": {
+        "status": "blocked",
+        "job_id": "JOB-MT5-UNIVERSE-ATTEMPT-20260519T080431Z-WFA-VENV",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": "MetaTrader5 initialize failed: -6 Terminal: Authorization failed"
+      },
+      "status": "blocked"
+    }
+  ]
+}

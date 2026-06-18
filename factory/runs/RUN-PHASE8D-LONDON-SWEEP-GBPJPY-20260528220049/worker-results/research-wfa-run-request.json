@@ -1,0 +1,47 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+  "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+  "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+  "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+  "family_id": "london_sweep_gbpjpy",
+  "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/london_sweep.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_london_sweep_fade.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049.json",
+    "sha256": "5917bb4298859f8557509a5306e34eb6e6fb584f1f37e22d48baf871aeeccdb8"
+  },
+  "expected_output_root": "walk forward engine/strategies/london_sweep_gbpjpy/results",
+  "timeout_ms": 3600000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "source_id": "SRC-LIVE-8192D-001",
+  "source_type": "web_captured_source",
+  "trust_tier": "low_signal_trust",
+  "url_or_path_or_doi": "https://ftmo.com/en/blog/order-flow-how-to-predict-market-reversals/",
+  "accessed_at": "2026-06-11T20:29:07.328Z",
+  "content_hash_or_unavailable_reason": "2166462c748d5a10f46a37f64b8bb779f07935cf86c0fa8bdc2360183a062551",
+  "claims_extracted": [
+    "Order flow analysis can indicate buyer/seller imbalance that often precedes market reversals.",
+    "Price tends to move toward areas of substantial liquidity (strong resistance/support).",
+    "Imbalance between aggressive buyers and sellers creates directional price moves that can be observed on intraday timeframes."
+  ],
+  "limitations": [
+    "Blog post is educational content, not peer-reviewed research.",
+    "No quantitative backtesting data provided.",
+    "General conceptual framework rather than specific MT5 implementation details."
+  ],
+  "disconfirming_relevance": [
+    "FTMO blog may not contain novel or proprietary mechanism.",
+    "Order flow signals require tick data not always available in standard MT5 feeds.",
+    "Conceptual description lacks precise entry/exit rules for deterministic validation."
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/sources/SRC-LIVE-8192D-001.md",
+    "sha256": "2166462c748d5a10f46a37f64b8bb779f07935cf86c0fa8bdc2360183a062551"
+  },
+  "source_fetch": {
+    "mode": "repo_local_file_capture",
+    "artifact": {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/tool-captures/url/SRC-LIVE-8192D-001/content.md",
+      "sha256": "2166462c748d5a10f46a37f64b8bb779f07935cf86c0fa8bdc2360183a062551"
+    },
+    "live_fetch": false
+  },
+  "request_id": "RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z",
+  "provider_provenance": {
+    "tool": "capture_url_source",
+    "source_class": "web",
+    "live_research": true,
+    "deterministic_capture": true,
+    "adapter": {
+      "provider": "brave_search_api_capture",
+      "live_fetch": true,
+      "provider_native_search_enabled": false,
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "succeeded",
+          "started_at": "2026-06-11T20:29:20.020Z",
+          "completed_at": "2026-06-11T20:29:23.309Z",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "succeeded"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "backlog_item_id": "IDEA-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+  "family_id": "london_breakout_eurusd",
+  "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+      "sha256": "73bb9bb245af334323a4a6b158e4a2f7c594b3b493eece8523c541b5ee678294",
+      "size_bytes": 1260,
+      "modified_at": "2026-05-04T10:43:26.513Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/london_breakout.py",
+      "sha256": "6c104d45958eef197da77c579520858a217ed265821c27aa47d52f9deb43da4e",
+      "size_bytes": 40423,
+      "modified_at": "2026-01-07T16:14:59.722Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_london_breakout.json",
+      "sha256": "2affc329d736a5903863846fd364bda70ce1dad457438f024529f035feb537b7",
+      "size_bytes": 1525,
+      "modified_at": "2026-01-07T09:08:36.377Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-BREAKOUT-20260528201036/registrations/research-wfa-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036.json",
+      "sha256": "34dacc731aa815b30d9b78889a10117019b150dcc83e65506c28e12803810866",
+      "size_bytes": 2965,
+      "modified_at": "2026-05-28T20:10:37.198Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/hypothesis-packet.json",
+      "sha256": "b2b4e53120ebfa146247c515842845a394223261967607d3f39050a985438db0"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-BREAKOUT-20260528201036/registrations/research-wfa-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036.json",
+      "sha256": "34dacc731aa815b30d9b78889a10117019b150dcc83e65506c28e12803810866",
+      "content_hash": "96f526c3a2f17a27f0aa9d56f4a9ca460d39b2877dd1f44436f3cd78000fc20b"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/source-record.json",
+      "sha256": "d3998efe70ddf95960340a65f52cb2ee358c71d379d311ec757e0e96ae7ceae7",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution"
+  },
+  "data_identity": {
+    "status": "known_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_executed_artifact_backed",
+    "windows": 87,
+    "trades": 842,
+    "return_proxy_pct": -0.09568138811736819,
+    "positive_oos_window_ratio": 0.298851,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-BREAKOUT-20260528201036/execution-result.json",
+      "sha256": "4d4efa28dff0c9da93dec4db3f992368d5d6b42c2def6eb9bdbf4ffffef086ed"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-BREAKOUT-20260528201036/worker-results/parsed-wfa-metrics.json",
+      "sha256": "06066348090e2a3432421d82ff7e9920acc39aa1d86efbb9083f6cf190db7685"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-BREAKOUT-20260528201036/registrations/research-wfa-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036.json",
+      "sha256": "34dacc731aa815b30d9b78889a10117019b150dcc83e65506c28e12803810866"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/hypothesis-packet.json",
+      "sha256": "b2b4e53120ebfa146247c515842845a394223261967607d3f39050a985438db0",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-LONDON-BREAKOUT-20260528201036/source-record.json",
+      "sha256": "d3998efe70ddf95960340a65f52cb2ee358c71d379d311ec757e0e96ae7ceae7"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+      "sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6"
+    }
+  ],
+  "recorded_at": "2026-05-28T20:10:36.917Z"
+}

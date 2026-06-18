@@ -1,0 +1,297 @@
+{
+  "metrics": {
+    "sharpe_is": 3.0590146882343965,
+    "sharpe_oos": -1.4915312593628685,
+    "in_sample_return_pct": 18.008299285617337,
+    "total_trades": 23,
+    "max_drawdown": -7.869237490280955,
+    "profit_factor": 0.563772568453326,
+    "win_rate": 0.391304347826087,
+    "aggregate_return_pct": -1.9396878669383442,
+    "total_windows": 3,
+    "successful_windows": 3,
+    "failed_windows": 0
+  },
+  "per_window_metrics": [
+    {
+      "window_id": 0,
+      "success": true,
+      "total_return_pct": 0.2533262522726436,
+      "in_sample_return_pct": 16.570655530491322,
+      "total_trades": 8,
+      "sharpe_ratio": 0.2618909444840005,
+      "max_drawdown_pct": -3.3782099615404495,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 30,
+        "ema_fast": 10,
+        "ema_slow": 40,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.5
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 1,
+      "success": true,
+      "total_return_pct": 1.0488514806448657,
+      "in_sample_return_pct": 18.00290311612119,
+      "total_trades": 8,
+      "sharpe_ratio": 0.8504606249893681,
+      "max_drawdown_pct": -3.080317558383715,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 25,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.5
+      },
+      "best_parameters_malformed": false
+    },
+    {
+      "window_id": 2,
+      "success": true,
+      "total_return_pct": -7.1212413337325415,
+      "in_sample_return_pct": 19.451339210239503,
+      "total_trades": 7,
+      "sharpe_ratio": -5.512457651977271,
+      "max_drawdown_pct": -7.869237490280955,
+      "purge_gap_bars": 0,
+      "purged_validation_bars": 0,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 25,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 36,
+        "sl_atr_multiplier": 1.5
+      },
+      "best_parameters_malformed": false
+    }
+  ],
+  "metrics_artifact": {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+    "sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+    "size_bytes": 7821,
+    "modified_at": "2026-05-28T19:50:26.321Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "job_id": "JOB-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  "assumptions": {
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0006,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0002,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 100,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 1800,
+          "source_path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+          "source_sha256": "532fb710bc686673db6f7b64d3c76744114a87b932aff7df82a4c9de9425c51e",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-05-28T19:46:59.435134+00:00",
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-05-28T19:50:26.274096+00:00",
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 206.838962,
+          "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+          "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    }
+  },
+  "optional_wfa_artifacts": {
+    "trade_ledger": {
+      "available": false,
+      "artifact_type": "wfa_trade_ledger",
+      "artifacts": [],
+      "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+    },
+    "equity_curve": {
+      "available": false,
+      "artifact_type": "wfa_equity_curve",
+      "artifacts": [],
+      "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+    },
+    "optimizer_trials": {
+      "available": false,
+      "artifact_type": "wfa_optimizer_trials",
+      "artifacts": [],
+      "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+    }
+  },
+  "metric_readiness": {
+    "sharpe_is": {
+      "status": "available",
+      "value": 3.0590146882343965,
+      "source": {
+        "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+        "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+        "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+      }
+    },
+    "sharpe_oos": {
+      "status": "available",
+      "value": -1.4915312593628685,
+      "source": {
+        "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+        "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+        "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+      }
+    },
+    "wfe": {
+      "status": "computed_artifact_backed",
+      "value": -0.107711,
+      "inputs": {
+        "in_sample_return_pct": {
+          "available": true,
+          "value": 18.008299285617337,
+          "source": {
+            "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+            "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+            "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+          }
+        },
+        "aggregate_return_pct": {
+          "available": true,
+          "value": -1.9396878669383442,
+          "source": {
+            "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+            "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+            "source_field": "aggregate_return_pct|total_return_pct"
+          }
+        }
+      }
+    },
+    "wfr": {
+      "status": "computed_artifact_backed",
+      "value": 1,
+      "inputs": {
+        "successful_windows": {
+          "available": true,
+          "value": 3,
+          "source": {
+            "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+            "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+            "source_field": "successful_windows"
+          }
+        },
+        "total_windows": {
+          "available": true,
+          "value": 3,
+          "source": {
+            "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+            "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+            "source_field": "total_windows"
+          }
+        }
+      }
+    }
+  },
+  "parameter_stability": {
+    "status": "parameter_instability_flagged",
+    "source": {
+      "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+      "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+      "source_field": "window_results[].best_parameters"
+    },
+    "windows_with_parameters": 3,
+    "total_reported_windows": 3,
+    "unique_parameter_sets": 3,
+    "changed_window_count": 2,
+    "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+  },
+  "optimization_truth": {
+    "status": "not_emitted",
+    "source": {
+      "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+      "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+      "source_field": "optimization_truth"
+    },
+    "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+  },
+  "warmup_diagnostics": {
+    "status": "not_emitted",
+    "source": {
+      "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+      "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+      "source_field": "warmup_diagnostics"
+    },
+    "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+  }
+}

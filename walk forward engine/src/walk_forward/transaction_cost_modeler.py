@@ -33,6 +33,11 @@ class InstrumentDetails(Protocol):
     max_volume_lots: float
 
 
+# The local InstrumentDetails protocol is always available. Keep the explicit
+# guard so constructor behavior is obvious and never depends on a missing name.
+INSTRUMENT_DETAILS_AVAILABLE = True
+
+
 class AssetClass(Enum):
     """Supported asset classes for cost modeling."""
     FOREX = "forex"

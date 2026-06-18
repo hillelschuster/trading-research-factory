@@ -1,0 +1,47 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "job_id": "JOB-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "lineage_id": "LINEAGE-PHASE8D-LONDON-BREAKOUT-EURUSD",
+  "family_id": "london_breakout_eurusd",
+  "attempt_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-LONDON-BREAKOUT-20260528201036",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/london_breakout.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_london_breakout.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-LONDON-BREAKOUT-20260528201036/registrations/research-wfa-RUN-PHASE8D-LONDON-BREAKOUT-20260528201036.json",
+    "sha256": "34dacc731aa815b30d9b78889a10117019b150dcc83e65506c28e12803810866"
+  },
+  "expected_output_root": "walk forward engine/strategies/london_breakout_eurusd/results",
+  "timeout_ms": 7200000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ]
+}

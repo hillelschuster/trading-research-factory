@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/analysis.json",
+    "sha256": "c5a1ed3fcfac6c2b4d607080000edf004dc96b6fc04c2ed2ae6598bf74b1b0b3",
+    "size_bytes": 2912,
+    "modified_at": "2026-05-30T22:53:30.149Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/parameter_stability_20260531_015329.json",
+    "sha256": "2c347e228455f3dca7d86773bb17ef627feca4443de2908d30d53fdb150dcb39",
+    "size_bytes": 1968,
+    "modified_at": "2026-05-30T22:53:30.188Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+    "sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+    "size_bytes": 84881,
+    "modified_at": "2026-05-30T22:53:30.022Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_summary_20260531_015329.csv",
+    "sha256": "6948343960734409de6147276967265b016b6ddbb94616bdbd9f0fb186d99998",
+    "size_bytes": 17256,
+    "modified_at": "2026-05-30T22:53:30.182Z"
+  }
+]

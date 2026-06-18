@@ -1,0 +1,83 @@
+{
+  "hypothesis_id": "HYP-STAGE0-LIVE-CANARY-001",
+  "mechanism": "Order-flow imbalance amplifies price movements: when directional order flow becomes one-sided, rising volatility causes market makers to reduce risk exposure while other participants rebalance portfolios, creating a positive feedback loop that extends price continuation beyond what would be expected from initial imbalance alone. This mechanism, documented in U.S. Treasury markets, may generalize to liquid FTMO instruments where tick-volume delta or bid/ask imbalance proxies can capture directional pressure.",
+  "falsifiable_prediction": "Periods with elevated tick-volume delta (buy minus sell volume proxy) on M15-H1 bars will be followed by statistically distinguishable price continuation relative to periods with neutral delta, after controlling for volatility regime and session effects, when tested on out-of-sample FTMO data using deterministic walk-forward analysis.",
+  "market_structure_assumption": "FTMO MT5 instruments with sufficient liquidity (major FX pairs, key indices, gold) exhibit episodic order-flow-driven price amplification analogous to the Treasury market mechanism, even in the absence of designated market makers, because retail brokers' B-book or hybrid execution models create temporary inventory pressures that manifest as spread widening and slippage during directional imbalances.",
+  "instrument_scope": "FTMO MT5 major FX pairs (EURUSD, GBPUSD, USDJPY), XAUUSD, US30, US100; instruments must have reliable tick-volume data on the candidate broker.",
+  "timeframe_candidate": "M15-H1 candidate",
+  "strategy_family": "order_flow_imbalance_amplification",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "M15 and H1 tick-volume or real-volume bars for candidate instruments over multi-year history; bid/ask volume split if available; session metadata for volatility-regime partitioning.",
+  "expected_holding_period": "Intraday; expected 30 minutes to several hours per signal, consistent with M15-H1 bars.",
+  "expected_trade_frequency": "Unknown; depends on imbalance detection threshold calibration; qualitative expectation of a few signals per instrument per session.",
+  "expected_failure_modes": [
+    "Tick-volume delta does not correlate with genuine order-flow imbalance in retail FX because tick volume counts price changes not trade size.",
+    "Amplification effect is too weak or absent in FTMO instruments because no centralized limit order book exists.",
+    "Signal decays too quickly to be captured on M15-H1 bars; effect is sub-minute and lost at these granularities.",
+    "Session-dependent volatility regimes overwhelm imbalance signal; no marginal predictive power after controlling for time-of-day effects.",
+    "Spread and slippage during high-imbalance periods erode any theoretical edge below transaction costs."
+  ],
+  "invalidation_criteria": [
+    "No statistically reliable difference in forward price move distribution between high-imbalance and neutral-imbalance periods on held-out WFA folds.",
+    "Signal correlation with forward return approaches zero after controlling for volatility regime and session dummy variables.",
+    "Tick-volume delta metric fails to show any serial correlation with institutional order-flow measures in available benchmarking data.",
+    "Liquidity costs (spread widening during high-imbalance periods) exceed gross signal magnitude in simulation with conservative cost assumptions."
+  ],
+  "implementation_shape": "Rule-based candidate: compute rolling normalized tick-volume delta over a lookback window (e.g., 10-20 M15 bars); define threshold exceedance as entry signal in delta direction; exit on delta reversal or time-based stop. Later WFA will determine exact parameters.",
+  "execution_sensitivity": "Sensitive to spread widening during volatile imbalance periods; swap costs for multi-hour holds; session rollover gaps; broker-specific tick-volume counting methodology; MT5 symbol contract specifications (digits, lot size, tick value) must be verified per instrument.",
+  "mt5_ftmo_concerns": "Tick-volume data on MT5 counts price changes, not trade size, making it a noisy proxy for genuine order flow; FTMO broker selection affects data continuity and symbol availability; MT5 may not provide bid/ask volume split natively; slippage and requote behavior during high-volatility imbalance periods need broker-specific characterization.",
+  "prior_related_lessons": [
+    "For live tool mode, capture_url_source must include source_id, url, and source_class; the URL must be one returned by search_web in the same run.",
+    "record_hypothesis must cite captured source id SRC-LIVE-CANARY-001 and must include source_claims only as Stage-0 source-backed mechanism claims, not MT5 verification or profitability claims.",
+    "Use timeframe_candidate 'M15-H1 candidate' and include at least one prior_failed_patterns_checked item.",
+    "In invalidation_criteria, avoid Sharpe, returns, win-rate, profit-factor, positive expectancy, or any metric that sounds like a profitability or promotion claim."
+  ],
+  "prior_failed_patterns_checked": [
+    "No blocking failed-pattern match returned by check_failed_pattern_similarity; prior_failed_patterns array is empty; no duplicate hypothesis found in check_duplicate_memory for order-flow-imbalance amplification mechanism."
+  ],
+  "novelty_reason": "This hypothesis is based on a newly captured Federal Reserve source (2025 FEDS Note on order-flow imbalance amplification in Treasury markets) not previously cited in the factory's hypothesis corpus. The mechanism focuses on the amplification feedback loop—volatility-induced market-maker risk reduction plus investor rebalancing—which is distinct from simple order-flow/price-impact relationships or momentum strategies. The application to FTMO retail instruments via tick-volume delta proxy is a novel mapping not present in prior packets.",
+  "disconfirming_evidence": [
+    "Source evidence is from U.S. Treasury markets, not FX, equity indices, or commodities traded on FTMO; generalizability is unproven.",
+    "Treasury markets have designated market makers and a centralized limit order book; FTMO retail brokers operate on B-book/hybrid models with no formal market makers.",
+    "Tick volume on MT5 counts price-change frequency, not actual traded size; it may be a weak proxy for genuine order-flow imbalance.",
+    "The amplification mechanism depends on institutional portfolio rebalancing flows that may not be present in retail-dominated FTMO instruments.",
+    "The 2025 FEDS Note may describe a period-specific phenomenon; the mechanism may not persist across different market regimes."
+  ],
+  "proposed_experiment_shape": "Later deterministic WFA: partition multi-year M15/H1 data into train/validation/test folds; compute tick-volume delta on each bar; label high-imbalance periods by threshold; measure forward price move distribution conditional on imbalance vs neutral; control for volatility regime and session; assess whether imbalance adds predictive power beyond naive continuation; apply conservative transaction-cost model including spread widening during imbalance events.",
+  "cited_source_ids": [
+    "SRC-LIVE-CANARY-001"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_mechanism",
+      "citation_source_id": "SRC-LIVE-CANARY-001"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-LIVE-CANARY-001",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/source-records/SRC-LIVE-CANARY-001.json",
+      "sha256": "197b227b9b290cc3ce8fd06a5ae4ee2300fa79f6901a4fbd4e53ccb14f90f4d5"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "94b5a2456c1185453972e627f71f463c6d27bba4db84bda7bd2298ff9cb466ea"
+}

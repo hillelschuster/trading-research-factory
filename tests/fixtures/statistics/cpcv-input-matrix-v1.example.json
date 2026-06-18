@@ -1,0 +1,43 @@
+{
+  "schema_version": "cpcv_input_matrix_v1",
+  "candidate_id": "CAND-DEMO-WFA-001",
+  "lineage_id": "LINEAGE-DEMO-WFA",
+  "family_id": "FAMILY-DEMO-WFA",
+  "objective": {
+    "metric": "sharpe",
+    "direction": "maximize"
+  },
+  "fold_count": 4,
+  "combination_count": 4,
+  "benchmark_performance": 0,
+  "combinations": [
+    {
+      "combination_id": "CPCV-1",
+      "train_group_ids": ["fold_1", "fold_2"],
+      "test_group_ids": ["fold_3"],
+      "oos_performance": 0.42,
+      "trade_count": 18
+    },
+    {
+      "combination_id": "CPCV-2",
+      "train_group_ids": ["fold_1", "fold_3"],
+      "test_group_ids": ["fold_4"],
+      "oos_performance": 0.18,
+      "trade_count": 16
+    },
+    {
+      "combination_id": "CPCV-3",
+      "train_group_ids": ["fold_2", "fold_4"],
+      "test_group_ids": ["fold_1"],
+      "oos_performance": -0.08,
+      "trade_count": 14
+    },
+    {
+      "combination_id": "CPCV-4",
+      "train_group_ids": ["fold_3", "fold_4"],
+      "test_group_ids": ["fold_2"],
+      "oos_performance": 0.31,
+      "trade_count": 20
+    }
+  ]
+}

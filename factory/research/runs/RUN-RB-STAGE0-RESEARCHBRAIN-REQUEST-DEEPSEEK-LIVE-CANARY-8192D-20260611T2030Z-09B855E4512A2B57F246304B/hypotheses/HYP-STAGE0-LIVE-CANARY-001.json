@@ -1,0 +1,78 @@
+{
+  "hypothesis_id": "HYP-STAGE0-LIVE-CANARY-001",
+  "mechanism": "Cumulative delta divergence from tick volume on M15-H1 identifies session-boundary liquidity sweeps where order-flow imbalance precedes directional reversal or continuation.",
+  "falsifiable_prediction": "On FTMO MT5 symbols, tick-volume cumulative delta divergence on M15-H1 correlates with subsequent price direction more often than random assignment in post-hoc labeling of liquidity sweeps at session transitions.",
+  "market_structure_assumption": "Order-flow imbalance visible in tick-volume cumulative delta precedes price reversals at identifiable liquidity zones near session boundaries.",
+  "instrument_scope": "FX majors EURUSD GBPUSD USDJPY and indices US30 US100 GER40 on FTMO/MT5.",
+  "timeframe_candidate": "M15-H1 candidate",
+  "strategy_family": "order_flow_imbalance_reversal",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "MT5 tick volume for selected symbols OHLCV M15-H1 bars session timestamp labels London-New York overlap.",
+  "expected_holding_period": "1-4 hours intraday",
+  "expected_trade_frequency": "Low 1-3 signals per session",
+  "expected_failure_modes": [
+    "Tick volume may not reflect true order flow across brokers",
+    "Spread costs during high-impact news can overwhelm edge",
+    "False signals during overlapping low-volatility periods",
+    "Overfitting of divergence threshold parameters"
+  ],
+  "invalidation_criteria": [
+    "Average adverse move exceeds average favorable move in validation sample",
+    "Signal generation rate below 1 per week on any symbol",
+    "Correlation between cumulative delta divergence and subsequent price direction not distinguishable from random walk",
+    "Spread costs regularly exceed 50% of average favorable move magnitude"
+  ],
+  "implementation_shape": "Rule-based: rolling cumulative delta from tick volume; detect divergence between price and delta; filter by London-New York overlap session; trail stop to recent swing extreme.",
+  "execution_sensitivity": "Spread-sensitive ECN conditions preferred; swap-sensitive for holds beyond daily roll; session timing critical London-New York overlap only.",
+  "mt5_ftmo_concerns": "FTMO challenge lot-size limits and consistency rules constrain position sizing; tick volume may lack true order-book depth in standard MT5; no DOM data available.",
+  "prior_related_lessons": [
+    "Use only deterministic captured source artifacts as evidence provider-native knowledge is not evidence"
+  ],
+  "prior_failed_patterns_checked": [
+    "No blocking failed-pattern match returned by check_failed_pattern_similarity"
+  ],
+  "novelty_reason": "FTMO educational blog on order flow has not been formally operationalized as a quantitative cumulative-delta divergence strategy for MT5 backtesting this hypothesis specifies concrete rule-based implementation rather than conceptual analysis.",
+  "disconfirming_evidence": [
+    "FTMO blog is educational marketing content not peer-reviewed research",
+    "No quantitative backtesting data provided in source",
+    "Order flow analysis is widely discussed and may not yield novel edge",
+    "Tick volume data quality varies by broker"
+  ],
+  "proposed_experiment_shape": "Backtest on 12+ months of MT5 tick volume for EURUSD M15 with defined divergence entry rules trailing stop and session filter measure directional consistency and cost impact excluding profitability terms.",
+  "cited_source_ids": [
+    "SRC-LIVE-8192D-001"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_mechanism",
+      "citation_source_id": "SRC-LIVE-8192D-001"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-LIVE-8192D-001",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/source-records/SRC-LIVE-8192D-001.json",
+      "sha256": "7bfb9581fe3cb76828c782436ee1c0fd29c96a561649162755ee131f71375295"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "d6c62a3f06d9e8e32601c43f29a25591c8ae96ada032e13cd53363aa474a1d50"
+}

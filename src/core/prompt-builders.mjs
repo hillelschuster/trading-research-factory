@@ -5,17 +5,21 @@ import path from "path";
 const SPEC_POLICY_PATH = "factory/mt5-ftmo-strategy-factory-spec.md";
 const POLICY_VERSION = "mt5_ftmo_phase0_2026_04_28";
 const MAX_SPEC_POLICY_CAPSULE_CHARS = 1800;
+const CODING_WORK_INVARIANT = "Before coding work, use Context7 current docs first: resolve-library-id, then query-docs. Skip only pure prose/docs edits with no runtime/API semantics.";
 const EVIDENCE_KINDS = [
   "research_wfa",
   "mt5_snapshot",
+  "mt5_tradable_universe_snapshot",
   "mt5_bridge_smoke",
   "data_identity",
+  "data_relevance_classification",
   "mql_build",
   "mt5_tester",
   "parity_report",
   "ftmo_ledger",
   "forward_report",
-  "promotion_gate"
+  "promotion_gate",
+  "stage0_research_discovery"
 ];
 
 const EVIDENCE_POLICY = {
@@ -30,6 +34,18 @@ const EVIDENCE_POLICY = {
     required_artifacts: ["terminal/account/symbol/data identity observations", "repo-relative snapshot artifact", "sha256 for snapshot artifacts"],
     forbidden_shortcuts: ["do not invent terminal, broker, account, symbol, or data defaults", "do not fake WFA metrics for MT5 evidence"],
     blocked_conditions: ["terminal/account/symbol identity unavailable", "snapshot artifact missing", "artifact hash missing or mismatched"]
+  },
+  mt5_tradable_universe_snapshot: {
+    authority_layer: "mt5_terminal",
+    required_artifacts: ["terminal/account/universe observations", "exact symbol names/specs", "explicit filter or no-filter declaration", "repo-relative universe snapshot artifact", "sha256 for snapshot artifacts"],
+    forbidden_shortcuts: ["do not infer tradable symbols from public web tables", "do not persist passwords", "do not classify exchange-only symbols as MT5 verified without terminal evidence"],
+    blocked_conditions: ["MT5 terminal or package unavailable", "terminal/account identity unavailable", "symbols_get unavailable or empty", "universe filter scope missing", "artifact hash missing or mismatched"]
+  },
+  data_relevance_classification: {
+    authority_layer: "control_plane",
+    required_artifacts: ["hash-backed MT5 universe snapshot reference", "explicit per-instrument MT5 relevance classification", "reason for every non-MT5 research-only row"],
+    forbidden_shortcuts: ["do not mark external data MT5-verified without terminal symbol evidence", "do not treat heuristic asset-class hints as equivalence proof"],
+    blocked_conditions: ["missing universe snapshot", "missing per-instrument mapping basis", "unmatched source symbol without non-MT5 classification"]
   },
   mt5_bridge_smoke: {
     authority_layer: "control_plane",
@@ -48,6 +64,12 @@ const EVIDENCE_POLICY = {
     required_artifacts: ["explicit rule-set version/source date", "ledger input", "daily/max loss accounting summary", "breach status"],
     forbidden_shortcuts: ["do not invent FTMO defaults", "do not claim forward/demo survival from fixture ledger mechanics", "do not omit floating P/L, commission, or swap handling"],
     blocked_conditions: ["rule set missing", "ledger input missing", "account currency/balance missing", "daily reset model missing"]
+  },
+  stage0_research_discovery: {
+    authority_layer: "stage_0_discovery",
+    required_artifacts: ["source-backed hypothesis/source/digest/ideation artifacts", "Phase 8A MT5 universe path/hash references", "novelty and disconfirming evidence checks"],
+    forbidden_shortcuts: ["no profitability labels", "no official state/evidence mutation", "no deterministic worker bypass", "no mt5_verified claim without mt5_instrument_equivalence"],
+    blocked_conditions: ["missing source records", "missing Phase 8A universe constraint", "duplicate or prior-failed pattern not checked"]
   }
 };
 
@@ -81,6 +103,7 @@ function specPolicyCapsule({ applicableStage, evidenceKind, authorityLayer = nul
     forbidden_shortcuts: policy.forbidden_shortcuts,
     required_artifacts: policy.required_artifacts,
     blocked_conditions: policy.blocked_conditions,
+    coding_work_invariant: CODING_WORK_INVARIANT,
     max_capsule_chars: MAX_SPEC_POLICY_CAPSULE_CHARS
   };
 }
@@ -166,7 +189,10 @@ function backlogCapsule(backlogItem) {
     candidate_id: backlogItem?.candidate_id,
     candidate_stage: backlogItem?.candidate_stage,
     deployment_mode: backlogItem?.deployment_mode,
-    source: backlogItem?.source
+    source: backlogItem?.source,
+    hypothesis_packet_path: backlogItem?.hypothesis_packet_path,
+    hypothesis_packet_sha256: backlogItem?.hypothesis_packet_sha256,
+    source_record_refs: backlogItem?.source_record_refs
   };
 }
 
@@ -184,6 +210,18 @@ function plannerRequiredFieldsCapsule() {
       "expected_artifacts",
       "evaluation_criteria"
     ]
+  };
+}
+
+function stage0ResearchBrainConsumptionCapsule(stage) {
+  return {
+    scope: "Phase 8B Stage-0 discovery only; do not execute ResearchBrain, WFA, MT5 tester, MQL5 conversion, or screening work.",
+    artifact_rule: "Use Stage-0 hypothesis/source packets only by repo-relative path and sha256 from Targeted Retrieval. Do not restate raw research notes as authority.",
+    mt5_rule: "Ideas remain MT5-bound only through Phase 8A universe constraints and later mt5_instrument_equivalence; never mark mt5_verified from name similarity.",
+    profitability_rule: "Do not create profitability labels, promotion claims, or expected return metrics from Stage-0 discovery artifacts.",
+    source_quality_rule: "A single low_signal_trust source is not WFA-ready; mark it as requiring more research, not direct screening.",
+    ideator_output_rule: stage === "ideator" ? "If deriving the backlog item from a Stage-0 packet, set source='researchbrain_stage0' and include exact hypothesis_packet_path, hypothesis_packet_sha256, source_record_refs path/sha256, research_run_id, researchbrain_evidence_kind='stage0_research_discovery', and researchbrain_authority_layer='stage_0_discovery'." : null,
+    planner_rule: stage === "planner" ? "If the backlog item cites a Stage-0 packet, carry hypothesis_packet_path/hypothesis_packet_sha256/source_record_refs into source_hashes or inputs so later stages can audit provenance." : null
   };
 }
 
@@ -307,6 +345,24 @@ function executionDisciplineCapsule(evidenceKind) {
   };
 }
 
+function strategyQualityCalibrationCapsule(evidenceKind) {
+  if (normalizeEvidenceKind(evidenceKind) !== "research_wfa") return null;
+  return {
+    separation_rule: "Execution-truth acceptance only proves the WFA was launched by the deterministic worker and artifacts/metrics are real. It is not strategy-quality acceptance.",
+    weak_or_inconclusive_rule: "Use weak/inconclusive, not promising, for low-return, low-window, low-trade, or uneven OOS results even when Sharpe is high.",
+    survivor_floor_rule: "Phase 8D survivor floors are validation gates, not optimization targets. Do not tune or rerun toward exactly 8 windows, 200 trades, 5% return, or a consistency tier as post-hoc knobs. The active consistency policy is flexible: C1 keeps the clean >= 0.70 positive-window route, while C2/C3 require stronger return, Sharpe, profit factor, window-count, concentration, and drawdown-to-return diagnostics through buildResearchWfaPromotionGate. C4 has no pass route.",
+    promising_floor: {
+      annualized_return_pct: ">= 5 preferred, 5-10%+ with robustness for genuinely promising strategies",
+      completed_oos_windows: ">= 8 minimum; more is better",
+      total_trades: ">= 200 minimum unless a hash-backed pre-run low_frequency_registration_v1 exists for the candidate/run",
+      window_consistency: "active route policy: C1 >= 0.70 clean route; C2 0.50-0.69 requires compensated return/Sharpe/PF/windows/concentration/drawdown diagnostics; C3 0.30-0.49 requires stronger compensation; C4 < 0.30 has no pass route",
+      return_metric_required: "cite annualized_return_pct when available; otherwise cite aggregate_return_pct and treat low aggregate return as weak"
+    },
+    low_frequency_rule: "A low-frequency exception is invalid unless it cites a candidate-scoped factory/candidates/<candidate_id>/registrations/low-frequency-<run_id>.json artifact with matching sha256, registered_before_run_id, and invalid_if_added_after_results=true.",
+    canary_language: "Say operational canary accepted only for worker/orchestrator evidence; separately state strategy result weak/inconclusive unless it meets strategy-quality floors."
+  };
+}
+
 function artifactPathFromRef(ref) {
   if (typeof ref === "string") return ref.trim();
   if (!ref || typeof ref !== "object") return null;
@@ -339,6 +395,7 @@ export function ideatorPrompt({ state, factoryStats, retrieval, retryNote = null
     "Goal: Generate one explicit backlog candidate.",
     jsonSection("## Cycle Facts", cycleFacts(state, factoryStats)),
     marketPolicySection(factoryStats.marketPolicy),
+    jsonSection("## Stage-0 ResearchBrain Rules", stage0ResearchBrainConsumptionCapsule("ideator")),
     retrievalSection(retrieval),
     retrySection(retryNote),
     pathSection("## Exact Files To Inspect", [
@@ -369,6 +426,7 @@ export function plannerPrompt({ goal, backlogItem, state, retrieval, retryNote =
       authorityLayer: backlogItem?.authority_layer
     })),
     marketPolicySection(state.market_policy),
+    jsonSection("## Stage-0 ResearchBrain Rules", stage0ResearchBrainConsumptionCapsule("planner")),
     retrievalSection(retrieval),
     retrySection(retryNote),
     pathSection("## Exact Files To Inspect", [
@@ -411,6 +469,7 @@ export function executorPrompt({ goal, plan, state, retrieval, retryNote = null 
 
 export function evaluatorPrompt({ goal, plan, executionResult, changedFiles, state, retrieval, retryNote = null }) {
   const evidenceKind = normalizeEvidenceKind(executionResult?.evidence_kind ?? plan?.evidence_kind);
+  const strategyQualityCalibration = strategyQualityCalibrationCapsule(evidenceKind);
   return buildPrompt([
     `Goal: ${goal}`,
     jsonSection("## Evaluation Task", {
@@ -434,6 +493,7 @@ export function evaluatorPrompt({ goal, plan, executionResult, changedFiles, sta
       metrics_verified_from: "Use only repo-relative artifact paths that currently exist on disk. Do not append metric names, JSON keys, line numbers, or values.",
       missing_or_unverified: "List any metric or artifact you could not verify from disk."
     }),
+    strategyQualityCalibration && jsonSection("## Strategy Quality Calibration", strategyQualityCalibration),
     retrievalSection(retrieval),
     retrySection(retryNote),
     pathSection("## Exact Files To Inspect", uniqueStrings([

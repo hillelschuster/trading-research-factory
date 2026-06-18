@@ -1,0 +1,42 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_v1",
+  "evidence_kind": "phase8a_mt5_artifact_registration",
+  "registration_id": "PHASE8A-MT5-ARTIFACT-REGISTRATION-20260519T081345Z-WFA-VENV-SUCCEEDED-UNIVERSE",
+  "observed_at": "2026-05-19T08:50:51.611Z",
+  "authority_layer": "control_plane",
+  "official_evidence_index_mutated": false,
+  "registration_scope": "phase8a_mt5_readiness_artifacts_only",
+  "status_summary": {
+    "total": 1,
+    "ready": 1,
+    "blocked": 0,
+    "by_status": {
+      "succeeded": 1
+    },
+    "by_evidence_kind": {
+      "mt5_tradable_universe_snapshot": 1
+    }
+  },
+  "artifacts": [
+    {
+      "artifact_type": "mt5_tradable_universe_snapshot",
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea",
+      "size_bytes": 629189,
+      "modified_at": "2026-05-19T08:47:17.405Z",
+      "evidence_kind": "mt5_tradable_universe_snapshot",
+      "summary": {
+        "status": "succeeded",
+        "job_id": "JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV",
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "diagnostic_id": null,
+        "counts": null,
+        "status_summary": null,
+        "blocked_reason": null
+      },
+      "status": "succeeded"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+    "strategy_params_key": "strategy_order_flow_imbalance_eurusd.json",
+    "description": "EURUSD M15 signed tick-volume imbalance continuation screen with volatility and liquidity filters.",
+    "strategy_definition_key": "OrderFlowImbalanceEURUSD",
+    "parameters": {
+        "timeframe": "M15",
+        "imbalance_lookback": 16,
+        "imbalance_threshold": 0.25,
+        "volume_lookback": 96,
+        "volume_ratio_min": 1.0,
+        "atr_period": 14,
+        "vol_lookback": 96,
+        "vol_ratio_min": 0.9,
+        "momentum_lookback": 4,
+        "max_hold_bars": 8,
+        "sl_atr_mult": 1.5,
+        "tp_atr_mult": 2.5,
+        "start_hour": 6,
+        "end_hour": 20
+    },
+    "optimization_ranges": {
+        "imbalance_lookback": { "values": [8, 16, 24, 32] },
+        "imbalance_threshold": { "values": [0.18, 0.25, 0.35, 0.45] },
+        "volume_lookback": { "values": [48, 96, 192] },
+        "volume_ratio_min": { "values": [0.8, 1.0, 1.2] },
+        "atr_period": { "values": [10, 14, 20] },
+        "vol_lookback": { "values": [48, 96, 192] },
+        "vol_ratio_min": { "values": [0.8, 1.0, 1.2] },
+        "momentum_lookback": { "values": [2, 4, 8] },
+        "max_hold_bars": { "values": [4, 8, 12, 16] },
+        "sl_atr_mult": { "values": [1.0, 1.5, 2.0] },
+        "tp_atr_mult": { "values": [1.5, 2.5, 3.5] },
+        "start_hour": { "values": [6, 7, 8] },
+        "end_hour": { "values": [18, 20, 22] }
+    }
+}

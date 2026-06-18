@@ -1,0 +1,95 @@
+{
+  "experiment_id": "EXP-IDEA-079608-34M",
+  "title": "BTC volatility-regime trade-frequency recovery WFA",
+  "backlog_item_id": "IDEA-079608-34m",
+  "objective": "Test whether the existing BTC volatility_regime strategy can recover adequate trade frequency by widening contraction_pct and adding a simple momentum-confirmed expansion entry while keeping the mechanism volatility contraction-to-expansion, not RSI mean reversion. Market: crypto. Instrument: BTCUSDT spot. Timeframe: 1h. Data source: existing Binance CSV at walk forward engine/data/binance_btcusdt_1h_deep.csv. Canonical starting route: walk forward engine/strategies/volatility_regime/wfa_config.yaml. Expected implementation target if needed: walk forward engine/src/strategies/volatility_regime.py and walk forward engine/config/strategy_volatility_regime.json. Evidence boundary: research_wfa only; block or reject if completed WFA has zero trades, too few trades, or weak OOS metrics.",
+  "hypothesis": "The explicit volatility_regime WFA route can be evaluated as research_wfa evidence only if the canonical engine produces verified artifacts and out-of-sample metrics.",
+  "strategy_rationale": "This plan was compiled deterministically from a WFA-ready backlog item with an existing canonical config path.",
+  "strategy_type": "volatility_regime",
+  "market_family": "crypto",
+  "instrument_scope": "BTCUSDT spot",
+  "timeframe": "1h",
+  "priority": 74,
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "candidate_id": null,
+  "lineage_id": null,
+  "family_id": null,
+  "deployment_mode": "research_only",
+  "dataset_requirements": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "historical_depth_requirement": {
+    "target": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+    "justification": "The backlog item already defines a concrete WFA route; deterministic planning should not block on an LLM when execution gates will verify data and artifacts."
+  },
+  "source_plan": {
+    "allowed_source_families": [
+      "binance_existing_csv"
+    ],
+    "primary_source_family": "binance_existing_csv",
+    "selection_reason": "Backlog item supplied an explicit canonical WFA config route and research-only evidence boundary."
+  },
+  "scope_selection_rationale": "Test whether the existing BTC volatility_regime strategy can recover adequate trade frequency by widening contraction_pct and adding a simple momentum-confirmed expansion entry while keeping the mechanism volatility contraction-to-expansion, not RSI mean reversion. Market: crypto. Instrument: BTCUSDT spot. Timeframe: 1h. Data source: existing Binance CSV at walk forward engine/data/binance_btcusdt_1h_deep.csv. Canonical starting route: walk forward engine/strategies/volatility_regime/wfa_config.yaml. Expected implementation target if needed: walk forward engine/src/strategies/volatility_regime.py and walk forward engine/config/strategy_volatility_regime.json. Evidence boundary: research_wfa only; block or reject if completed WFA has zero trades, too few trades, or weak OOS metrics.",
+  "data_acquisition": {
+    "status": "present",
+    "reason": "The deterministic compiler only records the explicit route; executor and validators must verify data availability before evidence can be accepted.",
+    "acquisition_method": "binance_existing_csv",
+    "sources": [
+      "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+    ],
+    "commands": [],
+    "expected_outputs": [
+      "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+    ]
+  },
+  "inputs": [
+    "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "walk forward engine/config/strategy_volatility_regime.json",
+    "walk forward engine/src/strategies/volatility_regime.py",
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "implementation_steps": [
+    "Inspect walk forward engine/strategies/volatility_regime/wfa_config.yaml and referenced strategy/data inputs before execution.",
+    "Run the canonical WFA command from the walk forward engine directory: .venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml",
+    "Collect WFA output artifacts, metrics, completed-window count, stdout/stderr, and an artifact manifest.",
+    "Mark the run blocked or inconclusive if any required artifact or metric is missing."
+  ],
+  "commands": [
+    ".venv\\Scripts\\python.exe scripts/walk_forward_smoke_test.py --config strategies/volatility_regime/wfa_config.yaml"
+  ],
+  "expected_artifacts": [
+    "factory/runs/RUN-20260513113253-gghape/execution-result.json",
+    "factory/runs/RUN-20260513113253-gghape/artifact_manifest.json",
+    "factory/runs/RUN-20260513113253-gghape/gate-results.json",
+    "factory/summaries/RUN-20260513113253-gghape.md"
+  ],
+  "advanced_wfa_config": {
+    "config_path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "planner_bypass": "deterministic_wfa_ready_compiler"
+  },
+  "evaluation_criteria": {
+    "status_gate": "Only accept executed research_wfa evidence when canonical WFA artifacts, observed metrics, and at least one completed walk-forward window are verified.",
+    "metrics": {
+      "min_wfa_windows": 1,
+      "min_trades": 1,
+      "min_evidence_score": 50
+    },
+    "min_evidence_score": 50
+  },
+  "fallback_if_blocked": [
+    "If config or data is missing, mark blocked with exact missing path.",
+    "If WFA exits nonzero or produces no trades/windows, mark inconclusive or blocked with captured logs.",
+    "If artifacts cannot be verified from disk, do not claim executed evidence."
+  ],
+  "notes": [
+    "Compiled deterministically from a WFA-ready backlog item; no LLM planner authority was used.",
+    "This plan is a proposal route only; execution, metrics, evidence, gates, and state remain deterministic/artifact-bound."
+  ],
+  "planner_bypass": {
+    "compiler": "deterministic_wfa_ready_compiler_v1",
+    "reason": "explicit_research_wfa_route",
+    "wfa_config_path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "compiled_at": "2026-05-13T11:32:55.696Z"
+  }
+}

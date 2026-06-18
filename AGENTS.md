@@ -3,7 +3,9 @@
 ## Mission
 Convert raw trading ideas into **scored evidence**.
 
-The primary objective is to improve a **walk-forward strategy factory**. Every run should move the workspace toward stronger strategy code, cleaner experiment design, better evaluation, or better research memory.
+The primary objective is to find small, robust Python-research edges and move only viable ones toward MQL5 conversion, MT5 Strategy Tester parity, FTMO demo, and eventually live deployment.
+
+Ideas are relevant only if they can map to a real FTMO/MT5 tradable symbol and be backtested with high parity in the FTMO desktop MT5 environment. This may include crypto CFDs, FX, indices, stocks, metals, or other broker-supported instruments.
 
 ## Hard boundary: repository scope
 - Filesystem work should remain inside this repository except for these approved MT5 paths:
@@ -20,6 +22,8 @@ The primary objective is to improve a **walk-forward strategy factory**. Every r
 - Never claim success without artifacts that actually exist on disk.
 - Never delete prior evidence; version or append instead.
 - If data, code, or metrics are missing, mark the run blocked or inconclusive.
+- In orchestrator mode, the strongest model owns strategy, architecture, phase authority, and final evidence judgment.
+- Subagents are bounded sensors/workers: use them for inspectable search, verification, and scoped execution only; deterministic artifacts, tests, hashes, and the orchestrator decide truth.
 - Prefer narrow, testable experiments over vague exploration.
 - Treat simulation artifacts as orchestration validation only.
 - When working on strategy code, optimize for reproducibility and evidence quality.
@@ -45,11 +49,11 @@ The primary objective is to improve a **walk-forward strategy factory**. Every r
 - lesson appended to `factory/memory/lessons.jsonl`
 
 ## Primary focus areas (in priority order)
-1. **Crypto strategies** — liquid crypto markets; momentum, mean-reversion, breakout, funding-rate arb
-2. **Prediction markets / Polymarket** — event-driven signals, market-structure edges, cross-market context
+1. **MT5/FTMO tradable strategies** — any real broker-supported symbol with enough data and a plausible edge
+2. **Python-to-MQL5 parity path** — preserve behavior from research code through MT5 Strategy Tester
 3. **WFA engine quality** — improve the walk-forward analysis harness for robustness and extensibility
-4. **Data readiness** — live fetching from Binance (crypto), Dukascopy (FX), and public Polymarket data
-5. **Baseline strategy library** — grow beyond SMA crossover into crypto-native and prediction-market strategies
+4. **Data readiness** — acquire and validate data that maps cleanly to MT5/FTMO symbols
+5. **Baseline strategy library** — grow robust, non-overfit strategies that can become MQL5 candidates
 6. **Memory and scoring** — track what failed and why; improve evidence scoring over time
 
 ## WFA-first guidance
@@ -113,8 +117,10 @@ Return structured JSON whenever explicitly requested. Do not hide uncertainty. K
 
 ## Tool usage guidelines
 
-When you need current documentation or code examples:
-- Use **Context7** (`context7_resolve-library-id` + `context7_query-docs`) for the most up-to-date library/SDK documentation
+Before coding work:
+- Use **Context7** (`context7_resolve-library-id` + `context7_query-docs`) before editing source code, scripts, tests, runtime behavior, libraries, APIs, frameworks, SDKs, CLIs, or cloud-service integrations.
+- This applies even for familiar runtimes such as Node.js/Python standard libraries and for refactors, new scripts, debugging code, and tests.
+- Skip Context7 only for pure prose/docs edits or repository-specific business-rule reasoning with no runtime, language, library, API, framework, SDK, or CLI semantics.
 
 When you need deeper analytical thinking:
 - Use **Sequential Thinking** (`sequential-thinking_sequentialthinking`) for complex problem-solving, multi-step analysis, or when your reasoning needs to evolve

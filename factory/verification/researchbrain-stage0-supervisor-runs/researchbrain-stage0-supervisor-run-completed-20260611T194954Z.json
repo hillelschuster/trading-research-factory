@@ -1,0 +1,964 @@
+{
+  "schema_version": "researchbrain_stage0_supervisor_run_report_v1",
+  "generated_at": "2026-06-11T19:51:42.072Z",
+  "report_metadata": {
+    "report_type": "supervisor_run",
+    "artifact_path": "factory/verification/researchbrain-stage0-supervisor-runs/researchbrain-stage0-supervisor-run-completed-20260611T194954Z.json",
+    "path_scope": "repo_relative",
+    "schema_stable": true,
+    "sha256_recorded_by_writer": true,
+    "diagnostic_only": true
+  },
+  "authority": {
+    "non_authoritative_operational_report": true,
+    "official_state_mutated": false,
+    "official_evidence_index_mutated": false,
+    "official_backlog_mutated": false,
+    "official_leaderboard_mutated": false,
+    "profitability_labels_created": false,
+    "deterministic_workers_bypassed": false,
+    "wfa_executed": false,
+    "mt5_executed": false,
+    "phase8e_started": false
+  },
+  "supervisor_result": {
+    "schema_version": "researchbrain_stage0_supervisor_run_result_v1",
+    "generated_at": "2026-06-11T19:49:54.775Z",
+    "status": "completed",
+    "stop_reason": "cycles_exhausted",
+    "next_action": "none",
+    "recommendation": {
+      "status": "ok",
+      "next_action": "none",
+      "reason": "stage0_supervisor_ready",
+      "summary": "Stage-0 supervisor run completed without actionable or drainable attention.",
+      "diagnostic_only": true
+    },
+    "max_cycles": 1,
+    "stop_on_attention": true,
+    "aggregate": {
+      "cycles_run": 1,
+      "status_counts": {
+        "completed": 1
+      },
+      "attention_class_counts": {
+        "none": 1,
+        "drainable": 0,
+        "actionable": 0
+      },
+      "loop_stop_reasons": {
+        "max_jobs_reached": 1
+      },
+      "readiness_attention_reasons": {},
+      "actionable_diagnostics_reasons": {},
+      "totals": {
+        "seeded": 1,
+        "already_seeded": 0,
+        "jobs_processed": 1,
+        "lease_reclaims": 0,
+        "stage0_ready_jobs": 0,
+        "terminal_jobs": 1,
+        "outbox_events_processed": 1,
+        "projected_terminal_events": 1,
+        "cycles_with_progress": 1
+      },
+      "final_operational_snapshot": {
+        "status": "ready",
+        "attention_reasons": [],
+        "attention_classification": {
+          "status": "none",
+          "next_action": "none",
+          "reasons": [],
+          "drainable_reasons": [],
+          "actionable_reasons": [],
+          "actionable_diagnostics_reasons": []
+        },
+        "actionable_diagnostics_reasons": [],
+        "jobs": {
+          "total": 8,
+          "queued": 0,
+          "ready": 0,
+          "claimed": 0,
+          "stale_claimed": 0,
+          "claimable_stale_or_ready": 0,
+          "blocked": 7,
+          "poisoned": 0,
+          "stage0_ready": 1
+        },
+        "outbox": {
+          "total": 8,
+          "pending": 0,
+          "processed": 8,
+          "other": 0
+        },
+        "requests": {
+          "seeded": 8,
+          "invalid": 0,
+          "unseeded_valid": 0,
+          "changed_seeded_sha": 0,
+          "seeded_output_collisions": 0
+        },
+        "terminal_failures": {
+          "status": "expected_terminal_failures_only",
+          "total": 7,
+          "unreconciled": 0
+        },
+        "projection_recovery": {
+          "checked_processed_without_matching_projection_files": 0,
+          "orphan_projection_files": 0,
+          "unidentified_projection_files": 0
+        },
+        "runtime_consistency": {
+          "status": "ok",
+          "checked_final_jobs": 8,
+          "inconsistent_final_jobs": 0,
+          "truncated": false,
+          "issue_counts_by_reason": {}
+        }
+      },
+      "final_readiness_summary": {
+        "schema_version": "researchbrain_stage0_ops_readiness_report_v1",
+        "generated_at": "2026-06-11T19:51:35.002Z",
+        "status": "ready",
+        "attention_reasons": [],
+        "attention_classification": {
+          "status": "none",
+          "next_action": "none",
+          "reasons": [],
+          "drainable_reasons": [],
+          "actionable_reasons": [],
+          "actionable_diagnostics_reasons": []
+        },
+        "actionable_diagnostics_reasons": [],
+        "diagnostics": {
+          "jobs": {
+            "total": 8,
+            "queued": 0,
+            "ready": 0,
+            "claimed": 0,
+            "stale_claimed": 0,
+            "claimable_stale_or_ready": 0,
+            "blocked": 7,
+            "poisoned": 0,
+            "stage0_ready": 1
+          },
+          "outbox": {
+            "total": 8,
+            "pending": 0,
+            "processed": 8,
+            "other": 0
+          },
+          "projections": {
+            "total_files": 8,
+            "latest_checked": 5,
+            "latest_parse_errors": 0
+          }
+        },
+        "terminal_failure_reconciliation_status": "expected_terminal_failures_only",
+        "terminal_failures_total": 7,
+        "terminal_failures_unreconciled": 0,
+        "projection_recovery": {
+          "checked_processed_without_matching_projection_files": 0,
+          "orphan_projection_files": 0,
+          "unidentified_projection_files": 0
+        },
+        "runtime_consistency": {
+          "status": "ok",
+          "checked_final_jobs": 8,
+          "inconsistent_final_jobs": 0,
+          "truncated": false,
+          "issue_counts_by_reason": {}
+        },
+        "requests": {
+          "seeded": 8,
+          "invalid": 0,
+          "unseeded_valid": 0,
+          "changed_seeded_sha": 0,
+          "seeded_output_collisions": 0
+        },
+        "authority": {
+          "non_authoritative_operational_report": true,
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        }
+      }
+    },
+    "failure": null,
+    "failure_artifact": null,
+    "run_report_artifact": null,
+    "cycles": [
+      {
+        "cycle_number": 1,
+        "schema_version": "researchbrain_stage0_supervisor_result_v1",
+        "generated_at": "2026-06-11T19:49:54.776Z",
+        "status": "completed",
+        "next_action": "none",
+        "recommendation": {
+          "status": "ok",
+          "next_action": "none",
+          "reason": "stage0_supervisor_ready",
+          "summary": "Stage-0 supervisor run completed without actionable or drainable attention.",
+          "diagnostic_only": true
+        },
+        "supervisor_health": {
+          "status": "healthy",
+          "alert_level": "none",
+          "reason": "stage0_supervisor_ready",
+          "safe_to_run_another_bounded_cycle": true,
+          "operator_inspection_required": false,
+          "failed_stage": null,
+          "diagnostic_only": true
+        },
+        "operational_summary": {
+          "status": "completed",
+          "next_action": "none",
+          "recommendation_status": "ok",
+          "progress_made": true,
+          "jobs_processed": 1,
+          "stage0_ready_jobs": 0,
+          "terminal_jobs": 1,
+          "outbox_events_processed": 1,
+          "projected_terminal_events": 1,
+          "remaining_claimable_jobs": 0,
+          "pending_outbox_events": 0,
+          "readiness_status": "ready",
+          "attention_status": "none",
+          "attention_reasons": [],
+          "terminal_failures_unreconciled": 0,
+          "runtime_consistency_status": "ok",
+          "diagnostic_only": true
+        },
+        "cycle_summary": {
+          "seed_status": "seeded",
+          "loop_status": "blocked_or_empty",
+          "jobs_processed": 1,
+          "ready_jobs": 0,
+          "terminal_jobs": 1,
+          "terminal_job_summaries": [
+            {
+              "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+              "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+              "status": "blocked",
+              "failure_class": "schema_or_validation_failure",
+              "retryable": false,
+              "error_message": "researchbrain_stage0_runtime_result_v1 validation failed: artifacts_created[4].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[5].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json; artifacts_created[6].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[7].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json",
+              "request_artifact": {
+                "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z/request.json",
+                "sha256": "063fe2dbf464256651b33cf62289d86d8410289d3cf64dda3ad942673b3a8a97"
+              }
+            }
+          ],
+          "outbox_status": "processed",
+          "outbox_events_processed": 1,
+          "projected_terminal_events": 1,
+          "diagnostics_attention_reasons": [
+            "blocked_jobs"
+          ],
+          "actionable_diagnostics_reasons": []
+        },
+        "readiness_summary": {
+          "schema_version": "researchbrain_stage0_ops_readiness_report_v1",
+          "generated_at": "2026-06-11T19:51:35.002Z",
+          "status": "ready",
+          "attention_reasons": [],
+          "attention_classification": {
+            "status": "none",
+            "next_action": "none",
+            "reasons": [],
+            "drainable_reasons": [],
+            "actionable_reasons": [],
+            "actionable_diagnostics_reasons": []
+          },
+          "actionable_diagnostics_reasons": [],
+          "diagnostics": {
+            "jobs": {
+              "total": 8,
+              "queued": 0,
+              "ready": 0,
+              "claimed": 0,
+              "stale_claimed": 0,
+              "claimable_stale_or_ready": 0,
+              "blocked": 7,
+              "poisoned": 0,
+              "stage0_ready": 1
+            },
+            "outbox": {
+              "total": 8,
+              "pending": 0,
+              "processed": 8,
+              "other": 0
+            },
+            "projections": {
+              "total_files": 8,
+              "latest_checked": 5,
+              "latest_parse_errors": 0
+            }
+          },
+          "terminal_failure_reconciliation_status": "expected_terminal_failures_only",
+          "terminal_failures_total": 7,
+          "terminal_failures_unreconciled": 0,
+          "projection_recovery": {
+            "checked_processed_without_matching_projection_files": 0,
+            "orphan_projection_files": 0,
+            "unidentified_projection_files": 0
+          },
+          "runtime_consistency": {
+            "status": "ok",
+            "checked_final_jobs": 8,
+            "inconsistent_final_jobs": 0,
+            "truncated": false,
+            "issue_counts_by_reason": {}
+          },
+          "requests": {
+            "seeded": 8,
+            "invalid": 0,
+            "unseeded_valid": 0,
+            "changed_seeded_sha": 0,
+            "seeded_output_collisions": 0
+          },
+          "authority": {
+            "non_authoritative_operational_report": true,
+            "official_state_mutated": false,
+            "official_evidence_index_mutated": false,
+            "official_backlog_mutated": false,
+            "official_leaderboard_mutated": false,
+            "profitability_labels_created": false,
+            "deterministic_workers_bypassed": false,
+            "wfa_executed": false,
+            "mt5_executed": false,
+            "phase8e_started": false
+          }
+        },
+        "seed": {
+          "schema_version": "researchbrain_stage0_job_seed_result_v1",
+          "generated_at": "2026-06-11T19:49:54.899Z",
+          "status": "seeded",
+          "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+          "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+          "job_type": "researchbrain_stage0",
+          "job_status": "queued",
+          "priority": 0,
+          "request_artifact": {
+            "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z/request.json",
+            "sha256": "063fe2dbf464256651b33cf62289d86d8410289d3cf64dda3ad942673b3a8a97",
+            "request_id": "RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z"
+          },
+          "output_dir": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        },
+        "loop": {
+          "schema_version": "researchbrain_stage0_loop_result_v1",
+          "generated_at": "2026-06-11T19:51:33.973Z",
+          "owner_id": "researchbrain-stage0-supervisor-loop-cli-18693-cycle-1",
+          "job_type": "researchbrain_stage0",
+          "status": "blocked_or_empty",
+          "stop_reason": "max_jobs_reached",
+          "max_jobs": 1,
+          "jobs_processed": 1,
+          "lease_reclaims": 0,
+          "jobs": [
+            {
+              "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+              "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+              "ledger_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+              "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F-ATTEMPT-1",
+              "status": "blocked",
+              "runtime_status": "blocked",
+              "result_artifact": null,
+              "quarantine_paths": [],
+              "artifacts_recorded": 0,
+              "claim": {
+                "reclaimed_stale_lease": false,
+                "prior_owner_id": null,
+                "prior_fencing_token": null,
+                "prior_claimed_at": null,
+                "prior_heartbeat_at": null,
+                "prior_expires_at": null,
+                "new_fencing_token": 1
+              },
+              "blockers": [
+                "researchbrain_stage0_runtime_result_v1 validation failed: artifacts_created[4].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[5].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json; artifacts_created[6].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[7].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json"
+              ],
+              "failure_class": "schema_or_validation_failure",
+              "retryable": false,
+              "failure_summary": {
+                "failure_class": "schema_or_validation_failure",
+                "retryable": false,
+                "error_message": "researchbrain_stage0_runtime_result_v1 validation failed: artifacts_created[4].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[5].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json; artifacts_created[6].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[7].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json",
+                "final_terminal_state": null,
+                "request_artifact": {
+                  "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z/request.json",
+                  "sha256": "063fe2dbf464256651b33cf62289d86d8410289d3cf64dda3ad942673b3a8a97"
+                },
+                "runtime_result_artifact": null,
+                "quarantine_paths": [],
+                "blockers": []
+              }
+            }
+          ],
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false
+        },
+        "outbox": {
+          "schema_version": "researchbrain_stage0_outbox_consumer_result_v1",
+          "generated_at": "2026-06-11T19:51:34.479Z",
+          "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-18693-cycle-1",
+          "event_type": "researchbrain.stage0_job_finished",
+          "status": "processed",
+          "events_processed": 1,
+          "processed": [
+            {
+              "event_id": "EVT-RB-STAGE0-da2de1684961a10c62fdd49b93c1920d",
+              "processed": true,
+              "already_processed": false,
+              "projection_artifact": {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-da2de1684961a10c62fdd49b93c1920d.json",
+                "sha256": "10bfe801b9160f5110646e02a8453571340c4a18c0ffbfbce292c655842f558a",
+                "size_bytes": 6327
+              },
+              "projected_status": "blocked"
+            }
+          ],
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "wfa_executed": false,
+          "mt5_executed": false
+        },
+        "diagnostics": {
+          "schema_version": "researchbrain_stage0_diagnostics_v1",
+          "generated_at": "2026-06-11T19:51:34.561Z",
+          "job_type": "researchbrain_stage0",
+          "event_type": "researchbrain.stage0_job_finished",
+          "status": "attention",
+          "attention_reasons": [
+            "blocked_jobs"
+          ],
+          "ledger": {
+            "schema_version": "phase7b_runtime_ledger_v1",
+            "sqlite_version": "3.49.1",
+            "journal_mode": "delete",
+            "wal_enabled": false,
+            "wal_reason": "disabled_on_drvfs_or_mounted_path",
+            "busy_timeout_ms": 5000,
+            "db_path": "/mnt/c/Users/הלל/Desktop/algo projects/trading-research-factory/factory/runtime/factory.sqlite",
+            "db_exists": true,
+            "db_filesystem_location": "mounted_path"
+          },
+          "jobs": {
+            "total": 8,
+            "queued": 0,
+            "ready": 0,
+            "claimed": 0,
+            "stale_claimed": 0,
+            "claimed_without_lease": 0,
+            "claimable_stale_or_ready": 0,
+            "blocked": 7,
+            "poisoned": 0,
+            "stage0_ready": 1,
+            "other": 0
+          },
+          "stale_claims": [],
+          "attempts": {
+            "by_status": {
+              "total": 8,
+              "blocked": 7,
+              "stage0_ready": 1
+            },
+            "latest": [
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:49:55.058Z",
+                "finished_at": "2026-06-11T19:51:33.678Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:37:35.022Z",
+                "finished_at": "2026-06-11T19:39:35.721Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:23:31.987Z",
+                "finished_at": "2026-06-11T19:24:11.314Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T20:03:37.279Z",
+                "finished_at": "2026-06-08T20:04:36.936Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T19:28:44.794Z",
+                "finished_at": "2026-06-08T19:29:02.508Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T19:17:09.181Z",
+                "finished_at": "2026-06-08T19:17:23.254Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T21:38:25.326Z",
+                "finished_at": "2026-06-07T21:38:26.976Z"
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+                "attempt_number": 1,
+                "status": "stage0_ready",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T15:46:11.051Z",
+                "finished_at": "2026-06-07T15:46:11.633Z"
+              }
+            ],
+            "latest_failures": [
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:49:55.058Z",
+                "finished_at": "2026-06-11T19:51:33.678Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "researchbrain_stage0_runtime_result_v1 validation failed: artifacts_created[4].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[5].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json; artifacts_created[6].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/content.md; artifacts_created[7].sha256 does not match factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F/tool-captures/url/SRC-LIVE-CANARY-001/metadata.json",
+                  "final_terminal_state": null,
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z/request.json",
+                    "sha256": "063fe2dbf464256651b33cf62289d86d8410289d3cf64dda3ad942673b3a8a97"
+                  },
+                  "runtime_result_artifact": null,
+                  "quarantine_paths": [],
+                  "blockers": []
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:37:35.022Z",
+                "finished_at": "2026-06-11T19:39:35.721Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "terminal_failed_condition",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z/request.json",
+                    "sha256": "1f4901273533f57370f18de6376749f3996853db43326c8749f81fbc88354df1"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D/runtime-result.json",
+                    "sha256": "092b900aea1ffa93ca7c3eacb01708736806893bc6a1d8e4640733c3f928fb58"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D/quarantine/attempt-001.json",
+                      "sha256": "c9ff0e4b1da5831b19e0aa9925c639d081c8ccd4384fd7c443c937129c84faa1"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-11T19:23:31.987Z",
+                "finished_at": "2026-06-11T19:24:11.314Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "schema_or_validation_failure",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z/request.json",
+                    "sha256": "71c53b8b50e2505ca67880b9e314cb9e7f1084189bd2276b3da9b398110841df"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4/runtime-result.json",
+                    "sha256": "cfe0c74c658dfb4434d8073e0a82f953aeb60056f07c71c464af1f9f0f05b7d9"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4/quarantine/attempt-001.json",
+                      "sha256": "d7311ae76b9ef0a7687d4767c286a68249442cc528455f75e5f9f948399e56f0"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T20:03:37.279Z",
+                "finished_at": "2026-06-08T20:04:36.936Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "terminal_failed_condition",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z/request.json",
+                    "sha256": "b6ac0c9bfee0bb5c3654b962a3860ab4fe6aa4c46514ccb5e3f8702188b01039"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/runtime-result.json",
+                    "sha256": "e51f7c3cd7513ca9879649484ea076ae0eaf355e3f55a5305ac8154f2571bcc5"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+                      "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc"
+                    },
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+                      "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T19:28:44.794Z",
+                "finished_at": "2026-06-08T19:29:02.508Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "terminal_failed_condition",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z/request.json",
+                    "sha256": "26eda2aac6868ec5b8b8d153de0f6f83911e2109eff140442619705761c07c6b"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8/runtime-result.json",
+                    "sha256": "69faffe01886082a9c01e7276f153bed69aefd0fae638cca486f3599e63ff449"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8/quarantine/attempt-001.json",
+                      "sha256": "7c9c08b9a1b1fefe0d49884a4f0f4261b267398393ac3ba4f653b8385c125b3d"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-08T19:17:09.181Z",
+                "finished_at": "2026-06-08T19:17:23.254Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "terminal_failed_condition",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z/request.json",
+                    "sha256": "f3d9ea9e8c20d9113e7100023702c45b3db0e631721c5e0f4f8a11ed9b91f970"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/runtime-result.json",
+                    "sha256": "99761507696c2216314f62cdbd38b74ef096750c2c1e01d074008c5c401efb03"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
+                      "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              },
+              {
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042-ATTEMPT-1",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042",
+                "attempt_number": 1,
+                "status": "blocked",
+                "worker": "researchbrain_stage0_loop_runner",
+                "started_at": "2026-06-07T21:38:25.326Z",
+                "finished_at": "2026-06-07T21:38:26.976Z",
+                "failure_summary": {
+                  "failure_class": "schema_or_validation_failure",
+                  "retryable": false,
+                  "error_message": "no_valid_provider_output",
+                  "final_terminal_state": "transient_retryable_failure",
+                  "request_artifact": {
+                    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z/request.json",
+                    "sha256": "63df80daaf110c6a1da26ba30a207671f005536ec4fb479f1a5fa7e78b44b75b"
+                  },
+                  "runtime_result_artifact": {
+                    "artifact_type": "researchbrain_stage0_runtime_result",
+                    "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/runtime-result.json",
+                    "sha256": "50a9c115cf0c99b1309c28f751b55a99fd1bd50a9d9a9f1623ccb3c1fc019627"
+                  },
+                  "quarantine_paths": [
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-001.json",
+                      "sha256": "9ea6b26f114cbefc3ec421112e576bb83034faf781a781e342064603b7a222bc"
+                    },
+                    {
+                      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-CANARY-20260523T124500Z-64EA8A61460068AD31DF6042/quarantine/attempt-002.json",
+                      "sha256": "e870f0f8e17463381f797c6f40ea39013a832a476287f9eccf07973dae3b8bf0"
+                    }
+                  ],
+                  "blockers": [
+                    "no_valid_provider_output"
+                  ]
+                }
+              }
+            ]
+          },
+          "outbox": {
+            "by_status": {
+              "pending": 0,
+              "processed": 8,
+              "other": 0,
+              "total": 8
+            },
+            "oldest_pending": []
+          },
+          "projections": {
+            "output_dir": "factory/runtime/projections/researchbrain-stage0",
+            "total_files": 8,
+            "latest": [
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-da2de1684961a10c62fdd49b93c1920d.json",
+                "sha256": "10bfe801b9160f5110646e02a8453571340c4a18c0ffbfbce292c655842f558a",
+                "size_bytes": 6327,
+                "modified_at": "2026-06-11T19:51:34.324Z",
+                "event_id": "EVT-RB-STAGE0-da2de1684961a10c62fdd49b93c1920d",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-4096-20260611T1945Z-DA2A50634186F291515F169F-ATTEMPT-1",
+                "parse_error": false
+              },
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-da332a2b3f10066a56559563983abc70.json",
+                "sha256": "768d4cdbe149573eda0160053d2cbc19ed446c5bbd0320d0aea8705e3a207a67",
+                "size_bytes": 8022,
+                "modified_at": "2026-06-11T19:39:36.020Z",
+                "event_id": "EVT-RB-STAGE0-da332a2b3f10066a56559563983abc70",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-FINAL-20260611T1930Z-A0FE56191EE7D64A7DAA253D-ATTEMPT-1",
+                "parse_error": false
+              },
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-a644668b950cb25be12ae5b8a0873183.json",
+                "sha256": "f760a8e5e42a779bf997675d2ad79630dc07236f5aacfb8f28758c0caa2c5556",
+                "size_bytes": 7244,
+                "modified_at": "2026-06-11T19:24:11.586Z",
+                "event_id": "EVT-RB-STAGE0-a644668b950cb25be12ae5b8a0873183",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-HARDENED-20260608T2045Z-A72BA23DE3FEA9ADE93FABA4-ATTEMPT-1",
+                "parse_error": false
+              },
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-7898de61cd8e6316d8dedf1f637c2ef2.json",
+                "sha256": "2a4e8471236e93fd813050d1650d40f21c407dbd97b228c967e48c65141b71d8",
+                "size_bytes": 8161,
+                "modified_at": "2026-06-08T20:04:37.221Z",
+                "event_id": "EVT-RB-STAGE0-7898de61cd8e6316d8dedf1f637c2ef2",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812-ATTEMPT-1",
+                "parse_error": false
+              },
+              {
+                "path": "factory/runtime/projections/researchbrain-stage0/EVT-RB-STAGE0-429aa2001a54f30c9d352e0a2fb69b50.json",
+                "sha256": "eb20f0768bebf6635147112934520f40badc04919548e40c139462a2dc4433ee",
+                "size_bytes": 7280,
+                "modified_at": "2026-06-08T19:29:02.721Z",
+                "event_id": "EVT-RB-STAGE0-429aa2001a54f30c9d352e0a2fb69b50",
+                "projected_status": "blocked",
+                "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8",
+                "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-RESTRICTED-20260608T1930Z-909A7FA2FFFC08D20B8781B8-ATTEMPT-1",
+                "parse_error": false
+              }
+            ]
+          },
+          "official_state_mutated": false,
+          "official_evidence_index_mutated": false,
+          "official_backlog_mutated": false,
+          "official_leaderboard_mutated": false,
+          "profitability_labels_created": false,
+          "deterministic_workers_bypassed": false,
+          "wfa_executed": false,
+          "mt5_executed": false,
+          "phase8e_started": false
+        },
+        "official_state_mutated": false,
+        "official_evidence_index_mutated": false,
+        "official_backlog_mutated": false,
+        "official_leaderboard_mutated": false,
+        "profitability_labels_created": false,
+        "deterministic_workers_bypassed": false,
+        "wfa_executed": false,
+        "mt5_executed": false,
+        "phase8e_started": false
+      }
+    ],
+    "official_state_mutated": false,
+    "official_evidence_index_mutated": false,
+    "official_backlog_mutated": false,
+    "official_leaderboard_mutated": false,
+    "profitability_labels_created": false,
+    "deterministic_workers_bypassed": false,
+    "wfa_executed": false,
+    "mt5_executed": false,
+    "phase8e_started": false,
+    "report_artifact_summary": {
+      "requested": {
+        "run_report": true,
+        "failure_report": false
+      },
+      "written": {
+        "run_report": false,
+        "failure_report": false
+      },
+      "all_requested_reports_written": false,
+      "all_written_reports_verified": true,
+      "artifacts": {
+        "run_report": null,
+        "failure_report": null
+      },
+      "diagnostic_only": true
+    },
+    "operational_summary": {
+      "status": "completed",
+      "stop_reason": "cycles_exhausted",
+      "next_action": "none",
+      "recommendation_status": "ok",
+      "cycles_run": 1,
+      "cycles_with_progress": 1,
+      "jobs_processed": 1,
+      "stage0_ready_jobs": 0,
+      "terminal_jobs": 1,
+      "outbox_events_processed": 1,
+      "projected_terminal_events": 1,
+      "remaining_claimable_jobs": 0,
+      "pending_outbox_events": 0,
+      "final_readiness_status": "ready",
+      "attention_status": "none",
+      "attention_reasons": [],
+      "failed_stage": null,
+      "report_artifacts_all_verified": true,
+      "diagnostic_only": true
+    },
+    "supervisor_health": {
+      "status": "healthy",
+      "alert_level": "none",
+      "reason": "stage0_supervisor_ready",
+      "safe_to_run_another_bounded_cycle": true,
+      "operator_inspection_required": false,
+      "failed_stage": null,
+      "diagnostic_only": true
+    }
+  }
+}

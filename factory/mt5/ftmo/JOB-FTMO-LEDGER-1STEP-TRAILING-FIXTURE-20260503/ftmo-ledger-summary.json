@@ -1,0 +1,106 @@
+{
+  "schema_version": "ftmo_ledger_summary_v1",
+  "evidence_kind": "ftmo_ledger",
+  "authority_layer": "control_plane",
+  "status": "succeeded",
+  "observed_at": "2026-05-03T21:00:04.599Z",
+  "request": {
+    "schema_version": "ftmo_ledger_request_v1",
+    "evidence_kind": "ftmo_ledger",
+    "authority_layer": "control_plane",
+    "run_id": "RUN-FTMO-LEDGER-1STEP-TRAILING-FIXTURE-20260503",
+    "job_id": "JOB-FTMO-LEDGER-1STEP-TRAILING-FIXTURE-20260503",
+    "rule_set_path": "factory/mt5/ftmo/rules/ftmo-1-step-trading-objectives-2026-04-22.json",
+    "ledger_path": "factory/mt5/ftmo/fixtures/ledger-mechanics-1-step-trailing-clean-pass.json",
+    "boundary": "No FTMO defaults are embedded; rule-set and ledger inputs must be explicit repo-contained artifacts."
+  },
+  "observations": {
+    "rule_set": {
+      "ftmo_target": "1-step",
+      "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_1-step_v1",
+      "source_date": "2026-04-22",
+      "reset_timezone": "Europe/Prague",
+      "source_url": "https://ftmo.com/en/trading-objectives/"
+    },
+    "account": {
+      "currency": "USD",
+      "starting_balance": 100000
+    },
+    "ledger_summary": {
+      "max_loss_model": "end_of_day_trailing",
+      "daily_loss_limit": 3000,
+      "max_loss_limit": 10000,
+      "max_loss_limit_level": 94000,
+      "trailing_high_watermark_balance": 104000,
+      "days": [
+        {
+          "date": "2026-04-30",
+          "start_balance": 100000,
+          "start_equity": 100000,
+          "min_equity": 100000,
+          "closing_balance": 104000,
+          "daily_loss_limit_level": 97000,
+          "max_loss_limit_level": 90000,
+          "daily_loss": 0,
+          "breached": false,
+          "daily_breached": false,
+          "max_loss_breached": false
+        },
+        {
+          "date": "2026-05-01",
+          "start_balance": 104000,
+          "start_equity": 104000,
+          "min_equity": 103500,
+          "closing_balance": 103500,
+          "daily_loss_limit_level": 101000,
+          "max_loss_limit_level": 94000,
+          "daily_loss": 500,
+          "breached": false,
+          "daily_breached": false,
+          "max_loss_breached": false
+        },
+        {
+          "date": "2026-05-02",
+          "start_balance": 103500,
+          "start_equity": 103500,
+          "min_equity": 103300,
+          "closing_balance": 103300,
+          "daily_loss_limit_level": 100500,
+          "max_loss_limit_level": 94000,
+          "daily_loss": 200,
+          "breached": false,
+          "daily_breached": false,
+          "max_loss_breached": false
+        }
+      ],
+      "max_loss": 0,
+      "breached": false,
+      "breach_reasons": [],
+      "final_equity": 103300,
+      "timeline_sha256": "e94b68496da0ff43179ed74180d5390ed6d44599da968d6d047d2fd346600047"
+    },
+    "proof_scope": "ledger_mechanics_only",
+    "forward_demo_survival_claim": false,
+    "fixture_ledger": true,
+    "input_hashes": {
+      "rule_set_sha256": "688dfa14a6ad95f3beb89a55bc405dca0248ff9dd08b3318eb9a1b257aa575c0",
+      "ledger_sha256": "38b27dbae6affc4d8ec4d563aefcba88011645338da4f19124bba4524995c25a"
+    }
+  },
+  "blocked_reason": null,
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/ftmo-ledger-worker.mjs",
+      "sha256": "2efbfec0028e0ef87bf9480c969eee423508d12b4b0076c60e8973b7916be6b1",
+      "size_bytes": 13945,
+      "modified_at": "2026-05-03T20:57:36.272Z"
+    }
+  ]
+}

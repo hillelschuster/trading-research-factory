@@ -1,0 +1,6 @@
+InpRunId=RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R2
+InpSequence=1
+InpOutputPath=trf_tester\RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R2\lifecycle_1.json
+InpSettingsSha256=
+InpTickModel=Every tick
+InpLots=0.01

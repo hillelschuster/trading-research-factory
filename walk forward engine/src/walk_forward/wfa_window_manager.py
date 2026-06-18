@@ -42,6 +42,11 @@ class WFAWindowConfig:
     optimization_validation_split: float = 0.7  # 70/30 split
     enable_stage_based_optimization: bool = True
     max_parameter_age_months: int = 12  # Parameter shelf-life
+    purge_gap_bars: int = 0
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.purge_gap_bars, int) or self.purge_gap_bars < 0:
+            raise ValueError("purge_gap_bars must be a non-negative integer")
 
 
 @dataclass
@@ -66,6 +71,8 @@ class WFAWindow:
     current_phase: OptimizationPhase = OptimizationPhase.PARAMETER_OPTIMIZATION
     optimization_complete: bool = False
     validation_complete: bool = False
+    purge_gap_bars: int = 0
+    purged_validation_bars: int = 0
 
 
 class WFAWindowManager:
@@ -142,6 +149,25 @@ class WFAWindowManager:
         self.logger.info(f"Generated {len(windows)} WFA windows using {self.config.strategy.value} strategy")
         
         return windows
+
+    def _validation_start_after_purge(
+            self,
+            data: pd.DataFrame,
+            optimization_end: datetime,
+            validation_end: datetime) -> Tuple[Optional[datetime], int]:
+        """Return validation_start after dropping the configured post-training purge bars."""
+        purge_gap_bars = self.config.purge_gap_bars
+        if purge_gap_bars == 0:
+            return optimization_end, 0
+
+        validation_candidates = data[
+            (data['timestamp'] >= optimization_end) &
+            (data['timestamp'] < validation_end)
+        ].copy()
+        if len(validation_candidates) <= purge_gap_bars:
+            return None, len(validation_candidates)
+
+        return validation_candidates.iloc[purge_gap_bars]['timestamp'].to_pydatetime(), purge_gap_bars
     
     def _generate_rolling_windows(self, 
                                 data: pd.DataFrame, 
@@ -168,9 +194,20 @@ class WFAWindowManager:
                     break
                 validation_end = end_date  # Truncate to available data
             
+            validation_start, purged_validation_bars = self._validation_start_after_purge(
+                data,
+                optimization_end,
+                validation_end,
+            )
+            if validation_start is None:
+                self.logger.warning(
+                    f"Insufficient validation data after purging {self.config.purge_gap_bars} bars for window {window_id}, skipping"
+                )
+                break
+
             # Create time periods
             optimization_period = DateRange(start=current_start, end=optimization_end)
-            validation_period = DateRange(start=optimization_end, end=validation_end)
+            validation_period = DateRange(start=validation_start, end=validation_end)
             
             # Create explicit outer train/test split
             optimization_data, validation_data, split_metadata = \
@@ -179,7 +216,7 @@ class WFAWindowManager:
                     window_id=window_id,
                     training_start=current_start,
                     training_end=optimization_end,
-                    validation_start=optimization_end,
+                    validation_start=validation_start,
                     validation_end=validation_end,
                 )
 
@@ -199,6 +236,8 @@ class WFAWindowManager:
                 split_metadata=split_metadata,
                 created_at=datetime.now()
             )
+            wfa_window.purge_gap_bars = self.config.purge_gap_bars
+            wfa_window.purged_validation_bars = purged_validation_bars
             
             windows.append(wfa_window)
             
@@ -222,11 +261,22 @@ class WFAWindowManager:
             # Calculate window periods
             optimization_period = DateRange(start=start_date, end=validation_start)
             validation_end = validation_start + relativedelta(months=self.config.validation_months)
-            validation_period = DateRange(start=validation_start, end=validation_end)
             
             # Check if we have enough data
             if validation_end > end_date:
                 break
+
+            purged_validation_start, purged_validation_bars = self._validation_start_after_purge(
+                data,
+                validation_start,
+                validation_end,
+            )
+            if purged_validation_start is None:
+                self.logger.warning(
+                    f"Insufficient validation data after purging {self.config.purge_gap_bars} bars for window {window_id}, skipping"
+                )
+                break
+            validation_period = DateRange(start=purged_validation_start, end=validation_end)
             
             optimization_data, validation_data, split_metadata = \
                 self.data_integrity_manager.create_temporal_split(
@@ -234,7 +284,7 @@ class WFAWindowManager:
                     window_id=window_id,
                     training_start=start_date,
                     training_end=validation_start,
-                    validation_start=validation_start,
+                    validation_start=purged_validation_start,
                     validation_end=validation_end,
                 )
 
@@ -254,6 +304,8 @@ class WFAWindowManager:
                 split_metadata=split_metadata,
                 created_at=datetime.now()
             )
+            wfa_window.purge_gap_bars = self.config.purge_gap_bars
+            wfa_window.purged_validation_bars = purged_validation_bars
             
             windows.append(wfa_window)
             

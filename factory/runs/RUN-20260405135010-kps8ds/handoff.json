@@ -1,9 +1,9 @@
 {
   "schema_version": "handoff_v2",
   "resume_from_stage": "executor",
-  "resume_generation": 5,
+  "resume_generation": 6,
   "failure_class": "transport_failure",
-  "last_error": "OpenCode executor session creation timed out after 15000ms.",
+  "last_error": "executor transport request timed out waiting for response headers.",
   "attempts_used": 3,
   "safe_inputs": {
     "backlog_item_id": "IDEA-783521-c70",
@@ -38,6 +38,9 @@
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-8/stage-input.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-9/stage-input.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-input.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11/stage-input.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12/stage-input.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13/stage-input.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1/stage-prompt.txt",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-2/stage-prompt.txt",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-3/stage-prompt.txt",
@@ -48,6 +51,9 @@
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-8/stage-prompt.txt",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-9/stage-prompt.txt",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-10/stage-prompt.txt",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11/stage-prompt.txt",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12/stage-prompt.txt",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13/stage-prompt.txt",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1-session.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-2-session.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-3-session.json",
@@ -55,6 +61,9 @@
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-5-session.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-6-session.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-7-session.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-11-session.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-12-session.json",
+    "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-13-session.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-1/stage-error.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-2/stage-error.json",
     "factory/runs/RUN-20260405135010-kps8ds/executor-attempt-3/stage-error.json",
@@ -67,5 +76,5 @@
   "consumed_at": null,
   "superseded_by": null,
   "signal": null,
-  "created_at": "2026-04-05T15:36:48.087Z"
+  "created_at": "2026-05-05T19:33:43.204Z"
 }

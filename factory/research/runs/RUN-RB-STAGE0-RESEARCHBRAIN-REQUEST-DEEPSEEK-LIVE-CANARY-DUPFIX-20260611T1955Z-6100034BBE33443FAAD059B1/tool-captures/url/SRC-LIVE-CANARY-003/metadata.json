@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-LIVE-CANARY-003",
+  "url": "https://ftmo.com/en/blog/how-to-choose-the-right-market-and-time-frame/",
+  "title": "How to Choose the Right Market and Time Frame | FTMO.com",
+  "source_class": "web",
+  "captured_at": "2026-06-11T19:58:14.420Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-06-11T19:59:11.377Z",
+      "completed_at": "2026-06-11T19:59:11.668Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "825181b7b212099d3530160f9edf5aa2f183d0a6133051d9df0d0226560dda08"
+}

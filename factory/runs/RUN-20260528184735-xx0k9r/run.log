@@ -1,0 +1,3 @@
+{"ts":"2026-05-28T18:47:38.608Z","run_id":"RUN-20260528184735-xx0k9r","message":"Starting run","extra":{"iteration":165,"backlog_item_id":"IDEA-PHASE8D-PREREG-GATE-20260528","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260528184735-xx0k9r"}}
+{"ts":"2026-05-28T18:47:39.137Z","run_id":"RUN-20260528184735-xx0k9r","message":"Planner bypass unavailable","extra":{"backlog_item_id":"IDEA-PHASE8D-PREREG-GATE-20260528","reason":"missing_research_wfa_preregistration"}}
+{"ts":"2026-05-28T18:47:40.796Z","run_id":"RUN-20260528184735-xx0k9r","message":"Phase 8D screening attempt blocked before WFA launch","extra":{"run_id":"RUN-20260528184735-xx0k9r","reason":"missing_research_wfa_preregistration"}}

@@ -1,0 +1,176 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529130325",
+  "backlog_item_id": "IDEA-PHASE8D-GBPJPY-REVERSION-20260529130325",
+  "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529130325",
+  "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+  "family_id": "gbpjpy_reversion",
+  "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529130325-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "failed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+      "sha256": "4763291a1b49663c8e87cafc80c6cc70385a173593e7da30321f916f4e311e07",
+      "size_bytes": 2460,
+      "modified_at": "2026-05-29T13:00:43.481Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+      "sha256": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a",
+      "size_bytes": 23657,
+      "modified_at": "2025-12-21T13:50:41.716Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_gbpjpy_reversion.json",
+      "sha256": "a6e4ec1a405332f1bec4283081549ebfaa9b5749ccf82b6e6cdf23d9e4078e5b",
+      "size_bytes": 1265,
+      "modified_at": "2026-05-29T12:19:59.052Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "size_bytes": 12747848,
+      "modified_at": "2025-12-19T07:10:07.755Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529130325/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529130325.json",
+      "sha256": "8c77a87bfc99d2953c222e255cc75e637baa0cedf218f7d7905c39282c75562e",
+      "size_bytes": 3650,
+      "modified_at": "2026-05-29T13:03:24.485Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/hypothesis-packet.json",
+      "sha256": "ed61f4ca57196d49bfd059fb42818c4cb0d77ff01d68f5e71a2a5fad869ec692"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529130325/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529130325.json",
+      "sha256": "8c77a87bfc99d2953c222e255cc75e637baa0cedf218f7d7905c39282c75562e",
+      "content_hash": "95d49f436777665d1f43dd1d689ee21b69351d5270295ccfab924d8a405afac9"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/source-record.json",
+      "sha256": "4af69d36a99651f94cf7462c078b3be73eb19ead52877de56e56878ccbbb1e8a",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_worker_terminal_nonexecuted",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "repair_rationale": "Pre-run mechanical feasibility repair: data.min_required_bars was reduced from 5000 to 2000 because the first 6-month GBPJPY M15 training split has 2500 bars and the first 3-month validation split has 3724 bars; no performance result was used.",
+    "performance_result_used_for_repair": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "GBPJPY",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "known_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 0,
+    "trades": null,
+    "return_proxy_pct": null,
+    "positive_oos_window_ratio": null,
+    "wfr": null
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "completed_oos_windows",
+      "total_trades",
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [
+    "WFA worker timed out after 7200000ms."
+  ],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529130325/execution-result.json",
+      "sha256": "27368ce958a1c4561ea4fc6b6966c4839ec688e5bd269f0fc65e51c5f6fbb343"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529130325/worker-results/parsed-wfa-metrics.json",
+      "sha256": "3976d161599e1d12c810b3cec87b8f1e93ec09b3fe1acf67a98d2213ae7bdeaa"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529130325/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529130325.json",
+      "sha256": "8c77a87bfc99d2953c222e255cc75e637baa0cedf218f7d7905c39282c75562e"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/hypothesis-packet.json",
+      "sha256": "ed61f4ca57196d49bfd059fb42818c4cb0d77ff01d68f5e71a2a5fad869ec692",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/source-record.json",
+      "sha256": "4af69d36a99651f94cf7462c078b3be73eb19ead52877de56e56878ccbbb1e8a"
+    }
+  ],
+  "recorded_at": "2026-05-29T13:03:25.810Z"
+}

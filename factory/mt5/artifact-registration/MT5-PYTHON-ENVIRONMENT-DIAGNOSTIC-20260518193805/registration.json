@@ -1,0 +1,49 @@
+{
+  "schema_version": "phase8a_mt5_artifact_registration_v1",
+  "evidence_kind": "phase8a_mt5_artifact_registration",
+  "registration_id": "PHASE8A-MT5-REGISTRATION-PYTHON-DIAGNOSTIC-20260518193805",
+  "observed_at": "2026-05-18T19:59:42.515Z",
+  "authority_layer": "control_plane",
+  "official_evidence_index_mutated": false,
+  "registration_scope": "phase8a_mt5_readiness_artifacts_only",
+  "status_summary": {
+    "total": 1,
+    "ready": 0,
+    "blocked": 1,
+    "by_status": {
+      "blocked": 1
+    },
+    "by_evidence_kind": {
+      "mt5_python_environment_diagnostic": 1
+    }
+  },
+  "artifacts": [
+    {
+      "artifact_type": "mt5_python_environment_diagnostic",
+      "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/blocked-python-environment-diagnostic.json",
+      "sha256": "b31d782d5465325d27342213b5268650b8be986ca21803e7c548da511a16f8b1",
+      "size_bytes": 5299,
+      "modified_at": "2026-05-18T19:38:05.701Z",
+      "evidence_kind": "mt5_python_environment_diagnostic",
+      "summary": {
+        "status": "blocked",
+        "job_id": null,
+        "classification_id": null,
+        "manifest_id": null,
+        "equivalence_id": null,
+        "diagnostic_id": "MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805",
+        "counts": null,
+        "status_summary": {
+          "total": 3,
+          "available": 0,
+          "missing_or_failed": 3,
+          "by_status": {
+            "missing": 3
+          }
+        },
+        "blocked_reason": "No configured Python command can import the MetaTrader5 package; live FTMO MT5 universe snapshots remain blocked until this is resolved outside the factory."
+      },
+      "status": "blocked"
+    }
+  ]
+}

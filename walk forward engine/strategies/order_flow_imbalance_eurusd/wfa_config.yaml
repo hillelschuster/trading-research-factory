@@ -1,0 +1,58 @@
+# Phase 8D screening route: EURUSD M15 signed tick-volume imbalance continuation.
+
+walk_forward:
+  training_months: 6
+  testing_months: 3
+  step_months: 3
+  n_parameter_trials: 12
+  min_bars_per_window: 1000
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/order_flow_imbalance_eurusd/results"
+
+data:
+  source_file: "data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  min_required_bars: 1000
+  timezone: "UTC"
+
+strategy:
+  profile_key: "ORDER_FLOW_IMBALANCE_EURUSD"
+  parameter_ranges:
+    imbalance_lookback: [8, 16, 24, 32]
+    imbalance_threshold: [0.18, 0.25, 0.35, 0.45]
+    volume_lookback: [48, 96, 192]
+    volume_ratio_min: [0.8, 1.0, 1.2]
+    atr_period: [10, 14, 20]
+    vol_lookback: [48, 96, 192]
+    vol_ratio_min: [0.8, 1.0, 1.2]
+    momentum_lookback: [2, 4, 8]
+    max_hold_bars: [4, 8, 12, 16]
+    sl_atr_mult: [1.0, 1.5, 2.0]
+    tp_atr_mult: [1.5, 2.5, 3.5]
+    start_hour: [6, 7, 8]
+    end_hour: [18, 20, 22]
+
+advanced_optimization:
+  primary_objective: "sharpe"
+  secondary_objectives:
+    - "stability"
+    - "return"
+  stability_weight: 0.15
+  n_startup_trials: 6
+
+backtest:
+  initial_balance: 10000.0
+  fees: 0.0001
+  slippage: 0.0001
+
+performance:
+  max_execution_time_seconds: 3600
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_order_flow_imbalance_eurusd.log"

@@ -1,0 +1,78 @@
+{
+  "metrics": {
+    "sharpe_oos": -0.7354069140039036,
+    "total_trades": 23,
+    "max_drawdown": -4.4628111068691325,
+    "profit_factor": 0.8739103068666915,
+    "win_rate": 0.5217391304347826,
+    "aggregate_return_pct": -0.3931435668569659,
+    "total_windows": 3,
+    "successful_windows": 3,
+    "failed_windows": 0
+  },
+  "per_window_metrics": [
+    {
+      "window_id": 0,
+      "success": true,
+      "total_return_pct": 0.2533262522726436,
+      "total_trades": 8,
+      "sharpe_ratio": 0.2618909444840005,
+      "max_drawdown_pct": -3.3782099615404495,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 30,
+        "ema_fast": 10,
+        "ema_slow": 40,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.5
+      }
+    },
+    {
+      "window_id": 1,
+      "success": true,
+      "total_return_pct": 1.0488514806448657,
+      "total_trades": 8,
+      "sharpe_ratio": 0.8504606249893681,
+      "max_drawdown_pct": -3.080317558383715,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 25,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.5
+      }
+    },
+    {
+      "window_id": 2,
+      "success": true,
+      "total_return_pct": -2.481608433488407,
+      "total_trades": 7,
+      "sharpe_ratio": -2.1138932909741603,
+      "max_drawdown_pct": -4.4628111068691325,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 20,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2
+      }
+    }
+  ],
+  "metrics_artifact": {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260514_080540.json",
+    "sha256": "d256b194e5207b308aab3d9f44fffab5d458ac67a1ed3c298b815bff074f931b",
+    "size_bytes": 7108,
+    "modified_at": "2026-05-14T05:05:40.422Z",
+    "request_identity": {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "job_id": "JOB-RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "lineage_id": "LINEAGE-VOLATILITY-REGIME-PHASE7A-CLI-20260514",
+      "family_id": "volatility_regime",
+      "attempt_id": "RUN-20260514050018-cli-wfa-canary-ATTEMPT-1"
+    }
+  }
+}

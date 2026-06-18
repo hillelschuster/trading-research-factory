@@ -1,0 +1,157 @@
+{
+  "schema_version": "researchbrain_stage0_outbox_projection_v1",
+  "projected_at": "2026-06-08T20:04:37.181Z",
+  "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-40696-cycle-1",
+  "event": {
+    "event_id": "EVT-RB-STAGE0-7898de61cd8e6316d8dedf1f637c2ef2",
+    "event_type": "researchbrain.stage0_job_finished",
+    "aggregate_type": "run",
+    "aggregate_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+    "created_at": "2026-06-08T20:04:37.120Z",
+    "payload": {
+      "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+      "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812-ATTEMPT-1",
+      "runtime_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+      "status": "blocked",
+      "failure_summary": {
+        "failure_class": "schema_or_validation_failure",
+        "retryable": false,
+        "error_message": "no_valid_provider_output",
+        "final_terminal_state": "terminal_failed_condition",
+        "request_artifact": {
+          "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z/request.json",
+          "sha256": "b6ac0c9bfee0bb5c3654b962a3860ab4fe6aa4c46514ccb5e3f8702188b01039"
+        },
+        "runtime_result_artifact": {
+          "artifact_type": "researchbrain_stage0_runtime_result",
+          "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/runtime-result.json",
+          "sha256": "e51f7c3cd7513ca9879649484ea076ae0eaf355e3f55a5305ac8154f2571bcc5"
+        },
+        "quarantine_paths": [
+          {
+            "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+            "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc"
+          },
+          {
+            "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+            "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6"
+          }
+        ],
+        "blockers": [
+          "no_valid_provider_output"
+        ]
+      }
+    }
+  },
+  "run": {
+    "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+    "status": "blocked",
+    "evidence_kind": "stage0_research_discovery",
+    "created_at": "2026-06-08T20:03:37.158Z",
+    "updated_at": "2026-06-08T20:04:37.120Z"
+  },
+  "job": {
+    "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+    "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+    "job_type": "researchbrain_stage0",
+    "status": "blocked",
+    "priority": 0,
+    "created_at": "2026-06-08T20:03:37.158Z",
+    "updated_at": "2026-06-08T20:04:36.936Z"
+  },
+  "attempt": {
+    "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812-ATTEMPT-1",
+    "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+    "attempt_number": 1,
+    "status": "blocked",
+    "worker": "researchbrain_stage0_loop_runner",
+    "started_at": "2026-06-08T20:03:37.279Z",
+    "finished_at": "2026-06-08T20:04:36.936Z"
+  },
+  "failure_summary": {
+    "failure_class": "schema_or_validation_failure",
+    "retryable": false,
+    "error_message": "no_valid_provider_output",
+    "final_terminal_state": "terminal_failed_condition",
+    "request_artifact": {
+      "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z/request.json",
+      "sha256": "b6ac0c9bfee0bb5c3654b962a3860ab4fe6aa4c46514ccb5e3f8702188b01039"
+    },
+    "runtime_result_artifact": {
+      "artifact_type": "researchbrain_stage0_runtime_result",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/runtime-result.json",
+      "sha256": "e51f7c3cd7513ca9879649484ea076ae0eaf355e3f55a5305ac8154f2571bcc5"
+    },
+    "quarantine_paths": [
+      {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+        "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc"
+      },
+      {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+        "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6"
+      }
+    ],
+    "blockers": [
+      "no_valid_provider_output"
+    ]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/agent-transcript.jsonl",
+      "sha256": "000a1bcc5cbd39244638e27f13ee99db42d504ca00f61275a6338221d94d2752",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:36.953Z"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/cost-ledger.json",
+      "sha256": "557b06b51179819e815b21309f84d1fea4c21b5b6242cdba4b3b22ccbf58a0e4",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:36.990Z"
+    },
+    {
+      "artifact_type": "researchbrain_stage0_quarantine",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+      "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:37.063Z"
+    },
+    {
+      "artifact_type": "researchbrain_stage0_quarantine",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+      "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:37.085Z"
+    },
+    {
+      "artifact_type": "researchbrain_stage0_runtime_result",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/runtime-result.json",
+      "sha256": "e51f7c3cd7513ca9879649484ea076ae0eaf355e3f55a5305ac8154f2571bcc5",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:37.041Z"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/tool-ledger.json",
+      "sha256": "9b7f60aa3f32c2f13e413f23095c0737ad7bf2281d194598eb2b70ac4e9bcf51",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:36.969Z"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/working-notes.md",
+      "sha256": "78b305e3206085d9efe8688dd924e8792ea56b57a8d648a43153ebdf986ad00a",
+      "size_bytes": null,
+      "created_at": "2026-06-08T20:04:37.012Z"
+    }
+  ],
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+  "backlog_item_id": "IDEA-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+  "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+  "lineage_id": "LINEAGE-PHASE8D-SURVIVOR-FLOOR-CANARY",
+  "family_id": "volatility_regime",
+  "attempt_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+      "sha256": "532fb710bc686673db6f7b64d3c76744114a87b932aff7df82a4c9de9425c51e",
+      "size_bytes": 1447,
+      "modified_at": "2026-04-05T16:04:19.926Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/volatility_regime.py",
+      "sha256": "0ae89d2e05dadb33c664885856dcae56e35b9110b0cfc96bb4ce5683f5709e0a",
+      "size_bytes": 11716,
+      "modified_at": "2026-03-17T14:31:05.896Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_volatility_regime.json",
+      "sha256": "b319f696391fd38c2b2dbd7c9d72fbae45f2cccf720e742f6caf00c94ebfe309",
+      "size_bytes": 976,
+      "modified_at": "2026-03-17T14:31:13.586Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629.json",
+      "sha256": "1024c03aec82db5ae06252efe6421b9e86c2a274fbe0f8bfbefba1f6f8245ef1",
+      "size_bytes": 3018,
+      "modified_at": "2026-05-28T19:46:29.972Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-SURVIVOR-FLOOR-CANARY-20260528194629/hypothesis-packet.json",
+      "sha256": "1751def49eb8082663eeca44ff6ec1761b14bd87c0128667fa8a103cc553a3dd"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629.json",
+      "sha256": "1024c03aec82db5ae06252efe6421b9e86c2a274fbe0f8bfbefba1f6f8245ef1",
+      "content_hash": "a89128c9e355d9544db0d3ebf14fa9c9cc134e6d87bca1dc909759a6fccbe2b7"
+    }
+  },
+  "source_quality_gate": {
+    "status": "not_applicable_manual_packet"
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution"
+  },
+  "data_identity": {
+    "status": "known_proxy_input",
+    "known": true,
+    "artifact": {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_executed_artifact_backed",
+    "windows": 3,
+    "trades": 23,
+    "return_proxy_pct": -1.9396878669383442,
+    "positive_oos_window_ratio": 0.666667,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "completed_oos_windows",
+      "total_trades",
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629/execution-result.json",
+      "sha256": "d042b7b6476d29e0331858315982c0cca87cf23805f4ea3261e23726c8ee9e8e"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629/worker-results/parsed-wfa-metrics.json",
+      "sha256": "cbd0d58341fd3ac24f6f89660b088afd671304d35777e884936236b16bde0239"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629/registrations/research-wfa-RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629.json",
+      "sha256": "1024c03aec82db5ae06252efe6421b9e86c2a274fbe0f8bfbefba1f6f8245ef1"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-SURVIVOR-FLOOR-CANARY-20260528194629/hypothesis-packet.json",
+      "sha256": "1751def49eb8082663eeca44ff6ec1761b14bd87c0128667fa8a103cc553a3dd"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+      "sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67"
+    }
+  ],
+  "recorded_at": "2026-05-28T19:46:29.707Z"
+}

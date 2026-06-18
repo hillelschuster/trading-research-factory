@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import { FACTORY_GOAL } from "./constants.mjs";
 import { initializeProject } from "./init.mjs";
 import { StateStore } from "./state-store.mjs";
@@ -19,13 +20,20 @@ import { marketPolicyCapsule, readMarketPolicy } from "./market-policy.mjs";
 import { reconcileStartupState, RuntimeStateStore } from "./runtime-state.mjs";
 import { validatePlannerResult, validateExecutionResult, validateExecutionArtifacts, validateEvaluationResult, validateSummaryResult } from "./validators.mjs";
 import { compileWfaReadyPlan } from "./wfa-plan-compiler.mjs";
+import { runResearchWfaRunWorker } from "../workers/research-wfa-run-worker.mjs";
 import { appendLine, readJson, writeJsonAtomic } from "./fs-utils.mjs";
 import { assertLiveTransport, createLiveTransport } from "./transport/live-transport.mjs";
 import { acquireOwnerLock, appendRecoveryEvent, heartbeatOwnerLock, releaseOwnerLock } from "./runtime-lock.mjs";
-import { buildStageGateResult, pruneOperationalArtifacts, recordCandidateExecutionPromotionGate, resolvePreferredLiveTransportAdapter, writeRolloutGate, writeVerificationManifest } from "./verification.mjs";
+import { buildPhase8DConsistencyLadderAdvisory, buildStageGateResult, pruneOperationalArtifacts, recordCandidateExecutionPromotionGate, resolvePreferredLiveTransportAdapter, writeRolloutGate, writeVerificationManifest } from "./verification.mjs";
+import { classifyResearchBrainBacklogSourceQuality, isResearchBrainBacklogCandidate, researchRunIdFromResearchBrainPath, validateResearchBrainBacklogCandidate } from "./researchbrain-artifacts.mjs";
+import { expectedWfaOutputRootFromConfig, wfaTimeoutMsFromConfig } from "./wfa-config-contract.mjs";
 
 function runId() {
   return `RUN-${new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function hashFile(fullPath) {
+  return crypto.createHash("sha256").update(fs.readFileSync(fullPath)).digest("hex");
 }
 
 function evidenceEntry({ runId, mode, backlogItem, plan, executionResult, evaluation, summaryPath }) {
@@ -103,10 +111,6 @@ function getFactoryStats(paths) {
 
   const leaderboard = readLeaderboardEntries(paths);
 
-  const strategyDigest = fs.existsSync(paths.strategyDigest)
-    ? fs.readFileSync(paths.strategyDigest, "utf8")
-    : "";
-
   const retrievalIndex = fs.existsSync(paths.retrievalIndex)
     ? JSON.parse(fs.readFileSync(paths.retrievalIndex, "utf8"))
     : [];
@@ -138,7 +142,6 @@ function getFactoryStats(paths) {
     marketPolicy,
     recentLessons: lessons.slice(-5),
     leaderboard,
-    strategyDigest,
     iterationHistory
   };
 }
@@ -180,6 +183,64 @@ function clearActiveSessionState(state) {
   state.active_session_id = null;
   state.active_session_url = null;
   return state;
+}
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function uniqueStrings(values) {
+  return [...new Set(values.filter((value) => typeof value === "string" && value.trim()).map((value) => value.trim().replace(/\\/g, "/")))];
+}
+
+export function buildResearchWfaRunRequestFromPlan({ plan, runId, rootDir }) {
+  const inputs = Array.isArray(plan?.inputs) ? plan.inputs : [];
+  const wfaConfigPath = plan?.advanced_wfa_config?.config_path ?? plan?.planner_bypass?.wfa_config_path ?? inputs.find((input) => /walk forward engine\/strategies\/[^/]+\/wfa_config\.ya?ml$/i.test(String(input)));
+  const strategySourcePaths = inputs.filter((input) => /^walk forward engine\/src\/strategies\/.*\.py$/i.test(String(input)));
+  const strategyConfigPaths = inputs.filter((input) => /^walk forward engine\/config\/strategy_.*\.json$/i.test(String(input)));
+  const manifestRecords = asArray(plan?.data_readiness_manifests).filter((record) => record && typeof record === "object");
+  const dataManifestPaths = uniqueStrings([
+    ...asArray(plan?.data_manifest_paths),
+    ...asArray(plan?.data_readiness_manifest_paths),
+    ...manifestRecords.flatMap((record) => [record.path, ...asArray(record.data_manifest_paths)])
+  ]);
+  const dataPaths = uniqueStrings([
+    ...(Array.isArray(plan?.dataset_requirements) ? plan.dataset_requirements : []),
+    ...inputs,
+    ...manifestRecords.flatMap((record) => asArray(record.data_paths))
+  ].filter((input) => /^(?:walk forward engine|workspace)\/data\//i.test(String(input)) && !dataManifestPaths.includes(String(input).replace(/\\/g, "/"))));
+  return {
+    schema_version: "research_wfa_run_request_v1",
+    run_id: runId,
+    job_id: `JOB-${runId}`,
+    candidate_id: plan?.candidate_id ?? null,
+    lineage_id: plan?.lineage_id ?? null,
+    family_id: plan?.family_id ?? plan?.strategy_type ?? null,
+    attempt_id: `${runId}-EXECUTOR-ATTEMPT-1`,
+    attempt_type: "worker_launched_wfa",
+    generated_by: "deterministic_wfa_ready_compiler_v1",
+    experiment_id: plan?.experiment_id,
+    evidence_kind: "research_wfa",
+    authority_layer: "python_research",
+    wfa_config_path: wfaConfigPath,
+    strategy_source_paths: strategySourcePaths,
+    strategy_config_paths: strategyConfigPaths,
+    data_paths: dataPaths,
+    data_manifest_paths: dataManifestPaths,
+    research_wfa_preregistration: plan?.research_wfa_preregistration ?? plan?.advanced_wfa_config?.research_wfa_preregistration ?? null,
+    expected_output_root: plan?.advanced_wfa_config?.expected_output_root ?? expectedWfaOutputRootFromConfig(rootDir, wfaConfigPath),
+    timeout_ms: wfaTimeoutMsFromConfig(rootDir, wfaConfigPath),
+    working_directory: "walk forward engine",
+    python_executable: process.env.RESEARCH_FACTORY_WFA_PYTHON || ".venv/Scripts/python.exe",
+    environment_allowlist: ["PATH", "Path", "PYTHONPATH", "VIRTUAL_ENV", "SYSTEMROOT", "WINDIR", "TEMP", "TMP", "HOME", "USERPROFILE", "LOCALAPPDATA"]
+  };
+}
+
+function shouldUseDeterministicWfaWorker({ mode, plan }) {
+  return mode === "live"
+    && plan?.evidence_kind === "research_wfa"
+    && plan?.authority_layer === "python_research"
+    && plan?.planner_bypass?.compiler === "deterministic_wfa_ready_compiler_v1";
 }
 
 function updateActiveSession(paths, patch) {
@@ -295,6 +356,72 @@ function isLiveQueueEligible(item) {
   return !isMetaAnalysisFollowupText(textForLiveSuitability(item));
 }
 
+function hasArtifactBackedFailureEvidence({ executionResult, evaluation }) {
+  const verificationArtifacts = Array.isArray(evaluation?.verification?.artifacts_checked) ? evaluation.verification.artifacts_checked : [];
+  return executionEvidencePaths(executionResult).length > 0 || verificationArtifacts.length > 0;
+}
+
+function concreteRemediationScope(backlogItem) {
+  const entries = [
+    ["market_family", backlogItem?.market_family],
+    ["instrument_scope", backlogItem?.instrument_scope],
+    ["timeframe", backlogItem?.timeframe]
+  ].filter(([, value]) => {
+    const normalized = String(value ?? "").trim().toLowerCase();
+    return normalized && !["unknown", "unknown_market", "unknown_instrument", "unknown_timeframe", "n/a", "na", "null"].includes(normalized);
+  });
+  return Object.fromEntries(entries);
+}
+
+function matchesConcreteRemediationScope(entry, scope) {
+  const keys = Object.keys(scope);
+  if (keys.length < 2) return false;
+  return keys.every((key) => {
+    const expected = String(scope[key]).trim().toLowerCase();
+    const actual = String(key === "instrument_scope" ? entry?.asset_scope : entry?.[key] ?? "").trim().toLowerCase();
+    return actual === expected;
+  });
+}
+
+function comparableArtifactBackedFailures(factoryStats, backlogItem) {
+  const scope = concreteRemediationScope(backlogItem);
+  return comparableLessonsForItem(factoryStats, backlogItem)
+    .filter((entry) => ["blocked", "failed", "inconclusive", "research_inconclusive"].includes(entry?.verdict))
+    .filter((entry) => typeof entry.summary_path === "string" || (Array.isArray(entry.artifact_paths) && entry.artifact_paths.length > 0))
+    .filter((entry) => matchesConcreteRemediationScope(entry, scope));
+}
+
+function remediationScopeKey(backlogItem) {
+  return [
+    backlogItem?.market_family ?? "unknown_market",
+    backlogItem?.instrument_scope ?? "unknown_instrument",
+    backlogItem?.timeframe ?? "unknown_timeframe",
+    backlogItem?.category ?? "unknown_category"
+  ].join(":").replace(/[^A-Za-z0-9_.:-]+/g, "_");
+}
+
+export function buildRepeatedFailureRemediationActions({ factoryStats, backlogItem, executionResult, evaluation, currentRunId }) {
+  if (!backlogItem || !evaluation || !["blocked", "failed", "inconclusive"].includes(evaluation.verdict)) return [];
+  if (backlogItem.category === "remediation" || typeof backlogItem.remediation_key === "string") return [];
+  if (Object.keys(concreteRemediationScope(backlogItem)).length < 2) return [];
+  if (!hasArtifactBackedFailureEvidence({ executionResult, evaluation })) return [];
+  const priorFailures = comparableArtifactBackedFailures(factoryStats, backlogItem);
+  if (priorFailures.length < 2) return [];
+  const key = `remediate:${remediationScopeKey(backlogItem)}`;
+  return [{
+    title: `Remediate repeated artifact-backed WFA failure pattern for ${backlogItem.title}`,
+    objective: "Investigate the repeated artifact-backed failure pattern and produce one bounded fix or a clear blocked diagnostic before another WFA attempt.",
+    category: "remediation",
+    status: "ready",
+    priority: Math.max(1, (backlogItem.priority ?? 50) - 5),
+    source: currentRunId,
+    remediation_key: key,
+    related_backlog_item_id: backlogItem.id,
+    repeated_failure_count: priorFailures.length + 1,
+    last_verdict: evaluation.verdict
+  }];
+}
+
 function selectNextBacklogItem(backlogStore, factoryStats) {
   const selectionPolicy = factoryStats.marketPolicy?.selection_policy || {};
   const readyStatuses = selectionPolicy.ready_statuses;
@@ -340,6 +467,27 @@ function selectNextBacklogItem(backlogStore, factoryStats) {
   return readyItems
     .map((item) => ({ item, score: scoreItem(item) }))
     .sort((a, b) => b.score - a.score || (b.item.priority ?? 0) - (a.item.priority ?? 0))[0]?.item ?? null;
+}
+
+function selectTargetBacklogItem(backlogStore, targetId, readyStatuses) {
+  const target = backlogStore.read().find((item) => item.id === targetId);
+  if (!target) throw new Error(`Target backlog item not found: ${targetId}`);
+  if (!readyStatuses.includes(target.status) || !isLiveQueueEligible(target)) {
+    throw new Error(`Target backlog item '${targetId}' is not ready for execution (status: ${target.status}).`);
+  }
+  return target;
+}
+
+function shouldReadyItemPreemptResume(readyItem, resumeCandidate) {
+  if (!readyItem || !resumeCandidate?.backlogItem) return false;
+  if (resumeCandidate.backlogItem.status !== "infra_blocked") return false;
+  return (readyItem.priority ?? 0) > (resumeCandidate.backlogItem.priority ?? 0);
+}
+
+function highestPriorityReadyItem(backlogStore, readyStatuses) {
+  return backlogStore.read()
+    .filter((item) => readyStatuses.includes(item.status) && isLiveQueueEligible(item))
+    .sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0))[0] ?? null;
 }
 
 async function callWithRetry(fn, label, maxRetries, logger, options = {}) {
@@ -508,6 +656,12 @@ function researchStatusFromEvaluation(evaluation) {
 
 function createLeaseExpiry(ts = Date.now()) {
   return new Date(ts + LEASE_TTL_MS).toISOString();
+}
+
+function experimentIdForBlockedAtStart(backlogItem, runIdValue) {
+  const explicit = backlogItem?.experiment_id;
+  if (typeof explicit === "string" && explicit.trim()) return explicit.trim();
+  return `EXP-${runIdValue}`;
 }
 
 function flattenArtifactPaths(artifactPaths) {
@@ -799,34 +953,226 @@ export async function runFactory(config) {
     });
   }
 
-      const appendSuggestedActions = (backlogItem, currentRunId, actions) => {
+  const appendSuggestedActions = (backlogItem, currentRunId, actions) => {
     for (const action of actions ?? []) {
-      if (!isLiveQueueEligible({ title: action, objective: action, category: "followup" })) {
+      const candidate = typeof action === "string" ? { title: action, objective: action, category: "followup" } : action;
+      if (!candidate || typeof candidate !== "object") continue;
+      if (typeof candidate.title !== "string" || !candidate.title.trim()) continue;
+      if (!isLiveQueueEligible(candidate)) {
         continue;
       }
       const backlogItems = backlogStore.read();
-      const alreadyExists = backlogItems.some((item) => item.title === action);
+      const alreadyExists = backlogItems.some((item) => item.title === candidate.title || (candidate.remediation_key && item.remediation_key === candidate.remediation_key));
       if (!alreadyExists) {
         backlogStore.append([{
           id: `IDEA-${String(Date.now()).slice(-6)}-${Math.random().toString(36).slice(2, 5)}`,
-          title: action,
-          status: "ready",
-          priority: Math.max(1, (backlogItem.priority ?? 50) - 10),
-          category: "followup",
-          objective: action,
-          source: currentRunId
+          status: candidate.status ?? "ready",
+          priority: candidate.priority ?? Math.max(1, (backlogItem.priority ?? 50) - 10),
+          source: candidate.source ?? currentRunId,
+          ...candidate,
+          title: candidate.title,
+          objective: candidate.objective ?? candidate.title
         }]);
       }
     }
+  };
+
+  const completePhase8DBlockedAtStart = ({ backlogItem, currentRunId, fallbackRunState, compiledPlan, logger, currentState }) => {
+    const recordedAt = new Date().toISOString();
+    const attemptId = `${currentRunId}:phase8d-blocked-at-start`;
+    const sourceHashes = Array.isArray(compiledPlan.source_hashes) ? compiledPlan.source_hashes : [];
+    const blockedDiagnostic = {
+      schema_version: "phase8d_blocked_at_start_v1",
+      run_id: currentRunId,
+      backlog_item_id: backlogItem.id,
+      candidate_id: backlogItem.candidate_id ?? null,
+      lineage_id: backlogItem.lineage_id ?? null,
+      family_id: backlogItem.family_id ?? null,
+      attempt_id: attemptId,
+      status: "blocked",
+      reason: compiledPlan.reason,
+      blocked_reason: compiledPlan.blocked_reason ?? compiledPlan.reason,
+      gate: "phase8d_pre_wfa_screening_gate",
+      source_quality_gate: compiledPlan.source_quality_gate ?? null,
+      source_hashes: sourceHashes,
+      wfa_launched: false,
+      llm_planner_fallback_allowed: false,
+      recorded_at: recordedAt
+    };
+    const blockedPath = artifactStore.writeRunArtifact(currentRunId, "phase8d-blocked-at-start.json", blockedDiagnostic);
+    registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "phase8d_blocked_at_start", blockedPath);
+
+    const executionResult = {
+      experiment_id: experimentIdForBlockedAtStart(backlogItem, currentRunId),
+      status: "blocked",
+      evidence_kind: "research_wfa",
+      authority_layer: "python_research",
+      candidate_id: backlogItem.candidate_id ?? null,
+      blockers: [blockedDiagnostic.blocked_reason],
+      errors: [{ command: "deterministic_wfa_ready_compiler_v1", message: blockedDiagnostic.blocked_reason }],
+      artifacts_created: [{ artifact_type: "phase8d_blocked_at_start", path: artifactStore.relativeToRoot(blockedPath) }],
+      source_hashes: sourceHashes,
+      observations: {
+        phase8d_blocked_at_start: true,
+        wfa_launched: false,
+        llm_planner_fallback_allowed: false
+      },
+      observed_at: recordedAt
+    };
+    validateExecutionResult(executionResult);
+    const executionPath = artifactStore.writeRunArtifact(currentRunId, "execution-result.json", executionResult);
+    registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "execution_result", executionPath);
+
+    const candidateEvidencePacket = {
+      schema_version: "phase8d_candidate_evidence_packet_v1",
+      run_id: currentRunId,
+      backlog_item_id: backlogItem.id,
+      candidate_id: backlogItem.candidate_id ?? null,
+      lineage_id: backlogItem.lineage_id ?? null,
+      family_id: backlogItem.family_id ?? null,
+      attempt_id: attemptId,
+      terminal_state: "blocked",
+      evidence_kind: "research_wfa",
+      wfa_launched: false,
+      deterministic_worker_evidence_required: false,
+      source_hashes: sourceHashes,
+      preregistration_gate: {
+        status: ["missing_research_wfa_preregistration", "invalid_research_wfa_preregistration"].includes(compiledPlan.reason) ? "blocked" : "not_applicable",
+        reason: compiledPlan.reason,
+        blocked_reason: blockedDiagnostic.blocked_reason
+      },
+      source_quality_gate: compiledPlan.source_quality_gate ?? { status: compiledPlan.reason === "researchbrain_source_quality_gate_not_wfa_ready" ? "blocked" : "not_applicable" },
+      denominator_context: {
+        attempt_is_denominator_member: true,
+        failed_blocked_repaired_rerun_counted: true,
+        parameter_or_scope_change_creates_new_attempt: true,
+        denominator_artifact_status: "gate_diagnostic",
+        attempt_source: "phase8d_pre_wfa_screening_gate"
+      },
+      data_identity: {
+        status: "not_applicable_before_wfa_launch",
+        known: false
+      },
+      wfa_metrics: {
+        status: "not_applicable_before_wfa_launch",
+        windows: null,
+        trades: null,
+        return_proxy_pct: null,
+        positive_oos_window_ratio: null,
+        wfr: null
+      },
+      survivor_floor_enforcement: {
+        status: "not_applicable_before_wfa_launch",
+        positive_or_survivor_label_allowed: false
+      },
+      consistency_ladder_advisory: buildPhase8DConsistencyLadderAdvisory(),
+      advisory_statistics: {
+        status: "blocked_not_applicable_before_wfa_launch",
+        dsr: { status: "blocked_missing_inputs" },
+        pbo: { status: "blocked_missing_inputs" },
+        cpcv: { status: "blocked_missing_inputs" },
+        white_reality_check: { status: "blocked_missing_inputs" },
+        promotion_authority: false,
+        rejection_authority: false
+      },
+      phase8e_boundary: {
+        phase8e_authorized: false,
+        mt5_mql5_parity_deployment_work_started: false,
+        tester_parity_claimed: false
+      },
+      blocked_reasons: [blockedDiagnostic.blocked_reason],
+      cited_artifacts: [
+        { artifact_type: "phase8d_blocked_at_start", path: artifactStore.relativeToRoot(blockedPath), sha256: hashFile(blockedPath) },
+        { artifact_type: "execution_result", path: artifactStore.relativeToRoot(executionPath), sha256: hashFile(executionPath) }
+      ],
+      recorded_at: recordedAt
+    };
+    const candidateEvidencePath = artifactStore.writeRunArtifact(currentRunId, "phase8d-candidate-evidence-packet.json", candidateEvidencePacket);
+    registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "phase8d_candidate_evidence_packet", candidateEvidencePath);
+
+    const gate = buildStageGateResult({
+      runId: currentRunId,
+      stage: "planner",
+      attempt: 0,
+      decision: "denied",
+      validator: "deterministic_wfa_ready_compiler_v1",
+      evidencePaths: [artifactStore.relativeToRoot(blockedPath), artifactStore.relativeToRoot(executionPath)],
+      reason: blockedDiagnostic.blocked_reason
+    });
+    const stageGatePath = artifactStore.writeStageGate(currentRunId, "planner", 0, gate);
+    registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "planner_stage_gates", stageGatePath, { append: true });
+    const existingGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
+    existingGates.stages = [...(existingGates.stages || []), { ...gate, gate_path: artifactStore.relativeToRoot(stageGatePath) }];
+    existingGates.updated_at = recordedAt;
+    artifactStore.writeGateResults(currentRunId, existingGates);
+
+    const manifestPath = artifactStore.writeRunArtifactManifest(currentRunId, [artifactStore.relativeToRoot(blockedPath), artifactStore.relativeToRoot(executionPath), artifactStore.relativeToRoot(candidateEvidencePath), artifactStore.relativeToRoot(stageGatePath)], {
+      evidence_kind: "research_wfa",
+      authority_layer: "python_research",
+      worker: "deterministic_wfa_ready_compiler_v1",
+      candidate_id: backlogItem.candidate_id ?? null,
+      source_hashes: sourceHashes
+    });
+    registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "artifact_manifest", manifestPath);
+
+    setRunStageStatus(artifactStore, currentRunId, fallbackRunState, "planner", "blocked", { attempt: 0, compiler: "deterministic_wfa_ready_compiler_v1" });
+    setRunStageStatus(artifactStore, currentRunId, fallbackRunState, "executor", "skipped", { reason: "phase8d_blocked_before_wfa_launch" });
+    setRunStageStatus(artifactStore, currentRunId, fallbackRunState, "evaluator", "skipped", { reason: "phase8d_blocked_before_wfa_launch" });
+    setRunStageStatus(artifactStore, currentRunId, fallbackRunState, "summarizer", "skipped", { reason: "phase8d_blocked_before_wfa_launch" });
+    updateRunResumePoint(artifactStore, currentRunId, fallbackRunState, null, "phase8d_blocked_at_start");
+    artifactStore.updateRunState(currentRunId, (state) => {
+      state.last_completed_stage = null;
+      state.handoff_pending = false;
+      state.last_error = blockedDiagnostic.blocked_reason;
+      state.updated_at = recordedAt;
+      return state;
+    }, fallbackRunState);
+
+    backlogStore.completeResearch(backlogItem.id, {
+      status: "research_blocked",
+      lastFailureClass: "phase8d_blocked_at_start",
+      patch: {
+        completed_at: recordedAt,
+        experiment_id: executionResult.experiment_id,
+        last_verdict: "blocked",
+        blocked_reason: blockedDiagnostic.blocked_reason,
+        phase8d_blocked_at_start: true
+      }
+    });
+    stateStore.update((state) => {
+      state.iteration += 1;
+      state.last_status = "idle";
+      state.last_error = null;
+      state.exit_reason = "completed_cycle";
+      state.run_started_at = null;
+      state.stage_started_at = null;
+      state.active_agent = null;
+      state.active_agent_attempt = null;
+      state.active_agent_status = null;
+      state.last_agent_heartbeat_at = null;
+      return clearActiveSessionState(state);
+    });
+    closeActiveSession(paths, { run_id: currentRunId, agent: "planner" });
+    updateActiveRun(runtimeStateStore, { status: "idle" });
+    logger.line("Phase 8D screening attempt blocked before WFA launch", { run_id: currentRunId, reason: compiledPlan.reason });
+    rebuildHealthMetrics(paths);
   };
 
   try {
       while (config.cycles === 0 || executed < config.cycles) {
         backlogStore.recoverExpiredLeases();
         backlogStore.recoverCooldowns();
-        const currentState = stateStore.readState();
+      const currentState = stateStore.readState();
       const factoryStats = getFactoryStats(paths);
-      const resumeCandidate = chooseResumeCandidate(paths, backlogStore, artifactStore);
+      const selectionPolicy = factoryStats.marketPolicy?.selection_policy || {};
+      const readyStatuses = selectionPolicy.ready_statuses;
+      let resumeCandidate = chooseResumeCandidate(paths, backlogStore, artifactStore);
+      const selectedReadyItem = config.screeningBacklogItemId
+        ? selectTargetBacklogItem(backlogStore, config.screeningBacklogItemId, readyStatuses)
+        : selectNextBacklogItem(backlogStore, factoryStats);
+      if (shouldReadyItemPreemptResume(highestPriorityReadyItem(backlogStore, readyStatuses), resumeCandidate)) {
+        resumeCandidate = null;
+      }
 
       if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
         stateStore.update((state) => {
@@ -848,14 +1194,12 @@ export async function runFactory(config) {
       let currentRunId = resumeCandidate?.runId ?? null;
       let resuming = Boolean(resumeCandidate);
       let resumeFromStage = resumeCandidate?.resumeFromStage ?? "planner";
-      const selectionPolicy = factoryStats.marketPolicy?.selection_policy || {};
-      const readyStatuses = selectionPolicy.ready_statuses;
       const readyBacklogCount = backlogStore.read().filter((item) => readyStatuses.includes(item.status) && isLiveQueueEligible(item)).length;
       const minReadyBacklogDepth = selectionPolicy.min_ready_backlog_depth;
       const shouldReplenishBacklog = !resuming && readyBacklogCount < minReadyBacklogDepth;
 
       if (!backlogItem) {
-        backlogItem = selectNextBacklogItem(backlogStore, factoryStats);
+        backlogItem = selectedReadyItem ?? selectNextBacklogItem(backlogStore, factoryStats);
       }
 
       if (shouldReplenishBacklog || !backlogItem) {
@@ -934,20 +1278,49 @@ export async function runFactory(config) {
             idea = null;
           }
           if (idea?.title && idea?.objective) {
-            backlogStore.append([{
+            const ideaSource = idea.source === "researchbrain_stage0" || idea.source_type === "researchbrain_stage0" ? "researchbrain_stage0" : "ideator";
+            const researchBrainLinkage = ideaSource === "researchbrain_stage0" ? {
+              hypothesis_packet_path: idea.hypothesis_packet_path ?? idea.hypothesis_packet?.path ?? null,
+              hypothesis_packet_sha256: idea.hypothesis_packet_sha256 ?? idea.hypothesis_packet?.sha256 ?? null,
+              source_record_refs: Array.isArray(idea.source_record_refs) ? idea.source_record_refs : [],
+              research_run_id: idea.research_run_id ?? researchRunIdFromResearchBrainPath(idea.hypothesis_packet_path ?? idea.hypothesis_packet?.path),
+              researchbrain_evidence_kind: "stage0_research_discovery",
+              researchbrain_authority_layer: "stage_0_discovery",
+              duplicate_memory_matches: Array.isArray(idea.duplicate_memory_matches) ? idea.duplicate_memory_matches : (Array.isArray(idea.duplicates_detected) ? idea.duplicates_detected : []),
+              rejection_memory_matches: Array.isArray(idea.rejection_memory_matches) ? idea.rejection_memory_matches : (Array.isArray(idea.hypotheses_rejected) ? idea.hypotheses_rejected : []),
+              failed_pattern_matches: Array.isArray(idea.failed_pattern_matches) ? idea.failed_pattern_matches : [],
+              memory_similarity_blocked: idea.memory_similarity_blocked === true,
+              failed_pattern_blocked: idea.failed_pattern_blocked === true
+            } : {};
+            const backlogCandidate = {
               id: `AUTO-${Date.now()}-${Math.random().toString(36).slice(2, 5)}`,
               title: idea.title,
               objective: idea.objective,
               priority: idea.priority ?? 75,
               category: idea.category ?? "strategy",
               status: "ready",
-              source: "ideator",
+              source: ideaSource,
               market_family: idea.market_family ?? "unknown",
               instrument_scope: idea.instrument_scope ?? null,
               timeframe: idea.timeframe ?? null,
               history_requirement: idea.history_requirement ?? null,
               data_source: idea.data_source ?? "unknown",
-              data_requirement: idea.data_requirement ?? null
+              data_requirement: idea.data_requirement ?? null,
+              ...researchBrainLinkage
+            };
+            if (isResearchBrainBacklogCandidate(backlogCandidate)) {
+              const sourceQualityGate = classifyResearchBrainBacklogSourceQuality(backlogCandidate, { rootDir: paths.root, requireExisting: true });
+              backlogCandidate.source_quality_gate = sourceQualityGate;
+              if (sourceQualityGate.direct_wfa_ready_allowed === false) {
+                backlogCandidate.status = "requires_more_research";
+                backlogCandidate.research_status = "requires_more_research";
+                backlogCandidate.blocked_reason = sourceQualityGate.reasons.join("; ");
+                backlogCandidate.next_action = "Gather corroborating higher-trust or MT5/FTMO-relevant sources before WFA planning.";
+              }
+              validateResearchBrainBacklogCandidate(backlogCandidate, { rootDir: paths.root, requireExisting: true });
+            }
+            backlogStore.append([{
+              ...backlogCandidate
             }]);
             console.log(`[Orchestrator] Auto-generated idea: ${idea.title}`);
           } else if (!backlogItem) {
@@ -961,7 +1334,7 @@ export async function runFactory(config) {
         }
 
         if (!backlogItem) {
-          backlogItem = selectNextBacklogItem(backlogStore, factoryStats);
+          backlogItem = selectedReadyItem ?? selectNextBacklogItem(backlogStore, factoryStats);
         }
 
         if (!backlogItem) {
@@ -1032,7 +1405,7 @@ export async function runFactory(config) {
         const persistedPlan = readRunJson(paths, currentRunId, "experiment-plan.json", null);
         try {
           if (persistedPlan) {
-            validatePlannerResult(persistedPlan, { rootDir: config.rootDir });
+            validatePlannerResult(persistedPlan, { rootDir: config.rootDir, backlogItem });
             plan = persistedPlan;
             if (STAGE_RANK[resumeFromStage] <= STAGE_RANK.planner) {
               resumeFromStage = "executor";
@@ -1071,7 +1444,7 @@ export async function runFactory(config) {
       if (!plan && STAGE_RANK[resumeFromStage] <= STAGE_RANK.planner) {
         const compiledPlan = compileWfaReadyPlan({ backlogItem, rootDir: config.rootDir, runId: currentRunId });
         if (compiledPlan.compiled) {
-          validatePlannerResult(compiledPlan.plan, { rootDir: config.rootDir });
+          validatePlannerResult(compiledPlan.plan, { rootDir: config.rootDir, backlogItem });
           const bypassPath = artifactStore.writeRunArtifact(currentRunId, "planner-bypass.json", {
             schema_version: "planner_bypass_v1",
             compiler: "deterministic_wfa_ready_compiler_v1",
@@ -1145,6 +1518,12 @@ export async function runFactory(config) {
             backlog_item_id: backlogItem.id,
             reason: compiledPlan.reason
           });
+          if (compiledPlan.phase8d_blocked_at_start) {
+            completePhase8DBlockedAtStart({ backlogItem, currentRunId, fallbackRunState, compiledPlan, logger, currentState });
+            consecutiveFailures = 0;
+            executed += 1;
+            continue;
+          }
         }
       }
 
@@ -1530,6 +1909,91 @@ export async function runFactory(config) {
         });
       };
 
+      const persistExecutorSuccess = ({ responseText, parsed }) => {
+        const responsePath = artifactStore.writeRunArtifact(currentRunId, "executor-response.txt", responseText, { asJson: false });
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "executor_response", responsePath);
+        const executionPath = artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "execution_result", executionPath);
+        const workerResult = parsed?.worker_result ?? parsed?.worker_result_envelope ?? null;
+        const artifactManifestPath = artifactStore.writeRunArtifactManifest(currentRunId, executionCreatedArtifactPaths(parsed), {
+          evidence_kind: parsed?.evidence_kind ?? "research_wfa",
+          authority_layer: parsed?.authority_layer ?? workerResult?.authority_layer ?? null,
+          worker: workerResult?.worker ?? null,
+          candidate_id: parsed?.candidate_id ?? workerResult?.candidate_id ?? null,
+          source_hashes: parsed?.source_hashes ?? workerResult?.source_hashes ?? []
+        });
+        parsed.artifact_manifest_path = artifactStore.relativeToRoot(artifactManifestPath);
+        artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "artifact_manifest", artifactManifestPath);
+        const candidateGate = recordCandidateExecutionPromotionGate(paths, {
+          runId: currentRunId,
+          executionResult: parsed,
+          executionResultPath: artifactStore.relativeToRoot(executionPath)
+        });
+        if (candidateGate?.gate_path) {
+          registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_promotion_gates", path.join(paths.root, candidateGate.gate_path), { append: true });
+          const candidateGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
+          candidateGates.stages = [...(candidateGates.stages || []), { ...candidateGate.gate, gate_path: candidateGate.gate_path }];
+          candidateGates.updated_at = new Date().toISOString();
+          artifactStore.writeGateResults(currentRunId, candidateGates);
+          if (candidateGate.manifest_update?.path) {
+            registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_manifest_updates", path.join(paths.root, candidateGate.manifest_update.path), { append: true });
+          }
+        }
+        executionResult = parsed;
+        const after = artifactStore.snapshotWorkspaceHashes(paths.workspace);
+        changedFiles = artifactStore.diffSnapshots(before, after);
+        const changedPath = artifactStore.writeRunArtifact(currentRunId, "changed-files.json", changedFiles);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "changed_files", changedPath);
+        logger.line("Executor completed", { status: parsed.status });
+      };
+
+      const executeDeterministicWfaWorkerStage = async () => {
+        const stage = "executor";
+        const activeAttemptOrdinal = allocateStageAttemptOrdinal(artifactStore, currentRunId, fallbackRunState, stage, {
+          ownerId: liveOwnerId,
+          runInstanceId: currentRunId
+        });
+        setAgentStageStart(stage)({ attempt: activeAttemptOrdinal });
+        const request = buildResearchWfaRunRequestFromPlan({ plan, runId: currentRunId, rootDir: config.rootDir });
+        const stageInput = { goal: FACTORY_GOAL, plan, worker_request: request, execution_authority: "deterministic_research_wfa_run_worker" };
+        const inputPath = artifactStore.writeStageInput(currentRunId, stage, activeAttemptOrdinal, stageInput);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, `${stage}_stage_inputs`, inputPath, { append: true });
+        const promptPath = artifactStore.writeStagePrompt(currentRunId, stage, activeAttemptOrdinal, "Deterministic research_wfa_run worker execution. No LLM executor authority used for this stage.");
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, `${stage}_stage_prompts`, promptPath, { append: true });
+        const parsed = runResearchWfaRunWorker({ rootDir: config.rootDir, request });
+        validateExecutionResult(parsed);
+        validateExecutionArtifacts(config.rootDir, parsed);
+        const validatedPath = artifactStore.writeStageValidated(currentRunId, stage, activeAttemptOrdinal, parsed);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, `${stage}_stage_validated`, validatedPath, { append: true });
+        const gate = buildStageGateResult({
+          runId: currentRunId,
+          stage,
+          attempt: activeAttemptOrdinal,
+          decision: "allowed",
+          validator: "deterministic_research_wfa_run_worker",
+          evidencePaths: [artifactStore.relativeToRoot(validatedPath), ...executionEvidencePaths(parsed)]
+        });
+        const stageGatePath = artifactStore.writeStageGate(currentRunId, stage, activeAttemptOrdinal, gate);
+        registerArtifactPath(artifactStore, currentRunId, fallbackRunState, `${stage}_stage_gates`, stageGatePath, { append: true });
+        const existingGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
+        existingGates.stages = [...(existingGates.stages || []), { ...gate, gate_path: artifactStore.relativeToRoot(stageGatePath) }];
+        existingGates.updated_at = new Date().toISOString();
+        artifactStore.writeGateResults(currentRunId, existingGates);
+        setRunStageStatus(artifactStore, currentRunId, fallbackRunState, stage, "completed", { attempt: activeAttemptOrdinal, worker: "research_wfa_run" });
+        updateRunResumePoint(artifactStore, currentRunId, fallbackRunState, nextStageAfter(stage));
+        artifactStore.updateRunState(currentRunId, (state) => {
+          state.last_completed_stage = stage;
+          state.current_stage = null;
+          state.current_stage_attempt = null;
+          state.current_stage_session = null;
+          state.updated_at = new Date().toISOString();
+          return state;
+        }, fallbackRunState);
+        persistExecutorSuccess({ responseText: JSON.stringify(parsed, null, 2), parsed });
+        return { parsed };
+      };
+
       try {
         if (STAGE_RANK[resumeFromStage] <= STAGE_RANK.planner) {
           const planResponse = await executeStructuredStage({
@@ -1544,7 +2008,7 @@ export async function runFactory(config) {
               };
             },
             validate: (parsed) => {
-              validatePlannerResult(parsed, { rootDir: config.rootDir });
+              validatePlannerResult(parsed, { rootDir: config.rootDir, backlogItem });
             },
             onSuccess: ({ response, parsed }) => {
               const responsePath = artifactStore.writeRunArtifact(currentRunId, "planner-response.txt", response.text, { asJson: false });
@@ -1563,7 +2027,12 @@ export async function runFactory(config) {
 
         if (STAGE_RANK[resumeFromStage] <= STAGE_RANK.executor) {
           if (!plan) throw new Error("Resume requested executor without a persisted plan.");
-          const executionResponse = await executeStructuredStage({
+          if (shouldUseDeterministicWfaWorker({ mode: config.mode, plan })) {
+            const executionResponse = await executeDeterministicWfaWorkerStage();
+            executionResult = executionResponse.parsed;
+            resumeFromStage = "evaluator";
+          } else {
+            const executionResponse = await executeStructuredStage({
             stage: "executor",
             label: "Executor",
             handoffStage: resumeFromStage === "executor",
@@ -1579,46 +2048,12 @@ export async function runFactory(config) {
               validateExecutionArtifacts(config.rootDir, parsed);
             },
             onSuccess: ({ response, parsed }) => {
-              const responsePath = artifactStore.writeRunArtifact(currentRunId, "executor-response.txt", response.text, { asJson: false });
-              registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "executor_response", responsePath);
-              const executionPath = artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
-              registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "execution_result", executionPath);
-              const workerResult = parsed?.worker_result ?? parsed?.worker_result_envelope ?? null;
-              const artifactManifestPath = artifactStore.writeRunArtifactManifest(currentRunId, executionCreatedArtifactPaths(parsed), {
-                evidence_kind: parsed?.evidence_kind ?? "research_wfa",
-                authority_layer: parsed?.authority_layer ?? workerResult?.authority_layer ?? null,
-                worker: workerResult?.worker ?? null,
-                candidate_id: parsed?.candidate_id ?? workerResult?.candidate_id ?? null,
-                source_hashes: parsed?.source_hashes ?? workerResult?.source_hashes ?? []
-              });
-              parsed.artifact_manifest_path = artifactStore.relativeToRoot(artifactManifestPath);
-              artifactStore.writeRunArtifact(currentRunId, "execution-result.json", parsed);
-              registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "artifact_manifest", artifactManifestPath);
-              const candidateGate = recordCandidateExecutionPromotionGate(paths, {
-                runId: currentRunId,
-                executionResult: parsed,
-                executionResultPath: artifactStore.relativeToRoot(executionPath)
-              });
-              if (candidateGate?.gate_path) {
-                registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_promotion_gates", path.join(paths.root, candidateGate.gate_path), { append: true });
-                const candidateGates = artifactStore.readGateResults(currentRunId, { schema_version: "stage_gates_v1", run_id: currentRunId, stages: [] });
-                candidateGates.stages = [...(candidateGates.stages || []), { ...candidateGate.gate, gate_path: candidateGate.gate_path }];
-                candidateGates.updated_at = new Date().toISOString();
-                artifactStore.writeGateResults(currentRunId, candidateGates);
-                if (candidateGate.manifest_update?.path) {
-                  registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "candidate_manifest_updates", path.join(paths.root, candidateGate.manifest_update.path), { append: true });
-                }
-              }
-              executionResult = parsed;
-              const after = artifactStore.snapshotWorkspaceHashes(paths.workspace);
-              changedFiles = artifactStore.diffSnapshots(before, after);
-              const changedPath = artifactStore.writeRunArtifact(currentRunId, "changed-files.json", changedFiles);
-              registerArtifactPath(artifactStore, currentRunId, fallbackRunState, "changed_files", changedPath);
-              logger.line("Executor completed", { status: parsed.status });
+              persistExecutorSuccess({ responseText: response.text, parsed });
             }
           });
-          executionResult = executionResponse.parsed;
-          resumeFromStage = "evaluator";
+            executionResult = executionResponse.parsed;
+            resumeFromStage = "evaluator";
+          }
         }
 
         if (STAGE_RANK[resumeFromStage] <= STAGE_RANK.evaluator) {
@@ -1636,7 +2071,14 @@ export async function runFactory(config) {
               };
             },
             validate: (parsed) => {
-              validateEvaluationResult(parsed, { mode: config.mode, rootDir: config.rootDir });
+              validateEvaluationResult(parsed, {
+                mode: config.mode,
+                rootDir: config.rootDir,
+                evidenceKind: executionResult?.evidence_kind ?? plan?.evidence_kind,
+                candidateId: executionResult?.candidate_id ?? executionResult?.worker_result?.candidate_id ?? plan?.candidate_id ?? null,
+                runId: executionResult?.worker_result?.run_id ?? currentRunId,
+                resultsKnownAt: executionResult?.observed_at ?? executionResult?.worker_result?.observed_at ?? executionResult?.observations?.worker_end_time ?? null
+              });
             },
             onSuccess: ({ response, parsed }) => {
               const responsePath = artifactStore.writeRunArtifact(currentRunId, "evaluator-response.txt", response.text, { asJson: false });
@@ -1716,7 +2158,10 @@ export async function runFactory(config) {
                   last_evidence_score: evaluation.evidence_score
                 }
               });
-              appendSuggestedActions(backlogItem, currentRunId, evaluation.next_backlog_actions ?? []);
+              appendSuggestedActions(backlogItem, currentRunId, [
+                ...(evaluation.next_backlog_actions ?? []),
+                ...buildRepeatedFailureRemediationActions({ factoryStats, backlogItem, executionResult, evaluation, currentRunId })
+              ]);
               artifactStore.updateRunState(currentRunId, (state) => {
                 state.resume_from_stage = null;
                 state.failure_class = researchStatus === "research_complete" ? null : "research_failure";

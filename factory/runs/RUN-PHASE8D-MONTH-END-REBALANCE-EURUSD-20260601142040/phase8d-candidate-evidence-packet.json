@@ -1,0 +1,324 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "backlog_item_id": "IDEA-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "candidate_id": "CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "lineage_id": "LINEAGE-PHASE8D-MONTH-END-REBALANCE-EURUSD",
+  "family_id": "month_end_rebalance_eurusd",
+  "attempt_id": "RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/month_end_rebalance_eurusd/wfa_config.yaml",
+      "sha256": "abcc4ac1996c115f69d16925bd18c5e5bdcebc5bce32565de0ad3c04844a7951",
+      "size_bytes": 1530,
+      "modified_at": "2026-06-01T14:00:10.181Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/month_end_rebalance_eurusd.py",
+      "sha256": "024d2755e15f7850aa3e5bd9024e1784c7ff87b597626ec4a0003addc30281e3",
+      "size_bytes": 8292,
+      "modified_at": "2026-06-01T14:00:10.138Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_month_end_rebalance_eurusd.json",
+      "sha256": "576397a42e68f9858aba1b6f7b88f0737d912cb15ec52c8797aeff6fcb4f20a1",
+      "size_bytes": 1557,
+      "modified_at": "2026-06-01T14:00:10.155Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/registrations/research-wfa-RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040.json",
+      "sha256": "1d4683b851efdaaf027c1a19cbd9ff6eb2cc707c916cb36ba56da6fe721bcbb2",
+      "size_bytes": 4071,
+      "modified_at": "2026-06-01T14:20:45.392Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/hypothesis-packet.json",
+      "sha256": "e812d72cfcd13487c43c13cd156283f6cfe74d8fad134602eaf7436563cb9f5c"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/registrations/research-wfa-RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040.json",
+      "sha256": "1d4683b851efdaaf027c1a19cbd9ff6eb2cc707c916cb36ba56da6fe721bcbb2",
+      "content_hash": "e1d4c1382a6b5a44d813f65e47c659de7892d2b985e49d3e64d773d3af1b3728"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_external_research_plus_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/source-record.json",
+      "sha256": "2e4ef8f0b3832ca0126e7e63aac1ea3d1e755e60a503095cc44d0e6218e9117b",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "EURUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 87,
+    "trades": 1576,
+    "return_proxy_pct": -0.2949588421118084,
+    "sharpe_oos": -1.6681707492205011,
+    "profit_factor": 0.5135231305063604,
+    "positive_oos_window_ratio": 0.149425,
+    "wfr": 1
+  },
+  "consistency_ladder_advisory": {
+    "status": "tiered_consistency_policy_enabled",
+    "clean_consistency_floor": 0.7,
+    "tier": "C4",
+    "label": "pathologically_concentrated",
+    "positive_oos_window_ratio": 0.1494,
+    "tier_source": "per_window_returns",
+    "tier_thresholds": [
+      {
+        "tier": "C1",
+        "label": "clean_consistency",
+        "minInclusive": 0.7,
+        "maxExclusive": null
+      },
+      {
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "minInclusive": 0.5,
+        "maxExclusive": 0.7
+      },
+      {
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "minInclusive": 0.3,
+        "maxExclusive": 0.5
+      },
+      {
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "minInclusive": null,
+        "maxExclusive": 0.3
+      }
+    ],
+    "return_concentration": {
+      "status": "computed_artifact_backed",
+      "positive_window_count": 13,
+      "total_positive_return_pct": 3.363525,
+      "largest_positive_window_return_pct": 1.388989,
+      "second_largest_positive_window_return_pct": 0.561062,
+      "single_window_share": 0.412956,
+      "top_two_window_share": 0.579764
+    },
+    "drawdown_to_return_ratio": {
+      "status": "undefined_non_positive_return_proxy",
+      "aggregate_return_pct": -0.294959,
+      "absolute_max_drawdown_pct": 1.251698,
+      "value": null
+    },
+    "low_window_count_warning": {
+      "flagged": false,
+      "completed_windows": 87,
+      "threshold_windows": 15,
+      "ratio_warning_below": 0.65,
+      "status": "not_flagged"
+    },
+    "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+  },
+  "promotion_gate": {
+    "schema_version": "stage_gate_v1",
+    "run_id": "RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+    "stage": "research_promotion",
+    "attempt": 1,
+    "decision": "denied",
+    "validator": "research_wfa_promotion_gate",
+    "evidence_paths": [
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/parsed-wfa-metrics.json",
+      "factory/candidates/CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/registrations/research-wfa-RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040.json",
+      "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/hypothesis-packet.json",
+      "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+      "walk forward engine/strategies/month_end_rebalance_eurusd/results/analysis.json",
+      "walk forward engine/strategies/month_end_rebalance_eurusd/results/parameter_stability_20260601_172914.json",
+      "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_summary_20260601_172914.csv",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/research-wfa-run-request.json",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/research-wfa-run-stdout.txt",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/research-wfa-run-stderr.txt",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/pre-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/post-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/accepted-output-artifacts.json",
+      "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/trial-attempts.jsonl"
+    ],
+    "reason": "Research WFA promotion denied for CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040: non-positive OOS Sharpe (-1.6681707492205011); aggregate return proxy below Phase 8D floor (-0.2949588421118084% < 5%); profit factor below 1 (0.5135231305063604); Phase 8D consistency route denied: positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.1494. Advisory DSR/PBO/CPCV/White statistics are not hard promotion authority in Phase 8C.",
+    "recorded_at": "2026-06-01T14:29:22.799Z",
+    "candidate_id": "CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+    "target_context": "research",
+    "statistical_test_authority": {
+      "dsr": "advisory_only_not_a_promotion_gate",
+      "pbo": "advisory_only_not_a_promotion_gate",
+      "cpcv": "advisory_only_not_a_promotion_gate",
+      "white_reality_check": "advisory_only_not_a_promotion_gate",
+      "hard_gate_enabled": false,
+      "note": "Phase 8C DSR/PBO/CPCV/White outputs may report or block missing inputs, but they do not authorize research promotion without a separate promotion-policy amendment."
+    },
+    "consistency_promotion_policy": {
+      "passed": false,
+      "route": null,
+      "tier": "C4",
+      "failures": [
+        "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.1494"
+      ],
+      "policy": {
+        "status": "enabled_conditional_multi_metric_gate",
+        "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+        "routes": {
+          "C1": {
+            "label": "clean_consistency_route",
+            "minPositiveWindowRatio": 0.7,
+            "requiresAdditionalDiagnostics": false
+          },
+          "C2": {
+            "label": "moderate_consistency_compensated_route",
+            "minPositiveWindowRatio": 0.5,
+            "minReturnPct": 5,
+            "minSharpeOos": 0.35,
+            "minProfitFactor": 1.15,
+            "minOosWindows": 15,
+            "maxSingleWindowConcentration": 0.6,
+            "maxTopTwoWindowConcentration": 0.85,
+            "maxDrawdownToReturnRatio": 3
+          },
+          "C3": {
+            "label": "lumpy_payoff_compensated_route",
+            "minPositiveWindowRatio": 0.3,
+            "minReturnPct": 10,
+            "minSharpeOos": 0.75,
+            "minProfitFactor": 1.35,
+            "minOosWindows": 20,
+            "maxSingleWindowConcentration": 0.45,
+            "maxTopTwoWindowConcentration": 0.7,
+            "maxDrawdownToReturnRatio": 2
+          }
+        }
+      }
+    }
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "consistency_promotion_route"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/execution-result.json",
+      "sha256": "a2a8b383d7d9823c1e6490f925b064a01bd019baabe32fc9f377708d2cca6a4c"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/parsed-wfa-metrics.json",
+      "sha256": "30ac6bd55284a915a0b77b71b7a05eb0257b56062b04d3d205783854903a420c"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/registrations/research-wfa-RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040.json",
+      "sha256": "1d4683b851efdaaf027c1a19cbd9ff6eb2cc707c916cb36ba56da6fe721bcbb2"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/hypothesis-packet.json",
+      "sha256": "e812d72cfcd13487c43c13cd156283f6cfe74d8fad134602eaf7436563cb9f5c",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/source-record.json",
+      "sha256": "2e4ef8f0b3832ca0126e7e63aac1ea3d1e755e60a503095cc44d0e6218e9117b"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/source-excerpt.md",
+      "sha256": "156c75be4f55519f5d6c53185a686e85debac84d298592c363d15a3b9c49e2fc",
+      "artifact_type": "research_source_excerpt"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+      "sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6"
+    }
+  ],
+  "recorded_at": "2026-06-01T14:20:40.527Z"
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "planner_bypass_v1",
+  "compiler": "deterministic_wfa_ready_compiler_v1",
+  "reason": "explicit_research_wfa_route",
+  "backlog_item_id": "IDEA-079608-34m",
+  "experiment_id": "EXP-IDEA-079608-34M",
+  "recorded_at": "2026-05-13T11:32:55.701Z"
+}

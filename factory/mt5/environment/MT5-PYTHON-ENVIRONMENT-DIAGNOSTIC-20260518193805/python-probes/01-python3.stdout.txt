@@ -1,0 +1,1 @@
+{"error_type": "ModuleNotFoundError", "message": "No module named 'MetaTrader5'", "ok": false, "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39", "python_version": "3.12.3"}

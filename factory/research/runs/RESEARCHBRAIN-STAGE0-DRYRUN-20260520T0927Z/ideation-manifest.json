@@ -1,0 +1,64 @@
+{
+  "schema_version": "research_ideation_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "research_run_id": "RESEARCHBRAIN-STAGE0-FIXTURE-RESEARCHBRAIN-REQUEST-20260520T0718Z-001",
+  "memory_checked": {
+    "checked": true,
+    "basis": "request prior lessons and prior artifact refs were supplied to provider seam"
+  },
+  "sources_considered": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "trust_tier": "low_signal_trust",
+      "source_type": "fixture_test_double_source"
+    }
+  ],
+  "hypotheses_accepted": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/hypotheses/HYP-STAGE0-FIXTURE-001.json",
+      "sha256": "7bff71d563e3f7e402161bf0bc498581a7916e6f357f59ae018f99d6ce43d8e8",
+      "status": "accepted_stage0_only"
+    }
+  ],
+  "hypotheses_rejected": [],
+  "duplicates_detected": [],
+  "budget_used": {
+    "max_sources": 8,
+    "sources_used": 1,
+    "max_hypotheses": 3,
+    "hypotheses_used": 1,
+    "provider_mode": "fixture_test_double"
+  },
+  "operator_relevant_blockers": [],
+  "artifact_paths": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "5afbaf41070d1ea34fbebb69638a993cd6c41c0b27fed6e5165082a3da536585"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/hypotheses/HYP-STAGE0-FIXTURE-001.json",
+      "sha256": "7bff71d563e3f7e402161bf0bc498581a7916e6f357f59ae018f99d6ce43d8e8"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/digest.json",
+      "sha256": "232c2190ceb7cb68401a1e2d610316b0e6fc7375cb7cf5ed41a33bdfc61565b1"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1",
+  "generated_at": "2026-06-11T20:15:46.688Z",
+  "provider": {
+    "name": "fixture_researchbrain_provider",
+    "mode": "valid",
+    "live_research": false
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z/request.json",
+    "sha256": "ab64a6a31f22ec17d9750d19ca54e73ed8aac170a43bdc4c36ce835502448f8f"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 1,
+    "timeout_ms": 30000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-06-11T20:15:46.707Z",
+      "completed_at": "2026-06-11T20:15:46.790Z",
+      "failure_class": "schema_or_validation_failure",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "schema_or_validation_failure",
+      "raw_provider_output": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1/attempts/attempt-001/provider-output.raw.json",
+        "sha256": "9d11e8d8c406fc5bfa2c9ddd6e3799a084fce4313044e6ff6353a61391a8d37d"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "succeeded",
+          "started_at": "2026-06-11T20:15:46.707Z",
+          "completed_at": "2026-06-11T20:15:46.708Z",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "succeeded"
+        }
+      ],
+      "reason": "hypothesis_packet_v1 validation failed: phase8a_universe_constraints is required",
+      "error_class": "Error",
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1/quarantine/attempt-001.json",
+        "sha256": "0cbdb78ab77779c82cb0c0974dae1f5482843db77bcc96f3825bc9953e0ab4bb"
+      }
+    }
+  ],
+  "final_terminal_state": "schema_or_validation_failure",
+  "blockers": [
+    "accepted_provider_output_rejected",
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z-93F65ADC1BAE16491C11AAF1/quarantine/attempt-001.json",
+      "sha256": "0cbdb78ab77779c82cb0c0974dae1f5482843db77bcc96f3825bc9953e0ab4bb"
+    }
+  ],
+  "artifacts_created": [],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

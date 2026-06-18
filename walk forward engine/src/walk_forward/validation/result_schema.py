@@ -55,6 +55,17 @@ class WfaResultSchema:
                 raise SchemaValidationError(f"total_return_pct must be finite in window {w.window_id}")
             if abs(float(w.total_return_pct)) > 10000.0:
                 raise SchemaValidationError(f"total_return_pct magnitude implausible (>10000%) in window {w.window_id}")
+            if getattr(w, "in_sample_sharpe", None) is not None and not self._is_finite_number(w.in_sample_sharpe):
+                raise SchemaValidationError(f"in_sample_sharpe must be finite when emitted in window {w.window_id}")
+            if getattr(w, "in_sample_return_pct", None) is not None:
+                if not self._is_finite_number(w.in_sample_return_pct):
+                    raise SchemaValidationError(f"in_sample_return_pct must be finite when emitted in window {w.window_id}")
+                if abs(float(w.in_sample_return_pct)) > 10000.0:
+                    raise SchemaValidationError(f"in_sample_return_pct magnitude implausible (>10000%) in window {w.window_id}")
+            for field in ("purge_gap_bars", "purged_validation_bars"):
+                value = getattr(w, field, 0)
+                if not isinstance(value, int) or value < 0:
+                    raise SchemaValidationError(f"{field} must be a non-negative int in window {w.window_id}")
 
         # Aggregate checks
         if not isinstance(results.total_windows, int) or results.total_windows < 0:
@@ -69,6 +80,13 @@ class WfaResultSchema:
             raise SchemaValidationError("aggregate win/loss counts must sum to aggregate_total_trades")
         if not self._is_finite_number(results.aggregate_win_rate) or not (0.0 <= float(results.aggregate_win_rate) <= 1.0):
             raise SchemaValidationError("aggregate_win_rate must be a finite fraction in [0, 1]")
+        if getattr(results, "aggregate_in_sample_sharpe", None) is not None and not self._is_finite_number(results.aggregate_in_sample_sharpe):
+            raise SchemaValidationError("aggregate_in_sample_sharpe must be finite when emitted")
+        if getattr(results, "aggregate_in_sample_return_pct", None) is not None:
+            if not self._is_finite_number(results.aggregate_in_sample_return_pct):
+                raise SchemaValidationError("aggregate_in_sample_return_pct must be finite when emitted")
+            if abs(float(results.aggregate_in_sample_return_pct)) > 10000.0:
+                raise SchemaValidationError("aggregate_in_sample_return_pct magnitude implausible (>10000%)")
 
         # Calendar alignment: ensure chronological order (overlap allowed for rolling WFA)
         # Note: Rolling WFA windows may have overlapping test periods by design

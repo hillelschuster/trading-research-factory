@@ -1,0 +1,124 @@
+{
+  "schema_version": "mt5_python_environment_diagnostic_v1",
+  "evidence_kind": "mt5_python_environment_diagnostic",
+  "diagnostic_id": "MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805",
+  "status": "blocked",
+  "observed_at": "2026-05-18T19:38:05.251Z",
+  "authority_layer": "local_environment",
+  "package_name": "MetaTrader5",
+  "package_required_for": "mt5_tradable_universe_snapshot",
+  "official_evidence_index_mutated": false,
+  "installation_attempted": false,
+  "blocked_reason": "No configured Python command can import the MetaTrader5 package; live FTMO MT5 universe snapshots remain blocked until this is resolved outside the factory.",
+  "status_summary": {
+    "total": 3,
+    "available": 0,
+    "missing_or_failed": 3,
+    "by_status": {
+      "missing": 3
+    }
+  },
+  "commands": [
+    {
+      "label": "python3",
+      "command_basename": "python3",
+      "command_was_absolute": false,
+      "args": [],
+      "exit_status": 2,
+      "signal": null,
+      "error_code": null,
+      "package_import_status": "missing",
+      "message": "ModuleNotFoundError: No module named 'MetaTrader5'",
+      "python_version": "3.12.3",
+      "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "mt5_package_version": null,
+      "stdout": {
+        "artifact_type": "mt5_python_environment_probe_stdout",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/01-python3.stdout.txt",
+        "sha256": "f166f43554d32f07d5b010a8bf8a8575e928549e4248473ff8f2222abbd6945e",
+        "size_bytes": 201,
+        "modified_at": "2026-05-18T19:38:04.640Z"
+      },
+      "stderr": {
+        "artifact_type": "mt5_python_environment_probe_stderr",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/01-python3.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "modified_at": "2026-05-18T19:38:04.657Z"
+      },
+      "stdout_sha256": "f166f43554d32f07d5b010a8bf8a8575e928549e4248473ff8f2222abbd6945e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "python.exe",
+      "command_basename": "python.exe",
+      "command_was_absolute": false,
+      "args": [],
+      "exit_status": 2,
+      "signal": null,
+      "error_code": null,
+      "package_import_status": "missing",
+      "message": "ModuleNotFoundError: No module named 'MetaTrader5'",
+      "python_version": "3.11.14",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "mt5_package_version": null,
+      "stdout": {
+        "artifact_type": "mt5_python_environment_probe_stdout",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/02-python.exe.stdout.txt",
+        "sha256": "285dd3b48df19720793309b3c30dbe60bb8bf348f1dbf805c997cdadb8d2e692",
+        "size_bytes": 166,
+        "modified_at": "2026-05-18T19:38:05.143Z"
+      },
+      "stderr": {
+        "artifact_type": "mt5_python_environment_probe_stderr",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/02-python.exe.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "modified_at": "2026-05-18T19:38:05.163Z"
+      },
+      "stdout_sha256": "285dd3b48df19720793309b3c30dbe60bb8bf348f1dbf805c997cdadb8d2e692",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "py.exe-3",
+      "command_basename": "py.exe",
+      "command_was_absolute": false,
+      "args": [
+        "-3"
+      ],
+      "exit_status": 2,
+      "signal": null,
+      "error_code": null,
+      "package_import_status": "missing",
+      "message": "ModuleNotFoundError: No module named 'MetaTrader5'",
+      "python_version": "3.13.13",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mt5_package_version": null,
+      "stdout": {
+        "artifact_type": "mt5_python_environment_probe_stdout",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/03-py.exe-3.stdout.txt",
+        "sha256": "42b1e7c81871eeed6e6f20e8b3e6baa1f0eaf2cab8cb126866033aa69a2f58ce",
+        "size_bytes": 166,
+        "modified_at": "2026-05-18T19:38:05.636Z"
+      },
+      "stderr": {
+        "artifact_type": "mt5_python_environment_probe_stderr",
+        "path": "factory/mt5/environment/MT5-PYTHON-ENVIRONMENT-DIAGNOSTIC-20260518193805/python-probes/03-py.exe-3.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "modified_at": "2026-05-18T19:38:05.655Z"
+      },
+      "stdout_sha256": "42b1e7c81871eeed6e6f20e8b3e6baa1f0eaf2cab8cb126866033aa69a2f58ce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/core/mt5-environment-diagnostic.mjs",
+      "sha256": "85d0d50ae40c3b04439670fe2e1851fc73998dfd435a7160925d6518e85414fe",
+      "size_bytes": 13433,
+      "modified_at": "2026-05-18T19:34:40.568Z"
+    }
+  ]
+}

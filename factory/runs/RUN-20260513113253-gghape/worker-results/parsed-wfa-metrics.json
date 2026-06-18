@@ -1,0 +1,70 @@
+{
+  "metrics": {
+    "sharpe_oos": 1.5232824968937009,
+    "total_trades": 20,
+    "max_drawdown": -3.5081816633755083,
+    "profit_factor": 1.7208868566043953,
+    "win_rate": 0.55,
+    "aggregate_return_pct": 1.4111595609530923,
+    "total_windows": 3,
+    "successful_windows": 3,
+    "failed_windows": 0
+  },
+  "per_window_metrics": [
+    {
+      "window_id": 0,
+      "success": true,
+      "total_return_pct": 4.78606011195993,
+      "total_trades": 6,
+      "sharpe_ratio": 4.584728678265507,
+      "max_drawdown_pct": -1.5942837429332466,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 25,
+        "ema_fast": 30,
+        "ema_slow": 50,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 2.5
+      }
+    },
+    {
+      "window_id": 1,
+      "success": true,
+      "total_return_pct": 1.0488514806448657,
+      "total_trades": 8,
+      "sharpe_ratio": 0.8504606249893681,
+      "max_drawdown_pct": -3.080317558383715,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 25,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 12,
+        "sl_atr_multiplier": 1.5
+      }
+    },
+    {
+      "window_id": 2,
+      "success": true,
+      "total_return_pct": -1.6014329097455193,
+      "total_trades": 6,
+      "sharpe_ratio": -1.1051206477492372,
+      "max_drawdown_pct": -3.5081816633755083,
+      "best_parameters": {
+        "atr_period": 10,
+        "contraction_pct": 15,
+        "ema_fast": 30,
+        "ema_slow": 60,
+        "hold_bars": 24,
+        "sl_atr_multiplier": 2
+      }
+    }
+  ],
+  "metrics_artifact": {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+    "sha256": "91f38fba3f7d86f8beab10647b89d22a974facaef5b36c67f938f6aad4a0f180",
+    "size_bytes": 7086,
+    "modified_at": "2026-05-13T11:35:45.833Z"
+  }
+}

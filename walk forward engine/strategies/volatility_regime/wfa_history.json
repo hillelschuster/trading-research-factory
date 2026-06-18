@@ -285,6 +285,405 @@
           "window_id": 2
         }
       ]
+    },
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.0,
+          "max": 10.0,
+          "mean": 10.0,
+          "min": 10.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "contraction_pct": {
+          "coefficient_of_variation": 0.21757131728816842,
+          "max": 25.0,
+          "mean": 21.666666666666668,
+          "min": 15.0,
+          "stability_score": 0.7824286827118316,
+          "std": 4.714045207910316,
+          "type": "numerical"
+        },
+        "ema_fast": {
+          "coefficient_of_variation": 0.0,
+          "max": 30.0,
+          "mean": 30.0,
+          "min": 30.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "ema_slow": {
+          "coefficient_of_variation": 0.0831890330807703,
+          "max": 60.0,
+          "mean": 56.666666666666664,
+          "min": 50.0,
+          "stability_score": 0.9168109669192297,
+          "std": 4.714045207910317,
+          "type": "numerical"
+        },
+        "hold_bars": {
+          "coefficient_of_variation": 0.3535533905932738,
+          "max": 24.0,
+          "mean": 16.0,
+          "min": 12.0,
+          "stability_score": 0.6464466094067263,
+          "std": 5.656854249492381,
+          "type": "numerical"
+        },
+        "sl_atr_multiplier": {
+          "coefficient_of_variation": 0.2041241452319315,
+          "max": 2.5,
+          "mean": 2.0,
+          "min": 1.5,
+          "stability_score": 0.7958758547680684,
+          "std": 0.408248290463863,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-05-13T11:32:58.316946+00:00",
+      "run_id": "20260513_143545",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 167.5,
+        "max_drawdown_pct": -3.5082,
+        "profit_factor": 1.7209,
+        "sharpe_ratio": 1.5233,
+        "successful_windows": 3,
+        "total_return_pct": 1.4112,
+        "total_trades": 20,
+        "total_windows": 3,
+        "win_rate": 0.55
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 50,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": 4.7861,
+          "sharpe": 4.5847,
+          "test_end": "2021-07-22T09:00:00+00:00",
+          "test_start": "2021-06-22T09:00:00+00:00",
+          "trades": 6,
+          "win_rate": 0.6667,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 1.5
+          },
+          "return_pct": 1.0489,
+          "sharpe": 0.8505,
+          "test_end": "2021-08-22T09:00:00+00:00",
+          "test_start": "2021-07-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 15.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 24,
+            "sl_atr_multiplier": 2.0
+          },
+          "return_pct": -1.6014,
+          "sharpe": -1.1051,
+          "test_end": "2021-09-22T09:00:00+00:00",
+          "test_start": "2021-08-22T09:00:00+00:00",
+          "trades": 6,
+          "win_rate": 0.5,
+          "window_id": 2
+        }
+      ]
+    },
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.0,
+          "max": 10.0,
+          "mean": 10.0,
+          "min": 10.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "contraction_pct": {
+          "coefficient_of_variation": 0.16329931618554522,
+          "max": 30.0,
+          "mean": 25.0,
+          "min": 20.0,
+          "stability_score": 0.8367006838144548,
+          "std": 4.08248290463863,
+          "type": "numerical"
+        },
+        "ema_fast": {
+          "coefficient_of_variation": 0.40406101782088427,
+          "max": 30.0,
+          "mean": 23.333333333333332,
+          "min": 10.0,
+          "stability_score": 0.5959389821791157,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "ema_slow": {
+          "coefficient_of_variation": 0.17677669529663684,
+          "max": 60.0,
+          "mean": 53.333333333333336,
+          "min": 40.0,
+          "stability_score": 0.8232233047033631,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "hold_bars": {
+          "coefficient_of_variation": 0.0,
+          "max": 12.0,
+          "mean": 12.0,
+          "min": 12.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "sl_atr_multiplier": {
+          "coefficient_of_variation": 0.10101525445522107,
+          "max": 2.5,
+          "mean": 2.3333333333333335,
+          "min": 2.0,
+          "stability_score": 0.8989847455447789,
+          "std": 0.23570226039551584,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-05-14T05:02:19.341928+00:00",
+      "run_id": "20260514_080540",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 201.03,
+        "max_drawdown_pct": -4.4628,
+        "profit_factor": 0.8739,
+        "sharpe_ratio": -0.7354,
+        "successful_windows": 3,
+        "total_return_pct": -0.3931,
+        "total_trades": 23,
+        "total_windows": 3,
+        "win_rate": 0.5217
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 30.0,
+            "ema_fast": 10,
+            "ema_slow": 40,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": 0.2533,
+          "sharpe": 0.2619,
+          "test_end": "2021-07-22T09:00:00+00:00",
+          "test_start": "2021-06-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "return_pct": 1.0489,
+          "sharpe": 0.8505,
+          "test_end": "2021-08-22T09:00:00+00:00",
+          "test_start": "2021-07-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 20.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.0
+          },
+          "return_pct": -2.4816,
+          "sharpe": -2.1139,
+          "test_end": "2021-09-22T09:00:00+00:00",
+          "test_start": "2021-08-22T09:00:00+00:00",
+          "trades": 7,
+          "win_rate": 0.5714,
+          "window_id": 2
+        }
+      ]
+    },
+    {
+      "parameter_stability": {
+        "atr_period": {
+          "coefficient_of_variation": 0.0,
+          "max": 10.0,
+          "mean": 10.0,
+          "min": 10.0,
+          "stability_score": 1.0,
+          "std": 0.0,
+          "type": "numerical"
+        },
+        "contraction_pct": {
+          "coefficient_of_variation": 0.08838834764831845,
+          "max": 30.0,
+          "mean": 26.666666666666668,
+          "min": 25.0,
+          "stability_score": 0.9116116523516815,
+          "std": 2.3570226039551585,
+          "type": "numerical"
+        },
+        "ema_fast": {
+          "coefficient_of_variation": 0.40406101782088427,
+          "max": 30.0,
+          "mean": 23.333333333333332,
+          "min": 10.0,
+          "stability_score": 0.5959389821791157,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "ema_slow": {
+          "coefficient_of_variation": 0.17677669529663684,
+          "max": 60.0,
+          "mean": 53.333333333333336,
+          "min": 40.0,
+          "stability_score": 0.8232233047033631,
+          "std": 9.428090415820632,
+          "type": "numerical"
+        },
+        "hold_bars": {
+          "coefficient_of_variation": 0.565685424949238,
+          "max": 36.0,
+          "mean": 20.0,
+          "min": 12.0,
+          "stability_score": 0.434314575050762,
+          "std": 11.313708498984761,
+          "type": "numerical"
+        },
+        "sl_atr_multiplier": {
+          "coefficient_of_variation": 0.21757131728816848,
+          "max": 2.5,
+          "mean": 2.1666666666666665,
+          "min": 1.5,
+          "stability_score": 0.7824286827118315,
+          "std": 0.4714045207910317,
+          "type": "numerical"
+        }
+      },
+      "run_date": "2026-05-28T19:46:59.435134+00:00",
+      "run_id": "20260528_225026",
+      "strategy_profile_key": "VOLATILITY_REGIME",
+      "summary": {
+        "execution_time_seconds": 206.84,
+        "max_drawdown_pct": -7.8692,
+        "profit_factor": 0.5638,
+        "sharpe_ratio": -1.4915,
+        "successful_windows": 3,
+        "total_return_pct": -1.9397,
+        "total_trades": 23,
+        "total_windows": 3,
+        "win_rate": 0.3913
+      },
+      "wfa_scheme": {
+        "n_trials": 100,
+        "step_months": 1,
+        "testing_months": 1,
+        "training_months": 3
+      },
+      "windows": [
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 30.0,
+            "ema_fast": 10,
+            "ema_slow": 40,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "in_sample_return_pct": 16.5707,
+          "in_sample_sharpe": 2.779,
+          "return_pct": 0.2533,
+          "sharpe": 0.2619,
+          "test_end": "2021-07-22T09:00:00+00:00",
+          "test_start": "2021-06-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 0
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 12,
+            "sl_atr_multiplier": 2.5
+          },
+          "in_sample_return_pct": 18.0029,
+          "in_sample_sharpe": 3.4224,
+          "return_pct": 1.0489,
+          "sharpe": 0.8505,
+          "test_end": "2021-08-22T09:00:00+00:00",
+          "test_start": "2021-07-22T09:00:00+00:00",
+          "trades": 8,
+          "win_rate": 0.5,
+          "window_id": 1
+        },
+        {
+          "best_params": {
+            "atr_period": 10,
+            "contraction_pct": 25.0,
+            "ema_fast": 30,
+            "ema_slow": 60,
+            "hold_bars": 36,
+            "sl_atr_multiplier": 1.5
+          },
+          "in_sample_return_pct": 19.4513,
+          "in_sample_sharpe": 2.9757,
+          "return_pct": -7.1212,
+          "sharpe": -5.5125,
+          "test_end": "2021-09-22T09:00:00+00:00",
+          "test_start": "2021-08-22T09:00:00+00:00",
+          "trades": 7,
+          "win_rate": 0.1429,
+          "window_id": 2
+        }
+      ]
     }
   ],
   "strategy": "volatility_regime"

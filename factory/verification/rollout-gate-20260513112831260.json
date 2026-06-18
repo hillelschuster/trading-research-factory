@@ -1,0 +1,26 @@
+{
+  "schema_version": "rollout_gate_v1",
+  "generated_at": "2026-05-13T11:28:31.290Z",
+  "gate_id": null,
+  "gate_name": null,
+  "gate_status": null,
+  "gate_started_at": null,
+  "gate_finished_at": null,
+  "blocked_reason": null,
+  "verification_manifest_path": null,
+  "fault_drills_path": null,
+  "command_results": [],
+  "acceptance_checks": {},
+  "evidence_paths": [],
+  "notes": [],
+  "checks": {
+    "no_quarantined_runs": true,
+    "prompt_budgets_within_limit": false,
+    "transport_evidence_available": true,
+    "stage_gates_recorded": true,
+    "executor_completion_known": true
+  },
+  "ready_for_rollout": false,
+  "latest_transport_bakeoff": "factory/verification/transport-bakeoff-20260402140907184.json",
+  "health_path": "factory/health.json"
+}

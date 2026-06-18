@@ -1,0 +1,30 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260513113253-gghape",
+  "stage": "executor",
+  "attempt": 1,
+  "decision": "allowed",
+  "validator": "deterministic_research_wfa_run_worker",
+  "evidence_paths": [
+    "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-validated.json",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-request.json",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stdout.txt",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stderr.txt",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/pre-run-output-snapshot.json",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/post-run-output-snapshot.json",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/accepted-output-artifacts.json",
+    "factory/runs/RUN-20260513113253-gghape/worker-results/parsed-wfa-metrics.json",
+    "walk forward engine/strategies/volatility_regime/results/analysis.json",
+    "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+    "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260513_143545.csv",
+    "factory/runs/RUN-20260513113253-gghape/trial-attempts.jsonl",
+    "src/workers/research-wfa-run-worker.mjs",
+    "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+    "walk forward engine/src/strategies/volatility_regime.py",
+    "walk forward engine/config/strategy_volatility_regime.json",
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "reason": null,
+  "recorded_at": "2026-05-13T11:35:48.446Z"
+}

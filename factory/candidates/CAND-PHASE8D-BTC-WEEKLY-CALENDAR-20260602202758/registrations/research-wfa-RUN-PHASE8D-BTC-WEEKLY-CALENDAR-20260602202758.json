@@ -1,0 +1,78 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "registered_at": "2026-06-02T20:27:58.611Z",
+  "registered_before_run_id": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/hypothesis-packet.json",
+    "sha256": "eb7e536c14ba38c1789f86d8072cc598c94ae9295aaddcaf400f46ca2b7bb762",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758/source-record.json",
+      "sha256": "7cbc2828e564e6e87a21f512e188006970b38ce12a9e9408a1a6809d6f6f46e6",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register BTC H1 weekly day-of-week calendar anomaly screening before WFA execution.",
+  "instrument_scope": "BTCUSD-equivalent H1 research screen using Binance BTCUSDT H1 OHLCV proxy data; MT5 instrument equivalence remains unverified.",
+  "timeframe_candidate": "H1 BTC weekly day-of-week calendar anomaly screen",
+  "strategy_family": "btc_weekly_calendar_phase8d",
+  "expected_trade_frequency": "Weekly-to-several-times-monthly depending on optimized day/MACD filter; no low-frequency exception is registered and the default Phase 8D 200-trade floor applies.",
+  "data_sources": [
+    "walk forward engine/data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+    "FTMO terminal inventory lists BTCUSD, but MT5 data equivalence is not assumed."
+  ],
+  "cost_assumptions": "Use only btc_weekly_calendar_phase8d WFA config costs: fees 0.0006 and slippage 0.0002, no hidden overrides.",
+  "wfa_design": {
+    "config_path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/wfa_config.yaml",
+    "window_policy": "Use the pre-registered 3m training / 1m testing / 1m step H1 WFA scheme encoded in the canonical Phase 8D config.",
+    "optimizer_policy": "Use the pre-registered 25-trial route and count this attempt in the denominator.",
+    "config_validation": {
+      "valid": true,
+      "feasibility": {
+        "data_source_file": "data/BTCUSDT/binance_btcusdt_1h_deep.csv",
+        "first_timestamp": "2021-03-22T09:00:00.000Z",
+        "last_timestamp": "2026-03-21T08:00:00.000Z",
+        "training_months": 3,
+        "testing_months": 1,
+        "purge_gap_bars": 0,
+        "min_required_bars": 600,
+        "first_training_bars": 2203,
+        "first_validation_bars_after_purge": 720
+      },
+      "expected_output_root": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results"
+    }
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA fails any active Phase 8D gate on completed OOS windows, trade count, return proxy, OOS Sharpe/profit factor where applicable, concentration, drawdown-to-return, or consistency route.",
+    "Reject any Phase 8E, MT5/MQL5, tester parity, or deployment implication unless a separate survivor exists with MT5 equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, costs, parameter ranges, data source, calendar rule, or WFA config as a new denominator-tracked attempt."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "11468b0fd5b5fed291b123b50fbf17f26766517d551168ea4cff8358feb071a8"
+}

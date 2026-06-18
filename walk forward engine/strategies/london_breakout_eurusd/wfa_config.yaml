@@ -1,0 +1,51 @@
+# Canonical Phase 6 fixture route: EURUSD M15 London Breakout
+# Manifest-only route until the referenced historical CSV is restored or fetched.
+
+walk_forward:
+  training_months: 6
+  testing_months: 3
+  step_months: 3
+  n_parameter_trials: 10
+  use_vectorized_backtest: true
+  performance_mode: true
+  save_detailed_results: true
+  save_window_data: false
+  output_directory: "strategies/london_breakout_eurusd/results"
+
+data:
+  source_file: "data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  min_required_bars: 1000
+  timezone: "UTC"
+
+strategy:
+  profile_key: "EURUSD_LONDON_BREAKOUT"
+  parameter_ranges:
+    buffer_pips: [2, 3, 4, 5, 8]
+    risk_reward_ratio: [1.5, 2.0, 2.5, 3.0]
+    max_range_pips: [20, 30, 40, 50]
+    min_range_pips: [5, 10, 15]
+    asia_start_hour: [0]
+    asia_end_hour: [7]
+    trade_start_minute: [5]
+    trade_end_hour: [10]
+    hard_exit_hour: [16]
+    one_trade_per_day: [true]
+
+backtest:
+  initial_balance: 10000
+  fees: 0.0001
+  slippage: 0.0001
+
+optimization:
+  objective: "sharpe_ratio"
+
+performance:
+  max_execution_time_seconds: 7200
+  memory_limit_mb: 4096
+  skip_database_persistence: true
+
+logging:
+  level: "INFO"
+  console_output: true
+  file_output: true
+  log_file: "logs/wfa_london_breakout_eurusd.log"

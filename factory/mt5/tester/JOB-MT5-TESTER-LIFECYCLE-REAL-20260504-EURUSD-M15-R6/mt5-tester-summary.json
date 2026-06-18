@@ -1,0 +1,107 @@
+{
+  "schema_version": "mt5_tester_lifecycle_summary_v1",
+  "evidence_kind": "mt5_tester",
+  "authority_layer": "mt5_tester",
+  "status": "succeeded",
+  "observed_at": "2026-05-04T07:41:03.999Z",
+  "request": {
+    "schema_version": "mt5_tester_lifecycle_request_v1",
+    "evidence_kind": "mt5_tester",
+    "authority_layer": "mt5_tester",
+    "run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+    "job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+    "symbol": "EURUSD",
+    "timeframe": "M15",
+    "tester_output_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/lifecycle_1.json",
+    "required_scenarios": [
+      "market_order",
+      "pending_order",
+      "exit_order"
+    ],
+    "boundary": "Only repo-contained tester output artifacts are read. External terminal paths are not inspected."
+  },
+  "observations": {
+    "tester_settings": {
+      "terminal_build": 5833,
+      "terminal_name": "Tester",
+      "symbol": "EURUSD",
+      "timeframe": "PERIOD_M15",
+      "tick_model": "Every tick",
+      "spread_source": "strategy_tester_configuration",
+      "commission_model": "strategy_tester_account_or_symbol_settings",
+      "swap_model": "strategy_tester_account_or_symbol_settings",
+      "execution_delay": "strategy_tester_configuration",
+      "deposit_currency": "USD",
+      "account_login": 1513283634,
+      "leverage": 30,
+      "margin_mode": 2,
+      "settings_sha256": "tester.ini:396641d127e1fb35a4cc07f3f6d000f607d1f04de0c746dfb37f78fd74dfdc6a;set.template:7adac9373b7ccd9ffdcdd738c58e3155c976b1e7ea883362e65e03c1dd322f57"
+    },
+    "lifecycle_summary": {
+      "market_order": {
+        "observed": true,
+        "opened": true,
+        "closed": true,
+        "open_retcode": 10009,
+        "close_retcode": 10009
+      },
+      "pending_order": {
+        "observed": true,
+        "placed": true,
+        "cancelled": true,
+        "triggered": false,
+        "place_retcode": 10009,
+        "remove_retcode": 10009
+      },
+      "exit_order": {
+        "observed": true,
+        "sl_or_tp_seen": false,
+        "hard_exit_seen": true,
+        "retcode": 10009
+      }
+    },
+    "limitations": {
+      "tester_conditioned": true,
+      "not_forward_evidence": true,
+      "fixture_output": false,
+      "real_strategy_tester_output": true,
+      "not_candidate_strategy": true,
+      "manual_copy_required": false
+    },
+    "output_identity": {
+      "tester_output_sha256": "83727b738fe79f0da47ed3e85080a13d2615635649f0bb9c800394e7d667af3a",
+      "tester_output_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/lifecycle_1.json",
+      "fixture_override_used": false
+    }
+  },
+  "blocked_reason": null,
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-tester-lifecycle-worker.mjs",
+      "sha256": "8e79a4d7d6438935fc475551e7fa11eee2f68ea455fc9ee0c077328cc39ff7f5",
+      "size_bytes": 11248,
+      "modified_at": "2026-05-03T20:49:35.262Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/experts/TrfTesterLifecycleBench.mq5",
+      "sha256": "61a406d8fbffe447c5c0afc808a3558a7777568820e413723982f04ac3230fcb",
+      "size_bytes": 8853,
+      "modified_at": "2026-05-03T20:26:33.819Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/mt5/include/TrfFileCommonBridge.mqh",
+      "sha256": "3e46cc4e03a5303e94004831ddc2029c0283c6b9c358669b2701840b72d807e6",
+      "size_bytes": 798,
+      "modified_at": "2026-04-30T20:57:43.094Z"
+    }
+  ]
+}

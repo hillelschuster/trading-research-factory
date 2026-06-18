@@ -1,0 +1,86 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "mechanism": "Benchmark fix-related execution can concentrate FX flow around the WMR London 4pm fixing window. EURUSD M15 may show a short-horizon post-fix continuation or reversal footprint conditioned on pre-fix momentum, tick-volume regime, and ATR regime.",
+  "falsifiable_prediction": "A pre-registered EURUSD M15 FX-fix candidate should clear the active Phase 8D research WFA promotion gate after configured costs; otherwise it remains denominator-counted non-survivor evidence.",
+  "market_structure_assumption": "EURUSD is a liquid FTMO/MT5 symbol, and benchmark-related FX execution can cluster near WMR fix windows, but this Phase 8D screen does not assume terminal-history equivalence or executable edge.",
+  "instrument_scope": "EURUSD M15 FTMO/MT5-relevant research screen using historical EURUSD M15 OHLCV CSV; MT5 instrument equivalence remains unverified.",
+  "timeframe_candidate": "M15 WMR London 4pm FX benchmark-fixing window continuation/fade screen",
+  "strategy_family": "fx_fix_reversal_eurusd",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "EURUSD M15 OHLCV bars with timestamps, source-backed benchmark-fixing mechanism, strategy/config hashes, and later MT5 terminal equivalence before any Phase 8E path.",
+  "expected_holding_period": "Intraday, typically 1-3 hours via bounded M15 exits and ATR-derived stops/targets.",
+  "expected_trade_frequency": "Medium; roughly one possible fix-window attempt per trading day, no low-frequency exception is registered and the default 200-trade floor applies.",
+  "expected_failure_modes": [
+    "Benchmark-fixing flow concentration does not create stable directional alpha after reforms and costs.",
+    "UTC fix-hour approximation misses DST-sensitive WMR fixing windows.",
+    "OHLCV/tick-volume proxies fail to capture true fixing order flow or dealer inventory pressure.",
+    "The signal becomes a session-timing artifact with poor OOS consistency."
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA fails any active Phase 8D gate on completed OOS windows, trade count, return proxy, OOS Sharpe/profit factor where applicable, concentration, drawdown-to-return, or consistency route.",
+    "Reject any Phase 8E, MT5/MQL5, tester parity, or deployment implication unless a separate survivor exists with MT5 equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, costs, parameter ranges, data source, DST handling, or WFA config as a new denominator-tracked attempt."
+  ],
+  "implementation_shape": "Use walk forward engine/src/strategies/fx_fix_reversal_eurusd.py with the canonical fx_fix_reversal_eurusd WFA config and deterministic WFA worker.",
+  "execution_sensitivity": "Sensitive to London/UTC/DST alignment, fix window definition, post-fix entry timing, volume proxy quality, ATR stop/target sizing, spread/slippage assumptions, and terminal-history equivalence.",
+  "mt5_ftmo_concerns": "EURUSD is present in FTMO terminal evidence, but this screening does not prove MT5 Strategy Tester parity or data equivalence.",
+  "prior_related_lessons": [
+    "Phase 8D screens pre-registered hypotheses and counts weak or failed attempts in the denominator.",
+    "The active survivor gate is flexible but compensation requires strong return, Sharpe, profit factor, concentration, drawdown-to-return, and window diagnostics.",
+    "Prior failed screens include London breakout/sweep, GBPJPY reversion, XAUUSD trend, BTC BB-width squeeze, BTC volatility-adaptive trend, EURUSD signed tick-volume OFI, and EURUSD month-end rebalancing-flow."
+  ],
+  "prior_failed_patterns_checked": [
+    "Not a London breakout, London sweep, or GBPJPY reversion mutation.",
+    "Not XAUUSD trend-following, BTC BB-width squeeze, BTC volatility-adaptive Supertrend, EURUSD signed tick-volume OFI, or EURUSD month-end rebalancing-flow.",
+    "Not a simple RSI strategy and no low-frequency exception is registered.",
+    "Uses a new independent FSB FX benchmark-fixing source rather than selecting a historical WFA winner."
+  ],
+  "novelty_reason": "First Phase 8D screen of a source-backed WMR London 4pm FX benchmark-fixing mechanism on EURUSD M15 using pre-fix momentum, volume regime, ATR regime, and bounded post-fix risk controls.",
+  "disconfirming_evidence": [
+    "The FSB report is benchmark market-structure evidence, not a direct EURUSD alpha study.",
+    "Benchmark reform and execution changes may eliminate or invert historical fix-window patterns.",
+    "Current data is not separately proven equivalent to FTMO terminal EURUSD history."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan, run the canonical worker on fx_fix_reversal_eurusd, emit candidate evidence and summary, then evaluate the shared flexible consistency route without positive labels unless all gates pass.",
+  "cited_source_ids": [
+    "SRC-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_mechanism",
+      "citation_source_id": "SRC-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452"
+    },
+    {
+      "claim_class": "implementation_mapping",
+      "citation_source_id": "SRC-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/source-record.json",
+      "sha256": "05249e47ad17f581f01487cb8940e33823c0226b511f5c6ca9dfa0fc74c2ace1"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    },
+    "terminal_symbol_evidence": "EURUSD appears in FTMO terminal universe evidence; data equivalence is not verified in this Phase 8D screen."
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "3c5697749233092b06c8e6307190fab74a482a18fc7b69d036ef909e5d317254"
+}

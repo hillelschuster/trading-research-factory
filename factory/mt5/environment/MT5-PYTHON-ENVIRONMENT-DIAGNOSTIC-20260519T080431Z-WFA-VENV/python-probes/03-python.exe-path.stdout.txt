@@ -1,0 +1,1 @@
+{"error_type": "ModuleNotFoundError", "message": "No module named 'MetaTrader5'", "ok": false, "platform": "Windows-10-10.0.26200-SP0", "python_version": "3.11.14"}

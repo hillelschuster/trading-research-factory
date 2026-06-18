@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-LIVE-8192C-001",
+  "url": "https://forexmt4indicators.com/liquidity-indicator-mt5/",
+  "title": "Liquidity Indicator MT5 - ForexMT4Indicators.com",
+  "source_class": "web",
+  "captured_at": "2026-06-11T20:24:42.181Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-06-11T20:24:53.922Z",
+      "completed_at": "2026-06-11T20:24:54.773Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "bbd108d3bc19fbb47c4396f0bbacf7ccfb8452628c4834a62e57f46214f795f1"
+}

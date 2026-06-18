@@ -1,0 +1,803 @@
+{
+  "experiment_id": "EXP-PHASE8D-GBPJPY-REVERSION-20260529122836",
+  "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "observed_at": "2026-05-29T12:28:48.219Z",
+  "artifacts_created": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-request.json",
+      "sha256": "880ce21b48e10c8c3448a60e2fb7612029b8451d67e84fd247d8d5da174f30b5",
+      "size_bytes": 1797,
+      "modified_at": "2026-05-29T12:28:36.011Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "18f8c8f989a4e418aba1c9036797e2fad65b12937926eac1476862a2964c20f4",
+      "size_bytes": 16523,
+      "modified_at": "2026-05-29T12:28:48.177Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "6886e3a1599b886a20f8a360c537a4b1e5abdebb9de3f96da9675dd606648532",
+      "size_bytes": 850,
+      "modified_at": "2026-05-29T12:28:48.204Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/pre-run-output-snapshot.json",
+      "sha256": "7b6a2f65f42b0f4d35e52286a282dcbe32da7f3f62ba7e265cf3aaaf54e15c86",
+      "size_bytes": 1563,
+      "modified_at": "2026-05-29T12:28:48.230Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/post-run-output-snapshot.json",
+      "sha256": "64a5f0dbd3802f7ad4e1e71a94a96a0c8a5b2575cc1287d7e6f3aa34ff8d0644",
+      "size_bytes": 2174,
+      "modified_at": "2026-05-29T12:28:48.256Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/accepted-output-artifacts.json",
+      "sha256": "ac7177474654b3ff9875572970c2cfc900d2ba1698f51fbac2b4da0aaa146285",
+      "size_bytes": 2138,
+      "modified_at": "2026-05-29T12:28:48.278Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/parsed-wfa-metrics.json",
+      "sha256": "9887f641bb59dca584cc690d5a60a238181080a9126b68ba6bf20c95432afca4",
+      "size_bytes": 8842,
+      "modified_at": "2026-05-29T12:28:48.302Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+      "sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+      "size_bytes": 2832,
+      "modified_at": "2026-05-29T12:28:46.966Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_152846.json",
+      "sha256": "6fea9e5d23dcd843106fb74387114ab67268a2486ef2a24a479f3952deb72031",
+      "size_bytes": 2153,
+      "modified_at": "2026-05-29T12:28:46.873Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+      "sha256": "86e0644a9b67709ef431bea540c4c8cd610bc3fb65a999a19105897ef5e5f00a",
+      "size_bytes": 10782,
+      "modified_at": "2026-05-29T12:28:47.262Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/trial-attempts.jsonl",
+      "sha256": "5f134dd560351d17767376781c740418ae1b3f4dae1e3ead73b8f4fcc571b5f4",
+      "size_bytes": 4462,
+      "modified_at": "2026-05-29T12:28:48.390Z"
+    }
+  ],
+  "metrics_observed": {
+    "sharpe_is": null,
+    "sharpe_oos": 0,
+    "in_sample_return_pct": null,
+    "total_trades": 0,
+    "max_drawdown": 0,
+    "profit_factor": 0,
+    "win_rate": 0,
+    "aggregate_return_pct": 0,
+    "total_windows": 0,
+    "successful_windows": 0,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+    "canonical_wfa_config_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-05-29T12:28:37.068Z",
+    "worker_end_time": "2026-05-29T12:28:48.219Z",
+    "duration_ms": 11151,
+    "timed_out": false,
+    "exit_code": 1,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 3,
+    "metrics_artifact_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+    "per_window_metrics_count": 0,
+    "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "config_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "canonical_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "blocked_missing_input",
+        "value": null,
+        "missing_because": "No artifact-backed in-sample Sharpe field was found in accepted WFA metrics."
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": 0,
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+          "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "positive total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing positive total_windows."
+      }
+    },
+    "parameter_stability": {
+      "status": "blocked_missing_inputs",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+        "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 0,
+      "unique_parameter_sets": 0,
+      "missing_because": "No artifact-backed per-window metrics were available for parameter-stability diagnostics."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0003,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "backtest.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "backtest.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "valid_artifact_backed",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+        "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+        "source_field": "optimization_truth"
+      },
+      "errors": [],
+      "truth": {
+        "active_cost_inputs": {
+          "fees": 0.0003,
+          "slippage": 0.0001,
+          "source": "WalkForwardConfig fields loaded from WFA YAML/backtest config or runner defaults"
+        },
+        "active_parameter_optimizer": "direct_optuna_tpe_study",
+        "active_selection_objective": "training_slice_sharpe_from__evaluate_parameter_combination",
+        "cost_stress_tester_active": false,
+        "disconnected_modules": [
+          "src/walk_forward/multi_objective_optimizer.py",
+          "src/walk_forward/transaction_cost_modeler.py",
+          "src/walk_forward/cost_stress_tester.py"
+        ],
+        "missing_because": "Normal WFA selection currently uses direct Optuna plus vectorized backtest fees/slippage; multi-objective optimization, TransactionCostModeler, and CostStressTester are not wired into selected-parameter optimization or accepted WFA metric computation.",
+        "multi_objective_optimizer_active": false,
+        "transaction_cost_modeler_active": false
+      }
+    },
+    "warmup_diagnostics": {
+      "status": "diagnostic_only_not_applied",
+      "source": {
+        "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+        "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+        "source_field": "warmup_diagnostics"
+      },
+      "errors": [],
+      "diagnostics": {
+        "applied_to_window_boundaries": false,
+        "indicator_warmup_bars": 0,
+        "missing_because": "indicator_warmup_bars is recorded for explicit leakage review only; normal WFA does not infer or apply generic strategy indicator warmup beyond configured purge_gap_bars.",
+        "status": "diagnostic_only"
+      },
+      "note": "indicator_warmup_bars is recorded as metadata only; current Phase 8C WFA does not apply generic indicator warmup to window boundaries."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.training_months"
+        },
+        "testing_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 20,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 7200,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "performance.max_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122836/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836.json",
+      "sha256": "fc85f4a02fc8a261ae94f9f5c3564e87532f13789796014349a9ab9a484d1039"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+      "family_id": "gbpjpy_reversion",
+      "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 3,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null,
+    "phase8d_screening_attempt": true,
+    "hypothesis_packet_path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529122836/hypothesis-packet.json",
+    "research_wfa_preregistration_path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122836/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836.json"
+  },
+  "blocked_reason": "WFA subprocess exited non-zero: 1.",
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+      "sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+      "size_bytes": 2463,
+      "modified_at": "2026-05-29T12:19:58.997Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+      "sha256": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a",
+      "size_bytes": 23657,
+      "modified_at": "2025-12-21T13:50:41.716Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_gbpjpy_reversion.json",
+      "sha256": "a6e4ec1a405332f1bec4283081549ebfaa9b5749ccf82b6e6cdf23d9e4078e5b",
+      "size_bytes": 1265,
+      "modified_at": "2026-05-29T12:19:59.052Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "size_bytes": 12747848,
+      "modified_at": "2025-12-19T07:10:07.755Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122836/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836.json",
+      "sha256": "fc85f4a02fc8a261ae94f9f5c3564e87532f13789796014349a9ab9a484d1039",
+      "size_bytes": 3256,
+      "modified_at": "2026-05-29T12:28:35.879Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529122836/hypothesis-packet.json",
+      "sha256": "f9c533efb749da8e831d52f0364f0deb9a34e826d003b5b433afca6687c54e49"
+    }
+  ],
+  "worker_result": {
+    "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+    "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+    "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+    "worker": "research_wfa_run",
+    "evidence_kind": "research_wfa",
+    "authority_layer": "python_research",
+    "schema_version": "research_wfa_run_worker_v1",
+    "status": "failed",
+    "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+    "family_id": "gbpjpy_reversion",
+    "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1",
+    "attempt_type": "worker_launched_wfa",
+    "artifacts": [
+      {
+        "artifact_type": "worker_request",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-request.json",
+        "sha256": "880ce21b48e10c8c3448a60e2fb7612029b8451d67e84fd247d8d5da174f30b5",
+        "size_bytes": 1797,
+        "modified_at": "2026-05-29T12:28:36.011Z"
+      },
+      {
+        "artifact_type": "stdout",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stdout.txt",
+        "sha256": "18f8c8f989a4e418aba1c9036797e2fad65b12937926eac1476862a2964c20f4",
+        "size_bytes": 16523,
+        "modified_at": "2026-05-29T12:28:48.177Z"
+      },
+      {
+        "artifact_type": "stderr",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stderr.txt",
+        "sha256": "6886e3a1599b886a20f8a360c537a4b1e5abdebb9de3f96da9675dd606648532",
+        "size_bytes": 850,
+        "modified_at": "2026-05-29T12:28:48.204Z"
+      },
+      {
+        "artifact_type": "pre_run_output_snapshot",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/pre-run-output-snapshot.json",
+        "sha256": "7b6a2f65f42b0f4d35e52286a282dcbe32da7f3f62ba7e265cf3aaaf54e15c86",
+        "size_bytes": 1563,
+        "modified_at": "2026-05-29T12:28:48.230Z"
+      },
+      {
+        "artifact_type": "post_run_output_snapshot",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/post-run-output-snapshot.json",
+        "sha256": "64a5f0dbd3802f7ad4e1e71a94a96a0c8a5b2575cc1287d7e6f3aa34ff8d0644",
+        "size_bytes": 2174,
+        "modified_at": "2026-05-29T12:28:48.256Z"
+      },
+      {
+        "artifact_type": "accepted_output_manifest",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/accepted-output-artifacts.json",
+        "sha256": "ac7177474654b3ff9875572970c2cfc900d2ba1698f51fbac2b4da0aaa146285",
+        "size_bytes": 2138,
+        "modified_at": "2026-05-29T12:28:48.278Z"
+      },
+      {
+        "artifact_type": "parsed_wfa_metrics",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/parsed-wfa-metrics.json",
+        "sha256": "9887f641bb59dca584cc690d5a60a238181080a9126b68ba6bf20c95432afca4",
+        "size_bytes": 8842,
+        "modified_at": "2026-05-29T12:28:48.302Z"
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+        "sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+        "size_bytes": 2832,
+        "modified_at": "2026-05-29T12:28:46.966Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+          "family_id": "gbpjpy_reversion",
+          "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_152846.json",
+        "sha256": "6fea9e5d23dcd843106fb74387114ab67268a2486ef2a24a479f3952deb72031",
+        "size_bytes": 2153,
+        "modified_at": "2026-05-29T12:28:46.873Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+          "family_id": "gbpjpy_reversion",
+          "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "wfa_result_artifact",
+        "path": "walk forward engine/strategies/gbpjpy_reversion/results/wfa.log",
+        "sha256": "86e0644a9b67709ef431bea540c4c8cd610bc3fb65a999a19105897ef5e5f00a",
+        "size_bytes": 10782,
+        "modified_at": "2026-05-29T12:28:47.262Z",
+        "request_identity": {
+          "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+          "family_id": "gbpjpy_reversion",
+          "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+        }
+      },
+      {
+        "artifact_type": "trial_attempt_record",
+        "path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/trial-attempts.jsonl",
+        "sha256": "5f134dd560351d17767376781c740418ae1b3f4dae1e3ead73b8f4fcc571b5f4",
+        "size_bytes": 4462,
+        "modified_at": "2026-05-29T12:28:48.390Z"
+      }
+    ],
+    "metrics": {
+      "sharpe_is": null,
+      "sharpe_oos": 0,
+      "in_sample_return_pct": null,
+      "total_trades": 0,
+      "max_drawdown": 0,
+      "profit_factor": 0,
+      "win_rate": 0,
+      "aggregate_return_pct": 0,
+      "total_windows": 0,
+      "successful_windows": 0,
+      "failed_windows": 0
+    },
+    "observations": {
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "canonical_wfa_config_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+      "execution_was_run_by_this_worker": true,
+      "worker_start_time": "2026-05-29T12:28:37.068Z",
+      "worker_end_time": "2026-05-29T12:28:48.219Z",
+      "duration_ms": 11151,
+      "timed_out": false,
+      "exit_code": 1,
+      "signal": null,
+      "stdout_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stdout.txt",
+      "stderr_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stderr.txt",
+      "accepted_output_count": 3,
+      "metrics_artifact_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+      "per_window_metrics_count": 0,
+      "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+      "output_root_truth": {
+        "matched": true,
+        "expected_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+        "config_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+        "canonical_output_root": "walk forward engine/strategies/gbpjpy_reversion/results",
+        "errors": []
+      },
+      "metric_readiness": {
+        "sharpe_is": {
+          "status": "blocked_missing_input",
+          "value": null,
+          "missing_because": "No artifact-backed in-sample Sharpe field was found in accepted WFA metrics."
+        },
+        "sharpe_oos": {
+          "status": "available",
+          "value": 0,
+          "source": {
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+            "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+            "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+          }
+        },
+        "wfe": {
+          "status": "blocked_missing_inputs",
+          "value": null,
+          "missing_inputs": [
+            "artifact-backed aggregate in-sample return"
+          ],
+          "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return."
+        },
+        "wfr": {
+          "status": "blocked_missing_inputs",
+          "value": null,
+          "missing_inputs": [
+            "positive total_windows"
+          ],
+          "missing_because": "WFR not computed because accepted WFA metrics are missing positive total_windows."
+        }
+      },
+      "parameter_stability": {
+        "status": "blocked_missing_inputs",
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+          "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+          "source_field": "window_results[].best_parameters"
+        },
+        "windows_with_parameters": 0,
+        "unique_parameter_sets": 0,
+        "missing_because": "No artifact-backed per-window metrics were available for parameter-stability diagnostics."
+      },
+      "cost_assumptions": {
+        "available": true,
+        "values": {
+          "fees": {
+            "value": 0.0003,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "backtest.fees"
+          },
+          "slippage": {
+            "value": 0.0001,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "backtest.slippage"
+          }
+        },
+        "missing_because": null
+      },
+      "optimization_truth": {
+        "status": "valid_artifact_backed",
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+          "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+          "source_field": "optimization_truth"
+        },
+        "errors": [],
+        "truth": {
+          "active_cost_inputs": {
+            "fees": 0.0003,
+            "slippage": 0.0001,
+            "source": "WalkForwardConfig fields loaded from WFA YAML/backtest config or runner defaults"
+          },
+          "active_parameter_optimizer": "direct_optuna_tpe_study",
+          "active_selection_objective": "training_slice_sharpe_from__evaluate_parameter_combination",
+          "cost_stress_tester_active": false,
+          "disconnected_modules": [
+            "src/walk_forward/multi_objective_optimizer.py",
+            "src/walk_forward/transaction_cost_modeler.py",
+            "src/walk_forward/cost_stress_tester.py"
+          ],
+          "missing_because": "Normal WFA selection currently uses direct Optuna plus vectorized backtest fees/slippage; multi-objective optimization, TransactionCostModeler, and CostStressTester are not wired into selected-parameter optimization or accepted WFA metric computation.",
+          "multi_objective_optimizer_active": false,
+          "transaction_cost_modeler_active": false
+        }
+      },
+      "warmup_diagnostics": {
+        "status": "diagnostic_only_not_applied",
+        "source": {
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/analysis.json",
+          "source_sha256": "5cb507010b85debaf5eabe716cb00a6027bd38b33df3886f06dad0dea0319fbf",
+          "source_field": "warmup_diagnostics"
+        },
+        "errors": [],
+        "diagnostics": {
+          "applied_to_window_boundaries": false,
+          "indicator_warmup_bars": 0,
+          "missing_because": "indicator_warmup_bars is recorded for explicit leakage review only; normal WFA does not infer or apply generic strategy indicator warmup beyond configured purge_gap_bars.",
+          "status": "diagnostic_only"
+        },
+        "note": "indicator_warmup_bars is recorded as metadata only; current Phase 8C WFA does not apply generic indicator warmup to window boundaries."
+      },
+      "timing_assumptions": {
+        "available": true,
+        "values": {
+          "training_months": {
+            "value": 6,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.training_months"
+          },
+          "testing_months": {
+            "value": 3,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.testing_months"
+          },
+          "step_months": {
+            "value": 1,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.step_months"
+          },
+          "n_parameter_trials": {
+            "value": 20,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.n_parameter_trials"
+          },
+          "use_vectorized_backtest": {
+            "value": true,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.use_vectorized_backtest"
+          },
+          "performance_mode": {
+            "value": true,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "walk_forward.performance_mode"
+          },
+          "max_execution_time_seconds": {
+            "value": 7200,
+            "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+            "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+            "source_field": "performance.max_execution_time_seconds"
+          }
+        },
+        "missing_because": null
+      },
+      "optional_wfa_artifacts": {
+        "trade_ledger": {
+          "available": false,
+          "artifact_type": "wfa_trade_ledger",
+          "artifacts": [],
+          "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+        },
+        "equity_curve": {
+          "available": false,
+          "artifact_type": "wfa_equity_curve",
+          "artifacts": [],
+          "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+        },
+        "optimizer_trials": {
+          "available": false,
+          "artifact_type": "wfa_optimizer_trials",
+          "artifacts": [],
+          "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+        }
+      },
+      "research_wfa_preregistration": {
+        "artifact_type": "research_wfa_preregistration",
+        "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122836/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836.json",
+        "sha256": "fc85f4a02fc8a261ae94f9f5c3564e87532f13789796014349a9ab9a484d1039"
+      },
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "job_id": "JOB-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+        "lineage_id": "LINEAGE-PHASE8D-GBPJPY-REVERSION",
+        "family_id": "gbpjpy_reversion",
+        "attempt_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836-EXECUTOR-ATTEMPT-1"
+      },
+      "stale_output_guard": {
+        "passed": true,
+        "checked_count": 3,
+        "stale_paths": []
+      },
+      "zero_trade_policy": null
+    },
+    "observed_at": "2026-05-29T12:28:48.219Z",
+    "blocked_reason": "WFA subprocess exited non-zero: 1.",
+    "source_hashes": [
+      {
+        "artifact_type": "worker_source",
+        "path": "src/workers/research-wfa-run-worker.mjs",
+        "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+        "size_bytes": 48034,
+        "modified_at": "2026-05-24T14:58:00.609Z"
+      },
+      {
+        "artifact_type": "wfa_config",
+        "path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+        "sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+        "size_bytes": 2463,
+        "modified_at": "2026-05-29T12:19:58.997Z"
+      },
+      {
+        "artifact_type": "strategy_source",
+        "path": "walk forward engine/src/strategies/gbpjpy_reversion.py",
+        "sha256": "94e8d0e29776a6310d2b497a61d67dd4076c130a0dbb1744787307f304c4496a",
+        "size_bytes": 23657,
+        "modified_at": "2025-12-21T13:50:41.716Z"
+      },
+      {
+        "artifact_type": "strategy_config",
+        "path": "walk forward engine/config/strategy_gbpjpy_reversion.json",
+        "sha256": "a6e4ec1a405332f1bec4283081549ebfaa9b5749ccf82b6e6cdf23d9e4078e5b",
+        "size_bytes": 1265,
+        "modified_at": "2026-05-29T12:19:59.052Z"
+      },
+      {
+        "artifact_type": "data_input",
+        "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+        "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+        "size_bytes": 12747848,
+        "modified_at": "2025-12-19T07:10:07.755Z"
+      },
+      {
+        "artifact_type": "research_wfa_preregistration",
+        "path": "factory/candidates/CAND-PHASE8D-GBPJPY-REVERSION-20260529122836/registrations/research-wfa-RUN-PHASE8D-GBPJPY-REVERSION-20260529122836.json",
+        "sha256": "fc85f4a02fc8a261ae94f9f5c3564e87532f13789796014349a9ab9a484d1039",
+        "size_bytes": 3256,
+        "modified_at": "2026-05-29T12:28:35.879Z"
+      }
+    ],
+    "diagnostics": {
+      "error_code": "wfa_nonzero_exit",
+      "message": "WFA subprocess exited non-zero: 1.",
+      "stdout_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stdout.txt",
+      "stderr_path": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/research-wfa-run-stderr.txt"
+    },
+    "environment": {
+      "node_version": "v24.0.2",
+      "platform": "linux",
+      "arch": "x64"
+    }
+  },
+  "status": "failed",
+  "blockers": [
+    "WFA subprocess exited non-zero: 1."
+  ],
+  "errors": [
+    {
+      "command": "research_wfa_run_worker",
+      "message": "WFA subprocess exited non-zero: 1."
+    }
+  ]
+}

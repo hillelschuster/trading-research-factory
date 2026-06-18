@@ -1,0 +1,65 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+  "mechanism": "Volatility compression followed by directional regime expansion can be tested as a falsifiable continuation mechanism on BTCUSD H1. This canary intentionally routes an existing volatility-regime strategy through real WFA screening so Phase 8D can prove that weak executed candidates remain below survivor labels.",
+  "falsifiable_prediction": "If this proxy route has insufficient edge, the real deterministic WFA run will remain below the Phase 8D survivor floors on completed OOS windows, trade count, return proxy, or positive-window ratio, and the candidate must stay below promising/passed/success labels.",
+  "market_structure_assumption": "BTCUSD crypto-CFD style instruments can exhibit volatility compression and post-compression expansion regimes, but this canary remains research-only and does not assume deployment equivalence from proxy data.",
+  "instrument_scope": "BTCUSD FTMO/MT5 crypto CFD proxy route only; research-only unless later MT5 equivalence is independently verified.",
+  "timeframe_candidate": "H1 candidate",
+  "strategy_family": "volatility_regime",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "H1 BTCUSD proxy history suitable for the existing volatility_regime WFA config, with any later MT5-bound claim requiring separate terminal-backed equivalence.",
+  "expected_holding_period": "Intraday to multi-day depending on regime persistence.",
+  "expected_trade_frequency": "Low-to-medium frequency; no low-frequency exception is pre-registered for this canary.",
+  "expected_failure_modes": [
+    "Compression signals may not produce enough OOS trades to approach the survivor floor.",
+    "Proxy BTC spot/perpetual history may not map tightly enough to FTMO BTCUSD CFD behavior.",
+    "Spread, slippage, and post-compression whipsaw can erase any apparent breakout edge."
+  ],
+  "invalidation_criteria": [
+    "The real WFA run finishes below the Phase 8D survivor floors on windows, trades, return proxy, or positive OOS window ratio.",
+    "The executed route cannot produce artifact-backed metrics and denominator diagnostics through the deterministic worker path."
+  ],
+  "implementation_shape": "Use the existing volatility_regime strategy/config/WFA route with no custom code changes; treat this as a bounded survivor-floor enforcement canary rather than alpha research.",
+  "execution_sensitivity": "Sensitive to compression threshold, EMA trend filter, cost assumptions, and the use of proxy crypto data instead of terminal-backed MT5 history.",
+  "mt5_ftmo_concerns": "Current route uses proxy BTCUSDT history rather than terminal-derived BTCUSD CFD history; any survivor would still remain research-only until separate MT5 equivalence evidence exists.",
+  "prior_related_lessons": [
+    "Phase 8D survivor floors are validation gates, not optimization targets.",
+    "Blocked or weak attempts must remain in the denominator even when no candidate survives."
+  ],
+  "prior_failed_patterns_checked": [
+    "This canary is pre-registered specifically to verify below-floor enforcement, not to revive historical leaderboard winners or parameter roulette."
+  ],
+  "novelty_reason": "Creates an explicit executed Phase 8D screening canary for survivor-floor enforcement using the real deterministic WFA worker.",
+  "disconfirming_evidence": [
+    "The supporting source artifact is a fixture test-double rather than live external research.",
+    "Proxy data and strategy-route reuse make this unsuitable for any promotion or deployment conclusion."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan with a hash-backed manual packet and pre-registration artifact, run the canonical WFA worker on volatility_regime, and accept only the gate-enforcement conclusion that a below-floor result stays below survivor labels.",
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "5afbaf41070d1ea34fbebb69638a993cd6c41c0b27fed6e5165082a3da536585"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "78a78103889c96bc2bd607ac8fe30e8f01fd691fd69d4d3e00dd15bdefdd4b94"
+}

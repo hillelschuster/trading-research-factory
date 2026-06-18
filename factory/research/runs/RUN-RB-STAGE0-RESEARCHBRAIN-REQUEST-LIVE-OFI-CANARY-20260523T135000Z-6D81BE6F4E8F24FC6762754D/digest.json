@@ -1,0 +1,42 @@
+{
+  "schema_version": "research_digest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "digest_id": "DIGEST-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z",
+  "research_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D",
+  "generated_at": "2026-06-07T15:46:11.080Z",
+  "key_findings": [
+    "Fixture source supports only runtime plumbing validation, not an edge claim."
+  ],
+  "limitations": [
+    "Fixture/test-double output is not live research and cannot close Phase 8B alone."
+  ],
+  "source_records": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "29dfa59ae57e192c01c6ff5012bfa424644a9fab5e100af2a57a810eebf93768"
+    }
+  ],
+  "hypothesis_packets": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/hypotheses/HYP-STAGE0-FIXTURE-001.json",
+      "sha256": "fb57ad54a1cceea2fb43da54dda78e285964dd01bcd14bb6c781cf8f97836e0e"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

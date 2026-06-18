@@ -11,7 +11,7 @@ export const REQUIRED_LAYOUT = [
   "workspace/data/fetchers"
 ];
 
-export const FACTORY_GOAL = "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.";
+export const FACTORY_GOAL = "An autonomous trading research factory that continuously converts FTMO/MT5-tradable ideas across crypto CFDs, FX, indices, stocks, metals, commodities, and other broker-supported instruments into scored evidence.";
 
 export const DEFAULT_MODEL = "opencode/minimax-m2.5-free";
 

@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/analysis.json",
+    "sha256": "ab625ce9a8559d95a4be2704b1bb1c64f3ae5fa46ced380d41886de62eb7a995",
+    "size_bytes": 2929,
+    "modified_at": "2026-06-02T20:37:05.144Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/parameter_stability_20260602_233704.json",
+    "sha256": "d2b842eb50cf5e3161bd487062d5563d928f8d7b25e4f4597e268b2b7a31d99a",
+    "size_bytes": 1962,
+    "modified_at": "2026-06-02T20:37:05.215Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/walk_forward_results_20260602_233704.json",
+    "sha256": "184ef1e8a79d3f034f92f51b7c0a832e60cf92e538d6c07f4bfc15a33042f0ad",
+    "size_bytes": 77684,
+    "modified_at": "2026-06-02T20:37:04.967Z"
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/btc_weekly_calendar_phase8d/results/walk_forward_summary_20260602_233704.csv",
+    "sha256": "1c096756b2b0c629e0898d8ffc35f5c0e7f5489e7a507e1bd9a10c2a32a00f9a",
+    "size_bytes": 16341,
+    "modified_at": "2026-06-02T20:37:05.207Z"
+  }
+]

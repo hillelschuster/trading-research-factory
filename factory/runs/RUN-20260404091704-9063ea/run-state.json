@@ -3,13 +3,19 @@
   "backlog_item_id": "IDEA-841355-53o",
   "owner_id": "live-owner-7382-mnk4cbky-61lfli",
   "run_instance_id": "RUN-20260404091704-9063ea",
-  "resume_generation": 9,
+  "resume_generation": 10,
   "current_stage": "executor",
-  "current_stage_attempt": 22,
-  "current_stage_session": null,
+  "current_stage_attempt": 25,
+  "current_stage_session": {
+    "stage": "executor",
+    "attempt": 25,
+    "session_id": "ses_2068131deffe9ZuAmut3S4P6iu",
+    "session_url": "http://127.0.0.1:4096/ee3dc5fdacb91b7cf49d960690927ac8faf6fb52/session/ses_2068131deffe9ZuAmut3S4P6iu",
+    "recorded_at": "2026-05-05T18:55:30.603Z"
+  },
   "last_completed_stage": "planner",
   "observer_opened_at": null,
-  "poison_streak_count": 6,
+  "poison_streak_count": 7,
   "poison_stage": "executor",
   "poison_failure_class": "transport_failure",
   "stage_status": {
@@ -21,7 +27,7 @@
     },
     "executor": {
       "status": "failed",
-      "updated_at": "2026-04-05T16:45:45.579Z",
+      "updated_at": "2026-05-05T19:00:32.139Z",
       "attempt": 3,
       "failure_class": "transport_failure"
     },
@@ -37,10 +43,10 @@
   "failure_class": "transport_failure",
   "resume_from_stage": "executor",
   "handoff_pending": true,
-  "last_error": "OpenCode executor session creation timed out after 30000ms.",
+  "last_error": "executor transport request timed out waiting for response headers.",
   "attempt_counts": {
     "planner": 2,
-    "executor": 22,
+    "executor": 25,
     "evaluator": 0,
     "summarizer": 0
   },
@@ -103,7 +109,10 @@
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-19/stage-input.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-20/stage-input.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-21/stage-input.json",
-      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-22/stage-input.json"
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-22/stage-input.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-23/stage-input.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-24/stage-input.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-25/stage-input.json"
     ],
     "executor_stage_prompts": [
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-prompt.txt",
@@ -127,7 +136,10 @@
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-19/stage-prompt.txt",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-20/stage-prompt.txt",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-21/stage-prompt.txt",
-      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-22/stage-prompt.txt"
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-22/stage-prompt.txt",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-23/stage-prompt.txt",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-24/stage-prompt.txt",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-25/stage-prompt.txt"
     ],
     "handoff": "factory/runs/RUN-20260404091704-9063ea/handoff.json",
     "executor_sessions": [
@@ -151,7 +163,10 @@
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-18-session.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-19-session.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-20-session.json",
-      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-21-session.json"
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-21-session.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-23-session.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-24-session.json",
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-25-session.json"
     ],
     "executor_stage_errors": [
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-error.json",
@@ -162,7 +177,10 @@
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-1/stage-gate.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-2/stage-gate.json",
       "factory/runs/RUN-20260404091704-9063ea/executor-attempt-3/stage-gate.json"
+    ],
+    "executor_stage_responses": [
+      "factory/runs/RUN-20260404091704-9063ea/executor-attempt-24/stage-response.raw.txt"
     ]
   },
-  "updated_at": "2026-04-05T16:45:58.684Z"
+  "updated_at": "2026-05-05T19:00:32.613Z"
 }

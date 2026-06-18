@@ -1,0 +1,1 @@
+Deterministic research_wfa_run worker execution. No LLM executor authority used for this stage.

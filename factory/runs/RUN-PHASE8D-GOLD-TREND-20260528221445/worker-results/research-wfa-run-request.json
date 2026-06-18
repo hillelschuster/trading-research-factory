@@ -1,0 +1,47 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+  "job_id": "JOB-RUN-PHASE8D-GOLD-TREND-20260528221445",
+  "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+  "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+  "family_id": "gold_trend_following_xauusd",
+  "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-GOLD-TREND-20260528221445",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/gold_trend_following/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/gold_trend_following_vectorized.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_gold_trend_following.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/XAUUSD_M15_2018-2025/XAUUSD_M15_2018_2025.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-GOLD-TREND-20260528221445/registrations/research-wfa-RUN-PHASE8D-GOLD-TREND-20260528221445.json",
+    "sha256": "658059b16a608079354e28ade3de5e34e5bec043ad500ab9202e2eae9570ba70"
+  },
+  "expected_output_root": "walk forward engine/strategies/gold_trend_following/results",
+  "timeout_ms": 3600000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ]
+}

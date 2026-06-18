@@ -11,11 +11,11 @@ walk_forward:
   save_detailed_results: true
   save_window_data: true
   use_vectorized_backtest: true
-  output_directory: "strategies/gbpjpy_reversion/results/sweep"
+  output_directory: "strategies/gbpjpy_reversion/results"
 
 data:
   source_file: "data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv"
-  min_required_bars: 5000
+  min_required_bars: 2000
 
 strategy:
   strategy_module: "src.strategies.gbpjpy_reversion"
@@ -72,7 +72,7 @@ logging:
   level: "INFO"
   console_output: true
   file_output: true
-  log_file: "strategies/gbpjpy_reversion/results/sweep/wfa.log"
+  log_file: "strategies/gbpjpy_reversion/results/wfa.log"
 
 reporting:
   generate_summary: true

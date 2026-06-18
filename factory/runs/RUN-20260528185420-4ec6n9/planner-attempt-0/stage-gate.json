@@ -1,0 +1,14 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260528185420-4ec6n9",
+  "stage": "planner",
+  "attempt": 0,
+  "decision": "denied",
+  "validator": "deterministic_wfa_ready_compiler_v1",
+  "evidence_paths": [
+    "factory/runs/RUN-20260528185420-4ec6n9/phase8d-blocked-at-start.json",
+    "factory/runs/RUN-20260528185420-4ec6n9/execution-result.json"
+  ],
+  "reason": "ResearchBrain source-quality gate blocked direct Phase 8D WFA route: single_low_signal_trust_source_requires_more_research",
+  "recorded_at": "2026-05-28T18:54:26.056Z"
+}

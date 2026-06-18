@@ -1,0 +1,15 @@
+{
+  "schema_version": "researchbrain_stage0_quarantine_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "quarantined_at": "2026-05-23T13:01:50.251Z",
+  "attempt_number": 1,
+  "reason": "Brave source capture HTTP 403: <!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-kzfI9fo4yVPrRYc0hf1vhF&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s",
+  "raw_provider_output": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

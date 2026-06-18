@@ -1,0 +1,86 @@
+{
+  "hypothesis_id": "HYP-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+  "mechanism": "Turn-of-month portfolio rebalancing can create recurrent intraday flow pressure and liquidity changes. EURUSD M15 may show a testable short-horizon continuation or fade footprint around the last and first trading days of each month, independent of London breakout/sweep, trend-following, Bollinger squeeze, or signed tick-volume OFI themes.",
+  "falsifiable_prediction": "A pre-registered EURUSD M15 month-end rebalancing-flow candidate should clear the active Phase 8D research WFA promotion gate after configured costs; otherwise it remains denominator-counted non-survivor evidence.",
+  "market_structure_assumption": "EURUSD is a liquid FTMO/MT5 symbol, and global portfolio rebalancing flows can appear in major FX rates around turn-of-month windows, but this Phase 8D screen does not assume terminal-history equivalence or executable edge.",
+  "instrument_scope": "EURUSD M15 FTMO/MT5-relevant research screen using historical EURUSD M15 OHLCV CSV; MT5 instrument equivalence remains unverified.",
+  "timeframe_candidate": "M15 month-end and first-trading-day rebalancing-flow screen",
+  "strategy_family": "month_end_rebalance_eurusd",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "EURUSD M15 OHLCV bars with timestamps, source-backed turn-of-month rebalancing mechanism, strategy/config hashes, and later MT5 terminal equivalence before any Phase 8E path.",
+  "expected_holding_period": "Intraday, typically 1-4 hours via bounded M15 exits and ATR-derived stops/targets.",
+  "expected_trade_frequency": "Medium but calendar-constrained; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "expected_failure_modes": [
+    "Treasury end-of-month liquidity patterns do not transfer to EURUSD retail CFD bars.",
+    "Calendar effects are unstable across regimes or disappear after transaction costs.",
+    "The signal becomes a sparse calendar artifact with insufficient trades or poor OOS consistency.",
+    "Month-end price pressure resolves too quickly or before the tested UTC window."
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if the real WFA fails any active Phase 8D gate on completed OOS windows, trade count, return proxy, OOS Sharpe/profit factor where applicable, concentration, drawdown-to-return, or consistency route.",
+    "Reject any Phase 8E, MT5/MQL5, tester parity, or deployment implication unless a separate survivor exists with MT5 equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, costs, parameter ranges, data source, or WFA config as a new denominator-tracked attempt."
+  ],
+  "implementation_shape": "Use walk forward engine/src/strategies/month_end_rebalance_eurusd.py with the canonical month_end_rebalance_eurusd WFA config and deterministic WFA worker.",
+  "execution_sensitivity": "Sensitive to timezone alignment, definition of last/first trading day, month-end holidays, volume proxy quality, ATR stop/target sizing, spread/slippage assumptions, and terminal-history equivalence.",
+  "mt5_ftmo_concerns": "EURUSD is present in FTMO terminal evidence, but this screening does not prove MT5 Strategy Tester parity or data equivalence.",
+  "prior_related_lessons": [
+    "Phase 8D screens pre-registered hypotheses and counts weak or failed attempts in the denominator.",
+    "The active survivor gate is flexible but compensation requires strong return, Sharpe, profit factor, concentration, drawdown-to-return, and window diagnostics.",
+    "Prior failed screens include London breakout/sweep, GBPJPY reversion, XAUUSD trend, BTC BB-width squeeze, BTC volatility-adaptive trend, and EURUSD signed tick-volume OFI."
+  ],
+  "prior_failed_patterns_checked": [
+    "Not a London breakout, London sweep, or GBPJPY reversion mutation.",
+    "Not XAUUSD trend-following, BTC BB-width squeeze, BTC volatility-adaptive Supertrend, or EURUSD signed tick-volume OFI.",
+    "Not a simple RSI strategy and no low-frequency exception is registered.",
+    "Uses a new independent New York Fed turn-of-month liquidity/rebalancing source rather than selecting a historical WFA winner."
+  ],
+  "novelty_reason": "First Phase 8D screen of a source-backed turn-of-month rebalancing-flow mechanism on EURUSD M15 using calendar position, intraday momentum, volume regime, and ATR risk controls.",
+  "disconfirming_evidence": [
+    "The source mechanism is from U.S. Treasury markets, not direct EURUSD evidence.",
+    "Calendar effects can be fragile and easily overfit if not strictly pre-registered.",
+    "Current data is not separately proven equivalent to FTMO terminal EURUSD history."
+  ],
+  "proposed_experiment_shape": "Compile a deterministic Phase 8D research_wfa plan, run the canonical worker on month_end_rebalance_eurusd, emit candidate evidence and summary, then evaluate the shared flexible consistency route without positive labels unless all gates pass.",
+  "cited_source_ids": [
+    "SRC-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_mechanism",
+      "citation_source_id": "SRC-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040"
+    },
+    {
+      "claim_class": "implementation_mapping",
+      "citation_source_id": "SRC-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+      "path": "factory/research/manual/PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/source-record.json",
+      "sha256": "2e4ef8f0b3832ca0126e7e63aac1ea3d1e755e60a503095cc44d0e6218e9117b"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    },
+    "terminal_symbol_evidence": "EURUSD appears in FTMO terminal universe evidence; data equivalence is not verified in this Phase 8D screen."
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "be8d32cc8907abdc18aef421bac57908835c700bf458dcbc58ce5b16219c5db7"
+}

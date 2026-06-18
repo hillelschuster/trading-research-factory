@@ -1,0 +1,183 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-06-08T20:04:36.736Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "deepseek",
+  "llm_model": "deepseek-v4-flash",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "capture_url_source",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_hypothesis"
+  ],
+  "tool_calls": [
+    {
+      "index": 1,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-06-08T20:04:25.045Z",
+      "ended_at": "2026-06-08T20:04:25.745Z",
+      "input": {
+        "query": "forex session overlap liquidity patterns London New York microstructure MT5"
+      },
+      "output": {
+        "query": "forex session overlap liquidity patterns London New York microstructure MT5",
+        "provider": "brave_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-06-08T20:04:25.046Z",
+            "completed_at": "2026-06-08T20:04:25.745Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://hw.online/faq/trading-session-indicator-for-mt5/",
+            "title": "Comprehensive Review of the Most Accurate Trading Session Indicators for MT5 Users | Headway",
+            "snippet": "First, <strong>use your New York session indicator MT5 to spot high-probability breakout setups when both markets are active</strong>. Second, target ICT kill zones MT5 to capture institutional order flow during specific volatility windows.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.mql5.com/en/articles/19944",
+            "title": "Price Action Analysis Toolkit Development (Part 47): Tracking Forex Sessions and Breakouts in MetaTrader 5 - MQL5 Articles",
+            "snippet": "Through its blend of color‑coded ... story. <strong>It allows traders to see at a glance which global region currently drives liquidity and how volatility shifts from Asia to Tokyo, through London, and on to New York</strong>....",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://forexmt4indicators.com/market-sessions-mt5-indicator/",
+            "title": "Market Sessions MT5 Indicator - ForexMT4Indicators.com",
+            "snippet": "By understanding session-based volatility and liquidity patterns, you can refine your entry and exit points for potentially better outcomes. Market Overlap and Interbank Activity: <strong>The Forex market operates 24/5, with some overlap between sessions</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.investopedia.com/articles/forex/08/3-market-system.asp",
+            "title": "The Forex 3-Session Trading System",
+            "snippet": "Learn how the forex market operates across the Asian, London, and New York sessions, and how traders use session overlaps to find liquidity and opportunities.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.forexfactory.com/thread/1343244-session-box-indicator-for-metatrader-5-download-free",
+            "title": "Session Box Indicator for MetaTrader 5 Download [Free] TFlab | Forex Factory",
+            "snippet": "This shows how session box boundaries can act as support/resistance or liquidity magnets. Settings Overview  Session Box MT5 The MT5 version of the Session Box Indicator offers deep customization across all sessions.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "tool": "search_research_memory",
+      "status": "ok",
+      "started_at": "2026-06-08T20:04:25.745Z",
+      "ended_at": "2026-06-08T20:04:27.867Z",
+      "input": {
+        "query": "session liquidity overlap microstructure forex FTMO MT5",
+        "limit": 5
+      },
+      "output": {
+        "query": "session liquidity overlap microstructure forex FTMO MT5",
+        "results": [
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529122351",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-PHASE8D-GBPJPY-REVERSION-20260529122351 | gbpjpy_reversion | GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven. | M15 intraday with completed-H1 RSI context | GBPJPY may overextend during the London session into a liquidity vacuum, piercing 2.5 sigma Bollinger extremes before reverting toward the mid-band when V-shaped rejection geometry and completed-H1 RSI context confirm exhaustion. This test screens the fixed exis...",
+            "source_path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529122351/hypothesis-packet.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529122836",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-PHASE8D-GBPJPY-REVERSION-20260529122836 | gbpjpy_reversion | GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven. | M15 intraday with completed-H1 RSI context | GBPJPY may overextend during the London session into a liquidity vacuum, piercing 2.5 sigma Bollinger extremes before reverting toward the mid-band when V-shaped rejection geometry and completed-H1 RSI context confirm exhaustion. This test screens the fixed exis...",
+            "source_path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529122836/hypothesis-packet.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529130325",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-PHASE8D-GBPJPY-REVERSION-20260529130325 | gbpjpy_reversion | GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven. | M15 intraday with completed-H1 RSI context | GBPJPY may overextend during the London session into a liquidity vacuum, piercing 2.5 sigma Bollinger extremes before reverting toward the mid-band when V-shaped rejection geometry and completed-H1 RSI context confirm exhaustion. This test screens the fixed exis...",
+            "source_path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529130325/hypothesis-packet.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529132537",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-PHASE8D-GBPJPY-REVERSION-20260529132537 | gbpjpy_reversion | GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven. | M15 intraday with completed-H1 RSI context | GBPJPY may overextend during the London session into a liquidity vacuum, piercing 2.5 sigma Bollinger extremes before reverting toward the mid-band when V-shaped rejection geometry and completed-H1 RSI context confirm exhaustion. This test screens the fixed exis...",
+            "source_path": "factory/research/manual/PHASE8D-GBPJPY-REVERSION-20260529132537/hypothesis-packet.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+            "source_type": "research_hypothesis_packet",
+            "score": 5,
+            "text": "HYP-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049 | london_sweep_gbpjpy | GBPJPY M15, FTMO/MT5-listed Forex cross by terminal universe evidence, research-only until MT5 data equivalence is proven. | M15 intraday | GBPJPY may overextend through the Asia-session high or low during the London liquidity handoff and then mean-revert after stop-liquidity is swept. This pre-registered test evaluates the existing London sweep/fade WFA route without selecting it because of historical performance. | A val...",
+            "source_path": "factory/research/manual/PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049/hypothesis-packet.json"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-06-08T20:04:36.605Z",
+      "ended_at": "2026-06-08T20:04:36.736Z",
+      "input": {
+        "source_id": "SRC-LIVE-CANARY-001",
+        "url": "https://www.investopedia.com/articles/forex/08/3-market-system.asp",
+        "source_class": "web",
+        "claims_extracted": [
+          "The forex market operates across Asian, London, and New York sessions with unique liquidity profiles.",
+          "Session overlaps (London-New York, Asia-London) create periods of heightened liquidity and volatility.",
+          "Traders use session overlaps to identify opportunities based on liquidity concentration."
+        ],
+        "limitations": [
+          "General educational article, not research-grade or data-backed for MT5-specific microstructure analysis.",
+          "Does not provide specific testable parameters or quantitative thresholds."
+        ],
+        "disconfirming_relevance": [
+          "Generic overview may lack MT5-specific relevance.",
+          "Claims are qualitative; later validation would need precise session timing rules."
+        ]
+      },
+      "reason": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "failed_terminal",
+          "started_at": "2026-06-08T20:04:36.605Z",
+          "completed_at": "2026-06-08T20:04:36.736Z",
+          "error_class": "Error",
+          "error_message": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "captured_artifacts": [],
+  "failure": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo"
+}

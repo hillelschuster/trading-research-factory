@@ -1,0 +1,324 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "backlog_item_id": "IDEA-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+  "family_id": "fx_fix_reversal_eurusd",
+  "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+      "sha256": "f43b100a84cc12fdb2be3064664fb6e92c184091f1154d4acb102a5e578f144f",
+      "size_bytes": 1539,
+      "modified_at": "2026-06-01T19:55:57.420Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/fx_fix_reversal_eurusd.py",
+      "sha256": "2ace1ee7be916b118bc89cae0d35c127b89d9298cbb7f2692b67fb8b2902185e",
+      "size_bytes": 8646,
+      "modified_at": "2026-06-01T19:55:57.082Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_fx_fix_reversal_eurusd.json",
+      "sha256": "0172477eb4e86e4c134ba9eb5529e57104cba2c66125e715c41186ce31bb7218",
+      "size_bytes": 1573,
+      "modified_at": "2026-06-01T19:55:57.160Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "size_bytes": 33688140,
+      "modified_at": "2025-12-16T10:20:11.520Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406",
+      "size_bytes": 4109,
+      "modified_at": "2026-06-01T20:04:58.105Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/hypothesis-packet.json",
+      "sha256": "96d04039c7346c53231cafa751680976d509c96709862934d2a150a147388a51"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406",
+      "content_hash": "ad85a9f9647adcfb1221e71ad7c61c14547d44b252265e0f018ca3e1e714cad0"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_high_external_policy_research_plus_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/source-record.json",
+      "sha256": "05249e47ad17f581f01487cb8940e33823c0226b511f5c6ca9dfa0fc74c2ace1",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "EURUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv",
+      "sha256": "5f0ca8d4c09973c508a2c5bb5f1af6b8588c5da1575764612c642cae398ee608",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 87,
+    "trades": 3451,
+    "return_proxy_pct": -0.6831799131586901,
+    "sharpe_oos": -3.81405628273434,
+    "profit_factor": 0.4559520614107392,
+    "positive_oos_window_ratio": 0.057471,
+    "wfr": 1
+  },
+  "consistency_ladder_advisory": {
+    "status": "tiered_consistency_policy_enabled",
+    "clean_consistency_floor": 0.7,
+    "tier": "C4",
+    "label": "pathologically_concentrated",
+    "positive_oos_window_ratio": 0.0575,
+    "tier_source": "per_window_returns",
+    "tier_thresholds": [
+      {
+        "tier": "C1",
+        "label": "clean_consistency",
+        "minInclusive": 0.7,
+        "maxExclusive": null
+      },
+      {
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "minInclusive": 0.5,
+        "maxExclusive": 0.7
+      },
+      {
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "minInclusive": 0.3,
+        "maxExclusive": 0.5
+      },
+      {
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "minInclusive": null,
+        "maxExclusive": 0.3
+      }
+    ],
+    "return_concentration": {
+      "status": "computed_artifact_backed",
+      "positive_window_count": 5,
+      "total_positive_return_pct": 0.564354,
+      "largest_positive_window_return_pct": 0.187454,
+      "second_largest_positive_window_return_pct": 0.173707,
+      "single_window_share": 0.332156,
+      "top_two_window_share": 0.639953
+    },
+    "drawdown_to_return_ratio": {
+      "status": "undefined_non_positive_return_proxy",
+      "aggregate_return_pct": -0.68318,
+      "absolute_max_drawdown_pct": 1.719545,
+      "value": null
+    },
+    "low_window_count_warning": {
+      "flagged": false,
+      "completed_windows": 87,
+      "threshold_windows": 15,
+      "ratio_warning_below": 0.65,
+      "status": "not_flagged"
+    },
+    "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+  },
+  "promotion_gate": {
+    "schema_version": "stage_gate_v1",
+    "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+    "stage": "research_promotion",
+    "attempt": 1,
+    "decision": "denied",
+    "validator": "research_wfa_promotion_gate",
+    "evidence_paths": [
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/parsed-wfa-metrics.json",
+      "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/hypothesis-packet.json",
+      "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+      "walk forward engine/strategies/fx_fix_reversal_eurusd/results/analysis.json",
+      "walk forward engine/strategies/fx_fix_reversal_eurusd/results/parameter_stability_20260601_230848.json",
+      "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_summary_20260601_230848.csv",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-request.json",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stdout.txt",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/research-wfa-run-stderr.txt",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/pre-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/post-run-output-snapshot.json",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/accepted-output-artifacts.json",
+      "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/trial-attempts.jsonl"
+    ],
+    "reason": "Research WFA promotion denied for CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452: non-positive OOS Sharpe (-3.81405628273434); aggregate return proxy below Phase 8D floor (-0.6831799131586901% < 5%); profit factor below 1 (0.4559520614107392); Phase 8D consistency route denied: positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.0575. Advisory DSR/PBO/CPCV/White statistics are not hard promotion authority in Phase 8C.",
+    "recorded_at": "2026-06-01T20:08:53.894Z",
+    "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+    "target_context": "research",
+    "statistical_test_authority": {
+      "dsr": "advisory_only_not_a_promotion_gate",
+      "pbo": "advisory_only_not_a_promotion_gate",
+      "cpcv": "advisory_only_not_a_promotion_gate",
+      "white_reality_check": "advisory_only_not_a_promotion_gate",
+      "hard_gate_enabled": false,
+      "note": "Phase 8C DSR/PBO/CPCV/White outputs may report or block missing inputs, but they do not authorize research promotion without a separate promotion-policy amendment."
+    },
+    "consistency_promotion_policy": {
+      "passed": false,
+      "route": null,
+      "tier": "C4",
+      "failures": [
+        "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.0575"
+      ],
+      "policy": {
+        "status": "enabled_conditional_multi_metric_gate",
+        "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+        "routes": {
+          "C1": {
+            "label": "clean_consistency_route",
+            "minPositiveWindowRatio": 0.7,
+            "requiresAdditionalDiagnostics": false
+          },
+          "C2": {
+            "label": "moderate_consistency_compensated_route",
+            "minPositiveWindowRatio": 0.5,
+            "minReturnPct": 5,
+            "minSharpeOos": 0.35,
+            "minProfitFactor": 1.15,
+            "minOosWindows": 15,
+            "maxSingleWindowConcentration": 0.6,
+            "maxTopTwoWindowConcentration": 0.85,
+            "maxDrawdownToReturnRatio": 3
+          },
+          "C3": {
+            "label": "lumpy_payoff_compensated_route",
+            "minPositiveWindowRatio": 0.3,
+            "minReturnPct": 10,
+            "minSharpeOos": 0.75,
+            "minProfitFactor": 1.35,
+            "minOosWindows": 20,
+            "maxSingleWindowConcentration": 0.45,
+            "maxTopTwoWindowConcentration": 0.7,
+            "maxDrawdownToReturnRatio": 2
+          }
+        }
+      }
+    }
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "consistency_promotion_route"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/execution-result.json",
+      "sha256": "6dfe1ebad0b390c42004a37d26f082ba0dc826ecb82a18dcc21970b19385acca"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/parsed-wfa-metrics.json",
+      "sha256": "b8c1f75215d1f927aaeb6967b636316746a0d82977ea4500a7ed8c83f6ce342e"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+      "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/hypothesis-packet.json",
+      "sha256": "96d04039c7346c53231cafa751680976d509c96709862934d2a150a147388a51",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/source-record.json",
+      "sha256": "05249e47ad17f581f01487cb8940e33823c0226b511f5c6ca9dfa0fc74c2ace1"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/source-excerpt.md",
+      "sha256": "1a051f7ef604315ebc24cbf42bd35628ff6784a3f86e626bf4074266b2bdee65",
+      "artifact_type": "research_source_excerpt"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+      "sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83"
+    }
+  ],
+  "recorded_at": "2026-06-01T20:04:52.667Z"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-20260513113253-gghape",
+  "stage": "planner",
+  "attempt": 0,
+  "decision": "allowed",
+  "validator": "deterministic_wfa_ready_compiler",
+  "evidence_paths": [
+    "factory/runs/RUN-20260513113253-gghape/experiment-plan.json",
+    "factory/runs/RUN-20260513113253-gghape/planner-bypass.json"
+  ],
+  "reason": null,
+  "recorded_at": "2026-05-13T11:32:55.898Z"
+}

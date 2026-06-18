@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/minimax-m2.5-free",
+  "model": "deepseek/deepseek-v4-flash",
   "plugin": ["opencode-agent-memory@0.2.0"],
   "instructions": [
     "src/prompts/runtime-invariants.md"
   ],
   "provider": {
-    "opencode": {
+    "github-copilot": {
       "options": {
         "timeout": false
       }
@@ -26,9 +26,20 @@
   },
   "permission": "allow",
   "agent": {
+    "explore": {
+      "mode": "subagent",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh"
+    },
+    "general": {
+      "mode": "subagent",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh"
+    },
     "ideator": {
       "mode": "subagent",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh",
       "description": "Generates one explicit backlog candidate when the backlog needs replenishment.",
       "prompt": "{file:./src/prompts/ideator.md}",
       "permission": {
@@ -45,7 +56,8 @@
     },
     "planner": {
       "mode": "subagent",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh",
       "description": "Designs narrow WFA-first experiment plans with explicit hypotheses, commands, and artifacts.",
       "prompt": "{file:./src/prompts/planner.md}",
       "permission": {
@@ -62,7 +74,8 @@
     },
     "executor": {
       "mode": "subagent",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh",
       "description": "Executes the approved experiment plan inside the workspace and writes reproducible artifacts.",
       "prompt": "{file:./src/prompts/executor.md}",
       "permission": {
@@ -82,7 +95,8 @@
     },
     "evaluator": {
       "mode": "subagent",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh",
       "description": "Scores evidence quality, checks artifact completeness, and judges experiment outcomes.",
       "prompt": "{file:./src/prompts/evaluator.md}",
       "permission": {
@@ -101,7 +115,8 @@
     },
     "summarizer": {
       "mode": "subagent",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "deepseek/deepseek-v4-flash",
+      "reasoningEffort": "xhigh",
       "description": "Compresses each run into durable lessons and next actions.",
       "prompt": "{file:./src/prompts/summarizer.md}",
       "permission": {

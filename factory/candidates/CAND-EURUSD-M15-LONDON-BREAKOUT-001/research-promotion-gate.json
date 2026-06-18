@@ -1,0 +1,18 @@
+{
+  "schema_version": "stage_gate_v1",
+  "run_id": "RUN-RESEARCH-WFA-CAND-EURUSD-M15-LONDON-BREAKOUT-001-20260504",
+  "candidate_id": "CAND-EURUSD-M15-LONDON-BREAKOUT-001",
+  "stage": "research_promotion",
+  "attempt": 1,
+  "decision": "denied",
+  "validator": "research_wfa_promotion_gate",
+  "evidence_paths": [
+    "factory/runs/JOB-RESEARCH-WFA-CAND-EURUSD-M15-LONDON-BREAKOUT-001-20260504/execution-result.json",
+    "walk forward engine/strategies/london_breakout_eurusd/results/analysis.json",
+    "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260504_140355.json",
+    "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_summary_20260504_140355.csv",
+    "walk forward engine/strategies/london_breakout_eurusd/results/parameter_stability_20260504_140355.json"
+  ],
+  "reason": "Research WFA promotion denied for CAND-EURUSD-M15-LONDON-BREAKOUT-001: non-positive OOS Sharpe (-0.4048); non-positive aggregate return (-0.077%); profit factor below 1 (0.8753).",
+  "recorded_at": "2026-05-04T18:54:00.000Z"
+}

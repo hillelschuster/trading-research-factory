@@ -1,0 +1,41 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "source_type": "repo_strategy_source_config_data_and_mt5_universe_evidence",
+  "trust_tier": "medium_implementation_trust",
+  "url_or_path_or_doi": "walk forward engine/src/strategies/vol_adaptive_trend.py",
+  "accessed_at": "2026-05-31T13:37:27.624Z",
+  "content_hash_or_unavailable_reason": "02696fad0086accb72818cccf0b2899850fa4cb1f9e389e9fd94b1ecd333f5d2",
+  "claims_extracted": [
+    "The strategy implements Supertrend direction changes with volatility-adaptive stop sizing on 1h BTC data.",
+    "The mechanism is trend-following with realized-volatility adaptation, not RSI mean reversion, London breakout, gold momentum, GBPJPY sweep/reversion, or BB-width squeeze.",
+    "BTCUSD appears in the FTMO terminal universe snapshot/inventory, making the hypothesis MT5/FTMO-relevant while current Binance BTCUSDT data remains an unverified proxy.",
+    "Pre-result mechanical runtime-feasibility repair: the canonical VOL_ADAPTIVE_TREND route uses 150 trials on BTC H1, and the immediately prior BTC H1 Phase 8D 150-trial screening route timed out after 1800000ms before accepted WFA outputs. This attempt preserves the hypothesis, strategy source, parameter space, data source, and costs but uses a Phase 8D-specific 25-trial config before any performance result is known."
+  ],
+  "limitations": [
+    "Source support is repo-local implementation/config/data plus terminal-universe evidence, not independent external alpha research.",
+    "The Binance BTCUSDT research CSV is proxy data and is not proven equivalent to FTMO BTCUSD terminal history.",
+    "Crypto CFD spreads, weekend handling, swaps, symbol contract details, and broker-specific history can materially alter MT5 parity.",
+    "The strategy computes a volatility scale internally, but the current signal interface does not separately emit position sizing as deployment-proximate evidence."
+  ],
+  "disconfirming_relevance": [
+    "Supertrend flips can whipsaw in sideways crypto regimes after fees and slippage.",
+    "A trend-following route can fail positive-window consistency even when aggregate return is positive.",
+    "A structurally plausible setup still fails if WFA return, trade count, or OOS consistency floors are not met."
+  ],
+  "artifact": {
+    "path": "walk forward engine/src/strategies/vol_adaptive_trend.py",
+    "sha256": "02696fad0086accb72818cccf0b2899850fa4cb1f9e389e9fd94b1ecd333f5d2"
+  },
+  "provider_provenance": {
+    "mode": "repo_local_strategy_source_plus_terminal_universe_snapshot",
+    "live_research": false,
+    "deterministic_capture": true
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false
+}

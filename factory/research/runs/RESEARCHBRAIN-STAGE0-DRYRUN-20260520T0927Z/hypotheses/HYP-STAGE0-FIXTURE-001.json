@@ -1,0 +1,62 @@
+{
+  "hypothesis_id": "HYP-STAGE0-FIXTURE-001",
+  "mechanism": "Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism.",
+  "falsifiable_prediction": "If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture makes no such claim.",
+  "market_structure_assumption": "The idea is constrained to broker-supported FTMO MT5 symbols from the Phase 8A universe.",
+  "instrument_scope": "Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets.",
+  "timeframe_candidate": "M15-H1 candidate only, to be selected later by deterministic planning.",
+  "strategy_family": "volatility_contraction_liquidity_pressure_fixture",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "MT5 terminal OHLCV plus spread/swap/spec evidence before any MT5-bound claim.",
+  "expected_holding_period": "Intraday to multi-session; fixture estimate only before WFA.",
+  "expected_trade_frequency": "Unknown until deterministic planning and data checks; no profitability label assigned.",
+  "expected_failure_modes": [
+    "Spread and swap costs overwhelm any apparent continuation.",
+    "Effect is isolated to a post-hoc subset and fails across assets."
+  ],
+  "invalidation_criteria": [
+    "No source-backed deterministic pre-registration exists later.",
+    "No OOS consistency after later WFA and cost controls."
+  ],
+  "implementation_shape": "Rule-based signal generator candidate shape for later planning only; no code or WFA is executed here.",
+  "execution_sensitivity": "Sensitive to spread, swap, session boundaries, contract specs, and bar construction.",
+  "mt5_ftmo_concerns": "Requires terminal-backed symbol specs and later FTMO rule accounting before any promotion path.",
+  "prior_related_lessons": [
+    "Avoid simple RSI-only variants and post-hoc Sharpe chasing."
+  ],
+  "prior_failed_patterns_checked": [
+    "Historical simple indicator variants are treated as stale overfit-prone patterns."
+  ],
+  "novelty_reason": "Fixture exercises source-backed Stage-0 packet wiring under Phase 8A universe constraints.",
+  "disconfirming_evidence": [
+    "Fixture provenance means no real external evidence has been collected."
+  ],
+  "proposed_experiment_shape": "Stage-0 discovery artifact only; any later experiment must be separately planned and deterministic.",
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-DRYRUN-20260520T0927Z/source-records/SRC-FIXTURE-STAGE0-001.json",
+      "sha256": "5afbaf41070d1ea34fbebb69638a993cd6c41c0b27fed6e5165082a3da536585"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "37a4def107cfc3cf4e6f2cf1ce48c9b01f3c65ee44844ce0e9838214b5709b84"
+}

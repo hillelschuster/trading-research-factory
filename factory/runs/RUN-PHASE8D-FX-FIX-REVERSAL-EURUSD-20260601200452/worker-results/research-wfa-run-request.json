@@ -1,0 +1,48 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "job_id": "JOB-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "lineage_id": "LINEAGE-PHASE8D-FX-FIX-REVERSAL-EURUSD",
+  "family_id": "fx_fix_reversal_eurusd",
+  "attempt_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/fx_fix_reversal_eurusd.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_fx_fix_reversal_eurusd.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/Eurousd_M15_2003-2025/EURUSD_M15_2003_2025_COMBINED.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/registrations/research-wfa-RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452.json",
+    "sha256": "e06476e46e6877f9a447b802c142825782d845af3c01d3c2f85bb2afeb481406"
+  },
+  "expected_output_root": "walk forward engine/strategies/fx_fix_reversal_eurusd/results",
+  "timeout_ms": 3600000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ],
+  "max_buffer_bytes": 100663296
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "parity_drift_taxonomy_v1",
+  "status": "initial_phase_7_taxonomy",
+  "authority_layer": "control_plane",
+  "purpose": "Classify parity drift dimensions before candidate promotion gates can make MT5/FTMO decisions.",
+  "dimensions": [
+    {
+      "dimension": "lifecycle",
+      "description": "Order lifecycle state mismatch, including missing open, pending placement/removal, close, hard exit, SL/TP, or cancellation events.",
+      "promotion_relevance": "blocking_when_unexplained"
+    },
+    {
+      "dimension": "timing",
+      "description": "Signal, order placement, fill, exit, session-boundary, or daily-reset timestamp drift.",
+      "promotion_relevance": "thresholded_empirically"
+    },
+    {
+      "dimension": "fill",
+      "description": "Entry/exit price, partial-fill, pending-trigger, rejection, or retcode behavior drift.",
+      "promotion_relevance": "thresholded_empirically"
+    },
+    {
+      "dimension": "cost",
+      "description": "Spread, commission, swap, slippage, or execution-cost drift between research and MT5 evidence.",
+      "promotion_relevance": "thresholded_empirically"
+    },
+    {
+      "dimension": "trade_count",
+      "description": "Mismatch in number of opened, closed, skipped, rejected, or duplicated trades.",
+      "promotion_relevance": "blocking_when_material"
+    },
+    {
+      "dimension": "drawdown",
+      "description": "Balance/equity drawdown drift, including intratrade equity paths when FTMO rules are in scope.",
+      "promotion_relevance": "thresholded_empirically"
+    },
+    {
+      "dimension": "rule_accounting",
+      "description": "FTMO rule-accounting drift, including daily loss, maximum loss, trailing high-watermark, floating P/L, commissions, swaps, and reset-time treatment.",
+      "promotion_relevance": "blocking_for_ftmo_contexts"
+    }
+  ],
+  "rules": [
+    "Promotion-grade parity reports must classify all dimensions.",
+    "Promotion-grade parity reports must cite empirical threshold sources for every thresholded dimension.",
+    "Missing empirical thresholds block parity promotion instead of silently guessing.",
+    "Signal-only parity cannot satisfy lifecycle, fill, cost, drawdown, rule-accounting, MT5 tester, FTMO forward, or deployable gates."
+  ],
+  "updated_at": "2026-05-05T00:00:00.000Z"
+}

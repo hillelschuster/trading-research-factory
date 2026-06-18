@@ -1,0 +1,432 @@
+{
+  "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+  "worker": "research_wfa_run",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "schema_version": "research_wfa_run_worker_v1",
+  "status": "failed",
+  "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+  "family_id": "london_sweep_gbpjpy",
+  "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "artifacts": [
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-request.json",
+      "sha256": "d40a4d60f686f60b14cdb92798fa0cd7f28b3c91f681b20f1f3d595c760cec2c",
+      "size_bytes": 1827,
+      "modified_at": "2026-05-28T22:52:03.511Z"
+    },
+    {
+      "artifact_type": "stdout",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stdout.txt",
+      "sha256": "9929cc6340f042ce04f5311c9961449b273107ba33d607e41ca420ba269ff3a3",
+      "size_bytes": 1386617,
+      "modified_at": "2026-05-28T22:54:24.187Z"
+    },
+    {
+      "artifact_type": "stderr",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stderr.txt",
+      "sha256": "c308c0e7d887ef9996006bd82a2c65ab340ea4bd66cc51ccdd67e6b6ca15951f",
+      "size_bytes": 271961,
+      "modified_at": "2026-05-28T22:54:24.227Z"
+    },
+    {
+      "artifact_type": "pre_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/pre-run-output-snapshot.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3,
+      "modified_at": "2026-05-28T22:54:24.260Z"
+    },
+    {
+      "artifact_type": "post_run_output_snapshot",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/post-run-output-snapshot.json",
+      "sha256": "b34aaeacfb44a450442df3700fb45e70a64bd0f96b74c85712df1700f3f45fec",
+      "size_bytes": 1262,
+      "modified_at": "2026-05-28T22:54:24.301Z"
+    },
+    {
+      "artifact_type": "accepted_output_manifest",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/accepted-output-artifacts.json",
+      "sha256": "c998fffc856751b045c528111750b45f17b750395fe2e716e048a21535cc05a2",
+      "size_bytes": 2986,
+      "modified_at": "2026-05-28T22:54:24.339Z"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/parsed-wfa-metrics.json",
+      "sha256": "3d2cf677068ad02a4d22686f7df0de90f1556fe252b1a6442304f17d4cf903e8",
+      "size_bytes": 19196,
+      "modified_at": "2026-05-28T22:54:24.377Z"
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/analysis.json",
+      "sha256": "3378c664612020ab8000e25735bed44d4e2b4bd453e3e2b9fe0308af4face4c5",
+      "size_bytes": 2863,
+      "modified_at": "2026-05-28T22:54:22.146Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+        "family_id": "london_sweep_gbpjpy",
+        "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/parameter_stability_20260529_015421.json",
+      "sha256": "f2abeb8e3939d991b8ed273f19fa64fbb30c9397ffc6d54cecd84df0ad9b0ee3",
+      "size_bytes": 1704,
+      "modified_at": "2026-05-28T22:54:22.190Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+        "family_id": "london_sweep_gbpjpy",
+        "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+      "sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+      "size_bytes": 25491,
+      "modified_at": "2026-05-28T22:54:22.007Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+        "family_id": "london_sweep_gbpjpy",
+        "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "wfa_result_artifact",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_summary_20260529_015421.csv",
+      "sha256": "974b1bc736239b23b8c64f6655bb56467ce8de68ca0c0eac8852efd8f073a9ed",
+      "size_bytes": 5808,
+      "modified_at": "2026-05-28T22:54:22.187Z",
+      "request_identity": {
+        "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+        "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+        "family_id": "london_sweep_gbpjpy",
+        "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+      }
+    },
+    {
+      "artifact_type": "trial_attempt_record",
+      "path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/trial-attempts.jsonl",
+      "sha256": "2a22670bcde7cc8d2f0625acc50ef09a7669b4b47c42a07211a5eb7e2da26cb5",
+      "size_bytes": 4780,
+      "modified_at": "2026-05-28T22:54:24.584Z"
+    }
+  ],
+  "metrics": {
+    "sharpe_is": -10,
+    "sharpe_oos": 0,
+    "in_sample_return_pct": 0,
+    "total_trades": 0,
+    "max_drawdown": 0,
+    "profit_factor": 0,
+    "win_rate": 0,
+    "aggregate_return_pct": 0,
+    "total_windows": 17,
+    "successful_windows": 17,
+    "failed_windows": 0
+  },
+  "observations": {
+    "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+    "canonical_wfa_config_path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+    "execution_was_run_by_this_worker": true,
+    "worker_start_time": "2026-05-28T22:52:03.863Z",
+    "worker_end_time": "2026-05-28T22:54:24.292Z",
+    "duration_ms": 140429,
+    "timed_out": false,
+    "exit_code": 1,
+    "signal": null,
+    "stdout_path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stderr.txt",
+    "accepted_output_count": 4,
+    "metrics_artifact_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+    "per_window_metrics_count": 17,
+    "expected_output_root": "walk forward engine/strategies/london_sweep_gbpjpy/results",
+    "output_root_truth": {
+      "matched": true,
+      "expected_output_root": "walk forward engine/strategies/london_sweep_gbpjpy/results",
+      "config_output_root": "walk forward engine/strategies/london_sweep_gbpjpy/results",
+      "canonical_output_root": "walk forward engine/strategies/london_sweep_gbpjpy/results",
+      "errors": []
+    },
+    "metric_readiness": {
+      "sharpe_is": {
+        "status": "available",
+        "value": -10,
+        "source": {
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "sharpe_is|aggregate_sharpe_is|in_sample_sharpe"
+        }
+      },
+      "sharpe_oos": {
+        "status": "available",
+        "value": 0,
+        "source": {
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "sharpe_oos|aggregate_sharpe|aggregate_sharpe_ratio"
+        }
+      },
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "nonzero aggregate in-sample return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing nonzero aggregate in-sample return."
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 17,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+              "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 17,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+              "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      }
+    },
+    "parameter_stability": {
+      "status": "parameter_instability_flagged",
+      "source": {
+        "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+        "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+        "source_field": "window_results[].best_parameters"
+      },
+      "windows_with_parameters": 17,
+      "total_reported_windows": 17,
+      "unique_parameter_sets": 17,
+      "changed_window_count": 16,
+      "note": "Parameter stability is diagnostic only; it is not a promotion, rejection, or statistical-confidence gate."
+    },
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "optimization_truth": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+        "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+        "source_field": "optimization_truth"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+    },
+    "warmup_diagnostics": {
+      "status": "not_emitted",
+      "source": {
+        "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+        "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+        "source_field": "warmup_diagnostics"
+      },
+      "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.training_months"
+        },
+        "testing_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 30,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "config.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 3600,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+          "source_sha256": "21f2d0956cca075fd56a20b3b80e3cb700824c8d5127f6c0502c051723768740",
+          "source_field": "performance.max_execution_time_seconds"
+        },
+        "execution_start_time": {
+          "value": "2026-05-28T22:52:12.070335+00:00",
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "execution_start_time"
+        },
+        "execution_end_time": {
+          "value": "2026-05-28T22:54:21.925886+00:00",
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "execution_end_time"
+        },
+        "total_execution_time_seconds": {
+          "value": 129.855551,
+          "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+          "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+          "source_field": "total_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    },
+    "optional_wfa_artifacts": {
+      "trade_ledger": {
+        "available": false,
+        "artifact_type": "wfa_trade_ledger",
+        "artifacts": [],
+        "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+      },
+      "equity_curve": {
+        "available": false,
+        "artifact_type": "wfa_equity_curve",
+        "artifacts": [],
+        "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+      },
+      "optimizer_trials": {
+        "available": false,
+        "artifact_type": "wfa_optimizer_trials",
+        "artifacts": [],
+        "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+      }
+    },
+    "research_wfa_preregistration": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203.json",
+      "sha256": "a347166a7ce66edf9c5529d67c76543e1370488f1d7c0ca6ea5704ec6c92e125"
+    },
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "job_id": "JOB-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "lineage_id": "LINEAGE-PHASE8D-LONDON-SWEEP-GBPJPY",
+      "family_id": "london_sweep_gbpjpy",
+      "attempt_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203-EXECUTOR-ATTEMPT-1"
+    },
+    "stale_output_guard": {
+      "passed": true,
+      "checked_count": 4,
+      "stale_paths": []
+    },
+    "zero_trade_policy": null
+  },
+  "observed_at": "2026-05-28T22:54:24.292Z",
+  "blocked_reason": "WFA subprocess exited non-zero: 1.",
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/london_sweep_gbpjpy/wfa_config.yaml",
+      "sha256": "21f2d0956cca075fd56a20b3b80e3cb700824c8d5127f6c0502c051723768740",
+      "size_bytes": 1366,
+      "modified_at": "2026-03-17T14:55:56.345Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/london_sweep.py",
+      "sha256": "f743cae5d8b8f891de4528f555332a1b714908a7837345f5e859a78e0b6d08fb",
+      "size_bytes": 23821,
+      "modified_at": "2026-03-18T15:54:05.817Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_london_sweep_fade.json",
+      "sha256": "01426e8a54380ff504674031fe0ad98f402398ee96bac64d4ecc58f22e8aa89d",
+      "size_bytes": 1819,
+      "modified_at": "2026-01-09T06:35:56.053Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/GBPJPY_M15_2015-2025/GBPJPY_M15_2015_2025.csv",
+      "sha256": "c0dc6031b8b6db252f138ec2c6ffda7d67993ec09e81d2e49de8dc1833ac7161",
+      "size_bytes": 12747848,
+      "modified_at": "2025-12-19T07:10:07.755Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/registrations/research-wfa-RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203.json",
+      "sha256": "a347166a7ce66edf9c5529d67c76543e1370488f1d7c0ca6ea5704ec6c92e125",
+      "size_bytes": 3218,
+      "modified_at": "2026-05-28T22:52:03.328Z"
+    }
+  ],
+  "diagnostics": {
+    "error_code": "wfa_nonzero_exit",
+    "message": "WFA subprocess exited non-zero: 1.",
+    "stdout_path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stdout.txt",
+    "stderr_path": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/research-wfa-run-stderr.txt"
+  },
+  "environment": {
+    "node_version": "v24.0.2",
+    "platform": "linux",
+    "arch": "x64"
+  }
+}

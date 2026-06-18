@@ -1,0 +1,4284 @@
+{
+  "schema_version": "phase8d_ladder_calibration_v1",
+  "generated_at": "2026-06-02T16:24:35.681Z",
+  "phase": "8D",
+  "purpose": "Reporting-only calibration of the Phase 8D consistency ladder against historical evidence. This artifact does not mutate old evidence or authorize Phase 8E; the active promotion gate may use the separate conditional C1/C2/C3 consistency route policy.",
+  "authority": {
+    "reporting_only": true,
+    "survivor_gate_behavior_changed_by_this_artifact": false,
+    "active_positive_window_clean_route_floor": 0.7,
+    "conditional_consistency_routes_enabled": true,
+    "consistency_promotion_policy": {
+      "status": "enabled_conditional_multi_metric_gate",
+      "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+      "routes": {
+        "C1": {
+          "label": "clean_consistency_route",
+          "minPositiveWindowRatio": 0.7,
+          "requiresAdditionalDiagnostics": false
+        },
+        "C2": {
+          "label": "moderate_consistency_compensated_route",
+          "minPositiveWindowRatio": 0.5,
+          "minReturnPct": 5,
+          "minSharpeOos": 0.35,
+          "minProfitFactor": 1.15,
+          "minOosWindows": 15,
+          "maxSingleWindowConcentration": 0.6,
+          "maxTopTwoWindowConcentration": 0.85,
+          "maxDrawdownToReturnRatio": 3
+        },
+        "C3": {
+          "label": "lumpy_payoff_compensated_route",
+          "minPositiveWindowRatio": 0.3,
+          "minReturnPct": 10,
+          "minSharpeOos": 0.75,
+          "minProfitFactor": 1.35,
+          "minOosWindows": 20,
+          "maxSingleWindowConcentration": 0.45,
+          "maxTopTwoWindowConcentration": 0.7,
+          "maxDrawdownToReturnRatio": 2
+        }
+      }
+    },
+    "phase8e_authorized": false,
+    "strategy_promoted": false,
+    "old_run_evidence_mutated": false
+  },
+  "scan_summary": {
+    "run_directories_scanned": 167,
+    "records_included": 22,
+    "records_with_parsed_wfa_metrics": 20,
+    "phase8d_terminal_attempts": 20,
+    "phase8d_runs_with_metrics": 18,
+    "phase8d_runs_without_metrics": 2
+  },
+  "distributions": {
+    "tier_counts_all_metrics": {
+      "C2": 3,
+      "unknown": 6,
+      "C3": 4,
+      "C4": 7
+    },
+    "tier_counts_phase8d_metrics": {
+      "unknown": 6,
+      "C3": 4,
+      "C4": 7,
+      "C2": 1
+    },
+    "terminal_status_counts_all_records": {
+      "executed": 13,
+      "blocked": 3,
+      "failed": 6
+    },
+    "terminal_status_counts_phase8d": {
+      "blocked": 3,
+      "failed": 6,
+      "executed": 11
+    },
+    "current_hard_floor_counts_all_metrics": {
+      "failed": 20
+    },
+    "current_hard_floor_counts_phase8d_metrics": {
+      "failed": 18
+    },
+    "active_consistency_route_counts_phase8d_metrics": {
+      "failed": 18
+    },
+    "positive_window_ratio": {
+      "count": 14,
+      "min": 0,
+      "p25": 0.140775,
+      "median": 0.3161,
+      "p75": 0.44295,
+      "p90": 0.6667,
+      "p95": 0.6667,
+      "max": 0.6667
+    },
+    "phase8d_positive_window_ratio": {
+      "count": 12,
+      "min": 0,
+      "p25": 0.1302,
+      "median": 0.25745,
+      "p75": 0.38535,
+      "p90": 0.45084,
+      "p95": 0.55087,
+      "max": 0.6667
+    },
+    "single_window_concentration": {
+      "count": 13,
+      "min": 0.102343,
+      "p25": 0.152004,
+      "median": 0.332156,
+      "p75": 0.412956,
+      "p90": 0.80546,
+      "p95": 0.811374,
+      "max": 0.820246
+    },
+    "top_two_window_concentration": {
+      "count": 13,
+      "min": 0.175312,
+      "p25": 0.298626,
+      "median": 0.579764,
+      "p75": 0.744544,
+      "p90": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "drawdown_to_return_ratio": {
+      "count": 3,
+      "min": 2.486028,
+      "p25": 4.55324,
+      "median": 6.620451,
+      "p75": 81.4127,
+      "p90": 126.28805,
+      "p95": 141.2465,
+      "max": 156.20495
+    }
+  },
+  "only_0_70_floor_failures": [],
+  "lower_tier_interesting_but_other_metrics_fail": [
+    {
+      "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "tier": "C3",
+      "positive_oos_window_ratio": 0.4561,
+      "return_proxy_pct": 0.091174,
+      "oos_sharpe": 0.074558,
+      "profit_factor": 1.01281,
+      "failed_requirements": [
+        "return_proxy_pct",
+        "positive_oos_window_ratio"
+      ]
+    },
+    {
+      "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "tier": "C3",
+      "positive_oos_window_ratio": 0.3333,
+      "return_proxy_pct": -0.96216,
+      "oos_sharpe": -1.324071,
+      "profit_factor": 0.724449,
+      "failed_requirements": [
+        "oos_sharpe_non_positive",
+        "return_proxy_pct",
+        "profit_factor",
+        "positive_oos_window_ratio"
+      ]
+    },
+    {
+      "run_id": "RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+      "candidate_id": "CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+      "tier": "C3",
+      "positive_oos_window_ratio": 0.3793,
+      "return_proxy_pct": -0.024528,
+      "oos_sharpe": -0.39146,
+      "profit_factor": 0.71954,
+      "failed_requirements": [
+        "oos_sharpe_non_positive",
+        "return_proxy_pct",
+        "profit_factor",
+        "trades",
+        "positive_oos_window_ratio"
+      ]
+    },
+    {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "tier": "C2",
+      "positive_oos_window_ratio": 0.6667,
+      "return_proxy_pct": -1.939688,
+      "oos_sharpe": -1.491531,
+      "profit_factor": 0.563773,
+      "failed_requirements": [
+        "oos_sharpe_non_positive",
+        "return_proxy_pct",
+        "profit_factor",
+        "completed_windows",
+        "trades",
+        "positive_oos_window_ratio"
+      ]
+    },
+    {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "tier": "C3",
+      "positive_oos_window_ratio": 0.4035,
+      "return_proxy_pct": 1.308666,
+      "oos_sharpe": 0.954411,
+      "profit_factor": 1.547268,
+      "failed_requirements": [
+        "return_proxy_pct",
+        "positive_oos_window_ratio"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "run_id": "RUN-20260513113253-gghape",
+      "candidate_id": null,
+      "terminal_status": "executed",
+      "is_phase8d": false,
+      "metrics_available": true,
+      "completed_windows": 3,
+      "trades": 20,
+      "return_proxy_pct": 1.41116,
+      "oos_sharpe": 1.523282,
+      "profit_factor": 1.720887,
+      "positive_oos_window_ratio": 0.6667,
+      "consistency_tier": "C2",
+      "consistency_label": "moderate_consistency",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "positive_oos_window_ratio": 0.6667,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 2,
+          "total_positive_return_pct": 5.834912,
+          "largest_positive_window_return_pct": 4.78606,
+          "second_largest_positive_window_return_pct": 1.048851,
+          "single_window_share": 0.820246,
+          "top_two_window_share": 1
+        },
+        "drawdown_to_return_ratio": {
+          "status": "computed_artifact_backed",
+          "aggregate_return_pct": 1.41116,
+          "absolute_max_drawdown_pct": 3.508182,
+          "value": 2.486028
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 3,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.820246,
+      "top_two_window_concentration": 1,
+      "drawdown_to_return_ratio": 2.486028,
+      "wfe": null,
+      "wfr": null,
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C2",
+        "failures": [
+          "C2 route requires return >= 5% (1.4111595609530923% observed)",
+          "C2 route requires at least 15 completed OOS windows (3 observed)",
+          "C2 route single-window concentration too high (0.820246 > 0.6)",
+          "C2 route top-two-window concentration too high (1 > 0.85)"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.6667,
+          "return_pct": 1.4111595609530923,
+          "sharpe_oos": 1.5232824968937009,
+          "profit_factor": 1.7208868566043953,
+          "completed_windows": 3,
+          "single_window_concentration": 0.820246,
+          "top_two_window_concentration": 1,
+          "drawdown_to_return_ratio": 2.486028
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-20260513113253-gghape/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": null
+      }
+    },
+    {
+      "run_id": "RUN-20260514050018-cli-wfa-canary",
+      "candidate_id": null,
+      "terminal_status": "executed",
+      "is_phase8d": false,
+      "metrics_available": true,
+      "completed_windows": 3,
+      "trades": 23,
+      "return_proxy_pct": -0.393144,
+      "oos_sharpe": -0.735407,
+      "profit_factor": 0.87391,
+      "positive_oos_window_ratio": 0.6667,
+      "consistency_tier": "C2",
+      "consistency_label": "moderate_consistency",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "positive_oos_window_ratio": 0.6667,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 2,
+          "total_positive_return_pct": 1.302178,
+          "largest_positive_window_return_pct": 1.048851,
+          "second_largest_positive_window_return_pct": 0.253326,
+          "single_window_share": 0.80546,
+          "top_two_window_share": 1
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.393144,
+          "absolute_max_drawdown_pct": 4.462811,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 3,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.80546,
+      "top_two_window_concentration": 1,
+      "drawdown_to_return_ratio": null,
+      "wfe": null,
+      "wfr": null,
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C2",
+        "failures": [
+          "C2 route requires return >= 5% (-0.3931435668569659% observed)",
+          "C2 route requires OOS Sharpe >= 0.35 (-0.7354069140039036 observed)",
+          "C2 route requires profit factor >= 1.15 (0.8739103068666915 observed)",
+          "C2 route requires at least 15 completed OOS windows (3 observed)",
+          "C2 route single-window concentration too high (0.80546 > 0.6)",
+          "C2 route top-two-window concentration too high (1 > 0.85)",
+          "C2 route requires artifact-backed drawdown-to-return ratio"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.6667,
+          "return_pct": -0.3931435668569659,
+          "sharpe_oos": -0.7354069140039036,
+          "profit_factor": 0.8739103068666915,
+          "completed_windows": 3,
+          "single_window_concentration": 0.80546,
+          "top_two_window_concentration": 1,
+          "drawdown_to_return_ratio": null
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-20260514050018-cli-wfa-canary/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": null
+      }
+    },
+    {
+      "run_id": "RUN-20260528184735-xx0k9r",
+      "candidate_id": "CAND-PHASE8D-PREREG-GATE-20260528",
+      "terminal_status": "blocked",
+      "is_phase8d": true,
+      "metrics_available": false,
+      "current_hard_floor": {
+        "passed": false,
+        "failed_requirements": [
+          "missing_parsed_wfa_metrics"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_parsed_wfa_metrics"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": null,
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-20260528184735-xx0k9r/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-20260528185420-4ec6n9",
+      "candidate_id": "CAND-PHASE8D-SOURCE-QUALITY-GATE-20260528",
+      "terminal_status": "blocked",
+      "is_phase8d": true,
+      "metrics_available": false,
+      "current_hard_floor": {
+        "passed": false,
+        "failed_requirements": [
+          "missing_parsed_wfa_metrics"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_parsed_wfa_metrics"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": null,
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-20260528185420-4ec6n9/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+      "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": null,
+      "return_proxy_pct": null,
+      "oos_sharpe": null,
+      "profit_factor": null,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "missing_inputs",
+          "aggregate_return_pct": null,
+          "absolute_max_drawdown_pct": null,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return",
+          "artifact-backed aggregate OOS return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed successful_windows",
+          "artifact-backed total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_trade_count",
+        "missing_return_proxy",
+        "missing_oos_sharpe",
+        "missing_profit_factor",
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "missing_inputs",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 57,
+      "trades": 1101,
+      "return_proxy_pct": 0.091174,
+      "oos_sharpe": 0.074558,
+      "profit_factor": 1.01281,
+      "positive_oos_window_ratio": 0.4561,
+      "consistency_tier": "C3",
+      "consistency_label": "lumpy_payoff",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "positive_oos_window_ratio": 0.4561,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 26,
+          "total_positive_return_pct": 95.323527,
+          "largest_positive_window_return_pct": 9.755712,
+          "second_largest_positive_window_return_pct": 9.637514,
+          "single_window_share": 0.102343,
+          "top_two_window_share": 0.203446
+        },
+        "drawdown_to_return_ratio": {
+          "status": "computed_artifact_backed",
+          "aggregate_return_pct": 0.091174,
+          "absolute_max_drawdown_pct": 14.241883,
+          "value": 156.20495
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 57,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.102343,
+      "top_two_window_concentration": 0.203446,
+      "drawdown_to_return_ratio": 156.20495,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": 0.006725,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 13.558503990705088,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": 0.09117433540026997,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/btc_bb_squeeze_phase8d_runtime/results/walk_forward_results_20260531_015329.json",
+              "source_sha256": "21c88a573ef8073d2cf34304dfe6fdb6e2f88bf214c5b20f88a3c5da661c7e64",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C3",
+        "failures": [
+          "C3 route requires return >= 10% (0.09117433540026997% observed)",
+          "C3 route requires OOS Sharpe >= 0.75 (0.07455792527986792 observed)",
+          "C3 route requires profit factor >= 1.35 (1.0128102355434685 observed)",
+          "C3 route drawdown-to-return ratio too high (156.20495 > 2)"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.4561,
+          "return_pct": 0.09117433540026997,
+          "sharpe_oos": 0.07455792527986792,
+          "profit_factor": 1.0128102355434685,
+          "completed_windows": 57,
+          "single_window_concentration": 0.102343,
+          "top_two_window_concentration": 0.203446,
+          "drawdown_to_return_ratio": 156.20495
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-BTC-BB-SQUEEZE-RUNTIME-20260530223043/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 57,
+      "trades": 919,
+      "return_proxy_pct": -0.96216,
+      "oos_sharpe": -1.324071,
+      "profit_factor": 0.724449,
+      "positive_oos_window_ratio": 0.3333,
+      "consistency_tier": "C3",
+      "consistency_label": "lumpy_payoff",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "positive_oos_window_ratio": 0.3333,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 19,
+          "total_positive_return_pct": 30.470032,
+          "largest_positive_window_return_pct": 7.296677,
+          "second_largest_positive_window_return_pct": 2.794091,
+          "single_window_share": 0.239471,
+          "top_two_window_share": 0.33117
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.96216,
+          "absolute_max_drawdown_pct": 8.894928,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 57,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.239471,
+      "top_two_window_concentration": 0.33117,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.66052,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 1.4566701834691387,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.9621596271451213,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/eth_btc_residual_phase8d/results/walk_forward_results_20260602_192243.json",
+              "source_sha256": "82482637206f8385118794030e727a2bd407cd6bf631239bdad4b4356e921a12",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C3",
+        "failures": [
+          "C3 route requires return >= 10% (-0.9621596271451213% observed)",
+          "C3 route requires OOS Sharpe >= 0.75 (-1.3240707834957792 observed)",
+          "C3 route requires profit factor >= 1.35 (0.7244491750213435 observed)",
+          "C3 route requires artifact-backed drawdown-to-return ratio"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.3333,
+          "return_pct": -0.9621596271451213,
+          "sharpe_oos": -1.3240707834957792,
+          "profit_factor": 0.7244491750213435,
+          "completed_windows": 57,
+          "single_window_concentration": 0.239471,
+          "top_two_window_concentration": 0.33117,
+          "drawdown_to_return_ratio": null
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "candidate_id": "CAND-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 87,
+      "trades": 3451,
+      "return_proxy_pct": -0.68318,
+      "oos_sharpe": -3.814056,
+      "profit_factor": 0.455952,
+      "positive_oos_window_ratio": 0.0575,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.0575,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 5,
+          "total_positive_return_pct": 0.564354,
+          "largest_positive_window_return_pct": 0.187454,
+          "second_largest_positive_window_return_pct": 0.173707,
+          "single_window_share": 0.332156,
+          "top_two_window_share": 0.639953
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.68318,
+          "absolute_max_drawdown_pct": 1.719545,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 87,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.332156,
+      "top_two_window_concentration": 0.639953,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.753195,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.9070426516315501,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.6831799131586901,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/fx_fix_reversal_eurusd/results/walk_forward_results_20260601_230848.json",
+              "source_sha256": "ba5c7908b46f4ea53ae5595a078cc35a274d1ff1abc5a70a868b31512b3bdb83",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.0575"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122351",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": null,
+      "return_proxy_pct": null,
+      "oos_sharpe": null,
+      "profit_factor": null,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "missing_inputs",
+          "aggregate_return_pct": null,
+          "absolute_max_drawdown_pct": null,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return",
+          "artifact-backed aggregate OOS return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed successful_windows",
+          "artifact-backed total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_trade_count",
+        "missing_return_proxy",
+        "missing_oos_sharpe",
+        "missing_profit_factor",
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "missing_inputs",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122351/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122351/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529122836",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": 0,
+      "return_proxy_pct": 0,
+      "oos_sharpe": 0,
+      "profit_factor": 0,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": 0,
+          "absolute_max_drawdown_pct": 0,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "positive total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing positive total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "undefined_non_positive_return_proxy",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529122836/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529130325",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529130325",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": null,
+      "return_proxy_pct": null,
+      "oos_sharpe": null,
+      "profit_factor": null,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "missing_inputs",
+          "aggregate_return_pct": null,
+          "absolute_max_drawdown_pct": null,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return",
+          "artifact-backed aggregate OOS return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed successful_windows",
+          "artifact-backed total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_trade_count",
+        "missing_return_proxy",
+        "missing_oos_sharpe",
+        "missing_profit_factor",
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "missing_inputs",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529130325/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529130325/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+      "candidate_id": "CAND-PHASE8D-GBPJPY-REVERSION-20260529132537",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 125,
+      "trades": 586,
+      "return_proxy_pct": -0.171349,
+      "oos_sharpe": -1.324499,
+      "profit_factor": 0.399279,
+      "positive_oos_window_ratio": 0.216,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.216,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 27,
+          "total_positive_return_pct": 4.423848,
+          "largest_positive_window_return_pct": 0.799592,
+          "second_largest_positive_window_return_pct": 0.632467,
+          "single_window_share": 0.180746,
+          "top_two_window_share": 0.323713
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.171349,
+          "absolute_max_drawdown_pct": 1.063416,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 125,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.180746,
+      "top_two_window_concentration": 0.323713,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.508834,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.3367473718067379,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.17134851868752796,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 125,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 125,
+            "source": {
+              "source_path": "walk forward engine/strategies/gbpjpy_reversion/results/walk_forward_results_20260529_163638.json",
+              "source_sha256": "b8663986e6bbf9f5c063918911eae513f39a96ffb07bb57535d839acf1bb2d44",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.216"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-GBPJPY-REVERSION-20260529132537/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 28,
+      "trades": 4393,
+      "return_proxy_pct": -2.807054,
+      "oos_sharpe": -2.682744,
+      "profit_factor": 0.697638,
+      "positive_oos_window_ratio": 0.1071,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.1071,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 3,
+          "total_positive_return_pct": 3.020814,
+          "largest_positive_window_return_pct": 1.207673,
+          "second_largest_positive_window_return_pct": 1.041457,
+          "single_window_share": 0.399784,
+          "top_two_window_share": 0.744544
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -2.807054,
+          "absolute_max_drawdown_pct": 8.136976,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 28,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.399784,
+      "top_two_window_concentration": 0.744544,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.281786,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -9.961649202979613,
+            "source": {
+              "source_path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+              "source_sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -2.8070537269107554,
+            "source": {
+              "source_path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+              "source_sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 28,
+            "source": {
+              "source_path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+              "source_sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 28,
+            "source": {
+              "source_path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+              "source_sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.1071"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-GOLD-TREND-20260528221445/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-GOLD-TREND-20260528221445/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "candidate_id": "CAND-PHASE8D-LONDON-BREAKOUT-20260528201036",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 87,
+      "trades": 842,
+      "return_proxy_pct": -0.095681,
+      "oos_sharpe": -0.468177,
+      "profit_factor": 0.84117,
+      "positive_oos_window_ratio": 0.2989,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.2989,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 26,
+          "total_positive_return_pct": 8.627357,
+          "largest_positive_window_return_pct": 0.973406,
+          "second_largest_positive_window_return_pct": 0.734466,
+          "single_window_share": 0.112828,
+          "top_two_window_share": 0.19796
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.095681,
+          "absolute_max_drawdown_pct": 1.494922,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 87,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.112828,
+      "top_two_window_concentration": 0.19796,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.676256,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 0.14148701122321983,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+              "source_sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.09568138811736819,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+              "source_sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+              "source_sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_breakout_eurusd/results/walk_forward_results_20260528_231624.json",
+              "source_sha256": "fdd3db57c00a58c4593813e3efd82486be5f084da25eae5e5cb305e5e36d70e6",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.2989"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-LONDON-BREAKOUT-20260528201036/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-LONDON-BREAKOUT-20260528201036/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+      "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": null,
+      "return_proxy_pct": null,
+      "oos_sharpe": null,
+      "profit_factor": null,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "missing_inputs",
+          "aggregate_return_pct": null,
+          "absolute_max_drawdown_pct": null,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return",
+          "artifact-backed aggregate OOS return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed successful_windows",
+          "artifact-backed total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_trade_count",
+        "missing_return_proxy",
+        "missing_oos_sharpe",
+        "missing_profit_factor",
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "missing_inputs",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528220049/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "candidate_id": "CAND-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203",
+      "terminal_status": "failed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 17,
+      "trades": 0,
+      "return_proxy_pct": 0,
+      "oos_sharpe": 0,
+      "profit_factor": 0,
+      "positive_oos_window_ratio": 0,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "undefined_no_positive_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": 0,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": 0,
+          "absolute_max_drawdown_pct": 0,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 17,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "nonzero aggregate in-sample return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing nonzero aggregate in-sample return."
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 17,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+              "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 17,
+            "source": {
+              "source_path": "walk forward engine/strategies/london_sweep_gbpjpy/results/walk_forward_results_20260529_015421.json",
+              "source_sha256": "3dcd2c82edce6930fa6d7e670b425e40e770fd24e29b98ca27332870b4028be9",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_no_positive_window_returns",
+        "undefined_non_positive_return_proxy",
+        "missing_or_blocked_wfe"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-LONDON-SWEEP-GBPJPY-20260528225203/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+      "candidate_id": "CAND-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 87,
+      "trades": 1576,
+      "return_proxy_pct": -0.294959,
+      "oos_sharpe": -1.668171,
+      "profit_factor": 0.513523,
+      "positive_oos_window_ratio": 0.1494,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.1494,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 13,
+          "total_positive_return_pct": 3.363525,
+          "largest_positive_window_return_pct": 1.388989,
+          "second_largest_positive_window_return_pct": 0.561062,
+          "single_window_share": 0.412956,
+          "top_two_window_share": 0.579764
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.294959,
+          "absolute_max_drawdown_pct": 1.251698,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 87,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.412956,
+      "top_two_window_concentration": 0.579764,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.998643,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.2953596518578562,
+            "source": {
+              "source_path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+              "source_sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.2949588421118084,
+            "source": {
+              "source_path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+              "source_sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+              "source_sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/month_end_rebalance_eurusd/results/walk_forward_results_20260601_172914.json",
+              "source_sha256": "09903d5124c30adba36448bd06b417e77e39f3ec29c29f335350798334e6a4f6",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.1494"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+      "candidate_id": "CAND-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 87,
+      "trades": 180,
+      "return_proxy_pct": -0.024528,
+      "oos_sharpe": -0.39146,
+      "profit_factor": 0.71954,
+      "positive_oos_window_ratio": 0.3793,
+      "consistency_tier": "C3",
+      "consistency_label": "lumpy_payoff",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "positive_oos_window_ratio": 0.3793,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 33,
+          "total_positive_return_pct": 3.046055,
+          "largest_positive_window_return_pct": 0.312778,
+          "second_largest_positive_window_return_pct": 0.221231,
+          "single_window_share": 0.102683,
+          "top_two_window_share": 0.175312
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.024528,
+          "absolute_max_drawdown_pct": 0.415516,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 87,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.102683,
+      "top_two_window_concentration": 0.175312,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.292374,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 0.08389331797808436,
+            "source": {
+              "source_path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+              "source_sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.024528230422465113,
+            "source": {
+              "source_path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+              "source_sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+              "source_sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/nfp_macro_eurusd/results/walk_forward_results_20260602_002121.json",
+              "source_sha256": "c6cec29994e768498acb84b5cae8039e8cdbc509cd785975b9117190ac3e92b4",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C3",
+        "failures": [
+          "C3 route requires return >= 10% (-0.024528230422465113% observed)",
+          "C3 route requires OOS Sharpe >= 0.75 (-0.39146049829446616 observed)",
+          "C3 route requires profit factor >= 1.35 (0.71953963263764 observed)",
+          "C3 route requires artifact-backed drawdown-to-return ratio"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.3793,
+          "return_pct": -0.024528230422465113,
+          "sharpe_oos": -0.39146049829446616,
+          "profit_factor": 0.71953963263764,
+          "completed_windows": 87,
+          "single_window_concentration": 0.102683,
+          "top_two_window_concentration": 0.175312,
+          "drawdown_to_return_ratio": null
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-OFI-EURUSD-20260601125336",
+      "candidate_id": "CAND-PHASE8D-OFI-EURUSD-20260601125336",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 87,
+      "trades": 2881,
+      "return_proxy_pct": -0.497648,
+      "oos_sharpe": -1.771438,
+      "profit_factor": 0.616069,
+      "positive_oos_window_ratio": 0.1379,
+      "consistency_tier": "C4",
+      "consistency_label": "pathologically_concentrated",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C4",
+        "label": "pathologically_concentrated",
+        "positive_oos_window_ratio": 0.1379,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 12,
+          "total_positive_return_pct": 3.016406,
+          "largest_positive_window_return_pct": 1.123781,
+          "second_largest_positive_window_return_pct": 0.682786,
+          "single_window_share": 0.372556,
+          "top_two_window_share": 0.598914
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -0.497648,
+          "absolute_max_drawdown_pct": 2.454622,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 87,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.372556,
+      "top_two_window_concentration": 0.598914,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.914471,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": -0.5441928023102875,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -0.49764837478359614,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 87,
+            "source": {
+              "source_path": "walk forward engine/strategies/order_flow_imbalance_eurusd/results/walk_forward_results_20260601_155925.json",
+              "source_sha256": "a26f57c0e46eb83c6b7a6ba6668d63af4e75cfa9bcc9fd110783960f26b3c350",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C4",
+        "failures": [
+          "positive OOS window ratio is C4; no Phase 8D compensated route exists for ratio 0.1379"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-OFI-EURUSD-20260601125336/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194431",
+      "terminal_status": "blocked",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 0,
+      "trades": null,
+      "return_proxy_pct": null,
+      "oos_sharpe": null,
+      "profit_factor": null,
+      "positive_oos_window_ratio": null,
+      "consistency_tier": null,
+      "consistency_label": "missing_positive_window_ratio",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": null,
+        "label": "missing_positive_window_ratio",
+        "positive_oos_window_ratio": null,
+        "tier_source": "metrics_observed_alias",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "missing_per_window_returns",
+          "positive_window_count": 0,
+          "total_positive_return_pct": null,
+          "single_window_share": null,
+          "top_two_window_share": null
+        },
+        "drawdown_to_return_ratio": {
+          "status": "missing_inputs",
+          "aggregate_return_pct": null,
+          "absolute_max_drawdown_pct": null,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 0,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": null,
+      "top_two_window_concentration": null,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed aggregate in-sample return",
+          "artifact-backed aggregate OOS return"
+        ],
+        "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+      },
+      "wfr": {
+        "status": "blocked_missing_inputs",
+        "value": null,
+        "missing_inputs": [
+          "artifact-backed successful_windows",
+          "artifact-backed total_windows"
+        ],
+        "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": null,
+        "failures": [
+          "missing positive OOS window ratio for Phase 8D consistency policy"
+        ],
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_missing",
+          "completed_windows",
+          "trades_missing",
+          "positive_oos_window_ratio_missing"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "missing_trade_count",
+        "missing_return_proxy",
+        "missing_oos_sharpe",
+        "missing_profit_factor",
+        "missing_positive_oos_window_ratio",
+        "missing_per_window_returns",
+        "missing_inputs",
+        "missing_or_blocked_wfe",
+        "missing_or_blocked_wfr"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194431/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "candidate_id": "CAND-PHASE8D-SURVIVOR-FLOOR-20260528194629",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 3,
+      "trades": 23,
+      "return_proxy_pct": -1.939688,
+      "oos_sharpe": -1.491531,
+      "profit_factor": 0.563773,
+      "positive_oos_window_ratio": 0.6667,
+      "consistency_tier": "C2",
+      "consistency_label": "moderate_consistency",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C2",
+        "label": "moderate_consistency",
+        "positive_oos_window_ratio": 0.6667,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 2,
+          "total_positive_return_pct": 1.302178,
+          "largest_positive_window_return_pct": 1.048851,
+          "second_largest_positive_window_return_pct": 0.253326,
+          "single_window_share": 0.80546,
+          "top_two_window_share": 1
+        },
+        "drawdown_to_return_ratio": {
+          "status": "undefined_non_positive_return_proxy",
+          "aggregate_return_pct": -1.939688,
+          "absolute_max_drawdown_pct": 7.869237,
+          "value": null
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 3,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.80546,
+      "top_two_window_concentration": 1,
+      "drawdown_to_return_ratio": null,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": -0.107711,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 18.008299285617337,
+            "source": {
+              "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+              "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": -1.9396878669383442,
+            "source": {
+              "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+              "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 3,
+            "source": {
+              "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+              "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 3,
+            "source": {
+              "source_path": "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260528_225026.json",
+              "source_sha256": "3a796ab15ea95e8684c402602e879fe7b26984fbe0d511f18eb8f0384058da67",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C2",
+        "failures": [
+          "C2 route requires return >= 5% (-1.9396878669383442% observed)",
+          "C2 route requires OOS Sharpe >= 0.35 (-1.4915312593628685 observed)",
+          "C2 route requires profit factor >= 1.15 (0.563772568453326 observed)",
+          "C2 route requires at least 15 completed OOS windows (3 observed)",
+          "C2 route single-window concentration too high (0.80546 > 0.6)",
+          "C2 route top-two-window concentration too high (1 > 0.85)",
+          "C2 route requires artifact-backed drawdown-to-return ratio"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.6667,
+          "return_pct": -1.9396878669383442,
+          "sharpe_oos": -1.4915312593628685,
+          "profit_factor": 0.563772568453326,
+          "completed_windows": 3,
+          "single_window_concentration": 0.80546,
+          "top_two_window_concentration": 1,
+          "drawdown_to_return_ratio": null
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "oos_sharpe_non_positive",
+          "return_proxy_pct",
+          "profit_factor",
+          "completed_windows",
+          "trades",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [
+        "undefined_non_positive_return_proxy"
+      ],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-SURVIVOR-FLOOR-20260528194629/phase8d-candidate-evidence-packet.json"
+      }
+    },
+    {
+      "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+      "terminal_status": "executed",
+      "is_phase8d": true,
+      "metrics_available": true,
+      "completed_windows": 57,
+      "trades": 220,
+      "return_proxy_pct": 1.308666,
+      "oos_sharpe": 0.954411,
+      "profit_factor": 1.547268,
+      "positive_oos_window_ratio": 0.4035,
+      "consistency_tier": "C3",
+      "consistency_label": "lumpy_payoff",
+      "consistency_ladder_advisory": {
+        "status": "tiered_consistency_policy_enabled",
+        "clean_consistency_floor": 0.7,
+        "tier": "C3",
+        "label": "lumpy_payoff",
+        "positive_oos_window_ratio": 0.4035,
+        "tier_source": "per_window_returns",
+        "tier_thresholds": [
+          {
+            "tier": "C1",
+            "label": "clean_consistency",
+            "minInclusive": 0.7,
+            "maxExclusive": null
+          },
+          {
+            "tier": "C2",
+            "label": "moderate_consistency",
+            "minInclusive": 0.5,
+            "maxExclusive": 0.7
+          },
+          {
+            "tier": "C3",
+            "label": "lumpy_payoff",
+            "minInclusive": 0.3,
+            "maxExclusive": 0.5
+          },
+          {
+            "tier": "C4",
+            "label": "pathologically_concentrated",
+            "minInclusive": null,
+            "maxExclusive": 0.3
+          }
+        ],
+        "return_concentration": {
+          "status": "computed_artifact_backed",
+          "positive_window_count": 23,
+          "total_positive_return_pct": 119.633991,
+          "largest_positive_window_return_pct": 18.184882,
+          "second_largest_positive_window_return_pct": 17.540934,
+          "single_window_share": 0.152004,
+          "top_two_window_share": 0.298626
+        },
+        "drawdown_to_return_ratio": {
+          "status": "computed_artifact_backed",
+          "aggregate_return_pct": 1.308666,
+          "absolute_max_drawdown_pct": 8.663961,
+          "value": 6.620451
+        },
+        "low_window_count_warning": {
+          "flagged": false,
+          "completed_windows": 57,
+          "threshold_windows": 15,
+          "ratio_warning_below": 0.65,
+          "status": "not_flagged"
+        },
+        "note": "Phase 8D consistency ladder is diagnostic, and buildResearchWfaPromotionGate may consume it through the conditional multi-metric C1/C2/C3 route policy."
+      },
+      "single_window_concentration": 0.152004,
+      "top_two_window_concentration": 0.298626,
+      "drawdown_to_return_ratio": 6.620451,
+      "wfe": {
+        "status": "computed_artifact_backed",
+        "value": 0.121672,
+        "inputs": {
+          "in_sample_return_pct": {
+            "available": true,
+            "value": 10.755697481258359,
+            "source": {
+              "source_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+              "source_sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6",
+              "source_field": "in_sample_return_pct|aggregate_in_sample_return_pct|is_return_pct"
+            }
+          },
+          "aggregate_return_pct": {
+            "available": true,
+            "value": 1.3086664056586577,
+            "source": {
+              "source_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+              "source_sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6",
+              "source_field": "aggregate_return_pct|total_return_pct"
+            }
+          }
+        }
+      },
+      "wfr": {
+        "status": "computed_artifact_backed",
+        "value": 1,
+        "inputs": {
+          "successful_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+              "source_sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6",
+              "source_field": "successful_windows"
+            }
+          },
+          "total_windows": {
+            "available": true,
+            "value": 57,
+            "source": {
+              "source_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+              "source_sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6",
+              "source_field": "total_windows"
+            }
+          }
+        }
+      },
+      "active_consistency_route": {
+        "passed": false,
+        "route": null,
+        "tier": "C3",
+        "failures": [
+          "C3 route requires return >= 10% (1.3086664056586577% observed)",
+          "C3 route drawdown-to-return ratio too high (6.620451 > 2)"
+        ],
+        "observed": {
+          "positive_window_ratio": 0.4035,
+          "return_pct": 1.3086664056586577,
+          "sharpe_oos": 0.9544107345284697,
+          "profit_factor": 1.5472683935610645,
+          "completed_windows": 57,
+          "single_window_concentration": 0.152004,
+          "top_two_window_concentration": 0.298626,
+          "drawdown_to_return_ratio": 6.620451
+        },
+        "policy": {
+          "status": "enabled_conditional_multi_metric_gate",
+          "note": "C1 keeps the historical 0.70 clean-consistency route. C2/C3 may pass only when stronger return, Sharpe/profit-factor, sample-size, concentration, and drawdown diagnostics compensate for lower positive-window consistency.",
+          "routes": {
+            "C1": {
+              "label": "clean_consistency_route",
+              "minPositiveWindowRatio": 0.7,
+              "requiresAdditionalDiagnostics": false
+            },
+            "C2": {
+              "label": "moderate_consistency_compensated_route",
+              "minPositiveWindowRatio": 0.5,
+              "minReturnPct": 5,
+              "minSharpeOos": 0.35,
+              "minProfitFactor": 1.15,
+              "minOosWindows": 15,
+              "maxSingleWindowConcentration": 0.6,
+              "maxTopTwoWindowConcentration": 0.85,
+              "maxDrawdownToReturnRatio": 3
+            },
+            "C3": {
+              "label": "lumpy_payoff_compensated_route",
+              "minPositiveWindowRatio": 0.3,
+              "minReturnPct": 10,
+              "minSharpeOos": 0.75,
+              "minProfitFactor": 1.35,
+              "minOosWindows": 20,
+              "maxSingleWindowConcentration": 0.45,
+              "maxTopTwoWindowConcentration": 0.7,
+              "maxDrawdownToReturnRatio": 2
+            }
+          }
+        }
+      },
+      "current_hard_floor": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "legacy_0_70_floor_comparison": {
+        "policy": {
+          "label": "legacy_clean_0_70_floor_comparison",
+          "min_oos_windows": 8,
+          "min_trades": 200,
+          "min_return_pct": 5,
+          "min_positive_window_ratio": 0.7,
+          "sharpe_oos_must_be_positive_when_reported": true,
+          "profit_factor_must_be_at_least_one_when_reported": true
+        },
+        "passed": false,
+        "failed_requirements": [
+          "return_proxy_pct",
+          "positive_oos_window_ratio"
+        ],
+        "positive_window_ratio_only_failure": false
+      },
+      "advisory_notes": [],
+      "artifact_paths": {
+        "parsed_wfa_metrics": "factory/runs/RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/worker-results/parsed-wfa-metrics.json",
+        "phase8d_candidate_evidence_packet": "factory/runs/RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/phase8d-candidate-evidence-packet.json"
+      }
+    }
+  ]
+}

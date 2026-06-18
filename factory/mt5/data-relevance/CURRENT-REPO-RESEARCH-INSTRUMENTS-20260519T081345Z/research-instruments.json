@@ -1,0 +1,81 @@
+[
+  {
+    "instrument_id": "DATA-BINANCE-BTCUSDT-1H-REPO-CURRENT",
+    "source_family": "binance_repo_csv",
+    "source_symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "data_paths": [
+      "workspace/data/binance_btcusdt_1h_deep.csv",
+      "workspace/data/binance_btcusdt_1h_full.csv",
+      "workspace/data/binance_btcusdt_1h_1000.csv",
+      "workspace/data/binance_btcusdt_1h_live.csv"
+    ],
+    "phase8a_scope_note": "Exchange symbol; discovery/proxy only until mt5_instrument_equivalence exists."
+  },
+  {
+    "instrument_id": "DATA-BINANCE-ETHUSDT-1H-REPO-CURRENT",
+    "source_family": "binance_repo_csv",
+    "source_symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "data_paths": [
+      "workspace/data/binance_ethusdt_1h_deep.csv",
+      "workspace/data/binance_ethusdt_1h_1000.csv",
+      "workspace/data/binance_ethusdt_1h_live.csv"
+    ],
+    "phase8a_scope_note": "Exchange symbol; discovery/proxy only until mt5_instrument_equivalence exists."
+  },
+  {
+    "instrument_id": "DATA-BINANCE-SOLUSDT-1H-REPO-CURRENT",
+    "source_family": "binance_repo_csv",
+    "source_symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "data_paths": [
+      "workspace/data/binance_solusdt_1h_deep.csv",
+      "workspace/data/binance_solusdt_1h_1000.csv",
+      "workspace/data/binance_solusdt_1h_live.csv"
+    ],
+    "phase8a_scope_note": "Exchange symbol; discovery/proxy only until mt5_instrument_equivalence exists."
+  },
+  {
+    "instrument_id": "DATA-BINANCE-BNBUSDT-1H-REPO-CURRENT",
+    "source_family": "binance_repo_csv",
+    "source_symbol": "BNBUSDT",
+    "timeframe": "1h",
+    "data_paths": [
+      "workspace/data/binance_bnbusdt_1h_deep.csv"
+    ],
+    "phase8a_scope_note": "Exchange symbol; discovery/proxy only until mt5_instrument_equivalence exists."
+  },
+  {
+    "instrument_id": "DATA-BINANCE-ETHBTC-MERGED-1H-REPO-CURRENT",
+    "source_family": "binance_repo_csv",
+    "source_symbol": "ETHBTC",
+    "timeframe": "1h",
+    "data_paths": [
+      "workspace/data/binance_eth_btc_merged_1h.csv"
+    ],
+    "phase8a_scope_note": "Cross/exchange research series; not an MT5-bound symbol unless future terminal equivalence evidence exists."
+  },
+  {
+    "instrument_id": "DATA-POLYMARKET-REPO-CURRENT",
+    "source_family": "polymarket_prediction_market",
+    "source_symbol": "POLYMARKET",
+    "timeframe": null,
+    "data_paths": [
+      "workspace/data/polymarket_current.json",
+      "workspace/data/polymarket_signals.json",
+      "workspace/data/polymarket_markets_raw.json"
+    ],
+    "phase8a_scope_note": "Out of current MT5/FTMO/MQL5 scope."
+  },
+  {
+    "instrument_id": "DATA-DEMO-OHLCV-REPO-CURRENT",
+    "source_family": "demo_fixture_csv",
+    "source_symbol": "DEMO_OHLCV",
+    "timeframe": null,
+    "data_paths": [
+      "workspace/data/demo_ohlcv.csv"
+    ],
+    "phase8a_scope_note": "Fixture/demo data; not MT5-bound evidence."
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "schema_version": "wfa_attempt_summary_v1",
+  "candidate_id": "CAND-EURUSD-M15-LONDON-BREAKOUT-001",
+  "attempted_at": "2026-05-04T13:23:56+03:00",
+  "status": "timeout_inconclusive",
+  "command": "\".venv/Scripts/python.exe\" scripts/walk_forward_smoke_test.py --config strategies/london_breakout_eurusd/wfa_config.yaml",
+  "config_path": "walk forward engine/strategies/london_breakout_eurusd/wfa_config.yaml",
+  "n_parameter_trials": 50,
+  "windows_detected": 87,
+  "windows_completed_before_timeout": 34,
+  "log_path": "walk forward engine/logs/wfa_london_breakout_eurusd.log",
+  "log_evidence": {
+    "data_loaded_line": "Loaded 438746 rows from CSV file with data range: 2003-05-06 00:00:00 to 2025-06-24 16:45:00",
+    "last_completed_window_line": "Window 34 completed successfully: Return=-1.07%, Trades=12",
+    "next_window_line": "Processing window 35/87"
+  },
+  "interpretation": "The canonical route and data load worked, but the 50-trial 87-window run exceeded the interactive command timeout before final WFA artifacts were produced. This is not a scored WFA result."
+}

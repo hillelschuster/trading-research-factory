@@ -1,0 +1,147 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188",
+  "generated_at": "2026-06-11T20:20:32.640Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z/request.json",
+    "sha256": "ee7e7913c395a1f5f1de0a772fd8f2917e385005d6ff918ea03c010eaa2a8723"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 2,
+    "timeout_ms": 30000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-06-11T20:20:32.679Z",
+      "completed_at": "2026-06-11T20:21:07.346Z",
+      "reason": "provider timed out after 30000ms",
+      "error_class": "Error",
+      "failure_class": "transient_retryable_failure",
+      "retryable": true,
+      "backoff_ms": 0,
+      "final_terminal_state": "retry_pending",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/quarantine/attempt-001.json",
+        "sha256": "14b79536cd2f1778ad3a2102767b4ad8d20f4088b1802f24bf2a37c84408c967"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-06-11T20:20:32.679Z",
+          "completed_at": "2026-06-11T20:21:07.307Z",
+          "error_class": "Error",
+          "error_message": "provider timed out after 30000ms",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "status": "quarantined",
+      "started_at": "2026-06-11T20:21:07.347Z",
+      "completed_at": "2026-06-11T20:21:40.118Z",
+      "reason": "ResearchBrain live LLM call budget exceeded: 4",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/quarantine/attempt-002.json",
+        "sha256": "6968285aca2c156ba2e1bdf17e3fe0d741eba001915ac2ec4b042666de1c2f93"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-06-11T20:21:07.347Z",
+          "completed_at": "2026-06-11T20:21:40.075Z",
+          "error_class": "Error",
+          "error_message": "ResearchBrain live LLM call budget exceeded: 4",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "provider_call_budget_exhausted"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/quarantine/attempt-001.json",
+      "sha256": "14b79536cd2f1778ad3a2102767b4ad8d20f4088b1802f24bf2a37c84408c967"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/quarantine/attempt-002.json",
+      "sha256": "6968285aca2c156ba2e1bdf17e3fe0d741eba001915ac2ec4b042666de1c2f93"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/agent-transcript.jsonl",
+      "sha256": "dbee00bc6b39b7e2c5eb946056202cf9278b712377d5b5b039b9cdd0756b7e86"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/tool-ledger.json",
+      "sha256": "1a37714fc08a1442202002cfeb7f56494fe507d3b83eb37b4cd1a678def96d42"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/cost-ledger.json",
+      "sha256": "032c72ad10c9c105072b8197daa62abd307f4aaa716a560d2e09f5385841b01d"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/working-notes.md",
+      "sha256": "25bfa9630eebbc2f39547f5d0f3c17174cf041398b30e72f34043397a83512d1"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/tool-captures/url/SRC-LIVE-8192B-001/content.md",
+      "sha256": "473bede1507a2ad1892b2c1016b4d8fe3583f4737ffed2095626a6c713b1e1fc",
+      "source_id": "SRC-LIVE-8192B-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192B-20260611T2020Z-FE8DBE06C6D4BDB647798188/tool-captures/url/SRC-LIVE-8192B-001/metadata.json",
+      "sha256": "4a4ccfbe24419570320b9b2a51eba168c0d6ec92cedef0207ddf3a5148f2c456",
+      "source_id": "SRC-LIVE-8192B-001"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

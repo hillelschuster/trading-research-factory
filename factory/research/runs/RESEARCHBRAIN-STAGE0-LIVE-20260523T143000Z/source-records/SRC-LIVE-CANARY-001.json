@@ -1,0 +1,51 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "source_id": "SRC-LIVE-CANARY-001",
+  "source_type": "web_captured_source",
+  "trust_tier": "low_signal_trust",
+  "url_or_path_or_doi": "https://www.federalreserve.gov/econres/notes/feds-notes/order-flow-imbalances-and-amplification-of-price-movements-evidence-from-u-s-treasury-markets-20251103.html",
+  "accessed_at": "2026-05-23T13:14:14.873Z",
+  "content_hash_or_unavailable_reason": "89232ceb2dc247534ac4166eb8ab0e12c1827e8c4cdcbd0d86416ecbe3c2a71a",
+  "claims_extracted": [
+    "Order flow imbalances amplify price movements in U.S. Treasury markets.",
+    "Rising price volatility prompts market makers to reduce risk exposures while other investors seek to rebalance portfolios, amplifying price moves.",
+    "The phenomenon is supported by both theory and empirical evidence.",
+    "Monitoring large directional order flow is important for understanding notable price moves during periods of strained liquidity."
+  ],
+  "limitations": [
+    "Evidence is from U.S. Treasury markets, not directly from FTMO MT5 forex/equity/commodity instruments.",
+    "The mechanism may not generalize to lower-liquidity retail broker environments.",
+    "The note is dated 2025; market structure may evolve.",
+    "Amplification dynamics may depend on institutional market-maker behavior not present in all FTMO symbols."
+  ],
+  "disconfirming_relevance": [
+    "Treasury market evidence may not transfer to FX majors, indices, or commodities on FTMO.",
+    "Market-maker risk-reduction channel may be weaker in electronic retail broker ecosystems with no designated market makers.",
+    "Directional order flow data may not be observable at the granularity needed on MT5 retail feeds."
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/sources/SRC-LIVE-CANARY-001.md",
+    "sha256": "89232ceb2dc247534ac4166eb8ab0e12c1827e8c4cdcbd0d86416ecbe3c2a71a"
+  },
+  "source_fetch": {
+    "mode": "repo_local_file_capture",
+    "artifact": {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/tool-captures/url/SRC-LIVE-CANARY-001/content.md",
+      "sha256": "89232ceb2dc247534ac4166eb8ab0e12c1827e8c4cdcbd0d86416ecbe3c2a71a"
+    },
+    "live_fetch": false
+  },
+  "request_id": "RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z",
+  "provider_provenance": {
+    "tool": "capture_url_source",
+    "source_class": "web",
+    "live_research": true,
+    "deterministic_capture": true,
+    "adapter": {
+      "provider": "brave_search_api_capture",
+      "live_fetch": true,
+      "provider_native_search_enabled": false
+    }
+  }
+}

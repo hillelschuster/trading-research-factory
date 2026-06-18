@@ -1,0 +1,120 @@
+{
+  "schema_version": "research_ideation_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "research_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B",
+  "memory_checked": {
+    "checked": true,
+    "required_tool_calls": {
+      "search_research_memory": true,
+      "check_duplicate_memory": true,
+      "check_failed_pattern_similarity": true
+    },
+    "basis": "ResearchBrain required memory, duplicate, and failed-pattern tools were called before accepting a hypothesis."
+  },
+  "sources_considered": [
+    {
+      "source_id": "SRC-LIVE-8192D-001",
+      "trust_tier": "low_signal_trust",
+      "source_type": "web_captured_source"
+    }
+  ],
+  "hypotheses_accepted": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "120803bb261b31131efeed4b98927213973bb8127c38c5aac056fd8219a14204",
+      "status": "accepted_stage0_only"
+    }
+  ],
+  "hypotheses_rejected": [],
+  "duplicates_detected": [
+    {
+      "reason": "memory_overlap",
+      "matches": [
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+          "score": 5
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-OFI-EURUSD-20260601125336",
+          "score": 7
+        },
+        {
+          "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+          "score": 5
+        },
+        {
+          "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529122351",
+          "score": 5
+        },
+        {
+          "retrieval_id": "research_hypothesis_packet:HYP-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "reason": "memory_overlap",
+      "matches": [
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+          "score": 5
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529122351",
+          "score": 4
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529122836",
+          "score": 4
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529130325",
+          "score": 5
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "budget_used": {
+    "max_sources": 1,
+    "sources_used": 1,
+    "max_hypotheses": 1,
+    "hypotheses_used": 1,
+    "provider_mode": "live_llm_agent:deepseek"
+  },
+  "operator_relevant_blockers": [],
+  "artifact_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/source-records/SRC-LIVE-8192D-001.json",
+      "sha256": "7bfb9581fe3cb76828c782436ee1c0fd29c96a561649162755ee131f71375295"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "120803bb261b31131efeed4b98927213973bb8127c38c5aac056fd8219a14204"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/digest.json",
+      "sha256": "e3213c8bd708b95ce4ba439edc9632493194cb35f93d5a4d4c8ed4b9d89f6ba2"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

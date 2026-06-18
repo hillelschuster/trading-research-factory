@@ -1,0 +1,70 @@
+{
+  "schema_version": "researchbrain_stage0_provider_output_v1",
+  "research_run_id": "RESEARCHBRAIN-STAGE0-FIXTURE-RESEARCHBRAIN-REQUEST-20260520T0718Z-001",
+  "provider_mode": "fixture_test_double",
+  "key_findings": [
+    "Fixture source supports only runtime plumbing validation, not an edge claim."
+  ],
+  "limitations": [
+    "Fixture/test-double output is not live research and cannot close Phase 8B alone."
+  ],
+  "source_captures": [
+    {
+      "source_id": "SRC-FIXTURE-STAGE0-001",
+      "source_type": "fixture_test_double_source",
+      "trust_tier": "low_signal_trust",
+      "url_or_path_or_doi": "fixture://researchbrain-stage0-runtime",
+      "content": "Fixture source text for ResearchBrain Stage-0 runtime plumbing. It describes falsifiable mechanism framing only and contains no profitability evidence.",
+      "claims_extracted": [
+        "Mechanism-first hypotheses should be falsifiable before any deterministic WFA is launched."
+      ],
+      "limitations": [
+        "Fixture source; not live web, paper, terminal, or broker evidence."
+      ],
+      "disconfirming_relevance": [
+        "A mechanism can be plausible yet fail after spread, swap, session, and OOS controls."
+      ],
+      "provider_provenance": {
+        "mode": "fixture_test_double",
+        "live_research": false
+      }
+    }
+  ],
+  "hypothesis_packets": [
+    {
+      "hypothesis_id": "HYP-STAGE0-FIXTURE-001",
+      "mechanism": "Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism.",
+      "falsifiable_prediction": "If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture makes no such claim.",
+      "market_structure_assumption": "The idea is constrained to broker-supported FTMO MT5 symbols from the Phase 8A universe.",
+      "instrument_scope": "Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets.",
+      "timeframe_candidate": "M15-H1 candidate only, to be selected later by deterministic planning.",
+      "strategy_family": "volatility_contraction_liquidity_pressure_fixture",
+      "mt5_relevance_classification": "mt5_relevant_unverified",
+      "required_data": "MT5 terminal OHLCV plus spread/swap/spec evidence before any MT5-bound claim.",
+      "expected_holding_period": "Intraday to multi-session; fixture estimate only before WFA.",
+      "expected_trade_frequency": "Unknown until deterministic planning and data checks; no profitability label assigned.",
+      "expected_failure_modes": [
+        "Spread and swap costs overwhelm any apparent continuation.",
+        "Effect is isolated to a post-hoc subset and fails across assets."
+      ],
+      "invalidation_criteria": [
+        "No source-backed deterministic pre-registration exists later.",
+        "No OOS consistency after later WFA and cost controls."
+      ],
+      "implementation_shape": "Rule-based signal generator candidate shape for later planning only; no code or WFA is executed here.",
+      "execution_sensitivity": "Sensitive to spread, swap, session boundaries, contract specs, and bar construction.",
+      "mt5_ftmo_concerns": "Requires terminal-backed symbol specs and later FTMO rule accounting before any promotion path.",
+      "prior_related_lessons": [
+        "Avoid simple RSI-only variants and post-hoc Sharpe chasing."
+      ],
+      "prior_failed_patterns_checked": [
+        "Historical simple indicator variants are treated as stale overfit-prone patterns."
+      ],
+      "novelty_reason": "Fixture exercises source-backed Stage-0 packet wiring under Phase 8A universe constraints.",
+      "disconfirming_evidence": [
+        "Fixture provenance means no real external evidence has been collected."
+      ],
+      "proposed_experiment_shape": "Stage-0 discovery artifact only; any later experiment must be separately planned and deterministic."
+    }
+  ]
+}

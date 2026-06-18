@@ -8,7 +8,7 @@ walk_forward:
   training_months: 3
   testing_months: 1
   step_months: 1
-  n_parameter_trials: 100
+  n_parameter_trials: 20
   min_bars_per_window: 600
   use_vectorized_backtest: true
   performance_mode: true
@@ -33,8 +33,8 @@ strategy:
     rsi_oversold: [20, 25]
     # OPTIMIZE: Extreme RSI bounds test (20/80) vs prior (25/60)
     rsi_overbought: [60, 70, 80]
-    # OPTIMIZE: Hold bars (144, 168) - from prior optimal
-    hold_bars: [144, 168]
+    # OPTIMIZE: Shorter hold bars (96, 108, 120) vs prior (144, 168) - test hypothesis
+    hold_bars: [96, 108, 120]
     # FIXED: Stop-loss ATR multiplier
     sl_atr_mult: [2.0]
     # FIXED: Take-profit risk-reward ratio

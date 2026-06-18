@@ -1,0 +1,62 @@
+[
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/analysis.json",
+    "sha256": "95f2f8bdf280191508c905aecf9fa4a8d0b6e700d88dc0dd62eedb6339f8bdfa",
+    "size_bytes": 2937,
+    "modified_at": "2026-05-28T22:23:39.316Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "job_id": "JOB-RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+      "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+      "family_id": "gold_trend_following_xauusd",
+      "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/parameter_stability_20260529_012339.json",
+    "sha256": "468387d2f6d82415ffde62e631bbc8b2b46ee1fb80fb9743a4c2b0098a503b6f",
+    "size_bytes": 1016,
+    "modified_at": "2026-05-28T22:23:39.344Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "job_id": "JOB-RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+      "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+      "family_id": "gold_trend_following_xauusd",
+      "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_results_20260529_012339.json",
+    "sha256": "09819a64431e853a77f04c3729078965ac70e8791ef4df1e1d3a664dc9922caf",
+    "size_bytes": 40410,
+    "modified_at": "2026-05-28T22:23:39.199Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "job_id": "JOB-RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+      "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+      "family_id": "gold_trend_following_xauusd",
+      "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1"
+    }
+  },
+  {
+    "artifact_type": "output_snapshot_file",
+    "path": "walk forward engine/strategies/gold_trend_following/results/walk_forward_summary_20260529_012339.csv",
+    "sha256": "ecf97f4698d79edfb89745222cf3499a2f690e68b3892c385406f1c30b789f9b",
+    "size_bytes": 7779,
+    "modified_at": "2026-05-28T22:23:39.341Z",
+    "request_identity": {
+      "run_id": "RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "job_id": "JOB-RUN-PHASE8D-GOLD-TREND-20260528221445",
+      "candidate_id": "CAND-PHASE8D-GOLD-TREND-20260528221445",
+      "lineage_id": "LINEAGE-PHASE8D-GOLD-TREND-XAUUSD",
+      "family_id": "gold_trend_following_xauusd",
+      "attempt_id": "RUN-PHASE8D-GOLD-TREND-20260528221445-EXECUTOR-ATTEMPT-1"
+    }
+  }
+]

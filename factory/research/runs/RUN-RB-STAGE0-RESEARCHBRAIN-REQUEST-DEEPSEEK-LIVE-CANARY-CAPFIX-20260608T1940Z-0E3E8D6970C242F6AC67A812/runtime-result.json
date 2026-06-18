@@ -1,0 +1,135 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812",
+  "generated_at": "2026-06-08T20:03:37.305Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z/request.json",
+    "sha256": "b6ac0c9bfee0bb5c3654b962a3860ab4fe6aa4c46514ccb5e3f8702188b01039"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 8,
+    "provider_calls_used": 2,
+    "timeout_ms": 240000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-06-08T20:03:37.314Z",
+      "completed_at": "2026-06-08T20:04:21.502Z",
+      "reason": "Brave source search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"68a95a38-0604-4f4b-ae48-13ed047e3422\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":7,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1780949061}",
+      "error_class": "Error",
+      "failure_class": "transient_retryable_failure",
+      "retryable": true,
+      "backoff_ms": 0,
+      "final_terminal_state": "retry_pending",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+        "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-06-08T20:03:37.314Z",
+          "completed_at": "2026-06-08T20:04:21.471Z",
+          "error_class": "Error",
+          "error_message": "Brave source search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"68a95a38-0604-4f4b-ae48-13ed047e3422\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":7,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1780949061}",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "status": "quarantined",
+      "started_at": "2026-06-08T20:04:21.502Z",
+      "completed_at": "2026-06-08T20:04:36.881Z",
+      "reason": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+        "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-06-08T20:04:21.502Z",
+          "completed_at": "2026-06-08T20:04:36.857Z",
+          "error_class": "Error",
+          "error_message": "Brave source capture HTTP 402: <p>\n  If you are a reader experiencing an access issue, please contact\n  <a href=\"mailto:support@people.inc\">support@people.inc</a>. <br>\n  To help us troubleshoot more quickly, you may include your IP address. <br>\n  You can find it by visiting\n  <a href=\"https://icanhazip.com\" target=\"_blank\" rel=\"noopener noreferrer\">icanhazip.com</a>\n  or\n  <a href=\"https://www.whatismyip.com\" target=\"_blank\" rel=\"noopener noreferrer\">whatismyip.com</a>.\n</p>\n\n<p>\n  If you would like to access our content fo",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-001.json",
+      "sha256": "40f747e8d0539a1af32f2a12f958fccfc38a2101007197ed9b5c3490917e4ccc"
+    },
+    {
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/quarantine/attempt-002.json",
+      "sha256": "1f770892a18d801891a99f841bcf38088687ea583705daf2f71b57736dad56e6"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/agent-transcript.jsonl",
+      "sha256": "000a1bcc5cbd39244638e27f13ee99db42d504ca00f61275a6338221d94d2752"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/tool-ledger.json",
+      "sha256": "9b7f60aa3f32c2f13e413f23095c0737ad7bf2281d194598eb2b70ac4e9bcf51"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/cost-ledger.json",
+      "sha256": "557b06b51179819e815b21309f84d1fea4c21b5b6242cdba4b3b22ccbf58a0e4"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-CAPFIX-20260608T1940Z-0E3E8D6970C242F6AC67A812/working-notes.md",
+      "sha256": "78b305e3206085d9efe8688dd924e8792ea56b57a8d648a43153ebdf986ad00a"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

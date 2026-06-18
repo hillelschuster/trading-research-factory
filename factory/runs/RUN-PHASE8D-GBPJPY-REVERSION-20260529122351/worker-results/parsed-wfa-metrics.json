@@ -1,0 +1,140 @@
+{
+  "metrics": {},
+  "per_window_metrics": [],
+  "metrics_artifact": null,
+  "assumptions": {
+    "cost_assumptions": {
+      "available": true,
+      "values": {
+        "fees": {
+          "value": 0.0003,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "backtest.fees"
+        },
+        "slippage": {
+          "value": 0.0001,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "backtest.slippage"
+        }
+      },
+      "missing_because": null
+    },
+    "timing_assumptions": {
+      "available": true,
+      "values": {
+        "training_months": {
+          "value": 6,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.training_months"
+        },
+        "testing_months": {
+          "value": 3,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.testing_months"
+        },
+        "step_months": {
+          "value": 1,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.step_months"
+        },
+        "n_parameter_trials": {
+          "value": 20,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.n_parameter_trials"
+        },
+        "use_vectorized_backtest": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.use_vectorized_backtest"
+        },
+        "performance_mode": {
+          "value": true,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "walk_forward.performance_mode"
+        },
+        "max_execution_time_seconds": {
+          "value": 7200,
+          "source_path": "walk forward engine/strategies/gbpjpy_reversion/wfa_config.yaml",
+          "source_sha256": "63988c795f399c2955db36c4ffbcdb237f936dc62e45cf0608698400b81b2306",
+          "source_field": "performance.max_execution_time_seconds"
+        }
+      },
+      "missing_because": null
+    }
+  },
+  "optional_wfa_artifacts": {
+    "trade_ledger": {
+      "available": false,
+      "artifact_type": "wfa_trade_ledger",
+      "artifacts": [],
+      "missing_because": "No separate trade ledger artifact was emitted in accepted WFA outputs; summary or embedded aggregate trade fields are not counted as a separate ledger."
+    },
+    "equity_curve": {
+      "available": false,
+      "artifact_type": "wfa_equity_curve",
+      "artifacts": [],
+      "missing_because": "No separate equity curve artifact was emitted in accepted WFA outputs; summary or embedded balance fields are not counted as a separate curve."
+    },
+    "optimizer_trials": {
+      "available": false,
+      "artifact_type": "wfa_optimizer_trials",
+      "artifacts": [],
+      "missing_because": "No separate optimizer-trial artifact was emitted in accepted WFA outputs; selected parameters or parameter-stability summaries are not counted as trial ledgers."
+    }
+  },
+  "metric_readiness": {
+    "sharpe_is": {
+      "status": "blocked_missing_input",
+      "value": null,
+      "missing_because": "No artifact-backed in-sample Sharpe field was found in accepted WFA metrics."
+    },
+    "sharpe_oos": {
+      "status": "blocked_missing_input",
+      "value": null,
+      "missing_because": "No artifact-backed OOS Sharpe field was found in accepted WFA metrics."
+    },
+    "wfe": {
+      "status": "blocked_missing_inputs",
+      "value": null,
+      "missing_inputs": [
+        "artifact-backed aggregate in-sample return",
+        "artifact-backed aggregate OOS return"
+      ],
+      "missing_because": "WFE not computed because accepted WFA metrics are missing artifact-backed aggregate in-sample return and artifact-backed aggregate OOS return."
+    },
+    "wfr": {
+      "status": "blocked_missing_inputs",
+      "value": null,
+      "missing_inputs": [
+        "artifact-backed successful_windows",
+        "artifact-backed total_windows"
+      ],
+      "missing_because": "WFR not computed because accepted WFA metrics are missing artifact-backed successful_windows and artifact-backed total_windows."
+    }
+  },
+  "parameter_stability": {
+    "status": "blocked_missing_inputs",
+    "source": null,
+    "windows_with_parameters": 0,
+    "unique_parameter_sets": 0,
+    "missing_because": "No artifact-backed per-window metrics were available for parameter-stability diagnostics."
+  },
+  "optimization_truth": {
+    "status": "not_emitted",
+    "source": null,
+    "missing_because": "Accepted WFA metrics artifact did not emit optimization_truth diagnostics."
+  },
+  "warmup_diagnostics": {
+    "status": "not_emitted",
+    "source": null,
+    "missing_because": "Accepted WFA metrics artifact did not emit warmup_diagnostics; no indicator warmup application is assumed."
+  }
+}

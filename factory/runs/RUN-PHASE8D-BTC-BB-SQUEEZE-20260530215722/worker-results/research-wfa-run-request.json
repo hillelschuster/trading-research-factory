@@ -1,0 +1,48 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+  "job_id": "JOB-RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+  "candidate_id": "CAND-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+  "lineage_id": "LINEAGE-PHASE8D-BTC-BB-SQUEEZE",
+  "family_id": "btc_bb_width_squeeze",
+  "attempt_id": "RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-BTC-BB-SQUEEZE-20260530215722",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/bb_width_squeeze/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/bb_width_squeeze.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_bb_width_squeeze.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-BTC-BB-SQUEEZE-20260530215722/registrations/research-wfa-RUN-PHASE8D-BTC-BB-SQUEEZE-20260530215722.json",
+    "sha256": "7b8fde9166e326bc6cee559f67dca1e913d175d605adcbb30e440d8fa5b4dc25"
+  },
+  "expected_output_root": "walk forward engine/strategies/bb_width_squeeze/results",
+  "timeout_ms": 1800000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ],
+  "max_buffer_bytes": 100663296
+}

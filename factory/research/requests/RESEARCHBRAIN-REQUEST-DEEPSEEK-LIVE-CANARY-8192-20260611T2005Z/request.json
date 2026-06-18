@@ -1,0 +1,28 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192-20260611T2005Z",
+  "generated_at": "2026-06-11T20:05:00Z",
+  "research_question": "Using deterministic web capture and research-memory checks only, produce one concise source-backed falsifiable FTMO/MT5-relevant session-liquidity or market-microstructure hypothesis for later deterministic validation.",
+  "market_scope": "multi_asset_ftmo_mt5",
+  "mt5_instrument_scope": "Any real FTMO/MT5 tradable symbol class is allowed, but prediction markets are out of scope.",
+  "prior_failed_patterns": [],
+  "prior_lessons": [
+    "Stage-0 may only produce source-backed hypotheses, not profitability, WFA, MT5, promotion, or deployment claims.",
+    "Use only deterministic captured source artifacts as evidence; provider-native knowledge is not evidence.",
+    "Keep record_hypothesis fields concise and valid JSON; cite captured source IDs only."
+  ],
+  "max_sources": 2,
+  "max_hypotheses": 1,
+  "novelty_required": true,
+  "source_family_allowlist": [
+    "web"
+  ],
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false
+}

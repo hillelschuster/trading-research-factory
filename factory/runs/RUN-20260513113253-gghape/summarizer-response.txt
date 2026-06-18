@@ -1,0 +1,71 @@
+
+
+<RF_JSON>
+{
+  "experiment_id": "EXP-IDEA-079608-34M",
+  "backlog_item_id": "IDEA-079608-34m",
+  "summary": "volatility_regime strategy on BTCUSDT achieved strong aggregate OOS Sharpe (1.52) with 20 trades across 3 windows, a major turnaround from the prior experiment's -1.58 OOS Sharpe. The improvement came from widened contraction_pct parameter range (15-30%) and momentum-confirmed expansion entries. However, high window variance (Sharpe ranged from -1.11 to 4.58) and only 3 tested windows limit robustness confidence.",
+  "key_lessons": [
+    {
+      "lesson": "volatility_regime can produce strong OOS Sharpe (1.52) on BTC when contraction_pct parameter range is widened to 15-30% with momentum-confirmed expansion",
+      "specific_finding": "Prior run (EXP-20260405200000-01) used narrower parameter ranges and achieved -1.58 OOS Sharpe with 22 trades. Current run with wider contraction_pct range achieved +1.52 OOS Sharpe with 20 trades - same trade count but drastically different outcome.",
+      "result": {
+        "sharpe_oos": 1.52,
+        "wfr": 0.667,
+        "max_drawdown": -3.51,
+        "total_trades": 20,
+        "prior_sharpe_oos": -1.58
+      }
+    },
+    {
+      "lesson": "Higher contraction_pct values (25%) consistently selected by optimizer across winning windows - tight contraction threshold hurts performance",
+      "specific_finding": "Windows 0 and 1 both selected contraction_pct=25.0 and achieved Sharpe 4.58 and 0.85. Window 2 selected contraction_pct=15.0 and had Sharpe -1.11 with PF 0.35. The optimizer consistently favored higher contraction thresholds.",
+      "result": {
+        "window_0_params": {"contraction_pct": 25.0, "hold_bars": 12, "sharpe": 4.58},
+        "window_1_params": {"contraction_pct": 25.0, "hold_bars": 12, "sharpe": 0.85},
+        "window_2_params": {"contraction_pct": 15.0, "hold_bars": 24, "sharpe": -1.11}
+      }
+    },
+    {
+      "lesson": "hold_bars parameter shows low stability (0.65) indicating regime sensitivity - strategy sensitive to exit timing",
+      "specific_finding": "Window 2 selected hold_bars=24 while Windows 0 and 1 selected hold_bars=12. The high coefficient of variation (0.35) for hold_bars suggests the strategy's optimal exit duration varies significantly with market regime.",
+      "result": {
+        "hold_bars_stability": 0.65,
+        "atr_period_stability": 1.0,
+        "ema_fast_stability": 1.0
+      }
+    },
+    {
+      "lesson": "High variance between windows (66.7% positive, 33.3% negative) limits robustness confidence despite strong aggregate Sharpe",
+      "specific_finding": "Window 0: +4.79% return, Window 1: +1.05%, Window 2: -1.60%. The extreme variance suggests strategy performance is highly regime-dependent and the 3-window sample is insufficient for reliability assessment.",
+      "result": {
+        "positive_sharpe_windows_pct": 0.667,
+        "return_volatility": 2.62,
+        "consistency_score": 0.54
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Run extended WFA with more windows (5-7) to verify robustness across different market regimes",
+      "rationale": "Only 3 windows tested; high window variance (Sharpe from -1.11 to 4.58) suggests regime sensitivity. More windows needed to assess whether positive OOS is consistent or lucky.",
+      "priority": "high"
+    },
+    {
+      "action": "Test on ETHUSDT and SOLUSDT to assess cross-asset generalizability of the contraction_pct=25% finding",
+      "rationale": "atr_period and ema_fast showed 100% stability - may be robust across assets. contraction_pct=25% seemed optimal for BTC, should verify on other assets.",
+      "priority": "high"
+    },
+    {
+      "action": "Investigate why Window 2 underperformed - check if lower contraction_pct=15% combined with longer hold_bars=24 drove the negative result",
+      "rationale": "Window 2 had PF 0.35 (losing) vs Windows 0 and 1 with PF 12.09 and 1.35. Understanding this failure mode could lead to parameter guardrails.",
+      "priority": "medium"
+    },
+    {
+      "action": "Consider adding contraction_pct guardrail (min 20%) in strategy config to avoid the Window 2 failure pattern",
+      "rationale": "All positive windows selected contraction_pct >= 25%. The failing window selected 15%. A minimum threshold could improve consistency.",
+      "priority": "medium"
+    }
+  ]
+}
+</RF_JSON>

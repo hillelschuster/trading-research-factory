@@ -1,0 +1,16 @@
+{
+  "schema_version": "mt5_tester_lifecycle_request_v1",
+  "evidence_kind": "mt5_tester",
+  "authority_layer": "mt5_tester",
+  "run_id": "RUN-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+  "job_id": "JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6",
+  "symbol": "EURUSD",
+  "timeframe": "M15",
+  "tester_output_path": "factory/mt5/tester/JOB-MT5-TESTER-LIFECYCLE-REAL-20260504-EURUSD-M15-R6/lifecycle_1.json",
+  "required_scenarios": [
+    "market_order",
+    "pending_order",
+    "exit_order"
+  ],
+  "boundary": "Only repo-contained tester output artifacts are read. External terminal paths are not inspected."
+}

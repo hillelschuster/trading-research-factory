@@ -1,0 +1,156 @@
+{
+  "schema_version": "researchbrain_stage0_outbox_projection_v1",
+  "projected_at": "2026-06-17T20:18:13.776Z",
+  "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-5271-cycle-1",
+  "event": {
+    "event_id": "EVT-RB-STAGE0-33cae77daa9b1c66f8778014bbc48366",
+    "event_type": "researchbrain.stage0_job_finished",
+    "aggregate_type": "run",
+    "aggregate_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+    "created_at": "2026-06-17T20:18:13.608Z",
+    "payload": {
+      "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+      "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0-ATTEMPT-1",
+      "runtime_run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+      "status": "blocked",
+      "failure_summary": {
+        "failure_class": "schema_or_validation_failure",
+        "retryable": false,
+        "error_message": "no_valid_provider_output",
+        "final_terminal_state": "terminal_failed_condition",
+        "request_artifact": {
+          "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z/request.json",
+          "sha256": "6b5415a334b60fbf0334095d6f250a08a1264e4abd05562e3ceb2c8a2fd5d093"
+        },
+        "runtime_result_artifact": {
+          "artifact_type": "researchbrain_stage0_runtime_result",
+          "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/runtime-result.json",
+          "sha256": "ddd24c8795c12d7f7d67f859a32577b41acde038cc71bf20bd806a615ffd78f9"
+        },
+        "quarantine_paths": [
+          {
+            "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/quarantine/attempt-001.json",
+            "sha256": "be611560dd0949aeedef29c9bd74e1fb9df6c0b5e73c5c66d53cf6af8e4c7cf7"
+          }
+        ],
+        "blockers": [
+          "no_valid_provider_output"
+        ]
+      }
+    }
+  },
+  "run": {
+    "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+    "status": "blocked",
+    "evidence_kind": "stage0_research_discovery",
+    "created_at": "2026-06-17T20:16:21.786Z",
+    "updated_at": "2026-06-17T20:18:13.608Z"
+  },
+  "job": {
+    "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+    "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+    "job_type": "researchbrain_stage0",
+    "status": "blocked",
+    "priority": 0,
+    "created_at": "2026-06-17T20:16:21.786Z",
+    "updated_at": "2026-06-17T20:18:13.170Z"
+  },
+  "attempt": {
+    "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0-ATTEMPT-1",
+    "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0",
+    "attempt_number": 1,
+    "status": "blocked",
+    "worker": "researchbrain_stage0_loop_runner",
+    "started_at": "2026-06-17T20:16:21.977Z",
+    "finished_at": "2026-06-17T20:18:13.170Z"
+  },
+  "failure_summary": {
+    "failure_class": "schema_or_validation_failure",
+    "retryable": false,
+    "error_message": "no_valid_provider_output",
+    "final_terminal_state": "terminal_failed_condition",
+    "request_artifact": {
+      "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z/request.json",
+      "sha256": "6b5415a334b60fbf0334095d6f250a08a1264e4abd05562e3ceb2c8a2fd5d093"
+    },
+    "runtime_result_artifact": {
+      "artifact_type": "researchbrain_stage0_runtime_result",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/runtime-result.json",
+      "sha256": "ddd24c8795c12d7f7d67f859a32577b41acde038cc71bf20bd806a615ffd78f9"
+    },
+    "quarantine_paths": [
+      {
+        "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/quarantine/attempt-001.json",
+        "sha256": "be611560dd0949aeedef29c9bd74e1fb9df6c0b5e73c5c66d53cf6af8e4c7cf7"
+      }
+    ],
+    "blockers": [
+      "no_valid_provider_output"
+    ]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/agent-transcript.jsonl",
+      "sha256": "d407ad2c1f23b6b0187465d862e8701196315ba6cf75dbc9fbce4d701bda3ba4",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.217Z"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/tool-captures/url/SRC-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "5e29a7bdad3703c9fe802fa2fb2dc0e686b7304ecfbe8b8ef41091ddb36ffd14",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.420Z"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+      "sha256": "58b44a4e8776f079676827b6656ec3350ddd662f047ee375d8a3896fb0fb37cf",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.378Z"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/cost-ledger.json",
+      "sha256": "b650bc4400176d2e1dd0572e822a73f41dc0f6202929b7240fb536d30f74e9e4",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.289Z"
+    },
+    {
+      "artifact_type": "researchbrain_stage0_quarantine",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/quarantine/attempt-001.json",
+      "sha256": "be611560dd0949aeedef29c9bd74e1fb9df6c0b5e73c5c66d53cf6af8e4c7cf7",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.521Z"
+    },
+    {
+      "artifact_type": "researchbrain_stage0_runtime_result",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/runtime-result.json",
+      "sha256": "ddd24c8795c12d7f7d67f859a32577b41acde038cc71bf20bd806a615ffd78f9",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.457Z"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/tool-ledger.json",
+      "sha256": "14751d42ef9a7f2224c356aecf08ca7b781f4c4078c8b1867e274a2d09599530",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.255Z"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z-51FAADA557B5EDD1516544C0/working-notes.md",
+      "sha256": "af96eb48fbf909ae2c3c5e7d8effd23886f8ca6ce4d3fc7e66ffbec0539be130",
+      "size_bytes": null,
+      "created_at": "2026-06-17T20:18:13.336Z"
+    }
+  ],
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

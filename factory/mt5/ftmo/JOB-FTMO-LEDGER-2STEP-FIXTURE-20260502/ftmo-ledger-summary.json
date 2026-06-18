@@ -1,0 +1,78 @@
+{
+  "schema_version": "ftmo_ledger_summary_v1",
+  "evidence_kind": "ftmo_ledger",
+  "authority_layer": "control_plane",
+  "status": "succeeded",
+  "observed_at": "2026-05-02T12:09:04.007Z",
+  "request": {
+    "schema_version": "ftmo_ledger_request_v1",
+    "evidence_kind": "ftmo_ledger",
+    "authority_layer": "control_plane",
+    "run_id": "RUN-FTMO-LEDGER-2STEP-FIXTURE-20260502",
+    "job_id": "JOB-FTMO-LEDGER-2STEP-FIXTURE-20260502",
+    "rule_set_path": "factory/mt5/ftmo/rules/ftmo-2-step-trading-objectives-2026-04-22.json",
+    "ledger_path": "factory/mt5/ftmo/fixtures/ledger-mechanics-2-step-clean-pass.json",
+    "boundary": "No FTMO defaults are embedded; rule-set and ledger inputs must be explicit repo-contained artifacts."
+  },
+  "observations": {
+    "rule_set": {
+      "ftmo_target": "2-step",
+      "rule_set_version": "ftmo_trading_objectives_page_modified_2026-04-22_2-step_v1",
+      "source_date": "2026-04-22",
+      "reset_timezone": "Europe/Prague",
+      "source_url": "https://ftmo.com/en/trading-objectives/"
+    },
+    "account": {
+      "currency": "USD",
+      "starting_balance": 100000
+    },
+    "ledger_summary": {
+      "daily_loss_limit": 5000,
+      "max_loss_limit": 10000,
+      "days": [
+        {
+          "date": "2026-04-30",
+          "start_equity": 100000,
+          "min_equity": 98480,
+          "daily_loss": 1520,
+          "breached": false
+        },
+        {
+          "date": "2026-05-01",
+          "start_equity": 99718,
+          "min_equity": 98348,
+          "daily_loss": 1370,
+          "breached": false
+        }
+      ],
+      "max_loss": 1652,
+      "breached": false,
+      "breach_reasons": [],
+      "final_equity": 98938,
+      "timeline_sha256": "a30aa9055e0abc309acbe04a62951b1ee130cf019ab5737ddc9161e083e2d22c"
+    },
+    "proof_scope": "ledger_mechanics_only",
+    "forward_demo_survival_claim": false,
+    "fixture_ledger": true,
+    "input_hashes": {
+      "rule_set_sha256": "e3e7695621d28d98c621e522cb0c713d5011cf717c52ec55fa61ea9812ed73e3",
+      "ledger_sha256": "d3727a0da35afce5182cb1211a149dbf6e427b00e43e4ad187bd6a780194911d"
+    }
+  },
+  "blocked_reason": null,
+  "diagnostics": {
+    "error_code": null,
+    "message": null,
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/ftmo-ledger-worker.mjs",
+      "sha256": "0a4c6525ffae1a7e36457ca837e4c7b970a40c6cd47f4bab0e1b796c8a8804ed",
+      "size_bytes": 12263,
+      "modified_at": "2026-05-02T11:38:57.446Z"
+    }
+  ]
+}

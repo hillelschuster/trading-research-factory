@@ -1,0 +1,130 @@
+{
+  "run_id": "RUN-20260513113253-gghape",
+  "backlog_item_id": "IDEA-079608-34m",
+  "owner_id": "live-owner-14601-mp3zd8t7-e2sofl",
+  "run_instance_id": "RUN-20260513113253-gghape",
+  "resume_generation": 0,
+  "current_stage": null,
+  "current_stage_attempt": null,
+  "current_stage_session": null,
+  "last_completed_stage": "summarizer",
+  "observer_opened_at": null,
+  "poison_streak_count": 0,
+  "poison_stage": null,
+  "poison_failure_class": null,
+  "stage_status": {
+    "planner": {
+      "status": "completed",
+      "updated_at": "2026-05-13T11:32:56.002Z",
+      "attempt": 0,
+      "compiler": "deterministic_wfa_ready_compiler_v1"
+    },
+    "executor": {
+      "status": "completed",
+      "updated_at": "2026-05-13T11:35:48.552Z",
+      "attempt": 1,
+      "worker": "research_wfa_run"
+    },
+    "evaluator": {
+      "status": "completed",
+      "updated_at": "2026-05-13T11:45:52.694Z",
+      "attempt": 2,
+      "failure_class": "transport_failure"
+    },
+    "summarizer": {
+      "status": "completed",
+      "updated_at": "2026-05-13T11:48:55.712Z",
+      "attempt": 1
+    }
+  },
+  "failure_class": null,
+  "resume_from_stage": "planner",
+  "handoff_pending": false,
+  "last_error": null,
+  "attempt_counts": {
+    "planner": 0,
+    "executor": 1,
+    "evaluator": 2,
+    "summarizer": 1
+  },
+  "artifact_paths": {
+    "run_state": "factory/runs/RUN-20260513113253-gghape/run-state.json",
+    "planner_bypass": "factory/runs/RUN-20260513113253-gghape/planner-bypass.json",
+    "experiment_plan": "factory/runs/RUN-20260513113253-gghape/experiment-plan.json",
+    "experiment_plan_index": "factory/experiments/EXP-IDEA-079608-34M.plan.json",
+    "planner_stage_gates": [
+      "factory/runs/RUN-20260513113253-gghape/planner-attempt-0/stage-gate.json"
+    ],
+    "executor_stage_inputs": [
+      "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-input.json"
+    ],
+    "executor_stage_prompts": [
+      "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-prompt.txt"
+    ],
+    "executor_stage_validated": [
+      "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-validated.json"
+    ],
+    "executor_stage_gates": [
+      "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-gate.json"
+    ],
+    "executor_response": "factory/runs/RUN-20260513113253-gghape/executor-response.txt",
+    "execution_result": "factory/runs/RUN-20260513113253-gghape/execution-result.json",
+    "artifact_manifest": "factory/runs/RUN-20260513113253-gghape/artifact_manifest.json",
+    "changed_files": "factory/runs/RUN-20260513113253-gghape/changed-files.json",
+    "evaluator_heartbeats": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-heartbeat.json"
+    ],
+    "evaluator_stage_inputs": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-input.json",
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-input.json"
+    ],
+    "evaluator_stage_prompts": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-prompt.txt",
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-prompt.txt"
+    ],
+    "evaluator_sessions": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1-session.json",
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2-session.json"
+    ],
+    "evaluator_stage_errors": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-error.json"
+    ],
+    "evaluator_stage_gates": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-gate.json",
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-gate.json"
+    ],
+    "evaluator_stage_responses": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-response.raw.txt"
+    ],
+    "evaluator_stage_validated": [
+      "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-validated.json"
+    ],
+    "evaluator_response": "factory/runs/RUN-20260513113253-gghape/evaluator-response.txt",
+    "evaluation": "factory/runs/RUN-20260513113253-gghape/evaluation.json",
+    "summarizer_heartbeats": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-heartbeat.json"
+    ],
+    "summarizer_stage_inputs": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-input.json"
+    ],
+    "summarizer_stage_prompts": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-prompt.txt"
+    ],
+    "summarizer_sessions": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1-session.json"
+    ],
+    "summarizer_stage_responses": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-response.raw.txt"
+    ],
+    "summarizer_stage_validated": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-validated.json"
+    ],
+    "summarizer_stage_gates": [
+      "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-gate.json"
+    ],
+    "summarizer_response": "factory/runs/RUN-20260513113253-gghape/summarizer-response.txt",
+    "summary_json": "factory/runs/RUN-20260513113253-gghape/summary.json",
+    "summary_markdown": "factory/summaries/RUN-20260513113253-gghape.md"
+  },
+  "updated_at": "2026-05-13T11:48:57.202Z"
+}

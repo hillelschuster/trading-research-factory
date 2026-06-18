@@ -1,18 +1,18 @@
 {
-  "goal": "An autonomous trading research factory that continuously converts raw ideas into scored evidence across crypto, forex, and prediction markets.",
-  "iteration": 161,
-  "last_run_id": "RUN-20260505194725-nlq8sd",
+  "goal": "An autonomous trading research factory that continuously converts FTMO/MT5-tradable ideas across crypto CFDs, FX, indices, stocks, metals, commodities, and other broker-supported instruments into scored evidence.",
+  "iteration": 166,
+  "last_run_id": "RUN-20260528185420-4ec6n9",
   "run_started_at": null,
   "stage_started_at": null,
-  "exit_reason": "run_failed",
+  "exit_reason": "cycles_exhausted",
   "active_session_id": null,
   "active_session_url": null,
   "active_agent": null,
   "active_agent_attempt": null,
   "active_agent_status": null,
   "last_agent_heartbeat_at": null,
-  "last_status": "error",
-  "last_error": "planner transport request timed out waiting for response headers.",
+  "last_status": "idle",
+  "last_error": null,
   "mode_history": [
     {
       "ts": "2026-03-25T11:45:20Z",
@@ -489,6 +489,26 @@
     {
       "ts": "2026-05-05T19:47:25.107Z",
       "mode": "live"
+    },
+    {
+      "ts": "2026-05-13T10:37:11.652Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-13T11:11:13.450Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-13T11:32:53.588Z",
+      "mode": "live"
+    },
+    {
+      "ts": "2026-05-28T18:47:34.629Z",
+      "mode": "simulate"
+    },
+    {
+      "ts": "2026-05-28T18:54:20.219Z",
+      "mode": "simulate"
     }
   ]
 }

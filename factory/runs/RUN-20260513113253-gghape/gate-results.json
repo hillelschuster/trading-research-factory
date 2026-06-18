@@ -1,0 +1,100 @@
+{
+  "schema_version": "stage_gates_v1",
+  "run_id": "RUN-20260513113253-gghape",
+  "stages": [
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260513113253-gghape",
+      "stage": "planner",
+      "attempt": 0,
+      "decision": "allowed",
+      "validator": "deterministic_wfa_ready_compiler",
+      "evidence_paths": [
+        "factory/runs/RUN-20260513113253-gghape/experiment-plan.json",
+        "factory/runs/RUN-20260513113253-gghape/planner-bypass.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-05-13T11:32:55.898Z",
+      "gate_path": "factory/runs/RUN-20260513113253-gghape/planner-attempt-0/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260513113253-gghape",
+      "stage": "executor",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "deterministic_research_wfa_run_worker",
+      "evidence_paths": [
+        "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-validated.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-request.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stdout.txt",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/research-wfa-run-stderr.txt",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/pre-run-output-snapshot.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/post-run-output-snapshot.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/accepted-output-artifacts.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/parsed-wfa-metrics.json",
+        "walk forward engine/strategies/volatility_regime/results/analysis.json",
+        "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+        "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+        "walk forward engine/strategies/volatility_regime/results/walk_forward_summary_20260513_143545.csv",
+        "factory/runs/RUN-20260513113253-gghape/trial-attempts.jsonl",
+        "src/workers/research-wfa-run-worker.mjs",
+        "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+        "walk forward engine/src/strategies/volatility_regime.py",
+        "walk forward engine/config/strategy_volatility_regime.json",
+        "walk forward engine/data/binance_btcusdt_1h_deep.csv"
+      ],
+      "reason": null,
+      "recorded_at": "2026-05-13T11:35:48.446Z",
+      "gate_path": "factory/runs/RUN-20260513113253-gghape/executor-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260513113253-gghape",
+      "stage": "evaluator",
+      "attempt": 1,
+      "decision": "denied",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-error.json"
+      ],
+      "reason": "evaluator transport request timed out waiting for response headers.",
+      "recorded_at": "2026-05-13T11:41:04.090Z",
+      "gate_path": "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-1/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260513113253-gghape",
+      "stage": "evaluator",
+      "attempt": 2,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-validated.json",
+        "factory/runs/RUN-20260513113253-gghape/worker-results/parsed-wfa-metrics.json",
+        "walk forward engine/strategies/volatility_regime/results/walk_forward_results_20260513_143545.json",
+        "walk forward engine/strategies/volatility_regime/results/parameter_stability_20260513_143545.json",
+        "walk forward engine/strategies/volatility_regime/wfa_config.yaml",
+        "walk forward engine/src/strategies/volatility_regime.py"
+      ],
+      "reason": null,
+      "recorded_at": "2026-05-13T11:45:52.530Z",
+      "gate_path": "factory/runs/RUN-20260513113253-gghape/evaluator-attempt-2/stage-gate.json"
+    },
+    {
+      "schema_version": "stage_gate_v1",
+      "run_id": "RUN-20260513113253-gghape",
+      "stage": "summarizer",
+      "attempt": 1,
+      "decision": "allowed",
+      "validator": "stage_gate",
+      "evidence_paths": [
+        "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-validated.json"
+      ],
+      "reason": null,
+      "recorded_at": "2026-05-13T11:48:55.514Z",
+      "gate_path": "factory/runs/RUN-20260513113253-gghape/summarizer-attempt-1/stage-gate.json"
+    }
+  ],
+  "updated_at": "2026-05-13T11:48:55.652Z"
+}

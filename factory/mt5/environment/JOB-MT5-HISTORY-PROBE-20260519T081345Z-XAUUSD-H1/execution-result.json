@@ -1,0 +1,264 @@
+{
+  "experiment_id": "EXP-MT5-SNAPSHOT",
+  "status": "executed",
+  "evidence_kind": "mt5_snapshot",
+  "authority_layer": "mt5_terminal",
+  "observed_at": "2026-05-19T19:58:07.608Z",
+  "artifacts_created": [
+    {
+      "artifact_type": "environment_identity",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/snapshot.json",
+      "sha256": "159fce635f68b06c634f43c11aa985b9913b0b38a64d28149615d50a7edb6ab1",
+      "size_bytes": 3815,
+      "modified_at": "2026-05-19T19:58:08.821Z"
+    },
+    {
+      "artifact_type": "worker_request",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/request.json",
+      "sha256": "f727c6a0cf17afce7e3fc127dba390bdd926bfc47c1df3cbec3745c630adc695",
+      "size_bytes": 452,
+      "modified_at": "2026-05-19T19:58:07.714Z"
+    },
+    {
+      "artifact_type": "probe_stdout",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stdout.txt",
+      "sha256": "bed69098de398ee84981855a7f775e1d760cbce224abd670d6e5d3980ba67269",
+      "size_bytes": 1643,
+      "modified_at": "2026-05-19T19:58:08.766Z"
+    },
+    {
+      "artifact_type": "probe_stderr",
+      "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "modified_at": "2026-05-19T19:58:08.792Z"
+    }
+  ],
+  "metrics_observed": {},
+  "observations": {
+    "account": {
+      "currency": "USD",
+      "leverage": 30,
+      "login": 1513441249,
+      "margin_mode": 2,
+      "server": "FTMO-Demo",
+      "trade_allowed": true,
+      "trade_expert": true,
+      "trade_mode": 0
+    },
+    "data_identity": {
+      "bars_sha256": "ae8dd6f54e7d93fff561cdbb34118ee598d247cef24bb8b064d3eae5b1855626",
+      "coverage_end_utc": "2026-05-19T22:00:00+00:00",
+      "coverage_start_utc": "2025-07-15T01:00:00+00:00",
+      "provider": "MetaTrader5 terminal",
+      "quote_basis": "broker_terminal_bid_ohlc",
+      "requested_bars": 5000,
+      "returned_bars": 5000,
+      "server": "FTMO-Demo",
+      "source_type": "mt5_terminal_rates",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "timezone_basis": "mt5_epoch_seconds_interpreted_as_utc_for_identity_only"
+    },
+    "symbol": {
+      "currency_base": "USD",
+      "currency_margin": "USD",
+      "currency_profit": "USD",
+      "description": "Gold vs US Dollar, Spot CFD",
+      "digits": 2,
+      "margin_initial": 0,
+      "margin_maintenance": 0,
+      "name": "XAUUSD",
+      "point": 0.01,
+      "session_buy_orders": 0,
+      "session_deals": 0,
+      "session_sell_orders": 0,
+      "spread": 45,
+      "spread_float": true,
+      "swap_long": -95.03,
+      "swap_mode": 1,
+      "swap_short": -5.4,
+      "trade_contract_size": 100,
+      "trade_mode": 4,
+      "trade_tick_size": 0.01,
+      "trade_tick_value": 1,
+      "volume_max": 100,
+      "volume_min": 0.01,
+      "volume_step": 0.01
+    },
+    "terminal": {
+      "build": 5833,
+      "community_account": true,
+      "company": "FTMO Global Markets Ltd",
+      "connected": true,
+      "dlls_allowed": false,
+      "language": "English",
+      "maxbars": 100000,
+      "name": "FTMO Global Markets MT5 Terminal",
+      "trade_allowed": true
+    },
+    "snapshot_sha256": "159fce635f68b06c634f43c11aa985b9913b0b38a64d28149615d50a7edb6ab1"
+  },
+  "blocked_reason": null,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/mt5-snapshot-worker.mjs",
+      "sha256": "89cf94298f1417c548aa6ca81e2c915c3e100ae21e4bab2a6e7e1a5e8c2a6fc7",
+      "size_bytes": 15269,
+      "modified_at": "2026-05-18T12:30:50.793Z"
+    },
+    {
+      "artifact_type": "worker_source",
+      "path": "walk forward engine/src/mt5_snapshot_probe.py",
+      "sha256": "fecca4ec2151c75e95c747ebf3d6b7c3f6fefcf05846a4c29fcf112585cb5de2",
+      "size_bytes": 17544,
+      "modified_at": "2026-05-18T13:10:22.723Z"
+    }
+  ],
+  "worker_result": {
+    "job_id": "JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1",
+    "run_id": "RUN-MT5-SNAPSHOT-20260519195807",
+    "candidate_id": null,
+    "worker": "mt5_snapshot",
+    "evidence_kind": "mt5_snapshot",
+    "authority_layer": "mt5_terminal",
+    "schema_version": "mt5_snapshot_worker_result_v1",
+    "status": "succeeded",
+    "artifacts": [
+      {
+        "artifact_type": "environment_identity",
+        "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/snapshot.json",
+        "sha256": "159fce635f68b06c634f43c11aa985b9913b0b38a64d28149615d50a7edb6ab1",
+        "size_bytes": 3815,
+        "modified_at": "2026-05-19T19:58:08.821Z"
+      },
+      {
+        "artifact_type": "worker_request",
+        "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/request.json",
+        "sha256": "f727c6a0cf17afce7e3fc127dba390bdd926bfc47c1df3cbec3745c630adc695",
+        "size_bytes": 452,
+        "modified_at": "2026-05-19T19:58:07.714Z"
+      },
+      {
+        "artifact_type": "probe_stdout",
+        "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stdout.txt",
+        "sha256": "bed69098de398ee84981855a7f775e1d760cbce224abd670d6e5d3980ba67269",
+        "size_bytes": 1643,
+        "modified_at": "2026-05-19T19:58:08.766Z"
+      },
+      {
+        "artifact_type": "probe_stderr",
+        "path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "modified_at": "2026-05-19T19:58:08.792Z"
+      }
+    ],
+    "metrics": {},
+    "observations": {
+      "account": {
+        "currency": "USD",
+        "leverage": 30,
+        "login": 1513441249,
+        "margin_mode": 2,
+        "server": "FTMO-Demo",
+        "trade_allowed": true,
+        "trade_expert": true,
+        "trade_mode": 0
+      },
+      "data_identity": {
+        "bars_sha256": "ae8dd6f54e7d93fff561cdbb34118ee598d247cef24bb8b064d3eae5b1855626",
+        "coverage_end_utc": "2026-05-19T22:00:00+00:00",
+        "coverage_start_utc": "2025-07-15T01:00:00+00:00",
+        "provider": "MetaTrader5 terminal",
+        "quote_basis": "broker_terminal_bid_ohlc",
+        "requested_bars": 5000,
+        "returned_bars": 5000,
+        "server": "FTMO-Demo",
+        "source_type": "mt5_terminal_rates",
+        "symbol": "XAUUSD",
+        "timeframe": "H1",
+        "timezone_basis": "mt5_epoch_seconds_interpreted_as_utc_for_identity_only"
+      },
+      "symbol": {
+        "currency_base": "USD",
+        "currency_margin": "USD",
+        "currency_profit": "USD",
+        "description": "Gold vs US Dollar, Spot CFD",
+        "digits": 2,
+        "margin_initial": 0,
+        "margin_maintenance": 0,
+        "name": "XAUUSD",
+        "point": 0.01,
+        "session_buy_orders": 0,
+        "session_deals": 0,
+        "session_sell_orders": 0,
+        "spread": 45,
+        "spread_float": true,
+        "swap_long": -95.03,
+        "swap_mode": 1,
+        "swap_short": -5.4,
+        "trade_contract_size": 100,
+        "trade_mode": 4,
+        "trade_tick_size": 0.01,
+        "trade_tick_value": 1,
+        "volume_max": 100,
+        "volume_min": 0.01,
+        "volume_step": 0.01
+      },
+      "terminal": {
+        "build": 5833,
+        "community_account": true,
+        "company": "FTMO Global Markets Ltd",
+        "connected": true,
+        "dlls_allowed": false,
+        "language": "English",
+        "maxbars": 100000,
+        "name": "FTMO Global Markets MT5 Terminal",
+        "trade_allowed": true
+      },
+      "snapshot_sha256": "159fce635f68b06c634f43c11aa985b9913b0b38a64d28149615d50a7edb6ab1"
+    },
+    "observed_at": "2026-05-19T19:58:07.608Z",
+    "blocked_reason": null,
+    "source_hashes": [
+      {
+        "artifact_type": "worker_source",
+        "path": "src/workers/mt5-snapshot-worker.mjs",
+        "sha256": "89cf94298f1417c548aa6ca81e2c915c3e100ae21e4bab2a6e7e1a5e8c2a6fc7",
+        "size_bytes": 15269,
+        "modified_at": "2026-05-18T12:30:50.793Z"
+      },
+      {
+        "artifact_type": "worker_source",
+        "path": "walk forward engine/src/mt5_snapshot_probe.py",
+        "sha256": "fecca4ec2151c75e95c747ebf3d6b7c3f6fefcf05846a4c29fcf112585cb5de2",
+        "size_bytes": 17544,
+        "modified_at": "2026-05-18T13:10:22.723Z"
+      }
+    ],
+    "diagnostics": {
+      "error_code": null,
+      "message": null,
+      "command": "mt5_snapshot_probe.py",
+      "python_command": "python.exe",
+      "python_command_was_absolute": false,
+      "terminal_path_provided_to_probe": true,
+      "terminal_path_inferred_executable": false,
+      "probe_path_style": "windows",
+      "probe_path_conversion_error": null,
+      "exit_status": 0,
+      "signal": null,
+      "stdout_path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stdout.txt",
+      "stderr_path": "factory/mt5/environment/JOB-MT5-HISTORY-PROBE-20260519T081345Z-XAUUSD-H1/probe.stderr.txt"
+    },
+    "environment": {
+      "node_version": "v24.0.2",
+      "platform": "linux",
+      "arch": "x64",
+      "python_command": "python.exe",
+      "python_command_was_absolute": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "research_wfa_envelope_request_v1",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "run_id": "RUN-RESEARCH-WFA-EMA-20260405-OFFICIALIZED",
+  "job_id": "JOB-RESEARCH-WFA-EMA-20260405-OFFICIALIZED",
+  "config_path": "walk forward engine/strategies/ema_trend_gate/wfa_config.yaml",
+  "result_artifacts": [
+    "walk forward engine/strategies/ema_trend_gate/results/walk_forward_results_20260405_180525.json",
+    "walk forward engine/strategies/ema_trend_gate/results/analysis.json",
+    "walk forward engine/strategies/ema_trend_gate/results/parameter_stability_20260405_180525.json"
+  ],
+  "windows_completed": 57,
+  "source_execution_result_path": "factory/runs/EXP-20260405180000-01/execution-result.json"
+}

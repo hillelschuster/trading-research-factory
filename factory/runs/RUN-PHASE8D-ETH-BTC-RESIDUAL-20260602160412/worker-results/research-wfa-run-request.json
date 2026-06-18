@@ -1,0 +1,48 @@
+{
+  "schema_version": "research_wfa_run_request_v1",
+  "run_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "job_id": "JOB-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "candidate_id": "CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "lineage_id": "LINEAGE-PHASE8D-ETH-BTC-RESIDUAL",
+  "family_id": "eth_btc_residual_phase8d",
+  "attempt_id": "RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412-EXECUTOR-ATTEMPT-1",
+  "attempt_type": "worker_launched_wfa",
+  "generated_by": "deterministic_wfa_ready_compiler_v1",
+  "experiment_id": "EXP-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "evidence_kind": "research_wfa",
+  "authority_layer": "python_research",
+  "wfa_config_path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+  "strategy_source_paths": [
+    "walk forward engine/src/strategies/eth_btc_residual_phase8d.py"
+  ],
+  "strategy_config_paths": [
+    "walk forward engine/config/strategy_eth_btc_residual_phase8d.json"
+  ],
+  "data_paths": [
+    "walk forward engine/data/phase8d_eth_btc_residual_1h.csv"
+  ],
+  "data_manifest_paths": [],
+  "research_wfa_preregistration": {
+    "artifact_type": "research_wfa_preregistration",
+    "path": "factory/candidates/CAND-PHASE8D-ETH-BTC-RESIDUAL-20260602160412/registrations/research-wfa-RUN-PHASE8D-ETH-BTC-RESIDUAL-20260602160412.json",
+    "sha256": "ad257845b591400c5102ca534b30a7e09b27fbeacfd145af58e6a3e914138091"
+  },
+  "expected_output_root": "walk forward engine/strategies/eth_btc_residual_phase8d/results",
+  "timeout_ms": 3600000,
+  "working_directory": "walk forward engine",
+  "python_executable": ".venv/Scripts/python.exe",
+  "environment_allowlist": [
+    "PATH",
+    "Path",
+    "PYTHONPATH",
+    "VIRTUAL_ENV",
+    "SYSTEMROOT",
+    "WINDIR",
+    "TEMP",
+    "TMP",
+    "HOME",
+    "USERPROFILE",
+    "LOCALAPPDATA"
+  ],
+  "max_buffer_bytes": 100663296
+}

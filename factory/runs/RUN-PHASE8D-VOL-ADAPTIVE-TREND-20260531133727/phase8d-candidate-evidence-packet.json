@@ -1,0 +1,185 @@
+{
+  "schema_version": "phase8d_candidate_evidence_packet_v1",
+  "run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "backlog_item_id": "IDEA-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "lineage_id": "LINEAGE-PHASE8D-VOL-ADAPTIVE-TREND-BTC",
+  "family_id": "vol_adaptive_trend_btc",
+  "attempt_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727-EXECUTOR-ATTEMPT-1",
+  "terminal_state": "executed",
+  "evidence_kind": "research_wfa",
+  "wfa_launched": true,
+  "deterministic_worker_evidence_required": true,
+  "source_hashes": [
+    {
+      "artifact_type": "worker_source",
+      "path": "src/workers/research-wfa-run-worker.mjs",
+      "sha256": "c68741b987bf75c2da90d222977571160d9c8713600feb5dd8af92f0df1b34dd",
+      "size_bytes": 48034,
+      "modified_at": "2026-05-24T14:58:00.609Z"
+    },
+    {
+      "artifact_type": "wfa_config",
+      "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/wfa_config.yaml",
+      "sha256": "027414d2f0ebfe601c69653dd9e40313f407e3271feeb4e639e2b49716e4134a",
+      "size_bytes": 1362,
+      "modified_at": "2026-05-31T13:35:07.934Z"
+    },
+    {
+      "artifact_type": "strategy_source",
+      "path": "walk forward engine/src/strategies/vol_adaptive_trend.py",
+      "sha256": "02696fad0086accb72818cccf0b2899850fa4cb1f9e389e9fd94b1ecd333f5d2",
+      "size_bytes": 11289,
+      "modified_at": "2026-03-21T08:37:16.359Z"
+    },
+    {
+      "artifact_type": "strategy_config",
+      "path": "walk forward engine/config/strategy_vol_adaptive_trend.json",
+      "sha256": "c448511bb51a1feb3cf12664bf7362c8fa9a9a7fbba8fd548ecb6dc3208f07c4",
+      "size_bytes": 989,
+      "modified_at": "2026-03-21T08:37:34.027Z"
+    },
+    {
+      "artifact_type": "data_input",
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "size_bytes": 2943008,
+      "modified_at": "2026-03-21T08:42:55.741Z"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/registrations/research-wfa-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727.json",
+      "sha256": "0319ba301436a272ae63db47c8420bb4f35816de1f16ebda8d45072f979ec5d6",
+      "size_bytes": 4591,
+      "modified_at": "2026-05-31T13:37:26.886Z"
+    },
+    {
+      "artifact_type": "hypothesis_packet",
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/hypothesis-packet.json",
+      "sha256": "783075f7e4cc8cb429eeaec962c0490ad5de6e00a800a03876726923a846d1b7"
+    }
+  ],
+  "preregistration_gate": {
+    "status": "satisfied_pre_run",
+    "artifact": {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/registrations/research-wfa-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727.json",
+      "sha256": "0319ba301436a272ae63db47c8420bb4f35816de1f16ebda8d45072f979ec5d6",
+      "content_hash": "82cf55677dcaa10ea48b9d422102e9cb128e980759277b8af6c7aff55a1f26db"
+    }
+  },
+  "source_quality_gate": {
+    "status": "manual_packet_medium_implementation_trust",
+    "source_record": {
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/source-record.json",
+      "sha256": "f80809f049094fd6a0d36393df59025bdec2eb5efb05eb15f6598eefb0203dbe",
+      "artifact_type": "research_source_record"
+    }
+  },
+  "denominator_context": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "pre_result_runtime_feasibility_repair": true,
+    "denominator_artifact_status": "preregistered_and_executed",
+    "attempt_source": "phase8d_manual_packet_worker_execution",
+    "performance_result_used_for_repair": false,
+    "runtime_repair_rationale": "Pre-result mechanical runtime-feasibility repair: the canonical VOL_ADAPTIVE_TREND route uses 150 trials on BTC H1, and the immediately prior BTC H1 Phase 8D 150-trial screening route timed out after 1800000ms before accepted WFA outputs. This attempt preserves the hypothesis, strategy source, parameter space, data source, and costs but uses a Phase 8D-specific 25-trial config before any performance result is known.",
+    "low_frequency_exception_registered": false
+  },
+  "mt5_relevance": {
+    "classification": "mt5_relevant_unverified",
+    "terminal_symbol_seen": true,
+    "terminal_symbol": "BTCUSD",
+    "mt5_instrument_equivalence_verified": false,
+    "deployment_proximate_evidence": false
+  },
+  "data_identity": {
+    "status": "proxy_research_input_mt5_relevant_unverified",
+    "known": true,
+    "artifact": {
+      "path": "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+      "sha256": "d8fec39b4d7bb6f47dcb2b5457b1f4e0ed7b09c8f6d103586d21a819db268e0c",
+      "artifact_type": "data_input"
+    }
+  },
+  "wfa_metrics": {
+    "status": "worker_terminal_artifact_backed",
+    "windows": 57,
+    "trades": 220,
+    "return_proxy_pct": 1.3086664056586577,
+    "positive_oos_window_ratio": 0.403509,
+    "wfr": 1
+  },
+  "survivor_floor_enforcement": {
+    "floors": {
+      "minOosWindows": 8,
+      "minTrades": 200,
+      "minReturnPct": 5,
+      "minPositiveWindowRatio": 0.7
+    },
+    "status": "below_phase8d_survivor_floor",
+    "failed_requirements": [
+      "return_proxy_pct",
+      "positive_oos_window_ratio"
+    ],
+    "positive_or_survivor_label_allowed": false
+  },
+  "advisory_statistics": {
+    "status": "blocked_missing_inputs",
+    "dsr": {
+      "status": "blocked_missing_inputs"
+    },
+    "pbo": {
+      "status": "blocked_missing_inputs"
+    },
+    "cpcv": {
+      "status": "blocked_missing_inputs"
+    },
+    "white_reality_check": {
+      "status": "blocked_missing_inputs"
+    },
+    "promotion_authority": false,
+    "rejection_authority": false
+  },
+  "phase8e_boundary": {
+    "phase8e_authorized": false,
+    "mt5_mql5_parity_deployment_work_started": false,
+    "tester_parity_claimed": false
+  },
+  "blocked_reasons": [],
+  "cited_artifacts": [
+    {
+      "artifact_type": "execution_result",
+      "path": "factory/runs/RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/execution-result.json",
+      "sha256": "03bd89e12cf2b6db78f2edcc87be52210cf1696ada53cb1965b7a69109d9b915"
+    },
+    {
+      "artifact_type": "parsed_wfa_metrics",
+      "path": "factory/runs/RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/worker-results/parsed-wfa-metrics.json",
+      "sha256": "03976e125ef1321cd4df52a96916cedaffde05d5f51e93ecd411a60402f3515a"
+    },
+    {
+      "artifact_type": "research_wfa_preregistration",
+      "path": "factory/candidates/CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/registrations/research-wfa-RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727.json",
+      "sha256": "0319ba301436a272ae63db47c8420bb4f35816de1f16ebda8d45072f979ec5d6"
+    },
+    {
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/hypothesis-packet.json",
+      "sha256": "783075f7e4cc8cb429eeaec962c0490ad5de6e00a800a03876726923a846d1b7",
+      "artifact_type": "hypothesis_packet"
+    },
+    {
+      "artifact_type": "research_source_record",
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/source-record.json",
+      "sha256": "f80809f049094fd6a0d36393df59025bdec2eb5efb05eb15f6598eefb0203dbe"
+    },
+    {
+      "artifact_type": "output_snapshot_file",
+      "path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results/walk_forward_results_20260531_164206.json",
+      "sha256": "220f663ec0dfe03c3396ce45feffbccce2c7f5ec61d006963b7033ce460b97c6"
+    }
+  ],
+  "recorded_at": "2026-05-31T13:37:27.624Z"
+}

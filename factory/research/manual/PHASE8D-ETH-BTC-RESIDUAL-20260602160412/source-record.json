@@ -1,0 +1,78 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-ETH-BTC-RESIDUAL-20260602160412",
+  "source_type": "web_captured_sources_plus_repo_implementation",
+  "trust_tier": "medium_implementation_trust",
+  "url_or_path_or_doi": "https://www.nber.org/papers/w24877 ; https://arxiv.org/abs/1807.05715",
+  "accessed_at": "2026-06-02T16:04:12.349Z",
+  "content_hash_or_unavailable_reason": "2a0f1fbeabc7dea8b9048ec618ccf707722397f7732a1a41999068a8f223161e",
+  "claims_extracted": [
+    "NBER source supports cryptocurrency-specific return structure and predictability, including time-series momentum, but not this exact ETH/BTC residual rule.",
+    "arXiv source supports cryptocurrency market-network mispricing concepts involving Bitcoin and Ethereum, but not this exact single-venue rolling-beta residual rule.",
+    "The repo implementation maps the mechanism to ETH H1 residual mean reversion against BTC context with ETH as the executable leg.",
+    "ETHUSD and BTCUSD appear in FTMO terminal inventory evidence, while Binance-to-MT5 data equivalence is explicitly unverified."
+  ],
+  "limitations": [
+    "The external sources do not prove a profitable ETH/BTC residual WFA rule.",
+    "The arXiv paper is about market-network/cross-market mispricings, not this OHLCV residual strategy.",
+    "The candidate uses Binance proxy data and does not verify FTMO ETHUSD/BTCUSD historical equivalence.",
+    "The strategy trades only an ETH leg in research backtest form, not a hedged two-leg MT5 portfolio."
+  ],
+  "disconfirming_relevance": [
+    "Crypto relative-value dislocations can be arbitraged away quickly or require execution venues unavailable in MT5 CFDs.",
+    "BTC beta residuals may be unstable across regimes, especially during ETH-specific protocol or risk events.",
+    "A single ETH executable leg may retain directional crypto beta despite the BTC residual signal.",
+    "Transaction costs, weekend liquidity, and Binance-to-FTMO basis can erase any apparent edge."
+  ],
+  "artifact": {
+    "path": "factory/research/manual/PHASE8D-ETH-BTC-RESIDUAL-20260602160412/source-excerpt.md",
+    "sha256": "2a0f1fbeabc7dea8b9048ec618ccf707722397f7732a1a41999068a8f223161e",
+    "artifact_type": "research_source_excerpt"
+  },
+  "provider_provenance": {
+    "mode": "manual_phase8d_packet_from_live_webfetch_and_repo_strategy",
+    "live_research": true,
+    "deterministic_capture": true,
+    "source_urls": [
+      "https://www.nber.org/papers/w24877",
+      "https://arxiv.org/abs/1807.05715"
+    ],
+    "strategy_source": {
+      "path": "walk forward engine/src/strategies/eth_btc_residual_phase8d.py",
+      "sha256": "6b385203f6f1570926df8cfb32dc6071a9b3135f93b93d162ddf9fcfea6fcc9e"
+    },
+    "base_strategy_source": {
+      "path": "walk forward engine/src/strategies/btc_residual_reversion.py",
+      "sha256": "5a6862ca49b06ddc6dbd2f75ab5fcdb4e3db26ec7fb743b5cf862574ab20fb6a"
+    },
+    "strategy_config": {
+      "path": "walk forward engine/config/strategy_eth_btc_residual_phase8d.json",
+      "sha256": "e2e05d926121af6948b58eabdaa2fead05132fe650296ed7f16ac49939692da8"
+    },
+    "wfa_config": {
+      "path": "walk forward engine/strategies/eth_btc_residual_phase8d/wfa_config.yaml",
+      "sha256": "004b21211a67068eb7bbc8a14e65c8dfc3cbecbbfc8ef5da4c34f52e067fef40"
+    },
+    "data_input": {
+      "path": "walk forward engine/data/phase8d_eth_btc_residual_1h.csv",
+      "sha256": "f88e7a632ccf1d5383efb79e68e7b4d2613ec8ce21c650d78c8b70aa02f7427d"
+    },
+    "raw_merged_data_input": {
+      "path": "walk forward engine/data/binance_eth_btc_merged_1h.csv",
+      "sha256": "1f04a867a4cafd2b398c4e6e27aa9859770cf38f7d03838a1540266d0e6bb57c"
+    },
+    "prior_related_blocked_plan": {
+      "path": "factory/runs/RUN-20260323205900-x9v92n/experiment-plan.json",
+      "sha256": "43096f0c67279095a45beeae2402f06b76fcfeb135f8b1b2ffb512702d6b436a",
+      "artifact_type": "prior_related_blocked_plan"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

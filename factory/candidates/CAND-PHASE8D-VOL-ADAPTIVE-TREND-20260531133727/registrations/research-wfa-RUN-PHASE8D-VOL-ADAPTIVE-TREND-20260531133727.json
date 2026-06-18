@@ -1,0 +1,82 @@
+{
+  "schema_version": "research_wfa_preregistration_v1",
+  "candidate_id": "CAND-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "registered_at": "2026-05-31T13:37:27.624Z",
+  "registered_before_run_id": "RUN-PHASE8D-VOL-ADAPTIVE-TREND-20260531133727",
+  "hypothesis_packet_ref": {
+    "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/hypothesis-packet.json",
+    "sha256": "783075f7e4cc8cb429eeaec962c0490ad5de6e00a800a03876726923a846d1b7",
+    "artifact_type": "hypothesis_packet"
+  },
+  "source_record_refs": [
+    {
+      "path": "factory/research/manual/PHASE8D-VOL-ADAPTIVE-TREND-20260531133727/source-record.json",
+      "sha256": "f80809f049094fd6a0d36393df59025bdec2eb5efb05eb15f6598eefb0203dbe",
+      "artifact_type": "research_source_record"
+    }
+  ],
+  "mechanism_summary": "Pre-register BTCUSD-equivalent volatility-adaptive Supertrend screening before WFA execution.",
+  "instrument_scope": "BTCUSD-equivalent 1h crypto CFD hypothesis using Binance BTCUSDT proxy research data; FTMO/MT5-listed by terminal universe evidence, research-only until MT5 data equivalence is proven.",
+  "timeframe_candidate": "H1 volatility-adaptive trend following",
+  "strategy_family": "vol_adaptive_trend_btc",
+  "expected_trade_frequency": "Medium frequency; no low-frequency exception is registered and the default 200-trade floor applies.",
+  "data_sources": [
+    "walk forward engine/data/binance_btcusdt_1h_deep.csv",
+    "FTMO terminal universe snapshot lists BTCUSD, but MT5 data equivalence is not assumed."
+  ],
+  "cost_assumptions": "Use only vol_adaptive_trend WFA config costs: fees 0.0006 and slippage 0.0002, no hidden overrides.",
+  "wfa_design": {
+    "original_config_path": "walk forward engine/strategies/vol_adaptive_trend/wfa_config.yaml",
+    "config_path": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/wfa_config.yaml",
+    "window_policy": "Use the canonical 3m training / 1m testing / 1m step WFA scheme encoded in the Phase 8D runtime-feasibility config.",
+    "optimizer_policy": "Use the preregistered 25-trial runtime-feasibility route and count this attempt in the denominator.",
+    "repair_rationale": "Pre-result mechanical runtime-feasibility repair: the canonical VOL_ADAPTIVE_TREND route uses 150 trials on BTC H1, and the immediately prior BTC H1 Phase 8D 150-trial screening route timed out after 1800000ms before accepted WFA outputs. This attempt preserves the hypothesis, strategy source, parameter space, data source, and costs but uses a Phase 8D-specific 25-trial config before any performance result is known.",
+    "performance_result_used_for_repair": false,
+    "config_validation": {
+      "valid": true,
+      "feasibility": {
+        "data_source_file": "data/binance_btcusdt_1h_deep.csv",
+        "first_timestamp": "2021-03-22T09:00:00.000Z",
+        "last_timestamp": "2026-03-21T08:00:00.000Z",
+        "training_months": 3,
+        "testing_months": 1,
+        "purge_gap_bars": 0,
+        "min_required_bars": 600,
+        "first_training_bars": 2203,
+        "first_validation_bars_after_purge": 720
+      },
+      "expected_output_root": "walk forward engine/strategies/vol_adaptive_trend_phase8d_runtime/results"
+    }
+  },
+  "denominator_tracking": {
+    "attempt_is_denominator_member": true,
+    "failed_blocked_repaired_rerun_counted": true,
+    "parameter_or_scope_change_creates_new_attempt": true,
+    "optimizer_trials_recorded": true,
+    "pre_result_runtime_feasibility_repair": true
+  },
+  "frozen_fields": [
+    "mechanism_summary",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "expected_trade_frequency",
+    "data_sources",
+    "cost_assumptions",
+    "wfa_design",
+    "invalidation_criteria"
+  ],
+  "invalidation_criteria": [
+    "Reject as non-survivor if real WFA fails any Phase 8D survivor floor on completed OOS windows, total trades, return proxy, or positive OOS window ratio.",
+    "Reject any deployment or Phase 8E implication unless a separate survivor exists with MT5 instrument equivalence and explicit operator authorization.",
+    "Treat any post-result change to symbol, timeframe, cost, parameter space, data source, or WFA config as a new denominator-tracked attempt."
+  ],
+  "invalid_if_added_after_results": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "wfa_executed": false,
+  "strategy_edge_claimed": false,
+  "content_hash": "82cf55677dcaa10ea48b9d422102e9cb128e980759277b8af6c7aff55a1f26db"
+}

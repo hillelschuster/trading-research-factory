@@ -1,0 +1,61 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_id": "SRC-PHASE8D-OFI-EURUSD-20260601125336",
+  "source_type": "stage0_external_mechanism_plus_repo_implementation",
+  "trust_tier": "medium_implementation_trust",
+  "url_or_path_or_doi": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/source-records/SRC-LIVE-CANARY-001.json",
+  "accessed_at": "2026-06-01T12:53:36.136Z",
+  "content_hash_or_unavailable_reason": "197b227b9b290cc3ce8fd06a5ae4ee2300fa79f6901a4fbd4e53ccb14f90f4d5",
+  "claims_extracted": [
+    "The Stage-0 source record cites a Federal Reserve note stating that order-flow imbalances can amplify price movements in Treasury markets.",
+    "The Stage-0 hypothesis explicitly maps the mechanism to liquid FTMO instruments using M15-H1 tick-volume or signed-volume proxies while marking MT5 equivalence as unverified.",
+    "The new repo implementation uses signed EURUSD M15 tick volume, volume/volatility filters, and bounded time exits; it is not London breakout/sweep, BB squeeze, simple trend, or RSI mean reversion.",
+    "EURUSD appears in the FTMO terminal universe evidence; this screening remains research-only until MT5 data equivalence is separately proven."
+  ],
+  "limitations": [
+    "The external mechanism source is Treasury-market evidence, not direct EURUSD broker evidence.",
+    "MT5 tick volume is a noisy proxy for directional order flow and may not represent real traded volume.",
+    "The current CSV is research data; terminal-derived MT5 equivalence is not assumed.",
+    "This is a one-shot Phase 8D screen and not a parameter-tuning continuation of prior failed candidates."
+  ],
+  "disconfirming_relevance": [
+    "The signed-volume proxy can be dominated by candle construction noise rather than true order flow.",
+    "Spread/slippage can erase any continuation after high-imbalance bars.",
+    "The mechanism may be too short-lived for M15 bars."
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/source-records/SRC-LIVE-CANARY-001.json",
+    "sha256": "197b227b9b290cc3ce8fd06a5ae4ee2300fa79f6901a4fbd4e53ccb14f90f4d5",
+    "artifact_type": "research_source_record"
+  },
+  "provider_provenance": {
+    "mode": "manual_phase8d_packet_from_existing_stage0_source_and_repo_strategy",
+    "live_research": false,
+    "deterministic_capture": true,
+    "stage0_hypothesis_packet": {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "a4412b1b91f24e024eda6aa51a0e9e085693e426864fb5d7bbc846f103c11af5",
+      "artifact_type": "hypothesis_packet"
+    },
+    "strategy_source": {
+      "path": "walk forward engine/src/strategies/order_flow_imbalance_eurusd.py",
+      "sha256": "f0e5877204f6b3cfeb2c91cb14a35268125d4e66b2d121a7eca150f4da74bf1a"
+    },
+    "strategy_config": {
+      "path": "walk forward engine/config/strategy_order_flow_imbalance_eurusd.json",
+      "sha256": "216f22cefdaeffff31725bd6b0f480e4e75f68db7a4f52e031435ced05cc8b28"
+    },
+    "wfa_config": {
+      "path": "walk forward engine/strategies/order_flow_imbalance_eurusd/wfa_config.yaml",
+      "sha256": "510623203f3a44bc7f8291bb8d13bfe387687523fc30aa3663703d7ed0374a5e"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}
