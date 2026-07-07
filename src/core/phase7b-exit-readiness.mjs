@@ -20,15 +20,10 @@ function repoPath(paths, fullPath) {
 
 export function buildPhase7BExitReadinessReport({ rootDir = process.cwd(), generatedAt = new Date().toISOString() } = {}) {
   const paths = buildPaths(rootDir);
-  const dataWorkerPath = path.join(paths.root, "src/workers/binance-usdm-funding-data-readiness-worker.mjs");
   const planCompilerPath = path.join(paths.root, "src/core/wfa-plan-compiler.mjs");
   const verificationPath = path.join(paths.root, "src/core/verification.mjs");
-  const refreshCliPath = path.join(paths.root, "scripts/run-binance-usdm-funding-refresh-request.mjs");
-  const packagePath = path.join(paths.root, "package.json");
-  const dataWorker = readIfExists(dataWorkerPath);
   const planCompiler = readIfExists(planCompilerPath);
   const verification = readIfExists(verificationPath);
-  const packageJson = readIfExists(packagePath);
   const ledgerDbPath = runtimeLedgerPath(paths);
 
   const criteria = [
@@ -37,12 +32,6 @@ export function buildPhase7BExitReadinessReport({ rootDir = process.cwd(), gener
       fs.existsSync(path.join(paths.root, "src/core/runtime-ledger.mjs")) ? "met" : "pending",
       ["src/core/runtime-ledger.mjs", repoPath(paths, ledgerDbPath)].filter((entry) => entry && (entry.endsWith(".mjs") || fs.existsSync(path.join(paths.root, entry)))),
       fs.existsSync(ledgerDbPath) ? [] : ["runtime ledger DB has not been materialized in this repo snapshot"]
-    ),
-    criterion(
-      "binance_usdm_funding_refresh_request",
-      dataWorker.includes("binance_usdm_funding_refresh_request_v1") && fs.existsSync(refreshCliPath) && packageJson.includes("data:binance-funding-refresh") ? "met" : "pending",
-      ["src/workers/binance-usdm-funding-data-readiness-worker.mjs", "scripts/run-binance-usdm-funding-refresh-request.mjs", "package.json"],
-      []
     ),
     criterion(
       "wfa_data_readiness_manifest_consumption",

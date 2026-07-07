@@ -1,8 +1,0 @@
-[
-  "data/binance_btcusdt_1h_1000.csv",
-  "data/binance_ethusdt_1h_1000.csv",
-  "data/binance_solusdt_1h_1000.csv",
-  "results/extended_data_comparison.json",
-  "results/wfa_rsi_btc_1000.json",
-  "results/wfa_spread_sol_btc_1000.json"
-]

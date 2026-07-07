@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-SESSION-BREAKOUT-001",
+  "url": "https://www.mql5.com/en/articles/19944",
+  "title": "Price Action Analysis Toolkit Development (Part 47): Tracking Forex Sessions and Breakouts in MetaTrader 5 - MQL5 Articles",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T13:27:51.389Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:28:51.465Z",
+      "completed_at": "2026-07-03T13:28:51.702Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "1056a9cacaf0b9650642cffb8916c4ddc34909e68d433715acc77a427c90cedd"
+}

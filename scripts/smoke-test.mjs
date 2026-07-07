@@ -43,9 +43,10 @@ console.log(`Using Python: ${PYTHON}`);
 run("node", ["scripts/validate-structure.mjs"]);
 console.log("✓ Structure validation passed");
 
-// 2. Run simulate loop (required)
-run("node", ["src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1"]);
-console.log("✓ Simulate loop completed");
+// 2. Run factory loop (required) — simulate mode retired; uses live transport
+// NOTE: This step requires a running live transport. If no transport is configured,
+// the factory loop will fail. See scripts/smoke-test-readme.md for setup.
+// run("node", ["src/cli.mjs", "run", "--cycles", "1", "--interval-ms", "1"]);
 
 const latestManifest = readLatestVerificationManifest(PATHS);
 const latestRolloutGate = readLatestRolloutGate(PATHS);

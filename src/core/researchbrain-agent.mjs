@@ -4,6 +4,19 @@ import path from "node:path";
 import { createResearchBrainToolRuntime, RESEARCHBRAIN_ALLOWED_TOOLS } from "./researchbrain-tools.mjs";
 import { sanitizeRetryErrorMessage } from "./retry-policy.mjs";
 
+// Tool categories for synthesis-phase gating (live provider only)
+const NEW_SEARCH_TOOLS = new Set([
+  "search_web", "search_official_docs", "search_mql5_sources",
+  "search_broker_docs", "search_youtube", "search_arxiv",
+  "search_github_code", "search_reddit", "search_semantic_scholar"
+]);
+
+const CORE_RECORD_AND_MEMORY_TOOLS = new Set([
+  "search_research_memory", "check_duplicate_memory",
+  "check_failed_pattern_similarity",
+  "record_hypothesis", "record_rejection"
+]);
+
 function sha256File(fullPath) {
   return crypto.createHash("sha256").update(fs.readFileSync(fullPath)).digest("hex");
 }
@@ -111,6 +124,7 @@ export function createScriptedResearchBrainAgentProvider({
       const toolRuntime = createResearchBrainToolRuntime({
         rootDir,
         runRepoDir,
+        runId,
         request: context.request,
         observedAt,
         requireDiscoveryBeforeCapture,
@@ -224,8 +238,8 @@ export function createLiveResearchBrainAgentProvider({
   llmProvider = "unspecified",
   llmModel = "unspecified",
   allowedTools = RESEARCHBRAIN_ALLOWED_TOOLS,
-  maxLlmCalls = 4,
-  maxToolCalls = 20,
+  maxLlmCalls = 12,
+  maxToolCalls = 50,
   maxCostUsd = 0.25,
   maxTranscriptBytes = 250_000,
   requireDiscoveryBeforeCapture = true,
@@ -283,6 +297,7 @@ export function createLiveResearchBrainAgentProvider({
       const toolRuntime = createResearchBrainToolRuntime({
         rootDir,
         runRepoDir,
+        runId,
         request: context.request,
         observedAt,
         requireDiscoveryBeforeCapture,
@@ -304,10 +319,25 @@ export function createLiveResearchBrainAgentProvider({
           const projectedCost = estimateCostUsd(toolCalls.length + llmCall);
           if (projectedCost > maxCostUsd) throw new Error(`ResearchBrain live LLM cost budget exceeded: ${projectedCost} > ${maxCostUsd}`);
           const adapterAwareTools = toolRuntime.getAllowedToolNames().filter((toolName) => allowed.has(toolName));
-          const memoryComplete = Object.values(toolRuntime.state.memoryChecks).every((checked) => checked === true);
-          const allowedForTurn = memoryComplete && toolRuntime.state.sourceCaptures.length > 0
-            ? adapterAwareTools.filter((toolName) => toolName === "record_hypothesis")
-            : adapterAwareTools;
+
+          // Synthesis-phase tool gating — hard restrictions on tool availability
+          // to prevent endless scouting when budget runs low.
+          // Check 80% BEFORE 60% to fix the previously dead 80% branch.
+          const budgetPctInt = Math.round((toolCalls.length / maxToolCalls) * 100);
+          const hasZeroHypotheses = toolRuntime.state.hypotheses.length === 0;
+          const isFinalTurn = llmCall === maxLlmCalls;
+
+          let allowedForTurn;
+          if (budgetPctInt >= 80 || isFinalTurn) {
+            // 80%+ or final LLM turn: only memory prerequisites and record tools
+            allowedForTurn = adapterAwareTools.filter((toolName) => CORE_RECORD_AND_MEMORY_TOOLS.has(toolName));
+          } else if (budgetPctInt >= 60 && hasZeroHypotheses && adapterAwareTools.some((t) => NEW_SEARCH_TOOLS.has(t))) {
+            // ~60% with zero hypotheses: remove new search tools to force synthesis.
+            // Only triggers when at least one search tool exists in the current set.
+            allowedForTurn = adapterAwareTools.filter((toolName) => !NEW_SEARCH_TOOLS.has(toolName));
+          } else {
+            allowedForTurn = adapterAwareTools;
+          }
 
           const llmStartedAt = new Date().toISOString();
           const response = await llmClient.generate({
@@ -333,6 +363,7 @@ export function createLiveResearchBrainAgentProvider({
             const toolName = requested.tool;
             if (toolCalls.length >= maxToolCalls) throw new Error(`ResearchBrain tool call budget exceeded: ${maxToolCalls}`);
             if (!allowed.has(toolName)) throw new Error(`ResearchBrain live agent requested unallowed tool: ${toolName}`);
+            if (!allowedForTurn.includes(toolName)) throw new Error(`ResearchBrain synthesis-phase gating denied tool: ${toolName}`);
             if (!toolRuntime.isAllowedToolName(toolName)) throw new Error(`ResearchBrain tool is not in v1 catalog: ${toolName}`);
             const startedAt = new Date().toISOString();
             transcript.push({ role: "assistant", ts: startedAt, tool_call: { index: toolCalls.length + 1, tool: toolName, input: requested.input ?? {} } });
@@ -357,10 +388,10 @@ export function createLiveResearchBrainAgentProvider({
               const endedAt = new Date().toISOString();
               toolCalls.push({ index: toolCalls.length + 1, tool: toolName, status: "error", started_at: startedAt, ended_at: endedAt, input: requested.input ?? {}, reason, retry_attempts: error?.rf_retry_attempts ?? [] });
               transcript.push({ role: "tool", ts: endedAt, tool: toolName, error: reason });
-              // External source/tool errors (from adapter retries) are non-terminal:
-              // sanitize, record, and continue loop so LLM can retry or adjust.
-              // Internal validation/schema errors (no rf_retry_attempts) remain fatal.
-              if (!error?.rf_retry_attempts) throw error;
+              // Tool errors are non-terminal: return the error to the LLM so it can retry or adjust.
+              // This covers both adapter retry failures (rf_retry_attempts set) and argument
+              // validation errors (no rf_retry_attempts) — neither should kill the run.
+              // Truly fatal conditions (budget exceeded, unallowed tool) throw before this block.
             }
           }
 
@@ -377,7 +408,16 @@ export function createLiveResearchBrainAgentProvider({
             return output;
           }
           if (requestedToolCalls.length === 0) throw new Error("ResearchBrain live LLM response included no tool calls and no final=true stop signal");
-          transcript.push({ role: "system", ts: llmStartedAt, content: `Completed live LLM turn ${llmCall} at ${llmEndedAt}; deterministic tool results appended.` });
+          const toolCallsUsed = toolCalls.length;
+          const toolCallsRemaining = maxToolCalls - toolCallsUsed;
+          const budgetPct = Math.round((toolCallsUsed / maxToolCalls) * 100);
+          let budgetNudge = "";
+          if (budgetPct >= 80 && toolRuntime.state.hypotheses.length === 0) {
+            budgetNudge = ` CRITICAL: ${budgetPct}% budget used, 0 hypotheses. Record a hypothesis from your best source immediately or call record_rejection if nothing viable found.`;
+          } else if (budgetPct >= 60 && toolRuntime.state.hypotheses.length === 0) {
+            budgetNudge = ` BUDGET ALERT: ${budgetPct}% of tool budget used (${toolCallsUsed}/${maxToolCalls}), ${toolCallsRemaining} calls remaining, 0 hypotheses recorded. You MUST advance to synthesis NOW. Stop searching. Form a hypothesis from what you have captured and call record_hypothesis.`;
+          }
+          transcript.push({ role: "system", ts: llmStartedAt, content: `Completed live LLM turn ${llmCall} at ${llmEndedAt}; deterministic tool results appended. Tool budget: ${toolCallsUsed}/${maxToolCalls} (${budgetPct}%).${budgetNudge}` });
         }
         throw new Error(`ResearchBrain live LLM call budget exceeded: ${maxLlmCalls}`);
       } catch (error) {

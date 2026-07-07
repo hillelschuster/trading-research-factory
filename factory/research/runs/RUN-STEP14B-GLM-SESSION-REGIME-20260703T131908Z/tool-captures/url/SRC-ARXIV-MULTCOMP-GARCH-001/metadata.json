@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-ARXIV-MULTCOMP-GARCH-001",
+  "url": "http://arxiv.org/abs/2111.02376v1",
+  "title": "Multiplicative Component GARCH Model of Intraday Volatility",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:19:08.520Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:20:16.826Z",
+      "completed_at": "2026-07-03T13:20:17.108Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b"
+}

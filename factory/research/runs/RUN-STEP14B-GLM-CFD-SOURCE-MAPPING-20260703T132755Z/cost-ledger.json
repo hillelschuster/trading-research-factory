@@ -1,0 +1,383 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-07-03T13:31:40.406Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "glm-5.2",
+  "live_llm": true,
+  "estimated_cost_usd": 0.00006,
+  "max_cost_usd": 1,
+  "events": [
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_broker_docs",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000002
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000003
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_mql5_sources",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000004
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000005
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000006
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000007
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000008
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000009
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_reddit",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00001
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_github_code",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000011
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000012
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000013
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000014
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000015
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_broker_docs",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000016
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_mql5_sources",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000017
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000018
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000019
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00002
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000021
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000022
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000023
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000024
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000025
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000026
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000027
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000028
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_broker_docs",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000029
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00003
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000031
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000032
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000033
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000034
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000035
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_reddit",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000036
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000037
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_reddit",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000038
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_github_code",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000039
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_arxiv",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00004
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000041
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000042
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000043
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000044
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000045
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_mql5_sources",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000046
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_arxiv",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000047
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000048
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000049
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00005
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000051
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000052
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_broker_docs",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000053
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000054
+    },
+    {
+      "event": "llm_call",
+      "llm_provider": "openai_compatible",
+      "llm_model": "glm-5.2",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000055
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000056
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000057
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000058
+    },
+    {
+      "event": "tool_call",
+      "tool": "capture_url_source",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.000059
+    },
+    {
+      "event": "tool_call",
+      "tool": "search_web",
+      "estimated_cost_usd": 0.000001,
+      "cumulative_estimated_cost_usd": 0.00006
+    }
+  ],
+  "failure": "ResearchBrain tool call budget exceeded: 50"
+}

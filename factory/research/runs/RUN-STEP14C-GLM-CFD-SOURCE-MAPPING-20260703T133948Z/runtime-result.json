@@ -1,0 +1,351 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z",
+  "generated_at": "2026-07-03T13:39:49.144Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z/request.json",
+    "sha256": "9de3fd5a08a25b5d9f5b8a5a3d9ef8bffc2c41978d31db8aef676185d65f971e"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 1,
+    "timeout_ms": 300000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-07-03T13:39:49.203Z",
+      "completed_at": "2026-07-03T13:43:25.569Z",
+      "reason": "ResearchBrain tool call budget exceeded: 50",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/quarantine/attempt-001.json",
+        "sha256": "fcf92a82176a619b30601cce47525cdd7139dea5887bb5bee0b393e86f12c534"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T13:39:49.203Z",
+          "completed_at": "2026-07-03T13:43:25.531Z",
+          "error_class": "Error",
+          "error_message": "ResearchBrain tool call budget exceeded: 50",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/quarantine/attempt-001.json",
+      "sha256": "fcf92a82176a619b30601cce47525cdd7139dea5887bb5bee0b393e86f12c534"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/agent-transcript.jsonl",
+      "sha256": "7f848298f33ef352d23954c437bf070e24930de0c3d310492e297000b043e4d7"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-ledger.json",
+      "sha256": "7d34d2bc1d527cd276821a4b1ceb825c72ac8b6541e4ada6eb7aee79e7a020f7"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/cost-ledger.json",
+      "sha256": "3032afe4532bb82f63d6e51c506b2082e9f62f879079717609205a05b4d2e367"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/working-notes.md",
+      "sha256": "357f3e8fa2c020968f18700eea58b7b27243f47030295870f0a1d7ac6132fae5"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+      "sha256": "3e15bfa32bec3ef8b94fa7d43c2564efecc88dfaf3f9e43cc41e0f02c05050a6",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "2c8e35f79d2c1671a4f76e4982066124a899a43adb433eba8ff32593a89aaae5",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+      "sha256": "952479cf0eb65a7e48b97f462f6ad70016f8fcfbfe45ecb403fb4cc0a0c8a497",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/metadata.json",
+      "sha256": "0573612a3be797bef79b1a0377ef5da6c1669af13c0d25879dfa96fcfff4df74",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/content.md",
+      "sha256": "03f9e86860c81e0309affd307a04be8737a09337f894480303acd0ebdfb7e9a8",
+      "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/metadata.json",
+      "sha256": "9c5b38730d6663d9067461c6241d9ab974f13bc28d139dd9e37f364ae2a6d463",
+      "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+      "sha256": "9f588f976b8762f326ac0c2acd37ab65859aa54b2109937a7353edf8b2de6f5a",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/metadata.json",
+      "sha256": "2d185eade322ed270e655601e5ce46399591caf51636019a332b52a9fe639a81",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/content.md",
+      "sha256": "103e7d749828e973cda1585ebf1b91f08a809ddfb4bd8d90f9700a3ea5262ea9",
+      "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/metadata.json",
+      "sha256": "230479393353ccda7f3197a383aca8916194103c5ec7812067f8de67b11e67a4",
+      "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/content.md",
+      "sha256": "c4a9204456f87cb6c9048f853c58f9d692f23dd49fba1cf25d07a6d53e802629",
+      "source_id": "SRC-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/metadata.json",
+      "sha256": "71407eb88dd2152aa9edc7fff61213472fba33ce139cbeb195d3c5d65642c458",
+      "source_id": "SRC-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/content.md",
+      "sha256": "f2e8607c81e82fbc4e0ed517360ee131bca5c9ba91c69189513ecb45caa4de4a",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/metadata.json",
+      "sha256": "91d52cdd880e8cb78e37ae8178cb56ea2f7b35360ade31fd66c93205846cf168",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/content.md",
+      "sha256": "2ab94b66b669bf9fb3110db76a112560b11f593dc864b424885f5799130954aa",
+      "source_id": "SRC-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/metadata.json",
+      "sha256": "db3b0e6b42533ceee4e1fdac559eece442e759195307468f66e2ea91d7a0c929",
+      "source_id": "SRC-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/content.md",
+      "sha256": "878d1dbfcdf997048e6e3298768753e0897bae045d12e1c7aa1169167345d4f3",
+      "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/metadata.json",
+      "sha256": "1fc4ba3c75fed1080563c9aa0354e9f4fc785e4a3b54cae57c8555966cb49dff",
+      "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/content.md",
+      "sha256": "d4e5ae7d8794b2ae62d3335b66298a19c38dd4bd6109863088c6a18a6643238e",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/metadata.json",
+      "sha256": "ee38378fed7205a5d3d0c473781978b3e2d5fbe4acea21973f99ad080fb4d9e8",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/content.md",
+      "sha256": "be28b89b691384834785162b2d0fa70c4b2a29c6e85ac6810ea5966fd236f61a",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+      "sha256": "2ddd670bf8190fb235353598ed4df6ab8fe937d428c24468467ead2954a8cd8f",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/content.md",
+      "sha256": "5305679ffd3e1e25b23283b8260b0d7d32a5d29d271b6df9ed2aa99d96afb4f3",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/metadata.json",
+      "sha256": "fe0934f4084e5679467ece322c50b5974284cbaf4df5b69311e5f37e1dc4bc0a",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/content.md",
+      "sha256": "2f061a0668b4048da6273e2ae03f907173bc8b720198b44ae3f1132a36430c5d",
+      "source_id": "SRC-FTMO-OANDA-HOURS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/metadata.json",
+      "sha256": "1fd9fb1831c01dd31c242ad00dfb8f7b81c6e4f61427ade3be63f295c5c4cb6b",
+      "source_id": "SRC-FTMO-OANDA-HOURS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/content.md",
+      "sha256": "169ee917f1b69cec99f592f780c16383eb1ccc8269f2c94b5f70ff8be69a6b57",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/metadata.json",
+      "sha256": "9b28c45510bd1222e8a091f315673100b0a4352ff3c341e7bf358f0dd29f3704",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/content.md",
+      "sha256": "8670c3366387433e60b4a97d05d3778d509e69276bb0b0216c9459d44ab0d4c0",
+      "source_id": "SRC-BROKER-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "6267c494be63e190068bfaab0c3ec8bcd3208e03d63dfe61360a5f6e8aed512a",
+      "source_id": "SRC-BROKER-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/content.md",
+      "sha256": "2ba53a667d26a691885ffbcf436bf9c1663ff93bda835eaaf328d542465f7db7",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/metadata.json",
+      "sha256": "e0dcff0f0928ed6538e416b8b5d511128627f8a3ea984e2d8b93f88aa6678a07",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/content.md",
+      "sha256": "40cb98c65be794d8e95edcf31c3b3e3f0839c3ed01bfa57fec608973dfee70bb",
+      "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+      "sha256": "beff2d27f587df88a4f6af445cb01815168a710a2b7fb12e213f3520031beb7f",
+      "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/content.md",
+      "sha256": "da208ee986bf70e0b686c70ace7758f3ab8989db572650fa6bb843e26e203d9f",
+      "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/metadata.json",
+      "sha256": "10bfef8413945c438eab357d5aa3b93dcaafcb7805b42c1d5edd3bef9b27c521",
+      "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/content.md",
+      "sha256": "1058d01100014f1233d3ecd132a37cede0b28c466336d30bb2fd6007dfb05557",
+      "source_id": "SRC-FTMO-ACCT-SPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/metadata.json",
+      "sha256": "52d878d9f2338f7aad2337029bbd6b949477d2f2fc9d9e82ccce790b3a31f7ca",
+      "source_id": "SRC-FTMO-ACCT-SPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/content.md",
+      "sha256": "fdd40a21c4d01016084920ca11bf28549a6cd3e3718555d02e385bb6c43a2332",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/metadata.json",
+      "sha256": "f80567887838782df20260f7f0aba50cbf7fa3c3b0888b1f614d76929f427bbb",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/content.md",
+      "sha256": "895bc1c7724f512ef54d1daed8e2ac398b86fec759efea423a80c2e0b5e3fafa",
+      "source_id": "SRC-FTMO-OANDA-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/metadata.json",
+      "sha256": "51455182b0a6048bc7810b3b662563d16a8889b8f8323164fcee6ae6fdba0751",
+      "source_id": "SRC-FTMO-OANDA-HOURS-001"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

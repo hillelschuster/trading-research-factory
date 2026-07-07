@@ -1,1 +1,0 @@
-{"job_id":"JOB-MT5-BRIDGE-SMOKE-VALIDATION-20260430","manual_copy_required":false,"network_calls_required":false,"note":"Control-plane fixture for tester-compatible FILE_COMMON message validation.","run_id":"RUN-MT5-BRIDGE-SMOKE-VALIDATION-20260430","sequence":1,"smoke_type":"file_common_protocol"}

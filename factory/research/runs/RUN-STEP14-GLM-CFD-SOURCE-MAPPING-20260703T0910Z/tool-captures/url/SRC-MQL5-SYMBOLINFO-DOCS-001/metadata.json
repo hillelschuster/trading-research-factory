@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-SYMBOLINFO-DOCS-001",
+  "url": "https://www.mql5.com/en/docs/constants/environment_state/marketinfoconstants",
+  "title": "Symbol Properties - Environment State - Constants, Enumerations and Structures - MQL5 Reference",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T09:23:14.412Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T09:25:40.745Z",
+      "completed_at": "2026-07-03T09:25:40.891Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "3e803934a289e7d332c8edcb3b60671d4b93d0d16db8bb14f294078ca8984587"
+}

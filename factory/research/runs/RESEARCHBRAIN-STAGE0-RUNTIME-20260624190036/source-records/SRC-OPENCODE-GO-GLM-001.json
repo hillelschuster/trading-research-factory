@@ -1,0 +1,62 @@
+{
+  "schema_version": "research_source_record_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "source_id": "SRC-OPENCODE-GO-GLM-001",
+  "source_type": "web_captured_source",
+  "trust_tier": "low_signal_trust",
+  "url_or_path_or_doi": "https://www.federalreserve.gov/econres/notes/feds-notes/order-flow-imbalances-and-amplification-of-price-movements-evidence-from-u-s-treasury-markets-20251103.html",
+  "accessed_at": "2026-06-24T19:00:36.168Z",
+  "content_hash_or_unavailable_reason": "e4416bb250986e3c02374b9fa3f03aa3a6eec563bceb6a4b72030113bb83eef8",
+  "claims_extracted": [
+    "Order flow imbalance amplifies price movements in Treasury markets",
+    "Necessary to look beyond daily volumes and examine high-frequency intraday measures of liquidity demand and supply along with order flow imbalance",
+    "Intraday OFI disentangles effects that daily aggregates obscure",
+    "Session-level liquidity demand and supply interaction drives amplification of directional price moves"
+  ],
+  "limitations": [
+    "Source examines U.S. Treasury markets specifically, not FX or index instruments directly",
+    "No direct FTMO/MT5 or MQL5 validation provided",
+    "High-frequency intraday data used may not map directly to M15-H1 bar structure without further assumptions"
+  ],
+  "disconfirming_relevance": [
+    "Treasury-specific results may not generalize to FX majors or metals on FTMO/MT5",
+    "Government bond microstructure differs from retail CFD price formation on MT5",
+    "OFI construction requires trade-level or order-book data not natively available in MT5 OHLC bars"
+  ],
+  "artifact": {
+    "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/sources/SRC-OPENCODE-GO-GLM-001.md",
+    "sha256": "e4416bb250986e3c02374b9fa3f03aa3a6eec563bceb6a4b72030113bb83eef8"
+  },
+  "source_fetch": {
+    "mode": "repo_local_file_capture",
+    "artifact": {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/tool-captures/url/SRC-OPENCODE-GO-GLM-001/content.md",
+      "sha256": "e4416bb250986e3c02374b9fa3f03aa3a6eec563bceb6a4b72030113bb83eef8"
+    },
+    "live_fetch": false
+  },
+  "request_id": "RESEARCHBRAIN-REQUEST-OPENCODE-GO-GLM-20260624",
+  "provider_provenance": {
+    "tool": "capture_url_source",
+    "source_class": "web",
+    "live_research": true,
+    "deterministic_capture": true,
+    "adapter": {
+      "provider": "brave_search_api_capture",
+      "live_fetch": true,
+      "provider_native_search_enabled": false,
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "succeeded",
+          "started_at": "2026-06-24T19:00:56.198Z",
+          "completed_at": "2026-06-24T19:00:56.567Z",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "succeeded"
+        }
+      ]
+    }
+  }
+}

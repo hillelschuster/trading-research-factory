@@ -25,7 +25,7 @@ Return only JSON in `<RF_JSON>...</RF_JSON>`:
   "hypothesis": "What we expect to find and why",
   "strategy_rationale": "Why this approach was chosen over alternatives, and how it avoids repeating prior failures",
   "strategy_type": "momentum|mean_reversion|volatility|regime|multi_timeframe|cross_asset",
-  "market_family": "crypto|prediction_markets|forex|other",
+  "market_family": "crypto|forex|indices|metals|commodities|equities|other",
   "instrument_scope": "Exact instrument or explicit scope rule",
   "instrument_selection_rule": "Optional explicit selection rule when not naming one instrument",
   "timeframe": "Chosen execution timeframe",
@@ -39,7 +39,7 @@ Return only JSON in `<RF_JSON>...</RF_JSON>`:
   },
   "source_plan": {
     "allowed_source_families": [
-      "binance|public_archive|polymarket_public|dukascopy|other"
+      "binance|public_archive|dukascopy|ftmo_mt5_terminal|public_ohlcv_archive|other"
     ],
     "primary_source_family": "One source family chosen for this run",
     "selection_reason": "Why this source family is the right default now"
@@ -56,7 +56,7 @@ Return only JSON in `<RF_JSON>...</RF_JSON>`:
       "Exact commands to fetch/download the dataset"
     ],
     "expected_outputs": [
-      "workspace/data/<dataset>.csv"
+      "factory/data/<dataset>.csv"
     ]
   },
   "inputs": [

@@ -1,7 +1,0 @@
-{"ts":"2026-03-24T16:07:50.048Z","run_id":"RUN-20260324160748-q0qamf","message":"Starting run","extra":{"iteration":46,"backlog_item_id":"IDEA-567781-gmg","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260324160748-q0qamf"}}
-{"ts":"2026-03-24T21:14:02.118Z","run_id":"RUN-20260324160748-q0qamf","message":"Resuming run","extra":{"iteration":46,"backlog_item_id":"IDEA-567781-gmg","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260324160748-q0qamf"}}
-{"ts":"2026-03-24T21:14:03.962Z","run_id":"RUN-20260324160748-q0qamf","message":"Planner completed","extra":{"experiment_id":"EXP-20260324211403-01"}}
-{"ts":"2026-03-24T21:14:06.837Z","run_id":"RUN-20260324160748-q0qamf","message":"Executor completed","extra":{"status":"partial"}}
-{"ts":"2026-03-24T21:14:08.231Z","run_id":"RUN-20260324160748-q0qamf","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
-{"ts":"2026-03-24T21:14:10.138Z","run_id":"RUN-20260324160748-q0qamf","message":"Summarizer completed","extra":{"run_id":"RUN-20260324160748-q0qamf","verdict":"inconclusive"}}
-{"ts":"2026-03-24T21:14:10.186Z","run_id":"RUN-20260324160748-q0qamf","message":"Run completed","extra":{"run_id":"RUN-20260324160748-q0qamf","verdict":"inconclusive","iteration":46}}

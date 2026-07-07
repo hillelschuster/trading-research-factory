@@ -1,0 +1,3828 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-07-03T13:43:25.357Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "glm-5.2",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "search_official_docs",
+    "search_mql5_sources",
+    "search_broker_docs",
+    "search_youtube",
+    "search_arxiv",
+    "search_github_code",
+    "search_reddit",
+    "capture_url_source",
+    "capture_github_artifact",
+    "inspect_youtube_video",
+    "read_repo_artifact",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_rejection",
+    "record_hypothesis",
+    "write_wiki_page",
+    "search_wiki"
+  ],
+  "tool_calls": [
+    {
+      "index": 1,
+      "tool": "search_broker_docs",
+      "status": "ok",
+      "started_at": "2026-07-03T13:39:53.982Z",
+      "ended_at": "2026-07-03T13:39:55.094Z",
+      "input": {
+        "query": "FTMO MT5 contract specifications CFD symbols session hours"
+      },
+      "output": {
+        "query": "FTMO MT5 contract specifications CFD symbols session hours",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_broker_docs",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:39:53.982Z",
+            "completed_at": "2026-07-03T13:39:55.093Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "broker-1",
+            "url": "https://ftmo.com/en/trading-updates/",
+            "title": "Trading updates | FTMO.com",
+            "snippet": "Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c will <strong>close early at 20:00</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-2",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-20-mar-2025/",
+            "title": "Trading Update | 20 Mar 2025 | FTMO.com",
+            "snippet": "COTTON.c is a spot CFD symbol designed to track the spot price of cotton, and SUGAR.c is a spot CFD symbol designed to track the spot price of sugar. Both symbols have a contract size of 1 and no commission. The default trade hours are unique for both symbols; you can display it on the platform itself or on the Symbols page.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-3",
+            "url": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+            "title": "What are the account specifications? | FTMO.com",
+            "snippet": "The account specification can be seen directly in the trading platform. To view the instrument specification in MetaTrader, open your Market Watch (Ctrl+M), right-click on the concerned instrument, and choose ‘specification’. Please familiarise yourself with the offer and conditions of each instrument you trade.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-4",
+            "url": "https://ftmo.com/en/symbols/",
+            "title": "Symbols | FTMO.com",
+            "snippet": "All information provided on this site is intended solely for educational purposes related to trading on financial markets and does not serve in any way as a specific investment recommendation, business recommendation, investment opportunity analysis or similar general recommendation regarding ...",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-5",
+            "url": "https://ftmo.com/au/trading-updates/trading-update-20-mar-2025/",
+            "title": "Trading Update | 20 Mar 2025 - FTMO Australia",
+            "snippet": "COTTON.c is a spot CFD symbol designed to track the spot price of cotton, and SUGAR.c is a spot CFD symbol designed to track the spot price of sugar. Both symbols have a contract size of 1 and no commission. The default trade hours are unique for both symbols; you can display it on the platform itself or on the Symbols page.",
+            "source_class": "broker",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:39:55.094Z",
+      "ended_at": "2026-07-03T13:39:57.974Z",
+      "input": {
+        "query": "FTMO MT5 CFD instrument contract specifications trading hours session calendar"
+      },
+      "output": {
+        "query": "FTMO MT5 CFD instrument contract specifications trading hours session calendar",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "retry_scheduled",
+            "started_at": "2026-07-03T13:39:55.094Z",
+            "completed_at": "2026-07-03T13:39:55.337Z",
+            "error_class": "Error",
+            "error_message": "Brave source search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"dfe5e5b9-79c4-4f98-8159-6caf88cc857b\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":112,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1783085994}",
+            "failure_class": "transient_retryable_failure",
+            "retryable": true,
+            "backoff_ms": 2000,
+            "final_terminal_state": "retry_pending"
+          },
+          {
+            "attempt_number": 2,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:39:57.342Z",
+            "completed_at": "2026-07-03T13:39:57.973Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://ftmo.com/en/trading-updates/",
+            "title": "Trading updates | FTMO.com",
+            "snippet": "Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c will <strong>close early at 20:00</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+            "title": "FAQ: What are the trading hours, and where can I check them? | FTMO x OANDA",
+            "snippet": "Standard market hours are visible in the trading platforms and on our Simulated Assets page. However, trading hours are routinely subject to changes based on major holidays or other events. All changes to standard market hours are announced in the Trading Updates section, so we highly recommend ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+            "title": "Forex Trading Hours and Sessions | FTMO Academy",
+            "snippet": "European indices such as DAX or Stoxx open at 1 AM and trade until 10 PM London time. US indices such as SP500, Nasdaq or Dow Jones trade <strong>23 hours a day with a break between 10 PM and 11 PM</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://ftmo.com/en/trading-updates/trading-update-3-jul-2025/",
+            "title": "Trading Update | 3 Jul 2025 | FTMO",
+            "snippet": "<strong>Equities I CFD (US Stocks) and Agriculture commodities will be closed for the whole day</strong>. ... COTTON.c symbol will have a late open at 15:00. Please be advised that all JP225.cash positions must be closed after the respective market closure on Friday, 4 Jul 2025.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://ftmo.com/en/symbols/",
+            "title": "Symbols | FTMO.com",
+            "snippet": "All information provided on this site is intended solely for educational purposes related to trading on financial markets and does not serve in any way as a specific investment recommendation, business recommendation, investment opportunity analysis or similar general recommendation regarding ...",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "tool": "search_mql5_sources",
+      "status": "ok",
+      "started_at": "2026-07-03T13:39:57.974Z",
+      "ended_at": "2026-07-03T13:40:01.264Z",
+      "input": {
+        "query": "MT5 symbol contract specification session calendar CFD mapping"
+      },
+      "output": {
+        "query": "MT5 symbol contract specification session calendar CFD mapping",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "retry_scheduled",
+            "started_at": "2026-07-03T13:39:57.975Z",
+            "completed_at": "2026-07-03T13:39:58.219Z",
+            "error_class": "Error",
+            "error_message": "search_mql5_sources search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"d29ffd76-7d26-486e-b785-dd53188204e8\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":113,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1783085996}",
+            "failure_class": "transient_retryable_failure",
+            "retryable": true,
+            "backoff_ms": 2000,
+            "final_terminal_state": "retry_pending"
+          },
+          {
+            "attempt_number": 2,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:40:00.224Z",
+            "completed_at": "2026-07-03T13:40:01.264Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "mql5-1",
+            "url": "https://www.mql5.com/en/articles/3540",
+            "title": "Creating and testing custom symbols in MetaTrader 5 - MQL5 Articles",
+            "snippet": "<strong>After clicking &quot;Create Custom Symbol&quot;, set its name and change the required parameters in the contract specification if necessary</strong>.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-2",
+            "url": "https://www.mql5.com/en/docs/constants/environment_state/marketinfoconstants",
+            "title": "Symbol Properties - Environment State - Constants, Enumerations and Structures - MQL5 Reference",
+            "snippet": "To obtain the current market information there are several functions: <strong>SymbolInfoInteger() , SymbolInfoDouble() and SymbolInfoString()</strong> . The first...",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-3",
+            "url": "https://www.mql5.com/en/forum/330098",
+            "title": "Contract Specification definitions explaned - Margin Calculate - Trading stocks, futures, options and other exchange instruments - MQL5 programming forum",
+            "snippet": "For Axitrader when you open a trade, the Symbol &quot;name&quot; is NASDAQ 100 E-mini Futures derived CFD. (But looking at the Contract specification above, it says CFD, not Futures).",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-4",
+            "url": "https://www.mql5.com/en/forum/367885",
+            "title": "Getting Contract Specification Session Start / End times using MQL - ROC (Rate of Change) - Expert Advisors and Automated Trading - MQL5 programming forum",
+            "snippet": "Hi, Is it possible to get Contract Specification Session Start / End times ( as shown in the enclosed screenshot ) using MQL. Regards Vivek",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-5",
+            "url": "https://www.mql5.com/en/forum/491052",
+            "title": "Trading E-mini Nasdaq-100 - Futures Trading - Trading stocks, futures, options and other exchange instruments - MQL5 programming forum",
+            "snippet": "You need an MT5 futures broker (and usually a separate futures server + CME data enabled) – otherwise there’s nothing to show. If your broker does support CME, <strong>open Symbols (Ctrl+U) and search for MNQ</strong>. Contracts are named by month code + ...",
+            "source_class": "mql5",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:01.264Z",
+      "ended_at": "2026-07-03T13:40:03.871Z",
+      "input": {
+        "query": "MT5 symbol contract specification session hours CFD mapping"
+      },
+      "output": {
+        "query": "MT5 symbol contract specification session hours CFD mapping",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:40:01.265Z",
+            "completed_at": "2026-07-03T13:40:03.871Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/hillelschuster/trading-research-factory/blob/24247b81728c29ceba5a1dbd46481d5e8e78a014/factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z-20C3BB2CA0243332F9522E85/agent-transcript.jsonl",
+            "repo_url": "https://github.com/hillelschuster/trading-research-factory",
+            "title": "hillelschuster/trading-research-factory/factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z-20C3BB2CA0243332F9522E85/agent-transcript.jsonl",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/robpitman1982-ux/python-master-strategy-creator/blob/f34977c60354d1e1d09ba42477ebfcbdcbf0ed4b/archive/sessions/SESSION_HANDOVER_55.md",
+            "repo_url": "https://github.com/robpitman1982-ux/python-master-strategy-creator",
+            "title": "robpitman1982-ux/python-master-strategy-creator/archive/sessions/SESSION_HANDOVER_55.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/sandman9988/Kinetra/blob/dc85363c8a0b546a71adfb2595a4236f1ba73076/archive/dead_code_2026-03-04/mt5_legacy/mt5_spec_extractor.py",
+            "repo_url": "https://github.com/sandman9988/Kinetra",
+            "title": "sandman9988/Kinetra/archive/dead_code_2026-03-04/mt5_legacy/mt5_spec_extractor.py",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/Algoway/algoway-docs/blob/e3217faed2b009fd516b116597392a424568fd24/migration/sources/mt5-common-errors-source.html",
+            "repo_url": "https://github.com/Algoway/algoway-docs",
+            "title": "Algoway/algoway-docs/migration/sources/mt5-common-errors-source.html",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/haruperi/HaruQuantAI-BAK/blob/98b32f45b6ad74f56f2cfe29b42724d56f37754f/docs/plans/Portfolio_Module_Technical_Specification.md",
+            "repo_url": "https://github.com/haruperi/HaruQuantAI-BAK",
+            "title": "haruperi/HaruQuantAI-BAK/docs/plans/Portfolio_Module_Technical_Specification.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:29.313Z",
+      "ended_at": "2026-07-03T13:40:30.925Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+          "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+          "CFD symbols include indices, commodities, metals, equities, forex pairs",
+          "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+        ],
+        "limitations": [
+          "Page is educational disclaimed and not an investment recommendation",
+          "Specifications may change; trading updates section tracks changes",
+          "No programmatic API mentioned; page is human-readable only"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "sha256": "3e15bfa32bec3ef8b94fa7d43c2564efecc88dfaf3f9e43cc41e0f02c05050a6"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/metadata.json",
+          "sha256": "2c8e35f79d2c1671a4f76e4982066124a899a43adb433eba8ff32593a89aaae5"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 6,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:30.925Z",
+      "ended_at": "2026-07-03T13:40:31.966Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+          "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+          "Early closure at 20:00 announced for multiple CFD instruments",
+          "Updates cover both standard hours changes and holiday-specific schedule modifications"
+        ],
+        "limitations": [
+          "Updates are event-driven and not a comprehensive static specification table",
+          "Historical updates may not reflect current session hours",
+          "No structured data format; changes are in prose announcements"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "sha256": "952479cf0eb65a7e48b97f462f6ad70016f8fcfbfe45ecb403fb4cc0a0c8a497"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/metadata.json",
+          "sha256": "0573612a3be797bef79b1a0377ef5da6c1669af13c0d25879dfa96fcfff4df74"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+            "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+            "Early closure at 20:00 announced for multiple CFD instruments",
+            "Updates cover both standard hours changes and holiday-specific schedule modifications"
+          ],
+          "limitations": [
+            "Updates are event-driven and not a comprehensive static specification table",
+            "Historical updates may not reflect current session hours",
+            "No structured data format; changes are in prose announcements"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:30.925Z",
+                  "completed_at": "2026-07-03T13:40:31.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 7,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:31.966Z",
+      "ended_at": "2026-07-03T13:40:32.940Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours are visible in trading platforms and on Simulated Assets page",
+          "Trading hours are subject to changes based on holidays or events",
+          "All changes to standard market hours announced in Trading Updates section",
+          "Platform and assets page are primary reference for current hours"
+        ],
+        "limitations": [
+          "FAQ is general guidance, not a per-symbol specification table",
+          "Refers to platform for authoritative current data rather than listing hours directly"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/content.md",
+          "sha256": "03f9e86860c81e0309affd307a04be8737a09337f894480303acd0ebdfb7e9a8"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/metadata.json",
+          "sha256": "9c5b38730d6663d9067461c6241d9ab974f13bc28d139dd9e37f364ae2a6d463"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/content.md",
+          "claims_extracted": [
+            "Standard market hours are visible in trading platforms and on Simulated Assets page",
+            "Trading hours are subject to changes based on holidays or events",
+            "All changes to standard market hours announced in Trading Updates section",
+            "Platform and assets page are primary reference for current hours"
+          ],
+          "limitations": [
+            "FAQ is general guidance, not a per-symbol specification table",
+            "Refers to platform for authoritative current data rather than listing hours directly"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:31.966Z",
+                  "completed_at": "2026-07-03T13:40:32.370Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 8,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:32.940Z",
+      "ended_at": "2026-07-03T13:40:33.791Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+          "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+          "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+        ],
+        "limitations": [
+          "Academy content is educational, not a binding specification",
+          "Hours described are approximate standard sessions, not exact platform hours",
+          "Does not cover all CFD instrument classes comprehensively"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "sha256": "9f588f976b8762f326ac0c2acd37ab65859aa54b2109937a7353edf8b2de6f5a"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/metadata.json",
+          "sha256": "2d185eade322ed270e655601e5ce46399591caf51636019a332b52a9fe639a81"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+            "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+            "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+          ],
+          "limitations": [
+            "Academy content is educational, not a binding specification",
+            "Hours described are approximate standard sessions, not exact platform hours",
+            "Does not cover all CFD instrument classes comprehensively"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:32.940Z",
+                  "completed_at": "2026-07-03T13:40:33.409Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 9,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:51.029Z",
+      "ended_at": "2026-07-03T13:40:51.029Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page lists all tradable instruments with specifications viewable in-platform",
+          "Contract specifications are available per-symbol including contract size, hours, commission",
+          "Multi-asset universe includes forex, metals, indices, commodities, crypto, stocks CFDs"
+        ],
+        "limitations": [
+          "Page is educational disclaimer; specific specs must be verified in MT5 terminal",
+          "No machine-readable specification table visible from snippet alone"
+        ],
+        "disconfirming_relevance": [
+          "Symbol list may not include all Phase 8A terminal inventory symbols",
+          "Contract specs shown on website may differ from live MT5 terminal specs"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 10,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:51.029Z",
+      "ended_at": "2026-07-03T13:40:51.029Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates for session hour changes and holiday closures",
+          "Metals CFD, index CFDs (JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash), energy CFDs (USOIL.cash, NATGAS.cash, HEATOIL.c) have early close at 20:00 for certain events",
+          "Session calendar changes are announced in Trading Updates section"
+        ],
+        "limitations": [
+          "Updates are event-driven, not a comprehensive static calendar",
+          "Historical updates may be superseded by newer ones"
+        ],
+        "disconfirming_relevance": [
+          "Specific early-close times are event-specific, not general session definitions"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+            "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+            "Early closure at 20:00 announced for multiple CFD instruments",
+            "Updates cover both standard hours changes and holiday-specific schedule modifications"
+          ],
+          "limitations": [
+            "Updates are event-driven and not a comprehensive static specification table",
+            "Historical updates may not reflect current session hours",
+            "No structured data format; changes are in prose announcements"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:30.925Z",
+                  "completed_at": "2026-07-03T13:40:31.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 11,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:51.029Z",
+      "ended_at": "2026-07-03T13:40:52.054Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours are visible in trading platforms and on Simulated Assets page",
+          "Trading hours are subject to changes based on major holidays or events",
+          "All changes to standard market hours are announced in Trading Updates section"
+        ],
+        "limitations": [
+          "OANDA variant may have different symbol set than standard FTMO MT5",
+          "FAQ is general guidance, not a per-symbol specification table"
+        ],
+        "disconfirming_relevance": [
+          "FTMO x OANDA is a separate platform variant; symbol mapping may not match Phase 8A terminal inventory"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/content.md",
+          "sha256": "103e7d749828e973cda1585ebf1b91f08a809ddfb4bd8d90f9700a3ea5262ea9"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/metadata.json",
+          "sha256": "230479393353ccda7f3197a383aca8916194103c5ec7812067f8de67b11e67a4"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/content.md",
+          "claims_extracted": [
+            "Standard market hours are visible in trading platforms and on Simulated Assets page",
+            "Trading hours are subject to changes based on major holidays or events",
+            "All changes to standard market hours are announced in Trading Updates section"
+          ],
+          "limitations": [
+            "OANDA variant may have different symbol set than standard FTMO MT5",
+            "FAQ is general guidance, not a per-symbol specification table"
+          ],
+          "disconfirming_relevance": [
+            "FTMO x OANDA is a separate platform variant; symbol mapping may not match Phase 8A terminal inventory"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:51.029Z",
+                  "completed_at": "2026-07-03T13:40:51.370Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 12,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:40:52.054Z",
+      "ended_at": "2026-07-03T13:40:52.054Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+          "Session structure differs by instrument class: forex, European indices, US indices have distinct windows"
+        ],
+        "limitations": [
+          "Academy content is educational, may not reflect exact MT5 contract spec session times",
+          "London time reference needs timezone conversion for MT5 server time mapping"
+        ],
+        "disconfirming_relevance": [
+          "Session descriptions are approximate educational summaries, not exact contract specification sessions"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+            "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+            "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+          ],
+          "limitations": [
+            "Academy content is educational, not a binding specification",
+            "Hours described are approximate standard sessions, not exact platform hours",
+            "Does not cover all CFD instrument classes comprehensively"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:32.940Z",
+                  "completed_at": "2026-07-03T13:40:33.409Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 13,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:08.195Z",
+      "ended_at": "2026-07-03T13:41:08.195Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page is the canonical broker-published catalog of all tradable CFD instruments",
+          "Contains contract specifications viewable per symbol including trade hours, contract size, spread, swap",
+          "Educational disclaimer: not investment recommendation"
+        ],
+        "limitations": [
+          "Page may be dynamically rendered; specific per-symbol specs may require interaction or sub-pages",
+          "No guarantee of machine-readable format without terminal equivalence check"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 14,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:08.195Z",
+      "ended_at": "2026-07-03T13:41:08.195Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices such as DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices such as SP500, Nasdaq or Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+          "FTMO Academy documents session structure and trading hour windows per instrument family"
+        ],
+        "limitations": [
+          "Academy content is educational; may not reflect exact MT5 terminal session configuration",
+          "London time basis may differ from server time used in MT5"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+            "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+            "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+          ],
+          "limitations": [
+            "Academy content is educational, not a binding specification",
+            "Hours described are approximate standard sessions, not exact platform hours",
+            "Does not cover all CFD instrument classes comprehensively"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:32.940Z",
+                  "completed_at": "2026-07-03T13:40:33.409Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 15,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:08.195Z",
+      "ended_at": "2026-07-03T13:41:08.195Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO trading updates page publishes session calendar changes including early closures and holiday schedules",
+          "Metals CFD and index CFD symbols close early at 20:00 on certain dates",
+          "JP225.cash positions must be closed after market closure on specific Fridays",
+          "COTTON.c and SUGAR.c are spot CFD symbols with contract size 1 and no commission with unique trade hours"
+        ],
+        "limitations": [
+          "Updates are date-specific announcements; no structured machine-readable calendar API evident",
+          "Historical session changes may be archived but not easily indexed"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+            "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+            "Early closure at 20:00 announced for multiple CFD instruments",
+            "Updates cover both standard hours changes and holiday-specific schedule modifications"
+          ],
+          "limitations": [
+            "Updates are event-driven and not a comprehensive static specification table",
+            "Historical updates may not reflect current session hours",
+            "No structured data format; changes are in prose announcements"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:30.925Z",
+                  "completed_at": "2026-07-03T13:40:31.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 16,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:08.195Z",
+      "ended_at": "2026-07-03T13:41:09.257Z",
+      "input": {
+        "query": "FTMO symbols page contract specification spread swap contract size per instrument CFD list"
+      },
+      "output": {
+        "query": "FTMO symbols page contract specification spread swap contract size per instrument CFD list",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:41:08.195Z",
+            "completed_at": "2026-07-03T13:41:09.257Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://ftmo.com/en/symbols/",
+            "title": "Symbols | FTMO.com",
+            "snippet": "All information provided on this site is intended solely for educational purposes related to trading on financial markets and does not serve in any way as a specific investment recommendation, business recommendation, investment opportunity analysis or similar general recommendation regarding ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://thepayoutreport.com/ftmo-us-mt5-setup-guide-servers-symbols-settings/",
+            "title": "FTMO US MT5 Setup Guide 2026: Servers, Symbols, Settings - The Payout Report",
+            "snippet": "If a symbol looks unfamiliar, open its Specification to confirm spread model, sessions, and commission. Specs also display the MT5 server time (GMT+2 + DST). Leverage is capped at 1:33 in the US product. Plan margin with a 3% baseline on selected instruments. Commissions &amp; swaps are market-aligned; details are per symbol on platform and on Simulated Assets. Execution follows a Fill-or-Kill model with market depth visibility. No hidden markups; slippage can be positive or negative. FTMO highlights 3M+ customers, $400M+ paid in rewards worldwide, and a 4.8 Trustpilot score on its public pages.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://ftmo.com/en/blog/a-few-answers-to-your-questions/",
+            "title": "A few answers to your questions | FTMO.com",
+            "snippet": "Basic information about each instrument can be found on the Symbols page. Each week our clients can find out all the changes for the next week on this page. There’s also a table of all the instruments and information regarding each instrument they can trade with FTMO (leverage, commission, contract size, etc.).",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://ftmo.com/en/blog/ftmo-enhances-crypto-trading-new-instruments-and-better-spreads/",
+            "title": "FTMO Enhances Crypto Trading: New Instruments and Better Spreads | FTMO.com",
+            "snippet": "Contract sizes and trade volumes have been adjusted to better reflect real-world standards, improving clarity and execution accuracy. Starting Monday, 28 July 2025, we’re introducing a new spread pricing model for all existing and newly listed Crypto CFD symbols.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://ftmo.com/en/trading-updates/trading-update-13-feb-2025/",
+            "title": "Trading Update | 13 Feb 2025 | FTMO",
+            "snippet": "For this spot instrument, <strong>the contract size will be 100</strong>, the commission will be 0.001% of the position’s notional value per roundtrip, and the margin percentage will be at 6%. The default trading hours will be unique to the symbol, and as always, you can display it on the platform itself ...",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "tool": "search_mql5_sources",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:09.257Z",
+      "ended_at": "2026-07-03T13:41:12.109Z",
+      "input": {
+        "query": "MQL5 SymbolInfoSessionQuote SymbolInfoSessionTrade session hours CFD programmatically"
+      },
+      "output": {
+        "query": "MQL5 SymbolInfoSessionQuote SymbolInfoSessionTrade session hours CFD programmatically",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "retry_scheduled",
+            "started_at": "2026-07-03T13:41:09.257Z",
+            "completed_at": "2026-07-03T13:41:09.490Z",
+            "error_class": "Error",
+            "error_message": "search_mql5_sources search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"a2bf31bb-6d9d-4ce5-8a21-208b3acfc6cd\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":126,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1783086067}",
+            "failure_class": "transient_retryable_failure",
+            "retryable": true,
+            "backoff_ms": 2000,
+            "final_terminal_state": "retry_pending"
+          },
+          {
+            "attempt_number": 2,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:41:11.493Z",
+            "completed_at": "2026-07-03T13:41:12.109Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "mql5-1",
+            "url": "https://www.mql5.com/en/docs/marketinformation/symbolinfosessiontrade",
+            "title": "Documentation on MQL5: SymbolInfoSessionTrade / Market Info",
+            "snippet": "SymbolInfoSessionQuote · SymbolInfoSessionTrade · MarketBookAdd · MarketBookRelease · MarketBookGet · <strong>Allows receiving time of beginning and end of the specified trading sessions for a specified symbol and day of week</strong>.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-2",
+            "url": "https://www.mql5.com/en/forum/447277",
+            "title": "How to get specific symbol's trading hours !!! - Trading Positions - Expert Advisors and Automated Trading - MQL5 programming forum",
+            "snippet": "SymbolInfoSessionQuote - Market Info - MQL5 Reference - Reference on algorithmic/automated trading language for MetaTrader 5 ... for(uint day_of_week=0; day_of_week&lt;7; day_of_week++) { string str=&quot;&quot;; uint session_index=0; datetime from,to; while(SymbolInfoSessionTrade(symbol,(ENUM_DAY_OF_WEEK)day_of_week,session_index++,from,to)) { str+=TimeToString(from,TIME_MINUTES)+&quot;-&quot;+TimeToString(to,TIME_MINUTES)+&quot; &quot;; } PrintFormat(&quot;\u0010s: %s&quot;,EnumToString((ENUM_DAY_OF_WEEK)day_of_week),str); }",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-3",
+            "url": "https://www.mql5.com/en/docs/marketinformation/symbolinfosessionquote",
+            "title": "Documentation on MQL5: SymbolInfoSessionQuote / Market Info",
+            "snippet": "SymbolInfoSessionQuote · SymbolInfoSessionTrade · MarketBookAdd · MarketBookRelease · MarketBookGet · <strong>Allows receiving time of beginning and end of the specified quoting sessions for a specified symbol and day of week</strong>.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-4",
+            "url": "https://www.mql5.com/en/forum/354045",
+            "title": "how to use SymbolInfoSessionTrade and SymbolInfoSessionQuote - Symbols - Expert Advisors and Automated Trading - MQL5 programming forum",
+            "snippet": "//--- get open and close session · SymbolInfoSessionTrade(_Symbol,FRIDAY,0,de,a); //--- set MqlDateTime variables · MqlDateTime sec_aper, sec_cier; //--- convert datetime variables to MqlDateTime variables · TimeToStruct(de,sec_aper); TimeToStruct(a,sec_cier); //--- check if this works for you · Comment(&quot;Open: &quot;, sec_aper.hour, &quot;:&quot;, sec_aper.min, &quot;; Close: &quot;, sec_cier.hour, &quot;:&quot;, sec_cier.min); Thank You!",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-5",
+            "url": "https://www.mql5.com/en/forum/439594",
+            "title": "SymbolInfoSessionTrade - Symbols - Expert Advisors and Automated Trading - MQL5 programming forum",
+            "snippet": "bool IsMarketOpen(const string symbol) { datetime from, to; datetime serverTime = TimeTradeServer(); MqlDateTime dt; TimeToStruct(serverTime,dt); const ENUM_DAY_OF_WEEK day_of_week = (ENUM_DAY_OF_WEEK) dt.day_of_week; const int time = (int) MathMod(serverTime,PeriodSeconds(PERIOD_D1)); int session = 0; while (SymbolInfoSessionTrade (symbol, day_of_week, session, from, to)) { if(time &gt;=from &amp;&amp; time &lt;= to ) { return true; } session++; } return false; }Please adapt it for your needs",
+            "source_class": "mql5",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:21.204Z",
+      "ended_at": "2026-07-03T13:41:21.204Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page lists all tradable CFD instruments with contract specifications",
+          "Symbol information includes instrument type, contract size, and trade hours"
+        ],
+        "limitations": [
+          "Page may require dynamic rendering for full symbol table",
+          "Contract specs may differ from MT5 terminal specifications"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 19,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:21.204Z",
+      "ended_at": "2026-07-03T13:41:22.537Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACCT-SPEC-002",
+        "url": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Instrument specifications are viewable in MT5 Market Watch via right-click specification",
+          "FTMO directs traders to platform-level specification for authoritative contract details"
+        ],
+        "limitations": [
+          "FAQ does not itself list full contract specs; defers to terminal",
+          "No static table of session hours on this page"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACCT-SPEC-002",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/content.md",
+          "sha256": "c4a9204456f87cb6c9048f853c58f9d692f23dd49fba1cf25d07a6d53e802629"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/metadata.json",
+          "sha256": "71407eb88dd2152aa9edc7fff61213472fba33ce139cbeb195d3c5d65642c458"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACCT-SPEC-002",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/content.md",
+          "claims_extracted": [
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification",
+            "FTMO directs traders to platform-level specification for authoritative contract details"
+          ],
+          "limitations": [
+            "FAQ does not itself list full contract specs; defers to terminal",
+            "No static table of session hours on this page"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:41:21.204Z",
+                  "completed_at": "2026-07-03T13:41:21.543Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 20,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:22.537Z",
+      "ended_at": "2026-07-03T13:41:23.318Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACAD-SESSIONS-003",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX trade 1AM to 10PM London time",
+          "US indices like SP500 Nasdaq Dow Jones trade 23 hours daily with break 10PM-11PM",
+          "Session structure differs by instrument family"
+        ],
+        "limitations": [
+          "Academy content is educational not operational; may not reflect current schedule",
+          "No CFD contract specification details"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACAD-SESSIONS-003",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/content.md",
+          "sha256": "f2e8607c81e82fbc4e0ed517360ee131bca5c9ba91c69189513ecb45caa4de4a"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/metadata.json",
+          "sha256": "91d52cdd880e8cb78e37ae8178cb56ea2f7b35360ade31fd66c93205846cf168"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACAD-SESSIONS-003",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/content.md",
+          "claims_extracted": [
+            "European indices like DAX trade 1AM to 10PM London time",
+            "US indices like SP500 Nasdaq Dow Jones trade 23 hours daily with break 10PM-11PM",
+            "Session structure differs by instrument family"
+          ],
+          "limitations": [
+            "Academy content is educational not operational; may not reflect current schedule",
+            "No CFD contract specification details"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:41:22.537Z",
+                  "completed_at": "2026-07-03T13:41:22.974Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 21,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:23.318Z",
+      "ended_at": "2026-07-03T13:41:24.126Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-HOURS-004",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours visible in trading platforms and Simulated Assets page",
+          "Trading hours subject to holiday changes announced in Trading Updates section"
+        ],
+        "limitations": [
+          "FTMO x OANDA is a separate platform variant; specs may differ from standard FTMO MT5"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-OANDA-HOURS-004",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/content.md",
+          "sha256": "2ab94b66b669bf9fb3110db76a112560b11f593dc864b424885f5799130954aa"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/metadata.json",
+          "sha256": "db3b0e6b42533ceee4e1fdac559eece442e759195307468f66e2ea91d7a0c929"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-HOURS-004",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/content.md",
+          "claims_extracted": [
+            "Standard market hours visible in trading platforms and Simulated Assets page",
+            "Trading hours subject to holiday changes announced in Trading Updates section"
+          ],
+          "limitations": [
+            "FTMO x OANDA is a separate platform variant; specs may differ from standard FTMO MT5"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:41:23.318Z",
+                  "completed_at": "2026-07-03T13:41:23.592Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 22,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:24.126Z",
+      "ended_at": "2026-07-03T13:41:24.867Z",
+      "input": {
+        "query": "FTMO MT5 CFD instrument session hours contract specification mapping"
+      },
+      "output": {
+        "query": "FTMO MT5 CFD instrument session hours contract specification mapping",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 23,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:24.867Z",
+      "ended_at": "2026-07-03T13:41:25.884Z",
+      "input": {
+        "query": "CFD market microstructure session calendar liquidity windows intraday"
+      },
+      "output": {
+        "query": "CFD market microstructure session calendar liquidity windows intraday",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:41:24.868Z",
+            "completed_at": "2026-07-03T13:41:25.884Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2511.20606v2",
+            "title": "Limit Order Book Dynamics in Matching Markets: Microstructure, Spread, and Execution Slippage",
+            "snippet": "Conventional models of matching markets assume that monetary transfers can clear markets by compensating for utility differentials. However, empirical patterns show that such transfers often fail to close structural preference gaps. This paper introduces a market microstructure framework that models",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/math/0409076v2",
+            "title": "Uncertainty relations in models of market microstructure",
+            "snippet": "This paper presents a new interacting particle system and uses it as a spin model for financial market microstructure. The asymptotic analysis of this stochastic process exhibits a lower bound to the contemporaneous measurement of price and trading volume under the invariant measure in the `frozen' ",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2412.15959v1",
+            "title": "Battery valuation on electricity intraday markets with liquidity costs",
+            "snippet": "In this paper, we propose a complete modelling framework to value several batteries in the electricity intraday market at the trading session scale. The model consists of a stochastic model for the 24 mid-prices (one price per delivery hour) combined with a deterministic model for the liquidity cost",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/2105.02782v1",
+            "title": "The Homogenous Properties of Automated Market Makers",
+            "snippet": "Automated market makers (AMM) have grown to obtain significant market share within the cryptocurrency ecosystem, resulting in a proliferation of new products pursuing exotic strategies for horizontal differentiation. Yet, their theoretical properties are curiously homogeneous when a set of basic ass",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/0906.1444v1",
+            "title": "High frequency market microstructure noise estimates and liquidity measures",
+            "snippet": "Using recent advances in the econometrics literature, we disentangle from high frequency observations on the transaction prices of a large sample of NYSE stocks a fundamental component and a microstructure noise component. We then relate these statistical measurements of market microstructure noise ",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:48.726Z",
+      "ended_at": "2026-07-03T13:41:48.726Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO maintains a Symbols page listing all tradable CFD instruments with contract specifications",
+          "Symbol specifications include trade hours, contract size, and commission details",
+          "Symbols page is the authoritative reference for FTMO MT5 instrument universe"
+        ],
+        "limitations": [
+          "Page may require platform-specific data cross-reference for full contract specs",
+          "Session hours subject to holiday changes announced separately in Trading Updates"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 25,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:48.726Z",
+      "ended_at": "2026-07-03T13:41:48.726Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates with session hour changes for CFD instruments",
+          "Metals CFD, index CFDs (JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash), energy CFDs (USOIL.cash, NATGAS.cash, HEATOIL.c) have early close at 20:00 on certain days",
+          "Trading updates document holiday closures and late opens per instrument class"
+        ],
+        "limitations": [
+          "Updates are event-driven and not a structured calendar feed",
+          "Historical session changes may require manual compilation"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+            "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+            "Early closure at 20:00 announced for multiple CFD instruments",
+            "Updates cover both standard hours changes and holiday-specific schedule modifications"
+          ],
+          "limitations": [
+            "Updates are event-driven and not a comprehensive static specification table",
+            "Historical updates may not reflect current session hours",
+            "No structured data format; changes are in prose announcements"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:30.925Z",
+                  "completed_at": "2026-07-03T13:40:31.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 26,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:48.726Z",
+      "ended_at": "2026-07-03T13:41:48.726Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours are visible in trading platforms and on Simulated Assets page",
+          "Trading hours are subject to changes based on major holidays or events",
+          "All changes to standard market hours are announced in Trading Updates section"
+        ],
+        "limitations": [
+          "FTMO x OANDA variant may have different symbol set than standard FTMO MT5",
+          "FAQ is descriptive not structured data"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/content.md",
+          "claims_extracted": [
+            "Standard market hours are visible in trading platforms and on Simulated Assets page",
+            "Trading hours are subject to changes based on major holidays or events",
+            "All changes to standard market hours are announced in Trading Updates section"
+          ],
+          "limitations": [
+            "OANDA variant may have different symbol set than standard FTMO MT5",
+            "FAQ is general guidance, not a per-symbol specification table"
+          ],
+          "disconfirming_relevance": [
+            "FTMO x OANDA is a separate platform variant; symbol mapping may not match Phase 8A terminal inventory"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:51.029Z",
+                  "completed_at": "2026-07-03T13:40:51.370Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 27,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:48.726Z",
+      "ended_at": "2026-07-03T13:41:48.726Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "European indices such as DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices such as SP500 Nasdaq Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+          "Session structure differs by instrument class with distinct open close and break windows"
+        ],
+        "limitations": [
+          "Academy content is educational not authoritative for live contract specs",
+          "London time reference may need timezone conversion for MT5 server time"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+            "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+            "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+          ],
+          "limitations": [
+            "Academy content is educational, not a binding specification",
+            "Hours described are approximate standard sessions, not exact platform hours",
+            "Does not cover all CFD instrument classes comprehensively"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:32.940Z",
+                  "completed_at": "2026-07-03T13:40:33.409Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 28,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:48.726Z",
+      "ended_at": "2026-07-03T13:41:49.817Z",
+      "input": {
+        "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001",
+        "url": "https://ftmo.com/en/blog/trading-updates/trading-update-20-mar-2025/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "COTTON.c and SUGAR.c are spot CFD symbols tracking spot prices of cotton and sugar",
+          "Both symbols have contract size of 1 and no commission",
+          "Default trade hours are unique per symbol and visible on platform or Symbols page"
+        ],
+        "limitations": [
+          "Single trading update document not comprehensive across all CFD symbols",
+          "Date-specific announcement may not reflect current specifications"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/content.md",
+          "sha256": "878d1dbfcdf997048e6e3298768753e0897bae045d12e1c7aa1169167345d4f3"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/metadata.json",
+          "sha256": "1fc4ba3c75fed1080563c9aa0354e9f4fc785e4a3b54cae57c8555966cb49dff"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/blog/trading-updates/trading-update-20-mar-2025/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/content.md",
+          "claims_extracted": [
+            "COTTON.c and SUGAR.c are spot CFD symbols tracking spot prices of cotton and sugar",
+            "Both symbols have contract size of 1 and no commission",
+            "Default trade hours are unique per symbol and visible on platform or Symbols page"
+          ],
+          "limitations": [
+            "Single trading update document not comprehensive across all CFD symbols",
+            "Date-specific announcement may not reflect current specifications"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:41:48.726Z",
+                  "completed_at": "2026-07-03T13:41:49.075Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 29,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:41:49.817Z",
+      "ended_at": "2026-07-03T13:41:51.039Z",
+      "input": {
+        "query": "FTMO MT5 CFD index symbol session break volatility liquidity window open close"
+      },
+      "output": {
+        "query": "FTMO MT5 CFD index symbol session break volatility liquidity window open close",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:41:49.817Z",
+            "completed_at": "2026-07-03T13:41:51.039Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://thepayoutreport.com/ftmo-us-mt5-setup-guide-servers-symbols-settings/",
+            "title": "FTMO US MT5 Setup Guide 2026: Servers, Symbols, Settings - The Payout Report",
+            "snippet": "MT5 ready for FTMO US? Use this quick-start to find the right server, load symbols, and lock in the best settings for the US product. Open FTMO US Why this setup guide matters FTMO US runs on MetaTrader 5 only with a netting configuration. That means one position per symbol, FIFO behavior when ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://ftmo.com/en/trading-updates/",
+            "title": "Trading updates | FTMO.com",
+            "snippet": "We will perform scheduled maintenance on the cTrader platform (Evaluations/FTMO Accounts and Free Trials) from <strong>Saturday, 4 Jul 2026, 8:00, until Sunday, 5 Jul 2026, 01:00</strong> · During the maintenance window above, trading on the specified platform ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://ftmo.com/en/symbols/",
+            "title": "Symbols | FTMO.com",
+            "snippet": "All information provided on this site is intended solely for educational purposes related to trading on financial markets and does not serve in any way as a specific investment recommendation, business recommendation, investment opportunity analysis or similar general recommendation regarding ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://academy.ftmo.com/lesson/metatrader-5-guide/",
+            "title": "MetaTrader 5 Guide | FTMO Academy",
+            "snippet": "In the Navigator window, you can switch between different accounts and also quickly add technical indicators, expert advisors and scripts. Compared to MT4, where we have 61 analytical tools, of which 30 are indicators, in MT5 we have 82 analytical tools (38 of which are indicators).",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://thepayoutreport.com/ftmo-us-platform-execution-mt5-netting-fifo/",
+            "title": "FTMO US Platform & Execution (MT5 netting/FIFO): Setup, Symbols & Best Practices - The Payout Report",
+            "snippet": "Trade FTMO US on MT5 — netting/FIFO made simple Set up MT5 correctly, understand netting &amp; FIFO, and master US-friendly execution — all in one guide. Start the FTMO US Challenge Updated: August 27, 2025 Quick take: FTMO US runs exclusively on MetaTrader 5 in netting mode with FIFO (no hedging).",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 30,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:01.591Z",
+      "ended_at": "2026-07-03T13:42:01.591Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+          "Instrument specifications include contract size, trade hours, and conditions visible in MT5 platform"
+        ],
+        "limitations": [
+          "Symbols page is dynamic and may not capture full contract specification details visible in MT5 terminal",
+          "Session calendar changes are announced separately in Trading Updates section"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 31,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:01.591Z",
+      "ended_at": "2026-07-03T13:42:02.671Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-002",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates with session hour changes for CFD instruments",
+          "Metals CFD, index CFDs (JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash), energy CFDs (USOIL.cash, NATGAS.cash, HEATOIL.c) have early close at 20:00 on certain days",
+          "Trading updates document holiday closures and late opens for specific symbols"
+        ],
+        "limitations": [
+          "Trading updates are event-driven and may not capture all standard session hours",
+          "Historical updates may be archived and hard to reconstruct complete session calendars"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-002",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/content.md",
+          "sha256": "d4e5ae7d8794b2ae62d3335b66298a19c38dd4bd6109863088c6a18a6643238e"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/metadata.json",
+          "sha256": "ee38378fed7205a5d3d0c473781978b3e2d5fbe4acea21973f99ad080fb4d9e8"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-002",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates with session hour changes for CFD instruments",
+            "Metals CFD, index CFDs (JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash), energy CFDs (USOIL.cash, NATGAS.cash, HEATOIL.c) have early close at 20:00 on certain days",
+            "Trading updates document holiday closures and late opens for specific symbols"
+          ],
+          "limitations": [
+            "Trading updates are event-driven and may not capture all standard session hours",
+            "Historical updates may be archived and hard to reconstruct complete session calendars"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:01.591Z",
+                  "completed_at": "2026-07-03T13:42:01.876Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 32,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:02.671Z",
+      "ended_at": "2026-07-03T13:42:03.456Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+          "Different CFD instrument classes have distinct session windows that affect liquidity"
+        ],
+        "limitations": [
+          "Academy content is educational and may not reflect exact MT5 symbol-level session configurations",
+          "Session hours described may be approximate and subject to broker-specific overrides"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/content.md",
+          "sha256": "be28b89b691384834785162b2d0fa70c4b2a29c6e85ac6810ea5966fd236f61a"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+          "sha256": "2ddd670bf8190fb235353598ed4df6ab8fe937d428c24468467ead2954a8cd8f"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+            "Different CFD instrument classes have distinct session windows that affect liquidity"
+          ],
+          "limitations": [
+            "Academy content is educational and may not reflect exact MT5 symbol-level session configurations",
+            "Session hours described may be approximate and subject to broker-specific overrides"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:02.671Z",
+                  "completed_at": "2026-07-03T13:42:03.151Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 33,
+      "tool": "search_research_memory",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:03.456Z",
+      "ended_at": "2026-07-03T13:42:08.557Z",
+      "input": {
+        "query": "FTMO MT5 CFD instrument mapping contract specifications session calendar",
+        "limit": 5
+      },
+      "output": {
+        "query": "FTMO MT5 CFD instrument mapping contract specifications session calendar",
+        "results": [
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 3,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_session | FTMO MT5 FX majors EURUSD GBPUSD USDJPY and index CFDs US30 GER40 with XAUUSD as secondary scope | M15-H1 candidate | Session-concentrated order flow imbalance amplifies directional price movement during high-participation windows such as London open and NY overlap | If intraday session volume concentration does not correlate with directional bar range expansion on M15-H1 bars across FTMO MT5 instruments the OFI amplification mechani...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 3,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_reversal | FX majors EURUSD GBPUSD USDJPY and indices US30 US100 GER40 on FTMO/MT5. | M15-H1 candidate | Cumulative delta divergence from tick volume on M15-H1 identifies session-boundary liquidity sweeps where order-flow imbalance precedes directional reversal or continuation. | On FTMO MT5 symbols, tick-volume cumulative delta divergence on M15-H1 correlates with subsequent price direction more often than random assignment in post-hoc labeli...",
+            "source_path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          },
+          {
+            "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+            "source_type": "phase8d_failed_summary",
+            "score": 2,
+            "text": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758 Phase 8D BTCUSD-equivalent H1 weekly day-of-week calendar anomaly screening. - Candidate: CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758 - Status: executed - Blocked reason: none - MT5 relevance: mt5_relevant_unverified; BTCUSD appears in terminal inventory, but Binance data equivalence is not verified - Low-frequency exception: none; default trade floor applies - Windows: 57 - Trades: 12 - Return proxy pct: -0.046742349123647525 - Sharpe OOS: -0.2369846339001491 - Profit factor: 0.6456865995974739 - Positive OOS window ratio: 0.087719 - Consistency route: none / tier C4 - Promotion gate decision: denied - Survivor floor failures: total_trades, return_proxy_pct, consistency_promotion_route - Readiness diagnostic: factory/verification/phase8d-exit-readiness-20260602T203955Z.json - Ladder calibration: factory/verification/phase8d-ladder-ca...",
+            "source_path": "factory/summaries/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.md"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-FIXTURE-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 2,
+            "text": "HYP-STAGE0-FIXTURE-001 | volatility_contraction_liquidity_pressure_fixture | Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets. | M15-H1 candidate only, to be selected later by deterministic planning. | Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism. | If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture make...",
+            "source_path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/hypotheses/HYP-STAGE0-FIXTURE-001.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 2,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_amplification | FTMO MT5 major FX pairs (EURUSD, GBPUSD, USDJPY), XAUUSD, US30, US100; instruments must have reliable tick-volume data on the candidate broker. | M15-H1 candidate | Order-flow imbalance amplifies price movements: when directional order flow becomes one-sided, rising volatility causes market makers to reduce risk exposure while other participants rebalance portfolios, creating a positive feedback loop that extends price continua...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          }
+        ]
+      }
+    },
+    {
+      "index": 34,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:18.703Z",
+      "ended_at": "2026-07-03T13:42:18.703Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes a Symbols page listing all tradable CFD instruments with specifications",
+          "Symbol specifications are available directly in MT5 platform via Market Watch right-click Specification",
+          "Multi-asset CFD universe includes forex, metals, indices, commodities, crypto, stocks"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 35,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:18.703Z",
+      "ended_at": "2026-07-03T13:42:19.694Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADINGUPDATES-002",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates with early closures for metals CFD and index CFDs",
+          "Session calendar changes announced for holidays affecting JP225.cash USOIL.cash NATGAS.cash",
+          "CFD symbols have specific close times that deviate from standard sessions"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-TRADINGUPDATES-002",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/content.md",
+          "sha256": "5305679ffd3e1e25b23283b8260b0d7d32a5d29d271b6df9ed2aa99d96afb4f3"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/metadata.json",
+          "sha256": "fe0934f4084e5679467ece322c50b5974284cbaf4df5b69311e5f37e1dc4bc0a"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADINGUPDATES-002",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates with early closures for metals CFD and index CFDs",
+            "Session calendar changes announced for holidays affecting JP225.cash USOIL.cash NATGAS.cash",
+            "CFD symbols have specific close times that deviate from standard sessions"
+          ],
+          "limitations": [
+            "Source capture is Stage-0 only and cannot prove profitability or deployment readiness."
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:18.703Z",
+                  "completed_at": "2026-07-03T13:42:18.963Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 36,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:19.694Z",
+      "ended_at": "2026-07-03T13:42:20.617Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-HOURS-003",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours visible in trading platforms and on Simulated Assets page",
+          "Trading hours subject to changes based on holidays and events",
+          "Session hour changes announced in Trading Updates section"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-OANDA-HOURS-003",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/content.md",
+          "sha256": "2f061a0668b4048da6273e2ae03f907173bc8b720198b44ae3f1132a36430c5d"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/metadata.json",
+          "sha256": "1fd9fb1831c01dd31c242ad00dfb8f7b81c6e4f61427ade3be63f295c5c4cb6b"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-HOURS-003",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/content.md",
+          "claims_extracted": [
+            "Standard market hours visible in trading platforms and on Simulated Assets page",
+            "Trading hours subject to changes based on holidays and events",
+            "Session hour changes announced in Trading Updates section"
+          ],
+          "limitations": [
+            "Source capture is Stage-0 only and cannot prove profitability or deployment readiness."
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:19.694Z",
+                  "completed_at": "2026-07-03T13:42:20.019Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 37,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:20.617Z",
+      "ended_at": "2026-07-03T13:42:21.399Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices open at 1 AM and trade until 10 PM London time",
+          "US indices trade 23 hours a day with break between 10 PM and 11 PM",
+          "Different CFD instrument classes have distinct session windows"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/content.md",
+          "sha256": "169ee917f1b69cec99f592f780c16383eb1ccc8269f2c94b5f70ff8be69a6b57"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/metadata.json",
+          "sha256": "9b28c45510bd1222e8a091f315673100b0a4352ff3c341e7bf358f0dd29f3704"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/content.md",
+          "claims_extracted": [
+            "European indices open at 1 AM and trade until 10 PM London time",
+            "US indices trade 23 hours a day with break between 10 PM and 11 PM",
+            "Different CFD instrument classes have distinct session windows"
+          ],
+          "limitations": [
+            "Source capture is Stage-0 only and cannot prove profitability or deployment readiness."
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:20.617Z",
+                  "completed_at": "2026-07-03T13:42:21.056Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 38,
+      "tool": "search_research_memory",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:21.399Z",
+      "ended_at": "2026-07-03T13:42:26.635Z",
+      "input": {
+        "query": "FTMO MT5 CFD instrument mapping session calendar contract specification",
+        "limit": 5
+      },
+      "output": {
+        "query": "FTMO MT5 CFD instrument mapping session calendar contract specification",
+        "results": [
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 3,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_session | FTMO MT5 FX majors EURUSD GBPUSD USDJPY and index CFDs US30 GER40 with XAUUSD as secondary scope | M15-H1 candidate | Session-concentrated order flow imbalance amplifies directional price movement during high-participation windows such as London open and NY overlap | If intraday session volume concentration does not correlate with directional bar range expansion on M15-H1 bars across FTMO MT5 instruments the OFI amplification mechani...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 3,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_reversal | FX majors EURUSD GBPUSD USDJPY and indices US30 US100 GER40 on FTMO/MT5. | M15-H1 candidate | Cumulative delta divergence from tick volume on M15-H1 identifies session-boundary liquidity sweeps where order-flow imbalance precedes directional reversal or continuation. | On FTMO MT5 symbols, tick-volume cumulative delta divergence on M15-H1 correlates with subsequent price direction more often than random assignment in post-hoc labeli...",
+            "source_path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-8192D-20260611T2030Z-09B855E4512A2B57F246304B/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          },
+          {
+            "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758",
+            "source_type": "phase8d_failed_summary",
+            "score": 2,
+            "text": "RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758 Phase 8D BTCUSD-equivalent H1 weekly day-of-week calendar anomaly screening. - Candidate: CAND-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758 - Status: executed - Blocked reason: none - MT5 relevance: mt5_relevant_unverified; BTCUSD appears in terminal inventory, but Binance data equivalence is not verified - Low-frequency exception: none; default trade floor applies - Windows: 57 - Trades: 12 - Return proxy pct: -0.046742349123647525 - Sharpe OOS: -0.2369846339001491 - Profit factor: 0.6456865995974739 - Positive OOS window ratio: 0.087719 - Consistency route: none / tier C4 - Promotion gate decision: denied - Survivor floor failures: total_trades, return_proxy_pct, consistency_promotion_route - Readiness diagnostic: factory/verification/phase8d-exit-readiness-20260602T203955Z.json - Ladder calibration: factory/verification/phase8d-ladder-ca...",
+            "source_path": "factory/summaries/RUN-PHASE8D-BTC-WEEKLY-CALENDAR-20260602202758.md"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-FIXTURE-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 2,
+            "text": "HYP-STAGE0-FIXTURE-001 | volatility_contraction_liquidity_pressure_fixture | Any Phase 8A FTMO MT5 symbol class may be considered later; not crypto-only and no prediction markets. | M15-H1 candidate only, to be selected later by deterministic planning. | Volatility compression followed by directional liquidity-taking pressure may define a falsifiable continuation mechanism. | If the mechanism is real, later deterministic WFA should show OOS consistency after realistic costs; this fixture make...",
+            "source_path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-LIVE-OFI-CANARY-20260523T135000Z-6D81BE6F4E8F24FC6762754D/hypotheses/HYP-STAGE0-FIXTURE-001.json"
+          },
+          {
+            "retrieval_id": "research_hypothesis_packet:HYP-STAGE0-LIVE-CANARY-001",
+            "source_type": "research_hypothesis_packet",
+            "score": 2,
+            "text": "HYP-STAGE0-LIVE-CANARY-001 | order_flow_imbalance_amplification | FTMO MT5 major FX pairs (EURUSD, GBPUSD, USDJPY), XAUUSD, US30, US100; instruments must have reliable tick-volume data on the candidate broker. | M15-H1 candidate | Order-flow imbalance amplifies price movements: when directional order flow becomes one-sided, rising volatility causes market makers to reduce risk exposure while other participants rebalance portfolios, creating a positive feedback loop that extends price continua...",
+            "source_path": "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-20260523T143000Z/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json"
+          }
+        ]
+      }
+    },
+    {
+      "index": 39,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:42.137Z",
+      "ended_at": "2026-07-03T13:42:40.935Z",
+      "input": {
+        "source_id": "SRC-BROKER-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page lists all tradable CFD instruments with contract specifications",
+          "Symbol specifications visible in MT5 Market Watch via right-click specification dialog",
+          "CFD symbols include indices, metals, commodities, equities with unique contract sizes and trade hours"
+        ],
+        "limitations": [
+          "Page content is educational disclaimer-oriented; actual specs may require MT5 terminal access to verify",
+          "Session hours subject to holiday changes announced in Trading Updates"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-BROKER-FTMO-SYMBOLS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/content.md",
+          "sha256": "8670c3366387433e60b4a97d05d3778d509e69276bb0b0216c9459d44ab0d4c0"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/metadata.json",
+          "sha256": "6267c494be63e190068bfaab0c3ec8bcd3208e03d63dfe61360a5f6e8aed512a"
+        },
+        "source_capture": {
+          "source_id": "SRC-BROKER-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO Symbols page lists all tradable CFD instruments with contract specifications",
+            "Symbol specifications visible in MT5 Market Watch via right-click specification dialog",
+            "CFD symbols include indices, metals, commodities, equities with unique contract sizes and trade hours"
+          ],
+          "limitations": [
+            "Page content is educational disclaimer-oriented; actual specs may require MT5 terminal access to verify",
+            "Session hours subject to holiday changes announced in Trading Updates"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:42.137Z",
+                  "completed_at": "2026-07-03T13:42:42.437Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 40,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:40.935Z",
+      "ended_at": "2026-07-03T13:42:42.042Z",
+      "input": {
+        "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO publishes trading updates announcing session hour changes and early closures for CFD symbols",
+          "Metals CFD and index CFD symbols close early at 20:00 on certain days",
+          "Holiday schedules and special closure times are announced here for all CFD instruments"
+        ],
+        "limitations": [
+          "Updates are event-driven and historical; not a comprehensive static spec table",
+          "Requires cross-referencing with MT5 terminal specification for current validity"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/content.md",
+          "sha256": "2ba53a667d26a691885ffbcf436bf9c1663ff93bda835eaaf328d542465f7db7"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/metadata.json",
+          "sha256": "e0dcff0f0928ed6538e416b8b5d511128627f8a3ea984e2d8b93f88aa6678a07"
+        },
+        "source_capture": {
+          "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates announcing session hour changes and early closures for CFD symbols",
+            "Metals CFD and index CFD symbols close early at 20:00 on certain days",
+            "Holiday schedules and special closure times are announced here for all CFD instruments"
+          ],
+          "limitations": [
+            "Updates are event-driven and historical; not a comprehensive static spec table",
+            "Requires cross-referencing with MT5 terminal specification for current validity"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:40.935Z",
+                  "completed_at": "2026-07-03T13:42:41.049Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 41,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:42.042Z",
+      "ended_at": "2026-07-03T13:42:42.885Z",
+      "input": {
+        "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices like SP500 Nasdaq Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+          "Session structure defines liquidity windows for different CFD instrument families"
+        ],
+        "limitations": [
+          "Academy content is educational not contractual; actual hours may differ from broker spec",
+          "London time basis requires conversion for server time alignment"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/content.md",
+          "sha256": "40cb98c65be794d8e95edcf31c3b3e3f0839c3ed01bfa57fec608973dfee70bb"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+          "sha256": "beff2d27f587df88a4f6af445cb01815168a710a2b7fb12e213f3520031beb7f"
+        },
+        "source_capture": {
+          "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500 Nasdaq Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+            "Session structure defines liquidity windows for different CFD instrument families"
+          ],
+          "limitations": [
+            "Academy content is educational not contractual; actual hours may differ from broker spec",
+            "London time basis requires conversion for server time alignment"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:42.042Z",
+                  "completed_at": "2026-07-03T13:42:42.543Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 42,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:42:42.885Z",
+      "ended_at": "2026-07-03T13:42:43.781Z",
+      "input": {
+        "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "web",
+        "claims_extracted": [
+          "Standard market hours visible in trading platforms and on Simulated Assets page",
+          "Trading hours subject to changes based on major holidays or events",
+          "All changes to standard market hours announced in Trading Updates section"
+        ],
+        "limitations": [
+          "OANDA-branded FTMO variant may have different symbol universe than main FTMO MT5",
+          "FAQ references platform-based verification rather than static published tables"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/content.md",
+          "sha256": "da208ee986bf70e0b686c70ace7758f3ab8989db572650fa6bb843e26e203d9f"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/metadata.json",
+          "sha256": "10bfef8413945c438eab357d5aa3b93dcaafcb7805b42c1d5edd3bef9b27c521"
+        },
+        "source_capture": {
+          "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/content.md",
+          "claims_extracted": [
+            "Standard market hours visible in trading platforms and on Simulated Assets page",
+            "Trading hours subject to changes based on major holidays or events",
+            "All changes to standard market hours announced in Trading Updates section"
+          ],
+          "limitations": [
+            "OANDA-branded FTMO variant may have different symbol universe than main FTMO MT5",
+            "FAQ references platform-based verification rather than static published tables"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:42:42.885Z",
+                  "completed_at": "2026-07-03T13:42:43.172Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 43,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:02.769Z",
+      "ended_at": "2026-07-03T13:43:02.769Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page lists all tradable instruments with contract specifications",
+          "Specifications visible per instrument including contract size, spread, swap, sessions"
+        ],
+        "limitations": [
+          "Page is educational disclaimer-heavy; actual specs must be confirmed in MT5 terminal",
+          "Session hours may change with holidays per trading updates"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 44,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:02.769Z",
+      "ended_at": "2026-07-03T13:43:02.769Z",
+      "input": {
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "url": "https://ftmo.com/en/trading-updates/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Trading updates page announces session calendar changes including early closures at 20:00 for metals and index CFDs",
+          "Holiday-specific closures and late opens are published per instrument",
+          "JP225.cash positions must be closed before Friday market closure"
+        ],
+        "limitations": [
+          "Updates are point-in-time announcements; historical session calendar reconstruction requires archival capture",
+          "Not all symbols may have consistent update coverage"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-TRADING-UPDATES-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/trading-updates/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+          "claims_extracted": [
+            "FTMO publishes trading updates tracking session calendar changes and holiday closures",
+            "Specific CFD symbols named: Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c",
+            "Early closure at 20:00 announced for multiple CFD instruments",
+            "Updates cover both standard hours changes and holiday-specific schedule modifications"
+          ],
+          "limitations": [
+            "Updates are event-driven and not a comprehensive static specification table",
+            "Historical updates may not reflect current session hours",
+            "No structured data format; changes are in prose announcements"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:30.925Z",
+                  "completed_at": "2026-07-03T13:40:31.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 45,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:02.769Z",
+      "ended_at": "2026-07-03T13:43:04.345Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACCT-SPEC-001",
+        "url": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Account and instrument specifications are viewable in MT5 via Market Watch right-click specification",
+          "FTMO directs users to the platform itself for authoritative contract specs",
+          "Implies broker-side specs may differ from displayed web specs"
+        ],
+        "limitations": [
+          "FAQ does not enumerate all specs; only points to terminal as source of truth",
+          "Requires MT5 terminal access for verification which is Stage-0 out of scope"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACCT-SPEC-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/content.md",
+          "sha256": "1058d01100014f1233d3ecd132a37cede0b28c466336d30bb2fd6007dfb05557"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/metadata.json",
+          "sha256": "52d878d9f2338f7aad2337029bbd6b949477d2f2fc9d9e82ccce790b3a31f7ca"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACCT-SPEC-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/content.md",
+          "claims_extracted": [
+            "Account and instrument specifications are viewable in MT5 via Market Watch right-click specification",
+            "FTMO directs users to the platform itself for authoritative contract specs",
+            "Implies broker-side specs may differ from displayed web specs"
+          ],
+          "limitations": [
+            "FAQ does not enumerate all specs; only points to terminal as source of truth",
+            "Requires MT5 terminal access for verification which is Stage-0 out of scope"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:43:02.769Z",
+                  "completed_at": "2026-07-03T13:43:03.063Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 46,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:04.345Z",
+      "ended_at": "2026-07-03T13:43:04.345Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX open at 1AM and trade until 10PM London time",
+          "US indices trade 23 hours with break between 10PM and 11PM",
+          "Session structure differs by instrument class creating distinct liquidity windows"
+        ],
+        "limitations": [
+          "Academy content is educational; actual hours are broker-defined and subject to change",
+          "Does not cover all CFD instrument classes like commodities or crypto"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500, Nasdaq, Dow Jones trade 23 hours a day with break between 10 PM and 11 PM",
+            "Session structure varies by instrument class: forex, European indices, US indices have different windows",
+            "Liquidity windows differ by session: London, New York, Tokyo sessions create distinct trading windows"
+          ],
+          "limitations": [
+            "Academy content is educational, not a binding specification",
+            "Hours described are approximate standard sessions, not exact platform hours",
+            "Does not cover all CFD instrument classes comprehensively"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:32.940Z",
+                  "completed_at": "2026-07-03T13:40:33.409Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 47,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:04.345Z",
+      "ended_at": "2026-07-03T13:43:04.345Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "web",
+        "claims_extracted": [
+          "Standard market hours visible in trading platforms and on Simulated Assets page",
+          "Trading hours subject to changes based on major holidays or events",
+          "All changes announced in Trading Updates section"
+        ],
+        "limitations": [
+          "FTMO x OANDA variant may have different instrument universe than standard FTMO",
+          "Does not provide granular per-symbol session data inline"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/content.md",
+          "claims_extracted": [
+            "Standard market hours are visible in trading platforms and on Simulated Assets page",
+            "Trading hours are subject to changes based on holidays or events",
+            "All changes to standard market hours announced in Trading Updates section",
+            "Platform and assets page are primary reference for current hours"
+          ],
+          "limitations": [
+            "FAQ is general guidance, not a per-symbol specification table",
+            "Refers to platform for authoritative current data rather than listing hours directly"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:31.966Z",
+                  "completed_at": "2026-07-03T13:40:32.370Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 48,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:23.426Z",
+      "ended_at": "2026-07-03T13:43:23.426Z",
+      "input": {
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "url": "https://ftmo.com/en/symbols/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "FTMO Symbols page lists all tradable instruments with specifications",
+          "Contract size, trade hours, swap, commission visible per symbol",
+          "Symbols page is the authoritative broker-side instrument catalog for FTMO MT5"
+        ],
+        "limitations": [
+          "Page may not contain full session calendar detail for every CFD",
+          "Specifications shown may differ from live MT5 terminal specs",
+          "No guarantee of real-time updates to web page vs terminal"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-FTMO-SYMBOLS-001",
+        "source_capture": {
+          "source_id": "SRC-FTMO-SYMBOLS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.com/en/symbols/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+          "claims_extracted": [
+            "FTMO maintains a Symbols page listing all tradable CFD instruments with specifications",
+            "Symbol specifications include contract size, trade hours, and instrument-specific conditions",
+            "CFD symbols include indices, commodities, metals, equities, forex pairs",
+            "Instrument specifications are viewable in MT5 Market Watch via right-click specification"
+          ],
+          "limitations": [
+            "Page is educational disclaimed and not an investment recommendation",
+            "Specifications may change; trading updates section tracks changes",
+            "No programmatic API mentioned; page is human-readable only"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:40:29.314Z",
+                  "completed_at": "2026-07-03T13:40:29.633Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 49,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:23.426Z",
+      "ended_at": "2026-07-03T13:43:24.286Z",
+      "input": {
+        "source_id": "SRC-FTMO-ACAD-SESSIONS-001",
+        "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+        "source_class": "web",
+        "claims_extracted": [
+          "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+          "US indices like SP500 Nasdaq Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+          "Session structure differs by instrument class creating distinct liquidity windows"
+        ],
+        "limitations": [
+          "Academy content is educational not contractual",
+          "Session times may not match exact MT5 trade hours for every symbol",
+          "Holiday adjustments not covered in this lesson"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-ACAD-SESSIONS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/content.md",
+          "sha256": "fdd40a21c4d01016084920ca11bf28549a6cd3e3718555d02e385bb6c43a2332"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/metadata.json",
+          "sha256": "f80567887838782df20260f7f0aba50cbf7fa3c3b0888b1f614d76929f427bbb"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-ACAD-SESSIONS-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/content.md",
+          "claims_extracted": [
+            "European indices like DAX or Stoxx open at 1 AM and trade until 10 PM London time",
+            "US indices like SP500 Nasdaq Dow Jones trade 23 hours a day with a break between 10 PM and 11 PM",
+            "Session structure differs by instrument class creating distinct liquidity windows"
+          ],
+          "limitations": [
+            "Academy content is educational not contractual",
+            "Session times may not match exact MT5 trade hours for every symbol",
+            "Holiday adjustments not covered in this lesson"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:43:23.426Z",
+                  "completed_at": "2026-07-03T13:43:23.901Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 50,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:43:24.286Z",
+      "ended_at": "2026-07-03T13:43:25.357Z",
+      "input": {
+        "source_id": "SRC-FTMO-OANDA-HOURS-001",
+        "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+        "source_class": "broker",
+        "claims_extracted": [
+          "Standard market hours visible in trading platforms and on Simulated Assets page",
+          "Trading hours subject to changes based on major holidays or events",
+          "All changes to standard market hours announced in Trading Updates section"
+        ],
+        "limitations": [
+          "FTMO x OANDA may have different symbol universe than standard FTMO MT5",
+          "FAQ is general guidance not a per-symbol spec table"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-FTMO-OANDA-HOURS-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/content.md",
+          "sha256": "895bc1c7724f512ef54d1daed8e2ac398b86fec759efea423a80c2e0b5e3fafa"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/metadata.json",
+          "sha256": "51455182b0a6048bc7810b3b662563d16a8889b8f8323164fcee6ae6fdba0751"
+        },
+        "source_capture": {
+          "source_id": "SRC-FTMO-OANDA-HOURS-001",
+          "source_type": "broker_captured_source",
+          "trust_tier": "high_operational_trust",
+          "url_or_path_or_doi": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+          "content_path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/content.md",
+          "claims_extracted": [
+            "Standard market hours visible in trading platforms and on Simulated Assets page",
+            "Trading hours subject to changes based on major holidays or events",
+            "All changes to standard market hours announced in Trading Updates section"
+          ],
+          "limitations": [
+            "FTMO x OANDA may have different symbol universe than standard FTMO MT5",
+            "FAQ is general guidance not a per-symbol spec table"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "broker",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:43:24.286Z",
+                  "completed_at": "2026-07-03T13:43:24.637Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "captured_artifacts": [
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+      "sha256": "3e15bfa32bec3ef8b94fa7d43c2564efecc88dfaf3f9e43cc41e0f02c05050a6",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "2c8e35f79d2c1671a4f76e4982066124a899a43adb433eba8ff32593a89aaae5",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+      "sha256": "952479cf0eb65a7e48b97f462f6ad70016f8fcfbfe45ecb403fb4cc0a0c8a497",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/metadata.json",
+      "sha256": "0573612a3be797bef79b1a0377ef5da6c1669af13c0d25879dfa96fcfff4df74",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/content.md",
+      "sha256": "03f9e86860c81e0309affd307a04be8737a09337f894480303acd0ebdfb7e9a8",
+      "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADING-HOURS-001/metadata.json",
+      "sha256": "9c5b38730d6663d9067461c6241d9ab974f13bc28d139dd9e37f364ae2a6d463",
+      "source_id": "SRC-FTMO-OANDA-TRADING-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+      "sha256": "9f588f976b8762f326ac0c2acd37ab65859aa54b2109937a7353edf8b2de6f5a",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/metadata.json",
+      "sha256": "2d185eade322ed270e655601e5ce46399591caf51636019a332b52a9fe639a81",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/content.md",
+      "sha256": "103e7d749828e973cda1585ebf1b91f08a809ddfb4bd8d90f9700a3ea5262ea9",
+      "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-TRADINGHOURS-001/metadata.json",
+      "sha256": "230479393353ccda7f3197a383aca8916194103c5ec7812067f8de67b11e67a4",
+      "source_id": "SRC-FTMO-OANDA-TRADINGHOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/content.md",
+      "sha256": "c4a9204456f87cb6c9048f853c58f9d692f23dd49fba1cf25d07a6d53e802629",
+      "source_id": "SRC-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-002/metadata.json",
+      "sha256": "71407eb88dd2152aa9edc7fff61213472fba33ce139cbeb195d3c5d65642c458",
+      "source_id": "SRC-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/content.md",
+      "sha256": "f2e8607c81e82fbc4e0ed517360ee131bca5c9ba91c69189513ecb45caa4de4a",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-003/metadata.json",
+      "sha256": "91d52cdd880e8cb78e37ae8178cb56ea2f7b35360ade31fd66c93205846cf168",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/content.md",
+      "sha256": "2ab94b66b669bf9fb3110db76a112560b11f593dc864b424885f5799130954aa",
+      "source_id": "SRC-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-004/metadata.json",
+      "sha256": "db3b0e6b42533ceee4e1fdac559eece442e759195307468f66e2ea91d7a0c929",
+      "source_id": "SRC-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/content.md",
+      "sha256": "878d1dbfcdf997048e6e3298768753e0897bae045d12e1c7aa1169167345d4f3",
+      "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-CFD-SYMBOLS-2025-001/metadata.json",
+      "sha256": "1fc4ba3c75fed1080563c9aa0354e9f4fc785e4a3b54cae57c8555966cb49dff",
+      "source_id": "SRC-FTMO-CFD-SYMBOLS-2025-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/content.md",
+      "sha256": "d4e5ae7d8794b2ae62d3335b66298a19c38dd4bd6109863088c6a18a6643238e",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/metadata.json",
+      "sha256": "ee38378fed7205a5d3d0c473781978b3e2d5fbe4acea21973f99ad080fb4d9e8",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/content.md",
+      "sha256": "be28b89b691384834785162b2d0fa70c4b2a29c6e85ac6810ea5966fd236f61a",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+      "sha256": "2ddd670bf8190fb235353598ed4df6ab8fe937d428c24468467ead2954a8cd8f",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/content.md",
+      "sha256": "5305679ffd3e1e25b23283b8260b0d7d32a5d29d271b6df9ed2aa99d96afb4f3",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-002/metadata.json",
+      "sha256": "fe0934f4084e5679467ece322c50b5974284cbaf4df5b69311e5f37e1dc4bc0a",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/content.md",
+      "sha256": "2f061a0668b4048da6273e2ae03f907173bc8b720198b44ae3f1132a36430c5d",
+      "source_id": "SRC-FTMO-OANDA-HOURS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-003/metadata.json",
+      "sha256": "1fd9fb1831c01dd31c242ad00dfb8f7b81c6e4f61427ade3be63f295c5c4cb6b",
+      "source_id": "SRC-FTMO-OANDA-HOURS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/content.md",
+      "sha256": "169ee917f1b69cec99f592f780c16383eb1ccc8269f2c94b5f70ff8be69a6b57",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-004/metadata.json",
+      "sha256": "9b28c45510bd1222e8a091f315673100b0a4352ff3c341e7bf358f0dd29f3704",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/content.md",
+      "sha256": "8670c3366387433e60b4a97d05d3778d509e69276bb0b0216c9459d44ab0d4c0",
+      "source_id": "SRC-BROKER-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "6267c494be63e190068bfaab0c3ec8bcd3208e03d63dfe61360a5f6e8aed512a",
+      "source_id": "SRC-BROKER-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/content.md",
+      "sha256": "2ba53a667d26a691885ffbcf436bf9c1663ff93bda835eaaf328d542465f7db7",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATES-002/metadata.json",
+      "sha256": "e0dcff0f0928ed6538e416b8b5d511128627f8a3ea984e2d8b93f88aa6678a07",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/content.md",
+      "sha256": "40cb98c65be794d8e95edcf31c3b3e3f0839c3ed01bfa57fec608973dfee70bb",
+      "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+      "sha256": "beff2d27f587df88a4f6af445cb01815168a710a2b7fb12e213f3520031beb7f",
+      "source_id": "SRC-WEB-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/content.md",
+      "sha256": "da208ee986bf70e0b686c70ace7758f3ab8989db572650fa6bb843e26e203d9f",
+      "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-WEB-FTMO-OANDA-HOURS-004/metadata.json",
+      "sha256": "10bfef8413945c438eab357d5aa3b93dcaafcb7805b42c1d5edd3bef9b27c521",
+      "source_id": "SRC-WEB-FTMO-OANDA-HOURS-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/content.md",
+      "sha256": "1058d01100014f1233d3ecd132a37cede0b28c466336d30bb2fd6007dfb05557",
+      "source_id": "SRC-FTMO-ACCT-SPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACCT-SPEC-001/metadata.json",
+      "sha256": "52d878d9f2338f7aad2337029bbd6b949477d2f2fc9d9e82ccce790b3a31f7ca",
+      "source_id": "SRC-FTMO-ACCT-SPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/content.md",
+      "sha256": "fdd40a21c4d01016084920ca11bf28549a6cd3e3718555d02e385bb6c43a2332",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/metadata.json",
+      "sha256": "f80567887838782df20260f7f0aba50cbf7fa3c3b0888b1f614d76929f427bbb",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/content.md",
+      "sha256": "895bc1c7724f512ef54d1daed8e2ac398b86fec759efea423a80c2e0b5e3fafa",
+      "source_id": "SRC-FTMO-OANDA-HOURS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14C-GLM-CFD-SOURCE-MAPPING-20260703T133948Z/tool-captures/url/SRC-FTMO-OANDA-HOURS-001/metadata.json",
+      "sha256": "51455182b0a6048bc7810b3b662563d16a8889b8f8323164fcee6ae6fdba0751",
+      "source_id": "SRC-FTMO-OANDA-HOURS-001"
+    }
+  ],
+  "failure": "ResearchBrain tool call budget exceeded: 50"
+}

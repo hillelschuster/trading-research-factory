@@ -1,1 +1,0 @@
-C:\Users\���\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe: can't open file 'C:\\mnt\\c\\Users\\���\\Desktop\\algo projects\\trading-research-factory\\walk forward engine\\src\\mt5_snapshot_probe.py': [Errno 2] No such file or directory

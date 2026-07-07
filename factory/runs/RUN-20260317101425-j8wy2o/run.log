@@ -1,2 +1,0 @@
-{"ts":"2026-03-17T10:14:25.626Z","run_id":"RUN-20260317101425-j8wy2o","message":"Starting run","extra":{"iteration":5,"backlog_item_id":"IDEA-0002","mode":"live"}}
-{"ts":"2026-03-17T10:18:40.416Z","run_id":"RUN-20260317101425-j8wy2o","message":"Run failed","extra":{"run_id":"RUN-20260317101425-j8wy2o","error":"Structured RF JSON block not found.","consecutive_failures":2}}

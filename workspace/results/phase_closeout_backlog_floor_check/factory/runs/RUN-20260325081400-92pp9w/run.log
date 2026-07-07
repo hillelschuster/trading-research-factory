@@ -1,6 +1,0 @@
-{"ts":"2026-03-25T08:14:00.592Z","run_id":"RUN-20260325081400-92pp9w","message":"Starting run","extra":{"iteration":1,"backlog_item_id":"IDEA-CHECK-1","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260325081400-92pp9w"}}
-{"ts":"2026-03-25T08:14:00.681Z","run_id":"RUN-20260325081400-92pp9w","message":"Planner completed","extra":{"experiment_id":"EXP-20260325081400-02"}}
-{"ts":"2026-03-25T08:14:00.763Z","run_id":"RUN-20260325081400-92pp9w","message":"Executor completed","extra":{"status":"partial"}}
-{"ts":"2026-03-25T08:14:00.838Z","run_id":"RUN-20260325081400-92pp9w","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
-{"ts":"2026-03-25T08:14:00.949Z","run_id":"RUN-20260325081400-92pp9w","message":"Summarizer completed","extra":{"run_id":"RUN-20260325081400-92pp9w","verdict":"inconclusive"}}
-{"ts":"2026-03-25T08:14:00.956Z","run_id":"RUN-20260325081400-92pp9w","message":"Run completed","extra":{"run_id":"RUN-20260325081400-92pp9w","verdict":"inconclusive","iteration":1}}

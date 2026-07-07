@@ -9,8 +9,9 @@ import { initializeProject } from "../src/core/init.mjs";
 import { buildResearchBrainRequestArtifact, STAGE0_RESEARCH_DISCOVERY_EVIDENCE_KIND } from "../src/core/researchbrain-artifacts.mjs";
 import { createLiveResearchBrainAgentProvider, createScriptedResearchBrainAgentProvider } from "../src/core/researchbrain-agent.mjs";
 import { createResearchBrainLlmClient } from "../src/core/researchbrain-llm-providers.mjs";
-import { createBraveResearchBrainSourceToolAdapter, createMapResearchBrainSourceToolAdapter, createResearchBrainToolRuntime } from "../src/core/researchbrain-tools.mjs";
+import { createBraveResearchBrainSourceToolAdapter, createCompositeResearchBrainSourceToolAdapter, createMapResearchBrainSourceToolAdapter, createResearchBrainToolRuntime, createRateLimiter, createSemanticScholarResearchBrainSourceToolAdapter } from "../src/core/researchbrain-tools.mjs";
 import { runResearchBrainStage0Runtime, validateResearchBrainStage0RuntimeResult } from "../src/core/researchbrain-runtime.mjs";
+import { getResearchBrainSourceAdapterEnvName, isResearchBrainSourceAdapterEnvConfigured } from "../scripts/researchbrain-stage0-provider-utils.mjs";
 
 function tempRoot() {
   return fs.mkdtempSync(path.join(os.tmpdir(), "researchbrain-agent-test-"));
@@ -187,20 +188,113 @@ test("capture_url_source returns existing source instead of overwriting duplicat
   assert.equal(duplicateCapture.output.source_id, "SRC-WEB-AGENT-001");
 });
 
-test("record_hypothesis requires all memory tools in the same run", async () => {
+test("record_hypothesis auto-runs missing memory prerequisites", async () => {
   const rootDir = tempRoot();
   const url = "https://example.test/missing-memory";
   const result = await runScript(rootDir, [
     { tool: "search_web", input: { results: [{ result_id: "missing-memory-1", url, title: "Missing memory", discovery_only: true }] } },
     { tool: "capture_url_source", input: { source_id: "SRC-WEB-AGENT-001", url, content: "A fixture source exists, but the agent did not call the mandatory memory tools before recording." } },
-    { tool: "search_research_memory", input: { query: "volatility contraction" } },
     { tool: "record_hypothesis", input: hypothesis() }
   ], { runId: "RESEARCHBRAIN-STAGE0-MISSING-MEMORY-TOOLS", outputDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-MISSING-MEMORY-TOOLS" });
 
+  assert.equal(result.status, "ready");
+  assert.equal(validateResearchBrainStage0RuntimeResult(result, { rootDir, requireExisting: true }), true);
+  const toolLedgerRef = result.artifacts_created.find((artifact) => artifact.artifact_type === "researchbrain_tool_ledger");
+  const ledger = JSON.parse(fs.readFileSync(path.join(rootDir, toolLedgerRef.path), "utf8"));
+  const recordCall = ledger.tool_calls.find((call) => call.tool === "record_hypothesis");
+  assert.deepEqual(recordCall.output.auto_memory_prerequisites.completed, ["search_research_memory", "check_duplicate_memory", "check_failed_pattern_similarity"]);
+  assert.deepEqual(recordCall.output.memory_checks.required_tool_calls, {
+    search_research_memory: true,
+    check_duplicate_memory: true,
+    check_failed_pattern_similarity: true
+  });
+});
+
+test("record_hypothesis accepts core fields and defaults lower-value packet fields", async () => {
+  const rootDir = tempRoot();
+  const url = "https://example.test/minimal-hypothesis";
+  const result = await runScript(rootDir, [
+    { tool: "search_web", input: { results: [{ result_id: "minimal-hypothesis-1", url, title: "Minimal hypothesis", discovery_only: true }] } },
+    { tool: "capture_url_source", input: { source_id: "SRC-WEB-AGENT-001", url, content: "A captured source gives a falsifiable volatility contraction mechanism with explicit limitations." } },
+    {
+      tool: "record_hypothesis",
+      input: {
+        hypothesis_id: "HYP-STAGE0-MINIMAL-CORE-001",
+        mechanism: "Volatility contraction can precede liquidity-driven continuation on MT5 CFD symbols.",
+        falsifiable_prediction: "Later deterministic WFA should reject this if OOS consistency disappears after realistic costs.",
+        instrument_scope: "FTMO MT5 CFD symbols",
+        timeframe_candidate: "M15-H1 candidate",
+        strategy_family: "minimal_volatility_contraction",
+        cited_source_ids: ["SRC-WEB-AGENT-001"],
+        source_claims: [{ claim_class: "source_backed_mechanism", citation_source_id: "SRC-WEB-AGENT-001" }]
+      }
+    }
+  ], { runId: "RESEARCHBRAIN-STAGE0-MINIMAL-HYPOTHESIS", outputDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-MINIMAL-HYPOTHESIS" });
+
+  assert.equal(result.status, "ready");
+  assert.equal(validateResearchBrainStage0RuntimeResult(result, { rootDir, requireExisting: true }), true);
+  const packetRef = result.artifacts_created.find((artifact) => artifact.artifact_type === "hypothesis_packet");
+  const packet = JSON.parse(fs.readFileSync(path.join(rootDir, packetRef.path), "utf8"));
+  assert.equal(packet.hypothesis_id, "HYP-STAGE0-MINIMAL-CORE-001");
+  assert.equal(packet.mt5_relevance_classification, "mt5_relevant_unverified");
+  assert.match(packet.required_data, /MT5 terminal OHLCV/i);
+  assert.deepEqual(packet.prior_failed_patterns_checked, ["record_hypothesis auto-ran required memory checks; no blocking failed-pattern similarity was found."]);
+});
+
+test("record_hypothesis LLM schema only requires core fields", async () => {
+  const calls = [];
+  const client = createResearchBrainLlmClient({
+    allowLiveLlm: true,
+    provider: "deepseek",
+    model: "deepseek-v4-flash",
+    apiKey: "test-deepseek-key",
+    fetchImpl: async (endpoint, options) => {
+      calls.push({ endpoint, options, body: JSON.parse(options.body) });
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            id: "chatcmpl_record_schema_fixture",
+            model: "deepseek-v4-flash",
+            choices: [{ finish_reason: "stop", message: { content: "done" } }]
+          });
+        }
+      };
+    }
+  });
+
+  await client.generate({ request: request(tempRoot()), transcript: [], allowed_tools: ["record_hypothesis"] });
+  const schema = calls[0].body.tools[0].function.parameters;
+  assert.deepEqual(schema.required.sort(), [
+    "cited_source_ids",
+    "falsifiable_prediction",
+    "hypothesis_id",
+    "instrument_scope",
+    "mechanism",
+    "source_claims",
+    "strategy_family",
+    "timeframe_candidate"
+  ].sort());
+  assert.equal(Object.hasOwn(schema.properties, "required_data"), true);
+});
+
+test("record_hypothesis auto-memory still blocks parameter-only failed-pattern matches", async () => {
+  const rootDir = tempRoot();
+  const url = "https://example.test/failed-pattern-auto-memory";
+  const result = await runScript(rootDir, [
+    { tool: "search_web", input: { results: [{ result_id: "failed-pattern-auto-1", url, title: "Failed pattern", discovery_only: true }] } },
+    { tool: "capture_url_source", input: { source_id: "SRC-WEB-AGENT-001", url, content: "A fixture source discusses an RSI parameter tweak without new market structure evidence." } },
+    { tool: "record_hypothesis", input: hypothesis({ mechanism: "BTCUSD RSI period threshold tweak.", strategy_family: "rsi_mean_reversion" }) }
+  ], {
+    runId: "RESEARCHBRAIN-STAGE0-AUTO-MEMORY-FAILED-PATTERN",
+    outputDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-AUTO-MEMORY-FAILED-PATTERN",
+    requestOptions: { priorFailedPatterns: ["BTCUSD RSI period threshold tweak failed as a parameter-only non-survivor screen."] }
+  });
+
   assert.equal(result.status, "blocked");
-  assert.match(result.attempts[0].reason, /requires prior memory tool calls/);
-  assert.match(result.attempts[0].reason, /check_duplicate_memory/);
-  assert.match(result.attempts[0].reason, /check_failed_pattern_similarity/);
+  assert.match(result.attempts[0].reason, /record_hypothesis blocked by memory similarity/);
+  assert.match(result.attempts[0].reason, /parameter_only_failed_pattern_similarity/);
 });
 
 test("ResearchBrain memory tools surface prior Stage-0 rejection details", async () => {
@@ -290,6 +384,31 @@ test("live tool mode rejects LLM supplied URL capture content", async () => {
 
   assert.equal(result.status, "blocked");
   assert.match(result.attempts[0].reason, /live mode rejects LLM-supplied input\.content/);
+});
+
+test("live tool mode rejects LLM supplied GitHub artifact content", async () => {
+  const rootDir = tempRoot();
+  initializeProject(rootDir);
+  const runtime = createResearchBrainToolRuntime({
+    rootDir,
+    runRepoDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-LIVE-GITHUB-CONTENT-INJECTION-BLOCK",
+    runId: "RESEARCHBRAIN-STAGE0-LIVE-GITHUB-CONTENT-INJECTION-BLOCK",
+    request: request(rootDir),
+    toolMode: "live",
+    requireDiscoveryBeforeCapture: false
+  });
+
+  await assert.rejects(
+    () => runtime.execute("capture_github_artifact", {
+      source_id: "SRC-GITHUB-INJECTED",
+      repo_url: "https://github.com/example/repo",
+      path: "Experts/filter.mq5",
+      commit_sha: "a".repeat(40),
+      license: "MIT",
+      content: "// Invented code must not become a live captured GitHub artifact."
+    }),
+    /live mode rejects LLM-supplied input\.content/
+  );
 });
 
 test("live tool mode fails closed without deterministic source adapter", async () => {
@@ -538,100 +657,12 @@ test("live LLM provider seam requires explicit opt-in and supports injectable cl
 });
 
 test("direct ResearchBrain LLM adapter is fail-closed without opt-in, supported provider, and API key", () => {
-  assert.throws(() => createResearchBrainLlmClient({ provider: "anthropic", model: "claude-opus-fixture", apiKey: "test" }), /allowLiveLlm/);
   assert.throws(() => createResearchBrainLlmClient({ allowLiveLlm: true, provider: "openai", model: "gpt-fixture", apiKey: "test" }), /Unsupported ResearchBrain LLM provider/);
-  assert.throws(() => createResearchBrainLlmClient({ allowLiveLlm: true, provider: "anthropic", model: "claude-opus-fixture", apiKeyEnv: "RESEARCHBRAIN_TEST_MISSING_KEY" }), /requires API key/);
   assert.throws(() => createResearchBrainLlmClient({ allowLiveLlm: true, provider: "openai_compatible", model: "deepseek-fixture", apiKey: "test", baseUrlEnv: "RESEARCHBRAIN_TEST_MISSING_BASE_URL" }), /requires base URL/);
   assert.throws(() => createResearchBrainLlmClient({ allowLiveLlm: true, provider: "deepseek", model: "deepseek-v4-flash-fixture", apiKeyEnv: "RESEARCHBRAIN_TEST_MISSING_KEY" }), /requires API key/);
 });
 
-test("Anthropic direct adapter maps fake tool-use responses through the live agent seam", async () => {
-  const rootDir = tempRoot();
-  const paths = initializeProject(rootDir);
-  const beforeOfficial = officialFileHashes(paths);
-  const url = "https://example.test/anthropic-adapter";
-  const calls = [];
-  const toolCalls = [
-    { name: "search_web", input: { query: "anthropic adapter volatility contraction", results: [{ result_id: "anthropic-1", url, title: "Adapter source", discovery_only: true }] } },
-    { name: "capture_url_source", input: { source_id: "SRC-WEB-AGENT-001", url, content: "A fake Anthropic adapter source discusses volatility contraction, liquidity imbalance, limitations, and deterministic falsification without profitability claims." } },
-    ...memoryCheckSteps().map((step) => ({ name: step.tool, input: step.input })),
-    { name: "record_hypothesis", input: hypothesis({ hypothesis_id: "HYP-STAGE0-ANTHROPIC-ADAPTER-001" }) }
-  ];
 
-  const llmClient = createResearchBrainLlmClient({
-    allowLiveLlm: true,
-    provider: "anthropic",
-    model: "claude-opus-fixture",
-    apiKey: "test-anthropic-key",
-    fetchImpl: async (endpoint, options) => {
-      calls.push({ endpoint, options, body: JSON.parse(options.body) });
-      if (calls.length === 1) {
-        return {
-          ok: true,
-          status: 200,
-          async text() {
-            return JSON.stringify({
-              id: "msg_tool_fixture",
-              type: "message",
-              role: "assistant",
-              model: "claude-opus-fixture",
-              stop_reason: "tool_use",
-              usage: { input_tokens: 100, output_tokens: 50 },
-              content: toolCalls.map((call, index) => ({ type: "tool_use", id: `toolu_${index + 1}`, ...call }))
-            });
-          }
-        };
-      }
-      return {
-        ok: true,
-        status: 200,
-        async text() {
-          return JSON.stringify({
-            id: "msg_final_fixture",
-            type: "message",
-            role: "assistant",
-            model: "claude-opus-fixture",
-            stop_reason: "end_turn",
-            usage: { input_tokens: 50, output_tokens: 10 },
-            content: [{ type: "text", text: "Final Stage-0 tool work is ready for deterministic runtime validation." }]
-          });
-        }
-      };
-    }
-  });
-
-  const result = await runResearchBrainStage0Runtime({
-    rootDir,
-    request: request(rootDir, { requestId: "RESEARCHBRAIN-REQUEST-ANTHROPIC-ADAPTER" }),
-    runId: "RESEARCHBRAIN-STAGE0-ANTHROPIC-ADAPTER",
-    outputDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-ANTHROPIC-ADAPTER",
-    observedAt: "2026-05-22T01:03:00Z",
-    provider: createLiveResearchBrainAgentProvider({
-      allowLiveLlm: true,
-      llmProvider: "anthropic",
-      llmModel: "claude-opus-fixture",
-      toolMode: "fixture",
-      maxLlmCalls: 2,
-      llmClient
-    }),
-    maxAttempts: 1,
-    maxProviderCalls: 1,
-    timeoutMs: 1000
-  });
-
-  assert.equal(result.status, "ready");
-  assert.equal(validateResearchBrainStage0RuntimeResult(result, { rootDir, requireExisting: true }), true);
-  assert.equal(calls.length, 1);
-  assert.equal(calls[0].endpoint, "https://api.anthropic.com/v1/messages");
-  assert.equal(calls[0].options.headers["anthropic-version"], "2023-06-01");
-  assert.equal(calls[0].body.tools.some((tool) => tool.name === "record_hypothesis"), true);
-  assert.equal(calls[0].body.tools.some((tool) => String(tool.name).includes("web_search")), false);
-  assert.deepEqual(officialFileHashes(paths), beforeOfficial);
-  const costLedgerRef = result.artifacts_created.find((artifact) => artifact.artifact_type === "researchbrain_cost_ledger");
-  const costLedger = JSON.parse(fs.readFileSync(path.join(rootDir, costLedgerRef.path), "utf8"));
-  assert.equal(costLedger.llm_provider, "anthropic");
-  assert.equal(costLedger.live_llm, true);
-});
 
 test("OpenAI-compatible direct adapter maps fake tool calls without storing credentials", async () => {
   const calls = [];
@@ -720,6 +751,39 @@ test("DeepSeek direct adapter sends thinking/reasoning_effort params and uses co
   assert.deepEqual(calls[0].body.thinking, { type: "enabled" });
   assert.equal(calls[0].body.reasoning_effort, "max");
   assert.equal(calls[0].body.tools[0].function.name, "search_web");
+});
+
+test("OpenAI-compatible adapter can send optional reasoning_effort for OpenCode Go bakeoffs", async () => {
+  const calls = [];
+  const client = createResearchBrainLlmClient({
+    allowLiveLlm: true,
+    provider: "openai_compatible",
+    model: "glm-5.2",
+    apiKey: "test-opencode-go-key",
+    baseUrl: "https://opencode.ai/zen/go/v1",
+    reasoningEffort: "max",
+    fetchImpl: async (endpoint, options) => {
+      calls.push({ endpoint, options, body: JSON.parse(options.body) });
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            id: "chatcmpl_opencode_go_fixture",
+            model: "glm-5.2",
+            choices: [{ finish_reason: "stop", message: { content: "done" } }],
+            usage: { prompt_tokens: 10, completion_tokens: 5 }
+          });
+        }
+      };
+    }
+  });
+
+  const response = await client.generate({ request: request(tempRoot()), transcript: [], allowed_tools: ["search_web"] });
+  assert.equal(response.final, true);
+  assert.equal(calls[0].endpoint, "https://opencode.ai/zen/go/v1/chat/completions");
+  assert.equal(calls[0].body.model, "glm-5.2");
+  assert.equal(calls[0].body.reasoning_effort, "max");
 });
 
 test("DeepSeek direct adapter reports malformed tool arguments as retryable provider error", async () => {
@@ -973,6 +1037,75 @@ test("live ResearchBrain exposes only adapter-backed search tools", async () => 
   assert.ok(!seenAllowedTools.includes("search_mql5_sources"));
 });
 
+test("live ResearchBrain synthesis-phase gating restricts tools at 60% and 80% budget thresholds", async () => {
+  const rootDir = tempRoot();
+  initializeProject(rootDir);
+  const seenAllowed = [];
+  let llmTurn = 0;
+
+  const provider = createLiveResearchBrainAgentProvider({
+    allowLiveLlm: true,
+    llmProvider: "fake_gating_test",
+    llmModel: "fake-model",
+    maxToolCalls: 10,
+    maxLlmCalls: 5,
+    toolMode: "fixture",
+    llmClient: {
+      async generate(context) {
+        llmTurn++;
+        seenAllowed.push({ turn: llmTurn, allowed: [...context.allowed_tools].sort() });
+        // Only request tools that are in the current allowed_tools list
+        const calls = [];
+        if (context.allowed_tools.includes("search_web")) {
+          calls.push({ tool: "search_web", input: { results: [{ result_id: `gating-${llmTurn}`, url: "https://example.test/gating", discovery_only: true }] } });
+        }
+        if (context.allowed_tools.includes("search_research_memory")) {
+          calls.push({ tool: "search_research_memory", input: { query: "gating memory check" } });
+        }
+        if (calls.length === 0 && context.allowed_tools.includes("record_rejection")) {
+          calls.push({ tool: "record_rejection", input: { rejection_id: `GATING-REJECTION-${llmTurn}`, idea: "Budget exhausted", reason: "No viable tools left in gated phase" } });
+        }
+        return { tool_calls: calls.length > 0 ? calls : [{ tool: "search_research_memory", input: { query: "gating fallback" } }], final: false };
+      }
+    }
+  });
+
+  await assert.rejects(
+    () => provider.generate({
+      root_dir: rootDir,
+      run_repo_dir: "factory/research/runs/RESEARCHBRAIN-STAGE0-GATING-TEST",
+      run_id: "RESEARCHBRAIN-STAGE0-GATING-TEST",
+      request: request(rootDir)
+    })
+  );
+
+  // Verify pre-60% turns have search_web available
+  const preThreshold = seenAllowed.filter((entry) => entry.turn <= 2);
+  for (const entry of preThreshold) {
+    assert.ok(entry.allowed.includes("search_web"), `turn ${entry.turn} <60% should have search_web`);
+    assert.ok(entry.allowed.includes("search_research_memory"), `turn ${entry.turn} <60% should have memory`);
+  }
+
+  // At >60% budget (turn 4, starts with toolCalls.length=6): search tools removed, capture/memory remain
+  const at60Entry = seenAllowed.find((entry) => entry.turn === 4);
+  if (at60Entry) {
+    assert.ok(!at60Entry.allowed.includes("search_web"), "turn >=60% zero hypotheses should remove search_web");
+    assert.ok(at60Entry.allowed.includes("search_research_memory"), "turn >=60% should keep memory tools");
+    assert.ok(at60Entry.allowed.includes("capture_url_source"), "turn >=60% should keep capture tools");
+    assert.ok(at60Entry.allowed.includes("record_rejection"), "turn >=60% should keep record tools");
+  }
+
+  // At >=80% or final turn (turn 5): only core record and memory tools
+  const at80Entry = seenAllowed.find((entry) => entry.turn >= 5);
+  if (at80Entry) {
+    assert.ok(!at80Entry.allowed.includes("search_web"), "turn >=80% should remove search_web");
+    assert.ok(!at80Entry.allowed.includes("capture_url_source"), "turn >=80% should remove capture tools");
+    assert.ok(at80Entry.allowed.includes("record_hypothesis"), "turn >=80% should keep record_hypothesis");
+    assert.ok(at80Entry.allowed.includes("search_research_memory"), "turn >=80% should keep memory tools");
+    assert.ok(at80Entry.allowed.includes("record_rejection"), "turn >=80% should keep record_rejection");
+  }
+});
+
 test("live ResearchBrain continues after non-terminal source capture failure", async () => {
   const rootDir = tempRoot();
   const badUrl = "https://example.test/paywalled-source";
@@ -1081,6 +1214,193 @@ test("Brave source adapter is fail-closed and supports fake search plus capture"
   const capture = await adapter.captureUrl({ input: { url }, discovery: search.results[0] });
   assert.equal(capture.live_fetch, true);
   assert.match(capture.content, /deterministic captured source body/);
+});
+
+test("createRateLimiter enforces minimum interval between acquires", async () => {
+  const limiter = createRateLimiter({ defaultIntervalMs: 50 });
+  const start = Date.now();
+  await limiter.acquire({ key: "test" });
+  await limiter.acquire({ key: "test" });
+  const elapsed = Date.now() - start;
+  assert.ok(elapsed >= 45, `expected >= 45ms elapsed, got ${elapsed}ms`);
+  const snap = limiter.snapshot();
+  assert.ok(snap.tracked_keys.includes("test"));
+  assert.equal(snap.defaultIntervalMs, 50);
+});
+
+test("createRateLimiter with zero interval passes immediately", async () => {
+  const limiter = createRateLimiter({ defaultIntervalMs: 0 });
+  const start = Date.now();
+  await limiter.acquire({ key: "fast" });
+  await limiter.acquire({ key: "fast" });
+  assert.ok(Date.now() - start < 30);
+});
+
+test("createRateLimiter separate keys do not block each other", async () => {
+  const limiter = createRateLimiter({ defaultIntervalMs: 200 });
+  const start = Date.now();
+  await Promise.all([
+    limiter.acquire({ key: "a" }),
+    limiter.acquire({ key: "b" })
+  ]);
+  assert.ok(Date.now() - start < 100);
+});
+
+test("createRateLimiter rejects invalid interval", () => {
+  assert.throws(() => createRateLimiter({ defaultIntervalMs: -1 }), /nonnegative integer/);
+});
+
+test("Semantic Scholar adapter is fail-closed and exposes env-name config", () => {
+  assert.throws(() => createSemanticScholarResearchBrainSourceToolAdapter({}), /allowLiveSourceSearch/);
+  const adapter = createSemanticScholarResearchBrainSourceToolAdapter({
+    allowLiveSourceSearch: true,
+    allowLiveSourceCapture: true,
+    apiKey: "test-ss-key",
+    fetchImpl: async () => ({ ok: true, status: 200, async text() { return JSON.stringify({ data: [] }); }, async json() { return { data: [] }; } })
+  });
+  assert.equal(adapter.name, "semantic_scholar_researchbrain_source_tool_adapter");
+  assert.equal(adapter.live_research, true);
+  assert.ok(adapter.supportedSearchToolNames.has("search_semantic_scholar"));
+  assert.equal(typeof adapter.getRateLimiterSnapshot, "function");
+  const snap = adapter.getRateLimiterSnapshot();
+  assert.equal(snap.defaultIntervalMs, 1000); // 1s with key
+});
+
+test("Semantic Scholar adapter respects rate limiter", async () => {
+  const callTimes = [];
+  const adapter = createSemanticScholarResearchBrainSourceToolAdapter({
+    allowLiveSourceSearch: true,
+    allowLiveSourceCapture: true,
+    apiKey: "test-ss-key",
+    fetchImpl: async () => {
+      callTimes.push(Date.now());
+      return { ok: true, status: 200, async text() { return JSON.stringify({ data: [] }); }, async json() { return { data: [] }; } };
+    }
+  });
+  // Two sequential searches should be at least ~1000ms apart (rate-limited)
+  await adapter.search({ toolName: "search_semantic_scholar", input: { query: "volatility clustering" } });
+  await adapter.search({ toolName: "search_semantic_scholar", input: { query: "momentum factor" } });
+  assert.equal(callTimes.length, 2);
+  const gap = callTimes[1] - callTimes[0];
+  assert.ok(gap >= 950, `expected >= 950ms gap, got ${gap}ms`);
+  const snap = adapter.getRateLimiterSnapshot();
+  assert.ok(snap.tracked_keys.includes("semantic_scholar_search"));
+});
+
+test("Semantic Scholar adapter uses wider interval without API key", () => {
+  const adapter = createSemanticScholarResearchBrainSourceToolAdapter({
+    allowLiveSourceSearch: true,
+    apiKey: null,
+    apiKeyEnv: "RESEARCHBRAIN_TEST_SS_KEY_MISSING",
+    fetchImpl: async () => ({ ok: true, status: 200, async text() { return JSON.stringify({ data: [] }); }, async json() { return { data: [] }; } })
+  });
+  const snap = adapter.getRateLimiterSnapshot();
+  // Without key (free tier): 100 req/5min = 3000ms
+  assert.equal(snap.defaultIntervalMs, 3000);
+});
+
+test("Semantic Scholar env-name config is exposed through provider utils", () => {
+  const envName = getResearchBrainSourceAdapterEnvName("semantic_scholar");
+  assert.equal(envName, "SEMANTIC_SCHOLAR_API_KEY");
+  assert.equal(getResearchBrainSourceAdapterEnvName("brave"), "BRAVE_SEARCH_API_KEY");
+  assert.equal(getResearchBrainSourceAdapterEnvName("nonexistent"), null);
+  const configured = isResearchBrainSourceAdapterEnvConfigured("semantic_scholar");
+  assert.equal(typeof configured, "boolean");
+  assert.ok(configured === true || configured === false);
+});
+
+test("fixtureSearchResults returns structured adapter_error diagnostic on live adapter failure", async () => {
+  const rootDir = tempRoot();
+  const failingAdapter = {
+    name: "failing_adapter",
+    async search() {
+      throw new Error("HTTP 429 rate limit exceeded for source adapter: too many requests");
+    }
+  };
+  const toolRuntime = createResearchBrainToolRuntime({
+    rootDir,
+    runRepoDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-ADAPTER-DIAG",
+    request: { request_id: "RESEARCHBRAIN-REQUEST-ADAPTER-DIAG" },
+    toolMode: "live",
+    sourceToolAdapter: failingAdapter,
+    retryPolicy: { sourceToolMaxAttempts: 2, sourceToolRetryDelayMs: 0 }
+  });
+  const result = await toolRuntime.execute("search_web", { query: "test adapter failure diagnostic" });
+  assert.equal(result.results.length, 0);
+  assert.ok(result.adapter_error, "expected adapter_error diagnostic on failed live search");
+  assert.equal(result.adapter_error.tool_name, "search_web");
+  assert.match(result.adapter_error.error_message, /rate limit/i);
+  assert.equal(result.adapter_error.diagnostic_only, true);
+  assert.equal(result.adapter_error.blocked, true);
+  assert.ok(result.adapter_error.retry_attempts >= 1);
+  assert.equal(result.adapter_error.failure_class, "transient_retryable_failure");
+  // Verify the diagnostic survives JSON serialization (tool-ledger shape)
+  const toolLedger = { schema_version: "researchbrain_tool_ledger_v1", tool_calls: [{ tool: "search_web", status: "ok", output: result }] };
+  const serialized = JSON.parse(JSON.stringify(toolLedger));
+  assert.ok(serialized.tool_calls[0].output.adapter_error);
+  assert.equal(serialized.tool_calls[0].output.adapter_error.failure_class, "transient_retryable_failure");
+});
+
+test("fixtureSearchRoutes with live LLM preserves retry_attempts on success", async () => {
+  const rootDir = tempRoot();
+  let searchCalls = 0;
+  const successAdapter = {
+    name: "success_adapter",
+    async search() {
+      searchCalls += 1;
+      if (searchCalls === 1) throw new Error("HTTP 503 temporarily unavailable");
+      return { provider: "success_adapter", provider_native_search_enabled: false, results: [{ result_id: "success-1", url: "https://example.test/success", title: "Success", source_class: "web", discovery_only: true }] };
+    }
+  };
+  const toolRuntime = createResearchBrainToolRuntime({
+    rootDir,
+    runRepoDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-RETRY-SUCCESS",
+    request: { request_id: "RESEARCHBRAIN-REQUEST-RETRY-SUCCESS" },
+    toolMode: "live",
+    sourceToolAdapter: successAdapter,
+    retryPolicy: { sourceToolMaxAttempts: 2, sourceToolRetryDelayMs: 0 }
+  });
+  const result = await toolRuntime.execute("search_web", { query: "retry then succeed" });
+  assert.equal(result.results.length, 1);
+  assert.equal(result.results[0].result_id, "success-1");
+  assert.ok(!result.results.adapter_error, "no adapter_error on success");
+});
+
+test("composite source adapter reports all capture sub-adapter failures", async () => {
+  const composite = createCompositeResearchBrainSourceToolAdapter({
+    adapters: [
+      {
+        name: "adapter_one",
+        supportedSearchToolNames: new Set(["search_web"]),
+        live_research: true,
+        async captureUrl() {
+          throw new Error("adapter one rejected host");
+        }
+      },
+      {
+        name: "adapter_two",
+        supportedSearchToolNames: new Set(["search_web"]),
+        live_research: true,
+        async captureUrl() {
+          throw new Error("adapter two timeout");
+        }
+      }
+    ]
+  });
+
+  await assert.rejects(
+    () => composite.captureUrl({ input: { url: "https://example.test/source" }, discovery: {} }),
+    (err) => {
+      assert.match(err.message, /No sub-adapter could capture URL/);
+      assert.match(err.message, /adapter_one: adapter one rejected host/);
+      assert.match(err.message, /adapter_two: adapter two timeout/);
+      assert.deepEqual(err.failures, [
+        { adapter: "adapter_one", message: "adapter one rejected host" },
+        { adapter: "adapter_two", message: "adapter two timeout" }
+      ]);
+      return true;
+    }
+  );
 });
 
 test("runtime CLI exposes explicit live LLM flags", () => {

@@ -1,6 +1,0 @@
-{"ts":"2026-03-24T16:06:40.464Z","run_id":"RUN-20260324160639-uftmux","message":"Starting run","extra":{"iteration":41,"backlog_item_id":"IDEA-079184-3z6","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260324160639-uftmux"}}
-{"ts":"2026-03-24T16:06:41.961Z","run_id":"RUN-20260324160639-uftmux","message":"Planner completed","extra":{"experiment_id":"EXP-20260324160641-13"}}
-{"ts":"2026-03-24T16:06:44.440Z","run_id":"RUN-20260324160639-uftmux","message":"Executor completed","extra":{"status":"partial"}}
-{"ts":"2026-03-24T16:06:45.743Z","run_id":"RUN-20260324160639-uftmux","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
-{"ts":"2026-03-24T16:06:47.353Z","run_id":"RUN-20260324160639-uftmux","message":"Summarizer completed","extra":{"run_id":"RUN-20260324160639-uftmux","verdict":"inconclusive"}}
-{"ts":"2026-03-24T16:06:47.400Z","run_id":"RUN-20260324160639-uftmux","message":"Run completed","extra":{"run_id":"RUN-20260324160639-uftmux","verdict":"inconclusive","iteration":41}}

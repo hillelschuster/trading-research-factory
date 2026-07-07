@@ -71,6 +71,7 @@ function parseArgs(argv) {
     else if (arg === "--llm-base-url-env") args.llmBaseUrlEnv = requireCliValue(argv, index++, arg);
     else if (arg === "--llm-base-url") args.llmBaseUrl = requireCliValue(argv, index++, arg);
     else if (arg === "--llm-max-tokens") args.llmMaxTokens = requireCliNumber(argv, index++, arg);
+    else if (arg === "--llm-reasoning-effort") args.llmReasoningEffort = requireCliValue(argv, index++, arg);
     else if (arg === "--max-llm-calls") args.maxLlmCalls = requireCliNumber(argv, index++, arg);
     else if (arg === "--tool-mode") args.toolMode = requireCliValue(argv, index++, arg);
     else if (arg === "--allow-tool") {
@@ -142,13 +143,14 @@ function printHelp() {
     "",
     "Live LLM Provider Options:",
     "  --allow-live-llm              Required opt-in for live_llm_agent provider_mode.",
-    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen.",
-    "  --llm-provider <name>         Live LLM provider name; supports anthropic, openai_compatible, or deepseek.",
+    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen; opencode_go_kimi_xhigh and opencode_go_glm_xhigh route kimi-k2.7-code / glm-5.2 via OpenCode Go.",
+    "  --llm-provider <name>         Live LLM provider name; supports openai_compatible or deepseek.",
     "  --llm-model <name>            Live LLM model id; required for live_llm_agent.",
     "  --llm-api-key-env <name>      API-key environment variable. Defaults by provider.",
     "  --llm-base-url-env <name>     Base URL env var for openai_compatible providers.",
     "  --llm-base-url <url>          Base URL for openai_compatible providers; prefer env outside repo.",
     "  --llm-max-tokens <n>          Per-provider response token cap for the direct adapter.",
+    "  --llm-reasoning-effort <name> Optional reasoning effort hint for compatible providers, e.g. max.",
     "  --max-llm-calls <n>           Live LLM turn budget.",
     "  --tool-mode <mode>            Agent tool mode: fixture or live. Defaults to live with --allow-live-llm.",
     "  --allow-tool <name>           Allow agent tool; repeatable. Defaults to v1 catalog.",

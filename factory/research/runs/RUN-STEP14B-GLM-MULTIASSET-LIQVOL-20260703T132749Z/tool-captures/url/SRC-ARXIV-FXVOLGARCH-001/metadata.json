@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-ARXIV-FXVOLGARCH-001",
+  "url": "http://arxiv.org/abs/2202.08962v2",
+  "title": "Volatility forecasting with machine learning and intraday commonality",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:27:49.411Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:29:33.767Z",
+      "completed_at": "2026-07-03T13:29:34.211Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "c021915307d3e2cbf46ca8dadf2a3d0823a79cab378637c5884df45b4a656b00"
+}

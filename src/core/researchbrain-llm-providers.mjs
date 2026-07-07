@@ -1,19 +1,14 @@
 import { RESEARCHBRAIN_ALLOWED_TOOLS } from "./researchbrain-tools.mjs";
 import { sanitizeRetryErrorMessage } from "./retry-policy.mjs";
 
-export const RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC = "anthropic";
 export const RESEARCHBRAIN_LLM_PROVIDER_OPENAI_COMPATIBLE = "openai_compatible";
 export const RESEARCHBRAIN_LLM_PROVIDER_DEEPSEEK = "deepseek";
-
-const ANTHROPIC_MESSAGES_ENDPOINT = "https://api.anthropic.com/v1/messages";
-const ANTHROPIC_VERSION = "2023-06-01";
 
 function normalizeProviderName(provider) {
   return String(provider ?? "").trim().toLowerCase();
 }
 
 function defaultApiKeyEnv(provider) {
-  if (normalizeProviderName(provider) === RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC) return "ANTHROPIC_API_KEY";
   if (normalizeProviderName(provider) === RESEARCHBRAIN_LLM_PROVIDER_OPENAI_COMPATIBLE) return "OPENCODE_API_KEY";
   if (normalizeProviderName(provider) === RESEARCHBRAIN_LLM_PROVIDER_DEEPSEEK) return "DEEPSEEK_API_KEY";
   return null;
@@ -37,15 +32,35 @@ function clippedJson(value, maxChars = 12_000) {
 
 function buildSystemPrompt({ provider, model }) {
   return [
-    "You are ResearchBrain, a bounded Stage-0 discovery agent for a solo autonomous quant research factory.",
-    "You may think, compare sources, reject weak ideas, and call only the supplied deterministic tools.",
+    "You are ResearchBrain, a free-roaming creative researcher for a solo autonomous quant research factory.",
+    "Your job: discover NOVEL trading edges from EXTERNAL sources — NOT from your training data.",
+    "",
+    "## Research phases",
+    "",
+    "Phase 1 — SCOUT EXTERNALLY, THEN FOLLOW SIGNAL: Start broad enough to avoid training-data confirmation. Choose one or two promising source classes first, capture and read deeply. Switch only when the trail is weak. Do NOT start with a specific hypothesis from training data. Let the sources suggest patterns, not the other way around. Do NOT treat source classes as a coverage checklist — follow signal, not coverage.",
+    "",
+    "Phase 2 — READ AND SYNTHESIZE: Capture and read sources. Record observations and hunches in the research journal (write_wiki_page) as you go. Let sources drive your thinking.",
+    "",
+    "Phase 3 — FORM HYPOTHESIS FROM SOURCES: After capturing at least one external source, form a hypothesis grounded in what you discovered — not in training data. A single source is sufficient if the idea looks worth testing. Sometimes the best alpha is in a field where only one source talks about it. Do NOT require multiple sources or multiple source families.",
+    "",
+    "Phase 4 — VALIDATE: Before recording, run required memory checks (search_research_memory, check_duplicate_memory, check_failed_pattern_similarity). Then search your own captured sources for any evidence that disconfirms or weakens the hypothesis. Only after this pre-recording critic is complete, call record_hypothesis.",
+    "",
+    "Phase 5 — FINAL CHECK: After recording, reply with no tool calls to signal final=true to the local runtime. Do NOT search for more evidence or run more tool calls after recording — all validation and self-review must happen before record_hypothesis in Phase 4.",
+    "",
+    "## Rules",
+    "",
     "Tool arguments must be compact valid JSON. Keep record_hypothesis string fields short and avoid markdown, quotes-heavy prose, or multiline strings inside tool arguments.",
     "You must not use provider-native web/search as evidence; only deterministic captured source artifacts may support a hypothesis.",
     "You must not claim profitability, Sharpe, CAGR, PnL, WFA, MT5 execution, MQL5 parity, trading, account access, or promotion authority.",
-    "Call mandatory memory tools before record_hypothesis.",
-    "Do not repeat memory tools in a loop; after search_research_memory, check_duplicate_memory, and check_failed_pattern_similarity have run once, call record_hypothesis unless check_failed_pattern_similarity returned blocked=true.",
+    "Call mandatory memory tools (search_research_memory, check_duplicate_memory, check_failed_pattern_similarity) before record_hypothesis. Do not repeat memory tools in a loop; after they have run once, proceed to record_hypothesis unless check_failed_pattern_similarity returned blocked=true.",
     "A duplicate=true result is advisory for novelty notes, not a hard block; record the hypothesis with a careful novelty_reason unless failed-pattern similarity is blocked.",
-    "When the deterministic tools have captured enough Stage-0 support and record_hypothesis has been called, reply with no tool calls to signal final=true to the local runtime.",
+    "After record_hypothesis has been called, reply with no tool calls to signal final=true to the local runtime. All validation and self-review must happen before recording in Phase 4 — do not search for more evidence after recording.",
+    "Budget awareness: if you have used more than 60% of your tool-call budget, you MUST stop scouting and advance to synthesis. Form a hypothesis from what you have captured, even if incomplete. A weak hypothesis from one source is better than zero hypotheses from many searches.",
+    "",
+    "## Trader mentality",
+    "",
+    "Think like a trader seeking alpha, not like an academic seeking consensus. A trader finds one good idea and tests it. The idea may have only one source — a single Reddit thread, one blog post, one YouTube video — and that is enough to test. The only hard rule: the idea must come from an external source, not from LLM training data.",
+    "",
     `Provider adapter: ${provider}/${model}.`
   ].join("\n");
 }
@@ -70,6 +85,16 @@ function buildUserMessage(context) {
 function toolParameterSchema(toolName) {
   const stringField = (description, extra = {}) => ({ type: "string", description, ...extra });
   const stringArrayField = (description, extra = {}) => ({ type: "array", items: { type: "string" }, description, ...extra });
+  const coreHypothesisRequiredFields = [
+    "hypothesis_id",
+    "mechanism",
+    "falsifiable_prediction",
+    "instrument_scope",
+    "timeframe_candidate",
+    "strategy_family",
+    "cited_source_ids",
+    "source_claims"
+  ];
   const commonHypothesisFields = {
     hypothesis_id: stringField("Stable Stage-0 hypothesis id, e.g. HYP-STAGE0-LIVE-CANARY-001."),
     mechanism: stringField("Concise mechanism only; no profitability or execution claim."),
@@ -162,18 +187,32 @@ function toolParameterSchema(toolName) {
       type: "object",
       additionalProperties: false,
       properties: commonHypothesisFields,
-      required: Object.keys(commonHypothesisFields)
+      required: coreHypothesisRequiredFields
+    },
+    write_wiki_page: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        path: stringField("Wiki page path relative to vault root, e.g. 'concepts/order-flow.md' or 'hunches/2026-06-30-idea.md'"),
+        type: { type: "string", enum: ["concept", "source", "hypothesis", "hunch"], description: "Page type" },
+        content: stringField("Markdown body (no frontmatter — tool auto-generates it)"),
+        tags: stringArrayField("Tags for the page"),
+        summary: stringField("1-sentence summary for index")
+      },
+      required: ["path", "type", "content"]
+    },
+    search_wiki: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        query: stringField("Keyword or tag to search (empty = match all)"),
+        type: { type: "string", enum: ["concept", "source", "hypothesis", "hunch"], description: "Filter by type" },
+        limit: { type: "integer", minimum: 1, maximum: 50, description: "Max results (default 10)" },
+        include_bodies: { type: "boolean", description: "Include full page content (default false)" }
+      }
     }
   };
   return schemas[toolName] ?? { type: "object", additionalProperties: true };
-}
-
-function buildAnthropicTools(allowedTools) {
-  return allowedTools.map((toolName) => ({
-    name: toolName,
-    description: `ResearchBrain deterministic Stage-0 tool: ${toolName}. This tool has no execution/profitability authority.`,
-    input_schema: toolParameterSchema(toolName)
-  }));
 }
 
 function buildOpenAiCompatibleTools(allowedTools) {
@@ -192,38 +231,6 @@ async function readResponseText(response, maxResponseBytes) {
   const bytes = Buffer.byteLength(text, "utf8");
   if (bytes > maxResponseBytes) throw new Error(`ResearchBrain LLM provider response exceeded maxResponseBytes ${maxResponseBytes}: ${bytes}`);
   return text;
-}
-
-function parseAnthropicMessageResponse(body) {
-  const content = Array.isArray(body?.content) ? body.content : [];
-  const toolCalls = [];
-  const textBlocks = [];
-  for (const block of content) {
-    if (block?.type === "tool_use") {
-      toolCalls.push({
-        provider_tool_call_id: block.id ?? null,
-        tool: block.name,
-        input: block.input ?? {}
-      });
-    } else if (block?.type === "text" && typeof block.text === "string") {
-      textBlocks.push(block.text);
-    }
-  }
-  return {
-    tool_calls: toolCalls,
-    final: toolCalls.length === 0 && body?.stop_reason === "end_turn",
-    text: textBlocks.join("\n").trim(),
-    provider_raw: {
-      provider: RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC,
-      provider_native_search_enabled: false,
-      id: body?.id ?? null,
-      type: body?.type ?? null,
-      role: body?.role ?? null,
-      model: body?.model ?? null,
-      stop_reason: body?.stop_reason ?? null,
-      usage: body?.usage ?? null
-    }
-  };
 }
 
 function parseOpenAiCompatibleChatResponse(body, { provider = RESEARCHBRAIN_LLM_PROVIDER_OPENAI_COMPATIBLE } = {}) {
@@ -265,65 +272,6 @@ function parseOpenAiCompatibleChatResponse(body, { provider = RESEARCHBRAIN_LLM_
   };
 }
 
-export function createAnthropicResearchBrainLlmClient({
-  allowLiveLlm = false,
-  model,
-  apiKey = null,
-  apiKeyEnv = "ANTHROPIC_API_KEY",
-  endpoint = ANTHROPIC_MESSAGES_ENDPOINT,
-  fetchImpl = globalThis.fetch,
-  maxTokens = 2048,
-  maxResponseBytes = 512_000
-} = {}) {
-  if (allowLiveLlm !== true) throw new Error("Anthropic ResearchBrain LLM adapter requires explicit allowLiveLlm=true");
-  const llmModel = requireNonEmptyString(model, "Anthropic ResearchBrain model");
-  const resolvedApiKey = apiKey ?? process.env[apiKeyEnv];
-  if (typeof resolvedApiKey !== "string" || resolvedApiKey.trim().length === 0) {
-    throw new Error(`Anthropic ResearchBrain LLM adapter requires API key in ${apiKeyEnv}`);
-  }
-  if (typeof fetchImpl !== "function") throw new Error("Anthropic ResearchBrain LLM adapter requires fetchImpl");
-  if (!Number.isInteger(maxTokens) || maxTokens < 1 || maxTokens > 8192) throw new Error("Anthropic maxTokens must be an integer from 1 to 8192");
-  if (!Number.isInteger(maxResponseBytes) || maxResponseBytes < 1_000 || maxResponseBytes > 5_000_000) throw new Error("Anthropic maxResponseBytes must be an integer from 1000 to 5000000");
-
-  return {
-    name: "anthropic_researchbrain_llm_client",
-    provider: RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC,
-    model: llmModel,
-    live_llm: true,
-    provider_native_search_enabled: false,
-    async generate(context = {}) {
-      const allowedTools = Array.isArray(context.allowed_tools) && context.allowed_tools.length > 0
-        ? context.allowed_tools
-        : RESEARCHBRAIN_ALLOWED_TOOLS;
-      const body = {
-        model: llmModel,
-        max_tokens: maxTokens,
-        system: buildSystemPrompt({ provider: RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC, model: llmModel }),
-        messages: [{ role: "user", content: buildUserMessage(context) }],
-        tools: buildAnthropicTools(allowedTools)
-      };
-      try {
-        const response = await fetchImpl(endpoint, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            "anthropic-version": ANTHROPIC_VERSION,
-            "x-api-key": resolvedApiKey
-          },
-          body: JSON.stringify(body),
-          signal: context.signal
-        });
-        const text = await readResponseText(response, maxResponseBytes);
-        if (!response.ok) throw new Error(`Anthropic ResearchBrain LLM adapter HTTP ${response.status}: ${text.slice(0, 500)}`);
-        const parsed = JSON.parse(text);
-        return parseAnthropicMessageResponse(parsed);
-      } catch (error) {
-        throw new Error(sanitizeRetryErrorMessage(error instanceof Error ? error.message : String(error)));
-      }
-    }
-  };
-}
-
 export function createOpenAiCompatibleResearchBrainLlmClient({
   allowLiveLlm = false,
   model,
@@ -333,6 +281,7 @@ export function createOpenAiCompatibleResearchBrainLlmClient({
   baseUrlEnv = "OPENCODE_API_BASE_URL",
   fetchImpl = globalThis.fetch,
   maxTokens = 2048,
+  reasoningEffort = null,
   maxResponseBytes = 512_000
 } = {}) {
   if (allowLiveLlm !== true) throw new Error("OpenAI-compatible ResearchBrain LLM adapter requires explicit allowLiveLlm=true");
@@ -362,6 +311,7 @@ export function createOpenAiCompatibleResearchBrainLlmClient({
         tools: buildOpenAiCompatibleTools(allowedTools),
         tool_choice: "auto"
       };
+      if (typeof reasoningEffort === "string" && reasoningEffort.trim().length > 0) body.reasoning_effort = reasoningEffort.trim();
       try {
         const response = await fetchImpl(endpoint, {
           method: "POST",
@@ -475,15 +425,5 @@ export function createResearchBrainLlmClient({
       ...Object.fromEntries(Object.entries(options).filter(([key]) => !["baseUrl", "baseUrlEnv"].includes(key)))
     });
   }
-  if (normalizedProvider !== RESEARCHBRAIN_LLM_PROVIDER_ANTHROPIC) {
-    throw new Error(`Unsupported ResearchBrain LLM provider: ${provider ?? "unspecified"}`);
-  }
-  return createAnthropicResearchBrainLlmClient({
-    allowLiveLlm,
-    model,
-    apiKey,
-    apiKeyEnv: apiKeyEnv ?? defaultApiKeyEnv(normalizedProvider),
-    fetchImpl,
-    ...options
-  });
+  throw new Error(`Unsupported ResearchBrain LLM provider: ${provider ?? "unspecified"}`);
 }

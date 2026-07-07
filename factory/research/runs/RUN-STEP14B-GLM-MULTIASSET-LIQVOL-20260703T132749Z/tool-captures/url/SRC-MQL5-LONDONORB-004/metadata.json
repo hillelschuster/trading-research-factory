@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-LONDONORB-004",
+  "url": "https://www.mql5.com/en/market/product/138007",
+  "title": "Opening Range Breakouts MT5 | Buy Trading Indicator for MetaTrader 5",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T13:27:49.411Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:31:11.682Z",
+      "completed_at": "2026-07-03T13:31:11.902Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "0005604fe3bd0d693369cf74a5eb5b0d57156e557fdd8ec8b567b7361e67b8ec"
+}

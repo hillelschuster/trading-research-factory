@@ -1,4 +1,0 @@
-{"ts":"2026-03-15T23:53:37.273Z","run_id":"RUN-20260315235337-0ilscx","message":"Cleanup completed","extra":{"kept":20}}
-{"ts":"2026-03-15T23:53:37.317Z","run_id":"RUN-20260315235337-0ilscx","message":"Starting run","extra":{"iteration":1,"backlog_item_id":"IDEA-0001","mode":"live"}}
-{"ts":"2026-03-15T23:54:59.576Z","run_id":"RUN-20260315235337-0ilscx","message":"Planner completed","extra":{"experiment_id":"EXP-0001-WFA-VERIFY"}}
-{"ts":"2026-03-16T00:00:05.950Z","run_id":"RUN-20260315235337-0ilscx","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}

@@ -1,0 +1,339 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z",
+  "generated_at": "2026-07-03T13:19:10.010Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z/request.json",
+    "sha256": "9de3fd5a08a25b5d9f5b8a5a3d9ef8bffc2c41978d31db8aef676185d65f971e"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 1,
+    "timeout_ms": 300000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-07-03T13:19:10.062Z",
+      "completed_at": "2026-07-03T13:23:28.363Z",
+      "reason": "ResearchBrain tool call budget exceeded: 50",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/quarantine/attempt-001.json",
+        "sha256": "1765eaab399515794952b93736e63a19b2465c4e8a509c80da88bd950608bd01"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T13:19:10.062Z",
+          "completed_at": "2026-07-03T13:23:28.311Z",
+          "error_class": "Error",
+          "error_message": "ResearchBrain tool call budget exceeded: 50",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/quarantine/attempt-001.json",
+      "sha256": "1765eaab399515794952b93736e63a19b2465c4e8a509c80da88bd950608bd01"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/agent-transcript.jsonl",
+      "sha256": "dd9ba400aaafc26456fffa33f457ac4cedc517afc8ef9be2b2d456b10a1b083b"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-ledger.json",
+      "sha256": "5c7a03ccb933194a86931c1e3edf655558d5456a07332eb514fdfc05f2e7f41b"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/cost-ledger.json",
+      "sha256": "d53eb0ecdf7f63bb78af0f1101e95ea161d16507b2d979d17e3a56b2575ecc5c"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/working-notes.md",
+      "sha256": "357f3e8fa2c020968f18700eea58b7b27243f47030295870f0a1d7ac6132fae5"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCTSPECS-001/content.md",
+      "sha256": "8e382349e360c78e3f7f35abaa0c92bef700978e31ac2ca8b8d14823c7426ebd",
+      "source_id": "SRC-BROKER-FTMO-ACCTSPECS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCTSPECS-001/metadata.json",
+      "sha256": "686ee3868d51fe84e41161f9a5690a4883feb598871f79a65c1aa5de7d72a288",
+      "source_id": "SRC-BROKER-FTMO-ACCTSPECS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATE-002/content.md",
+      "sha256": "ba136a23fe7fbf32968bce1a2c5addebd374e122f025e7f92b3eaeb76c36f565",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATE-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATE-002/metadata.json",
+      "sha256": "662c271525c77dd6fa54e11c456af66cd6b7176b73bae7ee4adb5a0401ceaba8",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATE-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSIONSPECS-003/content.md",
+      "sha256": "2a14db4c088cd094d6bf16702e0c73cb4e201b0c18f6d6bb9e9528dadeabdff2",
+      "source_id": "SRC-MQL5-SESSIONSPECS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSIONSPECS-003/metadata.json",
+      "sha256": "37e57d11e941bddaf509bc86dda9a26e3ea365ae0ce0a37c1192c1e2ea7505fc",
+      "source_id": "SRC-MQL5-SESSIONSPECS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPD-002/content.md",
+      "sha256": "8728af009b68308c690efff229d3e7ac0d52446a5e9e4ca637dadd368f240f75",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPD-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPD-002/metadata.json",
+      "sha256": "a7809443d946226c7bf135ed4f19a3d9de911f058358317a4c44f1cf17b1c643",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPD-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-TIMES-003/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-MQL5-SESSION-TIMES-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-TIMES-003/metadata.json",
+      "sha256": "618c2cb3994c2be831f5a610d4b368ed5443d53e58fb491f94f93623992b7703",
+      "source_id": "SRC-MQL5-SESSION-TIMES-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADING-UPDATE-001/content.md",
+      "sha256": "19c2dbcf674e0faecd5cb67ec78c5d43b4ab3eb069a9f7c14f0e6934f43e7d59",
+      "source_id": "SRC-BROKER-FTMO-TRADING-UPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADING-UPDATE-001/metadata.json",
+      "sha256": "49c6d83f779ac17196d8ab5825ec1b3f03a46264f85b8963464518caf358ab37",
+      "source_id": "SRC-BROKER-FTMO-TRADING-UPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCT-SPEC-002/content.md",
+      "sha256": "ab35416c6e3b2e779015db1fc836489c89fea2f844a6fab606f9cb1b848896f2",
+      "source_id": "SRC-BROKER-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCT-SPEC-002/metadata.json",
+      "sha256": "822f3f754969d873fee3f77f400de191e475a4f5ce08978a38466431a58409b6",
+      "source_id": "SRC-BROKER-FTMO-ACCT-SPEC-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-SPECS-003/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-MQL5-SESSION-SPECS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-SPECS-003/metadata.json",
+      "sha256": "5f0dcfd6df06cf87f05ca2eec907cb76bd43790c77e41873e7999b1aefb3e438",
+      "source_id": "SRC-MQL5-SESSION-SPECS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-MARKETTIME-004/content.md",
+      "sha256": "51caadbd5d43dc3b21f712f4067adcbed8946d1b226b9af24b00aa59fad8fa22",
+      "source_id": "SRC-MQL5-MARKETTIME-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-MARKETTIME-004/metadata.json",
+      "sha256": "fc32acc227cf17718fd94906ff7323cd5fe107333fbc1f8bcb844d40ca565fb9",
+      "source_id": "SRC-MQL5-MARKETTIME-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-BROKER-001/content.md",
+      "sha256": "c507fbdc0e95640ee5685341846af9cc035ff0e00d5552beb8e0a20e9d3943fa",
+      "source_id": "SRC-FX-CFD-BROKER-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-BROKER-001/metadata.json",
+      "sha256": "6613ffbe852be1124f252936beb696ad10e55ce5b5ed3dd138c47960e830a85d",
+      "source_id": "SRC-FX-CFD-BROKER-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-BROKER-002/content.md",
+      "sha256": "699f1017f96d656a9e7968e630caf2da8126c59c739b1c2f84de85156bd5a9b6",
+      "source_id": "SRC-FX-CFD-BROKER-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-BROKER-002/metadata.json",
+      "sha256": "a146e59ae943e37d118e26f9b1a031ebd28a1045345f5a228f746bc72485f27c",
+      "source_id": "SRC-FX-CFD-BROKER-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-MQL5-001/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-FX-CFD-MQL5-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FX-CFD-MQL5-001/metadata.json",
+      "sha256": "c2d83010a22ea0aa73f893dc77de12aa6a70266a43761b262e572f39179a512f",
+      "source_id": "SRC-FX-CFD-MQL5-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCSPEC-001/content.md",
+      "sha256": "68f61b963460aff4451c4f4fd2f3f1ce5bed05d856b72c89f38e2e1063a62adb",
+      "source_id": "SRC-BROKER-FTMO-ACCSPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-ACCSPEC-001/metadata.json",
+      "sha256": "cecc60e432bffcb7f5611c5cd288e00f8b156f3d2f2c519cdd34f252c5c090ad",
+      "source_id": "SRC-BROKER-FTMO-ACCSPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATE-001/content.md",
+      "sha256": "96cb77c3541a10773c388146cede3f068e2c85b326f3604fae1714d50127e324",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-BROKER-FTMO-TRADINGUPDATE-001/metadata.json",
+      "sha256": "33a9a6963fa866d6f7230cad78620dbcfbdda1af13006d238bee75bec646141e",
+      "source_id": "SRC-BROKER-FTMO-TRADINGUPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-MARKETTIME-001/content.md",
+      "sha256": "51caadbd5d43dc3b21f712f4067adcbed8946d1b226b9af24b00aa59fad8fa22",
+      "source_id": "SRC-MQL5-MARKETTIME-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-MARKETTIME-001/metadata.json",
+      "sha256": "fd1d862dd684117c2bc6413ade748c43243e6313f1342956953c68391e8fe7b0",
+      "source_id": "SRC-MQL5-MARKETTIME-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-CONTRACTSPEC-SESSION-001/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-MQL5-CONTRACTSPEC-SESSION-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-CONTRACTSPEC-SESSION-001/metadata.json",
+      "sha256": "ba535e9e40ed6da91ed6c946e405c11c94707049fc0195b866677b0336a8e002",
+      "source_id": "SRC-MQL5-CONTRACTSPEC-SESSION-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FTMO-ACCSPEC-001/content.md",
+      "sha256": "1dab9f5af29873b56af808130ef41fad9eb8babe9097c6c622ccd81c06f98d7e",
+      "source_id": "SRC-FTMO-ACCSPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FTMO-ACCSPEC-001/metadata.json",
+      "sha256": "9338fd794cf28a329fc65d154060e31ec228b83142d57700b8ccc0417af0e161",
+      "source_id": "SRC-FTMO-ACCSPEC-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FTMO-TRADINGUPDATE-001/content.md",
+      "sha256": "4e80d77e2febf21ba059d9284059ef3c40c3632e5c63c0afbc3b88a69f75cb76",
+      "source_id": "SRC-FTMO-TRADINGUPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-FTMO-TRADINGUPDATE-001/metadata.json",
+      "sha256": "6fc412d21f206f470d74ed980309da5315948e3eb0d3f0b8928347bd70d771e6",
+      "source_id": "SRC-FTMO-TRADINGUPDATE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-API-001/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-MQL5-SESSION-API-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-SESSION-API-001/metadata.json",
+      "sha256": "84b2b131dd4cef4ffb46a38746fa69a8d8a508f06baebf97ccb7998ad620d4e8",
+      "source_id": "SRC-MQL5-SESSION-API-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-CONTRACTSPEC-SESSION-003/content.md",
+      "sha256": "2f17f1f4225099d6f229bb6a904b449cc99316c09800c33976d305a7012358a2",
+      "source_id": "SRC-MQL5-CONTRACTSPEC-SESSION-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T131909Z/tool-captures/url/SRC-MQL5-CONTRACTSPEC-SESSION-003/metadata.json",
+      "sha256": "64c29bef7ddfcfe66c5d072d7cbf4362e6eb1a4dace6a195e29f468a5e3c075c",
+      "source_id": "SRC-MQL5-CONTRACTSPEC-SESSION-003"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

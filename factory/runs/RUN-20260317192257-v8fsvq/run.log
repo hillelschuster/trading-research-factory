@@ -1,2 +1,0 @@
-{"ts":"2026-03-17T19:22:57.930Z","run_id":"RUN-20260317192257-v8fsvq","message":"Starting run","extra":{"iteration":22,"backlog_item_id":"IDEA-WFA-005","mode":"live"}}
-{"ts":"2026-03-17T19:27:51.993Z","run_id":"RUN-20260317192257-v8fsvq","message":"Planner failed (attempt 1/3)","extra":{"error":"fetch failed"}}

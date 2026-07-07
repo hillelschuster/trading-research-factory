@@ -4,9 +4,10 @@ import { classifyRetryFailure, runWithRetryAttempts, sanitizeRetryErrorMessage }
 
 test("retry policy classifies transient, validation, poison, and terminal failures", () => {
   assert.deepEqual(classifyRetryFailure(new Error("HTTP 503 temporarily unavailable"), { phase: "provider" }).retryable, true);
+  assert.equal(classifyRetryFailure(new Error('DeepSeek ResearchBrain LLM adapter HTTP 402: {"error":{"message":"Insufficient Balance","code":"invalid_request_error"}}'), { phase: "provider" }).failure_class, "provider_account_or_quota_failure");
   assert.equal(classifyRetryFailure(new Error("provider output schema_version must be researchbrain_stage0_provider_output_v1"), { phase: "provider" }).failure_class, "schema_or_validation_failure");
   assert.equal(classifyRetryFailure(new Error("provider output contains forbidden profitability_label"), { phase: "provider" }).failure_class, "poison_candidate_or_run");
-  assert.equal(classifyRetryFailure(new Error("permanent provider account disabled"), { phase: "provider" }).failure_class, "terminal_failed_condition");
+  assert.equal(classifyRetryFailure(new Error("permanent provider account disabled"), { phase: "provider" }).failure_class, "provider_account_or_quota_failure");
 });
 
 test("retry policy records bounded attempts and redacts bearer-like secrets", async () => {

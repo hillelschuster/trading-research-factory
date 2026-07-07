@@ -1,5 +1,0 @@
-{"ts":"2026-03-17T21:24:01.095Z","run_id":"RUN-20260317212401-9objdo","message":"Starting run","extra":{"iteration":23,"backlog_item_id":"IDEA-CRYPTO-002","mode":"live"}}
-{"ts":"2026-03-17T21:24:01.661Z","run_id":"RUN-20260317212401-9objdo","message":"Planner failed (attempt 1/3)","extra":{"error":"this.client.session.chat is not a function"}}
-{"ts":"2026-03-17T21:24:03.680Z","run_id":"RUN-20260317212401-9objdo","message":"Planner failed (attempt 2/3)","extra":{"error":"this.client.session.chat is not a function"}}
-{"ts":"2026-03-17T21:24:08.707Z","run_id":"RUN-20260317212401-9objdo","message":"Planner failed (attempt 3/3)","extra":{"error":"this.client.session.chat is not a function"}}
-{"ts":"2026-03-17T21:24:08.752Z","run_id":"RUN-20260317212401-9objdo","message":"Run failed","extra":{"run_id":"RUN-20260317212401-9objdo","error":"this.client.session.chat is not a function","consecutive_failures":1}}

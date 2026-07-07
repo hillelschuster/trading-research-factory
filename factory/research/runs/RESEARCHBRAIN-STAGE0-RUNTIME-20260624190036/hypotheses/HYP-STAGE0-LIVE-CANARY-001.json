@@ -1,0 +1,77 @@
+{
+  "hypothesis_id": "HYP-STAGE0-LIVE-CANARY-001",
+  "mechanism": "Session-concentrated order flow imbalance amplifies directional price movement during high-participation windows such as London open and NY overlap",
+  "falsifiable_prediction": "If intraday session volume concentration does not correlate with directional bar range expansion on M15-H1 bars across FTMO MT5 instruments the OFI amplification mechanism would be falsified for this context",
+  "market_structure_assumption": "FX and index CFD markets on MT5 exhibit session-dependent liquidity cycles where participation concentration at London open and NY overlap creates directional flow imbalance detectable via tick-volume proxies",
+  "instrument_scope": "FTMO MT5 FX majors EURUSD GBPUSD USDJPY and index CFDs US30 GER40 with XAUUSD as secondary scope",
+  "timeframe_candidate": "M15-H1 candidate",
+  "strategy_family": "order_flow_imbalance_session",
+  "mt5_relevance_classification": "mt5_relevant_unverified",
+  "required_data": "M15 and H1 OHLCV bars for EURUSD GBPUSD USDJPY XAUUSD US30 GER40 covering at least 6 months from FTMO MT5 terminal with tick volume for session concentration analysis",
+  "expected_holding_period": "Intraday hours to less than one full session",
+  "expected_trade_frequency": "Unknown qualitatively a few candidate windows per session during high-participation overlaps",
+  "expected_failure_modes": [
+    "Session overlap windows may not produce consistent directional imbalance on CFD instruments",
+    "MT5 tick volume is broker-side tick count not true traded volume and may fail to capture real OFI",
+    "Spread widening at session transitions may offset any directional signal detected"
+  ],
+  "invalidation_criteria": [
+    "No detectable relationship between session timing and bar range expansion across tested instruments",
+    "Tick volume concentration fails to discriminate high versus low participation windows on M15-H1 bars",
+    "MT5 server timezone offset causes session classification to misalign with actual London/NY liquidity windows"
+  ],
+  "implementation_shape": "Classify M15-H1 bars by session window London open NY overlap and off-session; compute tick-volume-based directional imbalance proxy; flag bars with concentrated directional volume during overlap windows for directional bias candidacy",
+  "execution_sensitivity": "Spread widening at session opens and closes; swap costs for positions held across session boundaries; MT5 tick volume versus real traded volume discrepancy; commission structure at FTMO may erode signals at transitions",
+  "mt5_ftmo_concerns": "MT5 tick volume is broker-side tick count not exchange volume so OFI proxy is indirect; FTMO spread and commission structure may erode any session-transition edge; MT5 server timezone offset from GMT affects session window classification accuracy; requires terminal-backed instrument equivalence before validation",
+  "prior_related_lessons": [
+    "Use only deterministic captured source artifacts as evidence; provider-native knowledge is not evidence",
+    "For live tool mode capture_url_source must include source_id url and source_class; the URL must be one returned by search_web in the same run"
+  ],
+  "prior_failed_patterns_checked": [
+    "No blocking failed-pattern match returned by check_failed_pattern_similarity",
+    "prior_failed_patterns array was empty; no prior patterns to compare against"
+  ],
+  "novelty_reason": "No prior hypothesis packets exist in research memory; this is the first Stage-0 canary hypothesis for the opencode-go/glm-5.2 backend combining session-concentrated OFI amplification with FTMO/MT5 multi-asset scope and tick-volume proxy approach",
+  "disconfirming_evidence": [
+    "Source examines US Treasury markets specifically not FX or CFD instruments directly",
+    "Government bond microstructure differs from retail CFD price formation on MT5",
+    "OFI construction in the source requires trade-level or order-book data not natively available in MT5 OHLC bars"
+  ],
+  "proposed_experiment_shape": "Deterministic bar-level analysis of session-windowed tick-volume concentration and directional range expansion on M15-H1 bars across FTMO MT5 instruments using terminal-sourced data only",
+  "cited_source_ids": [
+    "SRC-OPENCODE-GO-GLM-001"
+  ],
+  "source_claims": [
+    {
+      "claim_class": "source_backed_mechanism",
+      "citation_source_id": "SRC-OPENCODE-GO-GLM-001"
+    }
+  ],
+  "schema_version": "hypothesis_packet_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "source_records": [
+    {
+      "source_id": "SRC-OPENCODE-GO-GLM-001",
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/source-records/SRC-OPENCODE-GO-GLM-001.json",
+      "sha256": "15952c12f31e099f530ecdc43a73d96785282fb5cfc218000a9ee3e91130e9b5"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "content_hash": "38c4fffb77f9639219846d096bcf47018c19118f61272909a3466cbfc6b1d5ab"
+}

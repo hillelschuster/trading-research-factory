@@ -42,6 +42,7 @@ function parseArgs(argv) {
     else if (arg === "--llm-base-url-env") args.llmBaseUrlEnv = requireCliValue(argv, index++, arg);
     else if (arg === "--llm-base-url") args.llmBaseUrl = requireCliValue(argv, index++, arg);
     else if (arg === "--llm-max-tokens") args.llmMaxTokens = requireCliNumber(argv, index++, arg);
+    else if (arg === "--llm-reasoning-effort") args.llmReasoningEffort = requireCliValue(argv, index++, arg);
     else if (arg === "--max-llm-calls") args.maxLlmCalls = requireCliNumber(argv, index++, arg);
     else if (arg === "--allow-tool") {
       args.allowedTools = args.allowedTools || [];
@@ -104,13 +105,14 @@ function printHelp() {
     "  --provider-output <path>      Repo-local provider-output JSON fixture; overrides --provider-mode.",
     "  --provider-script <path>      Repo-local scripted-agent JSON array; use with --provider-mode scripted_agent.",
     "  --allow-live-llm              Required for --provider-mode live_llm_agent.",
-    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen.",
-    "  --llm-provider <name>         Live LLM provider name; supports anthropic or openai_compatible.",
+    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen; opencode_go_kimi_xhigh and opencode_go_glm_xhigh route kimi-k2.7-code / glm-5.2 via OpenCode Go.",
+    "  --llm-provider <name>         Live LLM provider name; supports openai_compatible or deepseek.",
     "  --llm-model <name>            Live LLM model id; required for live_llm_agent.",
     "  --llm-api-key-env <name>      API-key environment variable. Defaults by provider.",
     "  --llm-base-url-env <name>     Base URL env var for openai_compatible providers.",
     "  --llm-base-url <url>          Base URL for openai_compatible providers; prefer env outside repo.",
     "  --llm-max-tokens <n>          Per-provider response token cap for the direct adapter.",
+    "  --llm-reasoning-effort <name> Optional reasoning effort hint for compatible providers, e.g. max.",
     "  --max-llm-calls <n>           Live LLM turn budget.",
     "  --allow-tool <name>           Allow scripted-agent tool; repeatable. Defaults to v1 catalog.",
     "  --max-tool-calls <n>          Scripted-agent tool-call budget.",
@@ -182,14 +184,15 @@ try {
             apiKeyEnv: args.llmApiKeyEnv,
             baseUrl: args.llmBaseUrl,
             baseUrlEnv: args.llmBaseUrlEnv,
-            maxTokens: args.llmMaxTokens ?? 2048
+            maxTokens: args.llmMaxTokens ?? 2048,
+            reasoningEffort: args.llmReasoningEffort
           }),
           allowLiveLlm: true,
           llmProvider: args.llmProvider,
           llmModel: args.llmModel,
           allowedTools: args.allowedTools,
-          maxLlmCalls: args.maxLlmCalls ?? 4,
-          maxToolCalls: args.maxToolCalls ?? 20,
+          maxLlmCalls: args.maxLlmCalls ?? 12,
+          maxToolCalls: args.maxToolCalls ?? 50,
           maxCostUsd: args.maxCostUsd ?? 0.25,
           maxTranscriptBytes: args.maxTranscriptBytes ?? 250_000,
           toolMode: args.toolMode ?? "live",

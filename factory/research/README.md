@@ -8,6 +8,8 @@ Use `../mt5-ftmo-strategy-factory-spec.md` as the sole active continuation spec.
 
 Current implementation direction lives only in the active spec's `Phase 8 - Strategy Factory Production Readiness` and `Immediate Next Work` sections.
 
+Supporting ResearchBrain architecture/finalization research may live under `researchbrain/`, but those files are advisory only until their accepted decisions are folded back into the active spec.
+
 ## File Policy
 
 - Do not keep superseded research memos for sentiment, audit theater, or context hoarding.

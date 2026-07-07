@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-ORB-Sessions-002",
+  "url": "https://www.mql5.com/en/market/product/138008",
+  "title": "Opening Range Breakouts | Buy Trading Indicator for MetaTrader 4",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T09:12:19.200Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T09:19:04.933Z",
+      "completed_at": "2026-07-03T09:19:05.165Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "21856c38d5bc11ad358f2f8530e8ecec09f7f6a9c767c453d1c3a2f61428a07f"
+}

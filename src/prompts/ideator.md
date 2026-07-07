@@ -21,7 +21,7 @@ Return only JSON in `<RF_JSON>...</RF_JSON>`:
   "objective": "Concrete research hypothesis and why it may work now",
   "priority": 75,
   "category": "strategy",
-  "market_family": "crypto|forex|prediction_markets",
+  "market_family": "crypto|forex|indices|metals|commodities|equities",
   "instrument_scope": "Exact instrument or selection rule",
   "timeframe": "Primary timeframe",
   "history_requirement": "Required depth and why",

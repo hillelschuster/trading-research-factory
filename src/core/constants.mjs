@@ -4,11 +4,7 @@ export const REQUIRED_LAYOUT = [
   "factory/leaderboard.json",
   "factory/verification",
   "factory/evidence/index.json",
-  "factory/memory/lessons.jsonl",
-  "workspace/harness",
-  "workspace/strategies",
-  "workspace/data",
-  "workspace/data/fetchers"
+  "factory/memory/lessons.jsonl"
 ];
 
 export const FACTORY_GOAL = "An autonomous trading research factory that continuously converts FTMO/MT5-tradable ideas across crypto CFDs, FX, indices, stocks, metals, commodities, and other broker-supported instruments into scored evidence.";

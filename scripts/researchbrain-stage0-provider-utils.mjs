@@ -8,7 +8,7 @@ import path from "node:path";
 import { createFixtureResearchBrainProvider, createJsonFileResearchBrainProvider } from "../src/core/researchbrain-runtime.mjs";
 import { createLiveResearchBrainAgentProvider, createScriptedResearchBrainAgentProvider } from "../src/core/researchbrain-agent.mjs";
 import { createResearchBrainLlmClient } from "../src/core/researchbrain-llm-providers.mjs";
-import { createBraveResearchBrainSourceToolAdapter } from "../src/core/researchbrain-tools.mjs";
+import { createBraveResearchBrainSourceToolAdapter, createArxivResearchBrainSourceToolAdapter, createCompositeResearchBrainSourceToolAdapter, createRedditResearchBrainSourceToolAdapter, createGithubResearchBrainSourceToolAdapter, createSemanticScholarResearchBrainSourceToolAdapter, createSiteScopedResearchBrainSourceToolAdapter } from "../src/core/researchbrain-tools.mjs";
 
 /**
  * Applies a known LLM preset short-name to fill in provider/model/api-key-env/base-url defaults.
@@ -31,6 +31,26 @@ export function applyResearchBrainLlmPreset(args) {
       llmProvider: args.llmProvider ?? "deepseek",
       llmModel: args.llmModel ?? "deepseek-v4-flash",
       llmApiKeyEnv: args.llmApiKeyEnv ?? "DEEPSEEK_API_KEY",
+      llmMaxTokens: args.llmMaxTokens ?? 8192
+    };
+  }
+  if (args.llmPreset === "opencode_go_kimi_xhigh") {
+    return {
+      ...args,
+      llmProvider: args.llmProvider ?? "openai_compatible",
+      llmModel: args.llmModel ?? "kimi-k2.7-code",
+      llmApiKeyEnv: args.llmApiKeyEnv ?? "OPENCODE_GO_API_KEY",
+      llmBaseUrl: args.llmBaseUrl ?? "https://opencode.ai/zen/go/v1",
+      llmMaxTokens: args.llmMaxTokens ?? 8192
+    };
+  }
+  if (args.llmPreset === "opencode_go_glm_xhigh") {
+    return {
+      ...args,
+      llmProvider: args.llmProvider ?? "openai_compatible",
+      llmModel: args.llmModel ?? "glm-5.2",
+      llmApiKeyEnv: args.llmApiKeyEnv ?? "OPENCODE_GO_API_KEY",
+      llmBaseUrl: args.llmBaseUrl ?? "https://opencode.ai/zen/go/v1",
       llmMaxTokens: args.llmMaxTokens ?? 8192
     };
   }
@@ -57,16 +77,97 @@ export function loadResearchBrainCliEnv({ rootDir = process.cwd() } = {}) {
 }
 
 /**
+ * Returns known env-var names for each source provider (env-only — never returns values).
+ * Used for diagnostics, preflight checks, and help text without persisting secrets.
+ *
+ * @param {string} providerName - source provider short name (brave, semantic_scholar, etc.)
+ * @returns {string|null} The env-var name that configures this provider, or null if unknown.
+ */
+export function getResearchBrainSourceAdapterEnvName(providerName) {
+  const name = String(providerName ?? "").trim().toLowerCase();
+  return {
+    brave: "BRAVE_SEARCH_API_KEY",
+    semantic_scholar: "SEMANTIC_SCHOLAR_API_KEY",
+    mql5: "BRAVE_SEARCH_API_KEY",
+    broker_docs: "BRAVE_SEARCH_API_KEY"
+  }[name] ?? null;
+}
+
+/**
+ * Reports whether the env var for a given source provider is present and non-empty (boolean only,
+ * never the value itself). Returns false for unknown providers.
+ */
+export function isResearchBrainSourceAdapterEnvConfigured(providerName) {
+  const envName = getResearchBrainSourceAdapterEnvName(providerName);
+  return typeof envName === "string" && typeof process.env[envName] === "string" && process.env[envName].length > 0;
+}
+
+/**
  * Builds a Brave source-tool adapter from CLI-parsed options, or null when no brave source provider is configured.
  */
 export function buildResearchBrainSourceToolAdapter(args) {
-  if (args.sourceProvider !== "brave") return null;
-  return createBraveResearchBrainSourceToolAdapter({
-    allowLiveSourceSearch: args.allowLiveSourceSearch === true,
-    allowLiveSourceCapture: args.allowLiveSourceCapture === true,
-    apiKeyEnv: args.sourceApiKeyEnv ?? "BRAVE_SEARCH_API_KEY",
-    maxCaptureBytes: args.sourceMaxBytes ?? 500_000
-  });
+  // Support comma-separated providers: --source-provider brave,arxiv,reddit
+  const providers = String(args.sourceProvider ?? "").split(",").map(s => s.trim()).filter(Boolean);
+  if (providers.length === 0) return null;
+  const adapters = [];
+  for (const provider of providers) {
+    if (provider === "brave") {
+      adapters.push(createBraveResearchBrainSourceToolAdapter({
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        apiKeyEnv: args.sourceApiKeyEnv ?? "BRAVE_SEARCH_API_KEY",
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "arxiv") {
+      adapters.push(createArxivResearchBrainSourceToolAdapter({
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "reddit") {
+      adapters.push(createRedditResearchBrainSourceToolAdapter({
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "github") {
+      adapters.push(createGithubResearchBrainSourceToolAdapter({
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "semantic_scholar") {
+      adapters.push(createSemanticScholarResearchBrainSourceToolAdapter({
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        apiKeyEnv: args.sourceApiKeyEnv ?? "SEMANTIC_SCHOLAR_API_KEY",
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "mql5") {
+      adapters.push(createSiteScopedResearchBrainSourceToolAdapter({
+        toolName: "search_mql5_sources",
+        siteDomain: "mql5.com",
+        sourceClass: "mql5",
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        apiKeyEnv: args.sourceApiKeyEnv ?? "BRAVE_SEARCH_API_KEY",
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    } else if (provider === "broker_docs") {
+      adapters.push(createSiteScopedResearchBrainSourceToolAdapter({
+        toolName: "search_broker_docs",
+        siteDomain: "ftmo.com",
+        sourceClass: "broker",
+        allowLiveSourceSearch: args.allowLiveSourceSearch === true,
+        allowLiveSourceCapture: args.allowLiveSourceCapture === true,
+        apiKeyEnv: args.sourceApiKeyEnv ?? "BRAVE_SEARCH_API_KEY",
+        maxCaptureBytes: args.sourceMaxBytes ?? 500_000
+      }));
+    }
+  }
+  if (adapters.length === 0) return null;
+  if (adapters.length === 1) return adapters[0];
+  return createCompositeResearchBrainSourceToolAdapter({ adapters });
 }
 
 /**
@@ -85,9 +186,10 @@ export function buildResearchBrainProviderFactory(args) {
   const llmBaseUrl = args.llmBaseUrl;
   const llmBaseUrlEnv = args.llmBaseUrlEnv;
   const llmMaxTokens = args.llmMaxTokens ?? 2048;
+  const llmReasoningEffort = args.llmReasoningEffort;
   const allowedTools = args.allowedTools;
-  const maxLlmCalls = args.maxLlmCalls ?? 4;
-  const maxToolCalls = args.maxToolCalls ?? 20;
+  const maxLlmCalls = args.maxLlmCalls ?? 12;
+  const maxToolCalls = args.maxToolCalls ?? 50;
   const maxCostUsd = args.maxCostUsd ?? 0.25;
   const maxTranscriptBytes = args.maxTranscriptBytes ?? 250_000;
   const toolMode = args.toolMode;
@@ -101,28 +203,45 @@ export function buildResearchBrainProviderFactory(args) {
   if (!allowLiveLlm && !providerScript && !providerOutput) return null;
 
   return ({ payload }) => {
+    // Fix 2026-06-30: read model settings from payload first (job-specific),
+    // falling back to CLI args. This prevents cross-contamination when jobs
+    // from different presets co-exist in the ledger.
+    const jobLlmProvider = payload.llm_provider ?? llmProvider;
+    const jobLlmModel = payload.llm_model ?? llmModel;
+    const jobLlmApiKeyEnv = payload.llm_api_key_env ?? llmApiKeyEnv;
+    const jobLlmBaseUrl = payload.llm_base_url ?? llmBaseUrl;
+    const jobLlmBaseUrlEnv = payload.llm_base_url_env ?? llmBaseUrlEnv;
+    const jobLlmMaxTokens = payload.llm_max_tokens ?? llmMaxTokens;
+    const jobLlmReasoningEffort = payload.llm_reasoning_effort ?? llmReasoningEffort;
+    const jobMaxLlmCalls = payload.max_llm_calls ?? maxLlmCalls;
+    const jobMaxToolCalls = payload.max_tool_calls ?? maxToolCalls;
+    const jobMaxCostUsd = payload.max_cost_usd ?? maxCostUsd;
+    const jobMaxTranscriptBytes = payload.max_transcript_bytes ?? maxTranscriptBytes;
+    const jobToolMode = payload.tool_mode ?? toolMode;
+
     if (payload.provider_mode === "live_llm_agent") {
       if (!allowLiveLlm) throw new Error("--allow-live-llm is required for provider_mode live_llm_agent");
-      if (!llmProvider || !llmModel) throw new Error("Live LLM agent requires --llm-provider and --llm-model");
+      if (!jobLlmProvider || !jobLlmModel) throw new Error("Live LLM agent requires --llm-provider and --llm-model (either CLI or payload)");
       return createLiveResearchBrainAgentProvider({
         llmClient: createResearchBrainLlmClient({
           allowLiveLlm: true,
-          provider: llmProvider,
-          model: llmModel,
-          apiKeyEnv: llmApiKeyEnv,
-          baseUrl: llmBaseUrl,
-          baseUrlEnv: llmBaseUrlEnv,
-          maxTokens: llmMaxTokens
+          provider: jobLlmProvider,
+          model: jobLlmModel,
+          apiKeyEnv: jobLlmApiKeyEnv,
+          baseUrl: jobLlmBaseUrl,
+          baseUrlEnv: jobLlmBaseUrlEnv,
+          maxTokens: jobLlmMaxTokens,
+          reasoningEffort: jobLlmReasoningEffort
         }),
         allowLiveLlm: true,
-        llmProvider,
-        llmModel,
+        llmProvider: jobLlmProvider,
+        llmModel: jobLlmModel,
         allowedTools,
-        maxLlmCalls,
-        maxToolCalls,
-        maxCostUsd,
-        maxTranscriptBytes,
-        toolMode: toolMode ?? "live",
+        maxLlmCalls: jobMaxLlmCalls,
+        maxToolCalls: jobMaxToolCalls,
+        maxCostUsd: jobMaxCostUsd,
+        maxTranscriptBytes: jobMaxTranscriptBytes,
+        toolMode: jobToolMode ?? "live",
         sourceToolAdapter,
         retryPolicy: { sourceToolMaxAttempts, sourceToolRetryDelayMs }
       });

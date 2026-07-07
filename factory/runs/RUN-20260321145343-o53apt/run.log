@@ -1,5 +1,0 @@
-{"ts":"2026-03-21T14:53:43.659Z","run_id":"RUN-20260321145343-o53apt","message":"Starting run","extra":{"iteration":26,"backlog_item_id":"AUTO-1774104820555-4a0","mode":"live"}}
-{"ts":"2026-03-21T14:59:09.130Z","run_id":"RUN-20260321145343-o53apt","message":"Planner failed (attempt 1/3)","extra":{"error":"fetch failed"}}
-{"ts":"2026-03-21T15:04:36.601Z","run_id":"RUN-20260321145343-o53apt","message":"Planner failed (attempt 2/3)","extra":{"error":"fetch failed"}}
-{"ts":"2026-03-21T15:05:27.360Z","run_id":"RUN-20260321145343-o53apt","message":"Planner completed","extra":{"experiment_id":"EXP-20260321170250-01"}}
-{"ts":"2026-03-21T15:10:51.809Z","run_id":"RUN-20260321145343-o53apt","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}

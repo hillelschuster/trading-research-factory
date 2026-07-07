@@ -1,0 +1,50 @@
+{
+  "schema_version": "researchbrain_request_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "request_id": "RESEARCHBRAIN-REQUEST-OPENCODE-GO-GLM-20260624",
+  "generated_at": "2026-06-24T00:00:00.000Z",
+  "research_question": "Run a minimal live Stage-0 canary with the opencode-go/glm-5.2 backend. Search for one capturable public source on order-flow imbalance or session liquidity effects relevant to later FTMO/MT5 hypothesis validation; prefer a government, exchange, academic, broker, or official documentation source over commercial indicator marketing if available. Capture exactly one discovered URL with source_id SRC-OPENCODE-GO-GLM-001 and source_class web. Then call search_research_memory exactly once, check_duplicate_memory exactly once, and check_failed_pattern_similarity exactly once. Do not repeat search_research_memory. If duplicate or failed-pattern checks are concerning, call record_rejection immediately; otherwise record exactly one concise hypothesis_packet_v1-compatible hypothesis citing SRC-OPENCODE-GO-GLM-001. Use timeframe_candidate 'M15-H1 candidate'. prior_failed_patterns_checked must be non-empty. Do not claim profitability, Sharpe, returns, profit factor, WFA results, MT5 execution, MQL5 parity, promotion, account access, or live trading.",
+  "market_scope": "multi_asset_ftmo_mt5",
+  "mt5_instrument_scope": {
+    "source": "phase8a_ftmo_mt5_tradable_universe",
+    "allowed_scope": "Any broker-supported FTMO/MT5 symbol with enough data and plausible mechanism; not crypto-only; prediction markets excluded.",
+    "mt5_verified_requires": "terminal-backed mt5_instrument_equivalence before any external/current data becomes MT5-bound"
+  },
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "prior_failed_patterns": [],
+  "prior_lessons": [
+    "Use only deterministic captured source artifacts as evidence; provider-native knowledge is not evidence.",
+    "For live tool mode, capture_url_source must include source_id, url, and source_class; the URL must be one returned by search_web in the same run.",
+    "If memory checks show a near-duplicate or failed pattern, prefer record_rejection over forcing a hypothesis.",
+    "record_hypothesis must cite captured source id SRC-OPENCODE-GO-GLM-001 and must include source_claims only as Stage-0 source-backed mechanism claims, not MT5 verification or profitability claims.",
+    "Use timeframe_candidate 'M15-H1 candidate' and include at least one prior_failed_patterns_checked item such as 'No blocking failed-pattern match returned by check_failed_pattern_similarity'.",
+    "In invalidation_criteria, avoid Sharpe, returns, win-rate, profit-factor, positive expectancy, or any metric that sounds like a profitability or promotion claim."
+  ],
+  "prior_hypothesis_packets": [],
+  "prior_source_records": [],
+  "source_family_allowlist": [
+    "high_operational_trust",
+    "high_research_trust",
+    "medium_implementation_trust",
+    "low_signal_trust"
+  ],
+  "max_sources": 1,
+  "max_hypotheses": 1,
+  "novelty_required": true,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_allowed": false,
+  "deterministic_workers_bypass_allowed": false
+}

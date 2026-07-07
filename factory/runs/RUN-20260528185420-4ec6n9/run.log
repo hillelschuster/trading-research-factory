@@ -1,3 +1,0 @@
-{"ts":"2026-05-28T18:54:24.733Z","run_id":"RUN-20260528185420-4ec6n9","message":"Starting run","extra":{"iteration":166,"backlog_item_id":"IDEA-PHASE8D-SOURCE-QUALITY-GATE-20260528","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260528185420-4ec6n9"}}
-{"ts":"2026-05-28T18:54:25.625Z","run_id":"RUN-20260528185420-4ec6n9","message":"Planner bypass unavailable","extra":{"backlog_item_id":"IDEA-PHASE8D-SOURCE-QUALITY-GATE-20260528","reason":"researchbrain_source_quality_gate_not_wfa_ready"}}
-{"ts":"2026-05-28T18:54:27.061Z","run_id":"RUN-20260528185420-4ec6n9","message":"Phase 8D screening attempt blocked before WFA launch","extra":{"run_id":"RUN-20260528185420-4ec6n9","reason":"researchbrain_source_quality_gate_not_wfa_ready"}}

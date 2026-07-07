@@ -1,0 +1,279 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z",
+  "generated_at": "2026-07-03T13:27:55.988Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-CFD-SOURCE-MAPPING-STAGE0-20260612T1307Z/request.json",
+    "sha256": "9de3fd5a08a25b5d9f5b8a5a3d9ef8bffc2c41978d31db8aef676185d65f971e"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 1,
+    "timeout_ms": 300000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-07-03T13:27:56.045Z",
+      "completed_at": "2026-07-03T13:31:40.550Z",
+      "reason": "ResearchBrain tool call budget exceeded: 50",
+      "error_class": "Error",
+      "failure_class": "terminal_failed_condition",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "terminal_failed_condition",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/quarantine/attempt-001.json",
+        "sha256": "90382fd86bb3b6b2f5b3579d342e7c16fc36bc0c7a2bd2a41e637a5181fe6aad"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T13:27:56.045Z",
+          "completed_at": "2026-07-03T13:31:40.530Z",
+          "error_class": "Error",
+          "error_message": "ResearchBrain tool call budget exceeded: 50",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "terminal_failed_condition",
+  "blockers": [
+    "no_valid_provider_output"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/quarantine/attempt-001.json",
+      "sha256": "90382fd86bb3b6b2f5b3579d342e7c16fc36bc0c7a2bd2a41e637a5181fe6aad"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/agent-transcript.jsonl",
+      "sha256": "6b308621b0db9bb7631746559325baa7067582c5aebfcfc194fe4eb06d821b3b"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-ledger.json",
+      "sha256": "c479235729609ff181d0818ab173e87f220ffdfca51fa080462f6d4c97ca9783"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/cost-ledger.json",
+      "sha256": "2f4409f0d3696bf7b69d63b03636bb0846c1d7a3e6ecf00425b1e254914b8703"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/working-notes.md",
+      "sha256": "357f3e8fa2c020968f18700eea58b7b27243f47030295870f0a1d7ac6132fae5"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/content.md",
+      "sha256": "e892faf9f57af50ba70380fe94f9224d990fcb3319bd9d35dde62505ec820e2f",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-SYMBOLS-001/metadata.json",
+      "sha256": "e0fb6333179ba073038add236179ce7f2d684ed5e73f0084a9b3e516071a82c7",
+      "source_id": "SRC-FTMO-SYMBOLS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/content.md",
+      "sha256": "056b6a0467c7aa7c34b4cc52279515dd1c18ef933e02640147f12141028beabf",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-001/metadata.json",
+      "sha256": "deb2217b0242bd7de65b7dd8e73528433435b8b4b576c873674546078ccf6499",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/content.md",
+      "sha256": "9ceb2eeacab3236b35a43caed65ff5dd0ccd3996bae5e87153f0b404a286527c",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-001/metadata.json",
+      "sha256": "73c124cf50169553045c4e11ceb2955df9eecb5062a952778aee617826eb61cf",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETWATCH-001/content.md",
+      "sha256": "322c3dc2814a717515430f73ab5fad59876cd8f1cbee0afdc44a5063ab788a1d",
+      "source_id": "SRC-MQL5-MARKETWATCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETWATCH-001/metadata.json",
+      "sha256": "6060c8b2e1749290b96d471c0d9a3bb94ed769d3f3762ea4db4bfbe4f7db4a05",
+      "source_id": "SRC-MQL5-MARKETWATCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/content.md",
+      "sha256": "9f998a81c24b4af7494bb4f4bd5c05970314b1e8aa1eeba94e5f1626da17cd93",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADING-UPDATES-002/metadata.json",
+      "sha256": "bc6e72f8b70f062376050190733c27238cc96059b450ffba2e0280a139027355",
+      "source_id": "SRC-FTMO-TRADING-UPDATES-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/content.md",
+      "sha256": "85b65e827f7bb9e95258a994f371fe52d27757776b2e8e361e2125fdce8eaeab",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACADEMY-SESSIONS-003/metadata.json",
+      "sha256": "a0b4df1f378b72c042cc8e9d1cd0ff9c7d4fa032d4897576ed61ce92af5ca816",
+      "source_id": "SRC-FTMO-ACADEMY-SESSIONS-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/content.md",
+      "sha256": "2d35b01d4b97c6f36d6a0b2910e36b3c3e7cb4ace3ffa61f450066f4563d83dd",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-ACAD-SESSIONS-001/metadata.json",
+      "sha256": "a6c9fe644026b0a93d66f3bda05ba9222ec7d255e3d4c687be0fb2635b7cd54d",
+      "source_id": "SRC-FTMO-ACAD-SESSIONS-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-SYMBOLS-002/content.md",
+      "sha256": "f23b0365556b7dbf82db727acd66d51815f34ce4baeb3e7a01ae7fc84b383173",
+      "source_id": "SRC-FTMO-SYMBOLS-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-SYMBOLS-002/metadata.json",
+      "sha256": "622aadc2a3a674050f5e94c95c83fa6cc39ef62c5db261d92c6a7e8730f5e686",
+      "source_id": "SRC-FTMO-SYMBOLS-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-003/content.md",
+      "sha256": "950b9e3a60507e6d7abd51ce28612dac95591ed24b54b9977c714a601834b369",
+      "source_id": "SRC-MT5-MARKETWATCH-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-003/metadata.json",
+      "sha256": "f2df8dc2f2605bf5976c8b51dd0a6fd8715963d75cab8f178fe735c62cc6512b",
+      "source_id": "SRC-MT5-MARKETWATCH-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-004/content.md",
+      "sha256": "d6e06ae87107ef35c64d5400163df92f323df24e39d00380d0b15631bc9a5103",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-FTMO-TRADINGUPDATES-004/metadata.json",
+      "sha256": "efea998127a68a4280c61f1a66cd3a61e7b69ca8eb139032b70e133e6cab0a41",
+      "source_id": "SRC-FTMO-TRADINGUPDATES-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-004/content.md",
+      "sha256": "b758b73c6dd99ba67b57a685653d837f3bc1ea34713794a8942d6779954042b7",
+      "source_id": "SRC-MT5-MARKETWATCH-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-004/metadata.json",
+      "sha256": "03773eb4512d21eb3e8ec5c9bfe4ae1402fc8fb8debe7caedbadf9ddc5a2a577",
+      "source_id": "SRC-MT5-MARKETWATCH-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETTIME-004/content.md",
+      "sha256": "51caadbd5d43dc3b21f712f4067adcbed8946d1b226b9af24b00aa59fad8fa22",
+      "source_id": "SRC-MQL5-MARKETTIME-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETTIME-004/metadata.json",
+      "sha256": "daa4795584eb6ab01f5673ce226fa69f7a53fa5c8092c89bdbdebfa0a54b6b61",
+      "source_id": "SRC-MQL5-MARKETTIME-004"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-005/content.md",
+      "sha256": "74ae4713c88af7ccbfe2e0f13c77830dcd0fe4196339e4b38ad8251afb12d19a",
+      "source_id": "SRC-MT5-MARKETWATCH-005"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-005/metadata.json",
+      "sha256": "b80bdd2525f6626b67170c5b7cd315815d1eb8c2aa2bbf6f3e2166a84a96c846",
+      "source_id": "SRC-MT5-MARKETWATCH-005"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-001/content.md",
+      "sha256": "9b9b7b74e017cc2874219308e9e4964e7cbdcfffd88e50e91a45b495f5735a90",
+      "source_id": "SRC-MT5-MARKETWATCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MT5-MARKETWATCH-001/metadata.json",
+      "sha256": "6c943ce308621763c35f2423e5e194a2ee1638ddd000a88af5413841b449595f",
+      "source_id": "SRC-MT5-MARKETWATCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETTIME-001/content.md",
+      "sha256": "51caadbd5d43dc3b21f712f4067adcbed8946d1b226b9af24b00aa59fad8fa22",
+      "source_id": "SRC-MQL5-MARKETTIME-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-CFD-SOURCE-MAPPING-20260703T132755Z/tool-captures/url/SRC-MQL5-MARKETTIME-001/metadata.json",
+      "sha256": "bad0fb3ea4a0b750025ce39654be025109489234bb4ed6200aef295fd0acde38",
+      "source_id": "SRC-MQL5-MARKETTIME-001"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

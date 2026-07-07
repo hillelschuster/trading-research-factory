@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-FTMO-OANDA-HOURS-003",
+  "url": "https://ftmo.oanda.com/faq/what-are-the-trading-hours-and-where-can-i-check-them/",
+  "title": "FAQ: What are the trading hours, and where can I check them? | FTMO x OANDA",
+  "source_class": "broker",
+  "captured_at": "2026-07-03T13:39:49.144Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:42:19.694Z",
+      "completed_at": "2026-07-03T13:42:20.019Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "2f061a0668b4048da6273e2ae03f907173bc8b720198b44ae3f1132a36430c5d"
+}

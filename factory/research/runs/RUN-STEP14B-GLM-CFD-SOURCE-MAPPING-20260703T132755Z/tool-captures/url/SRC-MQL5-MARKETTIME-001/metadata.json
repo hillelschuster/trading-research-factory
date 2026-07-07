@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-MARKETTIME-001",
+  "url": "https://www.mql5.com/en/blogs/post/767099",
+  "title": "MarketTime v1.10: Professional Multi-Timezone Clock & Session Indicator - Complete Documentation - Trading Strategies - 1 February 2026 - Traders' Blogs",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T13:27:55.988Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:31:38.725Z",
+      "completed_at": "2026-07-03T13:31:39.090Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "51caadbd5d43dc3b21f712f4067adcbed8946d1b226b9af24b00aa59fad8fa22"
+}

@@ -1,5 +1,0 @@
-{"ts":"2026-03-17T10:43:44.746Z","run_id":"RUN-20260317104344-t03bxi","message":"Starting run","extra":{"iteration":9,"backlog_item_id":"IDEA-954304-daz","mode":"live"}}
-{"ts":"2026-03-17T10:47:22.528Z","run_id":"RUN-20260317104344-t03bxi","message":"Planner completed","extra":{"experiment_id":"EXP-20260317160000-01"}}
-{"ts":"2026-03-17T10:48:10.411Z","run_id":"RUN-20260317104344-t03bxi","message":"Executor completed","extra":{"status":"executed"}}
-{"ts":"2026-03-17T10:48:43.704Z","run_id":"RUN-20260317104344-t03bxi","message":"Evaluator completed","extra":{"verdict":"passed","evidence_score":60}}
-{"ts":"2026-03-17T10:49:03.469Z","run_id":"RUN-20260317104344-t03bxi","message":"Run completed","extra":{"run_id":"RUN-20260317104344-t03bxi","verdict":"passed","iteration":9}}

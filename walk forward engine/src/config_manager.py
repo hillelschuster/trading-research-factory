@@ -481,9 +481,7 @@ if __name__ == "__main__":
                 "strategy_params_key": "strategy_sma_eurusd_h1_test.json"
             }
         },
-        "strategy_definitions": {
-            "SMACrossDef": {"strategy_module": "prop_firm_trading_bot.src.strategies.trend_following_sma", "strategy_class": "TrendFollowingSMA"}
-        },
+        "strategy_definitions": {},
         "risk_management": {"global_max_account_drawdown_pct": 0.1, "global_daily_drawdown_limit_pct": 0.05, "default_risk_per_trade_idea_pct": 0.01},
         "operational_compliance": {"is_swing_account": False},
         "news_filter": {"enabled": False},

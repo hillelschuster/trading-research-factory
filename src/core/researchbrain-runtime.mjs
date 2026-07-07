@@ -887,7 +887,9 @@ export async function runResearchBrainStage0Runtime({
   }
 
   if (!accepted || status !== "ready") {
-    blockers.push(providerCalls >= maxProviderCalls ? "provider_call_budget_exhausted" : "no_valid_provider_output");
+    const terminalFailureClass = attempts.at(-1)?.final_terminal_state;
+    if (terminalFailureClass === "provider_account_or_quota_failure") blockers.push("provider_account_or_quota_failure");
+    else blockers.push(providerCalls >= maxProviderCalls ? "provider_call_budget_exhausted" : "no_valid_provider_output");
   }
 
   const result = {

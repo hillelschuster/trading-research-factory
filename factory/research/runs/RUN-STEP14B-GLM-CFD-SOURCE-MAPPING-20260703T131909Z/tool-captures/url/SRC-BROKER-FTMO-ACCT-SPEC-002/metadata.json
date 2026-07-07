@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-BROKER-FTMO-ACCT-SPEC-002",
+  "url": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+  "title": "What are the account specifications? | FTMO.com",
+  "source_class": "broker",
+  "captured_at": "2026-07-03T13:19:10.010Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:21:08.835Z",
+      "completed_at": "2026-07-03T13:21:08.994Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "ab35416c6e3b2e779015db1fc836489c89fea2f844a6fab606f9cb1b848896f2"
+}

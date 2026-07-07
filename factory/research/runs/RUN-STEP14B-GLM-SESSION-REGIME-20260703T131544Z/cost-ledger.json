@@ -1,0 +1,12 @@
+{
+  "schema_version": "researchbrain_cost_ledger_v1",
+  "generated_at": "2026-07-03T13:15:45.333Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "opencode-go/glm-5.2",
+  "live_llm": true,
+  "estimated_cost_usd": 0,
+  "max_cost_usd": 1,
+  "events": [],
+  "failure": "OpenAI-compatible ResearchBrain LLM adapter HTTP 401: {\"type\":\"error\",\"error\":{\"type\":\"ModelError\",\"message\":\"Model opencode-go/glm-5.2 is not supported\"}}"
+}

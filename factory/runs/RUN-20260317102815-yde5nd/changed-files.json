@@ -1,7 +1,0 @@
-[
-  "data/binance_ethusdt_1h_live.csv",
-  "harness/wfa_minimal.py",
-  "results/multi_asset_comparison.json",
-  "results/wfa_sma_btcusdt.json",
-  "results/wfa_sma_ethusdt.json"
-]

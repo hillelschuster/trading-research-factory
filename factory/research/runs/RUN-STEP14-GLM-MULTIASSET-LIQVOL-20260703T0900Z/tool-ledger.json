@@ -1,0 +1,1534 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-07-03T09:05:53.431Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "glm-5.2",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "search_official_docs",
+    "search_mql5_sources",
+    "search_broker_docs",
+    "search_youtube",
+    "search_arxiv",
+    "search_semantic_scholar",
+    "search_github_code",
+    "search_reddit",
+    "capture_url_source",
+    "capture_github_artifact",
+    "inspect_youtube_video",
+    "read_repo_artifact",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_rejection",
+    "record_hypothesis",
+    "write_wiki_page",
+    "search_wiki"
+  ],
+  "tool_calls": [
+    {
+      "index": 1,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:02.480Z",
+      "ended_at": "2026-07-03T09:04:04.304Z",
+      "input": {
+        "query": "intraday liquidity void sweep trading strategy MT5 FX"
+      },
+      "output": {
+        "query": "intraday liquidity void sweep trading strategy MT5 FX",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_reddit",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:02.481Z",
+            "completed_at": "2026-07-03T09:04:04.303Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "reddit-1",
+            "url": "https://www.reddit.com/r/IndianStockMarket/comments/1sx2woh/i_started_with_500_and_zero_clarity_7_years_later/",
+            "title": "I started with ₹500 and zero clarity. 7 years later, I hit ₹1 crore at 27.",
+            "snippet": "Today (April 27, 2026) my investment portfolio (mostly equity) crossed ₹1 crore. I’m 27, a 2020 CSE graduate, working in the software industry. Nothing fancy—tier 3 college, no inheritance, no sudden windfall. Just a long, slightly messy journey that started in 2019 with a ₹500 SIP.\n\nBack in my 3rd ",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-2",
+            "url": "https://www.reddit.com/r/funny/comments/1ow5k1r/whoops/",
+            "title": "Whoops",
+            "snippet": "I'm not sure the editor gave this a read over...",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-3",
+            "url": "https://www.reddit.com/r/ABoringDystopia/comments/1r5xx6p/in_seoul_south_korea_crypto_trading_has_turned/",
+            "title": "In Seoul, South Korea, crypto trading has turned into a real-life E-sport. Traders compete in live tournaments, battling each other in derivative markets while spectators watch charts, liquidations and leaderboard swings in real time. Fast execution, high pressure and pure strategy decide the winner",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-4",
+            "url": "https://www.reddit.com/r/Superstonk/comments/1pntmak/michael_burry_foundations_the_big_short_squeeze/",
+            "title": "Michael Burry - Foundations: The Big Short Squeeze",
+            "snippet": "[https://michaeljburry.substack.com/p/foundations-the-big-short-squeeze](https://michaeljburry.substack.com/p/foundations-the-big-short-squeeze)\n\nNew Michael Burry just dropped, and yes it's about Gamestop.\n\n# Foundations: The Big Short Squeeze\n\n# Gamestop: The Prequel\n\nTore a blade from my lawn and",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-5",
+            "url": "https://www.reddit.com/r/BestofRedditorUpdates/comments/1raicck/i_gave_my_friend_a_haircut_and_now_everything/",
+            "title": "I gave my friend a haircut and now everything feels different",
+            "snippet": "**I am NOT OOP, OOP is u/canigetamap**\n\n**Originally posted to r/TrueOffMyChest**\n\n**I gave my friend a haircut and now everything feels different**\n\n**Thanks to u/soayherder for suggesting this BoRU**\n\n**Mood Spoilers:** &gt;!very sweet!&lt;\n\n\\----\n\n[Original Post](https://www.reddit.com/r/TrueOffM",
+            "source_class": "social",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:04.304Z",
+      "ended_at": "2026-07-03T09:04:05.496Z",
+      "input": {
+        "query": "intraday volatility clustering mechanism CFD metals energy equities"
+      },
+      "output": {
+        "query": "intraday volatility clustering mechanism CFD metals energy equities",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:04.304Z",
+            "completed_at": "2026-07-03T09:04:05.496Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+            "title": "Intraday volatility transmission among precious metals, energy and stocks during the COVID-19 pandemic - ScienceDirect",
+            "snippet": "In this study, we present the evidence of dramatic changes in the structure and time-varying patterns of volatility connectedness across equities and …",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0140988325000489",
+            "title": "Modelling time-varying volatility spillovers across crises: Evidence from major commodity futures and the US stock market - ScienceDirect",
+            "snippet": "<strong>Effective risk management requires discernment of volatility interaction patterns across assets</strong>. Our study examines the level of interconnectedness amongst nine major commodity futures across precious metals, energy, industrial and agricultural ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://www.tradingview.com/scripts/historicalvolatility/",
+            "title": "Historical Volatility — Indicators and Strategies — TradingView",
+            "snippet": "<strong>Longest bar = most volatile timeframe right now</strong> Normal: bars grow left (5m) to right (Daily) — higher TFs are naturally more volatile in absolute terms Warning: a short-TF bar suddenly matching a long-TF bar → intraday volatility spike Bar ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+            "title": "Equity markets volatility clustering: A multiscale analysis of intraday and overnight returns - ScienceDirect",
+            "snippet": "This paper explores the stylized fact of volatility clustering for intraday and overnight returns in global equity markets. As a widely accepted notion, three factors are crucial for investing in equities: return, risk, and time. We scrutinize volatility clustering behaviors across multiple time scales, reflecting the time-dependent nature of investment risks.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.stocktitan.net/articles/volatility-clustering-explained",
+            "title": "Volatility Clustering: Pattern Recognition & Trading Strategies | StockTitan",
+            "snippet": "Master volatility clustering to improve risk management. Learn why volatile markets stay volatile, how to identify clusters, and practical trading applications.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:05.496Z",
+      "ended_at": "2026-07-03T09:04:06.561Z",
+      "input": {
+        "query": "intraday volatility liquidity FX metals order flow microstructure"
+      },
+      "output": {
+        "query": "intraday volatility liquidity FX metals order flow microstructure",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:05.496Z",
+            "completed_at": "2026-07-03T09:04:06.561Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2311.18477v3",
+            "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+            "snippet": "This paper seeks to forecast intraday volatility curves for major foreign exchange (FX) currencies using functional GARCH models. Intraday return curves are observed at a daily frequency, yet preserve the full high-frequency trading structure, enabling volatility analysis at the intraday level. We d",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/2511.20606v2",
+            "title": "Limit Order Book Dynamics in Matching Markets: Microstructure, Spread, and Execution Slippage",
+            "snippet": "Conventional models of matching markets assume that monetary transfers can clear markets by compensating for utility differentials. However, empirical patterns show that such transfers often fail to close structural preference gaps. This paper introduces a market microstructure framework that models",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/physics/0610023v1",
+            "title": "Unexpected volatility and intraday serial correlation",
+            "snippet": "We study the impact of volatility on intraday serial correlation, at time scales of less than 20 minutes, exploiting a data set with all transaction on SPX500 futures from 1993 to 2001. We show that, while realized volatility and intraday serial correlation are linked, this relation is driven by une",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/2210.04648v1",
+            "title": "FX Resilience around the World: Fighting Volatile Cross-Border Capital Flows",
+            "snippet": "We show that capital flow (CF) volatility exerts an adverse effect on exchange rate (FX) volatility, regardless of whether capital controls have been put in place. However, this effect can be significantly moderated by certain macroeconomic fundamentals that reflect trade openness, foreign assets ho",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/2508.06788v4",
+            "title": "Returns and Order Flow Imbalances: Intraday Dynamics and Macroeconomic News Effects",
+            "snippet": "We study the interaction between returns and order flow imbalances in the S&amp;P 500 E-mini futures market using a structural VAR model identified through heteroskedasticity. The model is estimated at one-second frequency for each 15-minute interval, capturing both intraday variation and endogeneit",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "tool": "search_mql5_sources",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:06.561Z",
+      "ended_at": "2026-07-03T09:04:07.195Z",
+      "input": {
+        "query": "liquidity grab session breakout EA MT5 indicator"
+      },
+      "output": {
+        "query": "liquidity grab session breakout EA MT5 indicator",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:06.562Z",
+            "completed_at": "2026-07-03T09:04:07.195Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "mql5-1",
+            "url": "https://www.mql5.com/en/articles/16518",
+            "title": "The Liquidity Grab Trading Strategy - MQL5 Articles",
+            "snippet": "DistanceRange is the look-back period for searching key levels for liquidity grab signals. Similarly, CandlesBeforeBreakout is the look-back period for searching recent key levels for breakout signals. The wick-to-body ratio can be adjusted to a value that the trader deems sufficient to illustrate a rejection pattern. The trading hours are based on your broker&#x27;s server time. For my broker (GMT+0), the volatile forex New York session period is from 13:00 to 19:00.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-2",
+            "url": "https://www.mql5.com/en/market/mt5/new",
+            "title": "New Expert Advisors and indicators for MetaTrader 5 in MetaTrader Market",
+            "snippet": "It <strong>marks important swings, structure breaks, liquidity areas, order blocks, fair value gaps, session ranges, higher-timeframe levels, and confluence information directly on the chart</strong>.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-3",
+            "url": "https://www.mql5.com/en/market/product/139967",
+            "title": "Crystal Buy Sell Liquidity Indicator | Free Download Trading Indicator for MetaTrader 5",
+            "snippet": "Detect liquidity sweeps (price breaking session highs/lows). Confirm reversal conditions after retail liquidity is absorbed. Plot buy or sell signals when probability of reversal is high. This makes it easier to trade with institutional flow instead of against it. Attach the indicator to your MT5 chart.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-4",
+            "url": "https://www.mql5.com/en/market/product/139172",
+            "title": "Opening Range Breakout Master | Buy Trading Robot (Expert Advisor) for MetaTrader 4",
+            "snippet": "Monitor for Breakouts: <strong>Waits for price to break above the high (bullish breakout) or below the low (bearish breakout) with optional confirmation filters</strong>. Enter on Confirmation: Opens a trade when price closes beyond the range with displacement, ...",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-5",
+            "url": "https://www.mql5.com/en/wall/market",
+            "title": "Market - MQL5.com Wall - Recent advancements in algorithmic/automated trading in MetaTrader 5",
+            "snippet": "That&#x27;s a liquidity trap : <strong>large players push a false breakout to grab liquidity before reversing</strong>. This indicator detects that exact scenario and draws a ready-made trade plan straight onto your chart.",
+            "source_class": "mql5",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:18.414Z",
+      "ended_at": "2026-07-03T09:04:19.496Z",
+      "input": {
+        "query": "session open liquidity sweep forex gold oil intraday edge"
+      },
+      "output": {
+        "query": "session open liquidity sweep forex gold oil intraday edge",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_reddit",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:18.414Z",
+            "completed_at": "2026-07-03T09:04:19.496Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "reddit-1",
+            "url": "https://www.reddit.com/r/ICTMentorship/comments/1rxmd5i/built_an_automated_ict_smart_money_trading_system/",
+            "title": "Built an automated ICT Smart Money trading system — full overview of every feature (Quarterly Theory by Trader Daye)",
+            "snippet": "Been building this for a while and wanted to share a full breakdown. This is **Argona** — an automated paper trading system built entirely on ICT's Smart Money framework. Huge credit to **Trader Daye** for Quarterly Theory — the entire signal engine is built on his QT model.\n\nHere's everything it do",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-2",
+            "url": "https://www.reddit.com/r/UnfilteredChina/comments/1u3rzdl/nice_try_cia_thats_not_gutter_oil_its_just_a/",
+            "title": "\"Nice Try, CIA!\" That’s Not \"Gutter Oil\"- It’s Just a High-Tech, Probiotic Liquid-Gold Recycling Initiative!",
+            "snippet": "Western intelligence is at it again, trying to ruin the flawless culinary reputation of the future! 🕵️‍♂️🇺🇸\n\nThe CIA wants you to believe that \"gutter oil\" is a real thing. They want you to think people are scooping rotting grease, animal fat, and literal sewage out of restaurant drainage pits, t",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-3",
+            "url": "https://www.reddit.com/r/energy/comments/1kxh8he/elon_musk_breaks_with_trump_on_energy_compared_to/",
+            "title": "Elon Musk Breaks With Trump on Energy: \"Compared to solar, oil is small-time.\" Musk appeared to contradict long-running efforts by Trump to promote fossil fuels over renewable energy. Trump: \"We will be a rich nation again, and it is that liquid gold under our feet that will help to do it.\"",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-4",
+            "url": "https://www.reddit.com/r/whatisit/comments/1qaig9k/mystery_beach_find_suitcasesized_white_lumpy_mass/",
+            "title": "Mystery beach find: Suitcase-sized white lumpy mass + turns oily with heat",
+            "snippet": "**Im looking for help identifying a strange NorCal beach find...**\n\n**Details of find:**\n\n* **Size:** Relatively large -- about the size of a standard airline carry-on\n* **Shape:** Irregular, lumpy, somewhat “brain-like” in folds/contours\n* **Color:** Exterior is chalky white. Interior is yellowish.",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-5",
+            "url": "https://www.reddit.com/r/todayilearned/comments/1r137ge/til_canadians_sent_5_tonnes_of_maple_syrup_to/",
+            "title": "TIL Canadians sent 5 tonnes of maple syrup to thank a Norwegian coach who gave a Canadian skier a spare pole after she broke hers mid-race, which led to Canada winning a silver medal at the 2006 Winter Olympics",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:19.496Z",
+      "ended_at": "2026-07-03T09:04:25.910Z",
+      "input": {
+        "query": "intraday liquidity sweep session breakout MT5 EA MQL5"
+      },
+      "output": {
+        "query": "intraday liquidity sweep session breakout MT5 EA MQL5",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:19.496Z",
+            "completed_at": "2026-07-03T09:04:25.910Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/Dual_Thrust_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/Dual_Thrust_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/Pivot_Fade_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/Pivot_Fade_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/robpitman1982-ux/python-master-strategy-creator/blob/f34977c60354d1e1d09ba42477ebfcbdcbf0ed4b/docs/SWEEP_SOP.md",
+            "repo_url": "https://github.com/robpitman1982-ux/python-master-strategy-creator",
+            "title": "robpitman1982-ux/python-master-strategy-creator/docs/SWEEP_SOP.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/xxSeasonxx/quant_research/blob/2cbf59810cc90426db0ca2ad1acdcffb590f602a/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "repo_url": "https://github.com/xxSeasonxx/quant_research",
+            "title": "xxSeasonxx/quant_research/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/hillelschuster/trading-research-factory/blob/24247b81728c29ceba5a1dbd46481d5e8e78a014/scripts/run-phase8d-london-sweep-gbpjpy-screening.mjs",
+            "repo_url": "https://github.com/hillelschuster/trading-research-factory",
+            "title": "hillelschuster/trading-research-factory/scripts/run-phase8d-london-sweep-gbpjpy-screening.mjs",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "tool": "search_semantic_scholar",
+      "status": "error",
+      "started_at": "2026-07-03T09:04:25.910Z",
+      "ended_at": "2026-07-03T09:04:26.509Z",
+      "input": {
+        "query": "intraday volatility spillover cross-asset liquidity metals energy FX CFD"
+      },
+      "reason": "Semantic Scholar search HTTP 429",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "retry_scheduled",
+          "started_at": "2026-07-03T09:04:25.910Z",
+          "completed_at": "2026-07-03T09:04:26.226Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "retry_pending"
+        },
+        {
+          "attempt_number": 2,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:04:26.227Z",
+          "completed_at": "2026-07-03T09:04:26.508Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "tool": "search_broker_docs",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:26.509Z",
+      "ended_at": "2026-07-03T09:04:27.596Z",
+      "input": {
+        "query": "FTMO MT5 swap session trading hours spread metals energy index CFD"
+      },
+      "output": {
+        "query": "FTMO MT5 swap session trading hours spread metals energy index CFD",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_broker_docs",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:26.509Z",
+            "completed_at": "2026-07-03T09:04:27.596Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "broker-1",
+            "url": "https://ftmo.com/en/trading-updates/",
+            "title": "Trading updates | FTMO.com",
+            "snippet": "Equities I CFD (US stocks), Agriculture will be closed whole day. Metals CFD, JP225.cash, US100.cash, US2000.cash, US30.cash, US500.cash, USOIL.cash, NATGAS.cash, HEATOIL.c will <strong>close early at 20:00</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-2",
+            "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+            "title": "Forex Trading Hours and Sessions | FTMO Academy",
+            "snippet": "European indices such as DAX or Stoxx open at 1 AM and trade until 10 PM London time. US indices such as SP500, Nasdaq or Dow Jones trade <strong>23 hours a day with a break between 10 PM and 11 PM</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-3",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-19-mar-2026/",
+            "title": "Trading Update | 19 Mar 2026 | FTMO.com",
+            "snippet": "Due to this DST change, <strong>the trading hours for European stocks (Equities CFD II) and the cash instruments listed below will be shifted back by 1 hour on the MT4 and MT5 platforms</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-4",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-24-mar-2026/",
+            "title": "Trading Update | 24 Mar 2026 | FTMO.com",
+            "snippet": "Due to this DST change, <strong>the trading hours for European stocks (Equities CFD II) and the cash instruments listed below will be shifted back by 1 hour on the MT4 and MT5 platforms</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-5",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-12-mar-2026/",
+            "title": "Trading Update | 12 Mar 2026 | FTMO.com",
+            "snippet": "Due to this DST change, <strong>the trading hours for European stocks (Equities CFD II) and the cash instruments listed below will be shifted back by 1 hour on the MT4 and MT5 platforms</strong>.",
+            "source_class": "broker",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:37.087Z",
+      "ended_at": "2026-07-03T09:04:38.153Z",
+      "input": {
+        "query": "intraday volatility spillover cross-asset session overlap gold oil FX"
+      },
+      "output": {
+        "query": "intraday volatility spillover cross-asset session overlap gold oil FX",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:37.087Z",
+            "completed_at": "2026-07-03T09:04:38.153Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2311.18477v3",
+            "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+            "snippet": "This paper seeks to forecast intraday volatility curves for major foreign exchange (FX) currencies using functional GARCH models. Intraday return curves are observed at a daily frequency, yet preserve the full high-frequency trading structure, enabling volatility analysis at the intraday level. We d",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/2111.02376v1",
+            "title": "Multiplicative Component GARCH Model of Intraday Volatility",
+            "snippet": "This paper proposes a multiplicative component intraday volatility model. The intraday conditional volatility is expressed as the product of intraday periodic component, intraday stochastic volatility component and daily conditional volatility component. I extend the multiplicative component intrada",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2602.20856v1",
+            "title": "Stochastic Discount Factors with Cross-Asset Spillovers",
+            "snippet": "This paper develops a unified framework that links firm-level predictive signals, cross-asset spillovers, and the stochastic discount factor (SDF). Signals and spillovers are jointly estimated by maximizing the Sharpe ratio, yielding an interpretable SDF that both ranks characteristic relevance and ",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/physics/0610023v1",
+            "title": "Unexpected volatility and intraday serial correlation",
+            "snippet": "We study the impact of volatility on intraday serial correlation, at time scales of less than 20 minutes, exploiting a data set with all transaction on SPX500 futures from 1993 to 2001. We show that, while realized volatility and intraday serial correlation are linked, this relation is driven by une",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/1204.0633v1",
+            "title": "Local Volatility Pricing Models for Long-dated FX Derivatives",
+            "snippet": "We study the local volatility function in the Foreign Exchange market where both domestic and foreign interest rates are stochastic. This model is suitable to price long-dated FX derivatives. We derive the local volatility function and obtain several results that can be used for the calibration of t",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:38.153Z",
+      "ended_at": "2026-07-03T09:04:40.546Z",
+      "input": {
+        "query": "liquidity sweep session open breakout MT5 EA MQL5 indicator"
+      },
+      "output": {
+        "query": "liquidity sweep session open breakout MT5 EA MQL5 indicator",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:38.153Z",
+            "completed_at": "2026-07-03T09:04:40.546Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD/blob/b0087e93c8af6690102c6698b8123186703a9240/MQL5/Include/EA_SCALPER/INDEX.md",
+            "repo_url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD",
+            "title": "francomascareloai/EA_SCALPER_XAUUSD/MQL5/Include/EA_SCALPER/INDEX.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/xxSeasonxx/quant_research/blob/2cbf59810cc90426db0ca2ad1acdcffb590f602a/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "repo_url": "https://github.com/xxSeasonxx/quant_research",
+            "title": "xxSeasonxx/quant_research/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/Fokha/project_template/blob/4904db018d549aa70d802e2312290c2bde691ca3/agents/prompts/MQL5_DEV_AGENT.md",
+            "repo_url": "https://github.com/Fokha/project_template",
+            "title": "Fokha/project_template/agents/prompts/MQL5_DEV_AGENT.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/elrizwiraswara/nyao_scalper_mt5/blob/4e7bc7b855e703f1d92ec53882b6d8e2a6008f14/README.md",
+            "repo_url": "https://github.com/elrizwiraswara/nyao_scalper_mt5",
+            "title": "elrizwiraswara/nyao_scalper_mt5/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/carlosrod723/MQL5-Trading-Bot/blob/1234e3f000c1bcc3202eecdadb658ce86fda8961/README.md",
+            "repo_url": "https://github.com/carlosrod723/MQL5-Trading-Bot",
+            "title": "carlosrod723/MQL5-Trading-Bot/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "tool": "search_semantic_scholar",
+      "status": "error",
+      "started_at": "2026-07-03T09:04:40.546Z",
+      "ended_at": "2026-07-03T09:04:41.530Z",
+      "input": {
+        "query": "intraday volatility regime switching cross-asset CFD metals energy session timing"
+      },
+      "reason": "Semantic Scholar search HTTP 429",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "retry_scheduled",
+          "started_at": "2026-07-03T09:04:40.546Z",
+          "completed_at": "2026-07-03T09:04:40.829Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "retry_pending"
+        },
+        {
+          "attempt_number": 2,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:04:40.829Z",
+          "completed_at": "2026-07-03T09:04:41.530Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T09:04:41.530Z",
+      "ended_at": "2026-07-03T09:04:42.571Z",
+      "input": {
+        "query": "session overlap volatility spike gold oil index CFD trading edge"
+      },
+      "output": {
+        "query": "session overlap volatility spike gold oil index CFD trading edge",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_reddit",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:04:41.530Z",
+            "completed_at": "2026-07-03T09:04:42.570Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "reddit-1",
+            "url": "https://www.reddit.com/r/Superstonk/comments/p71h5j/everyone_is_talking_about_reverse_repo_being_high/",
+            "title": "Everyone is talking about Reverse repo being high, but no one is talking about the Volatility index spiking 20% within the last hour of trading",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-2",
+            "url": "https://www.reddit.com/r/wallstreetbets/comments/1qr49bf/gold_8_below_5000_and_silver_17_to_95_after_trump/",
+            "title": "Gold -8% below $5,000 and silver -17% to $95 after Trump nominates Kevin Warsh as Fed chair, dollar surges",
+            "snippet": "Note:\n\n* Post title says 'surge' which is not accurate. It should be 'rebounded'\n* Gold -8% and silver -17% was at the lowest point in pre-market. Check the charts at the bottom of this post.\n\nSource: [https://finance.yahoo.com/news/gold-silver-plunge-wild-swings-095304053.html](https://finance.yaho",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-3",
+            "url": "https://www.reddit.com/r/BuyCanadian/comments/1pzlfjz/how_canadian_is_your_ice_cream/",
+            "title": "How Canadian is your Ice Cream",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-4",
+            "url": "https://www.reddit.com/r/wallstreetbets/comments/1tqi6b1/nokia_is_quietly_becoming_the_backbone_of_ai/",
+            "title": "Nokia is quietly becoming the backbone of AI infrastructure and nobody noticed 🚀",
+            "snippet": "**$NOK - I've been holding this \"dead phone company\" for over a year and I'm not selling**\n\nBeen holding Nokia for over a year while everyone told me I was bagholding a Nokia from 2003. Turns out I wasn't wrong, just early. Let me explain why I'm still not selling and why I think most people still h",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-5",
+            "url": "https://www.reddit.com/r/wallstreetbets/comments/1ib5lyp/deepseek_puts_tech_stocks_on_track_for_1_trillion/",
+            "title": "DeepSeek Puts Tech Stocks on Track for $1 Trillion Wipeout",
+            "snippet": "&gt; Chinese artificial intelligence startup DeepSeek rocked global technology stocks Monday, raising questions over America’s technological dominance.\n\n&gt; Buzz grew over the weekend about DeepSeek’s latest AI model being cost-effective while running on less-advanced chips, casting doubt on the va",
+            "source_class": "social",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:10.468Z",
+      "ended_at": "2026-07-03T09:05:11.472Z",
+      "input": {
+        "source_id": "SRC-WEB-VOLSPILOVER-001",
+        "url": "https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday volatility transmission exists among precious metals, energy and stocks",
+          "Volatility connectedness structure changed dramatically during stress periods",
+          "Cross-asset volatility spillovers are time-varying and intraday-measurable"
+        ],
+        "limitations": [
+          "COVID-19 period focus may not generalize to normal market conditions",
+          "Study uses futures data not CFD data",
+          "No MT5 execution context"
+        ],
+        "disconfirming_relevance": [
+          "CFD spreads and MT5 execution may not capture the same volatility transmission as futures",
+          "FTMO symbol universe may differ from studied instruments"
+        ]
+      },
+      "reason": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:05:10.468Z",
+          "completed_at": "2026-07-03T09:05:11.471Z",
+          "error_class": "Error",
+          "error_message": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:11.472Z",
+      "ended_at": "2026-07-03T09:05:12.311Z",
+      "input": {
+        "source_id": "SRC-WEB-VOLCLUSTER-002",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+        "source_class": "web",
+        "claims_extracted": [
+          "Volatility clustering differs between intraday and overnight returns in equity markets",
+          "Multiscale analysis reveals time-dependent volatility clustering patterns",
+          "Intraday and overnight volatility clustering behaviors are distinct across time scales"
+        ],
+        "limitations": [
+          "Equity-focused, not directly tested on FX or CFD instruments",
+          "Academic methodology may not translate to rule-based trading",
+          "No MT5 execution context"
+        ],
+        "disconfirming_relevance": [
+          "Equity market clustering may not hold for FX/metals/energy CFDs",
+          "Overnight returns in 24/5 CFD markets differ from equity market overnight gaps"
+        ]
+      },
+      "reason": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:05:11.472Z",
+          "completed_at": "2026-07-03T09:05:12.311Z",
+          "error_class": "Error",
+          "error_message": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:12.311Z",
+      "ended_at": "2026-07-03T09:05:13.382Z",
+      "input": {
+        "query": "cross-asset volatility spillover intraday timing session open close FX commodities"
+      },
+      "output": {
+        "query": "cross-asset volatility spillover intraday timing session open close FX commodities",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:12.311Z",
+            "completed_at": "2026-07-03T09:05:13.382Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2311.18477v3",
+            "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+            "snippet": "This paper seeks to forecast intraday volatility curves for major foreign exchange (FX) currencies using functional GARCH models. Intraday return curves are observed at a daily frequency, yet preserve the full high-frequency trading structure, enabling volatility analysis at the intraday level. We d",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/2603.15603v1",
+            "title": "Fast SAM 3D Body: Accelerating SAM 3D Body for Real-Time Full-Body Human Mesh Recovery",
+            "snippet": "SAM 3D Body (3DB) achieves state-of-the-art accuracy in monocular 3D human mesh recovery, yet its inference latency of several seconds per image precludes real-time application. We present Fast SAM 3D Body, a training-free acceleration framework that reformulates the 3DB inference pathway to achieve",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2111.02376v1",
+            "title": "Multiplicative Component GARCH Model of Intraday Volatility",
+            "snippet": "This paper proposes a multiplicative component intraday volatility model. The intraday conditional volatility is expressed as the product of intraday periodic component, intraday stochastic volatility component and daily conditional volatility component. I extend the multiplicative component intrada",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/2206.15039v1",
+            "title": "Unique futures in China: studys on volatility spillover effects of ferrous metal futures",
+            "snippet": "Ferrous metal futures have become unique commodity futures with Chinese characteristics. Due to the late listing time, it has received less attention from scholars. Our research focuses on the volatility spillover effects, defined as the intensity of price volatility in financial instruments. We use",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/2602.20856v1",
+            "title": "Stochastic Discount Factors with Cross-Asset Spillovers",
+            "snippet": "This paper develops a unified framework that links firm-level predictive signals, cross-asset spillovers, and the stochastic discount factor (SDF). Signals and spillovers are jointly estimated by maximizing the Sharpe ratio, yielding an interpretable SDF that both ranks characteristic relevance and ",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:13.382Z",
+      "ended_at": "2026-07-03T09:05:14.684Z",
+      "input": {
+        "query": "London New York session overlap volatility spike FX metals CFD intraday pattern"
+      },
+      "output": {
+        "query": "London New York session overlap volatility spike FX metals CFD intraday pattern",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:13.382Z",
+            "completed_at": "2026-07-03T09:05:14.684Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.puprime.com/understanding-forex-session-times-hours-overlaps-and-strategies/",
+            "title": "Understanding Forex Session Times: Hours, Overlaps, and Strategies",
+            "snippet": "Liquidity is high, and sudden bursts of volume can fuel sharp trends. Trend-following in overlaps. <strong>The London–New York overlap is also when lasting intraday trends often develop</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://fxnx.com/en/blog/gold-trading-strategy-how-to-master-xauusd-volatility-traps",
+            "title": "Gold Trading: 3 Volatility Traps Killing Your Account 💀 | FXNX",
+            "snippet": "Identify high-probability entries by timing your trades during the <strong>13:00–16:00 GMT</strong> London-New York session overlap. Apply institutional supply and demand zones alongside psychological &quot;00&quot; levels to pinpoint precise price magnets and targets.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "<strong>This is a time-based XAUUSD trading strategy that exploits the predictable volatility spike that occurs when the London and New York sessions overlap, roughly between 12:00 and 16:00 GMT</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://arongroups.co/forex-articles/london-trading-session/",
+            "title": "Everything You Need to Know About the London Session in Forex (Key Insights)",
+            "snippet": "The London-New York overlap continues until London closes, and <strong>it frequently produces strong intraday trends, breakouts, or sharp reversals, depending on market conditions and economic releases</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://fxnx.com/en/blog/trading-xau-usd-overlap-mastering-institutional-handover",
+            "title": "Trading XAU/USD Overlap: Master the Institutional Handover | FXNX",
+            "snippet": "Master the Gold (XAU/USD) London-New York overlap. Learn to trade the Institutional Handover, avoid liquidity traps, and use macro correlations for profit.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:14.684Z",
+      "ended_at": "2026-07-03T09:05:17.182Z",
+      "input": {
+        "query": "volatility breakout session overlap MT5 EA MQL5 multi-asset"
+      },
+      "output": {
+        "query": "volatility breakout session overlap MT5 EA MQL5 multi-asset",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:14.684Z",
+            "completed_at": "2026-07-03T09:05:17.182Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/NR47_Breakout_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/NR47_Breakout_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/Dual_Thrust_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/Dual_Thrust_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/specs/smc-intraday-bias-ea-spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/specs/smc-intraday-bias-ea-spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/andywarui/dhahabu/blob/90fb6aaf3210f7045b8d49e799cf50d503b5da56/README.md",
+            "repo_url": "https://github.com/andywarui/dhahabu",
+            "title": "andywarui/dhahabu/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/MickaelMorgado/EmittersWebsite/blob/d6fa5a513ab483062c338a72b296b4eb9ee74f29/memory-bank/app6/progress.md",
+            "repo_url": "https://github.com/MickaelMorgado/EmittersWebsite",
+            "title": "MickaelMorgado/EmittersWebsite/memory-bank/app6/progress.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "tool": "search_semantic_scholar",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:17.182Z",
+      "ended_at": "2026-07-03T09:05:18.566Z",
+      "input": {
+        "query": "intraday liquidity provision volatility cross-asset spillover session timing"
+      },
+      "reason": "Semantic Scholar search HTTP 429",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "retry_scheduled",
+          "started_at": "2026-07-03T09:05:17.182Z",
+          "completed_at": "2026-07-03T09:05:17.880Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "retry_pending"
+        },
+        {
+          "attempt_number": 2,
+          "phase": "researchbrain_source_search:search_semantic_scholar",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:05:17.880Z",
+          "completed_at": "2026-07-03T09:05:18.566Z",
+          "error_class": "Error",
+          "error_message": "Semantic Scholar search HTTP 429",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:31.482Z",
+      "ended_at": "2026-07-03T09:05:32.659Z",
+      "input": {
+        "query": "volatility spillover timing intraday cross-asset metals energy equity"
+      },
+      "output": {
+        "query": "volatility spillover timing intraday cross-asset metals energy equity",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:31.482Z",
+            "completed_at": "2026-07-03T09:05:32.659Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2603.15603v1",
+            "title": "Fast SAM 3D Body: Accelerating SAM 3D Body for Real-Time Full-Body Human Mesh Recovery",
+            "snippet": "SAM 3D Body (3DB) achieves state-of-the-art accuracy in monocular 3D human mesh recovery, yet its inference latency of several seconds per image precludes real-time application. We present Fast SAM 3D Body, a training-free acceleration framework that reformulates the 3DB inference pathway to achieve",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/0712.3617v2",
+            "title": "A Unified Framework for Pricing Credit and Equity Derivatives",
+            "snippet": "We propose a model which can be jointly calibrated to the corporate bond term structure and equity option volatility surface of the same company. Our purpose is to obtain explicit bond and equity option pricing formulas that can be calibrated to find a risk neutral model that matches a set of observ",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2206.15039v1",
+            "title": "Unique futures in China: studys on volatility spillover effects of ferrous metal futures",
+            "snippet": "Ferrous metal futures have become unique commodity futures with Chinese characteristics. Due to the late listing time, it has received less attention from scholars. Our research focuses on the volatility spillover effects, defined as the intensity of price volatility in financial instruments. We use",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/1002.2573v3",
+            "title": "A model-insensitive determination of First-hitting-time densities with Application to Equity default-swaps",
+            "snippet": "Equity default-swaps pay the holder a fixed amount of money when the underlying spot level touches a (far-down) barrier during the life of the instrument. While most pricing models give reasonable results when the barrier lies within the range of liquidly traded strikes of plain-vanilla option price",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/astro-ph/0510346v1",
+            "title": "The Dark Energy Survey",
+            "snippet": "We describe the Dark Energy Survey (DES), a proposed optical-near infrared survey of 5000 sq. deg of the South Galactic Cap to ~24th magnitude in SDSS griz, that would use a new 3 sq. deg CCD camera to be mounted on the Blanco 4-m telescope at Cerro Telolo Inter-American Observatory (CTIO). The surv",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:32.659Z",
+      "ended_at": "2026-07-03T09:05:33.648Z",
+      "input": {
+        "query": "session open liquidity grab London New York killzone backtest"
+      },
+      "output": {
+        "query": "session open liquidity grab London New York killzone backtest",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_reddit",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:32.659Z",
+            "completed_at": "2026-07-03T09:05:33.648Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "reddit-1",
+            "url": "https://www.reddit.com/r/Fauxmoi/comments/1uh7u6u/zohran_mamdani_jumps_into_new_york_public_pool_on/",
+            "title": "Zohran Mamdani jumps into New York public pool on opening day, a mayoral tradition skipped by the previous two mayors",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-2",
+            "url": "https://www.reddit.com/r/PoursTea/comments/1uhfqyq/zohran_mamdani_is_opening_the_first_city_owned/",
+            "title": "Zohran Mamdani is opening the first city owned grocery store in East New York",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-3",
+            "url": "https://www.reddit.com/r/law/comments/1mnzhnw/president_trump_is_now_open_to_deploying_us/",
+            "title": "President Trump is now open to deploying US Military in cities like Chicago and New York: \"Let's do this. Let's do this together. It's going to go by pretty quickly\"",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-4",
+            "url": "https://www.reddit.com/r/TikTokCringe/comments/1lweirf/new_york_subway_passengers_come_to_the_rescue_of/",
+            "title": "New York subway passengers come to the rescue of a screaming woman who was randomly grabbed by a man on the platform.",
+            "snippet": "\n",
+            "source_class": "social",
+            "discovery_only": true
+          },
+          {
+            "result_id": "reddit-5",
+            "url": "https://www.reddit.com/r/explainlikeimfive/comments/1sckfei/eli5_how_do_we_actually_find_a_broken_cable_at/",
+            "title": "ELI5: How do we actually \"find\" a broken cable at the bottom of the ocean? If a shark bites an internet cable halfway between New York and London, how do engineers know exactly which mile of the 3,000-mile cable to pull up?",
+            "snippet": "",
+            "source_class": "social",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:33.648Z",
+      "ended_at": "2026-07-03T09:05:37.708Z",
+      "input": {
+        "query": "liquidity sweep session breakout MT5 MQL5 EA indicator"
+      },
+      "output": {
+        "query": "liquidity sweep session breakout MT5 MQL5 EA indicator",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:33.648Z",
+            "completed_at": "2026-07-03T09:05:37.708Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD/blob/b0087e93c8af6690102c6698b8123186703a9240/MQL5/Include/EA_SCALPER/INDEX.md",
+            "repo_url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD",
+            "title": "francomascareloai/EA_SCALPER_XAUUSD/MQL5/Include/EA_SCALPER/INDEX.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Fokha/project_template/blob/4904db018d549aa70d802e2312290c2bde691ca3/agents/prompts/MQL5_DEV_AGENT.md",
+            "repo_url": "https://github.com/Fokha/project_template",
+            "title": "Fokha/project_template/agents/prompts/MQL5_DEV_AGENT.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/xxSeasonxx/quant_research/blob/2cbf59810cc90426db0ca2ad1acdcffb590f602a/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "repo_url": "https://github.com/xxSeasonxx/quant_research",
+            "title": "xxSeasonxx/quant_research/docs/strategy_research/fx/catalog/data/results/SP033_Liquidity_sweep.json",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/elrizwiraswara/nyao_scalper_mt5/blob/4e7bc7b855e703f1d92ec53882b6d8e2a6008f14/README.md",
+            "repo_url": "https://github.com/elrizwiraswara/nyao_scalper_mt5",
+            "title": "elrizwiraswara/nyao_scalper_mt5/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/carlosrod723/MQL5-Trading-Bot/blob/1234e3f000c1bcc3202eecdadb658ce86fda8961/README.md",
+            "repo_url": "https://github.com/carlosrod723/MQL5-Trading-Bot",
+            "title": "carlosrod723/MQL5-Trading-Bot/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T09:05:37.708Z",
+      "ended_at": "2026-07-03T09:05:38.879Z",
+      "input": {
+        "query": "intraday volatility time-of-day pattern CFD gold oil index futures predictable"
+      },
+      "output": {
+        "query": "intraday volatility time-of-day pattern CFD gold oil index futures predictable",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T09:05:37.708Z",
+            "completed_at": "2026-07-03T09:05:38.879Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.cmegroup.com/markets/metals/precious/gold.volume.html",
+            "title": "Gold Futures Volume & Open Interest - CME Group",
+            "snippet": "Track forward-looking risk expectations on Gold with the CME Group Volatility Index (CVOLTM), <strong>a robust measure of 30-day implied volatility derived from deeply liquid options on Gold futures</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2405851318300102",
+            "title": "Intraday seasonality in efficiency, liquidity, volatility and volume: Platinum and gold futures in Tokyo and New York - ScienceDirect",
+            "snippet": "Therefore, less liquid commodity price predictions require both prices and liquidity levels from cross-markets, while liquid commodity prices (oil and metal) can be predicted based solely on cross-market prices. ... Another important stylized fact in China’s crude oil futures is its intraday seasonality. A U-shaped trading pattern has frequently been documented in the literature demonstrating a relatively high volume/volatility when market opens and closes (see for example, Iwatsubo et al., 2018, for the discussion of relevant literature).",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://www.gold.org/goldhub/data/gold-price-volatility",
+            "title": "Gold Price Volatility | History Chart | World Gold Council",
+            "snippet": "Volatility of the gold market is important for analysing current and future expectations or uncertainty for the price of gold itself as well as risk in the global markets. We provide the volatility of gold and many major market indices across various asset classes to highlight how it compares with those assets over various time horizons and market conditions.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.spglobal.com/spdji/en/indices/multi-asset/sp-gold-futures-15-volatility-intraday-target-long-tca-index/",
+            "title": "S&P Gold Futures 15% Volatility Intraday Target Long TCA ...",
+            "snippet": "Home to the S&amp;P 500® and Dow Jones Industrial Average®, S&amp;P Dow Jones Indices is the world’s leading resource for benchmarks and investable indices.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7480318/",
+            "title": "Intraday return predictability: Evidence from commodity ETFs and their related volatility indices - PMC",
+            "snippet": "Using high-frequency data of crude oil, gold, and silver exchange-traded funds (ETFs) and their related volatility indices, we analyse patterns of intraday return predictability, also called intraday momentum, in each market. We find that intraday ...",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:38.879Z",
+      "ended_at": "2026-07-03T09:05:39.730Z",
+      "input": {
+        "source_id": "SRC-WEB-VOLCLUSTER-EQ-001",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+        "source_class": "web",
+        "claims_extracted": [
+          "Volatility clustering exists in intraday and overnight equity returns across multiple time scales",
+          "Volatility clustering patterns differ between intraday and overnight returns",
+          "Multiscale analysis reveals time-dependent risk patterns within the trading day"
+        ],
+        "limitations": [
+          "Academic paper may not provide direct tradable rules",
+          "Focuses on equity markets not CFD instruments",
+          "May require institutional data access to replicate"
+        ]
+      },
+      "reason": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:05:38.879Z",
+          "completed_at": "2026-07-03T09:05:39.730Z",
+          "error_class": "Error",
+          "error_message": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/abs/pii/S0927539824000227",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "tool": "capture_url_source",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:39.731Z",
+      "ended_at": "2026-07-03T09:05:40.504Z",
+      "input": {
+        "source_id": "SRC-WEB-VOLSPILL-METAL-001",
+        "url": "https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday volatility transmission exists among precious metals energy and stocks",
+          "Volatility connectedness structure changes dramatically during crisis periods",
+          "Cross-asset intraday volatility spillovers are measurable and time-varying"
+        ],
+        "limitations": [
+          "COVID-19 pandemic focus may not generalize to normal market conditions",
+          "Academic study not designed for trading signal generation",
+          "Uses spot/futures data not CFD instruments"
+        ]
+      },
+      "reason": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+      "retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_source_capture:capture_url_source",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:05:39.731Z",
+          "completed_at": "2026-07-03T09:05:40.504Z",
+          "error_class": "Error",
+          "error_message": "No sub-adapter could capture URL: https://www.sciencedirect.com/science/article/pii/S030142072100115X",
+          "failure_class": "terminal_failed_condition",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "terminal_failed_condition"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "tool": "search_semantic_scholar",
+      "status": "error",
+      "started_at": "2026-07-03T09:05:50.254Z",
+      "ended_at": "2026-07-03T09:05:53.431Z",
+      "input": {
+        "query": "intraday cross-asset volatility spillover timing session transition FX metals energy"
+      },
+      "reason": "search_semantic_scholar deterministic source adapter returned no results",
+      "retry_attempts": []
+    }
+  ],
+  "captured_artifacts": [],
+  "failure": "search_semantic_scholar deterministic source adapter returned no results"
+}

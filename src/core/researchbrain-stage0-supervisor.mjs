@@ -113,14 +113,42 @@ function autoSeedStatus({ enabled, blockers, seeded, failures, eligible }) {
 
 function defaultLlmApiKeyEnv(provider) {
   const normalized = String(provider ?? "").trim().toLowerCase();
-  if (normalized === "anthropic") return "ANTHROPIC_API_KEY";
   if (normalized === "openai_compatible") return "OPENCODE_API_KEY";
   if (normalized === "deepseek") return "DEEPSEEK_API_KEY";
   return null;
 }
 
 function defaultSourceApiKeyEnv(provider) {
-  return String(provider ?? "").trim().toLowerCase() === "brave" ? "BRAVE_SEARCH_API_KEY" : null;
+  const normalized = String(provider ?? "").trim().toLowerCase();
+  return {
+    brave: "BRAVE_SEARCH_API_KEY",
+    semantic_scholar: "SEMANTIC_SCHOLAR_API_KEY",
+    mql5: "BRAVE_SEARCH_API_KEY",
+    broker_docs: "BRAVE_SEARCH_API_KEY"
+  }[normalized] ?? null;
+}
+
+function sourceProviderNames(sourceProvider) {
+  return String(sourceProvider ?? "")
+    .split(",")
+    .map((entry) => entry.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+function sourceProviderKnown(provider) {
+  return new Set(["brave", "semantic_scholar", "arxiv", "reddit", "github", "mql5", "broker_docs"]).has(provider);
+}
+
+function sourceApiKeyEnvChecks({ sourceProvider, sourceApiKeyEnv = null }) {
+  const providers = sourceProviderNames(sourceProvider);
+  return providers.map((provider) => {
+    const env = providers.length === 1 && sourceApiKeyEnv ? sourceApiKeyEnv : defaultSourceApiKeyEnv(provider);
+    return {
+      provider,
+      env,
+      configured: env ? envVarConfigured(env) : true
+    };
+  });
 }
 
 function envVarConfigured(envName) {
@@ -161,7 +189,10 @@ export function buildResearchBrainStage0LiveProviderPolicy({
   const liveLlmRequested = providerMode === "live_llm_agent";
   const effectiveToolMode = toolMode ?? (allowLiveLlm ? "live" : "fixture");
   const effectiveLlmApiKeyEnv = llmApiKeyEnv ?? defaultLlmApiKeyEnv(llmProvider);
-  const effectiveSourceApiKeyEnv = sourceApiKeyEnv ?? defaultSourceApiKeyEnv(sourceProvider);
+  const sourceProviders = sourceProviderNames(sourceProvider);
+  const sourceEnvChecks = sourceApiKeyEnvChecks({ sourceProvider, sourceApiKeyEnv });
+  const effectiveSourceApiKeyEnv = sourceEnvChecks.find((entry) => entry.env)?.env ?? null;
+  const allSourceEnvConfigured = sourceEnvChecks.every((entry) => entry.configured === true);
   const hardBlockers = [];
   const warnings = [];
 
@@ -172,16 +203,23 @@ export function buildResearchBrainStage0LiveProviderPolicy({
   if (liveLlmRequested && effectiveLlmApiKeyEnv && !envVarConfigured(effectiveLlmApiKeyEnv)) hardBlockers.push("live_llm_api_key_env_not_configured");
 
   if (liveLlmRequested && effectiveToolMode === "live") {
-    if (sourceProvider !== "brave") hardBlockers.push("live_source_provider_brave_required");
+    if (sourceProviders.length === 0) hardBlockers.push("live_source_provider_missing");
+    for (const provider of sourceProviders) {
+      if (!sourceProviderKnown(provider)) hardBlockers.push(`live_source_provider_unknown:${provider}`);
+    }
     if (allowLiveSourceSearch !== true) hardBlockers.push("live_source_search_opt_in_missing");
     if (allowLiveSourceCapture !== true) hardBlockers.push("live_source_capture_opt_in_missing");
-    if (!effectiveSourceApiKeyEnv) hardBlockers.push("live_source_api_key_env_missing");
-    if (effectiveSourceApiKeyEnv && !envVarConfigured(effectiveSourceApiKeyEnv)) hardBlockers.push("live_source_api_key_env_not_configured");
+    for (const entry of sourceEnvChecks) {
+      if (entry.env && entry.configured !== true) {
+        hardBlockers.push("live_source_api_key_env_not_configured");
+        hardBlockers.push(`live_source_api_key_env_not_configured:${entry.provider}`);
+      }
+    }
   }
 
-  const effectiveMaxLlmCalls = maxLlmCalls ?? 4;
+  const effectiveMaxLlmCalls = maxLlmCalls ?? 12;
   const effectiveLlmMaxTokens = llmMaxTokens ?? 2048;
-  const effectiveMaxToolCalls = maxToolCalls ?? 20;
+  const effectiveMaxToolCalls = maxToolCalls ?? 50;
   const effectiveMaxCostUsd = maxCostUsd ?? 0.25;
   const effectiveTimeoutMs = timeoutMs ?? null;
   const plannedMaxJobs = cycles * maxJobs;
@@ -216,10 +254,12 @@ export function buildResearchBrainStage0LiveProviderPolicy({
       llm_max_tokens: effectiveLlmMaxTokens,
       tool_mode: effectiveToolMode,
       source_provider: sourceProvider ?? null,
+      source_providers: sourceProviders,
       allow_live_source_search: allowLiveSourceSearch === true,
       allow_live_source_capture: allowLiveSourceCapture === true,
       source_api_key_env: effectiveSourceApiKeyEnv,
-      source_api_key_env_configured: envVarConfigured(effectiveSourceApiKeyEnv)
+      source_api_key_env_configured: allSourceEnvConfigured,
+      source_api_key_envs: sourceEnvChecks
     },
     budgets: {
       cycles,
@@ -531,7 +571,8 @@ function buildOperatorSafeQueueDrainCommandProfile({
       llm_base_url_env: providerSettings.llm_base_url_env ?? null,
       llm_base_url_configured: providerSettings.llm_base_url_configured === true,
       source_api_key_env: providerSettings.source_api_key_env ?? null,
-      source_api_key_env_configured: providerSettings.source_api_key_env_configured === true
+      source_api_key_env_configured: providerSettings.source_api_key_env_configured === true,
+      source_api_key_envs: providerSettings.source_api_key_envs ?? []
     },
     known_good_live_settings: {
       provider_mode: "live_llm_agent",
@@ -1332,7 +1373,23 @@ function runResearchBrainStage0AutoSeed({
   maxProviderCalls,
   timeoutMs,
   maxOutputBytes,
-  retryDelayMs
+  retryDelayMs,
+  llmProvider,
+  llmModel,
+  llmApiKeyEnv,
+  llmBaseUrl,
+  llmBaseUrlEnv,
+  llmMaxTokens,
+  llmReasoningEffort,
+  maxLlmCalls,
+  maxToolCalls,
+  maxCostUsd,
+  maxTranscriptBytes,
+  toolMode,
+  sourceProvider,
+  sourceApiKeyEnv,
+  allowLiveSourceSearch,
+  allowLiveSourceCapture
 } = {}) {
   if (!enabled) {
     return {
@@ -1394,7 +1451,23 @@ function runResearchBrainStage0AutoSeed({
         maxProviderCalls,
         timeoutMs,
         maxOutputBytes,
-        retryDelayMs
+        retryDelayMs,
+        llmProvider,
+        llmModel,
+        llmApiKeyEnv,
+        llmBaseUrl,
+        llmBaseUrlEnv,
+        llmMaxTokens,
+        llmReasoningEffort,
+        maxLlmCalls,
+        maxToolCalls,
+        maxCostUsd,
+        maxTranscriptBytes,
+        toolMode,
+        sourceProvider,
+        sourceApiKeyEnv,
+        allowLiveSourceSearch,
+        allowLiveSourceCapture
       });
       seeded.push(result);
     } catch (error) {
@@ -1473,6 +1546,7 @@ export async function runResearchBrainStage0Supervisor({
   llmBaseUrl = null,
   llmBaseUrlEnv = null,
   llmMaxTokens,
+  llmReasoningEffort = null,
   maxLlmCalls,
   maxToolCalls,
   maxCostUsd,
@@ -1507,6 +1581,7 @@ export async function runResearchBrainStage0Supervisor({
     llmBaseUrl,
     llmBaseUrlEnv,
     llmMaxTokens,
+    llmReasoningEffort,
     maxLlmCalls,
     maxToolCalls,
     maxCostUsd,
@@ -1544,7 +1619,23 @@ export async function runResearchBrainStage0Supervisor({
       maxProviderCalls,
       timeoutMs,
       maxOutputBytes,
-      retryDelayMs
+      retryDelayMs,
+      llmProvider,
+      llmModel,
+      llmApiKeyEnv,
+      llmBaseUrl,
+      llmBaseUrlEnv,
+      llmMaxTokens,
+      llmReasoningEffort,
+      maxLlmCalls,
+      maxToolCalls,
+      maxCostUsd,
+      maxTranscriptBytes,
+      toolMode,
+      sourceProvider,
+      sourceApiKeyEnv,
+      allowLiveSourceSearch,
+      allowLiveSourceCapture
     }) : null;
   });
   partial.seed = seed;
@@ -1569,7 +1660,23 @@ export async function runResearchBrainStage0Supervisor({
     maxProviderCalls,
     timeoutMs,
     maxOutputBytes,
-    retryDelayMs
+    retryDelayMs,
+    llmProvider,
+    llmModel,
+    llmApiKeyEnv,
+    llmBaseUrl,
+    llmBaseUrlEnv,
+    llmMaxTokens,
+    llmReasoningEffort,
+    maxLlmCalls,
+    maxToolCalls,
+    maxCostUsd,
+    maxTranscriptBytes,
+    toolMode,
+    sourceProvider,
+    sourceApiKeyEnv,
+    allowLiveSourceSearch,
+    allowLiveSourceCapture
   }));
   partial.autoSeed = autoSeed;
 

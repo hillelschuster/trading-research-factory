@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-BROKER-FTMO-TRADINGUPDATES-002",
+  "url": "https://ftmo.com/en/trading-updates/",
+  "title": "Trading updates | FTMO.com",
+  "source_class": "broker",
+  "captured_at": "2026-07-03T13:39:49.144Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:42:40.935Z",
+      "completed_at": "2026-07-03T13:42:41.049Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "2ba53a667d26a691885ffbcf436bf9c1663ff93bda835eaaf328d542465f7db7"
+}

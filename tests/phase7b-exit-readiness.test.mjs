@@ -16,8 +16,6 @@ function copyFixtureRepoSubset(rootDir) {
     "src/core/wfa-plan-compiler.mjs",
     "src/core/verification.mjs",
     "src/core/phase7b-exit-readiness.mjs",
-    "src/workers/binance-usdm-funding-data-readiness-worker.mjs",
-    "scripts/run-binance-usdm-funding-refresh-request.mjs",
     "tests/wfa-data-manifest-consumption.test.mjs",
     "tests/verification.test.mjs",
     "package.json"
@@ -35,7 +33,6 @@ test("Phase 7B exit-readiness reporter summarizes met and deferred criteria with
   assert.equal(report.schema_version, PHASE7B_EXIT_READINESS_SCHEMA_VERSION);
   assert.equal(report.phase, "7B");
   assert.equal(report.status, "ready_to_close");
-  assert.equal(report.criteria.find((item) => item.id === "binance_usdm_funding_refresh_request").met, true);
   assert.equal(report.criteria.find((item) => item.id === "wfa_data_readiness_manifest_consumption").met, true);
   assert.equal(report.criteria.find((item) => item.id === "advisory_dsr_statistical_test").status, "met");
   assert.equal(report.criteria.find((item) => item.id === "phase7c_statistical_validation").status, "deferred");

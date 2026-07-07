@@ -1,7 +1,0 @@
-[
-  "harness/wfa_minimal.py",
-  "results/rsi_strategy_comparison.json",
-  "results/wfa_rsi_btcusdt.json",
-  "results/wfa_rsi_ethusdt.json",
-  "results/wfa_rsi_solusdt.json"
-]

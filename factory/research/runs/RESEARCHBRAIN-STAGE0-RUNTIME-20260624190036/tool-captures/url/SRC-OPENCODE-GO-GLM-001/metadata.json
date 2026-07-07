@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-OPENCODE-GO-GLM-001",
+  "url": "https://www.federalreserve.gov/econres/notes/feds-notes/order-flow-imbalances-and-amplification-of-price-movements-evidence-from-u-s-treasury-markets-20251103.html",
+  "title": "The Fed - Order Flow Imbalances and Amplification of Price Movements: Evidence from U.S. Treasury Markets",
+  "source_class": "web",
+  "captured_at": "2026-06-24T19:00:36.168Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-06-24T19:00:56.198Z",
+      "completed_at": "2026-06-24T19:00:56.567Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "e4416bb250986e3c02374b9fa3f03aa3a6eec563bceb6a4b72030113bb83eef8"
+}

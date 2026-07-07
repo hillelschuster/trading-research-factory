@@ -1,5 +1,0 @@
-{"ts":"2026-03-17T10:39:19.485Z","run_id":"RUN-20260317103919-fcdl0b","message":"Starting run","extra":{"iteration":8,"backlog_item_id":"IDEA-954265-kns","mode":"live"}}
-{"ts":"2026-03-17T10:41:56.586Z","run_id":"RUN-20260317103919-fcdl0b","message":"Planner completed","extra":{"experiment_id":"EXP-20260317150000-01"}}
-{"ts":"2026-03-17T10:42:57.595Z","run_id":"RUN-20260317103919-fcdl0b","message":"Executor completed","extra":{"status":"executed"}}
-{"ts":"2026-03-17T10:43:26.870Z","run_id":"RUN-20260317103919-fcdl0b","message":"Evaluator completed","extra":{"verdict":"passed","evidence_score":65}}
-{"ts":"2026-03-17T10:43:39.691Z","run_id":"RUN-20260317103919-fcdl0b","message":"Run completed","extra":{"run_id":"RUN-20260317103919-fcdl0b","verdict":"passed","iteration":8}}

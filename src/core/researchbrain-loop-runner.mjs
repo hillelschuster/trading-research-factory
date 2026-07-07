@@ -60,8 +60,11 @@ function requestArtifactFromPayload(payload) {
 
 function compactFailureSummary({ payload, classification = null, result = null, verifiedRequestArtifact = null }) {
   const blockers = asArray(result?.blockers).filter((blocker) => typeof blocker === "string" && blocker.trim().length > 0).slice(0, 10);
+  const runtimeTerminalFailureClass = typeof result?.final_terminal_state === "string" && !new Set(["ready", "blocked", "retry_pending"]).has(result.final_terminal_state)
+    ? result.final_terminal_state
+    : null;
   const failureClass = classification?.failure_class
-    ?? (result?.final_terminal_state === "poison_candidate_or_run" ? "poison_candidate_or_run" : null)
+    ?? runtimeTerminalFailureClass
     ?? (result?.status === "blocked" ? "schema_or_validation_failure" : null);
   if (!failureClass && blockers.length === 0 && result?.status !== "blocked") return null;
   return {

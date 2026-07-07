@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-ARXIV-FXVOL-CURVE-001",
+  "url": "http://arxiv.org/abs/2311.18477v3",
+  "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:39:47.153Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:41:19.989Z",
+      "completed_at": "2026-07-03T13:41:20.743Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c"
+}

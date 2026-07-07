@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-DVOL-001",
+  "url": "https://www.mql5.com/en/market/product/134960",
+  "title": "Daily Volatility Tracker MT5 | Free Download Trading Indicator for MetaTrader 5",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T13:19:06.016Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:19:39.329Z",
+      "completed_at": "2026-07-03T13:19:39.572Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "d5ea54e9226002b51782bc8a0a8da7e4371156f1cad6b47175a6cc9a7ef4a327"
+}

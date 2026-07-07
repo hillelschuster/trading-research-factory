@@ -1,0 +1,171 @@
+{
+  "schema_version": "researchbrain_stage0_runtime_result_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "status": "blocked",
+  "run_id": "RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z",
+  "generated_at": "2026-07-03T09:12:19.200Z",
+  "provider": {
+    "name": "live_researchbrain_agent_provider",
+    "mode": "live_llm_agent",
+    "live_research": true
+  },
+  "request_ref": {
+    "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-MT5-MULTIASSET-LIQVOL-STAGE0-20260612T1305Z/request.json",
+    "sha256": "6b5415a334b60fbf0334095d6f250a08a1264e4abd05562e3ceb2c8a2fd5d093"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_provider_calls": 2,
+    "provider_calls_used": 2,
+    "timeout_ms": 300000,
+    "max_output_bytes": 256000
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "quarantined",
+      "started_at": "2026-07-03T09:12:19.236Z",
+      "completed_at": "2026-07-03T09:16:57.767Z",
+      "reason": "provider timed out after 300000ms",
+      "error_class": "Error",
+      "failure_class": "transient_retryable_failure",
+      "retryable": true,
+      "backoff_ms": 0,
+      "final_terminal_state": "retry_pending",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/quarantine/attempt-001.json",
+        "sha256": "434f9e1175efd0cc3e3c2e5ab0c4da3c5dbe85a4a95114b8f24a48cada96c3a3"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:12:19.236Z",
+          "completed_at": "2026-07-03T09:16:57.731Z",
+          "error_class": "Error",
+          "error_message": "provider timed out after 300000ms",
+          "failure_class": "transient_retryable_failure",
+          "retryable": true,
+          "backoff_ms": 0,
+          "final_terminal_state": "transient_retryable_failure"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "status": "quarantined",
+      "started_at": "2026-07-03T09:16:57.767Z",
+      "completed_at": "2026-07-03T09:19:07.147Z",
+      "reason": "inspect_youtube_video requires video_id or url",
+      "error_class": "Error",
+      "failure_class": "schema_or_validation_failure",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "schema_or_validation_failure",
+      "raw_provider_output": null,
+      "quarantine": {
+        "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/quarantine/attempt-002.json",
+        "sha256": "faec2c3793084b13a3cb123210d65d8ae76fc79805c65becfb0646615857d810"
+      },
+      "provider_retry_attempts": [
+        {
+          "attempt_number": 1,
+          "phase": "researchbrain_provider_call",
+          "status": "failed_terminal",
+          "started_at": "2026-07-03T09:16:57.767Z",
+          "completed_at": "2026-07-03T09:19:07.105Z",
+          "error_class": "Error",
+          "error_message": "inspect_youtube_video requires video_id or url",
+          "failure_class": "schema_or_validation_failure",
+          "retryable": false,
+          "backoff_ms": 0,
+          "final_terminal_state": "schema_or_validation_failure"
+        }
+      ]
+    }
+  ],
+  "final_terminal_state": "schema_or_validation_failure",
+  "blockers": [
+    "provider_call_budget_exhausted"
+  ],
+  "quarantine_paths": [
+    {
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/quarantine/attempt-001.json",
+      "sha256": "434f9e1175efd0cc3e3c2e5ab0c4da3c5dbe85a4a95114b8f24a48cada96c3a3"
+    },
+    {
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/quarantine/attempt-002.json",
+      "sha256": "faec2c3793084b13a3cb123210d65d8ae76fc79805c65becfb0646615857d810"
+    }
+  ],
+  "artifacts_created": [
+    {
+      "artifact_type": "researchbrain_agent_transcript",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/agent-transcript.jsonl",
+      "sha256": "36d5243a0350d500bc6c0fab7076f8818dd8db61da1fcca603ee092365345652"
+    },
+    {
+      "artifact_type": "researchbrain_tool_ledger",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-ledger.json",
+      "sha256": "328bc6004f4aec390754242abe0d39eb3cdc2b4a30f09f6974311c90d9ed589f"
+    },
+    {
+      "artifact_type": "researchbrain_cost_ledger",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/cost-ledger.json",
+      "sha256": "6352e5c82bc53333c8f3ff97ded912b1510f856248721c59759815a2bbfd4a72"
+    },
+    {
+      "artifact_type": "researchbrain_working_notes",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/working-notes.md",
+      "sha256": "c945fb7bbc31cfb1e45311c9bd5584d306aa636f30209e2f9851b60adc029b47"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-SESSION-ORB-001/content.md",
+      "sha256": "f389427b2c8b901b8c250b6b9066ea4f4be647208a7e776c2009884ba945cf27",
+      "source_id": "SRC-MQL5-SESSION-ORB-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-SESSION-ORB-001/metadata.json",
+      "sha256": "d52edde724783ba2b5ccddd25cf58443b197bbd324c8b6295d73b2b65401f1b7",
+      "source_id": "SRC-MQL5-SESSION-ORB-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-ORB-MULTI-001/content.md",
+      "sha256": "49dbb976817a0447a0482ac965600988767717901692076417f9e62441681ae3",
+      "source_id": "SRC-MQL5-ORB-MULTI-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-ORB-MULTI-001/metadata.json",
+      "sha256": "58f6d0a98bd609937c9d240a64714f77f1d94348ebb0b0ab4ef95d4f024405fb",
+      "source_id": "SRC-MQL5-ORB-MULTI-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-ORB-Sessions-002/content.md",
+      "sha256": "21856c38d5bc11ad358f2f8530e8ecec09f7f6a9c767c453d1c3a2f61428a07f",
+      "source_id": "SRC-MQL5-ORB-Sessions-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14-GLM-MULTIASSET-LIQVOL-20260703T0910Z/tool-captures/url/SRC-MQL5-ORB-Sessions-002/metadata.json",
+      "sha256": "1511e8bb422a0c77e740ee6eae48029cbcc04f46dfac7073dfbb1ffe2864c2a3",
+      "source_id": "SRC-MQL5-ORB-Sessions-002"
+    }
+  ],
+  "stage0_manifest": null,
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false,
+  "wfa_executed": false,
+  "mt5_executed": false
+}

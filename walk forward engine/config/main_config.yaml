@@ -390,10 +390,6 @@ strategy_definitions:
       volatility regime, and bounded time exits.
     strategy_class: LightweightOrderFlowImbalanceEURUSD
     strategy_module: src.strategies.order_flow_imbalance_eurusd
-  TrendFollowing_SMA_Cross:
-    description: Trend Following strategy using SMA crossovers.
-    strategy_class: TrendFollowingSMA
-    strategy_module: src.strategies.trend_following_sma
   VolAdaptiveRSI:
     description: Volatility-Adaptive RSI - Pure RSI pullback (long when RSI < oversold,
       short when RSI > overbought) with volatility-scaled stop-loss (SL% = ATR × mult

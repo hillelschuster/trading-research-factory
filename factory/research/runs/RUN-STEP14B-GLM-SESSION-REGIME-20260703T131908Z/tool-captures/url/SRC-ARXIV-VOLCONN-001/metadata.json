@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-ARXIV-VOLCONN-001",
+  "url": "http://arxiv.org/abs/1607.08214v1",
+  "title": "Asymmetric volatility connectedness on forex markets",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:19:08.520Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:21:51.965Z",
+      "completed_at": "2026-07-03T13:21:52.493Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "83981d39adb687359135267809d8d209c48c06539e5ff4c8e5c2acf916d32687"
+}

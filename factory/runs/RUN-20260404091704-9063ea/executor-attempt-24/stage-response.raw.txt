@@ -1,5 +1,0 @@
-
-
-
-This run already completed in a prior session with verified WFA results. The SOL WFA executed successfully, achieving **1.4695 OOS Sharpe** (vs prior 1.373 = +7% improvement), confirming cross-asset generalization.
-

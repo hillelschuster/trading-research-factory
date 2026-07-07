@@ -4,7 +4,7 @@
   "authority_layer": "stage_0_discovery",
   "status": "blocked",
   "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
-  "generated_at": "2026-06-08T19:17:09.209Z",
+  "generated_at": "2026-07-06T07:38:49.854Z",
   "provider": {
     "name": "live_researchbrain_agent_provider",
     "mode": "live_llm_agent",
@@ -16,7 +16,7 @@
   },
   "budget": {
     "max_attempts": 2,
-    "max_provider_calls": 4,
+    "max_provider_calls": 2,
     "provider_calls_used": 1,
     "timeout_ms": 180000,
     "max_output_bytes": 256000
@@ -25,66 +25,66 @@
     {
       "attempt": 1,
       "status": "quarantined",
-      "started_at": "2026-06-08T19:17:09.218Z",
-      "completed_at": "2026-06-08T19:17:23.188Z",
-      "reason": "Brave source adapter currently supports search_web only, got search_arxiv",
+      "started_at": "2026-07-06T07:38:51.600Z",
+      "completed_at": "2026-07-06T07:38:52.823Z",
+      "reason": "DeepSeek ResearchBrain LLM adapter HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "error_class": "Error",
-      "failure_class": "terminal_failed_condition",
+      "failure_class": "schema_or_validation_failure",
       "retryable": false,
       "backoff_ms": 0,
-      "final_terminal_state": "terminal_failed_condition",
+      "final_terminal_state": "schema_or_validation_failure",
       "raw_provider_output": null,
       "quarantine": {
         "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
-        "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+        "sha256": "c84395f9b008cb71aa80c0f89746af95fe23ca3b930186b7fdca96043d24446e"
       },
       "provider_retry_attempts": [
         {
           "attempt_number": 1,
           "phase": "researchbrain_provider_call",
           "status": "failed_terminal",
-          "started_at": "2026-06-08T19:17:09.218Z",
-          "completed_at": "2026-06-08T19:17:23.150Z",
+          "started_at": "2026-07-06T07:38:51.600Z",
+          "completed_at": "2026-07-06T07:38:52.778Z",
           "error_class": "Error",
-          "error_message": "Brave source adapter currently supports search_web only, got search_arxiv",
-          "failure_class": "terminal_failed_condition",
+          "error_message": "DeepSeek ResearchBrain LLM adapter HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+          "failure_class": "schema_or_validation_failure",
           "retryable": false,
           "backoff_ms": 0,
-          "final_terminal_state": "terminal_failed_condition"
+          "final_terminal_state": "schema_or_validation_failure"
         }
       ]
     }
   ],
-  "final_terminal_state": "terminal_failed_condition",
+  "final_terminal_state": "schema_or_validation_failure",
   "blockers": [
     "no_valid_provider_output"
   ],
   "quarantine_paths": [
     {
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
-      "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+      "sha256": "c84395f9b008cb71aa80c0f89746af95fe23ca3b930186b7fdca96043d24446e"
     }
   ],
   "artifacts_created": [
     {
       "artifact_type": "researchbrain_agent_transcript",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/agent-transcript.jsonl",
-      "sha256": "78ef6293310fff7b31789c9c4b3a44dbefa8269e810b1681ef92cafc5defbc78"
+      "sha256": "c5d99d33fb1c23e88961c2048d1ebda805d959ce7271bb8c147390af9323ddfe"
     },
     {
       "artifact_type": "researchbrain_tool_ledger",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/tool-ledger.json",
-      "sha256": "85742b903285066a964454c1581cb02bc36ab9b8e8bdc3a6962a6b763b19e35d"
+      "sha256": "c1750fe12b265c9ed35e5b3c7b78ca1bac2e4047b67b42abbe686c222cbc916a"
     },
     {
       "artifact_type": "researchbrain_cost_ledger",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/cost-ledger.json",
-      "sha256": "0a0b1f54d6fc989b7e333ea37de7f57ed4d578d270477bdf14238856c45cf677"
+      "sha256": "88d009e8e89c4a0860d6c4eb5714271d7ed7612dc8614b6b7822f3b16e8ab671"
     },
     {
       "artifact_type": "researchbrain_working_notes",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/working-notes.md",
-      "sha256": "c045db0125b590d87856d610571815a3d7b8a0b095fe2476cf7b4a98cdd952ba"
+      "sha256": "0a0eac437e6235d5c1312b05e7e4aadddc28daac96c7eb275bfaaed0667974ac"
     }
   ],
   "stage0_manifest": null,

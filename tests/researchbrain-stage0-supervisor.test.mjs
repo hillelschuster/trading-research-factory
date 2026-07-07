@@ -717,6 +717,7 @@ test("ResearchBrain Stage-0 supervisor strict live-unattended discipline blocks 
       llmModel: "deepseek-v4-flash",
       llmMaxTokens: 2048,
       maxLlmCalls: 4,
+      maxToolCalls: 20,
       timeoutMs: 30_000,
       toolMode: "live",
       sourceProvider: "brave",
@@ -881,6 +882,70 @@ test("ResearchBrain Stage-0 supervisor preflight emits operator-safe live queue-
     else process.env.DEEPSEEK_API_KEY = priorDeepSeek;
     if (priorBrave === undefined) delete process.env.BRAVE_SEARCH_API_KEY;
     else process.env.BRAVE_SEARCH_API_KEY = priorBrave;
+  }
+});
+
+test("ResearchBrain Stage-0 live preflight supports composite source providers with per-adapter env checks", () => {
+  const rootDir = tempRoot();
+  initializeProject(rootDir);
+  writeRequest(rootDir, "RESEARCHBRAIN-REQUEST-SUPERVISOR-COMPOSITE-SOURCE-A");
+  const priorDeepSeek = process.env.DEEPSEEK_API_KEY;
+  const priorBrave = process.env.BRAVE_SEARCH_API_KEY;
+  const priorSemantic = process.env.SEMANTIC_SCHOLAR_API_KEY;
+  process.env.DEEPSEEK_API_KEY = "test-only-dummy-key";
+  process.env.BRAVE_SEARCH_API_KEY = "test-only-dummy-key";
+  process.env.SEMANTIC_SCHOLAR_API_KEY = "test-only-dummy-key";
+  try {
+    const preflight = buildResearchBrainStage0SupervisorPreflight({
+      rootDir,
+      cycles: 1,
+      maxJobs: 1,
+      maxTotalJobs: 1,
+      maxTerminalFailures: 0,
+      maxEstimatedLiveCostUsd: 0.25,
+      seedUnseededValid: true,
+      autoSeedLimit: 1,
+      providerMode: "live_llm_agent",
+      allowLiveLlm: true,
+      llmPreset: "deepseek_v4_flash_xhigh",
+      llmProvider: "deepseek",
+      llmModel: "deepseek-v4-flash",
+      llmMaxTokens: 8192,
+      maxLlmCalls: 12,
+      maxToolCalls: 30,
+      maxCostUsd: 0.25,
+      timeoutMs: 180000,
+      toolMode: "live",
+      sourceProvider: "brave,semantic_scholar",
+      allowLiveSourceSearch: true,
+      allowLiveSourceCapture: true,
+      readinessRequestLimit: 10,
+      processedOutboxLimit: 10,
+      runtimeConsistencyLimit: 10,
+      requireLiveUnattendedSafe: true
+    });
+
+    assert.equal(preflight.status, "ready");
+    assert.deepEqual(preflight.blockers, []);
+    assert.equal(preflight.live_provider_policy.safe_for_unattended_queue_drain, true);
+    assert.deepEqual(preflight.live_provider_policy.hard_blockers, []);
+    assert.deepEqual(preflight.live_provider_policy.provider_settings.source_providers, ["brave", "semantic_scholar"]);
+    assert.deepEqual(preflight.live_provider_policy.provider_settings.source_api_key_envs, [
+      { provider: "brave", env: "BRAVE_SEARCH_API_KEY", configured: true },
+      { provider: "semantic_scholar", env: "SEMANTIC_SCHOLAR_API_KEY", configured: true }
+    ]);
+    assert.deepEqual(preflight.operator_command_profile.env_presence.source_api_key_envs, [
+      { provider: "brave", env: "BRAVE_SEARCH_API_KEY", configured: true },
+      { provider: "semantic_scholar", env: "SEMANTIC_SCHOLAR_API_KEY", configured: true }
+    ]);
+    assert.match(preflight.operator_command_profile.preflight_command.shell, /--source-provider brave,semantic_scholar/);
+  } finally {
+    if (priorDeepSeek === undefined) delete process.env.DEEPSEEK_API_KEY;
+    else process.env.DEEPSEEK_API_KEY = priorDeepSeek;
+    if (priorBrave === undefined) delete process.env.BRAVE_SEARCH_API_KEY;
+    else process.env.BRAVE_SEARCH_API_KEY = priorBrave;
+    if (priorSemantic === undefined) delete process.env.SEMANTIC_SCHOLAR_API_KEY;
+    else process.env.SEMANTIC_SCHOLAR_API_KEY = priorSemantic;
   }
 });
 

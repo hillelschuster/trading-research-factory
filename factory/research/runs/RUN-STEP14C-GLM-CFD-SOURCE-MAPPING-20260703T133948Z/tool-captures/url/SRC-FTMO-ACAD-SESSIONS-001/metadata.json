@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-FTMO-ACAD-SESSIONS-001",
+  "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+  "title": "Forex Trading Hours and Sessions | FTMO Academy",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:39:49.144Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:43:23.426Z",
+      "completed_at": "2026-07-03T13:43:23.901Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "fdd40a21c4d01016084920ca11bf28549a6cd3e3718555d02e385bb6c43a2332"
+}

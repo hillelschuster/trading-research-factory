@@ -1,0 +1,95 @@
+{
+  "schema_version": "research_ideation_manifest_v1",
+  "evidence_kind": "stage0_research_discovery",
+  "authority_layer": "stage_0_discovery",
+  "research_run_id": "RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036",
+  "memory_checked": {
+    "checked": true,
+    "required_tool_calls": {
+      "search_research_memory": true,
+      "check_duplicate_memory": true,
+      "check_failed_pattern_similarity": true
+    },
+    "basis": "ResearchBrain required memory, duplicate, and failed-pattern tools were called before accepting a hypothesis."
+  },
+  "sources_considered": [
+    {
+      "source_id": "SRC-OPENCODE-GO-GLM-001",
+      "trust_tier": "low_signal_trust",
+      "source_type": "web_captured_source"
+    }
+  ],
+  "hypotheses_accepted": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "78c0a503b33fc63dfdde6801f4bc6a3ed470e2450323b74213a5c1ed9f01d1f5",
+      "status": "accepted_stage0_only"
+    }
+  ],
+  "hypotheses_rejected": [],
+  "duplicates_detected": [
+    {
+      "reason": "memory_overlap",
+      "matches": [
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-FX-FIX-REVERSAL-EURUSD-20260601200452",
+          "score": 5
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529130325",
+          "score": 4
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-GBPJPY-REVERSION-20260529132537",
+          "score": 4
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-MONTH-END-REBALANCE-EURUSD-20260601142040",
+          "score": 5
+        },
+        {
+          "retrieval_id": "phase8d_failed_summary:RUN-PHASE8D-NFP-MACRO-EURUSD-20260601211740",
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "budget_used": {
+    "max_sources": 1,
+    "sources_used": 1,
+    "max_hypotheses": 1,
+    "hypotheses_used": 1,
+    "provider_mode": "live_llm_agent:openai_compatible"
+  },
+  "operator_relevant_blockers": [],
+  "artifact_paths": [
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/source-records/SRC-OPENCODE-GO-GLM-001.json",
+      "sha256": "15952c12f31e099f530ecdc43a73d96785282fb5cfc218000a9ee3e91130e9b5"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/hypotheses/HYP-STAGE0-LIVE-CANARY-001.json",
+      "sha256": "78c0a503b33fc63dfdde6801f4bc6a3ed470e2450323b74213a5c1ed9f01d1f5"
+    },
+    {
+      "path": "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-20260624190036/digest.json",
+      "sha256": "608e828273c0d3d03a30aa6cc59d0fffee9e8aaa55e2bb1d90bc6fff79ad733e"
+    }
+  ],
+  "phase8a_universe_constraints": {
+    "universe_snapshot": {
+      "path": "factory/mt5/environment/JOB-MT5-UNIVERSE-ATTEMPT-20260519T081345Z-WFA-VENV/universe-snapshot.json",
+      "sha256": "545936404616ca3c00fd294861815cf53120367bc8c75f3ee2b6041a8ccac9ea"
+    },
+    "terminal_inventory": {
+      "path": "factory/mt5/universe-analysis/FTMO-MULTI-ASSET-TERMINAL-INVENTORY-20260519T081345Z-WFA-VENV/inventory.json",
+      "sha256": "e87a6b86ec2429b0f4c934fd8908fadee36870681ef00bfc509c5009fdaebbce"
+    }
+  },
+  "official_state_mutated": false,
+  "official_evidence_index_mutated": false,
+  "official_backlog_mutated": false,
+  "official_leaderboard_mutated": false,
+  "profitability_labels_created": false,
+  "deterministic_workers_bypassed": false
+}

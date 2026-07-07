@@ -2,24 +2,24 @@
   "schema_version": "researchbrain_stage0_quarantine_v1",
   "evidence_kind": "stage0_research_discovery",
   "authority_layer": "stage_0_discovery",
-  "quarantined_at": "2026-06-11T19:51:32.632Z",
+  "quarantined_at": "2026-07-06T07:49:21.597Z",
   "attempt_number": 1,
-  "reason": "ResearchBrain live LLM call budget exceeded: 8",
-  "failure_class": "terminal_failed_condition",
+  "reason": "DeepSeek ResearchBrain LLM adapter HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+  "failure_class": "provider_account_or_quota_failure",
   "retryable": false,
   "retry_attempts": [
     {
       "attempt_number": 1,
       "phase": "researchbrain_provider_call",
       "status": "failed_terminal",
-      "started_at": "2026-06-11T19:49:55.126Z",
-      "completed_at": "2026-06-11T19:51:32.629Z",
+      "started_at": "2026-07-06T07:49:20.530Z",
+      "completed_at": "2026-07-06T07:49:21.596Z",
       "error_class": "Error",
-      "error_message": "ResearchBrain live LLM call budget exceeded: 8",
-      "failure_class": "terminal_failed_condition",
+      "error_message": "DeepSeek ResearchBrain LLM adapter HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "failure_class": "provider_account_or_quota_failure",
       "retryable": false,
       "backoff_ms": 0,
-      "final_terminal_state": "terminal_failed_condition"
+      "final_terminal_state": "provider_account_or_quota_failure"
     }
   ],
   "raw_provider_output": null,

@@ -236,6 +236,63 @@ test("ResearchBrain Stage-0 job seeder rejects output directories owned by a dif
   });
 });
 
+test("ResearchBrain Stage-0 job seeder propagates job_settings from request into payload without secrets", () => {
+  const rootDir = tempRoot();
+  initializeProject(rootDir);
+  const refs = phase8ARefs(rootDir);
+  const request = writeResearchBrainRequestArtifact({
+    rootDir,
+    requestId: "RESEARCHBRAIN-REQUEST-SETTINGS-TEST",
+    observedAt: "2026-06-04T00:00:00Z",
+    universeSnapshotPath: refs.universe_snapshot.path,
+    terminalInventoryPath: refs.terminal_inventory.path,
+    priorFailedPatterns: ["No viable survivors"],
+    priorLessons: ["Settings should propagate"],
+    maxSources: 3,
+    maxHypotheses: 1,
+    jobSettings: {
+      llm_provider: "deepseek",
+      llm_model: "deepseek-v4-flash",
+      source_provider: "brave",
+      max_tool_calls: 50,
+      max_llm_calls: 15,
+      llm_api_key_env: "DEEPSEEK_API_KEY",
+      allow_live_source_search: true
+    }
+  });
+
+  const result = seedResearchBrainStage0Job({
+    rootDir,
+    requestPath: request.artifact.path,
+    requestSha256: request.artifact.sha256,
+    priority: 5,
+    maxAttempts: 1,
+    maxProviderCalls: 1,
+    timeoutMs: 1000,
+    retryDelayMs: 0
+  });
+
+  assert.equal(result.status, "seeded");
+
+  readLedger(rootDir, (ledger) => {
+    const job = ledger.getJob(result.job_id);
+    const payload = JSON.parse(job.payload_json);
+    assert.equal(payload.llm_provider, "deepseek");
+    assert.equal(payload.llm_model, "deepseek-v4-flash");
+    assert.equal(payload.source_provider, "brave");
+    assert.equal(payload.max_tool_calls, 50);
+    assert.equal(payload.max_llm_calls, 15);
+    assert.equal(payload.llm_api_key_env, "DEEPSEEK_API_KEY");
+    assert.equal(payload.allow_live_source_search, true);
+
+    // Verify explicit function-level params still win over request settings
+    assert.equal(payload.max_attempts, 1);
+
+    // Verify no actual secret values are stored in the payload
+    assert.doesNotMatch(JSON.stringify(payload), /sk-[a-zA-Z0-9]+|actual-secret|api_key_value/i);
+  });
+});
+
 test("ResearchBrain Stage-0 job seeder CLI emits JSON result", () => {
   const rootDir = tempRoot();
   initializeProject(rootDir);

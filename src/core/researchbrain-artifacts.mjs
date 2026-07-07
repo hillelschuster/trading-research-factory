@@ -391,7 +391,8 @@ export function buildResearchBrainRequestArtifact({
   priorHypothesisPackets = [],
   priorSourceRecords = [],
   maxSources = 8,
-  maxHypotheses = 3
+  maxHypotheses = 3,
+  jobSettings = {}
 } = {}) {
   const root = path.resolve(rootDir);
   const request = {
@@ -431,6 +432,9 @@ export function buildResearchBrainRequestArtifact({
     profitability_labels_allowed: false,
     deterministic_workers_bypass_allowed: false
   };
+  if (Object.keys(jobSettings).length > 0) {
+    request.job_settings = { ...jobSettings };
+  }
   validateResearchBrainRequest(request, { rootDir: root, requireExisting: true });
   return request;
 }

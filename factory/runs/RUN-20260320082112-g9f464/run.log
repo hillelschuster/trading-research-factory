@@ -1,8 +1,0 @@
-{"ts":"2026-03-20T08:21:12.076Z","run_id":"RUN-20260320082112-g9f464","message":"Cleanup","extra":{"status":"starting"}}
-{"ts":"2026-03-20T08:21:12.165Z","run_id":"RUN-20260320082112-g9f464","message":"Cleanup","extra":{"status":"completed","deleted":0,"archived":0,"kept":54}}
-{"ts":"2026-03-20T08:21:12.171Z","run_id":"RUN-20260320082112-g9f464","message":"Cleanup completed"}
-{"ts":"2026-03-20T08:21:12.178Z","run_id":"RUN-20260320082112-g9f464","message":"Starting run","extra":{"iteration":24,"backlog_item_id":"AUTO-1773994869019-t8k","mode":"simulate"}}
-{"ts":"2026-03-20T08:21:12.646Z","run_id":"RUN-20260320082112-g9f464","message":"Planner completed","extra":{"experiment_id":"EXP-20260320082112-02"}}
-{"ts":"2026-03-20T08:21:12.700Z","run_id":"RUN-20260320082112-g9f464","message":"Executor completed","extra":{"status":"executed"}}
-{"ts":"2026-03-20T08:21:13.163Z","run_id":"RUN-20260320082112-g9f464","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
-{"ts":"2026-03-20T08:21:13.455Z","run_id":"RUN-20260320082112-g9f464","message":"Run completed","extra":{"run_id":"RUN-20260320082112-g9f464","verdict":"inconclusive","iteration":24}}

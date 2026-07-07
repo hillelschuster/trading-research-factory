@@ -3,7 +3,6 @@ import assert from "node:assert/strict";
 import fs from "fs";
 import os from "os";
 import path from "path";
-import { spawnSync } from "child_process";
 import { RuntimeLedger, RUNTIME_LEDGER_SCHEMA_VERSION, RUNTIME_LEDGER_TABLES, migrateRuntimeLedger, runtimeLedgerPath } from "../src/core/runtime-ledger.mjs";
 
 function tempRoot() {
@@ -227,16 +226,4 @@ test("runtime ledger retries BEGIN IMMEDIATE after a busy lock", () => {
   }
 });
 
-test("runtime ledger migration script writes diagnostics", () => {
-  const rootDir = tempRoot();
-  const result = spawnSync("node", ["scripts/migrate-runtime-ledger.mjs", "--root", rootDir], {
-    cwd: process.cwd(),
-    encoding: "utf8"
-  });
 
-  assert.equal(result.status, 0, result.stderr || result.stdout);
-  const output = JSON.parse(result.stdout);
-  assert.equal(output.schema_version, RUNTIME_LEDGER_SCHEMA_VERSION);
-  assert.equal(output.db_exists, true);
-  assert.deepEqual(output.tables, [...RUNTIME_LEDGER_TABLES].sort());
-});

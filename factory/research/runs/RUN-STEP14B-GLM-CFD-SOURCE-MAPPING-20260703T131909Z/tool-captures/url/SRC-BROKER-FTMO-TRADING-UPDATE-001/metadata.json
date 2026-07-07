@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-BROKER-FTMO-TRADING-UPDATE-001",
+  "url": "https://ftmo.com/en/trading-updates/trading-update-13-feb-2025/",
+  "title": "Trading Update | 13 Feb 2025 | FTMO",
+  "source_class": "broker",
+  "captured_at": "2026-07-03T13:19:10.010Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:21:06.471Z",
+      "completed_at": "2026-07-03T13:21:08.064Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "19c2dbcf674e0faecd5cb67ec78c5d43b4ab3eb069a9f7c14f0e6934f43e7d59"
+}

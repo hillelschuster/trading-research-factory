@@ -1,13 +1,13 @@
 {
   "schema_version": "researchbrain_stage0_outbox_projection_v1",
-  "projected_at": "2026-06-08T19:17:23.453Z",
-  "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-35068-cycle-1",
+  "projected_at": "2026-07-06T07:38:53.256Z",
+  "consumer_id": "researchbrain-stage0-supervisor-outbox-cli-33395-cycle-1",
   "event": {
     "event_id": "EVT-RB-STAGE0-18b17336193da97e3f89136c329ddd64",
     "event_type": "researchbrain.stage0_job_finished",
     "aggregate_type": "run",
     "aggregate_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
-    "created_at": "2026-06-08T19:17:23.392Z",
+    "created_at": "2026-07-06T07:38:53.140Z",
     "payload": {
       "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
       "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093-ATTEMPT-1",
@@ -17,7 +17,7 @@
         "failure_class": "schema_or_validation_failure",
         "retryable": false,
         "error_message": "no_valid_provider_output",
-        "final_terminal_state": "terminal_failed_condition",
+        "final_terminal_state": "schema_or_validation_failure",
         "request_artifact": {
           "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z/request.json",
           "sha256": "f3d9ea9e8c20d9113e7100023702c45b3db0e631721c5e0f4f8a11ed9b91f970"
@@ -25,12 +25,12 @@
         "runtime_result_artifact": {
           "artifact_type": "researchbrain_stage0_runtime_result",
           "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/runtime-result.json",
-          "sha256": "99761507696c2216314f62cdbd38b74ef096750c2c1e01d074008c5c401efb03"
+          "sha256": "6e045d29e0fdf0eb2cea9922a2de96be37c04b4ae8b32a56d91b316a7fcaccbd"
         },
         "quarantine_paths": [
           {
             "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
-            "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+            "sha256": "c84395f9b008cb71aa80c0f89746af95fe23ca3b930186b7fdca96043d24446e"
           }
         ],
         "blockers": [
@@ -43,8 +43,8 @@
     "run_id": "RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
     "status": "blocked",
     "evidence_kind": "stage0_research_discovery",
-    "created_at": "2026-06-08T19:17:09.064Z",
-    "updated_at": "2026-06-08T19:17:23.392Z"
+    "created_at": "2026-07-06T07:38:49.561Z",
+    "updated_at": "2026-07-06T07:38:53.140Z"
   },
   "job": {
     "job_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093",
@@ -52,8 +52,8 @@
     "job_type": "researchbrain_stage0",
     "status": "blocked",
     "priority": 0,
-    "created_at": "2026-06-08T19:17:09.064Z",
-    "updated_at": "2026-06-08T19:17:23.254Z"
+    "created_at": "2026-07-06T07:38:49.561Z",
+    "updated_at": "2026-07-06T07:38:52.914Z"
   },
   "attempt": {
     "attempt_id": "JOB-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093-ATTEMPT-1",
@@ -61,14 +61,14 @@
     "attempt_number": 1,
     "status": "blocked",
     "worker": "researchbrain_stage0_loop_runner",
-    "started_at": "2026-06-08T19:17:09.181Z",
-    "finished_at": "2026-06-08T19:17:23.254Z"
+    "started_at": "2026-07-06T07:38:49.798Z",
+    "finished_at": "2026-07-06T07:38:52.914Z"
   },
   "failure_summary": {
     "failure_class": "schema_or_validation_failure",
     "retryable": false,
     "error_message": "no_valid_provider_output",
-    "final_terminal_state": "terminal_failed_condition",
+    "final_terminal_state": "schema_or_validation_failure",
     "request_artifact": {
       "path": "factory/research/requests/RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z/request.json",
       "sha256": "f3d9ea9e8c20d9113e7100023702c45b3db0e631721c5e0f4f8a11ed9b91f970"
@@ -76,12 +76,12 @@
     "runtime_result_artifact": {
       "artifact_type": "researchbrain_stage0_runtime_result",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/runtime-result.json",
-      "sha256": "99761507696c2216314f62cdbd38b74ef096750c2c1e01d074008c5c401efb03"
+      "sha256": "6e045d29e0fdf0eb2cea9922a2de96be37c04b4ae8b32a56d91b316a7fcaccbd"
     },
     "quarantine_paths": [
       {
         "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
-        "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0"
+        "sha256": "c84395f9b008cb71aa80c0f89746af95fe23ca3b930186b7fdca96043d24446e"
       }
     ],
     "blockers": [
@@ -92,44 +92,44 @@
     {
       "artifact_type": "researchbrain_agent_transcript",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/agent-transcript.jsonl",
-      "sha256": "78ef6293310fff7b31789c9c4b3a44dbefa8269e810b1681ef92cafc5defbc78",
+      "sha256": "c5d99d33fb1c23e88961c2048d1ebda805d959ce7271bb8c147390af9323ddfe",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.274Z"
+      "created_at": "2026-07-06T07:38:52.946Z"
     },
     {
       "artifact_type": "researchbrain_cost_ledger",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/cost-ledger.json",
-      "sha256": "0a0b1f54d6fc989b7e333ea37de7f57ed4d578d270477bdf14238856c45cf677",
+      "sha256": "88d009e8e89c4a0860d6c4eb5714271d7ed7612dc8614b6b7822f3b16e8ab671",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.310Z"
+      "created_at": "2026-07-06T07:38:53.004Z"
     },
     {
       "artifact_type": "researchbrain_stage0_quarantine",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/quarantine/attempt-001.json",
-      "sha256": "d4e76adfaaa7f638fed6b6567131d66c588554df1b83cfc2c681dcd2db0c65f0",
+      "sha256": "c84395f9b008cb71aa80c0f89746af95fe23ca3b930186b7fdca96043d24446e",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.358Z"
+      "created_at": "2026-07-06T07:38:53.082Z"
     },
     {
       "artifact_type": "researchbrain_stage0_runtime_result",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/runtime-result.json",
-      "sha256": "99761507696c2216314f62cdbd38b74ef096750c2c1e01d074008c5c401efb03",
+      "sha256": "6e045d29e0fdf0eb2cea9922a2de96be37c04b4ae8b32a56d91b316a7fcaccbd",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.343Z"
+      "created_at": "2026-07-06T07:38:53.057Z"
     },
     {
       "artifact_type": "researchbrain_tool_ledger",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/tool-ledger.json",
-      "sha256": "85742b903285066a964454c1581cb02bc36ab9b8e8bdc3a6962a6b763b19e35d",
+      "sha256": "c1750fe12b265c9ed35e5b3c7b78ca1bac2e4047b67b42abbe686c222cbc916a",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.294Z"
+      "created_at": "2026-07-06T07:38:52.982Z"
     },
     {
       "artifact_type": "researchbrain_working_notes",
       "path": "factory/research/runs/RUN-RB-STAGE0-RESEARCHBRAIN-REQUEST-DEEPSEEK-LIVE-CANARY-20260608T1715Z-5143E39A2E03EB30C4C6F093/working-notes.md",
-      "sha256": "c045db0125b590d87856d610571815a3d7b8a0b095fe2476cf7b4a98cdd952ba",
+      "sha256": "0a0eac437e6235d5c1312b05e7e4aadddc28daac96c7eb275bfaaed0667974ac",
       "size_bytes": null,
-      "created_at": "2026-06-08T19:17:23.326Z"
+      "created_at": "2026-07-06T07:38:53.028Z"
     }
   ],
   "official_state_mutated": false,

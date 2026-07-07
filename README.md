@@ -99,16 +99,12 @@ After the Phase 7A worker is implemented, new official `research_wfa` `executed`
 
 - `src/` - orchestrator, runners, validators, prompts, control-plane helpers
 - `factory/` - official persistent state, evidence, runs, summaries, memory, specs
-- `workspace/` - working data and reusable research workspace assets
 - `walk forward engine/` - canonical live WFA engine
 - `scripts/` - validation and smoke helpers
 - `tests/` - automated control-plane tests
-- `docs/` - archived or supporting documentation
 
 ## Notes On Legacy Surfaces
 
-- `wfa/` is retained as older/reference engine code, not the canonical live evidence path.
-- `workspace/harness/` may still exist for historical or local utility reasons, but it is not the primary live evidence path.
 - `.opencode/` is the tooling sandbox. It is gitignored and does not count as research evidence, retrieval input, or changed-file evidence.
 - `factory/active-session.json` is now a compatibility mirror for operator visibility only. Control decisions use `factory/runtime/active-run.json` and `factory/runtime/owner-lock.json`.
 - Operational artifacts are bounded: `factory/runtime/recovery-log.jsonl` is trimmed to recent lines, and `factory/verification/` keeps only the newest files per operational prefix. Durable research evidence is not deleted by this retention policy.

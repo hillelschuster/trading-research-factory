@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-ARXIV-SPOTV2NET-005",
+  "url": "http://arxiv.org/abs/2401.06249v4",
+  "title": "SpotV2Net: Multivariate Intraday Spot Volatility Forecasting via Vol-of-Vol-Informed Graph Attention Networks",
+  "source_class": "web",
+  "captured_at": "2026-07-03T13:27:49.411Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:31:12.531Z",
+      "completed_at": "2026-07-03T13:31:13.097Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "3b50c22e8870d5b2a88176a000399cdaafd59627323d1538c4d07c51bcec95c2"
+}

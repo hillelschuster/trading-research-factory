@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MT5-MARKETWATCH-001",
+  "url": "https://www.metatrader5.com/en/terminal/help/trading/market_watch",
+  "title": "Market Watch - Trading Operations - MetaTrader 5 Help",
+  "source_class": "official_docs",
+  "captured_at": "2026-07-03T13:27:55.988Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:31:04.465Z",
+      "completed_at": "2026-07-03T13:31:04.834Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "9b9b7b74e017cc2874219308e9e4964e7cbdcfffd88e50e91a45b495f5735a90"
+}

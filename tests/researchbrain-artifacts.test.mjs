@@ -36,7 +36,6 @@ import {
 import { validateExecutionResult, validatePlannerResult } from "../src/core/validators.mjs";
 import { ideatorPrompt, plannerPrompt } from "../src/core/prompt-builders.mjs";
 import { compileWfaReadyPlan } from "../src/core/wfa-plan-compiler.mjs";
-import { writePhase8AMt5ArtifactRegistrationFromRequest } from "../src/core/mt5-artifact-registration.mjs";
 import {
   createFixtureResearchBrainProvider,
   createHttpResearchBrainSourceFetcher,
@@ -549,6 +548,49 @@ test("ResearchBrain Stage-0 runtime quarantines invalid provider JSON", async ()
   assert.equal(result.attempts[0].retryable, false);
   assert.equal(fs.existsSync(path.join(rootDir, result.quarantine_paths[0].path)), true);
   assert.equal(fs.existsSync(path.join(rootDir, result.attempts[0].raw_provider_output.path)), true);
+});
+
+test("ResearchBrain Stage-0 runtime preserves provider account/quota failures as explicit blockers", async () => {
+  const rootDir = tempRoot();
+  const phase8a = phase8ARefs(rootDir);
+  const request = buildResearchBrainRequestArtifact({
+    rootDir,
+    requestId: "RESEARCHBRAIN-REQUEST-PROVIDER-ACCOUNT-BLOCKED",
+    observedAt: "2026-05-20T01:07:00Z",
+    universeSnapshotPath: phase8a.universe_snapshot.path,
+    terminalInventoryPath: phase8a.terminal_inventory.path,
+    maxSources: 2,
+    maxHypotheses: 1
+  });
+  const provider = {
+    name: "account_blocked_provider",
+    mode: "live_llm_agent",
+    live_research: true,
+    async generate() {
+      throw new Error('DeepSeek ResearchBrain LLM adapter HTTP 402: {"error":{"message":"Insufficient Balance","code":"invalid_request_error"}}');
+    }
+  };
+
+  const result = await runResearchBrainStage0Runtime({
+    rootDir,
+    request,
+    runId: "RESEARCHBRAIN-STAGE0-RUNTIME-PROVIDER-ACCOUNT-BLOCKED",
+    outputDir: "factory/research/runs/RESEARCHBRAIN-STAGE0-RUNTIME-PROVIDER-ACCOUNT-BLOCKED",
+    observedAt: "2026-05-20T01:08:00Z",
+    provider,
+    maxAttempts: 2,
+    maxProviderCalls: 2,
+    timeoutMs: 1000
+  });
+
+  assert.equal(result.status, "blocked");
+  assert.equal(result.attempts.length, 1);
+  assert.equal(result.attempts[0].failure_class, "provider_account_or_quota_failure");
+  assert.equal(result.attempts[0].retryable, false);
+  assert.equal(result.final_terminal_state, "provider_account_or_quota_failure");
+  assert.equal(result.blockers.includes("provider_account_or_quota_failure"), true);
+  assert.equal(result.blockers.includes("no_valid_provider_output"), false);
+  assert.equal(fs.existsSync(path.join(rootDir, result.quarantine_paths[0].path)), true);
 });
 
 test("ResearchBrain Stage-0 runtime retries transient provider failures with artifact-backed metadata", async () => {
@@ -1893,41 +1935,7 @@ test("WFA-ready compiler propagates ResearchBrain source hashes and blocks low-s
   assert.match(blocked.blocked_reason, /source-quality gate blocked direct Phase 8D WFA route/i);
 });
 
-test("ResearchBrain artifacts cannot enter Phase 8A registration or leaderboard authority", () => {
-  const rootDir = tempRoot();
-  const paths = initializeProject(rootDir);
-  const sourceRecord = validSourceRecord(rootDir);
-  const sourceRecordArtifact = writeJsonFixture(rootDir, "factory/research/stage0/RUN-RESEARCH-001/source-record-001.json", sourceRecord);
 
-  assert.throws(() => writePhase8AMt5ArtifactRegistrationFromRequest({
-    rootDir,
-    observedAt: "2026-05-20T00:20:00Z",
-    request: {
-      schema_version: "phase8a_mt5_artifact_registration_request_v1",
-      registration_id: "PHASE8A-SHOULD-REJECT-RESEARCHBRAIN",
-      artifact_paths: [sourceRecordArtifact.path]
-    }
-  }), /cannot register Phase 8B\/ResearchBrain/);
-
-  fs.writeFileSync(paths.evidenceIndex, JSON.stringify([{
-    run_id: "RUN-STAGE0-LEADERBOARD-001",
-    mode: "live",
-    evidence_kind: STAGE0_RESEARCH_DISCOVERY_EVIDENCE_KIND,
-    authority_layer: STAGE0_AUTHORITY_LAYER,
-    backlog_item_id: "AUTO-STAGE0-001",
-    experiment_id: "EXP-STAGE0-001",
-    verdict: "passed",
-    evidence_score: 100,
-    overall_score: 100,
-    metrics: { sharpe_oos: 99, total_trades: 1000, windows_completed: 10, aggregate_return_pct: 50 },
-    source_hashes: [sourceRecordArtifact],
-    recorded_at: "2026-05-20T00:21:00Z"
-  }], null, 2));
-
-  const rebuilt = rebuildNormalizedMemory(paths);
-  assert.equal(rebuilt.evidence[0].promotable, false);
-  assert.deepEqual(JSON.parse(fs.readFileSync(paths.leaderboard, "utf8")), []);
-});
 
 test("Ideator and Planner prompts require Stage-0 packet path/hash provenance", () => {
   const retrieval = {

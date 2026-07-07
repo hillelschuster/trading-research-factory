@@ -4,8 +4,9 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 import { spawnSync } from "child_process";
-import { SimulateRunner } from "../src/core/runner-simulate.mjs";
+
 import { OpenCodeRunner, buildServerConfigForTests } from "../src/core/runner-opencode.mjs";
+import { MockRunner } from "./helpers/mock-runner.mjs";
 import { initializeProject } from "../src/core/init.mjs";
 import { buildPaths } from "../src/core/paths.mjs";
 import { BacklogStore } from "../src/core/backlog-store.mjs";
@@ -42,94 +43,13 @@ function createTempRepoRoot() {
   return projectRoot;
 }
 
-test("simulate mode writes state and evidence", () => {
-  const cwd = path.resolve(process.cwd());
-  const projectRoot = createTempRepoRoot();
-  run(cwd, "src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1", "--root", projectRoot);
-  const state = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/state.json"), "utf8"));
-  const evidence = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/evidence/index.json"), "utf8"));
-  assert.equal(state.iteration >= 1, true);
-  assert.equal(evidence.length >= 1, true);
-});
 
-test("simulate mode creates fresh stage sessions", () => {
-  const cwd = path.resolve(process.cwd());
-  const projectRoot = createTempRepoRoot();
 
-  run(cwd, "src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1", "--root", projectRoot);
 
-  const state = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/state.json"), "utf8"));
-  const runDirs = fs.readdirSync(path.join(projectRoot, "factory/runs")).filter((entry) => entry.startsWith("RUN-"));
-  assert.equal(runDirs.length >= 1, true);
 
-  const runDir = path.join(
-    projectRoot,
-    "factory/runs",
-    runDirs.sort((a, b) => {
-      const aTime = fs.statSync(path.join(projectRoot, "factory/runs", a)).mtimeMs;
-      const bTime = fs.statSync(path.join(projectRoot, "factory/runs", b)).mtimeMs;
-      return bTime - aTime;
-    })[0]
-  );
-  const sessionFiles = [
-    "planner-attempt-1-session.json",
-    "executor-attempt-1-session.json",
-    "evaluator-attempt-1-session.json",
-    "summarizer-attempt-1-session.json"
-  ];
-  const sessionIds = sessionFiles.map((filename) => {
-    const payload = JSON.parse(fs.readFileSync(path.join(runDir, filename), "utf8"));
-    return payload.session_id;
-  });
 
-  assert.equal(new Set(sessionIds).size, sessionIds.length);
-  assert.equal(state.active_session_id, null);
-  assert.equal(state.active_session_url, null);
-});
 
-test("simulate mode leaves a durable active-session record with the latest URL", () => {
-  const cwd = path.resolve(process.cwd());
-  const projectRoot = createTempRepoRoot();
 
-  run(cwd, "src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1", "--root", projectRoot);
-
-  const activeSession = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/active-session.json"), "utf8"));
-  const activeRun = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/runtime/active-run.json"), "utf8"));
-  assert.equal(activeSession.status, "idle");
-  assert.equal(activeSession.run_id?.startsWith("RUN-"), true);
-  assert.equal(activeSession.agent, "summarizer");
-  assert.match(activeSession.session_url, /^simulate:\/\/session\//);
-  assert.equal(typeof activeSession.ended_at, "string");
-  assert.equal(activeRun.status, "idle");
-  assert.equal(activeRun.run_id, null);
-});
-
-test("simulate runner issues a fresh session per agent call", async () => {
-  const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
-  const runner = new SimulateRunner({ rootDir });
-
-  await runner.init();
-  const ideator = await runner.callAgent("ideator", "test ideator prompt");
-  const planner = await runner.callAgent("planner", "test planner prompt");
-
-  assert.notEqual(ideator.sessionId, planner.sessionId);
-  assert.match(ideator.sessionId, /^SIMULATED-SESSION-/);
-  assert.match(planner.sessionId, /^SIMULATED-SESSION-/);
-});
-
-test("simulate runner session ids stay unique across runner instances", async () => {
-  const rootDirA = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
-  const rootDirB = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
-  const runnerA = new SimulateRunner({ rootDir: rootDirA });
-  const runnerB = new SimulateRunner({ rootDir: rootDirB });
-
-  await runnerA.init();
-  await runnerB.init();
-  const first = await runnerA.callAgent("ideator", "test ideator prompt");
-  const second = await runnerB.callAgent("ideator", "test ideator prompt");
-
-  assert.notEqual(first.sessionId, second.sessionId);
-});
 
 test("health metrics detect duplicate session reuse contamination explicitly", () => {
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
@@ -230,7 +150,7 @@ test("Phase 8D blocked-at-start compiler gates write terminal artifacts without 
   }]);
 
   const result = await runFactory({
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 1,
@@ -263,17 +183,6 @@ test("Phase 8D blocked-at-start compiler gates write terminal artifacts without 
   assert.equal(runState.stage_status.executor.status, "skipped");
 });
 
-test("simulate ideator avoids fixed asset and timeframe narrowing", async () => {
-  const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
-  const runner = new SimulateRunner({ rootDir });
-
-  await runner.init();
-  const ideator = await runner.callAgent("ideator", "test ideator prompt");
-  const payload = JSON.parse(ideator.text.match(/<RF_JSON>\n([\s\S]*)\n<\/RF_JSON>/)[1]);
-
-  assert.equal(/BTC|ETH|SOL/i.test(payload.instrument_scope), false);
-  assert.equal(payload.timeframe, "Strategy-chosen liquid-market timeframe");
-});
 
 test("backlog store recovers expired leases to ready", () => {
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
@@ -433,7 +342,7 @@ test("legacy run-state and handoff schemas are upgraded in place before resume",
 
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -575,7 +484,7 @@ test("runFactory reuses a persisted plan instead of rerunning planner on planner
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -635,7 +544,7 @@ test("runFactory compiles explicit WFA-ready backlog items without calling plann
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 1,
@@ -733,7 +642,7 @@ test("runFactory resumes pending handoff from executor stage", async () => {
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -839,7 +748,7 @@ test("resumed executor attempts keep monotonic ordinals and do not overwrite pri
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -938,7 +847,7 @@ test("stale handoff generation is ignored during resume selection", async () => 
 
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -1246,7 +1155,7 @@ test("startup reconciliation prefers the most advanced safe resumable run determ
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -1355,7 +1264,7 @@ test("higher-priority ready work preempts an infra-blocked resume", async () => 
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -1979,7 +1888,7 @@ test("infra failure leaves backlog item infra_blocked instead of retiring it", a
   await assert.rejects(
     runFactory({
       rootDir,
-      mode: "simulate",
+      testRunner: new MockRunner({ rootDir }),
       cycles: 1,
       intervalMs: 1,
       maxRetries: 3,
@@ -2311,23 +2220,7 @@ test("retrieval builders use derived stage-specific retrieval index", () => {
   assert.equal(executorRetrieval.relevant_paths.includes("factory/summaries/RUN-PLAN-1.md"), true);
 });
 
-test("simulate run rebuilds canonical memory artifacts after append", () => {
-  const cwd = path.resolve(process.cwd());
-  const projectRoot = createTempRepoRoot();
 
-  run(cwd, "src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1", "--root", projectRoot);
-
-  const retrievalIndex = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/memory/retrieval_index.json"), "utf8"));
-  const lessons = fs.readFileSync(path.join(projectRoot, "factory/memory/lessons.jsonl"), "utf8")
-    .split("\n")
-    .filter(Boolean)
-    .map((line) => JSON.parse(line));
-  const evidence = JSON.parse(fs.readFileSync(path.join(projectRoot, "factory/evidence/index.json"), "utf8"));
-
-  assert.equal(retrievalIndex.length > 0, true);
-  assert.equal(lessons.every((entry) => entry.schema_version === "lesson_v1"), true);
-  assert.equal(evidence.every((entry) => entry.schema_version === "evidence_v1"), true);
-});
 
 test("memory rebuild purges simulate and inconclusive leaderboard pollution", () => {
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
@@ -2414,7 +2307,7 @@ test("runFactory startup and append keep leaderboard free of simulate pollution"
 
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -3000,7 +2893,7 @@ test("runFactory replenishes backlog when ready depth falls below policy floor",
 
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -3129,7 +3022,7 @@ test("simulate run writes bounded health metrics artifact", async () => {
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -3153,7 +3046,7 @@ test("simulate run writes aggregate stage gate results", async () => {
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -3378,7 +3271,7 @@ test("derived artifact rebuild is idempotent except for timestamps", async () =>
   const rootDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "factory-test-")), "trading-research-factory");
   await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 3,
@@ -3417,7 +3310,7 @@ test("strict prompt budgets fail oversized stage prompts", async () => {
 
   const result = await runFactory({
     rootDir,
-    mode: "simulate",
+    testRunner: new MockRunner({ rootDir }),
     cycles: 1,
     intervalMs: 1,
     maxRetries: 1,

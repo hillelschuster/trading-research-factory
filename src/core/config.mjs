@@ -38,7 +38,7 @@ export function parseArgs(argv) {
 
 export function loadRuntimeConfig(argv, cwd = process.cwd()) {
   const args = parseArgs(argv);
-  const mode = args.mode || process.env.RESEARCH_FACTORY_MODE || "simulate";
+  const mode = args.mode || process.env.RESEARCH_FACTORY_MODE || "live";
   const cycles = Number(args.cycles ?? process.env.RESEARCH_FACTORY_CYCLES ?? 0);
   const intervalMs = Number(args["interval-ms"] ?? process.env.RESEARCH_FACTORY_INTERVAL_MS ?? 5000);
   const maxRetries = Number(args["max-retries"] ?? process.env.RESEARCH_FACTORY_MAX_RETRIES ?? 3);

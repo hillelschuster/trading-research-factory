@@ -38,7 +38,7 @@ Return only JSON in `<RF_JSON>...</RF_JSON>`:
   "datasets_acquired": [
     {
       "source": "public API, archive, or fetcher used",
-      "output": "workspace/data/<dataset>.csv",
+      "output": "factory/data/<dataset>.csv",
       "rows": 0,
       "notes": "what was fetched",
       "date_range": "start/end"

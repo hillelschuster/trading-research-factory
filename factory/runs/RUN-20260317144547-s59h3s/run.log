@@ -1,5 +1,0 @@
-{"ts":"2026-03-17T14:45:47.474Z","run_id":"RUN-20260317144547-s59h3s","message":"Starting run","extra":{"iteration":15,"backlog_item_id":"IDEA-WFA-004","mode":"live"}}
-{"ts":"2026-03-17T14:50:08.077Z","run_id":"RUN-20260317144547-s59h3s","message":"Planner completed","extra":{"experiment_id":"EXP-20260318140000-01"}}
-{"ts":"2026-03-17T14:51:44.329Z","run_id":"RUN-20260317144547-s59h3s","message":"Executor completed","extra":{"status":"executed"}}
-{"ts":"2026-03-17T14:52:43.089Z","run_id":"RUN-20260317144547-s59h3s","message":"Evaluator completed","extra":{"verdict":"blocked","evidence_score":60}}
-{"ts":"2026-03-17T14:53:16.821Z","run_id":"RUN-20260317144547-s59h3s","message":"Run completed","extra":{"run_id":"RUN-20260317144547-s59h3s","verdict":"blocked","iteration":15}}

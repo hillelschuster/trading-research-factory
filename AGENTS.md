@@ -7,6 +7,10 @@ The primary objective is to find small, robust Python-research edges and move on
 
 Ideas are relevant only if they can map to a real FTMO/MT5 tradable symbol and be backtested with high parity in the FTMO desktop MT5 environment. This may include crypto CFDs, FX, indices, stocks, metals, or other broker-supported instruments.
 
+## Experiment safeguards
+- Ask before ambiguous decisions affecting research design, strategy logic, entry/exit rules, data assumptions, backtest validity, MT5 parity, or MQL5 conversion.
+- Do not broaden a requested experiment into unrelated research.
+
 ## Hard boundary: repository scope
 - Filesystem work should remain inside this repository except for these approved MT5 paths:
   - `C:\Program Files\FTMO Global Markets MT5 Terminal\`
@@ -15,6 +19,7 @@ Ideas are relevant only if they can map to a real FTMO/MT5 tradable symbol and b
 - Agents may read, write, and copy only MT5 EA, preset, tester report, tester log, and `FILE_COMMON` evidence files in those paths.
 - Never read unrelated `AppData` or other user files.
 - Never persist passwords.
+- Agents may use and access the repo `.env` for required API keys unless the user says otherwise.
 - Web access (research, papers, docs, repos) is encouraged. Filesystem access is otherwise restricted to this repo plus the approved MT5 paths above.
 - The `external_directory: allow` permission in `opencode.json` enables this narrow exception. Respect the scope above.
 
@@ -89,15 +94,12 @@ Prefer work that strengthens one of the following:
 - NO MORE SIMPLE RSI STRATEGIES - they are lazy and prone to overfitting
 - Try: Multi-timeframe, regime detection, volatility contraction, inter-market correlation, order flow
 
-## Workspace conventions
-- `workspace/harness/` contains reusable backtest/WFA code
-- `workspace/strategies/` contains strategy modules
-- `workspace/results/` contains experiment outputs
-- `workspace/data/` contains CSV datasets
-- `wfa/` contains the walk-forward analysis engine (reference implementation and tests)
+## Repository layout
 - `factory/` contains orchestration state, backlog, evidence, runs, summaries
 - `scripts/` contains engine entrypoints, validation helpers, and diagnostic runners
 - `src/` contains the orchestrator, runners, prompts, and core utilities
+- `walk forward engine/` contains the canonical WFA engine, strategies, configs, and data
+- `tests/` contains automated control-plane tests
 
 ## Organization enforcement
 - Always keep the directory structure clean and predictable.
@@ -116,6 +118,8 @@ Return structured JSON whenever explicitly requested. Do not hide uncertainty. K
 - The loop continues until cycles are exhausted or no pending backlog items remain.
 
 ## Tool usage guidelines
+
+- Do not touch, manage, or worry about git or GitHub unless the user explicitly asks for a git/GitHub action such as status review, commit, push, branch, pull request, merge, or cleanup.
 
 Before coding work:
 - Use **Context7** (`context7_resolve-library-id` + `context7_query-docs`) before editing source code, scripts, tests, runtime behavior, libraries, APIs, frameworks, SDKs, CLIs, or cloud-service integrations.

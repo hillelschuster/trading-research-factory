@@ -10,7 +10,7 @@ import { Logger } from "./logger.mjs";
 import { plannerPrompt, executorPrompt, evaluatorPrompt, summarizerPrompt, ideatorPrompt } from "./prompt-builders.mjs";
 import { buildIdeatorRetrieval, buildPlannerRetrieval, buildExecutorRetrieval, buildEvaluatorRetrieval, buildSummarizerRetrieval } from "./retrieval.mjs";
 import { extractRfJson } from "./parse.mjs";
-import { SimulateRunner } from "./runner-simulate.mjs";
+
 import { openBrowserUrl } from "./runner-opencode.mjs";
 import { buildRunSummary } from "./summary.mjs";
 import { appendCanonicalLessons, buildCanonicalLessonEntries, rebuildNormalizedMemory } from "./memory-index.mjs";
@@ -924,13 +924,13 @@ export async function runFactory(config) {
     }, liveOwnerLease.policy.heartbeatMs);
   }
 
-  const resolvedTransport = config.mode === "live"
-    ? resolvePreferredLiveTransportAdapter(paths, config.liveTransportAdapter)
-    : null;
+  const resolvedTransport = config.testRunner
+    ? null
+    : resolvePreferredLiveTransportAdapter(paths, config.liveTransportAdapter);
 
-  const runner = config.mode === "live"
-    ? assertLiveTransport(config.liveTransport ?? createLiveTransport({ rootDir: config.rootDir, model: config.model, agentTimeoutMs: config.agentTimeoutMs, openBrowser: config.openBrowser, livePluginPolicy: config.livePluginPolicy, liveTransportAdapter: resolvedTransport?.adapter, transportTimeouts: config.liveTransportTimeouts }))
-    : new SimulateRunner({ rootDir: config.rootDir });
+  const runner = config.testRunner
+    ? config.testRunner
+    : assertLiveTransport(config.liveTransport ?? createLiveTransport({ rootDir: config.rootDir, model: config.model, agentTimeoutMs: config.agentTimeoutMs, openBrowser: config.openBrowser, livePluginPolicy: config.livePluginPolicy, liveTransportAdapter: resolvedTransport?.adapter, transportTimeouts: config.liveTransportTimeouts }));
 
   const seenStageSessions = new Map();
 

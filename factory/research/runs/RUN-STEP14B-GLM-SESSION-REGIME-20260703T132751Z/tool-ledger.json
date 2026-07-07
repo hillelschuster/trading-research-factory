@@ -1,0 +1,3391 @@
+{
+  "schema_version": "researchbrain_tool_ledger_v1",
+  "generated_at": "2026-07-03T13:30:55.866Z",
+  "provider_mode": "live_llm_agent",
+  "llm_provider": "openai_compatible",
+  "llm_model": "glm-5.2",
+  "tool_mode": "live",
+  "live_research": true,
+  "allowed_tools": [
+    "search_web",
+    "search_official_docs",
+    "search_mql5_sources",
+    "search_broker_docs",
+    "search_youtube",
+    "search_arxiv",
+    "search_github_code",
+    "search_reddit",
+    "capture_url_source",
+    "capture_github_artifact",
+    "inspect_youtube_video",
+    "read_repo_artifact",
+    "search_research_memory",
+    "check_duplicate_memory",
+    "check_failed_pattern_similarity",
+    "record_rejection",
+    "record_hypothesis",
+    "write_wiki_page",
+    "search_wiki"
+  ],
+  "tool_calls": [
+    {
+      "index": 1,
+      "tool": "search_mql5_sources",
+      "status": "ok",
+      "started_at": "2026-07-03T13:27:55.902Z",
+      "ended_at": "2026-07-03T13:27:57.016Z",
+      "input": {
+        "query": "session opening closing liquidity transition volatility regime MT5 EA"
+      },
+      "output": {
+        "query": "session opening closing liquidity transition volatility regime MT5 EA",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_mql5_sources",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:27:55.903Z",
+            "completed_at": "2026-07-03T13:27:57.016Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "mql5-1",
+            "url": "https://www.mql5.com/en/articles/19944",
+            "title": "Price Action Analysis Toolkit Development (Part 47): Tracking Forex Sessions and Breakouts in MetaTrader 5 - MQL5 Articles",
+            "snippet": "Each region brings its own characteristics: the Asia session tends to start the day quietly, Tokyo often provides the first true direction, London injects strong volume and volatility, and New York carries momentum into the late hours with frequent reversals or continuations. Recognizing which of these sessions is currently active allows traders to adapt to changing market speed, volatility, and liquidity.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-2",
+            "url": "https://www.mql5.com/en/market/product/92469",
+            "title": "Trading Session Time With Alert MT5 | Free Download Trading Indicator for MetaTrader 5",
+            "snippet": "Everything is ready for immediate use on real account. Very SIMPLE STRATEGY with only FEW PARAMETERS. <strong>Strategy is based on EXPANSION ON THE DAILY CHART</strong> . It enters if volatility raise after some time of consolidation .",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-3",
+            "url": "https://www.mql5.com/en/market/product/141612",
+            "title": "Session Box Indicator MT5 | Free Download Trading Indicator for MetaTrader 5",
+            "snippet": "EA will be sold in limited quantities to ensure th ... Zenith FX – Advanced Mechanical AI System Overview Zenith FX represents the next generation of algorithmic architecture engineered for institutional-level precision on XAUUSD (Gold) and USDJPY . Building upon the analytical foundation introduced in Axon Shift and Vector Prime, the system integrates a reinforced neural framework capable of adapting to real-time volatility, liquidity shifts, and cross-asset correlations between metals and major currencies.",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-4",
+            "url": "https://www.mql5.com/en/market/product/167559",
+            "title": "Session Liquidity Sweep MT5 | Buy Trading Indicator for MetaTrader 5",
+            "snippet": "PRICE UPDATE NOTICE: <strong>Atomic Analyst</strong> is currently available for $99. The price will increase to $199 after the next 30 purchases . SPECIAL OFFER: After purchasing <strong>Atomic Analyst</strong>, send me a private message to claim the Smart Universal EA for FREE ...",
+            "source_class": "mql5",
+            "discovery_only": true
+          },
+          {
+            "result_id": "mql5-5",
+            "url": "https://www.mql5.com/en/market/product/132749",
+            "title": "Session Liquidity Sweeper | Buy Trading Robot (Expert Advisor) for MetaTrader 5",
+            "snippet": "<strong>The Session Liquidity Sweeper EA</strong> is a powerful and innovative expert advisor (EA) designed for MetaTrader 5 (MT5) that capitalizes on liquidity sweeps and breakouts of key trading sessions: Asian, London, and New York.",
+            "source_class": "mql5",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:27:57.016Z",
+      "ended_at": "2026-07-03T13:27:57.771Z",
+      "input": {
+        "query": "forex session overlap volatility compression expansion trading strategy"
+      },
+      "output": {
+        "query": "forex session overlap volatility compression expansion trading strategy",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 3,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T13:27:57.771Z",
+      "ended_at": "2026-07-03T13:27:58.664Z",
+      "input": {
+        "query": "intraday volatility regime switching FX session liquidity transitions"
+      },
+      "output": {
+        "query": "intraday volatility regime switching FX session liquidity transitions",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:27:57.771Z",
+            "completed_at": "2026-07-03T13:27:58.664Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2311.18477v3",
+            "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+            "snippet": "This paper seeks to forecast intraday volatility curves for major foreign exchange (FX) currencies using functional GARCH models. Intraday return curves are observed at a daily frequency, yet preserve the full high-frequency trading structure, enabling volatility analysis at the intraday level. We d",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/1009.3247v3",
+            "title": "Optimal control of risk process in a regime-switching environment",
+            "snippet": "This paper is concerned with cost optimization of an insurance company. The surplus of the insurance company is modeled by a controlled regime switching diffusion, where the regime switching mechanism provides the fluctuations of the random environment. The goal is to find an optimal control that mi",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2111.02376v1",
+            "title": "Multiplicative Component GARCH Model of Intraday Volatility",
+            "snippet": "This paper proposes a multiplicative component intraday volatility model. The intraday conditional volatility is expressed as the product of intraday periodic component, intraday stochastic volatility component and daily conditional volatility component. I extend the multiplicative component intrada",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/2110.15025v2",
+            "title": "Regime Switching Optimal Growth Model with Risk Sensitive Preferences",
+            "snippet": "We consider a risk-sensitive optimization of consumption-utility on infinite time horizon where the one-period investment gain depends on an underlying economic state whose evolution over time is assumed to be described by a discrete-time, finite-state, Markov chain. We suppose that the production f",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/2512.04697v2",
+            "title": "Continuous-time reinforcement learning for optimal switching over multiple regimes",
+            "snippet": "This paper studies the continuous-time reinforcement learning (RL) for optimal switching problems across multiple regimes. We consider a type of exploratory formulation under entropy regularization where the agent randomizes both the timing of switches and the selection of regimes through the genera",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:27:58.664Z",
+      "ended_at": "2026-07-03T13:27:59.476Z",
+      "input": {
+        "query": "London New York session transition volatility expansion FX metals indices CFD"
+      },
+      "output": {
+        "query": "London New York session transition volatility expansion FX metals indices CFD",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:27:58.665Z",
+            "completed_at": "2026-07-03T13:27:59.476Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://medium.com/@fxmbrand/the-multi-session-gold-blueprint-synchronizing-asian-london-and-new-york-volatility-00bc34d1c7d9",
+            "title": "The Multi-Session Gold Blueprint: Synchronizing Asian, London, and New York Volatility | by FXM Brand (Stephen M.) | May, 2026 | Medium",
+            "snippet": "However, as the market transitions into the London and New York sessions, where <strong>volatility significantly increases</strong>, position sizes should be reduced, and stop-losses widened to accommodate larger price swings and avoid being prematurely stopped ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.investopedia.com/articles/forex/08/3-market-system.asp",
+            "title": "The Forex 3-Session Trading System",
+            "snippet": "Learn how the forex market operates across the Asian, London, and New York sessions, and how traders use session overlaps to find liquidity and opportunities.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://www.ig.com/en-ch/learn-to-trade/ig-academy/a-look-at-forex-trading-strategies/trading-the-london-session",
+            "title": "Trading the London session - IG",
+            "snippet": "Remember to watch for the overlap between the London session and the New York session for increased volatility and liquidity ... PreviousTrading the 24-hour forex market Lesson 4 of 8 NextTrading the New York sessionLesson 6 of 8 ... CFDs are leveraged products.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.avatrade.com/education/trading-for-beginners/forex-trading-sessions",
+            "title": "Forex Trading Sessions | Optimize Your Trading Strategy",
+            "snippet": "Tip: The New York session is excellent for traders who thrive in a fast-paced environment, with significant price movements and abundant trading opportunities. <strong>The early overlap with the London session is particularly volatile, making it a prime time for day traders</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.puprime.com/understanding-forex-session-times-hours-overlaps-and-strategies/",
+            "title": "Understanding Forex Session Times: Hours, Overlaps, and Strategies",
+            "snippet": "<strong>High-volatility overlaps such as London–New York may suit breakout or trend-following strategies, while quieter periods favour range trading</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:21.124Z",
+      "ended_at": "2026-07-03T13:28:22.226Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+          "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+          "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+        ],
+        "limitations": [
+          "Article is instructional not empirical backtest",
+          "No quantified session transition edge or win rate data"
+        ],
+        "disconfirming_relevance": [
+          "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "sha256": "0a829ef18d5eae34ffd5605a1062d024fc30572f6ef7ca7daf2bc026b2a3f10b"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/metadata.json",
+          "sha256": "01235165fe045f69fc0200576870b51d39b1a71b72237461e833bcae54e34c20"
+        },
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 6,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:22.226Z",
+      "ended_at": "2026-07-03T13:28:23.097Z",
+      "input": {
+        "source_id": "SRC-MQL5-LIQUIDITY-SWEEP-001",
+        "url": "https://www.mql5.com/en/market/product/132749",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Session Liquidity Sweeper EA capitalizes on liquidity sweeps and breakouts of Asian, London, and New York sessions",
+          "Mechanism is sweep of session highs lows followed by reversal"
+        ],
+        "limitations": [
+          "Commercial product with no disclosed backtest methodology",
+          "No published equity curve or sample size"
+        ],
+        "disconfirming_relevance": [
+          "Liquidity sweep is widely known ICT concept; novelty depends on specific detection rules and session boundaries"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-MQL5-LIQUIDITY-SWEEP-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEP-001/content.md",
+          "sha256": "d8db5e3313fff9a645927c7ad8eac46979c64d6228a23d3518ac59b57c3b3c69"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEP-001/metadata.json",
+          "sha256": "3fe684be6b81a486918cce3d4a0056535b8c15ace567d82d3d73d1310bc6ed08"
+        },
+        "source_capture": {
+          "source_id": "SRC-MQL5-LIQUIDITY-SWEEP-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/market/product/132749",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEP-001/content.md",
+          "claims_extracted": [
+            "Session Liquidity Sweeper EA capitalizes on liquidity sweeps and breakouts of Asian, London, and New York sessions",
+            "Mechanism is sweep of session highs lows followed by reversal"
+          ],
+          "limitations": [
+            "Commercial product with no disclosed backtest methodology",
+            "No published equity curve or sample size"
+          ],
+          "disconfirming_relevance": [
+            "Liquidity sweep is widely known ICT concept; novelty depends on specific detection rules and session boundaries"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:22.226Z",
+                  "completed_at": "2026-07-03T13:28:22.701Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 7,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:23.097Z",
+      "ended_at": "2026-07-03T13:28:23.847Z",
+      "input": {
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "web",
+        "claims_extracted": [
+          "Functional GARCH models forecast intraday volatility curves for major FX currencies preserving full high-frequency trading structure",
+          "Intraday return curves observed at daily frequency but retain intraday volatility analysis capability"
+        ],
+        "limitations": [
+          "Academic forecasting model not directly tradeable as rule-based strategy",
+          "No session-transition specific mechanism described in snippet"
+        ],
+        "disconfirming_relevance": [
+          "Focuses on volatility forecasting not directional session transition edge"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+          "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/metadata.json",
+          "sha256": "cc030b1dae11d0ff087f13ba88bb118755f528cf85dd959f527ee0c554cdd5c3"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday volatility curves for major FX currencies preserving full high-frequency trading structure",
+            "Intraday return curves observed at daily frequency but retain intraday volatility analysis capability"
+          ],
+          "limitations": [
+            "Academic forecasting model not directly tradeable as rule-based strategy",
+            "No session-transition specific mechanism described in snippet"
+          ],
+          "disconfirming_relevance": [
+            "Focuses on volatility forecasting not directional session transition edge"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:23.097Z",
+                  "completed_at": "2026-07-03T13:28:23.735Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 8,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:23.847Z",
+      "ended_at": "2026-07-03T13:28:24.216Z",
+      "input": {
+        "source_id": "SRC-ARXIV-MULT-GARCH-001",
+        "url": "http://arxiv.org/abs/2111.02376v1",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday conditional volatility decomposed into intraday periodic component, intraday stochastic volatility component, and daily conditional volatility component",
+          "Multiplicative component structure separates deterministic intraday seasonality from stochastic volatility"
+        ],
+        "limitations": [
+          "Academic model framework not a trading rule",
+          "No specific session transition hypothesis tested"
+        ],
+        "disconfirming_relevance": [
+          "Decomposition framework may not translate to simple rule-based MT5 execution"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-MULT-GARCH-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULT-GARCH-001/content.md",
+          "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULT-GARCH-001/metadata.json",
+          "sha256": "e7b20a6c1df0825c523b847202ed52de7e10e3fb00a4cf4d6b79b3289a21ef0f"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-MULT-GARCH-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2111.02376v1",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULT-GARCH-001/content.md",
+          "claims_extracted": [
+            "Intraday conditional volatility decomposed into intraday periodic component, intraday stochastic volatility component, and daily conditional volatility component",
+            "Multiplicative component structure separates deterministic intraday seasonality from stochastic volatility"
+          ],
+          "limitations": [
+            "Academic model framework not a trading rule",
+            "No specific session transition hypothesis tested"
+          ],
+          "disconfirming_relevance": [
+            "Decomposition framework may not translate to simple rule-based MT5 execution"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:23.847Z",
+                  "completed_at": "2026-07-03T13:28:24.109Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 9,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:24.216Z",
+      "ended_at": "2026-07-03T13:28:25.462Z",
+      "input": {
+        "query": "Asia London session transition volatility breakout gold XAUUSD strategy quantitative"
+      },
+      "output": {
+        "query": "Asia London session transition volatility breakout gold XAUUSD strategy quantitative",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:28:24.216Z",
+            "completed_at": "2026-07-03T13:28:25.462Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "This is a time-based XAUUSD trading strategy that <strong>exploits the predictable volatility spike that occurs when the London and New York sessions overlap, roughly between 12:00 and 16:00 GMT</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://medium.com/coinmonks/trading-gold-in-the-asian-session-the-hidden-power-of-the-goldmine-strategy-master-gold-breakout-c25cad9e8897",
+            "title": "Trading Gold in the Asian Session: The Hidden Power of the Goldmine Strategy — Master Gold Breakout Strategy. 🥇 | by FXM Brand (Stephen) | Coinmonks | Medium",
+            "snippet": "When most traders think about gold (XAUUSD), they immediately focus on the London or New York sessions. And it’s true — these sessions often deliver the highest volatility and the most obvious moves.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://medium.com/@fxmbrand/asian-session-gold-strategy-how-to-trade-xauusd-like-a-pro-before-london-opens-8614172d4e06",
+            "title": "Asian Session Gold Trading Strategy: How to Trade XAUUSD Like a Pro Before London Opens",
+            "snippet": "If you’re just getting started with gold trading, especially during low-volume sessions like Asia, you need to understand the basics of market structure, volatility, and risk management. Gold (XAUUSD) behaves differently from currencies.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://medium.com/coinmonks/the-hidden-power-of-gold-trading-strategy-in-the-asian-session-faq-version-227d403267c0",
+            "title": "The Hidden Power of Gold Trading Strategy in the Asian Session — FAQ Version | by FXM Brand (Stephen) | Coinmonks | Medium",
+            "snippet": "Below are some of the trades taken with <strong>The Goldmine Strategy</strong> on GOLD (XAUUSD) ... Gold is most active during the London and New York sessions, especially during the overlap. That’s when volume nd volatility are highest.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://fxnx.com/en/blog/gold-trading-strategy-how-to-master-xauusd-volatility-traps",
+            "title": "Gold Trading: 3 Volatility Traps Killing Your Account 💀 | FXNX",
+            "snippet": "Additionally, applying the &quot;Wiggle Room&quot; technique—placing stops roughly 20-30 pips beyond the structural high or low—accounts for XAUUSD&#x27;s high Average Daily Range. This period marks the London-New York overlap, where the world’s two largest financial hubs are active simultaneously, providing the institutional volume necessary to sustain trends. Most &quot;Wick-Proof&quot; breakouts occur during this window, as liquidity is deep enough to prevent the erratic, low-volume price swings seen during the Asian session.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:25.462Z",
+      "ended_at": "2026-07-03T13:28:23.188Z",
+      "input": {
+        "query": "session transition breakout gold XAUUSD volatility regime switching algorithmic"
+      },
+      "output": {
+        "query": "session transition breakout gold XAUUSD volatility regime switching algorithmic",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 11,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:36.548Z",
+      "ended_at": "2026-07-03T13:28:36.548Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly with Tokyo providing first direction",
+          "London injects strong volume and volatility",
+          "New York carries momentum with frequent reversals or continuations",
+          "Session recognition allows adapting to changing market speed, volatility, and liquidity"
+        ],
+        "limitations": [
+          "Article is tutorial-focused on indicator implementation not systematic edge validation",
+          "No backtest or statistical evidence provided"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 12,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:36.548Z",
+      "ended_at": "2026-07-03T13:28:37.858Z",
+      "input": {
+        "query": "London New York session overlap volatility expansion FX metals CFD intraday regime"
+      },
+      "output": {
+        "query": "London New York session overlap volatility expansion FX metals CFD intraday regime",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:28:36.548Z",
+            "completed_at": "2026-07-03T13:28:37.858Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.puprime.com/understanding-forex-session-times-hours-overlaps-and-strategies/",
+            "title": "Understanding Forex Session Times: Hours, Overlaps, and Strategies",
+            "snippet": "Liquidity is high, and sudden bursts of volume can fuel sharp trends. Trend-following in overlaps. <strong>The London–New York overlap is also when lasting intraday trends often develop</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.ig.com/en-ch/learn-to-trade/ig-academy/a-look-at-forex-trading-strategies/trading-the-new-york-session",
+            "title": "Trading the New York session - IG",
+            "snippet": "Once you’ve properly taken risk-management measures, you can stage the entry into the market with any relevant mechanism of support and/or resistance. <strong>As London closes for the day, volatility tends to decrease</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://arongroups.co/forex-articles/london-trading-session/",
+            "title": "Everything You Need to Know About the London Session in Forex (Key Insights)",
+            "snippet": "The London-New York overlap continues until London closes, and <strong>it frequently produces strong intraday trends, breakouts, or sharp reversals, depending on market conditions and economic releases</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.ig.com/en-ch/learn-to-trade/ig-academy/a-look-at-forex-trading-strategies/trading-the-london-session",
+            "title": "Trading the London session - IG",
+            "snippet": "<strong>Remember to watch for the overlap between the London session and the New York session for increased volatility and liquidity</strong> ... PreviousTrading the 24-hour forex market Lesson 4 of 8 NextTrading the New York sessionLesson 6 of 8 ... CFDs are ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://medium.com/@fxmbrand/the-multi-session-gold-blueprint-synchronizing-asian-london-and-new-york-volatility-00bc34d1c7d9",
+            "title": "The Multi-Session Gold Blueprint: Synchronizing Asian, London, and New York Volatility | by FXM Brand (Stephen M.) | May, 2026 | Medium",
+            "snippet": "The New York trading session, particularly during its overlap with the London session, <strong>represents the “Climax” of the 24-hour gold market</strong>. This period is characterized by the highest liquidity and often the most impactful news releases from ...",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:37.858Z",
+      "ended_at": "2026-07-03T13:28:38.225Z",
+      "input": {
+        "query": "London session open breakout strategy volatility compression regime switching forex"
+      },
+      "output": {
+        "query": "London session open breakout strategy volatility compression regime switching forex",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 14,
+      "tool": "search_broker_docs",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:38.225Z",
+      "ended_at": "2026-07-03T13:28:38.859Z",
+      "input": {
+        "query": "trading session hours volatility overlap FTMO MT5 contract specifications"
+      },
+      "output": {
+        "query": "trading session hours volatility overlap FTMO MT5 contract specifications",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_broker_docs",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:28:38.225Z",
+            "completed_at": "2026-07-03T13:28:38.859Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "broker-1",
+            "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+            "title": "Forex Trading Hours and Sessions | FTMO Academy",
+            "snippet": "Markets usually move right after the open and slow down during the London lunch hours as large participants take small breaks before New York kicks in. During the European session, not only are major currencies moving, but we often see high volatility in minors as well.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-2",
+            "url": "https://ftmo.com/en/trading-updates/",
+            "title": "Trading updates | FTMO.com",
+            "snippet": "If you are holding positions overnight, please be reminded that it is your responsibility to check these swaps in the contract specification for each symbol, and to adjust (if needed) and manage your positions accordingly. FTMO is not responsible for trading results affected by swap changes or adjustments. The situation in Ukraine – geopolitical development, sanctions, and markets · Due to the war in Ukraine, traders can experience increased uncertainty in the markets, accompanied by increased volatility on many assets, along with the possibility of price spikes, whipsaws, flash crashes, spread widening and liquidity supply issues.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-3",
+            "url": "https://ftmo.com/en/faq/what-are-the-account-specifications/",
+            "title": "What are the account specifications? | FTMO.com",
+            "snippet": "Platform server time: MetaTrader 4, MetaTrader 5 = <strong>GMT+2 +DST</strong>, cTrader = customised (as per trader’s settings).",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-4",
+            "url": "https://ftmo.com/en/blog/use-the-initial-balance-to-your-advantage/",
+            "title": "Use the Initial Balance to your advantage | FTMO.com",
+            "snippet": "Today, this tool is also used by traders on its own without using the Market Profile, but the principle is the same. It is based on the fact that the volatility and trading volumes executed during the first trading hour after the market opens on a given investment instrument (when traders should not trade) can provide traders with a very good indication of how the price will evolve throughout the following trading session.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-5",
+            "url": "https://ftmo.com/en/blog/why-traders-favour-the-us-trading-session/",
+            "title": "Why Traders Favour the US Trading Session | FTMO.com",
+            "snippet": "If the market has already indicated direction before the overlap, it can often be confirmed and continued during this window. Why it works in the US session: The market digests information from both continents, and if momentum holds, the move often extends into the close of the US session. The US market offers high volatility and strong fundamentals.",
+            "source_class": "broker",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:51.465Z",
+      "ended_at": "2026-07-03T13:28:52.355Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-BREAKOUT-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+          "Recognizing active session allows adapting to changing market speed, volatility, and liquidity",
+          "Session-based breakout tracking in MT5 is implementable via price action analysis"
+        ],
+        "limitations": [
+          "Article is educational/tutorial, not backtested evidence",
+          "No specific asset or timeframe claims",
+          "No quantified session transition effects"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-MQL5-SESSION-BREAKOUT-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-BREAKOUT-001/content.md",
+          "sha256": "1056a9cacaf0b9650642cffb8916c4ddc34909e68d433715acc77a427c90cedd"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-BREAKOUT-001/metadata.json",
+          "sha256": "33d2ad0657b2975e4a07abfd085564b6314139ceeb1466fd9f80803cb8b241f5"
+        },
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-BREAKOUT-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-BREAKOUT-001/content.md",
+          "claims_extracted": [
+            "Asia session tends to start quietly, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Recognizing active session allows adapting to changing market speed, volatility, and liquidity",
+            "Session-based breakout tracking in MT5 is implementable via price action analysis"
+          ],
+          "limitations": [
+            "Article is educational/tutorial, not backtested evidence",
+            "No specific asset or timeframe claims",
+            "No quantified session transition effects"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:51.465Z",
+                  "completed_at": "2026-07-03T13:28:51.702Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 16,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:52.355Z",
+      "ended_at": "2026-07-03T13:28:53.040Z",
+      "input": {
+        "source_id": "SRC-ARXIV-FX-VOLATILITY-CURVE-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday FX volatility curves can be forecasted using functional GARCH models",
+          "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+          "FX intraday volatility has predictable periodic structure tied to trading sessions"
+        ],
+        "limitations": [
+          "Academic modeling paper, not a trading strategy",
+          "Focuses on major FX pairs only, no metals/indices/crypto",
+          "No MT5 implementation"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-FX-VOLATILITY-CURVE-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FX-VOLATILITY-CURVE-001/content.md",
+          "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FX-VOLATILITY-CURVE-001/metadata.json",
+          "sha256": "be5991c3a7d2e7f35ef4084b166ad4763ce3c181d321ce6d359af16a0125f281"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-FX-VOLATILITY-CURVE-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FX-VOLATILITY-CURVE-001/content.md",
+          "claims_extracted": [
+            "Intraday FX volatility curves can be forecasted using functional GARCH models",
+            "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+            "FX intraday volatility has predictable periodic structure tied to trading sessions"
+          ],
+          "limitations": [
+            "Academic modeling paper, not a trading strategy",
+            "Focuses on major FX pairs only, no metals/indices/crypto",
+            "No MT5 implementation"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:52.355Z",
+                  "completed_at": "2026-07-03T13:28:52.915Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 17,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:53.040Z",
+      "ended_at": "2026-07-03T13:28:53.438Z",
+      "input": {
+        "source_id": "SRC-ARXIV-MULTIPLICATIVE-GARCH-001",
+        "url": "http://arxiv.org/abs/2111.02376v1",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday conditional volatility decomposes into periodic component, stochastic volatility component, and daily conditional volatility component",
+          "Intraday volatility has multiplicative periodic structure that varies predictably through the trading day",
+          "Session-based periodicity is a structural feature of intraday volatility"
+        ],
+        "limitations": [
+          "Theoretical model, not directly tradeable",
+          "No specific session transition breakpoint analysis",
+          "No MT5 or CFD instrument coverage"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-MULTIPLICATIVE-GARCH-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIPLICATIVE-GARCH-001/content.md",
+          "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIPLICATIVE-GARCH-001/metadata.json",
+          "sha256": "087b8a228a84640d6d243f92ce79dbe52e96ae7eddf9f4acd4e6ec68cd58b9b8"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-MULTIPLICATIVE-GARCH-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2111.02376v1",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIPLICATIVE-GARCH-001/content.md",
+          "claims_extracted": [
+            "Intraday conditional volatility decomposes into periodic component, stochastic volatility component, and daily conditional volatility component",
+            "Intraday volatility has multiplicative periodic structure that varies predictably through the trading day",
+            "Session-based periodicity is a structural feature of intraday volatility"
+          ],
+          "limitations": [
+            "Theoretical model, not directly tradeable",
+            "No specific session transition breakpoint analysis",
+            "No MT5 or CFD instrument coverage"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:53.040Z",
+                  "completed_at": "2026-07-03T13:28:53.303Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 18,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:53.438Z",
+      "ended_at": "2026-07-03T13:28:54.240Z",
+      "input": {
+        "source_id": "SRC-MQL5-LIQUIDITY-SWEEPER-001",
+        "url": "https://www.mql5.com/en/market/product/132749",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Session Liquidity Sweeper EA capitalizes on liquidity sweeps and breakouts of Asian, London, and New York sessions",
+          "Session-based liquidity sweep mechanism is implementable as MT5 EA",
+          "Different sessions produce distinct liquidity sweep patterns"
+        ],
+        "limitations": [
+          "Commercial product page, no backtest details",
+          "No quantified edge or statistical evidence",
+          "No specific instrument or timeframe specification"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-MQL5-LIQUIDITY-SWEEPER-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEPER-001/content.md",
+          "sha256": "6b463cb8c8447b954338b9c9a586e42b06cd1e2a20dbd2cbab40ffdb17277f83"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEPER-001/metadata.json",
+          "sha256": "344647ca5d38e0109e44b9f3cb466d5e23818d47097c1e23c0aa3b53b911051a"
+        },
+        "source_capture": {
+          "source_id": "SRC-MQL5-LIQUIDITY-SWEEPER-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/market/product/132749",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEPER-001/content.md",
+          "claims_extracted": [
+            "Session Liquidity Sweeper EA capitalizes on liquidity sweeps and breakouts of Asian, London, and New York sessions",
+            "Session-based liquidity sweep mechanism is implementable as MT5 EA",
+            "Different sessions produce distinct liquidity sweep patterns"
+          ],
+          "limitations": [
+            "Commercial product page, no backtest details",
+            "No quantified edge or statistical evidence",
+            "No specific instrument or timeframe specification"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:53.438Z",
+                  "completed_at": "2026-07-03T13:28:53.739Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 19,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:54.240Z",
+      "ended_at": "2026-07-03T13:28:52.839Z",
+      "input": {
+        "query": "gold XAUUSD session opening volatility expansion London Asian range breakout strategy"
+      },
+      "output": {
+        "query": "gold XAUUSD session opening volatility expansion London Asian range breakout strategy",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:28:54.240Z",
+            "completed_at": "2026-07-03T13:28:52.839Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "This is <strong>a time-based XAUUSD trading strategy that exploits the predictable volatility spike that occurs when the London and New York sessions overlap, roughly between 12:00 and 16:00 GMT</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://medium.com/@fxmbrand/asian-session-gold-strategy-how-to-trade-xauusd-like-a-pro-before-london-opens-8614172d4e06",
+            "title": "Asian Session Gold Trading Strategy: How to Trade XAUUSD Like a Pro Before London Opens",
+            "snippet": "The Asian session box indicator also serves as a warning: when gold stays stuck in this zone, the real move is likely to happen before or during the pre-London breakout. Combine this with EMA 200 to get directional bias. The EMA 200 is not just a lagging indicator; in Asian session gold strategy, it becomes a filter for sniper entries. If price is above the EMA 200, your bias should lean bullish. If it’s below, favor bearish setups — especially in the trap zone or liquidity sweep moments. Many XAUUSD entry tools work off raw price action, but combining them with the EMA 200 helps eliminate false breakouts.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://fxnx.com/en/blog/gold-trading-strategy-how-to-master-xauusd-volatility-traps",
+            "title": "Gold Trading: 3 Volatility Traps Killing Your Account 💀 | FXNX",
+            "snippet": "Additionally, applying the &quot;Wiggle Room&quot; technique—placing stops roughly 20-30 pips beyond the structural high or low—accounts for XAUUSD&#x27;s high Average Daily Range. This period marks the London-New York overlap, where the world’s two largest financial hubs are active simultaneously, providing the institutional volume necessary to sustain trends. Most &quot;Wick-Proof&quot; breakouts occur during this window, as liquidity is deep enough to prevent the erratic, low-volume price swings seen during the Asian session.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://medium.com/@fxmbrand/the-multi-session-gold-blueprint-synchronizing-asian-london-and-new-york-volatility-00bc34d1c7d9",
+            "title": "The Multi-Session Gold Blueprint: Synchronizing Asian, London, and New York Volatility | by FXM Brand (Stephen M.) | May, 2026 | Medium",
+            "snippet": "Implementing a robust risk management framework that adapts to the changing market conditions across time zones is not just advisable; it’s a survival imperative for consistent profitability in XAUUSD trading. This adaptive approach ensures capital preservation and longevity in the market. ... Mastering the multi-session gold market is akin to conducting a complex orchestra, where each session plays a vital role in the overall symphony of price action. By understanding the quiet accumulation of the Asian session, the explosive expansion of London, and the climactic volatility of New York, traders can develop a strategic advantage.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://fxnx.com/en/blog/xauusd-asian-session-strategy-trading-accumulation-phase",
+            "title": "Asian Session Gold: The Trap Set Before You Wake Up 🪤 | FXNX",
+            "snippet": "Yes, but it requires a different mindset. Instead of chasing trends, you should <strong>focus on mean reversion and range-bound strategies</strong>. The lower volatility allows for more precise entries near key liquidity levels before the London breakout.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:28:52.839Z",
+      "ended_at": "2026-07-03T13:28:57.231Z",
+      "input": {
+        "query": "session volatility regime detection intraday breakout MQL5 MT5 EA"
+      },
+      "output": {
+        "query": "session volatility regime detection intraday breakout MQL5 MT5 EA",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:28:52.840Z",
+            "completed_at": "2026-07-03T13:28:57.231Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/NR47_Breakout_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/NR47_Breakout_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE/blob/2c7cc8dfe950cb000423048edc7994482034106d/GOLD%20EA%20HIGH%20FREQUENCY%20GOLD%20SCRAPER%20FOR%20MT5",
+            "repo_url": "https://github.com/RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE",
+            "title": "RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE/GOLD EA HIGH FREQUENCY GOLD SCRAPER FOR MT5",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/mnemox-ai/tradememory-protocol/blob/bc9cb0b1abb5e7034396d5cee7a8e829756f658f/docs/ROADMAP.md",
+            "repo_url": "https://github.com/mnemox-ai/tradememory-protocol",
+            "title": "mnemox-ai/tradememory-protocol/docs/ROADMAP.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/drsuksaeng-cyber/FlashEASuite/blob/da9a000141337a11083417fff5b5483b32d34e29/docs/strategies/S09_SessionBreakout_DEEP_Manual.md",
+            "repo_url": "https://github.com/drsuksaeng-cyber/FlashEASuite",
+            "title": "drsuksaeng-cyber/FlashEASuite/docs/strategies/S09_SessionBreakout_DEEP_Manual.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/specs/smc-intraday-bias-ea-spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/specs/smc-intraday-bias-ea-spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:08.210Z",
+      "ended_at": "2026-07-03T13:29:08.210Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly with Tokyo providing first direction",
+          "London injects strong volume and volatility",
+          "New York carries momentum with frequent reversals or continuations",
+          "Session recognition allows adaptation to changing market speed volatility and liquidity"
+        ],
+        "limitations": [
+          "MQL5 article is educational not backtested research",
+          "No quantitative session boundary definitions provided",
+          "No performance metrics or falsifiable claims"
+        ],
+        "disconfirming_relevance": [
+          "Article describes session characteristics qualitatively without specifying tradeable edges at session transitions"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 22,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:08.210Z",
+      "ended_at": "2026-07-03T13:29:08.860Z",
+      "input": {
+        "source_id": "SRC-ARXIV-FXVOL-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "academic",
+        "claims_extracted": [
+          "Functional GARCH models forecast intraday FX volatility curves",
+          "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+          "Major FX currencies show distinct intraday volatility patterns"
+        ],
+        "limitations": [
+          "Focuses on volatility forecasting not directional trading",
+          "Uses daily-frequency observation of intraday curves which may not capture session transition dynamics",
+          "No specific session boundary mechanism tested"
+        ],
+        "disconfirming_relevance": [
+          "Volatility forecasting model may not translate to directional trading alpha",
+          "Functional GARCH is computationally complex for MT5 implementation"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-FXVOL-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/content.md",
+          "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/metadata.json",
+          "sha256": "e84a41b7c05dbc75e08ced2dbceab65fce5dfd78a22de1b6406898946981422d"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-FXVOL-001",
+          "source_type": "academic_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday FX volatility curves",
+            "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+            "Major FX currencies show distinct intraday volatility patterns"
+          ],
+          "limitations": [
+            "Focuses on volatility forecasting not directional trading",
+            "Uses daily-frequency observation of intraday curves which may not capture session transition dynamics",
+            "No specific session boundary mechanism tested"
+          ],
+          "disconfirming_relevance": [
+            "Volatility forecasting model may not translate to directional trading alpha",
+            "Functional GARCH is computationally complex for MT5 implementation"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "academic",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:29:08.210Z",
+                  "completed_at": "2026-07-03T13:29:08.736Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 23,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:08.860Z",
+      "ended_at": "2026-07-03T13:29:10.491Z",
+      "input": {
+        "query": "session breakout London open Asian range MT5 MQL5 EA strategy"
+      },
+      "output": {
+        "query": "session breakout London open Asian range MT5 MQL5 EA strategy",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:08.860Z",
+            "completed_at": "2026-07-03T13:29:10.491Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD/blob/b0087e93c8af6690102c6698b8123186703a9240/DOCS/03_RESEARCH/FINDINGS/XAUUSD_BREAKOUT_EA_PATTERNS_RESEARCH.md",
+            "repo_url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD",
+            "title": "francomascareloai/EA_SCALPER_XAUUSD/DOCS/03_RESEARCH/FINDINGS/XAUUSD_BREAKOUT_EA_PATTERNS_RESEARCH.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Spirovanni/arcana_pulse/blob/47e1d004dae003f55bdfe928c675ba373596e7d2/src/app/(root)/algo-strategies/page.tsx",
+            "repo_url": "https://github.com/Spirovanni/arcana_pulse",
+            "title": "Spirovanni/arcana_pulse/src/app/(root)/algo-strategies/page.tsx",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/mnemox-ai/tradememory-protocol/blob/bc9cb0b1abb5e7034396d5cee7a8e829756f658f/scripts/mt5_sync_v3.py",
+            "repo_url": "https://github.com/mnemox-ai/tradememory-protocol",
+            "title": "mnemox-ai/tradememory-protocol/scripts/mt5_sync_v3.py",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/hillelschuster/trading-research-factory/blob/24247b81728c29ceba5a1dbd46481d5e8e78a014/scripts/run-phase8d-london-breakout-screening.mjs",
+            "repo_url": "https://github.com/hillelschuster/trading-research-factory",
+            "title": "hillelschuster/trading-research-factory/scripts/run-phase8d-london-breakout-screening.mjs",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD/blob/b0087e93c8af6690102c6698b8123186703a9240/MQL5/Include/EA_SCALPER/INDEX.md",
+            "repo_url": "https://github.com/francomascareloai/EA_SCALPER_XAUUSD",
+            "title": "francomascareloai/EA_SCALPER_XAUUSD/MQL5/Include/EA_SCALPER/INDEX.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:10.491Z",
+      "ended_at": "2026-07-03T13:29:11.741Z",
+      "input": {
+        "query": "Asian session range breakout London open volatility expansion gold XAUUSD strategy backtest"
+      },
+      "output": {
+        "query": "Asian session range breakout London open volatility expansion gold XAUUSD strategy backtest",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:10.491Z",
+            "completed_at": "2026-07-03T13:29:11.741Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "<strong>This is a time-based XAUUSD trading strategy that exploits the predictable volatility spike that occurs when the London and New York sessions overlap, roughly between 12:00 and 16:00 GMT</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.mexc.com/news/97991",
+            "title": "The Hidden Power of Gold Trading Strategy in the Asian Session — FAQ Version | MEXC News",
+            "snippet": "Manage risk → Never risk more than 1–2% per&amp;nbsp;trade. Backtest → <strong>Build confidence in your setup before live&amp;nbsp;trading</strong>.the Goldmine strategy for Gold&amp;nbsp;trading What is the most accurate gold indicator?",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://fxnx.com/en/blog/xauusd-asian-session-strategy-trading-accumulation-phase",
+            "title": "Asian Session Gold: The Trap Set Before You Wake Up 🪤 | FXNX",
+            "snippet": "Your Next Step: Open your XAUUSD charts today and map the <strong>00:00 - 06:00 UTC range</strong>. Watch for the 07:00 UTC liquidity sweep tomorrow morning and share your findings in the FXNX community forum to refine your entry timing.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://medium.com/@fxmbrand/asian-session-gold-strategy-how-to-trade-xauusd-like-a-pro-before-london-opens-8614172d4e06",
+            "title": "Asian Session Gold Trading Strategy: How to Trade XAUUSD Like a Pro Before London Opens",
+            "snippet": "If you’re just getting started with gold trading, especially during low-volume sessions like Asia, you need to understand the basics of market structure, volatility, and risk management. Gold (XAUUSD) behaves differently from currencies.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://medium.com/@fxmbrand/the-multi-session-gold-blueprint-synchronizing-asian-london-and-new-york-volatility-00bc34d1c7d9",
+            "title": "The Multi-Session Gold Blueprint: Synchronizing Asian, London, and New York Volatility | by FXM Brand (Stephen M.) | May, 2026 | Medium",
+            "snippet": "<strong>By understanding the quiet accumulation of the Asian session, the explosive expansion of London, and the climactic volatility of New York, traders can develop a strategic advantage</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 25,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:11.741Z",
+      "ended_at": "2026-07-03T13:29:12.148Z",
+      "input": {
+        "query": "London open breakout strategy Asian session range gold indices"
+      },
+      "output": {
+        "query": "London open breakout strategy Asian session range gold indices",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 26,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:23.185Z",
+      "ended_at": "2026-07-03T13:29:23.185Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly, Tokyo provides first true direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+          "Recognizing active session allows traders to adapt to changing market speed, volatility, and liquidity",
+          "Session-based breakout tracking is implementable in MT5"
+        ],
+        "limitations": [
+          "MQL5 article is educational, not peer-reviewed or backtested with disclosed metrics",
+          "Session characterizations are qualitative not quantified"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 27,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:23.185Z",
+      "ended_at": "2026-07-03T13:29:23.185Z",
+      "input": {
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "url": "http://arxiv.org/abs/2111.02376v1",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday conditional volatility decomposed into intraday periodic component, intraday stochastic volatility component, and daily conditional volatility component",
+          "Multiplicative component structure captures session-driven periodicity in intraday volatility",
+          "Intraday periodic component reflects recurring time-of-day volatility patterns tied to trading sessions"
+        ],
+        "limitations": [
+          "Academic model, not directly implementable as EA without adaptation",
+          "No direct MT5 or broker-specific verification"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "source_capture": {
+          "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday volatility curves for major FX currencies preserving full high-frequency trading structure",
+            "Intraday return curves observed at daily frequency but retain intraday volatility analysis capability"
+          ],
+          "limitations": [
+            "Academic forecasting model not directly tradeable as rule-based strategy",
+            "No session-transition specific mechanism described in snippet"
+          ],
+          "disconfirming_relevance": [
+            "Focuses on volatility forecasting not directional session transition edge"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:23.097Z",
+                  "completed_at": "2026-07-03T13:28:23.735Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 28,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:23.185Z",
+      "ended_at": "2026-07-03T13:29:24.701Z",
+      "input": {
+        "query": "MT5 session breakout volatility expansion EA MQL5 session box"
+      },
+      "output": {
+        "query": "MT5 session breakout volatility expansion EA MQL5 session box",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:23.185Z",
+            "completed_at": "2026-07-03T13:29:24.701Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE/blob/2c7cc8dfe950cb000423048edc7994482034106d/GOLD EA HIGH FREQUENCY GOLD SCRAPER FOR MT5",
+            "repo_url": "https://github.com/RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE",
+            "title": "RobertN1D/XAUUSD-GOLD-SCALPER-MT5-EA-FREE-SOURCE-CODE/GOLD EA HIGH FREQUENCY GOLD SCRAPER FOR MT5",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/actg338/XAU/blob/4359acb554dca888fcdd2ccf07f4567226194b3b/en/free-ea.html",
+            "repo_url": "https://github.com/actg338/XAU",
+            "title": "actg338/XAU/en/free-ea.html",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/carlosrod723/MQL5-Trading-Bot/blob/1234e3f000c1bcc3202eecdadb658ce86fda8961/README.md",
+            "repo_url": "https://github.com/carlosrod723/MQL5-Trading-Bot",
+            "title": "carlosrod723/MQL5-Trading-Bot/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/said00001/BTCUSD-Scalping-Intelligence-Engine/blob/f671fb91388e623f296439d89f0c583096fd12dc/app/session_checker/main.py",
+            "repo_url": "https://github.com/said00001/BTCUSD-Scalping-Intelligence-Engine",
+            "title": "said00001/BTCUSD-Scalping-Intelligence-Engine/app/session_checker/main.py",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/Wetende/trade/blob/5aeec7cb69a88dc381dea744a9f60a9ad7070dd8/docs/superpowers/plans/2026-06-10-mt5-market-data-compliance.md",
+            "repo_url": "https://github.com/Wetende/trade",
+            "title": "Wetende/trade/docs/superpowers/plans/2026-06-10-mt5-market-data-compliance.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 29,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:24.701Z",
+      "ended_at": "2026-07-03T13:29:22.438Z",
+      "input": {
+        "query": "London session open breakout strategy gold XAUUSD indices CFD volatility"
+      },
+      "output": {
+        "query": "London session open breakout strategy gold XAUUSD indices CFD volatility",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 30,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:22.438Z",
+      "ended_at": "2026-07-03T13:29:23.661Z",
+      "input": {
+        "query": "session close volatility spike London fix FX intraday regime change quantitative"
+      },
+      "output": {
+        "query": "session close volatility spike London fix FX intraday regime change quantitative",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:22.438Z",
+            "completed_at": "2026-07-03T13:29:23.661Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://fxnx.com/en/blog/london-session-strategy-trading-the-institutional-stop-hunt",
+            "title": "London Session Strategy: Trading the Institutional Stop Hunt",
+            "snippet": "<strong>The 13:00 GMT volume surge often introduces a fresh wave of volatility that can either accelerate your trade or cause a total reversal</strong>. It is best practice to move your stop to break-even or trail it to the 10:30 GMT exhaustion high/low to protect ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://www.rba.gov.au/publications/bulletin/2007/dec/pdf/bu-1207-1.pdf",
+            "title": "Intraday Currency Market Volatility and Turnover",
+            "snippet": "worth of transactions undertaken every day in foreign exchange markets globally, intraday · movements in currencies can have signifi cant effects on fi nancial and economic decisions and ... relatively stable over time. Volatility tends to be higher in the offshore trading session (that is, outside the Sydney trading time zone), particularly during the overlap of trading in London and · New York, the two largest and most liquid foreign exchange markets. Spikes in volatility are",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://arongroups.co/forex-articles/london-trading-session/",
+            "title": "Everything You Need to Know About the London Session in Forex (Key Insights)",
+            "snippet": "This combined trading window typically represents the most volatile period of the entire forex day, as two major financial centres drive order flow simultaneously. The London-New York overlap continues until London closes, and it frequently produces strong intraday trends, breakouts, or sharp reversals, depending on market conditions and economic releases.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://liquidityfinder.com/news/london-session-trading-secrets-how-smart-money-sets-the-high-and-low-of-the-day-7929c",
+            "title": "London Session Trading Secrets: How Smart Money Sets the High & L",
+            "snippet": "GBP/JPY – Highly volatile; London moves are often explosive due to GBP and JPY liquidity shifts. EUR/JPY – Reacts well to European market opens and carry trade flows. ... They are directly impacted by London market opening flows. Many have tight spreads during this session, making them favorable for intraday execution.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.puprime.com/understanding-forex-session-times-hours-overlaps-and-strategies/",
+            "title": "Understanding Forex Session Times: Hours, Overlaps, and Strategies",
+            "snippet": "Breakouts in high-volatility sessions. When London and New York are both active, price swings can accelerate. Breakout strategies that look for moves beyond established ranges are common here. Liquidity is high, and sudden bursts of volume can fuel sharp trends. Trend-following in overlaps. The London–New York overlap is also when lasting intraday trends often develop.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:31.873Z",
+      "ended_at": "2026-07-03T13:29:32.938Z",
+      "input": {
+        "query": "session breakout volatility expansion London New York overlap MQL5 EA indicator"
+      },
+      "output": {
+        "query": "session breakout volatility expansion London New York overlap MQL5 EA indicator",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:31.873Z",
+            "completed_at": "2026-07-03T13:29:32.938Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/cesarmanuel8102/AI_Vault/blob/0b79c7eafd5b051d284e81abe016c48688560613/tmp_agent/strategies/london_breakout/main.py",
+            "repo_url": "https://github.com/cesarmanuel8102/AI_Vault",
+            "title": "cesarmanuel8102/AI_Vault/tmp_agent/strategies/london_breakout/main.py",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/344mehmet/universal-llm-mcp/blob/363b69a77ad2ed8721a141f023691f7f551cefff/ExpertAdvisors/Harmonik_Milyoner_EA.mq5",
+            "repo_url": "https://github.com/344mehmet/universal-llm-mcp",
+            "title": "344mehmet/universal-llm-mcp/ExpertAdvisors/Harmonik_Milyoner_EA.mq5",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/AaronL725/Hermes/blob/0b956cf0fca02ec2b583e953c415a9c093a4c6b2/ForexFactory/rawdata/Simple%20Correlation%20Indicator%20System_20250328_212218_extracted.txt",
+            "repo_url": "https://github.com/AaronL725/Hermes",
+            "title": "AaronL725/Hermes/ForexFactory/rawdata/Simple Correlation Indicator System_20250328_212218_extracted.txt",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/said00001/Hantu-Scalping-XAUUSD-EA-Python-enggine-for-MetaTrader-5/blob/28b02a7785c56a99f95ac5c2bae4d8214cf1ea5f/README.md",
+            "repo_url": "https://github.com/said00001/Hantu-Scalping-XAUUSD-EA-Python-enggine-for-MetaTrader-5",
+            "title": "said00001/Hantu-Scalping-XAUUSD-EA-Python-enggine-for-MetaTrader-5/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/Pusparaj99op/mql5/blob/4338da7689271699ff2d5d62defe2fe6f71af56b/Experts/New%20folder/XAUUSD_ScalperV4.mq5",
+            "repo_url": "https://github.com/Pusparaj99op/mql5",
+            "title": "Pusparaj99op/mql5/Experts/New folder/XAUUSD_ScalperV4.mq5",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "tool": "search_broker_docs",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:32.938Z",
+      "ended_at": "2026-07-03T13:29:34.025Z",
+      "input": {
+        "query": "session timing server time offset GMT FTMO MT5 trading hours metals indices crypto CFD"
+      },
+      "output": {
+        "query": "session timing server time offset GMT FTMO MT5 trading hours metals indices crypto CFD",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_broker_docs",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:32.938Z",
+            "completed_at": "2026-07-03T13:29:34.025Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "broker-1",
+            "url": "https://academy.ftmo.com/lesson/forex-trading-hours-and-sessions/",
+            "title": "Forex Trading Hours and Sessions | FTMO Academy",
+            "snippet": "<strong>Every week on Sunday, the Forex market opens at 9 PM GMT</strong>, which makes the start of the Sydney session. Two hours later, the Tokyo session starts at 11 PM. To ease things up, we can merge these together and call them an Asian session (sometimes ...",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-2",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-5-mar-2026/",
+            "title": "Trading Update | 5 Mar 2026 | FTMO.com",
+            "snippet": "Therefore, trading on all platforms (MT4, MT5, cTrader, and DXtrade) will be unavailable <strong>between 07:00 GMT+2 and 11:00 GMT+3</strong>. Due to this DST change, the trading hours for European stocks (Equities CFD II) and the indices listed below will be ...",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-3",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-26-mar-2026/",
+            "title": "Trading Update | 26 Mar 2026 | FTMO.com",
+            "snippet": "... Please note that the Max Daily ... resets at midnight CET. <strong>Starting 29 Mar 2026 at 04:00 GMT+3 (02:00 CET), the offset between Prague time (CEST) and MetaTrader time (GMT+3) will again be just 1 hour</strong>....",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-4",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-23-oct-2025/",
+            "title": "Trading Update | 23 Oct 2025 | FTMO.com",
+            "snippet": "For example, AIRF will once again trade on MT4 and MT5 <strong>between 10:05 and 18:30</strong>. Please be mindful that Max Daily Loss is monitored based on Prague’s time, and the daily drawdown resets at midnight.",
+            "source_class": "broker",
+            "discovery_only": true
+          },
+          {
+            "result_id": "broker-5",
+            "url": "https://ftmo.com/en/blog/trading-updates/trading-update-12-mar-2026/",
+            "title": "Trading Update | 12 Mar 2026 | FTMO.com",
+            "snippet": "Please note that the Max Daily ... resets at midnight CET. <strong>Starting 29 Mar 2026 at 04:00 GMT+3 (02:00 CET), the offset between Prague time (CEST) and MetaTrader time (GMT+3) will again be just 1 hour</strong>....",
+            "source_class": "broker",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:34.025Z",
+      "ended_at": "2026-07-03T13:29:34.378Z",
+      "input": {
+        "query": "London session close volatility spike reversal gold XAUUSD indices CFD strategy"
+      },
+      "output": {
+        "query": "London session close volatility spike reversal gold XAUUSD indices CFD strategy",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 34,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:34.378Z",
+      "ended_at": "2026-07-03T13:29:37.388Z",
+      "input": {
+        "query": "session liquidity sweep reversal Asian London New York transition volatility regime break CFD"
+      },
+      "output": {
+        "query": "session liquidity sweep reversal Asian London New York transition volatility regime break CFD",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "retry_scheduled",
+            "started_at": "2026-07-03T13:29:34.378Z",
+            "completed_at": "2026-07-03T13:29:34.603Z",
+            "error_class": "Error",
+            "error_message": "Brave source search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"99755fe5-e1c5-41ce-a597-64f44ca3a6d7\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":94,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1783085373}",
+            "failure_class": "transient_retryable_failure",
+            "retryable": true,
+            "backoff_ms": 2000,
+            "final_terminal_state": "retry_pending"
+          },
+          {
+            "attempt_number": 2,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:36.605Z",
+            "completed_at": "2026-07-03T13:29:37.388Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.scribd.com/document/848267237/Strategy-Name-Asian-Liquidity-Sweep-NY-Reversal-Historical-Win-Rate-85-92-with-strict-rules-discipline",
+            "title": "Asian Liquidity Sweep & NY Reversal Strategy | PDF",
+            "snippet": "The &#x27;Asian Liquidity Sweep + NY Reversal&#x27; strategy <strong>focuses on trading USD/JPY during the Asian, London, and NY sessions, with a historical win rate of 85-92%</strong>. It involves identifying liquidity pools and fake breakouts, using specific entry and ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://cloudzy.com/blog/liquidity-sweep/",
+            "title": "Liquidity Sweep in Forex: What It Is & How to Trade · Cloudzy Blog",
+            "snippet": "Liquidity sweeps <strong>most commonly occur during high-volume trading sessions, particularly at the opening of the London and New York sessions</strong>. They also frequently happen around major economic news releases when volatility rises.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://www.luxalgo.com/library/indicator/F3sYchIW-asian-liquidity-sweep-ny-reversal/",
+            "title": "Asian Liquidity Sweep + NY Reversal [NY Only] | Trading Indicato…",
+            "snippet": "<strong>This implementation specifically filters for reversals that manifest during the New York session to capture the &quot;real move&quot; of the day</strong>. It uses internal logic to ensure only one primary signal direction is considered per day based on which liquidity ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://acy.com/en/market-news/education/market-education-anticipating-new-york-session-pullback-continuation-reversal-sideways-smc-j-o-20250813-112207/",
+            "title": "Mastering the New York Session - Smart Money Concepts Guide",
+            "snippet": "Identify if London’s move is impulsive (likely continuation) or corrective (watch for reversal). Mark the London high and low - these serve as intraday liquidity boundaries. Look for sweeps during overlap hours before the true NY move. One of the most volatile 15–30 minutes of the day.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.edgeflo.com/blog/forex-trading-sessions-explained",
+            "title": "Forex Trading Sessions: When to Trade and When to Wait - My Framer Site",
+            "snippet": "Why it works for beginners: London is predictable in its rhythm. <strong>The session tends to sweep Asian session liquidity early, establish a daily bias, and then trend</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 35,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:50.930Z",
+      "ended_at": "2026-07-03T13:29:50.930Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly with Tokyo providing first direction",
+          "London injects strong volume and volatility",
+          "New York carries momentum with frequent reversals or continuations",
+          "Recognizing active session allows adapting to changing market speed, volatility, liquidity",
+          "Session-aware breakout tracking is implementable in MT5"
+        ],
+        "limitations": [
+          "Article is descriptive not backtested",
+          "No specific parameter thresholds provided",
+          "Session boundary definitions are general not FTMO-specific"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 36,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:50.930Z",
+      "ended_at": "2026-07-03T13:29:50.930Z",
+      "input": {
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "web",
+        "claims_extracted": [
+          "Functional GARCH models forecast intraday FX volatility curves preserving high-frequency structure",
+          "Intraday return curves observed at daily frequency but preserve intraday trading structure",
+          "Volatility analysis possible at intraday level using functional data approach"
+        ],
+        "limitations": [
+          "Academic model not directly implementable as rule-based EA",
+          "Focuses on forecasting not trading signals",
+          "Does not address session transitions specifically"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "source_capture": {
+          "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday volatility curves for major FX currencies preserving full high-frequency trading structure",
+            "Intraday return curves observed at daily frequency but retain intraday volatility analysis capability"
+          ],
+          "limitations": [
+            "Academic forecasting model not directly tradeable as rule-based strategy",
+            "No session-transition specific mechanism described in snippet"
+          ],
+          "disconfirming_relevance": [
+            "Focuses on volatility forecasting not directional session transition edge"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:23.097Z",
+                  "completed_at": "2026-07-03T13:28:23.735Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 37,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:50.930Z",
+      "ended_at": "2026-07-03T13:29:54.359Z",
+      "input": {
+        "query": "Asian session range break London open volatility expansion gold XAUUSD strategy backtest"
+      },
+      "output": {
+        "query": "Asian session range break London open volatility expansion gold XAUUSD strategy backtest",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "retry_scheduled",
+            "started_at": "2026-07-03T13:29:50.930Z",
+            "completed_at": "2026-07-03T13:29:51.599Z",
+            "error_class": "Error",
+            "error_message": "Brave source search HTTP 429: {\"type\":\"ErrorResponse\",\"error\":{\"id\":\"0370b0d3-fa06-488b-a6d3-45a6e5cbd65b\",\"status\":429,\"detail\":\"Request rate limit exceeded for plan\",\"meta\":{\"plan\":\"Free\",\"rate_limit\":1,\"rate_current\":1,\"quota_limit\":2000,\"quota_current\":98,\"org_rate_limit\":null,\"org_rate_current\":0,\"component\":\"rate_limiter\"},\"code\":\"RATE_LIMITED\"},\"time\":1783085389}",
+            "failure_class": "transient_retryable_failure",
+            "retryable": true,
+            "backoff_ms": 2000,
+            "final_terminal_state": "retry_pending"
+          },
+          {
+            "attempt_number": 2,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:53.600Z",
+            "completed_at": "2026-07-03T13:29:54.359Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "<strong>This is a time-based XAUUSD trading strategy that exploits the predictable volatility spike that occurs when the London and New York sessions overlap, roughly between 12:00 and 16:00 GMT</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://medium.com/@fxmbrand/asian-session-gold-strategy-how-to-trade-xauusd-like-a-pro-before-london-opens-8614172d4e06",
+            "title": "Asian Session Gold Trading Strategy: How to Trade XAUUSD Like a Pro Before London Opens",
+            "snippet": "3 successful trades in 1 day — Asian session and London session using the setup prepared from asian session ... Option 1: Keep Doing What You’re Doing Keep buying cheap courses that recycle free YouTube content. Keep following signal groups that go dark during drawdowns. Keep blowing accounts chasing volatility you don’t understand. Keep wondering why you’re working harder but getting poorer. Option 2: Try to Figure It Out Alone Spend the next 12 months backtesting, losing money, and slowly piecing together what The Goldmine Strategy already gives you today.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://fxnx.com/en/blog/xauusd-asian-session-strategy-trading-accumulation-phase",
+            "title": "Asian Session Gold: The Trap Set Before You Wake Up 🪤 | FXNX",
+            "snippet": "<strong>The Asian range builds the liquidity pool London raids</strong>. Map the Shanghai Premium, spot the sweep, and enter before the real move starts.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.mexc.com/news/97991",
+            "title": "The Hidden Power of Gold Trading Strategy in the Asian Session — FAQ Version | MEXC News",
+            "snippet": "Manage risk → Never risk more than 1–2% per&amp;nbsp;trade. Backtest → <strong>Build confidence in your setup before live&amp;nbsp;trading</strong>.the Goldmine strategy for Gold&amp;nbsp;trading What is the most accurate gold indicator?",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://medium.com/coinmonks/how-to-backtest-the-goldmine-strategy-for-consistent-gold-profits-bfa20d0925eb",
+            "title": "How to Backtest The Goldmine Strategy for Consistent Gold Profits | by FXM Brand (Stephen M.) | Coinmonks | Medium",
+            "snippet": "Test across different periods: e.g., 2020–2021 (COVID volatility), 2022–2023 (inflation highs), and 2024–2025 (current trends as of October 19, 2025). ... Scan for Asian session ranges (<strong>7:00 PM–3:00 AM EST</strong>).",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 38,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:29:54.359Z",
+      "ended_at": "2026-07-03T13:29:52.737Z",
+      "input": {
+        "query": "session breakout volatility compression expansion MT5 EA MQL5"
+      },
+      "output": {
+        "query": "session breakout volatility compression expansion MT5 EA MQL5",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:29:54.359Z",
+            "completed_at": "2026-07-03T13:29:52.737Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/NR47_Breakout_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/NR47_Breakout_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Atlas00000/MBV_lightwight/blob/3034ef326d986eef1fe46d18a6e33b68e948c10e/EA-%20AI%20powered%20Design.md",
+            "repo_url": "https://github.com/Atlas00000/MBV_lightwight",
+            "title": "Atlas00000/MBV_lightwight/EA- AI powered Design.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/robpitman1982-ux/python-master-strategy-creator/blob/f34977c60354d1e1d09ba42477ebfcbdcbf0ed4b/archive/sessions/SESSION_HANDOVER_55.md",
+            "repo_url": "https://github.com/robpitman1982-ux/python-master-strategy-creator",
+            "title": "robpitman1982-ux/python-master-strategy-creator/archive/sessions/SESSION_HANDOVER_55.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/logiccrafterdz/Argus/blob/a8ba7810432740e8bfc135cdbb94d843a7eaf131/README.md",
+            "repo_url": "https://github.com/logiccrafterdz/Argus",
+            "title": "logiccrafterdz/Argus/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/Grahamovernightly/edgefindr/blob/f20ab3afe66cb35c8a67515d581cf470f6003249/ea/London_Breakout_SR_EA_spec.md",
+            "repo_url": "https://github.com/Grahamovernightly/edgefindr",
+            "title": "Grahamovernightly/edgefindr/ea/London_Breakout_SR_EA_spec.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 39,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:11.135Z",
+      "ended_at": "2026-07-03T13:30:11.135Z",
+      "input": {
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday FX volatility curves preserve full high-frequency trading structure enabling intraday-level volatility analysis",
+          "Functional GARCH models forecast intraday volatility curves for major FX currencies at daily frequency while preserving intraday structure",
+          "Intraday return curves observed at daily frequency yet preserve full high-frequency trading structure"
+        ],
+        "limitations": [
+          "Academic model may not map directly to MT5 tick/bar data without adaptation",
+          "Focuses on forecasting not trading signals",
+          "No session-specific transition mechanism tested"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+        "source_capture": {
+          "source_id": "SRC-ARXIV-INTRADAY-VOL-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday volatility curves for major FX currencies preserving full high-frequency trading structure",
+            "Intraday return curves observed at daily frequency but retain intraday volatility analysis capability"
+          ],
+          "limitations": [
+            "Academic forecasting model not directly tradeable as rule-based strategy",
+            "No session-transition specific mechanism described in snippet"
+          ],
+          "disconfirming_relevance": [
+            "Focuses on volatility forecasting not directional session transition edge"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:23.097Z",
+                  "completed_at": "2026-07-03T13:28:23.735Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 40,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:11.135Z",
+      "ended_at": "2026-07-03T13:30:11.667Z",
+      "input": {
+        "source_id": "SRC-ARXIV-MULTCOMP-VOL-002",
+        "url": "http://arxiv.org/abs/2111.02376v1",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday conditional volatility expressed as product of intraday periodic component, intraday stochastic volatility component, and daily conditional volatility component",
+          "Multiplicative component model separates periodic intraday pattern from stochastic and daily components",
+          "Intraday periodic component captures session-driven regular volatility patterns"
+        ],
+        "limitations": [
+          "Theoretical GARCH model requiring parameter estimation",
+          "No direct MT5 implementation",
+          "Periodic component is descriptive not predictive of transitions"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-MULTCOMP-VOL-002",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTCOMP-VOL-002/content.md",
+          "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTCOMP-VOL-002/metadata.json",
+          "sha256": "964548ee91e08563548aa931caf057dc84438a3fcf88e478fe760ec6a30465ab"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-MULTCOMP-VOL-002",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2111.02376v1",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTCOMP-VOL-002/content.md",
+          "claims_extracted": [
+            "Intraday conditional volatility expressed as product of intraday periodic component, intraday stochastic volatility component, and daily conditional volatility component",
+            "Multiplicative component model separates periodic intraday pattern from stochastic and daily components",
+            "Intraday periodic component captures session-driven regular volatility patterns"
+          ],
+          "limitations": [
+            "Theoretical GARCH model requiring parameter estimation",
+            "No direct MT5 implementation",
+            "Periodic component is descriptive not predictive of transitions"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:30:11.135Z",
+                  "completed_at": "2026-07-03T13:30:11.569Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 41,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:11.667Z",
+      "ended_at": "2026-07-03T13:30:12.591Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-TRACK-003",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start the day quietly, Tokyo provides first true direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+          "Recognizing active session allows traders to adapt to changing market speed, volatility, and liquidity",
+          "Session-aware breakout tracking implemented directly in MQL5 for MT5"
+        ],
+        "limitations": [
+          "Descriptive session characterization without falsifiable statistical test",
+          "Article is tutorial-oriented not research-backed",
+          "No cross-asset or multi-instrument validation mentioned"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-MQL5-SESSION-TRACK-003",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-TRACK-003/content.md",
+          "sha256": "9147684e777c511b9338549e083b753926927309957fe1437017b4a408411c26"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-TRACK-003/metadata.json",
+          "sha256": "16ece88850c56491cc252d1ec1f2eaf4dc3861dd40c6770b4e89d8ec03d7df5c"
+        },
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-TRACK-003",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-TRACK-003/content.md",
+          "claims_extracted": [
+            "Asia session tends to start the day quietly, Tokyo provides first true direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Recognizing active session allows traders to adapt to changing market speed, volatility, and liquidity",
+            "Session-aware breakout tracking implemented directly in MQL5 for MT5"
+          ],
+          "limitations": [
+            "Descriptive session characterization without falsifiable statistical test",
+            "Article is tutorial-oriented not research-backed",
+            "No cross-asset or multi-instrument validation mentioned"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:30:11.667Z",
+                  "completed_at": "2026-07-03T13:30:11.994Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 42,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:20.036Z",
+      "ended_at": "2026-07-03T13:30:21.512Z",
+      "input": {
+        "query": "London close session volatility contraction mean reversion FX gold intraday edge"
+      },
+      "output": {
+        "query": "London close session volatility contraction mean reversion FX gold intraday edge",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:30:20.036Z",
+            "completed_at": "2026-07-03T13:30:21.512Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://www.quantvps.com/blog/when-to-trade-gold",
+            "title": "When to Trade Gold (XAUUSD): Top Strategies",
+            "snippet": "Use trend-following in strong directional markets, breakout trading during consolidation phases, and mean-reversion techniques when prices become overextended. The key is understanding the market environment and applying the right strategy at the right time. Timing matters a lot when it comes to trading gold. The price of gold shifts depending on the trading session, and knowing these patterns can give you an edge. Factors like market liquidity, volatility, and key economic events all influence price behavior.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://fxnx.com/en/blog/gold-trading-strategy-how-to-master-xauusd-volatility-traps",
+            "title": "Gold Trading: 3 Volatility Traps Killing Your Account 💀 | FXNX",
+            "snippet": "<strong>You enter a buy order as price breaks the 2050.00 resistance</strong>. For a moment, you&#x27;re in profit. Then, in a single minute, a massive red candle spikes down, triggering your stop loss by exactly 5 pips before immediately reversing and rallying 200 ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://medium.com/@fxmbrand/the-multi-session-gold-blueprint-synchronizing-asian-london-and-new-york-volatility-00bc34d1c7d9",
+            "title": "The Multi-Session Gold Blueprint: Synchronizing Asian, London, and New York Volatility | by FXM Brand (Stephen M.) | May, 2026 | Medium",
+            "snippet": "Synchronizing these broader seasonal tendencies with the intraday session dynamics allows traders to anticipate market behavior with greater accuracy, enhancing their entry and exit strategies. This holistic approach combines macro and micro perspectives for a comprehensive trading edge. ... Effective risk management is paramount in the volatile 24-hour gold market, and it must be dynamically adjusted across different time zones.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://newyorkcityservers.com/blog/gold-xauusd-trading-strategy",
+            "title": "Gold (XAUUSD) Trading Strategy: Guide for Forex Traders",
+            "snippet": "London Session (07:00 – 16:00 GMT): <strong>Volatility picks up significantly at the London open</strong>. Institutional traders in the world’s largest forex hub begin positioning, and gold typically makes its first major directional move of the day.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://hw.online/faq/what-trading-session-is-gold/",
+            "title": "Which Gold Trading Session is the Most Profitable? A Guide to Market Volatility | Headway",
+            "snippet": "Consequently, <strong>this session favors range trading strategies, where traders capitalize on mean reversion rather than anticipating major trend breakouts</strong>. Volatility surges as the London session opens (approx.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 43,
+      "tool": "search_github_code",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:21.512Z",
+      "ended_at": "2026-07-03T13:30:26.770Z",
+      "input": {
+        "query": "session regime volatility compression expansion M15 H1 MT5 EA indicator"
+      },
+      "output": {
+        "query": "session regime volatility compression expansion M15 H1 MT5 EA indicator",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_github_code",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:30:21.512Z",
+            "completed_at": "2026-07-03T13:30:26.770Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "github-1",
+            "url": "https://github.com/RobertoJimenezGonzalez/EA-Maestro/blob/20222d0ec345e90a12bb4ba7d5d109d1099a3bbd/EA_Maestro_V5_24_REGIME_AWARE_RANKING_BIAS_SIMULATOR.mq5",
+            "repo_url": "https://github.com/RobertoJimenezGonzalez/EA-Maestro",
+            "title": "RobertoJimenezGonzalez/EA-Maestro/EA_Maestro_V5_24_REGIME_AWARE_RANKING_BIAS_SIMULATOR.mq5",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-2",
+            "url": "https://github.com/Shiromama/Trading-bot-/blob/5753230bb0d23e98003aac8762a397a52492c046/Live%20Model_LGBM%20-%20with%20indicators%20-%20Final/mt5_live_LightGBM_indicators%20-%20gold.py",
+            "repo_url": "https://github.com/Shiromama/Trading-bot-",
+            "title": "Shiromama/Trading-bot-/Live Model_LGBM - with indicators - Final/mt5_live_LightGBM_indicators - gold.py",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-3",
+            "url": "https://github.com/TyphooN-/TyphooN-Terminal/blob/252b4f78cfed0d9a050d6cec87b53ff1b2864665/README.md",
+            "repo_url": "https://github.com/TyphooN-/TyphooN-Terminal",
+            "title": "TyphooN-/TyphooN-Terminal/README.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-4",
+            "url": "https://github.com/Omegaiconz13/OMEGA-AI/blob/d39968413291c393a89848f3b12419afb3faf667/src/components/trading/eas.tsx",
+            "repo_url": "https://github.com/Omegaiconz13/OMEGA-AI",
+            "title": "Omegaiconz13/OMEGA-AI/src/components/trading/eas.tsx",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          },
+          {
+            "result_id": "github-5",
+            "url": "https://github.com/mahmoud20138/Tradecraft/blob/760405fc005b30dc958274aba6cc8c4996767857/COMMANDS.md",
+            "repo_url": "https://github.com/mahmoud20138/Tradecraft",
+            "title": "mahmoud20138/Tradecraft/COMMANDS.md",
+            "snippet": "",
+            "source_class": "code",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 44,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:26.770Z",
+      "ended_at": "2026-07-03T13:30:27.121Z",
+      "input": {
+        "query": "session timing volatility regime switching forex gold XAUUSD intraday backtest"
+      },
+      "output": {
+        "query": "session timing volatility regime switching forex gold XAUUSD intraday backtest",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    },
+    {
+      "index": 45,
+      "tool": "search_arxiv",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:27.121Z",
+      "ended_at": "2026-07-03T13:30:28.323Z",
+      "input": {
+        "query": "intraday periodic volatility pattern forex session decomposition daily seasonality"
+      },
+      "output": {
+        "query": "intraday periodic volatility pattern forex session decomposition daily seasonality",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_arxiv",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:30:27.121Z",
+            "completed_at": "2026-07-03T13:30:28.323Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "arxiv-1",
+            "url": "http://arxiv.org/abs/2205.15298v4",
+            "title": "Recognition of near-duplicate periodic patterns by continuous metrics with approximation guarantees",
+            "snippet": "This paper rigorously solves the challenging problem of recognizing periodic patterns under rigid motion in Euclidean geometry. The 3-dimensional case is practically important for justifying the novelty of solid crystalline materials (periodic crystals) and for patenting medical drugs in a solid tab",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-2",
+            "url": "http://arxiv.org/abs/2111.02376v1",
+            "title": "Multiplicative Component GARCH Model of Intraday Volatility",
+            "snippet": "This paper proposes a multiplicative component intraday volatility model. The intraday conditional volatility is expressed as the product of intraday periodic component, intraday stochastic volatility component and daily conditional volatility component. I extend the multiplicative component intrada",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-3",
+            "url": "http://arxiv.org/abs/2404.11813v1",
+            "title": "Detection of a structural break in intraday volatility pattern",
+            "snippet": "We develop theory leading to testing procedures for the presence of a change point in the intraday volatility pattern. The new theory is developed in the framework of Functional Data Analysis. It is based on a model akin to the stochastic volatility model for scalar point-to-point returns. In our co",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-4",
+            "url": "http://arxiv.org/abs/1607.08214v1",
+            "title": "Asymmetric volatility connectedness on forex markets",
+            "snippet": "We show how bad and good volatility propagate through forex markets, i.e., we provide evidence for asymmetric volatility connectedness on forex markets. Using high-frequency, intra-day data of the most actively traded currencies over 2007 - 2015 we document the dominating asymmetries in spillovers t",
+            "source_class": "academic",
+            "discovery_only": true
+          },
+          {
+            "result_id": "arxiv-5",
+            "url": "http://arxiv.org/abs/2311.18477v3",
+            "title": "Intraday FX Volatility-Curve Forecasting with Functional GARCH Approaches",
+            "snippet": "This paper seeks to forecast intraday volatility curves for major foreign exchange (FX) currencies using functional GARCH models. Intraday return curves are observed at a daily frequency, yet preserve the full high-frequency trading structure, enabling volatility analysis at the intraday level. We d",
+            "source_class": "academic",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 46,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:42.736Z",
+      "ended_at": "2026-07-03T13:30:42.736Z",
+      "input": {
+        "source_id": "SRC-MQL5-SESSION-001",
+        "url": "https://www.mql5.com/en/articles/19944",
+        "source_class": "mql5",
+        "claims_extracted": [
+          "Asia session tends to start quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+          "Session recognition allows adapting to changing market speed, volatility, and liquidity",
+          "Session breakouts tracked in MetaTrader 5 with session-specific characteristics"
+        ],
+        "limitations": [
+          "Article is educational/tutorial, not backtested evidence",
+          "No specific falsifiable thresholds or parameters provided",
+          "Session boundary timing may differ by broker server time"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-MQL5-SESSION-001",
+        "source_capture": {
+          "source_id": "SRC-MQL5-SESSION-001",
+          "source_type": "mql5_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "https://www.mql5.com/en/articles/19944",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+          "claims_extracted": [
+            "Asia session starts quietly, Tokyo provides first direction, London injects strong volume and volatility, New York carries momentum with frequent reversals or continuations",
+            "Session identification enables adaptation to changing market speed, volatility, and liquidity",
+            "Session breakouts tracked in MetaTrader 5 with price action toolkit"
+          ],
+          "limitations": [
+            "Article is instructional not empirical backtest",
+            "No quantified session transition edge or win rate data"
+          ],
+          "disconfirming_relevance": [
+            "Session descriptions are well-known and may not yield novel edge beyond standard calendar gating"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "mql5",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:28:21.125Z",
+                  "completed_at": "2026-07-03T13:28:21.485Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 47,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:42.736Z",
+      "ended_at": "2026-07-03T13:30:42.736Z",
+      "input": {
+        "source_id": "SRC-ARXIV-FXVOL-001",
+        "url": "http://arxiv.org/abs/2311.18477v3",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+          "Functional GARCH models forecast intraday volatility curves for major FX currencies",
+          "Intraday volatility has periodic structure tied to trading sessions"
+        ],
+        "limitations": [
+          "Academic model not directly implementable as simple MT5 EA rules",
+          "Requires high-frequency data not necessarily available in MT5 bars",
+          "No session-specific threshold rules provided"
+        ]
+      },
+      "output": {
+        "status": "already_captured",
+        "source_id": "SRC-ARXIV-FXVOL-001",
+        "source_capture": {
+          "source_id": "SRC-ARXIV-FXVOL-001",
+          "source_type": "academic_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2311.18477v3",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/content.md",
+          "claims_extracted": [
+            "Functional GARCH models forecast intraday FX volatility curves",
+            "Intraday return curves preserve full high-frequency trading structure enabling intraday volatility analysis",
+            "Major FX currencies show distinct intraday volatility patterns"
+          ],
+          "limitations": [
+            "Focuses on volatility forecasting not directional trading",
+            "Uses daily-frequency observation of intraday curves which may not capture session transition dynamics",
+            "No specific session boundary mechanism tested"
+          ],
+          "disconfirming_relevance": [
+            "Volatility forecasting model may not translate to directional trading alpha",
+            "Functional GARCH is computationally complex for MT5 implementation"
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "academic",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:29:08.210Z",
+                  "completed_at": "2026-07-03T13:29:08.736Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 48,
+      "tool": "capture_url_source",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:42.736Z",
+      "ended_at": "2026-07-03T13:30:43.311Z",
+      "input": {
+        "source_id": "SRC-ARXIV-MULTIGARCH-001",
+        "url": "http://arxiv.org/abs/2111.02376v1",
+        "source_class": "web",
+        "claims_extracted": [
+          "Intraday conditional volatility decomposed into periodic component, stochastic volatility component, and daily conditional volatility component",
+          "Multiplicative structure captures intraday periodicity tied to trading sessions",
+          "Periodic intraday component captures session-driven U-shape volatility patterns"
+        ],
+        "limitations": [
+          "Model complexity may not translate to simple rule-based EA logic",
+          "No specific session-transition thresholds given",
+          "Academic focus on modeling rather than trading signals"
+        ]
+      },
+      "output": {
+        "status": "captured",
+        "source_id": "SRC-ARXIV-MULTIGARCH-001",
+        "content": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIGARCH-001/content.md",
+          "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b"
+        },
+        "metadata": {
+          "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIGARCH-001/metadata.json",
+          "sha256": "22a5e83e7ad248a51e4b7485ca5719d6f43ccd20d5c950b23f4aad6b682c3b63"
+        },
+        "source_capture": {
+          "source_id": "SRC-ARXIV-MULTIGARCH-001",
+          "source_type": "web_captured_source",
+          "trust_tier": "low_signal_trust",
+          "url_or_path_or_doi": "http://arxiv.org/abs/2111.02376v1",
+          "content_path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIGARCH-001/content.md",
+          "claims_extracted": [
+            "Intraday conditional volatility decomposed into periodic component, stochastic volatility component, and daily conditional volatility component",
+            "Multiplicative structure captures intraday periodicity tied to trading sessions",
+            "Periodic intraday component captures session-driven U-shape volatility patterns"
+          ],
+          "limitations": [
+            "Model complexity may not translate to simple rule-based EA logic",
+            "No specific session-transition thresholds given",
+            "Academic focus on modeling rather than trading signals"
+          ],
+          "disconfirming_relevance": [
+            "Source-backed mechanism may fail later deterministic WFA and MT5 cost checks."
+          ],
+          "provider_provenance": {
+            "tool": "capture_url_source",
+            "source_class": "web",
+            "live_research": true,
+            "deterministic_capture": true,
+            "adapter": {
+              "provider": "brave_search_api_capture",
+              "live_fetch": true,
+              "provider_native_search_enabled": false,
+              "retry_attempts": [
+                {
+                  "attempt_number": 1,
+                  "phase": "researchbrain_source_capture:capture_url_source",
+                  "status": "succeeded",
+                  "started_at": "2026-07-03T13:30:42.736Z",
+                  "completed_at": "2026-07-03T13:30:43.190Z",
+                  "retryable": false,
+                  "backoff_ms": 0,
+                  "final_terminal_state": "succeeded"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 49,
+      "tool": "search_web",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:43.311Z",
+      "ended_at": "2026-07-03T13:30:44.567Z",
+      "input": {
+        "query": "Asian session range breakout London open volatility expansion strategy backtest"
+      },
+      "output": {
+        "query": "Asian session range breakout London open volatility expansion strategy backtest",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [
+          {
+            "attempt_number": 1,
+            "phase": "researchbrain_source_search:search_web",
+            "status": "succeeded",
+            "started_at": "2026-07-03T13:30:43.311Z",
+            "completed_at": "2026-07-03T13:30:44.567Z",
+            "retryable": false,
+            "backoff_ms": 0,
+            "final_terminal_state": "succeeded"
+          }
+        ],
+        "results": [
+          {
+            "result_id": "brave-1",
+            "url": "https://newyorkcityservers.com/blog/london-breakout-strategy",
+            "title": "London Breakout Strategy: How to Trade the Session Open",
+            "snippet": "<strong>Price pushes past the Asian range, triggers your entry, then reverses</strong>. To reduce false breakout losses: Wait for a candle close above or below the range before entering (instead of pending orders) Add a volume or momentum filter (e.g., the breakout ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-2",
+            "url": "https://newyorkcityservers.com/blog/asian-session-forex-strategy",
+            "title": "Asian Session Forex Strategy: Low-Volatility Trading Guide",
+            "snippet": "<strong>Restrict your EA to trade only during 21:00-06:00 GMT</strong> (or your preferred Asian session window). Never let an Asian session EA trade into London. Enable the news filter. Configure it to pause trading 30 minutes before and 15 minutes after high-impact ...",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-3",
+            "url": "https://liquidityfinder.com/news/asian-session-secrets-will-it-consolidate-or-break-out-smc-blueprint-e34b9",
+            "title": "Asian Session Secrets: Will It Consolidate or Break Out?",
+            "snippet": "JPY Crosses (GBP/JPY, EUR/JPY) → Highly volatile, especially if London later joins the flow. Don’t assume movement: Many sessions will still consolidate. Beware of fakeouts: First 1–2 hours of Tokyo often sweep highs/lows before returning inside range. Don’t force trades: If Asia is clearly ranging, your edge comes from mapping liquidity for London. ... It’s often the setup phase in the AMD cycle - either accumulating for the next expansion or manipulating before the real move.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-4",
+            "url": "https://www.reddit.com/r/Trading/comments/1j9q0nx/backtest_results_for_the_opening_range_breakout/",
+            "title": "r/Trading on Reddit: Backtest Results for the Opening Range Breakout Strategy",
+            "snippet": "I ran over 100 backtests on an RSI mean-reversion strategy over a month. Here&#x27;s what I learned ... Seeking feedback on my London Session / Asian Range Liquidity strategy.",
+            "source_class": "web",
+            "discovery_only": true
+          },
+          {
+            "result_id": "brave-5",
+            "url": "https://www.quantifiedstrategies.com/london-breakout-strategy/",
+            "title": "London Breakout Strategy: Rules and Backtest Performance - QuantifiedStrategies.com",
+            "snippet": "For instance, <strong>entering a long position on a breakout above the high of the Asian session range and exiting at various times between 12:00 and 17:00 London time often resulted in losses</strong>.",
+            "source_class": "web",
+            "discovery_only": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 50,
+      "tool": "search_reddit",
+      "status": "ok",
+      "started_at": "2026-07-03T13:30:44.567Z",
+      "ended_at": "2026-07-03T13:30:44.762Z",
+      "input": {
+        "query": "session volatility regime change London close New York open FX gold trading edge"
+      },
+      "output": {
+        "query": "session volatility regime change London close New York open FX gold trading edge",
+        "provider": "composite_researchbrain_source_tool_adapter",
+        "discovery_only": true,
+        "provider_native_search_enabled": false,
+        "retry_attempts": [],
+        "results": []
+      }
+    }
+  ],
+  "captured_artifacts": [
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/content.md",
+      "sha256": "0a829ef18d5eae34ffd5605a1062d024fc30572f6ef7ca7daf2bc026b2a3f10b",
+      "source_id": "SRC-MQL5-SESSION-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-001/metadata.json",
+      "sha256": "01235165fe045f69fc0200576870b51d39b1a71b72237461e833bcae54e34c20",
+      "source_id": "SRC-MQL5-SESSION-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEP-001/content.md",
+      "sha256": "d8db5e3313fff9a645927c7ad8eac46979c64d6228a23d3518ac59b57c3b3c69",
+      "source_id": "SRC-MQL5-LIQUIDITY-SWEEP-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEP-001/metadata.json",
+      "sha256": "3fe684be6b81a486918cce3d4a0056535b8c15ace567d82d3d73d1310bc6ed08",
+      "source_id": "SRC-MQL5-LIQUIDITY-SWEEP-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/content.md",
+      "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c",
+      "source_id": "SRC-ARXIV-INTRADAY-VOL-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-INTRADAY-VOL-001/metadata.json",
+      "sha256": "cc030b1dae11d0ff087f13ba88bb118755f528cf85dd959f527ee0c554cdd5c3",
+      "source_id": "SRC-ARXIV-INTRADAY-VOL-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULT-GARCH-001/content.md",
+      "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b",
+      "source_id": "SRC-ARXIV-MULT-GARCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULT-GARCH-001/metadata.json",
+      "sha256": "e7b20a6c1df0825c523b847202ed52de7e10e3fb00a4cf4d6b79b3289a21ef0f",
+      "source_id": "SRC-ARXIV-MULT-GARCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-BREAKOUT-001/content.md",
+      "sha256": "1056a9cacaf0b9650642cffb8916c4ddc34909e68d433715acc77a427c90cedd",
+      "source_id": "SRC-MQL5-SESSION-BREAKOUT-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-BREAKOUT-001/metadata.json",
+      "sha256": "33d2ad0657b2975e4a07abfd085564b6314139ceeb1466fd9f80803cb8b241f5",
+      "source_id": "SRC-MQL5-SESSION-BREAKOUT-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FX-VOLATILITY-CURVE-001/content.md",
+      "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c",
+      "source_id": "SRC-ARXIV-FX-VOLATILITY-CURVE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FX-VOLATILITY-CURVE-001/metadata.json",
+      "sha256": "be5991c3a7d2e7f35ef4084b166ad4763ce3c181d321ce6d359af16a0125f281",
+      "source_id": "SRC-ARXIV-FX-VOLATILITY-CURVE-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIPLICATIVE-GARCH-001/content.md",
+      "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b",
+      "source_id": "SRC-ARXIV-MULTIPLICATIVE-GARCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIPLICATIVE-GARCH-001/metadata.json",
+      "sha256": "087b8a228a84640d6d243f92ce79dbe52e96ae7eddf9f4acd4e6ec68cd58b9b8",
+      "source_id": "SRC-ARXIV-MULTIPLICATIVE-GARCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEPER-001/content.md",
+      "sha256": "6b463cb8c8447b954338b9c9a586e42b06cd1e2a20dbd2cbab40ffdb17277f83",
+      "source_id": "SRC-MQL5-LIQUIDITY-SWEEPER-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-LIQUIDITY-SWEEPER-001/metadata.json",
+      "sha256": "344647ca5d38e0109e44b9f3cb466d5e23818d47097c1e23c0aa3b53b911051a",
+      "source_id": "SRC-MQL5-LIQUIDITY-SWEEPER-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/content.md",
+      "sha256": "74f87022d85c2ac54f6dd7140a4ccec68afd058a282159d2d1b1481183d6bd9c",
+      "source_id": "SRC-ARXIV-FXVOL-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-FXVOL-001/metadata.json",
+      "sha256": "e84a41b7c05dbc75e08ced2dbceab65fce5dfd78a22de1b6406898946981422d",
+      "source_id": "SRC-ARXIV-FXVOL-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTCOMP-VOL-002/content.md",
+      "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b",
+      "source_id": "SRC-ARXIV-MULTCOMP-VOL-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTCOMP-VOL-002/metadata.json",
+      "sha256": "964548ee91e08563548aa931caf057dc84438a3fcf88e478fe760ec6a30465ab",
+      "source_id": "SRC-ARXIV-MULTCOMP-VOL-002"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-TRACK-003/content.md",
+      "sha256": "9147684e777c511b9338549e083b753926927309957fe1437017b4a408411c26",
+      "source_id": "SRC-MQL5-SESSION-TRACK-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-MQL5-SESSION-TRACK-003/metadata.json",
+      "sha256": "16ece88850c56491cc252d1ec1f2eaf4dc3861dd40c6770b4e89d8ec03d7df5c",
+      "source_id": "SRC-MQL5-SESSION-TRACK-003"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_source",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIGARCH-001/content.md",
+      "sha256": "a9b055aff37d1004810e89027fc3e4112b429b1c22dd32612cc69a4f7f69bf0b",
+      "source_id": "SRC-ARXIV-MULTIGARCH-001"
+    },
+    {
+      "artifact_type": "researchbrain_captured_url_metadata",
+      "path": "factory/research/runs/RUN-STEP14B-GLM-SESSION-REGIME-20260703T132751Z/tool-captures/url/SRC-ARXIV-MULTIGARCH-001/metadata.json",
+      "sha256": "22a5e83e7ad248a51e4b7485ca5719d6f43ccd20d5c950b23f4aad6b682c3b63",
+      "source_id": "SRC-ARXIV-MULTIGARCH-001"
+    }
+  ],
+  "failure": "ResearchBrain tool call budget exceeded: 50"
+}

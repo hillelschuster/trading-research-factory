@@ -251,44 +251,17 @@ async function executeGate0(paths) {
 
 async function executeGate1(paths) {
   const startedAt = new Date().toISOString();
-  const before = snapshotState(paths);
-  const commandResult = runCommand(paths.root, "simulate", process.execPath, ["src/cli.mjs", "run", "--mode", "simulate", "--cycles", "1", "--interval-ms", "1", "--no-open-browser"]);
-  const after = snapshotState(paths);
-  const newRunIds = listRunIds(paths).filter((runId) => !before.runIds.has(runId));
-  const targetRunId = newRunIds.at(-1) || null;
-  const sessionIds = targetRunId ? readSessionIdsForRun(paths, targetRunId) : [];
-  const newEvidence = after.evidence.filter((entry) => newRunIds.includes(entry?.run_id));
-  const newLeaderboard = after.leaderboard.filter((entry) => !before.leaderboard.some((prior) => JSON.stringify(prior) === JSON.stringify(entry)));
-  const acceptanceChecks = {
-    simulate_command_green: commandResult.success,
-    single_new_run_created: newRunIds.length === 1,
-    no_session_reuse_contamination: sessionIds.length > 0 && new Set(sessionIds).size === sessionIds.length,
-    no_false_promotion: newEvidence.length > 0
-      && newEvidence.every((entry) => entry?.mode === "simulate")
-      && newLeaderboard.every((entry) => entry?.mode !== "simulate")
-  };
-  const gateStatus = Object.values(acceptanceChecks).every(Boolean) ? "passed" : "failed";
-  const runDir = targetRunId ? path.join(paths.runs, targetRunId) : null;
-  const evidencePaths = ["factory/health.json"];
-  if (runDir) {
-    evidencePaths.push(relativeToRoot(paths, path.join(runDir, "gate-results.json")));
-  }
-  const finalized = finalizeRolloutGateExecution(paths, {
+  return finalizeRolloutGateExecution(paths, {
     gate_id: "gate-1",
     gate_name: "simulated control-plane gate",
-    gate_status: gateStatus,
+    gate_status: "retired",
     gate_started_at: startedAt,
     gate_finished_at: new Date().toISOString(),
-    command_results: [commandResult],
-    acceptance_checks: acceptanceChecks,
-    evidence_paths: evidencePaths,
-    notes: targetRunId ? [`Evaluated simulate run ${targetRunId}.`] : ["No new simulate run was created by Gate 1."]
+    command_results: [],
+    acceptance_checks: {},
+    evidence_paths: [],
+    notes: ["Gate 1 retired: simulate mode was removed. Live mode is the only mode."]
   });
-  return {
-    ...finalized,
-    runId: targetRunId,
-    newRunIds
-  };
 }
 
 async function executeGate2(paths) {

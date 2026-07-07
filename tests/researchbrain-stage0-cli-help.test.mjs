@@ -22,8 +22,7 @@ const STAGE0_VALUE_COMMANDS = [
   "scripts/run-researchbrain-stage0-diagnostics.mjs",
   "scripts/run-researchbrain-stage0-job-seeder.mjs",
   "scripts/run-researchbrain-stage0-supervisor.mjs",
-  "scripts/run-researchbrain-stage0-readiness.mjs",
-  "scripts/run-researchbrain-stage0-manifest.mjs"
+  "scripts/run-researchbrain-stage0-readiness.mjs"
 ];
 
 test("ResearchBrain Stage-0 CLI help preserves safety boundaries and package aliases", () => {
@@ -72,6 +71,7 @@ test("ResearchBrain Stage-0 CLI help preserves safety boundaries and package ali
       assert.match(result.stdout, /--llm-api-key-env/);
       assert.match(result.stdout, /--llm-base-url/);
       assert.match(result.stdout, /--llm-max-tokens/);
+      assert.match(result.stdout, /--llm-reasoning-effort/);
       assert.match(result.stdout, /--max-llm-calls/);
       assert.match(result.stdout, /--tool-mode/);
       assert.match(result.stdout, /--allow-tool/);
@@ -132,6 +132,32 @@ test("ResearchBrain LLM preset deepseek_v4_flash_xhigh sets deepseek provider wi
   assert.equal(presetArgs.llmApiKeyEnv, "DEEPSEEK_API_KEY");
   assert.equal(presetArgs.llmMaxTokens, 8192);
   assert.equal(presetArgs.llmBaseUrl, undefined);
+});
+
+test("ResearchBrain LLM preset opencode_go_kimi_xhigh routes kimi-k2.7-code via OpenCode Go", () => {
+  const presetArgs = applyResearchBrainLlmPreset({
+    providerMode: "live_llm_agent",
+    allowLiveLlm: true,
+    llmPreset: "opencode_go_kimi_xhigh"
+  });
+  assert.equal(presetArgs.llmProvider, "openai_compatible");
+  assert.equal(presetArgs.llmModel, "kimi-k2.7-code");
+  assert.equal(presetArgs.llmApiKeyEnv, "OPENCODE_GO_API_KEY");
+  assert.equal(presetArgs.llmBaseUrl, "https://opencode.ai/zen/go/v1");
+  assert.equal(presetArgs.llmMaxTokens, 8192);
+});
+
+test("ResearchBrain LLM preset opencode_go_glm_xhigh routes glm-5.2 via OpenCode Go", () => {
+  const presetArgs = applyResearchBrainLlmPreset({
+    providerMode: "live_llm_agent",
+    allowLiveLlm: true,
+    llmPreset: "opencode_go_glm_xhigh"
+  });
+  assert.equal(presetArgs.llmProvider, "openai_compatible");
+  assert.equal(presetArgs.llmModel, "glm-5.2");
+  assert.equal(presetArgs.llmApiKeyEnv, "OPENCODE_GO_API_KEY");
+  assert.equal(presetArgs.llmBaseUrl, "https://opencode.ai/zen/go/v1");
+  assert.equal(presetArgs.llmMaxTokens, 8192);
 });
 
 test("ResearchBrain LLM preset opencode_deepseek_v4_pro is still recognized and sets OpenCode base URL", () => {

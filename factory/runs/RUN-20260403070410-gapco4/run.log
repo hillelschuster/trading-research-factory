@@ -1,6 +1,0 @@
-{"ts":"2026-04-03T07:04:13.005Z","run_id":"RUN-20260403070410-gapco4","message":"Starting run","extra":{"iteration":95,"backlog_item_id":"AUTO-1775154272196-pvj","mode":"simulate","resume_from_stage":"planner","run_id":"RUN-20260403070410-gapco4"}}
-{"ts":"2026-04-03T07:04:14.737Z","run_id":"RUN-20260403070410-gapco4","message":"Planner completed","extra":{"experiment_id":"EXP-20260403070413-02"}}
-{"ts":"2026-04-03T07:04:20.229Z","run_id":"RUN-20260403070410-gapco4","message":"Executor completed","extra":{"status":"partial"}}
-{"ts":"2026-04-03T07:04:21.781Z","run_id":"RUN-20260403070410-gapco4","message":"Evaluator completed","extra":{"verdict":"inconclusive","evidence_score":25}}
-{"ts":"2026-04-03T07:04:23.909Z","run_id":"RUN-20260403070410-gapco4","message":"Summarizer completed","extra":{"run_id":"RUN-20260403070410-gapco4","verdict":"inconclusive"}}
-{"ts":"2026-04-03T07:04:24.016Z","run_id":"RUN-20260403070410-gapco4","message":"Run completed","extra":{"run_id":"RUN-20260403070410-gapco4","verdict":"inconclusive","iteration":95}}

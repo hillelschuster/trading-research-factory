@@ -6,6 +6,7 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .opencode/
+.slim/deepwork/
 node_modules/
 .DS_Store
 Thumbs.db

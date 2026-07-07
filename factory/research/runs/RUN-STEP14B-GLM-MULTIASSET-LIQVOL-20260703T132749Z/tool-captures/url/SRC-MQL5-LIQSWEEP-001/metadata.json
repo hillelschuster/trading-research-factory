@@ -1,0 +1,26 @@
+{
+  "source_id": "SRC-MQL5-LIQSWEEP-001",
+  "url": "https://www.mql5.com/en/market/product/167559",
+  "title": "Session Liquidity Sweep MT5 | Buy Trading Indicator for MetaTrader 5",
+  "source_class": "mql5",
+  "captured_at": "2026-07-03T13:27:49.411Z",
+  "live_fetch": true,
+  "deterministic_capture": true,
+  "adapter": {
+    "provider": "brave_search_api_capture",
+    "provider_native_search_enabled": false
+  },
+  "retry_attempts": [
+    {
+      "attempt_number": 1,
+      "phase": "researchbrain_source_capture:capture_url_source",
+      "status": "succeeded",
+      "started_at": "2026-07-03T13:28:53.633Z",
+      "completed_at": "2026-07-03T13:28:53.865Z",
+      "retryable": false,
+      "backoff_ms": 0,
+      "final_terminal_state": "succeeded"
+    }
+  ],
+  "content_sha256": "ba5a42e556fc03f0434f9ea0a95764904a1abcf3bc687efcd2516e0bac2957f3"
+}

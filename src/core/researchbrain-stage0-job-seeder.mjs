@@ -38,6 +38,27 @@ function jsonObjectFromText(value) {
   }
 }
 
+// Maps request.job_settings snake_case keys to camelCase runtimeOptions keys
+// used by buildPayload(). Only the fields relevant to LLM/source/provider settings.
+const JOB_SETTINGS_SNAKE_TO_CAMEL = {
+  llm_provider: "llmProvider",
+  llm_model: "llmModel",
+  llm_reasoning_effort: "llmReasoningEffort",
+  llm_max_tokens: "llmMaxTokens",
+  llm_api_key_env: "llmApiKeyEnv",
+  llm_base_url: "llmBaseUrl",
+  llm_base_url_env: "llmBaseUrlEnv",
+  source_provider: "sourceProvider",
+  source_api_key_env: "sourceApiKeyEnv",
+  tool_mode: "toolMode",
+  max_llm_calls: "maxLlmCalls",
+  max_tool_calls: "maxToolCalls",
+  max_cost_usd: "maxCostUsd",
+  max_transcript_bytes: "maxTranscriptBytes",
+  allow_live_source_search: "allowLiveSourceSearch",
+  allow_live_source_capture: "allowLiveSourceCapture"
+};
+
 function resolveRepoRelativePath(rootDir, repoPath, label = "path") {
   if (typeof repoPath !== "string" || repoPath.trim().length === 0 || path.isAbsolute(repoPath)) {
     throw new Error(`ResearchBrain Stage-0 job seed ${label} must be a repo-relative path.`);
@@ -88,9 +109,26 @@ function buildPayload({ requestPath, requestSha256, request, runtimeOptions }) {
     ["max_provider_calls", "maxProviderCalls"],
     ["timeout_ms", "timeoutMs"],
     ["max_output_bytes", "maxOutputBytes"],
-    ["retry_delay_ms", "retryDelayMs"]
+    ["retry_delay_ms", "retryDelayMs"],
+    ["llm_provider", "llmProvider"],
+    ["llm_model", "llmModel"],
+    ["llm_reasoning_effort", "llmReasoningEffort"],
+    ["llm_max_tokens", "llmMaxTokens"],
+    ["llm_api_key_env", "llmApiKeyEnv"],
+    ["llm_base_url", "llmBaseUrl"],
+    ["llm_base_url_env", "llmBaseUrlEnv"],
+    ["source_provider", "sourceProvider"],
+    ["source_api_key_env", "sourceApiKeyEnv"],
+    ["tool_mode", "toolMode"],
+    ["max_llm_calls", "maxLlmCalls"],
+    ["max_tool_calls", "maxToolCalls"],
+    ["max_cost_usd", "maxCostUsd"],
+    ["max_transcript_bytes", "maxTranscriptBytes"],
+    ["allow_live_source_search", "allowLiveSourceSearch"],
+    ["allow_live_source_capture", "allowLiveSourceCapture"]
   ]) {
-    if (runtimeOptions[source] !== undefined) payload[target] = runtimeOptions[source];
+    // Skip null/undefined — only add to payload if the value is meaningful
+    if (runtimeOptions[source] !== undefined && runtimeOptions[source] !== null) payload[target] = runtimeOptions[source];
   }
   return payload;
 }
@@ -214,7 +252,16 @@ export function seedResearchBrainStage0Job({
   const request = JSON.parse(fs.readFileSync(fullPath, "utf8"));
   validateResearchBrainRequest(request, { rootDir: root, requireExisting: true });
   const ids = stableIds({ request, requestPath: relative, requestSha256: actualSha });
+
+  // Merge job-specific settings from the request artifact into runtime options.
+  // Function-level params (providerMode, outputDir, etc.) take priority over request settings.
+  const requestJobSettings = request.job_settings ?? {};
   const runtimeOptions = { runId: ids.run_id, providerMode, outputDir, maxAttempts, maxProviderCalls, timeoutMs, maxOutputBytes, retryDelayMs };
+  for (const [snakeKey, camelKey] of Object.entries(JOB_SETTINGS_SNAKE_TO_CAMEL)) {
+    if (requestJobSettings[snakeKey] !== undefined && runtimeOptions[camelKey] === undefined) {
+      runtimeOptions[camelKey] = requestJobSettings[snakeKey];
+    }
+  }
   const payload = buildPayload({ requestPath: relative, requestSha256: actualSha, request, runtimeOptions });
   if (outputDir !== null) resolveRepoRelativePath(root, outputDir, "output_dir");
   const ledger = new RuntimeLedger({ rootDir: root, dbPath });

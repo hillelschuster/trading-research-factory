@@ -1,6 +1,7 @@
 export const RESEARCH_FACTORY_RETRY_ATTEMPTS_SCHEMA_VERSION = "research_factory_retry_attempts_v1";
 
 const DEFAULT_RETRYABLE_HTTP_STATUSES = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
+const PROVIDER_ACCOUNT_HTTP_STATUSES = new Set([401, 402, 403]);
 
 function errorName(error) {
   return error instanceof Error ? error.name : "NonError";
@@ -34,6 +35,9 @@ export function classifyRetryFailure(error, { phase = "unspecified", httpStatus 
   }
 
   const status = Number.isInteger(httpStatus) ? httpStatus : Number(rawMessage.match(/\bHTTP\s+(\d{3})\b/i)?.[1]);
+  if (PROVIDER_ACCOUNT_HTTP_STATUSES.has(status) || /\b(insufficient balance|payment required|billing|quota exceeded|credit exhausted|account disabled|unauthorized|authentication failed|invalid api key)\b/i.test(rawMessage)) {
+    return { phase, error_class: name, error_message: message, failure_class: "provider_account_or_quota_failure", retryable: false };
+  }
   if (DEFAULT_RETRYABLE_HTTP_STATUSES.has(status)) {
     return { phase, error_class: name, error_message: message, failure_class: "transient_retryable_failure", retryable: true };
   }

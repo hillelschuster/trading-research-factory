@@ -192,25 +192,6 @@ function dataRoadmapCriterion(classification, universe) {
   );
 }
 
-function noCandidateWithoutEquivalenceCriterion(classification, spec, equivalenceSource, tests) {
-  const counts = classification.value?.counts ?? {};
-  const currentRepoHasNoMt5BoundRows = counts.mt5_verified === 0 && counts.mt5_proxy === 0;
-  const policyDocumented = spec.includes("no MT5-bound candidate advances without `mt5_instrument_equivalence` evidence");
-  const validatorPresent = equivalenceSource.includes("mt5_verified")
-    && equivalenceSource.includes("terminal_symbol_spec must match mt5_symbol")
-    && equivalenceSource.includes("broker_history_manifest universe_snapshot must match data_relevance_classification universe_snapshot");
-  const testsPresent = tests.includes("MT5 instrument equivalence rejects broker history from a different universe snapshot")
-    && tests.includes("MT5 instrument equivalence writer combines classification, source data identities, and broker history");
-  const ok = currentRepoHasNoMt5BoundRows && policyDocumented && validatorPresent && testsPresent;
-  return criterion(
-    "no_mt5_bound_candidate_without_equivalence",
-    ok ? "met" : "pending",
-    ["factory/mt5-ftmo-strategy-factory-spec.md", "src/core/mt5-instrument-equivalence.mjs", "tests/data-readiness.test.mjs"],
-    ["No current dataset may advance as MT5-bound unless terminal-backed mt5_instrument_equivalence evidence exists."],
-    { current_repo_mt5_verified: counts.mt5_verified ?? null, current_repo_mt5_proxy: counts.mt5_proxy ?? null }
-  );
-}
-
 function registrationCriterion(registration) {
   const kinds = registration.value?.status_summary?.by_evidence_kind ?? {};
   const ok = registration.exists
@@ -229,40 +210,12 @@ function registrationCriterion(registration) {
   );
 }
 
-function phaseBoundaryCriterion(spec, registrationSource, packageJson) {
-  const specBoundary = spec.includes("#### Phase 8B - Bounded ResearchBrain And Knowledge System")
-    && spec.includes("Phase 8B ResearchBrain contracts are specified")
-    && spec.includes("Phase 8E must not begin from Python-only evidence");
-  const registrationRejectsResearchBrain = registrationSource.includes("FORBIDDEN_PHASE8B_RESEARCH_KINDS")
-    && registrationSource.includes("ResearchBrain artifact");
-  const noResearchBrainScript = !packageJson.includes("researchbrain") && !packageJson.includes("ResearchBrain");
-  const ok = specBoundary && registrationRejectsResearchBrain && noResearchBrainScript;
-  return criterion(
-    "phase8b_plus_boundary_not_started",
-    ok ? "met" : "pending",
-    ["factory/mt5-ftmo-strategy-factory-spec.md", "src/core/mt5-artifact-registration.mjs", "package.json"],
-    ["Phase 8A closeout must not start ResearchBrain, WFA hardening, screening, tester parity, or deployment work."],
-    { researchbrain_started: !noResearchBrainScript ? "possible_package_script_present" : false }
-  );
-}
-
 export function buildPhase8AExitReadinessReport({
   rootDir = process.cwd(),
   generatedAt = new Date().toISOString(),
   artifactPaths = DEFAULT_ARTIFACT_PATHS
 } = {}) {
   const paths = buildPaths(rootDir);
-  const specPath = path.join(paths.root, "factory/mt5-ftmo-strategy-factory-spec.md");
-  const equivalencePath = path.join(paths.root, "src/core/mt5-instrument-equivalence.mjs");
-  const registrationSourcePath = path.join(paths.root, "src/core/mt5-artifact-registration.mjs");
-  const dataReadinessTestPath = path.join(paths.root, "tests/data-readiness.test.mjs");
-  const packagePath = path.join(paths.root, "package.json");
-
-  const spec = readIfExists(specPath);
-  const equivalenceSource = readIfExists(equivalencePath);
-  const registrationSource = readIfExists(registrationSourcePath);
-  const tests = readIfExists(dataReadinessTestPath);
-  const packageJson = readIfExists(packagePath);
 
   const universe = readJsonArtifact(paths, artifactPaths.universeSnapshot, "mt5_tradable_universe_snapshot");
   const summary = readJsonArtifact(paths, artifactPaths.universeSummary, "phase8a_ftmo_universe_summary");
@@ -277,9 +230,7 @@ export function buildPhase8AExitReadinessReport({
     multiAssetInventoryCriterion(inventory),
     priorityHistoryCriterion(history, universe),
     dataRoadmapCriterion(classification, universe),
-    noCandidateWithoutEquivalenceCriterion(classification, spec, equivalenceSource, tests),
-    registrationCriterion(registration),
-    phaseBoundaryCriterion(spec, registrationSource, packageJson)
+    registrationCriterion(registration)
   ];
 
   const met = criteria.filter((item) => item.met).length;

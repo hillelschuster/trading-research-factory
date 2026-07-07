@@ -1,4 +1,0 @@
-{"ts":"2026-03-16T11:04:44.271Z","run_id":"RUN-20260316110444-l7faqz","message":"Cleanup completed","extra":{"kept":20}}
-{"ts":"2026-03-16T11:04:44.281Z","run_id":"RUN-20260316110444-l7faqz","message":"Starting run","extra":{"iteration":1,"backlog_item_id":"IDEA-0001","mode":"live"}}
-{"ts":"2026-03-16T11:06:10.515Z","run_id":"RUN-20260316110444-l7faqz","message":"Planner completed","extra":{"experiment_id":"EXP-20260316001100-01"}}
-{"ts":"2026-03-16T11:11:26.216Z","run_id":"RUN-20260316110444-l7faqz","message":"Executor failed (attempt 1/3)","extra":{"error":"fetch failed"}}

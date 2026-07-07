@@ -210,6 +210,49 @@ test("ResearchBrain Stage-0 loop blocks malformed request hashes before runtime"
   assert.match(result.jobs[0].blockers[0], /request_sha256 must be a valid SHA-256/);
 });
 
+test("ResearchBrain Stage-0 loop preserves provider account/quota failure class from runtime", async () => {
+  const rootDir = tempRoot();
+  initializeProject(rootDir);
+  const requestRef = writeRequest(rootDir, "RESEARCHBRAIN-REQUEST-LOOP-PROVIDER-ACCOUNT-BLOCKED");
+  seedJob(rootDir, {
+    runId: "RUN-RB-STAGE0-LOOP-PROVIDER-ACCOUNT-BLOCKED",
+    jobId: "JOB-RB-STAGE0-LOOP-PROVIDER-ACCOUNT-BLOCKED",
+    payload: {
+      request_path: requestRef.path,
+      request_sha256: requestRef.sha256,
+      run_id: "RESEARCHBRAIN-STAGE0-LOOP-PROVIDER-ACCOUNT-BLOCKED",
+      output_dir: "factory/research/runs/RESEARCHBRAIN-STAGE0-LOOP-PROVIDER-ACCOUNT-BLOCKED",
+      provider_mode: "live_llm_agent",
+      max_attempts: 1,
+      max_provider_calls: 1,
+      timeout_ms: 1000
+    }
+  });
+  const providerFactory = () => ({
+    name: "account_blocked_provider",
+    mode: "live_llm_agent",
+    live_research: true,
+    async generate() {
+      throw new Error('DeepSeek ResearchBrain LLM adapter HTTP 402: {"error":{"message":"Insufficient Balance","code":"invalid_request_error"}}');
+    }
+  });
+
+  const result = await runResearchBrainStage0Loop({ rootDir, ownerId: "provider-account-owner", maxJobs: 1, providerFactory });
+
+  assert.equal(result.status, "blocked_or_empty");
+  assert.equal(result.jobs[0].status, "blocked");
+  assert.deepEqual(result.jobs[0].blockers, ["provider_account_or_quota_failure"]);
+  assert.equal(result.jobs[0].failure_summary.failure_class, "provider_account_or_quota_failure");
+  assert.equal(result.jobs[0].failure_summary.final_terminal_state, "provider_account_or_quota_failure");
+  readLedger(rootDir, (ledger) => {
+    const attemptPayload = JSON.parse(ledger.getJobAttempt("JOB-RB-STAGE0-LOOP-PROVIDER-ACCOUNT-BLOCKED-ATTEMPT-1").payload_json);
+    assert.equal(attemptPayload.failure_summary.failure_class, "provider_account_or_quota_failure");
+    const event = ledger.listPendingOutboxEvents({ event_type: "researchbrain.stage0_job_finished" })[0];
+    const eventPayload = JSON.parse(event.payload_json);
+    assert.equal(eventPayload.failure_summary.failure_class, "provider_account_or_quota_failure");
+  });
+});
+
 test("ResearchBrain Stage-0 loop blocks malformed jobs and releases the lease", async () => {
   const rootDir = tempRoot();
   const paths = initializeProject(rootDir);
