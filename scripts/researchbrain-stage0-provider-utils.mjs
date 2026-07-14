@@ -8,54 +8,27 @@ import path from "node:path";
 import { createFixtureResearchBrainProvider, createJsonFileResearchBrainProvider } from "../src/core/researchbrain-runtime.mjs";
 import { createLiveResearchBrainAgentProvider, createScriptedResearchBrainAgentProvider } from "../src/core/researchbrain-agent.mjs";
 import { createResearchBrainLlmClient } from "../src/core/researchbrain-llm-providers.mjs";
-import { createBraveResearchBrainSourceToolAdapter, createArxivResearchBrainSourceToolAdapter, createCompositeResearchBrainSourceToolAdapter, createRedditResearchBrainSourceToolAdapter, createGithubResearchBrainSourceToolAdapter, createSemanticScholarResearchBrainSourceToolAdapter, createSiteScopedResearchBrainSourceToolAdapter } from "../src/core/researchbrain-tools.mjs";
+import {
+  RESEARCHBRAIN_ALLOWED_TOOLS,
+  createBraveResearchBrainSourceToolAdapter,
+  createArxivResearchBrainSourceToolAdapter,
+  createCompositeResearchBrainSourceToolAdapter,
+  createRedditResearchBrainSourceToolAdapter,
+  createGithubResearchBrainSourceToolAdapter,
+  createSemanticScholarResearchBrainSourceToolAdapter,
+  createSiteScopedResearchBrainSourceToolAdapter
+} from "../src/core/researchbrain-tools.mjs";
+
+export { applyResearchBrainLlmPreset } from "../src/core/researchbrain-llm-catalog.mjs";
 
 /**
- * Applies a known LLM preset short-name to fill in provider/model/api-key-env/base-url defaults.
+ * Default live-loop catalog. Wiki tools remain available for explicit experiments,
+ * but are excluded from normal ResearchBrain runs because they consume research
+ * budget without contributing to the deterministic hypothesis output.
  */
-export function applyResearchBrainLlmPreset(args) {
-  if (!args.llmPreset) return args;
-  if (args.llmPreset === "opencode_deepseek_v4_pro") {
-    return {
-      ...args,
-      llmProvider: args.llmProvider ?? "openai_compatible",
-      llmModel: args.llmModel ?? "deepseek-v4-pro",
-      llmApiKeyEnv: args.llmApiKeyEnv ?? "OPENCODE_GO_API_KEY",
-      llmBaseUrl: args.llmBaseUrl ?? "https://opencode.ai/zen/go/v1",
-      llmBaseUrlEnv: args.llmBaseUrlEnv ?? "OPENCODE_API_BASE_URL"
-    };
-  }
-  if (args.llmPreset === "deepseek_v4_flash_xhigh") {
-    return {
-      ...args,
-      llmProvider: args.llmProvider ?? "deepseek",
-      llmModel: args.llmModel ?? "deepseek-v4-flash",
-      llmApiKeyEnv: args.llmApiKeyEnv ?? "DEEPSEEK_API_KEY",
-      llmMaxTokens: args.llmMaxTokens ?? 8192
-    };
-  }
-  if (args.llmPreset === "opencode_go_kimi_xhigh") {
-    return {
-      ...args,
-      llmProvider: args.llmProvider ?? "openai_compatible",
-      llmModel: args.llmModel ?? "kimi-k2.7-code",
-      llmApiKeyEnv: args.llmApiKeyEnv ?? "OPENCODE_GO_API_KEY",
-      llmBaseUrl: args.llmBaseUrl ?? "https://opencode.ai/zen/go/v1",
-      llmMaxTokens: args.llmMaxTokens ?? 8192
-    };
-  }
-  if (args.llmPreset === "opencode_go_glm_xhigh") {
-    return {
-      ...args,
-      llmProvider: args.llmProvider ?? "openai_compatible",
-      llmModel: args.llmModel ?? "glm-5.2",
-      llmApiKeyEnv: args.llmApiKeyEnv ?? "OPENCODE_GO_API_KEY",
-      llmBaseUrl: args.llmBaseUrl ?? "https://opencode.ai/zen/go/v1",
-      llmMaxTokens: args.llmMaxTokens ?? 8192
-    };
-  }
-  throw new Error(`Unknown ResearchBrain LLM preset: ${args.llmPreset}`);
-}
+export const RESEARCHBRAIN_ACTIVE_LIVE_TOOLS = Object.freeze(
+  RESEARCHBRAIN_ALLOWED_TOOLS.filter((tool) => !["write_wiki_page", "search_wiki"].includes(tool))
+);
 
 /**
  * Loads repo-local .env values into process.env without printing or persisting secrets.
@@ -103,7 +76,7 @@ export function isResearchBrainSourceAdapterEnvConfigured(providerName) {
 }
 
 /**
- * Builds a Brave source-tool adapter from CLI-parsed options, or null when no brave source provider is configured.
+ * Builds a source-tool adapter from CLI-parsed options, or null when no source provider is configured.
  */
 export function buildResearchBrainSourceToolAdapter(args) {
   // Support comma-separated providers: --source-provider brave,arxiv,reddit
@@ -187,7 +160,7 @@ export function buildResearchBrainProviderFactory(args) {
   const llmBaseUrlEnv = args.llmBaseUrlEnv;
   const llmMaxTokens = args.llmMaxTokens ?? 2048;
   const llmReasoningEffort = args.llmReasoningEffort;
-  const allowedTools = args.allowedTools;
+  const allowedTools = args.allowedTools ?? RESEARCHBRAIN_ACTIVE_LIVE_TOOLS;
   const maxLlmCalls = args.maxLlmCalls ?? 12;
   const maxToolCalls = args.maxToolCalls ?? 50;
   const maxCostUsd = args.maxCostUsd ?? 0.25;
@@ -203,9 +176,8 @@ export function buildResearchBrainProviderFactory(args) {
   if (!allowLiveLlm && !providerScript && !providerOutput) return null;
 
   return ({ payload }) => {
-    // Fix 2026-06-30: read model settings from payload first (job-specific),
-    // falling back to CLI args. This prevents cross-contamination when jobs
-    // from different presets co-exist in the ledger.
+    // Read model settings from payload first (job-specific), falling back to CLI args.
+    // This prevents cross-contamination when jobs from different presets co-exist in the ledger.
     const jobLlmProvider = payload.llm_provider ?? llmProvider;
     const jobLlmModel = payload.llm_model ?? llmModel;
     const jobLlmApiKeyEnv = payload.llm_api_key_env ?? llmApiKeyEnv;
