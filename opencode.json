@@ -28,17 +28,27 @@
   "agent": {
     "explore": {
       "mode": "subagent",
-      "model": "opencode-go/deepseek-v4-flash",
       "reasoningEffort": "xhigh"
     },
     "general": {
       "mode": "subagent",
-      "model": "opencode-go/deepseek-v4-flash",
       "reasoningEffort": "xhigh"
+    },
+    "oracle": {
+      "mode": "subagent",
+      "model": "opencode-go/deepseek-v4-pro",
+      "reasoningEffort": "xhigh",
+      "description": "Read-only deep reviewer for difficult architecture, trading logic, risk, root-cause, and over-engineering decisions. Use selectively; Flash remains the normal worker.",
+      "permission": {
+        "edit": "deny",
+        "write": "deny",
+        "bash": "deny",
+        "external_directory": "allow",
+        "doom_loop": "deny"
+      }
     },
     "ideator": {
       "mode": "subagent",
-      "model": "opencode-go/deepseek-v4-flash",
       "reasoningEffort": "xhigh",
       "description": "Generates one explicit backlog candidate when the backlog needs replenishment.",
       "prompt": "{file:./src/prompts/ideator.md}",
@@ -48,6 +58,7 @@
           "executor": "allow",
           "evaluator": "allow",
           "summarizer": "allow",
+          "oracle": "allow",
           "*": "deny"
         },
         "external_directory": "allow",
@@ -56,7 +67,6 @@
     },
     "planner": {
       "mode": "subagent",
-      "model": "opencode-go/deepseek-v4-flash",
       "reasoningEffort": "xhigh",
       "description": "Designs narrow WFA-first experiment plans with explicit hypotheses, commands, and artifacts.",
       "prompt": "{file:./src/prompts/planner.md}",
@@ -66,6 +76,7 @@
           "executor": "allow",
           "evaluator": "allow",
           "summarizer": "allow",
+          "oracle": "allow",
           "*": "deny"
         },
         "external_directory": "allow",
@@ -74,7 +85,6 @@
     },
     "executor": {
       "mode": "subagent",
-      "model": "opencode-go/deepseek-v4-flash",
       "reasoningEffort": "xhigh",
       "description": "Executes the approved experiment plan inside the workspace and writes reproducible artifacts.",
       "prompt": "{file:./src/prompts/executor.md}",
@@ -84,6 +94,7 @@
           "executor": "allow",
           "evaluator": "allow",
           "summarizer": "allow",
+          "oracle": "allow",
           "*": "deny"
         },
         "external_directory": "allow",
@@ -95,7 +106,6 @@
     },
     "evaluator": {
       "mode": "subagent",
-      "model": "deepseek/deepseek-v4-flash",
       "reasoningEffort": "xhigh",
       "description": "Scores evidence quality, checks artifact completeness, and judges experiment outcomes.",
       "prompt": "{file:./src/prompts/evaluator.md}",
@@ -107,6 +117,7 @@
           "executor": "allow",
           "evaluator": "allow",
           "summarizer": "allow",
+          "oracle": "allow",
           "*": "deny"
         },
         "external_directory": "allow",
@@ -115,7 +126,6 @@
     },
     "summarizer": {
       "mode": "subagent",
-      "model": "deepseek/deepseek-v4-flash",
       "reasoningEffort": "xhigh",
       "description": "Compresses each run into durable lessons and next actions.",
       "prompt": "{file:./src/prompts/summarizer.md}",
@@ -127,6 +137,7 @@
           "executor": "allow",
           "evaluator": "allow",
           "summarizer": "allow",
+          "oracle": "allow",
           "*": "deny"
         },
         "external_directory": "allow",
