@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { requireCliNumber, requireCliValue } from "./researchbrain-stage0-cli-args.mjs";
 import { buildResearchBrainStage0SupervisorPreflight, runResearchBrainStage0Supervisor, runResearchBrainStage0SupervisorCycles } from "../src/core/researchbrain-stage0-supervisor.mjs";
+import { formatResearchBrainLlmPresetHelp } from "../src/core/researchbrain-llm-catalog.mjs";
 import { applyResearchBrainLlmPreset, buildResearchBrainProviderFactory, loadResearchBrainCliEnv } from "./researchbrain-stage0-provider-utils.mjs";
 
 function parseArgs(argv) {
@@ -143,7 +144,7 @@ function printHelp() {
     "",
     "Live LLM Provider Options:",
     "  --allow-live-llm              Required opt-in for live_llm_agent provider_mode.",
-    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen; opencode_go_kimi_xhigh and opencode_go_glm_xhigh route kimi-k2.7-code / glm-5.2 via OpenCode Go.",
+    `  --llm-preset <name>           Presets: ${formatResearchBrainLlmPresetHelp()}.`,
     "  --llm-provider <name>         Live LLM provider name; supports openai_compatible or deepseek.",
     "  --llm-model <name>            Live LLM model id; required for live_llm_agent.",
     "  --llm-api-key-env <name>      API-key environment variable. Defaults by provider.",
@@ -153,7 +154,7 @@ function printHelp() {
     "  --llm-reasoning-effort <name> Optional reasoning effort hint for compatible providers, e.g. max.",
     "  --max-llm-calls <n>           Live LLM turn budget.",
     "  --tool-mode <mode>            Agent tool mode: fixture or live. Defaults to live with --allow-live-llm.",
-    "  --allow-tool <name>           Allow agent tool; repeatable. Defaults to v1 catalog.",
+    "  --allow-tool <name>           Allow agent tool; repeatable. Defaults to the lean live catalog (wiki excluded).",
     "  --max-tool-calls <n>          Agent tool-call budget.",
     "  --max-cost-usd <n>            Agent estimated cost budget.",
     "  --max-estimated-live-cost-usd <n> Fail closed when planned live queue-drain cost estimate exceeds this cap.",
@@ -162,7 +163,7 @@ function printHelp() {
     "Live Source Provider Options:",
     "  --allow-live-source-search    Enable deterministic source search adapter for live tool mode.",
     "  --allow-live-source-capture   Enable deterministic URL capture adapter for live tool mode.",
-    "  --source-provider <name>      Live source provider; currently supports brave.",
+    "  --source-provider <name>      Live source provider; supports comma-separated configured adapters.",
     "  --source-api-key-env <name>   Source API-key environment variable. Defaults by provider.",
     "  --source-tool-max-attempts <n> Bounded retry attempts for live source search/capture tools.",
     "  --source-tool-retry-delay-ms <n> Backoff base delay for retryable source tool failures.",
