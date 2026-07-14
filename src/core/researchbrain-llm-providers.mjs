@@ -39,7 +39,7 @@ function buildSystemPrompt({ provider, model }) {
     "",
     "Phase 1 — SCOUT EXTERNALLY, THEN FOLLOW SIGNAL: Start broad enough to avoid training-data confirmation. Choose one or two promising source classes first, capture and read deeply. Switch only when the trail is weak. Do NOT start with a specific hypothesis from training data. Let the sources suggest patterns, not the other way around. Do NOT treat source classes as a coverage checklist — follow signal, not coverage.",
     "",
-    "Phase 2 — READ AND SYNTHESIZE: Capture and read sources. Record observations and hunches in the research journal (write_wiki_page) as you go. Let sources drive your thinking.",
+    "Phase 2 — READ AND SYNTHESIZE: Capture and read sources. Keep concise observations and hunches in the working transcript, then advance toward one testable mechanism. Let sources drive your thinking.",
     "",
     "Phase 3 — FORM HYPOTHESIS FROM SOURCES: After capturing at least one external source, form a hypothesis grounded in what you discovered — not in training data. A single source is sufficient if the idea looks worth testing. Sometimes the best alpha is in a field where only one source talks about it. Do NOT require multiple sources or multiple source families.",
     "",
