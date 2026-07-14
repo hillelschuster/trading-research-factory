@@ -9,7 +9,11 @@ import {
   applyResearchBrainLlmPreset,
   formatResearchBrainLlmPresetHelp
 } from "../src/core/researchbrain-llm-catalog.mjs";
-import { RESEARCHBRAIN_ACTIVE_LIVE_TOOLS } from "../scripts/researchbrain-stage0-provider-utils.mjs";
+import {
+  RESEARCHBRAIN_ACTIVE_LIVE_TOOLS,
+  removeProviderHypothesisContentHashes,
+  wrapResearchBrainProviderOutput
+} from "../scripts/researchbrain-stage0-provider-utils.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -60,6 +64,22 @@ test("normal live ResearchBrain tools exclude wiki but retain research and recor
   assert.equal(RESEARCHBRAIN_ACTIVE_LIVE_TOOLS.includes("search_research_memory"), true);
   assert.equal(RESEARCHBRAIN_ACTIVE_LIVE_TOOLS.includes("record_hypothesis"), true);
   assert.equal(RESEARCHBRAIN_ACTIVE_LIVE_TOOLS.includes("record_rejection"), true);
+});
+
+test("provider-supplied hypothesis hashes are removed before runtime acceptance", async () => {
+  const sanitized = removeProviderHypothesisContentHashes({
+    hypothesis_packets: [{ hypothesis_id: "HYP-1", content_hash: "a".repeat(64) }],
+    source_captures: []
+  });
+  assert.deepEqual(sanitized.hypothesis_packets, [{ hypothesis_id: "HYP-1" }]);
+
+  const provider = wrapResearchBrainProviderOutput({
+    name: "test-provider",
+    async generate() {
+      return { hypothesis_packets: [{ hypothesis_id: "HYP-2", content_hash: "b".repeat(64) }] };
+    }
+  });
+  assert.deepEqual((await provider.generate({})).hypothesis_packets, [{ hypothesis_id: "HYP-2" }]);
 });
 
 test("OpenCode workers inherit one Flash default and reserve Pro for oracle review", () => {
