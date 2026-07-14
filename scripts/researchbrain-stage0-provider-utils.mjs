@@ -31,6 +31,33 @@ export const RESEARCHBRAIN_ACTIVE_LIVE_TOOLS = Object.freeze(
 );
 
 /**
+ * Provider output is untrusted. The runtime owns hypothesis content hashes, so provider-supplied
+ * hashes are removed before validation and disk writes.
+ */
+export function removeProviderHypothesisContentHashes(output) {
+  if (!output || typeof output !== "object" || Array.isArray(output) || !Array.isArray(output.hypothesis_packets)) return output;
+  return {
+    ...output,
+    hypothesis_packets: output.hypothesis_packets.map((packet) => {
+      if (!packet || typeof packet !== "object" || Array.isArray(packet)) return packet;
+      const { content_hash: _ignoredProviderHash, ...trustedFields } = packet;
+      return trustedFields;
+    })
+  };
+}
+
+export function wrapResearchBrainProviderOutput(provider) {
+  if (!provider || typeof provider.generate !== "function") return provider;
+  return {
+    ...provider,
+    async generate(context) {
+      const output = await provider.generate.call(provider, context);
+      return removeProviderHypothesisContentHashes(output);
+    }
+  };
+}
+
+/**
  * Loads repo-local .env values into process.env without printing or persisting secrets.
  * Existing process.env values win, matching the previous runtime CLI behavior.
  */
@@ -194,7 +221,7 @@ export function buildResearchBrainProviderFactory(args) {
     if (payload.provider_mode === "live_llm_agent") {
       if (!allowLiveLlm) throw new Error("--allow-live-llm is required for provider_mode live_llm_agent");
       if (!jobLlmProvider || !jobLlmModel) throw new Error("Live LLM agent requires --llm-provider and --llm-model (either CLI or payload)");
-      return createLiveResearchBrainAgentProvider({
+      return wrapResearchBrainProviderOutput(createLiveResearchBrainAgentProvider({
         llmClient: createResearchBrainLlmClient({
           allowLiveLlm: true,
           provider: jobLlmProvider,
@@ -216,10 +243,10 @@ export function buildResearchBrainProviderFactory(args) {
         toolMode: jobToolMode ?? "live",
         sourceToolAdapter,
         retryPolicy: { sourceToolMaxAttempts, sourceToolRetryDelayMs }
-      });
+      }));
     }
     if (payload.provider_mode === "scripted_agent") {
-      return createScriptedResearchBrainAgentProvider({
+      return wrapResearchBrainProviderOutput(createScriptedResearchBrainAgentProvider({
         script: providerScript ? JSON.parse(fs.readFileSync(providerScript, "utf8")) : [],
         allowedTools,
         maxToolCalls: maxToolCalls ?? 20,
@@ -228,11 +255,11 @@ export function buildResearchBrainProviderFactory(args) {
         toolMode: toolMode ?? "fixture",
         sourceToolAdapter,
         retryPolicy: { sourceToolMaxAttempts, sourceToolRetryDelayMs }
-      });
+      }));
     }
     if (providerOutput) {
-      return createJsonFileResearchBrainProvider({ rootDir, outputPath: providerOutput });
+      return wrapResearchBrainProviderOutput(createJsonFileResearchBrainProvider({ rootDir, outputPath: providerOutput }));
     }
-    return createFixtureResearchBrainProvider({ mode: payload.provider_mode ?? "valid" });
+    return wrapResearchBrainProviderOutput(createFixtureResearchBrainProvider({ mode: payload.provider_mode ?? "valid" }));
   };
 }
