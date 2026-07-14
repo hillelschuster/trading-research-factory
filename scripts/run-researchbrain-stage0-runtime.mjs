@@ -8,7 +8,14 @@ import {
 } from "../src/core/researchbrain-runtime.mjs";
 import { createLiveResearchBrainAgentProvider, createScriptedResearchBrainAgentProvider } from "../src/core/researchbrain-agent.mjs";
 import { createResearchBrainLlmClient } from "../src/core/researchbrain-llm-providers.mjs";
-import { applyResearchBrainLlmPreset, buildResearchBrainSourceToolAdapter, loadResearchBrainCliEnv } from "./researchbrain-stage0-provider-utils.mjs";
+import { formatResearchBrainLlmPresetHelp } from "../src/core/researchbrain-llm-catalog.mjs";
+import {
+  RESEARCHBRAIN_ACTIVE_LIVE_TOOLS,
+  applyResearchBrainLlmPreset,
+  buildResearchBrainSourceToolAdapter,
+  loadResearchBrainCliEnv,
+  wrapResearchBrainProviderOutput
+} from "./researchbrain-stage0-provider-utils.mjs";
 
 function parseArgs(argv) {
   const args = {
@@ -105,7 +112,7 @@ function printHelp() {
     "  --provider-output <path>      Repo-local provider-output JSON fixture; overrides --provider-mode.",
     "  --provider-script <path>      Repo-local scripted-agent JSON array; use with --provider-mode scripted_agent.",
     "  --allow-live-llm              Required for --provider-mode live_llm_agent.",
-    "  --llm-preset <name>           Presets: deepseek_v4_flash_xhigh uses direct deepseek/deepseek-v4-flash with xhigh reasoning; opencode_deepseek_v4_pro uses OpenCode Zen; opencode_go_kimi_xhigh and opencode_go_glm_xhigh route kimi-k2.7-code / glm-5.2 via OpenCode Go.",
+    `  --llm-preset <name>           Presets: ${formatResearchBrainLlmPresetHelp()}.`,
     "  --llm-provider <name>         Live LLM provider name; supports openai_compatible or deepseek.",
     "  --llm-model <name>            Live LLM model id; required for live_llm_agent.",
     "  --llm-api-key-env <name>      API-key environment variable. Defaults by provider.",
@@ -114,14 +121,14 @@ function printHelp() {
     "  --llm-max-tokens <n>          Per-provider response token cap for the direct adapter.",
     "  --llm-reasoning-effort <name> Optional reasoning effort hint for compatible providers, e.g. max.",
     "  --max-llm-calls <n>           Live LLM turn budget.",
-    "  --allow-tool <name>           Allow scripted-agent tool; repeatable. Defaults to v1 catalog.",
+    "  --allow-tool <name>           Allow scripted-agent tool; repeatable. Defaults to the lean live catalog (wiki excluded).",
     "  --max-tool-calls <n>          Scripted-agent tool-call budget.",
     "  --max-cost-usd <n>            Scripted-agent estimated cost budget.",
     "  --max-transcript-bytes <n>    Scripted-agent transcript byte budget.",
     "  --allow-live-source-fetch     Enable HTTP source fetches referenced by provider output.",
     "  --allow-live-source-search    Enable deterministic source search adapter for live tool mode.",
     "  --allow-live-source-capture   Enable deterministic URL capture adapter for live tool mode.",
-    "  --source-provider <name>       Live source provider; currently supports brave.",
+    "  --source-provider <name>       Live source provider; supports comma-separated configured adapters.",
     "  --source-api-key-env <name>    Source API-key environment variable. Defaults by provider.",
     "  --search-allow-provider <name> Reserve an allowlisted live search provider name for future adapters.",
     "  --allow-youtube              Reserve explicit YouTube source-tool opt-in for future live adapters.",
@@ -154,6 +161,7 @@ try {
   }
   loadResearchBrainCliEnv({ rootDir: args.rootDir });
   const sourceToolAdapter = buildResearchBrainSourceToolAdapter(args);
+  const allowedTools = args.allowedTools ?? RESEARCHBRAIN_ACTIVE_LIVE_TOOLS;
   const result = await runResearchBrainStage0Runtime({
     rootDir: args.rootDir,
     requestPath: args.requestPath,
@@ -176,7 +184,7 @@ try {
       ? (() => {
         if (args.allowLiveLlm !== true) throw new Error("--provider-mode live_llm_agent requires --allow-live-llm");
         if (!args.llmProvider || !args.llmModel) throw new Error("--provider-mode live_llm_agent requires --llm-provider and --llm-model");
-        return createLiveResearchBrainAgentProvider({
+        return wrapResearchBrainProviderOutput(createLiveResearchBrainAgentProvider({
           llmClient: createResearchBrainLlmClient({
             allowLiveLlm: true,
             provider: args.llmProvider,
@@ -190,7 +198,7 @@ try {
           allowLiveLlm: true,
           llmProvider: args.llmProvider,
           llmModel: args.llmModel,
-          allowedTools: args.allowedTools,
+          allowedTools,
           maxLlmCalls: args.maxLlmCalls ?? 12,
           maxToolCalls: args.maxToolCalls ?? 50,
           maxCostUsd: args.maxCostUsd ?? 0.25,
@@ -201,12 +209,12 @@ try {
             sourceToolMaxAttempts: args.sourceToolMaxAttempts,
             sourceToolRetryDelayMs: args.sourceToolRetryDelayMs
           }
-        });
+        }));
       })()
       : args.providerMode === "scripted_agent"
-      ? createScriptedResearchBrainAgentProvider({
+      ? wrapResearchBrainProviderOutput(createScriptedResearchBrainAgentProvider({
         script: args.providerScript ? JSON.parse((await import("node:fs")).readFileSync(args.providerScript, "utf8")) : [],
-        allowedTools: args.allowedTools,
+        allowedTools,
         maxToolCalls: args.maxToolCalls ?? 20,
         maxCostUsd: args.maxCostUsd ?? 0.01,
         maxTranscriptBytes: args.maxTranscriptBytes ?? 250_000,
@@ -216,10 +224,10 @@ try {
           sourceToolMaxAttempts: args.sourceToolMaxAttempts,
           sourceToolRetryDelayMs: args.sourceToolRetryDelayMs
         }
-      })
+      }))
       : args.providerOutput
-        ? createJsonFileResearchBrainProvider({ rootDir: args.rootDir, outputPath: args.providerOutput })
-        : createFixtureResearchBrainProvider({ mode: args.providerMode })
+        ? wrapResearchBrainProviderOutput(createJsonFileResearchBrainProvider({ rootDir: args.rootDir, outputPath: args.providerOutput }))
+        : wrapResearchBrainProviderOutput(createFixtureResearchBrainProvider({ mode: args.providerMode }))
   });
   console.log(JSON.stringify({
     status: result.status,
